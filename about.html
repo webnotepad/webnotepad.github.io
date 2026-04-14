@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – WebNotePad</title>
+  <meta name="description" content="Learn more about the story behind WebNotePad and our mission to provide a clean, private writing space." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <style>
+    .about-page-hero { padding: 80px 0; background: var(--paper-warm); border-bottom: 1px solid var(--paper-edge); }
+    .content-section { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
+    .content-section p { font-size: 1.1rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 24px; }
+    .founder-card { 
+      display: flex; 
+      align-items: center; 
+      gap: 32px; 
+      background: var(--paper); 
+      border: 1px solid var(--paper-edge); 
+      padding: 40px; 
+      border-radius: var(--radius-lg);
+      margin-top: 48px;
+    }
+    .founder-info h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; }
+    .founder-info span { font-family: var(--font-mono); color: var(--accent); font-size: 0.9rem; }
+    @media (max-width: 600px) { .founder-card { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <section class="about-page-hero">
+      <div class="container">
+        <div class="section-label">Our Mission</div>
+        <h1 class="section-title">The story of a <em>simple notepad.</em></h1>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <p>WebNotePad was founded on the belief that great ideas shouldn't be interrupted by sign-up forms or flashing advertisements. We created this tool for those who need a digital space that feels as immediate and private as a physical piece of paper.</p>
+      
+      <p>By keeping everything local to your browser, we ensure that your data stays exactly where it belongs: with you. No cloud syncing, no data mining, just pure productivity.</p>
+
+      <div class="founder-card">
+        <div class="founder-info">
+          <span>Founder & Lead Developer</span>
+          <h3>Aansa Waqas</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 0;">A web developer and SEO specialist based in Pakistan with a passion for building fast, niche utility tools for the global developer community.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

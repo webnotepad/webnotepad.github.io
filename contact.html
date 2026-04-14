@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – WebNotePad</title>
+  <meta name="description" content="Have questions or feedback? Reach out to the WebNotePad team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <style>
+    .contact-container { max-width: 1000px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .contact-info h1 { font-family: var(--font-display); font-size: 3rem; margin-bottom: 24px; }
+    .contact-method { margin-bottom: 32px; }
+    .contact-method h4 { font-family: var(--font-mono); color: var(--accent); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; }
+    .contact-method p { font-size: 1.1rem; font-weight: 500; }
+    .contact-form { background: var(--paper-warm); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--paper-edge); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.9rem; margin-bottom: 8px; font-weight: 600; }
+    .form-group input, .form-group textarea { 
+      width: 100%; padding: 12px; border: 1px solid var(--paper-edge); 
+      border-radius: var(--radius); background: var(--paper); font-family: var(--font-body);
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+    @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="section-label">Get in touch</div>
+        <h1>Have a question?<br /><em>We're here.</em></h1>
+        <p style="color: var(--ink-muted); margin-bottom: 40px;">Whether you have a feature suggestion, found a bug, or just want to say hi, we'd love to hear from you.</p>
+        
+        <div class="contact-method">
+          <h4>Email Us</h4>
+          <p><a href="mailto:aansawaqas50@gmail.com" style="color: var(--accent);">aansawaqas50@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-method">
+          <h4>Business Hours</h4>
+          <p>Monday — Friday, 9am - 5pm PKT</p>
+        </div>
+
+        <div class="contact-method">
+          <h4>Founder</h4>
+          <p>Aansa Waqas</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

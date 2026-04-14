@@ -18,16 +18,16 @@
           <a href="#use-cases" class="nav-link">Use Cases</a>
           <a href="#faq" class="nav-link">FAQ</a>
           <a href="#about" class="nav-link">About</a>
+          <a href="#notepad" class="header-cta">Open Notepad →</a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+            ☰
+          </button>
         </nav>
 
         <div class="header-right">
           <button class="header-dark-btn" id="headerDarkBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
             🌙
-          </button>
-          <a href="#notepad" class="header-cta">Open Notepad →</a>
-          <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-            ☰
-          </button>
+          </button>          
         </div>
       </div>
     </header>

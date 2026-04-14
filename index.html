@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebNotePad – Free Online Notepad | Write, Save & Organize Notes</title>
+  <meta name="description" content="WebNotePad is a free online notepad app. Write, edit, save and organize your notes instantly in your browser. No signup required. Auto-save, rich formatting, dark mode and more." />
+  <meta name="keywords" content="online notepad, web notepad, free notepad, browser notepad, text editor online, note taking app, write notes online, notepad web app" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/" />
+  <meta property="og:title" content="WebNotePad – Free Online Notepad" />
+  <meta property="og:description" content="Write, save and organize your notes instantly in your browser. Free, fast, no signup." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebNotePad – Free Online Notepad" />
+  <meta name="twitter:description" content="The best free online notepad. Write and save notes instantly in your browser." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad",
+    "url": "https://webnotepad.github.io/",
+    "description": "A free online notepad web application to write, edit, save and organize notes directly in your browser without any signup.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Auto-save notes",
+      "Rich text formatting",
+      "Dark mode",
+      "Multiple notes",
+      "Export to TXT",
+      "Word count",
+      "Find and replace",
+      "Fullscreen mode"
+    ],
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+    "screenshot": "https://webnotepad.github.io/screenshot.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is WebNotePad completely free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, WebNotePad is 100% free with no hidden costs, no ads, and no account required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do my notes get saved automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, WebNotePad auto-saves your notes in your browser's local storage every few seconds so you never lose your work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use WebNotePad offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, once loaded WebNotePad works offline. Your notes are stored locally in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I export my notes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the Export button in the toolbar to download your notes as a .txt or .html file instantly."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ No Signup. No Ads. Just Write.</div>
+        <h1 class="hero-title">
+          Your thoughts,<br />
+          <span class="hero-accent">instantly written.</span>
+        </h1>
+        <p class="hero-sub">The cleanest free online notepad on the web. Open, type, save — it's that simple. Works offline, auto-saves, zero distractions.</p>
+        <div class="hero-cta-group">
+          <a href="#notepad" class="btn btn-primary">Open Notepad <span>→</span></a>
+          <a href="#features" class="btn btn-ghost">See Features</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>100%</strong><span>Free Forever</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>0</strong><span>Signup Required</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>∞</strong><span>Notes Capacity</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to explore ↓</div>
+    </section>
+
+    <!-- ===== NOTEPAD APP SECTION ===== -->
+    <section class="section-app" id="notepad" aria-label="Notepad Application">
+      <div class="container">
+        <div class="app-shell">
+          <!-- Sidebar -->
+          <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+              <span class="sidebar-title">My Notes</span>
+              <button class="btn-icon" id="newNoteBtn" title="New Note" aria-label="Create new note">＋</button>
+            </div>
+            <div class="sidebar-search">
+              <input type="search" id="noteSearch" placeholder="Search notes…" aria-label="Search notes" />
+            </div>
+            <ul class="note-list" id="noteList" role="listbox" aria-label="Notes list"></ul>
+            <div class="sidebar-footer">
+              <button class="btn-icon" id="toggleSidebarBtn" title="Toggle sidebar" aria-label="Toggle sidebar">◀</button>
+            </div>
+          </aside>
+
+          <!-- Editor -->
+          <div class="app-editor">
+            <div class="editor-topbar">
+              <button class="btn-icon sidebar-toggle-mobile" id="mobileSidebarBtn" aria-label="Open notes list">☰</button>
+              <input type="text" class="note-title-input" id="noteTitleInput" placeholder="Note title…" aria-label="Note title" />
+              <div class="editor-actions">
+                <button class="btn-tool" id="exportTxtBtn" title="Export as TXT" aria-label="Export as TXT">⬇ TXT</button>
+                <button class="btn-tool" id="exportHtmlBtn" title="Export as HTML" aria-label="Export as HTML">⬇ HTML</button>
+                <button class="btn-tool" id="copyAllBtn" title="Copy all" aria-label="Copy all text">⎘ Copy</button>
+                <button class="btn-tool" id="clearBtn" title="Clear note" aria-label="Clear note">✕ Clear</button>
+                <button class="btn-tool" id="fullscreenBtn" title="Fullscreen" aria-label="Toggle fullscreen">⛶</button>
+              </div>
+            </div>
+
+            <!-- Formatting Toolbar -->
+            <div class="format-toolbar" role="toolbar" aria-label="Formatting options">
+              <button class="fmt-btn" data-cmd="bold" title="Bold (Ctrl+B)" aria-label="Bold"><b>B</b></button>
+              <button class="fmt-btn" data-cmd="italic" title="Italic (Ctrl+I)" aria-label="Italic"><i>I</i></button>
+              <button class="fmt-btn" data-cmd="underline" title="Underline (Ctrl+U)" aria-label="Underline"><u>U</u></button>
+              <button class="fmt-btn" data-cmd="strikeThrough" title="Strikethrough" aria-label="Strikethrough"><s>S</s></button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="insertUnorderedList" title="Bullet list" aria-label="Bullet list">• List</button>
+              <button class="fmt-btn" data-cmd="insertOrderedList" title="Numbered list" aria-label="Numbered list">1. List</button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="justifyLeft" title="Align left" aria-label="Align left">⬅</button>
+              <button class="fmt-btn" data-cmd="justifyCenter" title="Align center" aria-label="Align center">↔</button>
+              <button class="fmt-btn" data-cmd="justifyRight" title="Align right" aria-label="Align right">➡</button>
+              <span class="fmt-div"></span>
+              <select class="fmt-select" id="fontSizeSelect" aria-label="Font size">
+                <option value="1">Small</option>
+                <option value="3" selected>Normal</option>
+                <option value="5">Large</option>
+                <option value="7">Huge</option>
+              </select>
+              <input type="color" class="fmt-color" id="textColorPicker" title="Text color" aria-label="Text color" value="#1a1a2e" />
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" id="findReplaceToggle" title="Find & Replace" aria-label="Find and replace">🔍</button>
+              <button class="fmt-btn" id="darkModeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+            </div>
+
+            <!-- Find & Replace Bar -->
+            <div class="find-replace-bar" id="findReplaceBar" style="display:none;" role="search">
+              <input type="text" id="findInput" placeholder="Find…" aria-label="Find text" />
+              <input type="text" id="replaceInput" placeholder="Replace with…" aria-label="Replace text" />
+              <button class="btn-tool" id="doReplaceBtn">Replace</button>
+              <button class="btn-tool" id="doReplaceAllBtn">All</button>
+              <button class="btn-icon" id="closeFindReplace" aria-label="Close find and replace">✕</button>
+            </div>
+
+            <!-- Content Editable Area -->
+            <div class="editor-area" id="editorArea" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Note content" data-placeholder="Start writing your note here…"></div>
+
+            <!-- Status Bar -->
+            <div class="editor-statusbar">
+              <span id="autoSaveStatus" class="status-save">● Saved</span>
+              <span class="status-sep">|</span>
+              <span id="wordCount">0 words</span>
+              <span class="status-sep">|</span>
+              <span id="charCount">0 chars</span>
+              <span class="status-sep">|</span>
+              <span id="lineCount">0 lines</span>
+              <span class="status-sep">|</span>
+              <span id="readTime">0 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What makes us different</div>
+        <h2 class="section-title">Everything you need.<br /><em>Nothing you don't.</em></h2>
+        <p class="section-sub">WebNotePad strips away the bloat and gives you a lightning-fast notepad experience that respects your focus.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Auto-Save</h3>
+            <p>Every keystroke is saved to your browser's local storage. Accidental tab close? Your notes are safe. Always.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Dark Mode</h3>
+            <p>Toggle between light and dark themes to protect your eyes during late-night writing sessions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Rich Text Formatting</h3>
+            <p>Bold, italic, underline, lists, alignment, font sizes, text color — real formatting without the complexity.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📂</div>
+            <h3>Multiple Notes</h3>
+            <p>Create unlimited notes, switch between them instantly. Each note has its own title, content and formatting.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Find & Replace</h3>
+            <p>Powerful inline search. Find any word or phrase and replace it in one click or replace all instances at once.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⬇</div>
+            <h3>Export Options</h3>
+            <p>Download your notes as clean .txt or formatted .html files with one click. Your data, your control.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Live Stats</h3>
+            <p>Real-time word count, character count, line count and reading time estimate shown in the status bar.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📵</div>
+            <h3>Works Offline</h3>
+            <p>Once loaded, WebNotePad runs entirely in your browser. No internet needed. Your notes are stored locally.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⛶</div>
+            <h3>Fullscreen Mode</h3>
+            <p>Enter a distraction-free fullscreen writing environment with a single click. Pure focus, pure flow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS SECTION ===== -->
+    <section class="section section-how" id="how-it-works" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">Simple by design</div>
+        <h2 class="section-title">Write in <em>3 steps.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Open & Type</h3>
+              <p>Navigate to WebNotePad in any browser. No account. No download. No waiting. Just start writing immediately in the editor.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Format & Organize</h3>
+              <p>Use the formatting toolbar to style your text. Create multiple notes with custom titles. Search across all your notes instantly.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Save & Export</h3>
+              <p>Notes save automatically. When ready, export as TXT or HTML. Copy to clipboard in one click. Share anywhere.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USE CASES SECTION ===== -->
+    <section class="section section-usecases" id="use-cases" aria-label="Use cases">
+      <div class="container">
+        <div class="section-label">Who uses WebNotePad</div>
+        <h2 class="section-title">Built for <em>every writer.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎓</div>
+            <h3>Students</h3>
+            <p>Take class notes, draft essays, jot down study points and export them for later revision. Fast, clean, distraction-free.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💼</div>
+            <h3>Professionals</h3>
+            <p>Draft quick memos, track meeting action items, write project briefs or store temporary code snippets with ease.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">✍️</div>
+            <h3>Writers & Bloggers</h3>
+            <p>Capture ideas, write first drafts, brainstorm article outlines or store quotes — without any editor getting in the way.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💻</div>
+            <h3>Developers</h3>
+            <p>Paste snippets, write quick docs, store API keys temporarily or jot down terminal commands in a clean browser notepad.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🛒</div>
+            <h3>Everyday Users</h3>
+            <p>Shopping lists, to-do items, phone numbers, recipes, passwords — anything you need to jot down fast and access instantly.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎨</div>
+            <h3>Creatives</h3>
+            <p>Brainstorm ideas, write song lyrics, script dialogue, capture fleeting inspiration before it slips away.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section section-about" id="about" aria-label="About WebNotePad">
+      <div class="container about-inner">
+        <div class="about-text">
+          <div class="section-label">Our story</div>
+          <h2 class="section-title">A notepad built on <em>one principle.</em></h2>
+          <p>WebNotePad was created with a single obsession: what if a notepad just worked? No popups asking you to sign up. No ads interrupting your train of thought. No complex menus to navigate before you can write a single word.</p>
+          <p>We believe writing tools should be invisible. The best notepad is the one you forget is there — it just captures your thoughts the moment they arrive. That's what WebNotePad does.</p>
+          <p>Your notes live in your browser, not our servers. We don't collect your data. We don't read your notes. We don't monetize your attention. WebNotePad is, and always will be, 100% free and private.</p>
+          <div class="about-values">
+            <div class="value-tag">🔒 Private by default</div>
+            <div class="value-tag">🌐 Works everywhere</div>
+            <div class="value-tag">⚡ Blazing fast</div>
+            <div class="value-tag">♾️ Free forever</div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="about-card-line"></div>
+            <p class="about-quote">"The best ideas deserve the best notepad. Simple, fast, and always there."</p>
+            <span class="about-card-sig">— WebNotePad Team</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is WebNotePad completely free?</button>
+            <div class="faq-a"><p>Yes, WebNotePad is 100% free with absolutely no hidden costs, no subscriptions, no ads, and no account required — ever.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Do my notes get saved automatically?</button>
+            <div class="faq-a"><p>Yes. WebNotePad auto-saves your notes in your browser's local storage every few seconds. You'll never lose your work even if you accidentally close the tab.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use WebNotePad offline?</button>
+            <div class="faq-a"><p>Once loaded in your browser, WebNotePad works fully offline. Your notes are stored locally — no internet connection is needed to continue writing.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I export my notes?</button>
+            <div class="faq-a"><p>Use the Export TXT or Export HTML buttons in the editor toolbar to download your notes as a file instantly. No sign-in required.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Are my notes private?</button>
+            <div class="faq-a"><p>Absolutely. Your notes are stored only in your browser's local storage. We have no access to your notes. Nothing is sent to any server.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I create multiple notes?</button>
+            <div class="faq-a"><p>Yes! Click the ＋ button in the sidebar to create unlimited notes. Each note has its own title, content and formatting independently saved.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Which browsers does WebNotePad support?</button>
+            <div class="faq-a"><p>WebNotePad works on all modern browsers including Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, and Opera on both desktop and mobile.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does WebNotePad work on mobile?</button>
+            <div class="faq-a"><p>Yes! WebNotePad is fully responsive and mobile-friendly. The interface adapts to smaller screens so you can write comfortably on your phone or tablet.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Ready to write?</h2>
+          <p>No signup. No download. No nonsense. Just open the notepad and start writing right now.</p>
+          <a href="#notepad" class="btn btn-primary btn-lg">Start Writing Free →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

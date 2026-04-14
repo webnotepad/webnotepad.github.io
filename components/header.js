@@ -6,18 +6,18 @@
   const headerHTML = `
     <header class="site-header" id="siteHeader" role="banner">
       <div class="container header-inner">
-        <a href="#home" class="header-logo" aria-label="WebNotePad Home">
+        <a href="/" class="header-logo" aria-label="WebNotePad Home">
           <div class="logo-mark" aria-hidden="true">NP</div>
           <span>WebNotePad</span>
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="#notepad" class="nav-link">Notepad</a>
-          <a href="#features" class="nav-link">Features</a>
-          <a href="#how-it-works" class="nav-link">How it works</a>
-          <a href="#use-cases" class="nav-link">Use Cases</a>
-          <a href="#faq" class="nav-link">FAQ</a>
-          <a href="#about" class="nav-link">About</a>          
+          <a href="/#notepad" class="nav-link">Notepad</a>
+          <a href="/#features" class="nav-link">Features</a>
+          <a href="/#how-it-works" class="nav-link">How it works</a>
+          <a href="/#use-cases" class="nav-link">Use Cases</a>
+          <a href="/#faq" class="nav-link">FAQ</a>
+          <a href="/about" class="nav-link">About</a>          
         </nav>
 
         <div class="header-right">

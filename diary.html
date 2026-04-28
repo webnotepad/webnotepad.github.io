@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Diary & Journal – Free Private Digital Journal | WebNotePad</title>
+  <meta name="description" content="Keep a free online diary and journal with WebNotePad. Write private daily entries, add moods, tags, and search past entries. No signup required. Auto-saved in your browser."/>
+  <meta name="keywords" content="online diary, online journal, digital diary, free journal, personal diary online, diary app, journal app, daily journal, private diary online"/>
+  <meta name="author" content="WebNotePad"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://webnotepad.github.io/diary"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webnotepad.github.io/diary"/>
+  <meta property="og:title" content="Online Diary & Journal – Free Private Digital Journal"/>
+  <meta property="og:description" content="Write private daily diary entries online. Free, no signup, auto-saved in your browser."/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Online Diary & Journal by WebNotePad",
+    "url":"https://webnotepad.github.io/diary",
+    "description":"A free private online diary and journal application. Write daily entries with mood tracking, tags, and search — all stored locally in your browser.",
+    "applicationCategory":"LifestyleApplication",
+    "operatingSystem":"Any",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is my diary private?","acceptedAnswer":{"@type":"Answer","text":"Yes. All diary entries are stored only in your browser's local storage. Nothing is sent to any server."}},
+      {"@type":"Question","name":"Can I search old diary entries?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the search bar to instantly find entries by keyword, mood, or date across your entire diary."}},
+      {"@type":"Question","name":"Can I export my diary?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can export all entries as a single HTML or TXT file for backup or printing."}}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="diary.css"/>
+</head>
+<body>
+  <div id="header-root"></div>
+  <main>
+
+    <!-- HERO -->
+    <section class="d-hero">
+      <div class="d-hero-orbs">
+        <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+      </div>
+      <div class="d-container d-hero-inner">
+        <div class="d-badge">📖 Your private space to write</div>
+        <h1>Online Diary<br/><span class="d-accent">& Journal</span></h1>
+        <p>Write freely. Reflect deeply. Remember everything. Your personal online diary — private, beautiful, always there when you need it.</p>
+        <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Today →</a>
+      </div>
+    </section>
+
+    <!-- DIARY APP -->
+    <section class="d-app-section" id="diary-app">
+      <div class="d-container">
+        <div class="d-app-shell">
+          <!-- Sidebar -->
+          <aside class="d-sidebar" id="diarySidebar">
+            <div class="d-sidebar-top">
+              <h2 class="d-sidebar-brand">📖 My Diary</h2>
+              <button class="d-new-btn" id="dNewEntryBtn" title="New Entry">＋ New Entry</button>
+            </div>
+            <div class="d-search-wrap">
+              <input type="search" id="dSearch" placeholder="Search entries…" aria-label="Search diary entries"/>
+            </div>
+            <div class="d-filter-row">
+              <select id="dMoodFilter" aria-label="Filter by mood">
+                <option value="">All Moods</option>
+                <option value="😊">😊 Happy</option>
+                <option value="😔">😔 Sad</option>
+                <option value="😤">😤 Angry</option>
+                <option value="😰">😰 Anxious</option>
+                <option value="😌">😌 Calm</option>
+                <option value="🤩">🤩 Excited</option>
+                <option value="😴">😴 Tired</option>
+                <option value="🤔">🤔 Thoughtful</option>
+              </select>
+            </div>
+            <div class="d-entries-list" id="dEntriesList"></div>
+            <div class="d-sidebar-footer">
+              <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries">⬇ Export</button>
+              <span class="d-entry-count" id="dEntryCount">0 entries</span>
+            </div>
+          </aside>
+
+          <!-- Editor -->
+          <div class="d-editor-panel">
+            <div class="d-editor-header">
+              <button class="d-mobile-menu" id="dMobileMenu" aria-label="Open entries list">☰</button>
+              <div class="d-entry-meta">
+                <input type="date" id="dEntryDate" class="d-date-input" aria-label="Entry date"/>
+                <select id="dMoodSelect" class="d-mood-select" aria-label="Select mood">
+                  <option value="">Mood…</option>
+                  <option value="😊">😊 Happy</option>
+                  <option value="😔">😔 Sad</option>
+                  <option value="😤">😤 Angry</option>
+                  <option value="😰">😰 Anxious</option>
+                  <option value="😌">😌 Calm</option>
+                  <option value="🤩">🤩 Excited</option>
+                  <option value="😴">😴 Tired</option>
+                  <option value="🤔">🤔 Thoughtful</option>
+                </select>
+                <input type="text" id="dTagsInput" class="d-tags-input" placeholder="Tags: work, family, travel…" aria-label="Entry tags"/>
+              </div>
+              <div class="d-editor-actions">
+                <button class="d-action-btn" id="dSaveBtn">💾 Save</button>
+                <button class="d-action-btn d-delete-btn" id="dDeleteBtn">🗑 Delete</button>
+              </div>
+            </div>
+            <input type="text" class="d-entry-title" id="dEntryTitle" placeholder="Entry title…" aria-label="Entry title"/>
+            <div class="d-format-bar">
+              <button class="d-fmt" data-cmd="bold"><b>B</b></button>
+              <button class="d-fmt" data-cmd="italic"><i>I</i></button>
+              <button class="d-fmt" data-cmd="underline"><u>U</u></button>
+              <span class="d-fmt-sep"></span>
+              <button class="d-fmt" data-cmd="insertUnorderedList">• List</button>
+              <button class="d-fmt" data-cmd="insertOrderedList">1. List</button>
+              <span class="d-fmt-sep"></span>
+              <button class="d-fmt" id="dPromptBtn">✨ Prompt</button>
+            </div>
+            <div class="d-writing-area" id="dWritingArea" contenteditable="true" spellcheck="true"
+              data-placeholder="Dear Diary… start writing your thoughts here. This is your private space." role="textbox" aria-multiline="true" aria-label="Diary entry content"></div>
+            <div class="d-status-bar">
+              <span id="dAutoSave" class="d-saved">● Saved</span>
+              <span class="d-sep">|</span>
+              <span id="dWordCount">0 words</span>
+              <span class="d-sep">|</span>
+              <span id="dStreak">🔥 0 day streak</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO -->
+    <section class="d-section d-how" id="how-to-use">
+      <div class="d-container">
+        <div class="d-section-tag">How it works</div>
+        <h2 class="d-section-title">How to Use the <em>Online Diary</em></h2>
+        <div class="d-how-grid">
+          <div class="d-how-card"><div class="d-how-num">01</div><h3>Create a New Entry</h3><p>Click the <strong>＋ New Entry</strong> button in the sidebar. A fresh page opens with today's date pre-filled. Give it a title or leave it blank — it's your diary, your rules.</p></div>
+          <div class="d-how-card"><div class="d-how-num">02</div><h3>Set Your Mood & Tags</h3><p>Pick an emoji mood from the dropdown (Happy, Sad, Anxious, Excited…) and add keyword tags like "work", "travel" or "family" to organize your entries over time.</p></div>
+          <div class="d-how-card"><div class="d-how-num">03</div><h3>Write Freely</h3><p>Use the writing area to express your thoughts. Format text with the toolbar, or click <strong>✨ Prompt</strong> for a writing prompt if you're not sure where to start.</p></div>
+          <div class="d-how-card"><div class="d-how-num">04</div><h3>Save & Reflect</h3><p>Entries auto-save as you type. Browse past entries in the sidebar, filter by mood, or search keywords to revisit memories and track your emotional journey.</p></div>
+          <div class="d-how-card"><div class="d-how-num">05</div><h3>Export Your Diary</h3><p>Use <strong>⬇ Export</strong> to download all your diary entries as an HTML file — perfect for backup, printing or sharing a chapter of your life.</p></div>
+          <div class="d-how-card"><div class="d-how-num">06</div><h3>Build a Streak</h3><p>The streak counter at the bottom tracks how many consecutive days you've written. Build healthy journaling habits and watch your streak grow! 🔥</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="d-section d-desc" id="about-diary">
+      <div class="d-container d-desc-inner">
+        <div class="d-desc-text">
+          <div class="d-section-tag">What is it?</div>
+          <h2 class="d-section-title">Your Free Private <em>Online Diary</em></h2>
+          <p>An online diary is a personal digital space where you record your thoughts, experiences, feelings and reflections. Unlike a physical notebook, a digital diary lets you search years of entries in seconds, never runs out of pages, and is always with you wherever you have a browser.</p>
+          <p>WebNotePad's online diary app stores everything in your browser's local storage — meaning your entries never touch a server and remain 100% private. There is no account to create, no email to verify, no subscription to manage. Just open the page and write.</p>
+          <p>Research consistently shows that regular journaling reduces stress and anxiety, improves self-awareness, boosts memory, and helps process difficult emotions. The simple act of writing things down gives your thoughts structure and your feelings a safe outlet.</p>
+          <div class="d-benefits">
+            <span>🔒 100% Private</span><span>⚡ Instant Access</span><span>📊 Mood Tracking</span><span>🔍 Full Search</span><span>🔥 Streak Tracking</span><span>⬇ Export Anytime</span>
+          </div>
+        </div>
+        <div class="d-desc-visual">
+          <div class="d-journal-card">
+            <div class="d-journal-lines">
+              <div class="d-line"></div><div class="d-line d-line-short"></div>
+              <div class="d-line"></div><div class="d-line d-line-shorter"></div>
+              <div class="d-line"></div><div class="d-line d-line-short"></div>
+              <div class="d-line"></div>
+            </div>
+            <div class="d-journal-mood">😊 Happy · 142 words</div>
+            <div class="d-journal-date">Today · Personal Journal</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="d-section d-faq" id="faq">
+      <div class="d-container">
+        <div class="d-section-tag">Questions</div>
+        <h2 class="d-section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="d-faq-list">
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Is my online diary completely private?</button><div class="d-faq-a"><p>Yes, completely. All diary entries are saved only in your browser's local storage on your device. Nothing is ever sent to any server. Even we cannot read your diary. Your thoughts are yours alone.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Will I lose my diary entries if I clear my browser?</button><div class="d-faq-a"><p>If you clear your browser's site data or local storage, you will lose your entries. We strongly recommend using the <strong>⬇ Export</strong> button regularly to download a backup of your diary as an HTML file.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Can I search through past diary entries?</button><div class="d-faq-a"><p>Yes! Use the search bar in the sidebar to search across all your entries by keyword, title, or content. You can also filter by mood to see all entries where you felt a specific emotion.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">What is a writing prompt?</button><div class="d-faq-a"><p>A writing prompt is a question or sentence starter to help you begin writing when you don't know what to say. Click the ✨ Prompt button in the toolbar to get a random prompt like "What made you smile today?" or "Describe a challenge you overcame this week."</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">How does the streak tracker work?</button><div class="d-faq-a"><p>The streak tracker counts how many consecutive days you have written at least one diary entry. Writing every day increases your streak. Missing a day resets it to zero — so keep the habit going!</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Can I use this diary on my phone?</button><div class="d-faq-a"><p>Absolutely. The online diary is fully mobile-responsive and works on any smartphone or tablet browser including Safari on iOS and Chrome on Android.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Is there a limit to how many entries I can write?</button><div class="d-faq-a"><p>There is no fixed limit on the number of entries. The only constraint is your browser's local storage capacity, which is typically 5–10 MB — enough for thousands of diary entries.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer-root"></div>
+  <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="diary.js"></script>
+</body>
+</html>

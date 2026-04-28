@@ -1,164 +1,320 @@
-/* =============================================
-   WebNotePad — Online Diary (diary.css)
-   Aesthetic: Warm journal / soft paper tones
-   ============================================= */
-:root {
-  --d-cream: #fdf6ed;
-  --d-warm: #f5ead8;
-  --d-tan: #e8d5bc;
-  --d-brown: #8b5e3c;
-  --d-ink: #2c1a0e;
-  --d-ink-soft: #5c3d2e;
-  --d-ink-muted: #9e7b5e;
-  --d-rose: #c4705a;
-  --d-rose-pale: #faeae5;
-  --d-green: #3d6b4f;
-  --d-gold: #c9960b;
-  --d-white: #ffffff;
-  --d-font-serif: 'Lora', Georgia, serif;
-  --d-font-sans: 'Nunito', sans-serif;
-  --d-font-mono: 'Fira Mono', monospace;
-  --d-radius: 8px;
-  --d-radius-lg: 16px;
-  --d-shadow: 0 4px 20px rgba(44,26,14,0.1);
-  --d-shadow-lg: 0 12px 40px rgba(44,26,14,0.15);
-  --d-t: 0.2s ease;
+/* WebNotePad — Online Diary (diary.js) */
+(function(){
+'use strict';
+
+const SK = 'webnotepad_diary';
+const STREAK_SK = 'webnotepad_diary_streak';
+
+const PROMPTS = [
+  "What made you smile today?",
+  "Describe a challenge you faced recently and how you handled it.",
+  "What are three things you are grateful for right now?",
+  "If you could relive one moment from this week, what would it be?",
+  "What emotion dominated your day and why?",
+  "What do you wish you had done differently today?",
+  "Describe something beautiful you noticed today.",
+  "What goal are you working toward and how did you progress?",
+  "Write about someone who influenced you recently.",
+  "What are you most looking forward to this week?",
+  "What lesson did today teach you?",
+  "Describe your ideal day in detail.",
+  "What fear is holding you back right now?",
+  "Write about a memory that makes you feel warm.",
+  "What would you tell your younger self today?",
+  "What are you proud of accomplishing recently?",
+  "How did you take care of yourself today?",
+  "What book, song, or movie moved you lately and why?",
+  "Describe a conversation that stuck with you.",
+  "What does your perfect version of tomorrow look like?"
+];
+
+let entries = [];
+let activeId = null;
+let saveTimer = null;
+
+function load(){
+  try{ entries = JSON.parse(localStorage.getItem(SK)||'[]'); }catch(e){ entries=[]; }
+  if(!entries.length){
+    const first = makeEntry('My First Entry','😊','first diary entry');
+    const area = '<p>Today I started using WebNotePad\'s online diary. I\'m going to use this space to track my thoughts, feelings, and daily experiences.</p><p>Writing in a diary feels like a fresh start. Here\'s to building a journaling habit! 🌱</p>';
+    first.content = area;
+    entries = [first];
+    save();
+  }
+  activeId = entries[0].id;
 }
-body.dark {
-  --d-cream: #1a1410;
-  --d-warm: #221a14;
-  --d-tan: #2e2318;
-  --d-ink: #f0e8dc;
-  --d-ink-soft: #c8b8a4;
-  --d-ink-muted: #8a7060;
-  --d-rose-pale: #2a1810;
-  --d-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  --d-shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+function save(){ localStorage.setItem(SK, JSON.stringify(entries)); }
+
+function makeEntry(title='', mood='', tags=''){
+  return {
+    id:'de_'+Date.now()+'_'+Math.random().toString(36).slice(2,5),
+    title: title||'',
+    date: today(),
+    mood: mood||'',
+    tags: tags||'',
+    content:'',
+    created: Date.now(),
+    updated: Date.now()
+  };
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--d-font-sans);background:var(--d-cream);color:var(--d-ink);line-height:1.65;overflow-x:hidden;transition:background .2s,color .2s}
-.d-container{max-width:1140px;margin:0 auto;padding:0 24px}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:var(--d-font-sans);border:none;background:none}
-input,select,textarea{font-family:var(--d-font-sans)}
 
-/* HERO */
-.d-hero{position:relative;min-height:56vh;display:flex;align-items:center;padding:80px 0 60px;overflow:hidden;background:var(--d-warm)}
-.d-hero-orbs{position:absolute;inset:0;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
-.orb1{width:400px;height:400px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}
-.orb2{width:300px;height:300px;background:radial-gradient(circle,#e89e82,transparent);bottom:-60px;left:-60px}
-.orb3{width:200px;height:200px;background:radial-gradient(circle,#c9960b44,transparent);top:40%;left:30%}
-body.dark .orb{opacity:.12}
-.d-hero-inner{position:relative;z-index:1;max-width:680px}
-.d-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--d-rose-pale);color:var(--d-rose);border:1px solid var(--d-rose);border-radius:100px;font-size:.8rem;font-weight:600;font-family:var(--d-font-mono);margin-bottom:24px;animation:dfadeIn .5s ease both}
-.d-hero h1{font-family:var(--d-font-serif);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.15;color:var(--d-ink);margin-bottom:20px;animation:dfadeIn .55s .1s ease both}
-.d-accent{color:var(--d-rose);font-style:italic}
-.d-hero p{font-size:1.05rem;color:var(--d-ink-soft);max-width:500px;line-height:1.7;margin-bottom:32px;animation:dfadeIn .55s .2s ease both}
-.d-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--d-radius);font-size:.9rem;font-weight:700;transition:all var(--d-t);cursor:pointer;border:2px solid transparent;animation:dfadeIn .55s .3s ease both}
-.d-btn-primary{background:var(--d-rose);color:#fff;border-color:var(--d-rose)}
-.d-btn-primary:hover{background:var(--d-brown);border-color:var(--d-brown);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,112,90,.3)}
-@keyframes dfadeIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+function today(){ return new Date().toISOString().slice(0,10); }
 
-/* APP */
-.d-app-section{padding:0 0 72px}
-.d-app-shell{display:flex;border:1px solid var(--d-tan);border-radius:var(--d-radius-lg);overflow:hidden;box-shadow:var(--d-shadow-lg);min-height:580px;background:var(--d-cream);transition:border-color .2s,background .2s}
-.d-sidebar{width:260px;min-width:260px;background:var(--d-warm);border-right:1px solid var(--d-tan);display:flex;flex-direction:column}
-.d-sidebar-top{padding:16px 14px 12px;border-bottom:1px solid var(--d-tan)}
-.d-sidebar-brand{font-family:var(--d-font-serif);font-size:1rem;font-weight:700;color:var(--d-brown);margin-bottom:10px}
-.d-new-btn{width:100%;padding:8px;background:var(--d-rose);color:#fff;border-radius:var(--d-radius);font-size:.83rem;font-weight:700;border:none;cursor:pointer;transition:background var(--d-t)}
-.d-new-btn:hover{background:var(--d-brown)}
-.d-search-wrap{padding:10px 12px 6px}
-.d-search-wrap input,.d-filter-row select{width:100%;padding:7px 10px;border-radius:var(--d-radius);border:1px solid var(--d-tan);background:var(--d-cream);color:var(--d-ink);font-size:.8rem;outline:none;transition:border-color var(--d-t)}
-.d-search-wrap input:focus,.d-filter-row select:focus{border-color:var(--d-rose)}
-.d-filter-row{padding:4px 12px 8px}
-.d-entries-list{flex:1;overflow-y:auto;padding:8px}
-.d-entry-item{padding:10px 10px;border-radius:var(--d-radius);cursor:pointer;border:1px solid transparent;transition:all var(--d-t);margin-bottom:2px}
-.d-entry-item:hover{background:var(--d-cream);border-color:var(--d-tan)}
-.d-entry-item.active{background:var(--d-cream);border-color:var(--d-rose)}
-.d-entry-item-title{font-size:.83rem;font-weight:600;color:var(--d-ink);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.d-entry-item-meta{font-size:.72rem;color:var(--d-ink-muted);font-family:var(--d-font-mono)}
-.d-sidebar-footer{padding:10px 14px;border-top:1px solid var(--d-tan);display:flex;align-items:center;justify-content:space-between}
-.d-icon-btn{font-size:.78rem;font-weight:700;color:var(--d-ink-muted);padding:5px 8px;border-radius:var(--d-radius);background:var(--d-tan);border:1px solid transparent;transition:all var(--d-t)}
-.d-icon-btn:hover{color:var(--d-ink);background:var(--d-cream)}
-.d-entry-count{font-size:.72rem;color:var(--d-ink-muted);font-family:var(--d-font-mono)}
+const $ = id => document.getElementById(id);
 
-/* EDITOR */
-.d-editor-panel{flex:1;display:flex;flex-direction:column;min-width:0}
-.d-editor-header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--d-tan);background:var(--d-cream);flex-wrap:wrap}
-.d-mobile-menu{display:none;width:32px;height:32px;align-items:center;justify-content:center;border-radius:var(--d-radius);background:var(--d-warm);border:1px solid var(--d-tan);font-size:1rem;color:var(--d-ink-soft)}
-.d-entry-meta{display:flex;align-items:center;gap:8px;flex:1;flex-wrap:wrap}
-.d-date-input,.d-mood-select,.d-tags-input{padding:5px 10px;border-radius:var(--d-radius);border:1px solid var(--d-tan);background:var(--d-warm);color:var(--d-ink);font-size:.8rem;outline:none;transition:border-color var(--d-t)}
-.d-date-input:focus,.d-mood-select:focus,.d-tags-input:focus{border-color:var(--d-rose)}
-.d-tags-input{flex:1;min-width:160px}
-.d-editor-actions{display:flex;gap:8px}
-.d-action-btn{padding:6px 14px;border-radius:var(--d-radius);font-size:.8rem;font-weight:700;background:var(--d-rose);color:#fff;border:none;cursor:pointer;transition:background var(--d-t)}
-.d-action-btn:hover{background:var(--d-brown)}
-.d-delete-btn{background:transparent;color:var(--d-ink-muted);border:1px solid var(--d-tan)}
-.d-delete-btn:hover{background:#fde8e8;color:#c0392b;border-color:#c0392b}
-.d-entry-title{padding:16px 20px 8px;font-family:var(--d-font-serif);font-size:1.35rem;font-weight:700;color:var(--d-ink);background:transparent;border:none;outline:none;width:100%;border-bottom:1px solid var(--d-tan)}
-.d-entry-title::placeholder{color:var(--d-tan)}
-.d-format-bar{display:flex;align-items:center;gap:4px;padding:8px 16px;background:var(--d-warm);border-bottom:1px solid var(--d-tan);flex-wrap:wrap}
-.d-fmt{padding:4px 8px;border-radius:4px;font-size:.82rem;font-weight:600;color:var(--d-ink-muted);background:transparent;border:1px solid transparent;transition:all var(--d-t)}
-.d-fmt:hover{background:var(--d-tan);color:var(--d-ink)}
-.d-fmt-sep{width:1px;height:16px;background:var(--d-tan);margin:0 4px}
-.d-writing-area{flex:1;padding:24px 24px 16px;font-family:var(--d-font-serif);font-size:1rem;line-height:1.9;color:var(--d-ink);outline:none;overflow-y:auto;min-height:280px}
-.d-writing-area:empty::before{content:attr(data-placeholder);color:var(--d-tan);font-style:italic;pointer-events:none}
-body.dark .d-writing-area:empty::before{color:var(--d-ink-muted)}
-.d-status-bar{display:flex;align-items:center;gap:10px;padding:6px 16px;background:var(--d-warm);border-top:1px solid var(--d-tan);font-size:.73rem;font-family:var(--d-font-mono);color:var(--d-ink-muted);flex-wrap:wrap}
-.d-saved{color:var(--d-green)}
-.d-saving{color:var(--d-gold)}
-.d-sep{color:var(--d-tan)}
+function render(filter='', moodFilter=''){
+  const list = $('dEntriesList');
+  if(!list) return;
+  const q = filter.toLowerCase().trim();
+  const filtered = entries.filter(e=>{
+    const text = e.title+' '+(e.content||'').replace(/<[^>]+>/g,'');
+    const matchQ = !q || text.toLowerCase().includes(q);
+    const matchMood = !moodFilter || e.mood === moodFilter;
+    return matchQ && matchMood;
+  });
+  list.innerHTML='';
+  if(!filtered.length){
+    list.innerHTML='<div style="padding:14px 10px;font-size:.8rem;color:var(--d-ink-muted);font-style:italic">No entries found.</div>';
+  } else {
+    filtered.forEach(e=>{
+      const div = document.createElement('div');
+      div.className = 'd-entry-item'+(e.id===activeId?' active':'');
+      div.dataset.id = e.id;
+      div.innerHTML=`<div class="d-entry-item-title">${e.mood||''} ${e.title||'Untitled Entry'}</div><div class="d-entry-item-meta">${formatDate(e.date)}${e.tags?'  · '+e.tags.split(',').slice(0,2).join(', '):''}</div>`;
+      div.addEventListener('click',()=>switchEntry(e.id));
+      list.appendChild(div);
+    });
+  }
+  const cnt = $('dEntryCount');
+  if(cnt) cnt.textContent = entries.length+' entr'+(entries.length===1?'y':'ies');
+}
 
-/* SECTIONS */
-.d-section{padding:80px 0}
-.d-section-tag{font-family:var(--d-font-mono);font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;color:var(--d-rose);margin-bottom:14px}
-.d-section-title{font-family:var(--d-font-serif);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--d-ink);line-height:1.25;margin-bottom:48px}
-.d-section-title em{color:var(--d-rose);font-style:italic}
+function formatDate(d){
+  if(!d) return '';
+  const dt = new Date(d+'T12:00:00');
+  return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
 
-/* HOW TO */
-.d-how{background:var(--d-warm)}
-.d-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.d-how-card{background:var(--d-cream);border:1px solid var(--d-tan);border-radius:var(--d-radius-lg);padding:28px;transition:all var(--d-t)}
-.d-how-card:hover{box-shadow:var(--d-shadow);transform:translateY(-3px)}
-.d-how-num{font-family:var(--d-font-serif);font-size:2.5rem;font-weight:700;color:var(--d-tan);margin-bottom:12px;line-height:1}
-body.dark .d-how-num{color:var(--d-tan)}
-.d-how-card h3{font-family:var(--d-font-serif);font-size:1.05rem;font-weight:700;color:var(--d-ink);margin-bottom:8px}
-.d-how-card p{font-size:.875rem;color:var(--d-ink-soft);line-height:1.65}
+function loadActive(){
+  const e = entries.find(x=>x.id===activeId);
+  if(!e) return;
+  const title=$('dEntryTitle'), date=$('dEntryDate'), mood=$('dMoodSelect'), tags=$('dTagsInput'), area=$('dWritingArea');
+  if(title) title.value=e.title||'';
+  if(date) date.value=e.date||today();
+  if(mood) mood.value=e.mood||'';
+  if(tags) tags.value=e.tags||'';
+  if(area) area.innerHTML=e.content||'';
+  updateStats();
+}
 
-/* DESCRIPTION */
-.d-desc{background:var(--d-cream)}
-.d-desc-inner{display:grid;grid-template-columns:1.3fr .7fr;gap:64px;align-items:center}
-.d-desc-text p{font-size:.975rem;color:var(--d-ink-soft);line-height:1.8;margin-bottom:16px}
-.d-benefits{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.d-benefits span{padding:6px 14px;background:var(--d-rose-pale);color:var(--d-rose);border:1px solid var(--d-rose);border-radius:100px;font-size:.78rem;font-weight:600}
-.d-journal-card{background:var(--d-warm);border:1px solid var(--d-tan);border-radius:var(--d-radius-lg);padding:32px;box-shadow:var(--d-shadow-lg);position:relative}
-.d-journal-card::before{content:'📖';position:absolute;top:-20px;left:24px;font-size:2.5rem}
-.d-journal-lines{margin:24px 0 20px;display:flex;flex-direction:column;gap:12px}
-.d-line{height:2px;background:var(--d-tan);border-radius:1px}
-.d-line-short{width:80%}
-.d-line-shorter{width:60%}
-.d-journal-mood{font-size:.8rem;font-weight:600;color:var(--d-rose);font-family:var(--d-font-mono);margin-bottom:6px}
-.d-journal-date{font-size:.75rem;color:var(--d-ink-muted);font-family:var(--d-font-mono)}
+function persistActive(){
+  const e = entries.find(x=>x.id===activeId);
+  if(!e) return;
+  const title=$('dEntryTitle'), date=$('dEntryDate'), mood=$('dMoodSelect'), tags=$('dTagsInput'), area=$('dWritingArea');
+  if(title) e.title=title.value||'Untitled Entry';
+  if(date) e.date=date.value||today();
+  if(mood) e.mood=mood.value||'';
+  if(tags) e.tags=tags.value||'';
+  if(area) e.content=area.innerHTML||'';
+  e.updated=Date.now();
+}
 
-/* FAQ */
-.d-faq{background:var(--d-warm)}
-.d-faq-list{max-width:700px;display:flex;flex-direction:column;gap:2px}
-.d-faq-item{border:1px solid var(--d-tan);border-radius:var(--d-radius);background:var(--d-cream);overflow:hidden}
-.d-faq-q{width:100%;text-align:left;padding:16px 20px;font-size:.95rem;font-weight:600;color:var(--d-ink);display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background var(--d-t)}
-.d-faq-q::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--d-ink-muted);transition:transform var(--d-t)}
-.d-faq-q[aria-expanded="true"]::after{transform:rotate(45deg);color:var(--d-rose)}
-.d-faq-q:hover{background:var(--d-warm)}
-.d-faq-a{display:none;padding:0 20px 16px}
-.d-faq-a p{font-size:.875rem;color:var(--d-ink-soft);line-height:1.7}
+function switchEntry(id){
+  persistActive();
+  save();
+  activeId=id;
+  loadActive();
+  render($('dSearch').value, $('dMoodFilter').value);
+}
 
-/* TOAST */
-.d-toast{position:fixed;bottom:24px;right:24px;background:var(--d-ink);color:var(--d-cream);padding:11px 18px;border-radius:var(--d-radius);font-size:.85rem;font-weight:500;box-shadow:var(--d-shadow-lg);transform:translateY(60px);opacity:0;transition:all .3s;z-index:9999;pointer-events:none}
-.d-toast.show{transform:translateY(0);opacity:1}
+function newEntry(){
+  persistActive();
+  save();
+  const e=makeEntry();
+  entries.unshift(e);
+  activeId=e.id;
+  save();
+  loadActive();
+  render();
+  $('dEntryTitle') && $('dEntryTitle').focus();
+  toast('📝 New entry created');
+}
 
-/* MOBILE */
-@media(max-width:900px){.d-how-grid{grid-template-columns:repeat(2,1fr)}.d-desc-inner{grid-template-columns:1fr;gap:36px}}
-@media(max-width:680px){.d-how-grid{grid-template-columns:1fr}.d-app-shell{flex-direction:column}.d-sidebar{width:100%;min-width:0;max-height:240px;border-right:none;border-bottom:1px solid var(--d-tan)}.d-mobile-menu{display:flex}.d-editor-header{flex-wrap:wrap}.d-entry-meta{flex-direction:column;align-items:flex-start}.d-tags-input{width:100%}}
-::-webkit-scrollbar{width:5px;height:5px}
-::-webkit-scrollbar-thumb{background:var(--d-tan);border-radius:3px}
+function deleteEntry(){
+  if(entries.length<=1){ toast('❌ Cannot delete the last entry.'); return; }
+  if(!confirm('Delete this entry permanently?')) return;
+  entries = entries.filter(x=>x.id!==activeId);
+  activeId=entries[0].id;
+  save();
+  loadActive();
+  render();
+  toast('🗑 Entry deleted.');
+}
+
+function autoSave(){
+  if(saveTimer) clearTimeout(saveTimer);
+  setSaving(true);
+  saveTimer=setTimeout(()=>{
+    persistActive();
+    save();
+    render($('dSearch').value, $('dMoodFilter').value);
+    setSaving(false);
+    updateStreak();
+  },900);
+}
+
+function setSaving(s){
+  const el=$('dAutoSave');
+  if(!el) return;
+  el.textContent=s?'◌ Saving…':'● Saved';
+  el.className=s?'d-saving':'d-saved';
+}
+
+function updateStats(){
+  const area=$('dWritingArea');
+  if(!area) return;
+  const text=area.innerText||'';
+  const words=text.trim()?text.trim().split(/\s+/).filter(Boolean).length:0;
+  const wc=$('dWordCount');
+  if(wc) wc.textContent=words+' word'+(words===1?'':'s');
+}
+
+function updateStreak(){
+  const dates=[...new Set(entries.map(e=>e.date))].sort().reverse();
+  if(!dates.length){ setStreak(0); return; }
+  const td=today();
+  if(dates[0]!==td && dates[0]!==prevDay(td)){ setStreak(0); return; }
+  let streak=1;
+  for(let i=1;i<dates.length;i++){
+    const prev=prevDay(dates[i-1]);
+    if(dates[i]===prev) streak++;
+    else break;
+  }
+  setStreak(streak);
+  localStorage.setItem(STREAK_SK,streak);
+}
+
+function prevDay(d){
+  const dt=new Date(d+'T12:00:00');
+  dt.setDate(dt.getDate()-1);
+  return dt.toISOString().slice(0,10);
+}
+
+function setStreak(n){
+  const el=$('dStreak');
+  if(el) el.textContent=`🔥 ${n} day streak`;
+}
+
+function exportAll(){
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>My Diary – WebNotePad</title>
+<style>body{font-family:Georgia,serif;max-width:760px;margin:40px auto;padding:0 24px;color:#2c1a0e;line-height:1.8;background:#fdf6ed}
+h1{font-size:2rem;margin-bottom:40px;border-bottom:2px solid #e8d5bc;padding-bottom:12px}
+.entry{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid #e8d5bc}
+.e-meta{font-size:.8rem;color:#9e7b5e;margin-bottom:12px;font-family:monospace}
+.e-title{font-size:1.4rem;font-weight:700;margin-bottom:12px}
+.e-content{font-size:1rem}
+footer{margin-top:40px;font-size:.8rem;color:#9e7b5e;border-top:1px solid #e8d5bc;padding-top:12px}
+</style></head><body>
+<h1>📖 My Diary</h1>
+${entries.map(e=>`<div class="entry">
+<div class="e-meta">${formatDate(e.date)} ${e.mood||''} ${e.tags?'· '+e.tags:''}</div>
+<div class="e-title">${e.title||'Untitled Entry'}</div>
+<div class="e-content">${e.content||''}</div>
+</div>`).join('')}
+<footer>Exported from WebNotePad Online Diary — webnotepad.github.io</footer>
+</body></html>`;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='my-diary.html';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  toast('⬇ Diary exported!');
+}
+
+function insertPrompt(){
+  const p=PROMPTS[Math.floor(Math.random()*PROMPTS.length)];
+  const area=$('dWritingArea');
+  if(!area) return;
+  area.focus();
+  document.execCommand('insertHTML',false,`<p><em>${p}</em></p><p></p>`);
+  autoSave();
+}
+
+function initFAQ(){
+  document.querySelectorAll('.d-faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const a=btn.nextElementSibling;
+      const open=a.style.display==='block';
+      document.querySelectorAll('.d-faq-a').forEach(x=>x.style.display='none');
+      document.querySelectorAll('.d-faq-q').forEach(x=>x.setAttribute('aria-expanded','false'));
+      if(!open){ a.style.display='block'; btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+}
+
+function initScrollAnim(){
+  const els=document.querySelectorAll('.d-how-card,.d-faq-item');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; obs.unobserve(e.target); }
+    });
+  },{threshold:.1});
+  els.forEach((el,i)=>{ el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition=`opacity .5s ${i*.05}s ease, transform .5s ${i*.05}s ease`; obs.observe(el); });
+}
+
+function toast(msg,d=2500){
+  const t=$('dToast');
+  if(!t) return;
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),d);
+}
+
+function init(){
+  load();
+  render();
+  loadActive();
+  updateStreak();
+  initFAQ();
+  initScrollAnim();
+
+  // Restore dark mode
+  if(localStorage.getItem('webnotepad_dark')==='1') document.body.classList.add('dark');
+
+  const area=$('dWritingArea');
+  if(area){
+    area.addEventListener('input',()=>{ updateStats(); autoSave(); });
+  }
+  ['dEntryTitle','dEntryDate','dMoodSelect','dTagsInput'].forEach(id=>{
+    const el=$(id);
+    if(el) el.addEventListener('input', autoSave);
+    if(el && el.tagName==='SELECT') el.addEventListener('change', autoSave);
+  });
+
+  $('dNewEntryBtn') && $('dNewEntryBtn').addEventListener('click', newEntry);
+  $('dSaveBtn') && $('dSaveBtn').addEventListener('click',()=>{ persistActive(); save(); setSaving(false); toast('💾 Saved!'); });
+  $('dDeleteBtn') && $('dDeleteBtn').addEventListener('click', deleteEntry);
+  $('dExportAllBtn') && $('dExportAllBtn').addEventListener('click', exportAll);
+  $('dPromptBtn') && $('dPromptBtn').addEventListener('click', insertPrompt);
+  $('dSearch') && $('dSearch').addEventListener('input',e=>render(e.target.value,$('dMoodFilter').value));
+  $('dMoodFilter') && $('dMoodFilter').addEventListener('change',e=>render($('dSearch').value,e.target.value));
+
+  // Format buttons
+  document.querySelectorAll('.d-fmt[data-cmd]').forEach(btn=>{
+    btn.addEventListener('click',()=>{ area && area.focus(); document.execCommand(btn.dataset.cmd,false,null); autoSave(); });
+  });
+
+  // Mobile sidebar toggle
+  const mobileMenu=$('dMobileMenu');
+  if(mobileMenu){
+    mobileMenu.addEventListener('click',()=>{
+      const sb=$('diarySidebar');
+      if(sb) sb.style.display = sb.style.display==='none'?'flex':'none';
+    });
+  }
+}
+
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+else init();
+})();

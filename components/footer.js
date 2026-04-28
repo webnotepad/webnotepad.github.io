@@ -28,7 +28,9 @@
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
-              <li><a href="/#faq">FAQ</a></li>             
+              <li><a href="/#faq">FAQ</a></li>
+              <li><a href="/online-diary">Online Diary</a></li>
+              <li><a href="/mindmap-online">MindMap Online</a></li>
               </ul>
           </div>
           <div class="footer-col">

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Mind Map Tool – Free Mind Mapping Software | WebNotePad</title>
+  <meta name="description" content="Create mind maps online for free with WebNotePad. Brainstorm ideas, organize thoughts, and visualize concepts with our free interactive mind map maker. No signup needed."/>
+  <meta name="keywords" content="mind map online, free mind map tool, mind mapping software, brainstorm tool, concept map, idea map online, mind map maker, free brainstorming tool"/>
+  <meta name="author" content="WebNotePad"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://webnotepad.github.io/mindmap-online"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webnotepad.github.io/mindmap-online"/>
+  <meta property="og:title" content="Online Mind Map Tool – Free Mind Mapping Software"/>
+  <meta property="og:description" content="Create, edit and export mind maps online for free. No signup. Visual brainstorming at its best."/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Online Mind Map Tool by WebNotePad",
+    "url":"https://webnotepad.github.io/mindmap-online",
+    "description":"A free interactive online mind map maker. Create, edit, and export mind maps visually in your browser. No account required.",
+    "applicationCategory":"ProductivityApplication",
+    "operatingSystem":"Any",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How do I add nodes to my mind map?","acceptedAnswer":{"@type":"Answer","text":"Double-click on any node to add a child node. You can also use the Add Child button in the toolbar when a node is selected."}},
+      {"@type":"Question","name":"Can I save my mind map?","acceptedAnswer":{"@type":"Answer","text":"Yes. Mind maps are auto-saved to your browser's local storage. You can also export as JSON to save a file backup."}},
+      {"@type":"Question","name":"Can I export my mind map as an image?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Export PNG button to download your mind map as a high-quality PNG image."}}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="mindmap.css"/>
+</head>
+<body>
+  <div id="header-root"></div>
+  <main>
+
+    <!-- HERO -->
+    <section class="mm-hero">
+      <div class="mm-hero-grid"></div>
+      <div class="mm-container mm-hero-inner">
+        <div class="mm-badge">🧠 Visual thinking made easy</div>
+        <h1>Online <span class="mm-accent">Mind Map</span><br/>Builder</h1>
+        <p>Brainstorm, plan and organize your ideas visually. Interactive, fast, and completely free — no account needed.</p>
+        <a href="#mindmap-app" class="mm-btn mm-btn-primary">Create Mind Map →</a>
+      </div>
+      <div class="mm-hero-nodes" aria-hidden="true">
+        <div class="mn mn1">Ideas</div>
+        <div class="mn mn2">Planning</div>
+        <div class="mn mn3">Goals</div>
+        <div class="mn mn4">Research</div>
+      </div>
+    </section>
+
+    <!-- MIND MAP APP -->
+    <section class="mm-app-section" id="mindmap-app">
+      <div class="mm-container">
+        <div class="mm-toolbar" role="toolbar" aria-label="Mind map tools">
+          <div class="mm-toolbar-left">
+            <button class="mm-tool-btn" id="mmAddChildBtn" title="Add child node (double-click node)" disabled>＋ Add Child</button>
+            <button class="mm-tool-btn" id="mmAddSiblingBtn" title="Add sibling node" disabled>⊕ Add Sibling</button>
+            <button class="mm-tool-btn mm-danger" id="mmDeleteNodeBtn" title="Delete selected node" disabled>✕ Delete Node</button>
+            <span class="mm-tool-sep"></span>
+            <button class="mm-tool-btn" id="mmCollapseBtn" title="Collapse/expand node" disabled>⊟ Collapse</button>
+            <span class="mm-tool-sep"></span>
+            <label class="mm-color-label" title="Node color">
+              🎨 Color:
+              <input type="color" id="mmNodeColor" value="#2d6be4" aria-label="Node color"/>
+            </label>
+          </div>
+          <div class="mm-toolbar-right">
+            <button class="mm-tool-btn" id="mmUndoBtn" title="Undo (Ctrl+Z)">↩ Undo</button>
+            <button class="mm-tool-btn" id="mmResetBtn" title="Reset to default map">⟳ Reset</button>
+            <button class="mm-tool-btn" id="mmExportJsonBtn" title="Export as JSON">⬇ JSON</button>
+            <button class="mm-tool-btn" id="mmImportJsonBtn" title="Import JSON">⬆ Import</button>
+            <button class="mm-tool-btn mm-accent-btn" id="mmExportPngBtn" title="Export as PNG">📷 Export PNG</button>
+            <input type="file" id="mmImportFile" accept=".json" style="display:none" aria-label="Import JSON file"/>
+          </div>
+        </div>
+        <div class="mm-canvas-wrap" id="mmCanvasWrap">
+          <canvas id="mmCanvas" aria-label="Mind map canvas"></canvas>
+          <div class="mm-node-editor" id="mmNodeEditor" style="display:none">
+            <input type="text" id="mmNodeInput" aria-label="Edit node text" placeholder="Node text…"/>
+            <button id="mmNodeSaveBtn" class="mm-node-save">✓</button>
+          </div>
+        </div>
+        <div class="mm-hint" id="mmHint">Double-click canvas to add root · Double-click node to add child · Click node to select · Drag to move</div>
+      </div>
+    </section>
+
+    <!-- HOW TO -->
+    <section class="mm-section mm-how" id="how-to-use">
+      <div class="mm-container">
+        <div class="mm-tag">Step by step</div>
+        <h2 class="mm-section-title">How to Use the <em>Mind Map Tool</em></h2>
+        <div class="mm-how-grid">
+          <div class="mm-how-card"><div class="mm-step-num">01</div><h3>Create the Root Node</h3><p>Double-click anywhere on the blank canvas to create your central idea — the root node. Type your main topic and press Enter. This becomes the core of your mind map.</p></div>
+          <div class="mm-how-card"><div class="mm-step-num">02</div><h3>Add Child Nodes</h3><p>Double-click on any existing node to add a child connected to it. Keep adding branches to explore subtopics, supporting ideas, or related concepts radiating outward.</p></div>
+          <div class="mm-how-card"><div class="mm-step-num">03</div><h3>Edit & Organize</h3><p>Click once to select a node. Use the toolbar to add siblings, change node colors, collapse branches, or delete nodes. Drag nodes freely to rearrange your layout.</p></div>
+          <div class="mm-how-card"><div class="mm-step-num">04</div><h3>Color-Code Your Ideas</h3><p>Select a node and use the 🎨 Color picker in the toolbar to assign different colors to different branches. Color-coding helps distinguish themes and improves clarity.</p></div>
+          <div class="mm-how-card"><div class="mm-step-num">05</div><h3>Collapse Branches</h3><p>Use the ⊟ Collapse button to hide sub-branches temporarily. This is useful when presenting a high-level overview without the detail of every leaf node.</p></div>
+          <div class="mm-how-card"><div class="mm-step-num">06</div><h3>Export Your Map</h3><p>Export as <strong>PNG</strong> to get a high-quality image of your mind map. Export as <strong>JSON</strong> to save a backup file you can reimport later and continue editing.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="mm-section mm-desc" id="about-mindmap">
+      <div class="mm-container mm-desc-inner">
+        <div class="mm-desc-visual">
+          <div class="mm-desc-card">
+            <div class="mm-mock-map" aria-hidden="true">
+              <div class="mm-mock-root">Central Idea</div>
+              <div class="mm-mock-branches">
+                <div class="mm-mock-branch" style="--bc:#2d6be4">Topic A</div>
+                <div class="mm-mock-branch" style="--bc:#e4632d">Topic B</div>
+                <div class="mm-mock-branch" style="--bc:#2da45e">Topic C</div>
+                <div class="mm-mock-branch" style="--bc:#9b2de4">Topic D</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mm-desc-text">
+          <div class="mm-tag">What is it?</div>
+          <h2 class="mm-section-title">Free Online <em>Mind Map</em> Creator</h2>
+          <p>A mind map is a visual diagram that radiates ideas from a central concept. Invented by Tony Buzan in the 1970s, mind mapping leverages the brain's natural associative thinking — connecting ideas with branches the way neurons connect in the brain.</p>
+          <p>Mind maps are used for brainstorming, project planning, studying, note-taking, decision-making, creative writing, and much more. Research shows that visual diagrams improve memory retention and creative thinking significantly over linear notes.</p>
+          <p>WebNotePad's mind map tool runs entirely in your browser with no software to install. Your maps are auto-saved locally, and you can export them as PNG images or JSON files for backup and sharing.</p>
+          <div class="mm-use-tags">
+            <span>📚 Studying</span><span>💡 Brainstorming</span><span>📋 Planning</span><span>✍️ Writing</span><span>🎯 Goal Setting</span><span>🔬 Research</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mm-section mm-faq" id="faq">
+      <div class="mm-container">
+        <div class="mm-tag">FAQ</div>
+        <h2 class="mm-section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="mm-faq-list">
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">How do I create a new mind map?</button><div class="mm-faq-a"><p>Double-click anywhere on the blank canvas to place your first (root) node. Type your central topic and press Enter. Then double-click that node to start adding child branches.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">Can I drag and reposition nodes?</button><div class="mm-faq-a"><p>Yes. Click and drag any node to reposition it anywhere on the canvas. The connecting lines automatically update to follow the new position.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">How do I delete a node?</button><div class="mm-faq-a"><p>Click a node to select it, then click the ✕ Delete Node button in the toolbar. Deleting a node also deletes all of its child nodes. Use ↩ Undo if you delete by mistake.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">Is my mind map saved automatically?</button><div class="mm-faq-a"><p>Yes. Your mind map is automatically saved to your browser's local storage every time you make a change. It will still be there when you return to the page.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">How do I export my mind map as an image?</button><div class="mm-faq-a"><p>Click the 📷 Export PNG button in the toolbar. Your entire mind map will be downloaded as a high-resolution PNG image file that you can use in presentations, documents, or share with others.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">What is the JSON export/import for?</button><div class="mm-faq-a"><p>JSON export saves your complete mind map structure (all nodes, positions, colors) to a file. You can use Import JSON to reload a saved map later, even after clearing your browser storage.</p></div></div>
+          <div class="mm-faq-item"><button class="mm-faq-q" aria-expanded="false">Does the mind map tool work on mobile?</button><div class="mm-faq-a"><p>Yes. The mind map tool works on mobile browsers with touch support. Tap to select nodes, double-tap to add children, and drag to move nodes. For complex maps, a larger screen provides a better experience.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer-root"></div>
+  <div class="mm-toast" id="mmToast" role="alert" aria-live="polite"></div>
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="mindmap.js"></script>
+</body>
+</html>

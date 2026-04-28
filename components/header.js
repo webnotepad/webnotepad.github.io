@@ -14,8 +14,8 @@
         <nav class="header-nav" aria-label="Main navigation">
           <a href="/#notepad" class="nav-link">Notepad</a>
           <a href="/#features" class="nav-link">Features</a>
-          <a href="/#how-it-works" class="nav-link">How it works</a>
-          <a href="/#use-cases" class="nav-link">Use Cases</a>
+          <a href="/online-diary" class="nav-link">Diary</a>
+          <a href="/mindmap-online" class="nav-link">MindMap</a>
           <a href="/#faq" class="nav-link">FAQ</a>
           <a href="/about" class="nav-link">About</a>          
         </nav>
@@ -34,8 +34,8 @@
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="#notepad" class="nav-link">📝 Notepad</a>
       <a href="#features" class="nav-link">⚡ Features</a>
-      <a href="#how-it-works" class="nav-link">🔄 How it works</a>
-      <a href="#use-cases" class="nav-link">👥 Use Cases</a>
+      <a href="online-diary" class="nav-link">🔄 Diary</a>
+      <a href="mindmap-online" class="nav-link">👥 MindMap</a>
       <a href="#faq" class="nav-link">❓ FAQ</a>
       <a href="#about" class="nav-link">ℹ️ About</a>
       <a href="#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>

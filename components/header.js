@@ -16,7 +16,7 @@
           <a href="/#features" class="nav-link">Features</a>
           <a href="/online-diary" class="nav-link">Diary</a>
           <a href="/mindmap-online" class="nav-link">MindMap</a>
-          <a href="/#faq" class="nav-link">FAQ</a>
+          <a href="/list-maker" class="nav-link">List Maker</a>
           <a href="/about" class="nav-link">About</a>          
         </nav>
 
@@ -36,7 +36,7 @@
       <a href="#features" class="nav-link">⚡ Features</a>
       <a href="online-diary" class="nav-link">🔄 Diary</a>
       <a href="mindmap-online" class="nav-link">👥 MindMap</a>
-      <a href="#faq" class="nav-link">❓ FAQ</a>
+      <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="#about" class="nav-link">ℹ️ About</a>
       <a href="#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>
     </nav>

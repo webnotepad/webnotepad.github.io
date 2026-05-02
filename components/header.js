@@ -15,7 +15,7 @@
           <a href="/#notepad" class="nav-link">Notepad</a>
           <a href="/#features" class="nav-link">Features</a>
           <a href="/online-diary" class="nav-link">Diary</a>
-          <a href="/mindmap-online" class="nav-link">MindMap</a>
+          <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
           <a href="/about" class="nav-link">About</a>          
         </nav>
@@ -35,7 +35,7 @@
       <a href="#notepad" class="nav-link">📝 Notepad</a>
       <a href="#features" class="nav-link">⚡ Features</a>
       <a href="online-diary" class="nav-link">🔄 Diary</a>
-      <a href="mindmap-online" class="nav-link">👥 MindMap</a>
+      <a href="mindmap" class="nav-link">👥 MindMap</a>
       <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="#about" class="nav-link">ℹ️ About</a>
       <a href="#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>

@@ -31,6 +31,7 @@
               <li><a href="/#faq">FAQ</a></li>
               <li><a href="/online-diary">Online Diary</a></li>
               <li><a href="/mindmap-online">MindMap Online</a></li>
+              <li><a href="/list-maker">List Maker</a></li>
               </ul>
           </div>
           <div class="footer-col">

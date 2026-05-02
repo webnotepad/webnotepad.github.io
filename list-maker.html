@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Online List Maker – Grocery, Shopping, To-Do & Custom Lists | WebNotePad</title>
+  <meta name="description" content="Create free online lists instantly — grocery lists, shopping lists, to-do lists, task lists, checklists, mailing lists and custom lists. No signup needed. Auto-saved in your browser." />
+  <meta name="keywords" content="list maker, online list maker, grocery list maker, shopping list maker, to-do list maker, task list, checklist maker, mailing list, free list maker, online checklist, list organizer" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/list-maker" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/list-maker" />
+  <meta property="og:title" content="Free Online List Maker – Grocery, Shopping, To-Do & Custom Lists" />
+  <meta property="og:description" content="Make grocery lists, shopping lists, checklists and more online for free. No signup. Auto-saved." />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online List Maker | WebNotePad" />
+  <meta name="twitter:description" content="Create any kind of list online for free — grocery, shopping, to-do, task, mailing and custom lists." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Online List Maker by WebNotePad",
+    "url": "https://webnotepad.github.io/list-maker",
+    "description": "A free online list maker supporting grocery lists, shopping lists, to-do lists, task lists, checklists, mailing lists and custom lists. Auto-saved in browser, no signup required.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Grocery list maker", "Shopping list maker", "To-do list", "Task list",
+      "Checklist", "Mailing list", "Custom list", "Drag and drop reordering",
+      "Priority levels", "Due dates", "Tags", "Export to TXT and HTML",
+      "Dark mode", "Auto-save", "Search and filter"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the online list maker free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, WebNotePad's list maker is completely free with no hidden costs, no ads, and no account required." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my lists saved automatically?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. All your lists and items are auto-saved to your browser's local storage every time you make a change. They'll be there when you come back." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I create multiple lists?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can create unlimited lists of any type — grocery, shopping, to-do, checklist, mailing list, task list, or custom — and switch between them instantly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my lists?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Export any list as a TXT or HTML file with one click. You can also share lists by copying them to your clipboard." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I reorder list items?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Drag and drop any list item to reorder it. You can also sort by priority, due date, or completion status using the sort controls." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use the Online List Maker",
+    "description": "Create, organize and manage any kind of list online for free.",
+    "step": [
+      { "@type": "HowToStep", "name": "Choose a List Type", "text": "Select from Grocery, Shopping, To-Do, Task, Checklist, Mailing, or Custom list templates." },
+      { "@type": "HowToStep", "name": "Add Items", "text": "Type your item in the input field and press Enter or click Add. Set priority, due date and notes per item." },
+      { "@type": "HowToStep", "name": "Organize Your List", "text": "Drag items to reorder, check off completed items, filter by status, and search by keyword." },
+      { "@type": "HowToStep", "name": "Export or Share", "text": "Export your list as TXT or HTML, or copy it to clipboard and share it anywhere." }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       LIST MAKER — Design System
+       Aesthetic: Structured editorial with punchy accents
+    ═══════════════════════════════════════════════════ */
+    :root {
+      --bg:        #f7f5f0;
+      --bg-warm:   #efece4;
+      --surface:   #ffffff;
+      --border:    #e0dbd1;
+      --border-2:  #ccc8bc;
+      --ink:       #1e1b14;
+      --ink-soft:  #4a4438;
+      --ink-muted: #8a8070;
+      --accent:    #e05c1a;
+      --accent-lt: #f47a40;
+      --accent-pl: #fdeee6;
+      --green:     #1f7a4a;
+      --green-pl:  #e6f5ee;
+      --blue:      #1a5fe0;
+      --blue-pl:   #e6eeff;
+      --gold:      #b8860b;
+      --gold-pl:   #fdf5dc;
+      --red:       #d12e2e;
+      --red-pl:    #fde8e8;
+      --purple:    #6b21a8;
+      --purple-pl: #f5e8ff;
+
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --r:    6px;
+      --r-lg: 14px;
+      --r-xl: 20px;
+      --sh:   0 2px 12px rgba(30,27,20,.08);
+      --sh-lg:0 8px 32px rgba(30,27,20,.13);
+      --t:    0.18s cubic-bezier(.4,0,.2,1);
+
+      --sidebar-w: 272px;
+    }
+
+    body.dark {
+      --bg:        #151310;
+      --bg-warm:   #1c1915;
+      --surface:   #201d18;
+      --border:    #2e2b24;
+      --border-2:  #3d3930;
+      --ink:       #f0ebe0;
+      --ink-soft:  #c4b89e;
+      --ink-muted: #7a7060;
+      --accent-pl: #2d1a0c;
+      --green-pl:  #0a1f14;
+      --blue-pl:   #0c1430;
+      --gold-pl:   #1e1800;
+      --red-pl:    #2a0a0a;
+      --purple-pl: #1a0a2e;
+      --sh:        0 2px 12px rgba(0,0,0,.35);
+      --sh-lg:     0 8px 32px rgba(0,0,0,.5);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      transition: background var(--t), color var(--t);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+    input, textarea, select { font-family: var(--font-body); }
+    ul { list-style: none; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 3px; }
+
+    /* ══════════════════════════════════
+       PAGE WRAPPER
+    ══════════════════════════════════ */
+    .page-wrap { display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ══════════════════════════════════
+       TOP BAR
+    ══════════════════════════════════ */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: var(--sh);
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: .85rem; font-weight: 600;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+    .brand-sep { color: var(--border-2); margin: 0 4px; }
+    .brand-tool { font-size: .85rem; font-weight: 600; color: var(--ink-muted); font-family: var(--font-mono); }
+    .topbar-right { display: flex; align-items: center; gap: 8px; }
+    .tb-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--r);
+      font-size: .78rem; font-weight: 600;
+      color: var(--ink-muted);
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      transition: all var(--t);
+      font-family: var(--font-mono);
+    }
+    .tb-btn:hover { color: var(--ink); background: var(--border); }
+    .tb-btn-accent {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .tb-btn-accent:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
+    .hamburger { display: none; }
+
+    /* ══════════════════════════════════
+       MAIN LAYOUT
+    ══════════════════════════════════ */
+    .main-layout {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ══════════════════════════════════
+       SIDEBAR
+    ══════════════════════════════════ */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 58px);
+      position: sticky;
+      top: 58px;
+      overflow-y: auto;
+      transition: transform var(--t);
+    }
+    .sidebar-head {
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-head-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .sidebar-title {
+      font-family: var(--font-mono);
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .new-list-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 10px;
+      border-radius: var(--r);
+      font-size: .75rem; font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      transition: background var(--t);
+      font-family: var(--font-mono);
+    }
+    .new-list-btn:hover { background: var(--accent-lt); }
+    .list-type-btns {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .type-quick-btn {
+      padding: 5px 4px;
+      border-radius: var(--r);
+      font-size: .7rem; font-weight: 600;
+      color: var(--ink-muted);
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all var(--t);
+      cursor: pointer;
+      font-family: var(--font-mono);
+    }
+    .type-quick-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+    .lists-scroll { flex: 1; overflow-y: auto; padding: 8px; }
+    .list-item-row {
+      display: flex; align-items: center; gap: 6px;
+      padding: 9px 10px;
+      border-radius: var(--r);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all var(--t);
+      margin-bottom: 2px;
+      position: relative;
+    }
+    .list-item-row:hover { background: var(--bg-warm); }
+    .list-item-row.active {
+      background: var(--accent-pl);
+      border-color: var(--accent);
+    }
+    .list-icon {
+      font-size: 1rem; flex-shrink: 0;
+      width: 24px; text-align: center;
+    }
+    .list-meta { flex: 1; min-width: 0; }
+    .list-name {
+      font-size: .83rem; font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .list-item-row.active .list-name { color: var(--accent); }
+    .list-count {
+      font-size: .68rem; color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+    .list-del-btn {
+      opacity: 0; font-size: .72rem; color: var(--ink-muted);
+      padding: 2px 5px; border-radius: 4px;
+      transition: all var(--t); flex-shrink: 0;
+    }
+    .list-item-row:hover .list-del-btn { opacity: 1; }
+    .list-del-btn:hover { background: var(--red-pl); color: var(--red); }
+    .sidebar-stats {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      font-size: .7rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      display: flex; flex-direction: column; gap: 3px;
+    }
+
+    /* ══════════════════════════════════
+       CONTENT PANEL
+    ══════════════════════════════════ */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow-y: auto;
+      height: calc(100vh - 58px);
+    }
+
+    /* ── Editor Panel ── */
+    .editor-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* List Header */
+    .list-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px 14px;
+    }
+    .list-header-row1 {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .list-type-badge {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: .7rem; font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    .list-title-input {
+      flex: 1;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--ink);
+      background: transparent;
+      border: none; outline: none;
+      min-width: 0;
+    }
+    .list-title-input::placeholder { color: var(--border-2); }
+    .list-header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .hdr-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 6px 11px;
+      border-radius: var(--r);
+      font-size: .75rem; font-weight: 600;
+      color: var(--ink-muted);
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      transition: all var(--t);
+      white-space: nowrap;
+      font-family: var(--font-mono);
+    }
+    .hdr-btn:hover { color: var(--ink); background: var(--border); }
+    .list-header-row2 {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .list-desc-input {
+      flex: 1;
+      font-size: .85rem;
+      color: var(--ink-soft);
+      background: transparent;
+      border: none; outline: none;
+      min-width: 200px;
+    }
+    .list-desc-input::placeholder { color: var(--border-2); }
+    .filter-group { display: flex; align-items: center; gap: 4px; }
+    .filter-select {
+      padding: 4px 8px;
+      border-radius: var(--r);
+      border: 1px solid var(--border);
+      background: var(--bg-warm);
+      color: var(--ink-soft);
+      font-size: .75rem;
+      outline: none;
+      font-family: var(--font-mono);
+      transition: border-color var(--t);
+    }
+    .filter-select:focus { border-color: var(--accent); }
+    .search-input {
+      padding: 4px 10px;
+      border-radius: var(--r);
+      border: 1px solid var(--border);
+      background: var(--bg-warm);
+      color: var(--ink);
+      font-size: .78rem;
+      outline: none;
+      width: 160px;
+      font-family: var(--font-mono);
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-pl); }
+
+    /* ── Add Item Bar ── */
+    .add-bar {
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .add-main {
+      display: flex; align-items: center; gap: 8px; flex: 1; min-width: 240px;
+    }
+    .add-input {
+      flex: 1;
+      padding: 9px 14px;
+      border-radius: var(--r);
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: .9rem;
+      outline: none;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .add-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-pl); }
+    .add-input::placeholder { color: var(--border-2); }
+    .add-btn {
+      padding: 9px 18px;
+      border-radius: var(--r);
+      background: var(--accent);
+      color: #fff;
+      font-size: .85rem; font-weight: 700;
+      transition: all var(--t);
+      white-space: nowrap;
+      font-family: var(--font-mono);
+    }
+    .add-btn:hover { background: var(--accent-lt); transform: translateY(-1px); }
+    .add-extras { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .add-extra-field {
+      padding: 7px 10px;
+      border-radius: var(--r);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: .78rem;
+      outline: none;
+      font-family: var(--font-mono);
+      transition: border-color var(--t);
+    }
+    .add-extra-field:focus { border-color: var(--accent); }
+    .priority-select { width: 110px; }
+
+    /* ── List Body ── */
+    .list-body {
+      flex: 1;
+      padding: 16px 24px;
+      overflow-y: auto;
+    }
+    .empty-state {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 280px;
+      text-align: center;
+      gap: 12px;
+    }
+    .empty-icon { font-size: 3rem; opacity: .25; }
+    .empty-title { font-size: 1rem; font-weight: 600; color: var(--ink-muted); }
+    .empty-sub { font-size: .85rem; color: var(--ink-muted); max-width: 280px; line-height: 1.6; }
+
+    /* Progress Bar */
+    .progress-wrap {
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .progress-track {
+      flex: 1; height: 6px;
+      background: var(--border);
+      border-radius: 3px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 3px;
+      transition: width .4s cubic-bezier(.4,0,.2,1);
+    }
+    .progress-label {
+      font-size: .72rem; font-weight: 600;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    /* Sections */
+    .items-section-label {
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      padding: 10px 0 6px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+
+    /* ── List Item ── */
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--r);
+      border: 1px solid transparent;
+      background: var(--surface);
+      margin-bottom: 4px;
+      transition: all var(--t);
+      cursor: grab;
+      position: relative;
+      animation: itemIn .2s ease both;
+    }
+    @keyframes itemIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .list-item:hover { border-color: var(--border); box-shadow: var(--sh); }
+    .list-item.dragging { opacity: .4; border-color: var(--accent); box-shadow: var(--sh-lg); }
+    .list-item.drag-over { border-color: var(--accent); background: var(--accent-pl); transform: scale(1.01); }
+    .list-item.done { opacity: .55; }
+    .drag-handle {
+      font-size: .85rem; color: var(--border-2);
+      padding-top: 2px; flex-shrink: 0;
+      cursor: grab; user-select: none;
+      transition: color var(--t);
+    }
+    .list-item:hover .drag-handle { color: var(--ink-muted); }
+
+    /* Checkbox */
+    .item-check {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 5px;
+      border: 2px solid var(--border-2);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all var(--t);
+      margin-top: 1px;
+    }
+    .item-check:hover { border-color: var(--green); }
+    .item-check.checked {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .item-check.checked::after { content: '✓'; font-size: .72rem; font-weight: 700; color: #fff; }
+
+    /* Item content */
+    .item-content { flex: 1; min-width: 0; }
+    .item-text {
+      font-size: .9rem; font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      outline: none;
+      border: none;
+      background: transparent;
+      width: 100%;
+      resize: none;
+      font-family: var(--font-body);
+      transition: color var(--t);
+    }
+    .list-item.done .item-text { text-decoration: line-through; color: var(--ink-muted); }
+    .item-meta-row {
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 5px; flex-wrap: wrap;
+    }
+    .item-tag {
+      padding: 2px 7px;
+      border-radius: 100px;
+      font-size: .65rem; font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: .04em;
+    }
+    .priority-high   { background: var(--red-pl);    color: var(--red); }
+    .priority-medium { background: var(--gold-pl);   color: var(--gold); }
+    .priority-low    { background: var(--green-pl);  color: var(--green); }
+    .priority-none   { background: var(--bg-warm);   color: var(--ink-muted); }
+    .item-due {
+      font-size: .68rem; color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+    .item-due.overdue { color: var(--red); font-weight: 700; }
+    .item-note {
+      font-size: .78rem; color: var(--ink-soft);
+      font-style: italic; margin-top: 4px;
+      line-height: 1.5;
+    }
+    .item-qty {
+      font-size: .7rem; font-weight: 700;
+      color: var(--blue);
+      font-family: var(--font-mono);
+      background: var(--blue-pl);
+      padding: 2px 6px; border-radius: 4px;
+    }
+
+    /* Item actions */
+    .item-actions {
+      display: flex; align-items: center; gap: 2px;
+      flex-shrink: 0; opacity: 0;
+      transition: opacity var(--t);
+    }
+    .list-item:hover .item-actions { opacity: 1; }
+    .item-act-btn {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 5px;
+      font-size: .78rem;
+      color: var(--ink-muted);
+      transition: all var(--t);
+    }
+    .item-act-btn:hover { background: var(--bg-warm); color: var(--ink); }
+    .item-act-btn.danger:hover { background: var(--red-pl); color: var(--red); }
+    .item-act-btn.edit:hover { background: var(--blue-pl); color: var(--blue); }
+
+    /* ── List Status Bar ── */
+    .list-statusbar {
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      padding: 7px 24px;
+      display: flex; align-items: center; gap: 14px;
+      font-size: .7rem; font-family: var(--font-mono);
+      color: var(--ink-muted);
+      flex-wrap: wrap;
+    }
+    .status-sep { color: var(--border-2); }
+    .status-done { color: var(--green); }
+
+    /* ── Note Modal / Edit Panel ── */
+    .edit-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(30,27,20,.55);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .edit-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      width: 100%; max-width: 480px;
+      box-shadow: var(--sh-lg);
+      overflow: hidden;
+      animation: modalIn .2s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: scale(.95) translateY(-12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .edit-modal-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 700; font-size: .9rem;
+    }
+    .modal-close {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 5px; color: var(--ink-muted);
+      transition: all var(--t);
+    }
+    .modal-close:hover { background: var(--red-pl); color: var(--red); }
+    .edit-modal-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .edit-field-label {
+      font-size: .72rem; font-weight: 700;
+      color: var(--ink-muted); font-family: var(--font-mono);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .edit-input {
+      width: 100%; padding: 8px 12px;
+      border-radius: var(--r);
+      border: 1.5px solid var(--border);
+      background: var(--bg-warm);
+      color: var(--ink); font-size: .88rem;
+      outline: none; transition: border-color var(--t);
+    }
+    .edit-input:focus { border-color: var(--accent); }
+    .edit-textarea {
+      resize: vertical; min-height: 80px; line-height: 1.6;
+    }
+    .edit-row { display: flex; gap: 10px; }
+    .edit-row > div { flex: 1; }
+    .edit-modal-foot {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: flex-end; gap: 8px;
+    }
+    .modal-btn {
+      padding: 8px 18px;
+      border-radius: var(--r);
+      font-size: .82rem; font-weight: 700;
+      transition: all var(--t);
+      font-family: var(--font-mono);
+    }
+    .modal-btn-ghost {
+      background: var(--bg-warm); color: var(--ink-soft);
+      border: 1px solid var(--border);
+    }
+    .modal-btn-ghost:hover { background: var(--border); }
+    .modal-btn-primary {
+      background: var(--accent); color: #fff;
+    }
+    .modal-btn-primary:hover { background: var(--accent-lt); }
+
+    /* New List Modal */
+    .new-list-modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(30,27,20,.55);
+      backdrop-filter: blur(4px);
+      z-index: 600;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .new-list-modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      width: 100%; max-width: 520px;
+      box-shadow: var(--sh-lg);
+      overflow: hidden;
+      animation: modalIn .2s ease;
+    }
+    .new-list-modal-head {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .new-list-modal-head h2 { font-family: var(--font-display); font-size: 1.25rem; }
+    .template-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 8px; padding: 18px 22px;
+    }
+    .template-card {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 8px;
+      border-radius: var(--r);
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all var(--t);
+      text-align: center;
+    }
+    .template-card:hover, .template-card.selected {
+      border-color: var(--accent);
+      background: var(--accent-pl);
+    }
+    .template-card .t-icon { font-size: 1.5rem; }
+    .template-card .t-name { font-size: .72rem; font-weight: 700; color: var(--ink-soft); font-family: var(--font-mono); }
+    .template-card.selected .t-name { color: var(--accent); }
+    .new-list-form { padding: 0 22px 18px; display: flex; flex-direction: column; gap: 12px; }
+    .new-list-foot { padding: 14px 22px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
+
+    /* ══════════════════════════════════
+       TOAST
+    ══════════════════════════════════ */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--ink); color: var(--bg);
+      padding: 11px 18px;
+      border-radius: var(--r);
+      font-size: .82rem; font-weight: 600;
+      font-family: var(--font-mono);
+      box-shadow: var(--sh-lg);
+      z-index: 9999; pointer-events: none;
+      transform: translateY(60px); opacity: 0;
+      transition: all .28s cubic-bezier(.4,0,.2,1);
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ══════════════════════════════════
+       INFO SECTIONS (below app)
+    ══════════════════════════════════ */
+    .info-sections { background: var(--bg); }
+
+    /* Section commons */
+    .section { padding: 80px 0; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--ink); line-height: 1.2; margin-bottom: 48px;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-sub {
+      font-size: 1rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.75; margin-bottom: 48px;
+    }
+
+    /* ── About / Description ── */
+    .about-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .about-grid {
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center;
+    }
+    .about-text p {
+      font-size: .97rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 16px;
+    }
+    .about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .about-chip {
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: .75rem; font-weight: 700;
+      font-family: var(--font-mono);
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+      background: var(--bg-warm);
+      transition: all var(--t);
+    }
+    .about-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+    .about-visual { display: flex; align-items: center; justify-content: center; }
+    .about-card {
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 28px;
+      width: 100%; max-width: 340px;
+      box-shadow: var(--sh-lg);
+    }
+    .about-card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .about-card-items { display: flex; flex-direction: column; gap: 8px; }
+    .about-card-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 10px;
+      border-radius: var(--r);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: .82rem; color: var(--ink-soft);
+    }
+    .about-card-item .aci-check {
+      width: 18px; height: 18px; border-radius: 4px;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .62rem; color: #fff; flex-shrink: 0;
+    }
+    .about-card-item .aci-check.un { background: var(--border); }
+
+    /* ── Types Section ── */
+    .types-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .types-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .type-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      transition: all var(--t);
+      position: relative; overflow: hidden;
+    }
+    .type-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-color, var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--t);
+    }
+    .type-card:hover { box-shadow: var(--sh-lg); transform: translateY(-3px); }
+    .type-card:hover::before { transform: scaleX(1); }
+    .type-card-icon { font-size: 1.75rem; margin-bottom: 12px; }
+    .type-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 400;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .type-card p { font-size: .85rem; color: var(--ink-muted); line-height: 1.65; }
+    .type-card-btn {
+      margin-top: 14px;
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .73rem; font-weight: 700;
+      color: var(--accent); font-family: var(--font-mono);
+      transition: gap var(--t);
+    }
+    .type-card:hover .type-card-btn { gap: 8px; }
+
+    /* ── How To Section ── */
+    .howto-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .howto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .howto-card {
+      padding: 28px;
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      transition: all var(--t);
+    }
+    .howto-card:hover { box-shadow: var(--sh); transform: translateY(-2px); }
+    .howto-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem; font-weight: 400;
+      color: var(--border); line-height: 1; margin-bottom: 12px;
+    }
+    .howto-card h3 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .howto-card p { font-size: .875rem; color: var(--ink-soft); line-height: 1.65; }
+
+    /* ── Features Section ── */
+    .features-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .features-masonry {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    .feature-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      transition: all var(--t);
+    }
+    .feature-item:hover { border-color: var(--accent); box-shadow: var(--sh); }
+    .feature-icon { font-size: 1.4rem; margin-bottom: 10px; }
+    .feature-item h4 { font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+    .feature-item p { font-size: .78rem; color: var(--ink-muted); line-height: 1.55; }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 900px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--bg-warm);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      padding: 15px 18px;
+      font-size: .88rem; font-weight: 600;
+      color: var(--ink);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      transition: background var(--t);
+    }
+    .faq-q::after { content: '+'; font-size: 1.1rem; font-weight: 300; color: var(--ink-muted); transition: transform var(--t); }
+    .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--accent); }
+    .faq-q:hover { background: var(--border); }
+    .faq-a { display: none; padding: 0 18px 14px; }
+    .faq-a p { font-size: .85rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* ── CTA Strip ── */
+    .cta-strip {
+      background: var(--ink);
+      padding: 56px 0;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--bg); margin-bottom: 14px;
+    }
+    .cta-strip p { font-size: .95rem; color: rgba(240,235,224,.55); margin-bottom: 28px; }
+    .cta-strip-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px;
+      background: var(--accent); color: #fff;
+      border-radius: var(--r);
+      font-size: .9rem; font-weight: 700;
+      transition: all var(--t);
+      font-family: var(--font-mono);
+    }
+    .cta-strip-btn:hover { background: var(--accent-lt); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════
+       SCROLL ANIMATION
+    ══════════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .types-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-masonry { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      :root { --sidebar-w: 0px; }
+      .sidebar {
+        position: fixed; left: 0; top: 58px;
+        height: calc(100vh - 58px);
+        width: 280px; min-width: 280px;
+        z-index: 300;
+        transform: translateX(-100%);
+        box-shadow: var(--sh-lg);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .content { height: calc(100vh - 58px); }
+      .hamburger { display: flex; }
+      .howto-grid { grid-template-columns: repeat(2, 1fr); }
+      .types-grid { grid-template-columns: 1fr; }
+      .add-extras { width: 100%; }
+      .list-header-actions { flex-wrap: wrap; }
+      .brand-tool { display: none; }
+      .topbar-right { gap: 4px; }
+      .tb-btn span { display: none; }
+    }
+    @media (max-width: 540px) {
+      .howto-grid, .features-masonry { grid-template-columns: 1fr; }
+      .template-grid { grid-template-columns: repeat(4, 1fr); }
+      .section-inner { padding: 0 20px; }
+      .list-header { padding: 14px 16px 10px; }
+      .add-bar { padding: 10px 16px; }
+      .list-body { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+<div class="page-wrap">
+
+  <!-- ═══════════ TOP BAR ═══════════ -->
+  <header class="topbar" role="banner">
+    <div class="topbar-brand">
+      <div class="brand-mark">LM</div>
+      <span class="brand-name">WebNotePad</span>
+      <span class="brand-sep">·</span>
+      <span class="brand-tool">List Maker</span>
+    </div>
+    <div class="topbar-right">
+      <button class="hamburger tb-btn" id="hamburgerBtn" aria-label="Toggle sidebar" aria-expanded="false">☰ <span>Lists</span></button>
+      <button class="tb-btn" id="exportTxtBtn" aria-label="Export as TXT">⬇ <span>TXT</span></button>
+      <button class="tb-btn" id="exportHtmlBtn" aria-label="Export as HTML">⬇ <span>HTML</span></button>
+      <button class="tb-btn" id="copyListBtn" aria-label="Copy list">⎘ <span>Copy</span></button>
+      <button class="tb-btn" id="clearDoneBtn" aria-label="Clear completed">✕ <span>Done</span></button>
+      <button class="tb-btn" id="darkModeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+      <button class="tb-btn tb-btn-accent" id="topNewListBtn" aria-label="New list">＋ <span>New List</span></button>
+    </div>
+  </header>
+
+  <!-- ═══════════ MAIN ═══════════ -->
+  <div class="main-layout">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="sidebar" id="sidebar" role="complementary" aria-label="Lists panel">
+      <div class="sidebar-head">
+        <div class="sidebar-head-row">
+          <span class="sidebar-title">My Lists</span>
+          <button class="new-list-btn" id="newListBtn" aria-label="Create new list">＋ New</button>
+        </div>
+        <div class="list-type-btns" role="group" aria-label="Quick create list type">
+          <button class="type-quick-btn" data-type="grocery" aria-label="New grocery list">🛒 Grocery</button>
+          <button class="type-quick-btn" data-type="shopping" aria-label="New shopping list">🛍 Shopping</button>
+          <button class="type-quick-btn" data-type="todo" aria-label="New to-do list">✅ To-Do</button>
+          <button class="type-quick-btn" data-type="task" aria-label="New task list">📋 Tasks</button>
+          <button class="type-quick-btn" data-type="checklist" aria-label="New checklist">☑ Check</button>
+          <button class="type-quick-btn" data-type="mailing" aria-label="New mailing list">📬 Mailing</button>
+          <button class="type-quick-btn" data-type="bucket" aria-label="New bucket list">🪣 Bucket</button>
+          <button class="type-quick-btn" data-type="custom" aria-label="New custom list">✦ Custom</button>
+        </div>
+      </div>
+      <div class="lists-scroll" id="listsSidebar" role="listbox" aria-label="Your lists"></div>
+      <div class="sidebar-stats" id="sidebarStats" aria-label="List statistics"></div>
+    </aside>
+
+    <!-- ═══ CONTENT ═══ -->
+    <main class="content" id="mainContent" role="main">
+      <div class="editor-panel" id="editorPanel">
+
+        <!-- List Header -->
+        <div class="list-header">
+          <div class="list-header-row1">
+            <div class="list-type-badge" id="listTypeBadge">✦ List</div>
+            <input type="text" class="list-title-input" id="listTitleInput" placeholder="List title…" aria-label="List title" autocomplete="off"/>
+            <div class="list-header-actions">
+              <button class="hdr-btn" id="sortBtn" aria-label="Sort items" aria-haspopup="true">⇅ Sort</button>
+              <button class="hdr-btn" id="selectAllBtn" aria-label="Check all items">☑ All</button>
+              <button class="hdr-btn" id="uncheckAllBtn" aria-label="Uncheck all items">☐ None</button>
+            </div>
+          </div>
+          <div class="list-header-row2">
+            <input type="text" class="list-desc-input" id="listDescInput" placeholder="Add a description…" aria-label="List description" autocomplete="off"/>
+            <div class="filter-group" role="group" aria-label="Filter and search">
+              <select class="filter-select" id="filterStatus" aria-label="Filter by status">
+                <option value="all">All items</option>
+                <option value="active">Active only</option>
+                <option value="done">Completed</option>
+              </select>
+              <select class="filter-select" id="filterPriority" aria-label="Filter by priority">
+                <option value="all">All priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+              <input type="search" class="search-input" id="searchInput" placeholder="Search items…" aria-label="Search items" autocomplete="off"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Bar -->
+        <div class="add-bar" role="form" aria-label="Add new item">
+          <div class="add-main">
+            <input type="text" class="add-input" id="addInput" placeholder="Add an item… (press Enter)" aria-label="New item text" autocomplete="off"/>
+            <button class="add-btn" id="addItemBtn" aria-label="Add item">＋ Add</button>
+          </div>
+          <div class="add-extras">
+            <select class="add-extra-field priority-select" id="addPriority" aria-label="Item priority">
+              <option value="none">No Priority</option>
+              <option value="high">🔴 High</option>
+              <option value="medium">🟡 Medium</option>
+              <option value="low">🟢 Low</option>
+            </select>
+            <input type="date" class="add-extra-field" id="addDueDate" aria-label="Due date" title="Due date"/>
+            <input type="text" class="add-extra-field" id="addQty" placeholder="Qty…" aria-label="Quantity" style="width:70px" autocomplete="off"/>
+            <input type="text" class="add-extra-field" id="addNote" placeholder="Note…" aria-label="Item note" style="width:140px" autocomplete="off"/>
+          </div>
+        </div>
+
+        <!-- List Body -->
+        <div class="list-body" id="listBody" aria-label="List items" aria-live="polite">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">📋</div>
+            <div class="empty-title">Your list is empty</div>
+            <div class="empty-sub">Add your first item using the bar above, or select a list from the sidebar.</div>
+          </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="list-statusbar" aria-live="polite" aria-atomic="true">
+          <span id="statusTotal">0 items</span>
+          <span class="status-sep">|</span>
+          <span id="statusDone" class="status-done">0 done</span>
+          <span class="status-sep">|</span>
+          <span id="statusRemaining">0 remaining</span>
+          <span class="status-sep">|</span>
+          <span id="statusSave">● Saved</span>
+        </div>
+      </div>
+    </main>
+  </div><!-- /.main-layout -->
+
+
+  <!-- ═══════════════════════════════════════════
+       INFORMATIONAL SECTIONS
+  ═══════════════════════════════════════════ -->
+  <div class="info-sections">
+
+    <!-- ── ABOUT / DESCRIPTION ── -->
+    <section class="section about-section" id="about" aria-label="About List Maker">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <div class="section-tag">What is it?</div>
+            <h2 class="section-title">The Free Online<br/><em>List Maker</em> That Does It All</h2>
+            <p>WebNotePad's free online list maker is a powerful, flexible tool for creating and managing any kind of list — from a simple grocery list before your weekly shop, to a complex multi-priority task list for a work project.</p>
+            <p>Unlike basic text notes, a proper list maker lets you check off items as you complete them, assign priorities, set due dates, filter and search through items, drag to reorder, and track your overall progress with a visual progress bar. Every feature you'd expect from a premium list app, completely free.</p>
+            <p>All your lists are saved automatically to your browser's local storage — they're private, they're fast, and they're always there when you come back. No account required, no email verification, no subscription. Just open the page and start making lists.</p>
+            <div class="about-chips">
+              <span class="about-chip">🛒 Grocery List</span>
+              <span class="about-chip">🛍 Shopping List</span>
+              <span class="about-chip">✅ To-Do List</span>
+              <span class="about-chip">📋 Task List</span>
+              <span class="about-chip">☑ Checklist</span>
+              <span class="about-chip">📬 Mailing List</span>
+              <span class="about-chip">🪣 Bucket List</span>
+              <span class="about-chip">✦ Custom List</span>
+            </div>
+          </div>
+          <div class="about-visual reveal">
+            <div class="about-card">
+              <div class="about-card-title">🛒 Weekly Groceries
+                <span style="margin-left:auto;font-size:.7rem;font-family:var(--font-mono);color:var(--green)">3/5 done</span>
+              </div>
+              <div class="progress-wrap" style="margin-bottom:16px">
+                <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+                <span class="progress-label">60%</span>
+              </div>
+              <div class="about-card-items">
+                <div class="about-card-item"><div class="aci-check">✓</div> Organic milk × 2</div>
+                <div class="about-card-item"><div class="aci-check">✓</div> Sourdough bread</div>
+                <div class="about-card-item"><div class="aci-check">✓</div> Free range eggs × 12</div>
+                <div class="about-card-item"><div class="aci-check un"></div> Greek yogurt × 3</div>
+                <div class="about-card-item"><div class="aci-check un"></div> Parmesan cheese</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIST TYPES ── -->
+    <section class="section types-section" id="list-types" aria-label="List types">
+      <div class="section-inner">
+        <div class="section-tag">Everything you need</div>
+        <h2 class="section-title">Eight Powerful <em>List Types</em></h2>
+        <p class="section-sub">Every type of list you could need — each with its own template, icon, and purpose-built workflow. Create as many as you like, switch between them instantly.</p>
+        <div class="types-grid">
+          <div class="type-card reveal" style="--card-color:#e05c1a">
+            <div class="type-card-icon">🛒</div>
+            <h3>Grocery List Maker</h3>
+            <p>Plan your weekly shop with a digital grocery list. Add items with quantities, check them off as you shop, and export your list to take to the store. Never forget an item again.</p>
+            <button class="type-card-btn" onclick="quickCreateList('grocery')">Create Grocery List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#1a5fe0">
+            <div class="type-card-icon">🛍</div>
+            <h3>Shopping List Maker</h3>
+            <p>Track everything you plan to buy — clothes, electronics, gifts or household items. Assign priorities so you know what's essential and what can wait. Perfect for wishlists too.</p>
+            <button class="type-card-btn" onclick="quickCreateList('shopping')">Create Shopping List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#1f7a4a">
+            <div class="type-card-icon">✅</div>
+            <h3>To-Do List</h3>
+            <p>The classic to-do list, reinvented. Set due dates, assign priorities, add notes to each task, and watch your progress bar fill up as you tick things off. Satisfying and productive.</p>
+            <button class="type-card-btn" onclick="quickCreateList('todo')">Create To-Do List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#b8860b">
+            <div class="type-card-icon">📋</div>
+            <h3>Task List</h3>
+            <p>Manage work tasks, project deliverables, or daily responsibilities. Use priority levels and due dates to stay on top of deadlines and ensure nothing important falls through the cracks.</p>
+            <button class="type-card-btn" onclick="quickCreateList('task')">Create Task List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#6b21a8">
+            <div class="type-card-icon">☑</div>
+            <h3>Checklist Maker</h3>
+            <p>Create repeatable checklists for processes, procedures, travel packing, event planning, or quality assurance. Check items off, then reset the whole list to start fresh next time.</p>
+            <button class="type-card-btn" onclick="quickCreateList('checklist')">Create Checklist →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#1a5fe0">
+            <div class="type-card-icon">📬</div>
+            <h3>Mailing List</h3>
+            <p>Manage recipients, contacts, or email addresses in a simple, clean list. Track who's been contacted, add notes for each person, and export the full list whenever you need it.</p>
+            <button class="type-card-btn" onclick="quickCreateList('mailing')">Create Mailing List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#e05c1a">
+            <div class="type-card-icon">🪣</div>
+            <h3>Bucket List</h3>
+            <p>List every experience, adventure, and goal you want to achieve in your lifetime. Check them off as you accomplish them and watch your life's greatest hits collection grow.</p>
+            <button class="type-card-btn" onclick="quickCreateList('bucket')">Create Bucket List →</button>
+          </div>
+          <div class="type-card reveal" style="--card-color:#1f7a4a">
+            <div class="type-card-icon">✦</div>
+            <h3>Custom List</h3>
+            <p>Build any kind of list imaginable — book reading lists, movie watchlists, recipe ingredient lists, guest lists, inventory lists, and more. Total flexibility for any use case.</p>
+            <button class="type-card-btn" onclick="quickCreateList('custom')">Create Custom List →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ── -->
+    <section class="section features-section" id="features" aria-label="Features">
+      <div class="section-inner">
+        <div class="section-tag">Packed with power</div>
+        <h2 class="section-title">Advanced <em>Features</em><br/>Built Right In</h2>
+        <div class="features-masonry">
+          <div class="feature-item reveal"><div class="feature-icon">⚡</div><h4>Auto-Save</h4><p>Every change saves instantly to local storage. Your lists are always there when you return.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">🎯</div><h4>Priority Levels</h4><p>Assign High, Medium, or Low priority to any item. Filter the list to focus on what matters most.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">📅</div><h4>Due Dates</h4><p>Set due dates per item. Overdue items are highlighted in red so nothing ever slips through.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">🔢</div><h4>Quantity Tracking</h4><p>Add quantities to items — perfect for grocery and shopping lists where amounts matter.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">📊</div><h4>Progress Bar</h4><p>Visual progress bar shows your overall completion at a glance. Watch it fill as you tick things off.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">🔍</div><h4>Search & Filter</h4><p>Search by keyword or filter by status and priority across any list instantly.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">⇅</div><h4>Drag to Reorder</h4><p>Drag and drop any item to reorder your list. Or use the sort menu to sort automatically.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">📝</div><h4>Item Notes</h4><p>Add detailed notes to any list item — extra context, instructions, or reminders.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">♾️</div><h4>Unlimited Lists</h4><p>Create as many lists as you want. Switch between them instantly from the sidebar.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">⬇</div><h4>Export Options</h4><p>Download any list as a .txt or .html file. Or copy to clipboard and paste anywhere.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">🌙</div><h4>Dark Mode</h4><p>Switch between light and dark themes. Your preference is remembered across sessions.</p></div>
+          <div class="feature-item reveal"><div class="feature-icon">📱</div><h4>Mobile-Ready</h4><p>Fully responsive and touch-friendly. Manage your lists on any phone, tablet, or desktop.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW TO ── -->
+    <section class="section howto-section" id="how-to-use" aria-label="How to use">
+      <div class="section-inner">
+        <div class="section-tag">Getting started</div>
+        <h2 class="section-title">How to Use the <em>List Maker</em></h2>
+        <p class="section-sub">Creating and managing your lists takes seconds. Here's everything you need to know to get the most out of the tool.</p>
+        <div class="howto-grid">
+          <div class="howto-card reveal">
+            <div class="howto-num">01</div>
+            <h3>Create a New List</h3>
+            <p>Click the <strong>＋ New List</strong> button or tap any quick-create button in the sidebar (Grocery, Shopping, To-Do, etc.). Choose your list type and give it a name. Your new list appears instantly and is ready to use.</p>
+          </div>
+          <div class="howto-card reveal">
+            <div class="howto-num">02</div>
+            <h3>Add Items</h3>
+            <p>Type your item in the <strong>Add an item</strong> bar at the top of the editor and press <kbd>Enter</kbd> or click <strong>＋ Add</strong>. Optionally set a priority level, due date, quantity, and note for each item before adding.</p>
+          </div>
+          <div class="howto-card reveal">
+            <div class="howto-num">03</div>
+            <h3>Manage & Organize</h3>
+            <p>Click the checkbox to mark items complete. <strong>Drag items</strong> up and down to reorder them. Hover an item to reveal the edit (✎) and delete (✕) buttons. Use the sort menu to automatically sort by priority or due date.</p>
+          </div>
+          <div class="howto-card reveal">
+            <div class="howto-num">04</div>
+            <h3>Filter & Search</h3>
+            <p>Use the <strong>Status filter</strong> to show all items, active only, or completed items. Use the <strong>Priority filter</strong> to focus on high-priority tasks. Search any keyword to instantly highlight matching items across your list.</p>
+          </div>
+          <div class="howto-card reveal">
+            <div class="howto-num">05</div>
+            <h3>Edit Item Details</h3>
+            <p>Click the <strong>✎ Edit</strong> button on any item to open the full edit panel. Update the item's text, priority, due date, quantity, and add a detailed note. All changes save automatically the moment you confirm.</p>
+          </div>
+          <div class="howto-card reveal">
+            <div class="howto-num">06</div>
+            <h3>Export & Share</h3>
+            <p>Click <strong>⬇ TXT</strong> or <strong>⬇ HTML</strong> in the top bar to download your list as a file. Use <strong>⎘ Copy</strong> to copy the entire list to your clipboard and paste it into an email, message, or document.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
+      <div class="section-inner">
+        <div class="section-tag">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="faq-grid">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Is the online list maker completely free?</button>
+            <div class="faq-a"><p>Yes, 100% free. No hidden costs, no premium tier, no ads, and no account required — ever. WebNotePad's list maker is free to use for as long as you need it.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Are my lists saved automatically?</button>
+            <div class="faq-a"><p>Yes. Every list and item is saved automatically to your browser's local storage the moment you make a change. Your lists will be exactly as you left them when you return to the page.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How many lists can I create?</button>
+            <div class="faq-a"><p>There's no fixed limit. You can create unlimited lists of any type. The only practical limit is your browser's local storage capacity, which is typically 5–10 MB — enough for hundreds of lists with thousands of items.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Can I reorder items in my list?</button>
+            <div class="faq-a"><p>Yes. You can drag and drop any item to reorder it within the list. You can also use the Sort menu to automatically sort items by priority (high to low), due date (earliest first), or completion status (active first).</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How do I export or share a list?</button>
+            <div class="faq-a"><p>Use the <strong>⬇ TXT</strong> button to download your list as a plain text file, or <strong>⬇ HTML</strong> for a formatted HTML file. Use <strong>⎘ Copy</strong> to copy the list to clipboard and paste it into an email, chat, or document.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Can I use this list maker offline?</button>
+            <div class="faq-a"><p>Yes. Once the page has loaded in your browser, the list maker works fully offline. All data is stored locally and all features continue to function without an internet connection.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">What is a checklist and how is it different from a to-do list?</button>
+            <div class="faq-a"><p>A to-do list typically contains unique, one-off tasks you want to complete. A checklist is a repeatable, process-oriented list — like a packing checklist or pre-flight checklist — that you run through repeatedly. Our checklist type supports resetting all items so you can reuse it.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Will clearing my browser delete my lists?</button>
+            <div class="faq-a"><p>Yes. If you clear your browser's local storage or site data, your lists will be deleted. We strongly recommend using the <strong>⬇ Export</strong> buttons regularly to keep local backup files of your important lists.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Can I add notes to individual list items?</button>
+            <div class="faq-a"><p>Yes. When adding an item, fill in the Note field in the add bar. Or click the ✎ Edit button on any existing item to open the edit panel and add or update a detailed note for that item.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Is this list maker mobile friendly?</button>
+            <div class="faq-a"><p>Yes, fully. The list maker is built with a responsive layout that adapts to any screen size. On mobile, the sidebar slides in from the side. All touch interactions including drag-to-reorder are supported.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA STRIP ── -->
+    <div class="cta-strip" role="complementary" aria-label="Call to action">
+      <h2>Ready to make your list?</h2>
+      <p>No signup. No download. Just open and start listing.</p>
+      <button class="cta-strip-btn" onclick="scrollToApp()">Start Making Lists →</button>
+    </div>
+
+  </div><!-- /.info-sections -->
+
+</div><!-- /.page-wrap -->
+
+<!-- ═══ NEW LIST MODAL ═══ -->
+<div class="new-list-modal-overlay" id="newListModal" style="display:none" role="dialog" aria-modal="true" aria-label="Create new list">
+  <div class="new-list-modal">
+    <div class="new-list-modal-head">
+      <h2>Create New List</h2>
+      <button class="modal-close" id="closeNewListModal" aria-label="Close">✕</button>
+    </div>
+    <div class="template-grid" id="templateGrid" role="radiogroup" aria-label="List type">
+      <!-- Filled by JS -->
+    </div>
+    <div class="new-list-form">
+      <div>
+        <div class="edit-field-label">List Name</div>
+        <input type="text" class="edit-input" id="newListName" placeholder="e.g. Weekly Groceries" autocomplete="off" aria-label="List name"/>
+      </div>
+      <div>
+        <div class="edit-field-label">Description (optional)</div>
+        <input type="text" class="edit-input" id="newListDesc" placeholder="Short description…" autocomplete="off" aria-label="List description"/>
+      </div>
+    </div>
+    <div class="new-list-foot">
+      <button class="modal-btn modal-btn-ghost" id="cancelNewList">Cancel</button>
+      <button class="modal-btn modal-btn-primary" id="confirmNewList">Create List ＋</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EDIT ITEM MODAL ═══ -->
+<div class="edit-modal-overlay" id="editModal" style="display:none" role="dialog" aria-modal="true" aria-label="Edit item">
+  <div class="edit-modal">
+    <div class="edit-modal-head">
+      <span>Edit Item</span>
+      <button class="modal-close" id="closeEditModal" aria-label="Close">✕</button>
+    </div>
+    <div class="edit-modal-body">
+      <div>
+        <div class="edit-field-label">Item Text</div>
+        <input type="text" class="edit-input" id="editItemText" autocomplete="off" aria-label="Item text"/>
+      </div>
+      <div class="edit-row">
+        <div>
+          <div class="edit-field-label">Priority</div>
+          <select class="edit-input" id="editItemPriority" aria-label="Priority">
+            <option value="none">No Priority</option>
+            <option value="high">🔴 High</option>
+            <option value="medium">🟡 Medium</option>
+            <option value="low">🟢 Low</option>
+          </select>
+        </div>
+        <div>
+          <div class="edit-field-label">Due Date</div>
+          <input type="date" class="edit-input" id="editItemDue" aria-label="Due date"/>
+        </div>
+      </div>
+      <div>
+        <div class="edit-field-label">Quantity</div>
+        <input type="text" class="edit-input" id="editItemQty" placeholder="e.g. 2, 500g, 1 box…" autocomplete="off" aria-label="Quantity"/>
+      </div>
+      <div>
+        <div class="edit-field-label">Note</div>
+        <textarea class="edit-input edit-textarea" id="editItemNote" placeholder="Additional details or notes…" aria-label="Item note"></textarea>
+      </div>
+    </div>
+    <div class="edit-modal-foot">
+      <button class="modal-btn modal-btn-ghost" id="cancelEditItem">Cancel</button>
+      <button class="modal-btn modal-btn-primary" id="saveEditItem">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SORT DROPDOWN ═══ -->
+<div id="sortDropdown" style="display:none;position:fixed;z-index:400;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh-lg);min-width:180px;overflow:hidden;" role="menu" aria-label="Sort options">
+  <button class="sort-opt" data-sort="manual" role="menuitem" style="display:block;width:100%;text-align:left;padding:10px 14px;font-size:.82rem;font-family:var(--font-mono);color:var(--ink-soft);transition:background var(--t);">⠿ Manual order</button>
+  <button class="sort-opt" data-sort="priority" role="menuitem" style="display:block;width:100%;text-align:left;padding:10px 14px;font-size:.82rem;font-family:var(--font-mono);color:var(--ink-soft);transition:background var(--t);">🎯 By priority</button>
+  <button class="sort-opt" data-sort="due" role="menuitem" style="display:block;width:100%;text-align:left;padding:10px 14px;font-size:.82rem;font-family:var(--font-mono);color:var(--ink-soft);transition:background var(--t);">📅 By due date</button>
+  <button class="sort-opt" data-sort="alpha" role="menuitem" style="display:block;width:100%;text-align:left;padding:10px 14px;font-size:.82rem;font-family:var(--font-mono);color:var(--ink-soft);transition:background var(--t);">🔤 Alphabetical</button>
+  <button class="sort-opt" data-sort="status" role="menuitem" style="display:block;width:100%;text-align:left;padding:10px 14px;font-size:.82rem;font-family:var(--font-mono);color:var(--ink-soft);transition:background var(--t);">✅ Active first</button>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+   <div id="footer-root"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════
+   LIST MAKER — Full Application Logic
+═══════════════════════════════════════════════ */
+(function(){
+'use strict';
+
+// ── Constants ──
+const SK = 'webnotepad_listmaker';
+const LIST_TYPES = {
+  grocery:  { label:'Grocery List',  icon:'🛒', color:'#e05c1a', ph:'Add grocery item (e.g. Milk × 2)…' },
+  shopping: { label:'Shopping List', icon:'🛍', color:'#1a5fe0', ph:'Add shopping item…' },
+  todo:     { label:'To-Do List',    icon:'✅', color:'#1f7a4a', ph:'Add task to do…' },
+  task:     { label:'Task List',     icon:'📋', color:'#b8860b', ph:'Add task…' },
+  checklist:{ label:'Checklist',     icon:'☑',  color:'#6b21a8', ph:'Add checklist item…' },
+  mailing:  { label:'Mailing List',  icon:'📬', color:'#1a5fe0', ph:'Add contact or email address…' },
+  bucket:   { label:'Bucket List',   icon:'🪣', color:'#e05c1a', ph:'Add a life goal or experience…' },
+  custom:   { label:'Custom List',   icon:'✦',  color:'#1f7a4a', ph:'Add item…' },
+};
+
+// ── State ──
+let lists = [];
+let activeId = null;
+let editingItemId = null;
+let dragSrcEl = null;
+let sortMode = 'manual';
+let saveTimer = null;
+
+// ── DOM ──
+const $  = id => document.getElementById(id);
+const el = {};
+
+function bindDOM(){
+  Object.assign(el,{
+    sidebar:       $('sidebar'),
+    listsSidebar:  $('listsSidebar'),
+    sidebarStats:  $('sidebarStats'),
+    listTypeBadge: $('listTypeBadge'),
+    listTitleInput:$('listTitleInput'),
+    listDescInput: $('listDescInput'),
+    filterStatus:  $('filterStatus'),
+    filterPriority:$('filterPriority'),
+    searchInput:   $('searchInput'),
+    addInput:      $('addInput'),
+    addPriority:   $('addPriority'),
+    addDueDate:    $('addDueDate'),
+    addQty:        $('addQty'),
+    addNote:       $('addNote'),
+    addItemBtn:    $('addItemBtn'),
+    listBody:      $('listBody'),
+    emptyState:    $('emptyState'),
+    statusTotal:   $('statusTotal'),
+    statusDone:    $('statusDone'),
+    statusRemaining:$('statusRemaining'),
+    statusSave:    $('statusSave'),
+    newListModal:  $('newListModal'),
+    templateGrid:  $('templateGrid'),
+    newListName:   $('newListName'),
+    newListDesc:   $('newListDesc'),
+    editModal:     $('editModal'),
+    editItemText:  $('editItemText'),
+    editItemPriority:$('editItemPriority'),
+    editItemDue:   $('editItemDue'),
+    editItemQty:   $('editItemQty'),
+    editItemNote:  $('editItemNote'),
+    toast:         $('toast'),
+    sortDropdown:  $('sortDropdown'),
+  });
+}
+
+// ── Storage ──
+function loadData(){
+  try { lists = JSON.parse(localStorage.getItem(SK)||'[]'); } catch(e){ lists=[]; }
+  if(!lists.length) initDefaults();
+  activeId = lists[0]?.id || null;
+}
+function saveData(){
+  clearTimeout(saveTimer);
+  setSaving(true);
+  saveTimer = setTimeout(()=>{
+    localStorage.setItem(SK, JSON.stringify(lists));
+    setSaving(false);
+  }, 600);
+}
+function setSaving(s){
+  if(el.statusSave) el.statusSave.textContent = s ? '◌ Saving…' : '● Saved';
+}
+
+function initDefaults(){
+  const grocery = makeList('grocery', 'Weekly Groceries');
+  grocery.desc = 'My weekly shopping list';
+  ['Organic milk × 2','Sourdough bread','Free range eggs × 12','Greek yogurt × 3','Parmesan cheese'].forEach((t,i)=>{
+    const it = makeItem(t);
+    it.done = i < 3;
+    it.qty = t.includes('×') ? t.split('×')[1].trim() : '';
+    it.text = t.includes('×') ? t.split('×')[0].trim() : t;
+    grocery.items.push(it);
+  });
+  const todo = makeList('todo', 'Getting Started');
+  todo.desc = 'Your first to-do list';
+  [
+    {text:'Explore the list maker tool', priority:'high'},
+    {text:'Create your first grocery list', priority:'medium'},
+    {text:'Try drag-and-drop reordering', priority:'low'},
+    {text:'Export a list as TXT or HTML', priority:'none'},
+    {text:'Enable dark mode 🌙', priority:'none'},
+  ].forEach(d=>{
+    const it = makeItem(d.text);
+    it.priority = d.priority;
+    todo.items.push(it);
+  });
+  lists = [grocery, todo];
+  saveData();
+}
+
+function makeList(type='custom', name=''){
+  const t = LIST_TYPES[type] || LIST_TYPES.custom;
+  return {
+    id: 'l_'+Date.now()+'_'+Math.random().toString(36).slice(2,5),
+    type, name: name || t.label,
+    desc: '', items: [],
+    created: Date.now(), updated: Date.now()
+  };
+}
+function makeItem(text=''){
+  return {
+    id: 'i_'+Date.now()+'_'+Math.random().toString(36).slice(2,5),
+    text: text.trim() || 'New item',
+    done: false, priority:'none',
+    due:'', qty:'', note:'',
+    created: Date.now()
+  };
+}
+function getActive(){ return lists.find(l=>l.id===activeId)||null; }
+
+// ── Sidebar Render ──
+function renderSidebar(){
+  if(!el.listsSidebar) return;
+  el.listsSidebar.innerHTML = '';
+  lists.forEach(list=>{
+    const t = LIST_TYPES[list.type]||LIST_TYPES.custom;
+    const done = list.items.filter(i=>i.done).length;
+    const total = list.items.length;
+    const div = document.createElement('div');
+    div.className = 'list-item-row' + (list.id===activeId?' active':'');
+    div.setAttribute('role','option');
+    div.setAttribute('aria-selected', list.id===activeId?'true':'false');
+    div.dataset.id = list.id;
+    div.innerHTML = `
+      <span class="list-icon">${t.icon}</span>
+      <div class="list-meta">
+        <div class="list-name">${esc(list.name)}</div>
+        <div class="list-count">${total} item${total!==1?'s':''} · ${done} done</div>
+      </div>
+      <button class="list-del-btn" title="Delete list" aria-label="Delete ${esc(list.name)}">✕</button>
+    `;
+    div.addEventListener('click', e=>{
+      if(e.target.classList.contains('list-del-btn')){ deleteList(list.id); return; }
+      switchList(list.id);
+    });
+    el.listsSidebar.appendChild(div);
+  });
+  // Stats
+  const totalItems = lists.reduce((a,l)=>a+l.items.length,0);
+  const doneItems  = lists.reduce((a,l)=>a+l.items.filter(i=>i.done).length,0);
+  if(el.sidebarStats) el.sidebarStats.innerHTML = `
+    <span>${lists.length} list${lists.length!==1?'s':''}</span>
+    <span>${totalItems} total item${totalItems!==1?'s':''}</span>
+    <span>${doneItems} completed</span>
+  `;
+}
+
+// ── Main List Render ──
+function renderList(){
+  const list = getActive();
+  if(!list){ renderEmpty(); return; }
+
+  // Badge
+  const t = LIST_TYPES[list.type]||LIST_TYPES.custom;
+  if(el.listTypeBadge){
+    el.listTypeBadge.textContent = t.icon+' '+t.label;
+    el.listTypeBadge.style.background = t.color+'22';
+    el.listTypeBadge.style.color = t.color;
+    el.listTypeBadge.style.border = '1px solid '+t.color+'44';
+  }
+  if(el.listTitleInput) el.listTitleInput.value = list.name||'';
+  if(el.listDescInput)  el.listDescInput.value  = list.desc||'';
+
+  // Update placeholder
+  if(el.addInput) el.addInput.placeholder = t.ph || 'Add an item…';
+
+  // Filter & search
+  const statusF   = el.filterStatus?.value   || 'all';
+  const priorityF = el.filterPriority?.value || 'all';
+  const q         = (el.searchInput?.value || '').toLowerCase().trim();
+
+  let items = [...list.items];
+  if(sortMode==='priority')  items.sort((a,b)=>prioVal(b.priority)-prioVal(a.priority));
+  if(sortMode==='due')       items.sort((a,b)=>{ if(!a.due&&!b.due)return 0; if(!a.due)return 1; if(!b.due)return -1; return a.due.localeCompare(b.due); });
+  if(sortMode==='alpha')     items.sort((a,b)=>a.text.localeCompare(b.text));
+  if(sortMode==='status')    items.sort((a,b)=>a.done-b.done);
+
+  const filtered = items.filter(it=>{
+    if(statusF==='active' && it.done) return false;
+    if(statusF==='done'   && !it.done) return false;
+    if(priorityF!=='all'  && it.priority!==priorityF) return false;
+    if(q && !it.text.toLowerCase().includes(q) && !(it.note||'').toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  // Progress
+  const done = list.items.filter(i=>i.done).length;
+  const total = list.items.length;
+  const pct = total ? Math.round((done/total)*100) : 0;
+
+  if(!el.listBody) return;
+  el.listBody.innerHTML = '';
+
+  // Progress bar
+  if(total>0){
+    const pw = document.createElement('div');
+    pw.className = 'progress-wrap';
+    pw.innerHTML = `<div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div><span class="progress-label">${done}/${total} · ${pct}%</span>`;
+    el.listBody.appendChild(pw);
+  }
+
+  if(!filtered.length){
+    const es = document.createElement('div');
+    es.className = 'empty-state';
+    es.innerHTML = `<div class="empty-icon">${total?'🔍':'📋'}</div><div class="empty-title">${total?'No items match your filter':'Your list is empty'}</div><div class="empty-sub">${total?'Try adjusting the filter or search.':'Add your first item using the bar above.'}</div>`;
+    el.listBody.appendChild(es);
+  } else {
+    filtered.forEach(item => el.listBody.appendChild(buildItemEl(item)));
+  }
+  updateStatusBar(list);
+}
+
+function buildItemEl(item){
+  const div = document.createElement('div');
+  div.className = 'list-item' + (item.done?' done':'');
+  div.dataset.id = item.id;
+  div.draggable = true;
+
+  const today = new Date().toISOString().slice(0,10);
+  const isOverdue = item.due && item.due < today && !item.done;
+
+  div.innerHTML = `
+    <span class="drag-handle" aria-hidden="true">⠿</span>
+    <div class="item-check${item.done?' checked':''}" role="checkbox" aria-checked="${item.done}" aria-label="Mark ${esc(item.text)} as ${item.done?'incomplete':'complete'}" tabindex="0"></div>
+    <div class="item-content">
+      <div class="item-text" contenteditable="true" spellcheck="true" aria-label="Item text" role="textbox">${esc(item.text)}</div>
+      <div class="item-meta-row">
+        ${item.priority!=='none'?`<span class="item-tag priority-${item.priority}">${item.priority.toUpperCase()}</span>`:''}
+        ${item.qty?`<span class="item-qty">${esc(item.qty)}</span>`:''}
+        ${item.due?`<span class="item-due${isOverdue?' overdue':''}">📅 ${fmtDate(item.due)}${isOverdue?' ⚠':''}
+        </span>`:''}
+      </div>
+      ${item.note?`<div class="item-note">${esc(item.note)}</div>`:''}
+    </div>
+    <div class="item-actions" role="group" aria-label="Item actions">
+      <button class="item-act-btn edit" title="Edit item" aria-label="Edit item">✎</button>
+      <button class="item-act-btn danger" title="Delete item" aria-label="Delete item">✕</button>
+    </div>
+  `;
+
+  // Checkbox
+  const chk = div.querySelector('.item-check');
+  chk.addEventListener('click', ()=>toggleDone(item.id));
+  chk.addEventListener('keydown', e=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); toggleDone(item.id); }});
+
+  // Inline text edit
+  const txt = div.querySelector('.item-text');
+  txt.addEventListener('blur', ()=>{
+    const list = getActive(); if(!list) return;
+    const it = list.items.find(x=>x.id===item.id); if(!it) return;
+    const newText = txt.innerText.trim();
+    if(newText && newText!==it.text){ it.text=newText; it.updated=Date.now(); saveData(); renderSidebar(); }
+  });
+  txt.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); txt.blur(); }});
+
+  // Edit btn
+  div.querySelector('.item-act-btn.edit').addEventListener('click', ()=>openEditModal(item.id));
+  // Delete btn
+  div.querySelector('.item-act-btn.danger').addEventListener('click', ()=>deleteItem(item.id));
+
+  // Drag
+  div.addEventListener('dragstart', e=>{ dragSrcEl=div; div.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+  div.addEventListener('dragend', ()=>{ div.classList.remove('dragging'); dragSrcEl=null; });
+  div.addEventListener('dragover', e=>{ e.preventDefault(); if(dragSrcEl&&dragSrcEl!==div) div.classList.add('drag-over'); });
+  div.addEventListener('dragleave', ()=>div.classList.remove('drag-over'));
+  div.addEventListener('drop', e=>{
+    e.preventDefault(); div.classList.remove('drag-over');
+    if(!dragSrcEl||dragSrcEl===div) return;
+    reorderItem(dragSrcEl.dataset.id, item.id);
+  });
+
+  return div;
+}
+
+function renderEmpty(){
+  if(el.listTypeBadge) { el.listTypeBadge.textContent='✦ List'; el.listTypeBadge.removeAttribute('style'); }
+  if(el.listTitleInput) el.listTitleInput.value='';
+  if(el.listDescInput)  el.listDescInput.value='';
+  if(el.listBody){ el.listBody.innerHTML=''; el.listBody.appendChild(el.emptyState||buildEmptyState()); }
+  updateStatusBar(null);
+}
+function buildEmptyState(){
+  const d=document.createElement('div');
+  d.className='empty-state';
+  d.id='emptyState';
+  d.innerHTML=`<div class="empty-icon">📋</div><div class="empty-title">No list selected</div><div class="empty-sub">Create a new list using the sidebar or the ＋ New List button.</div>`;
+  return d;
+}
+
+function updateStatusBar(list){
+  if(!list){ el.statusTotal.textContent='0 items'; el.statusDone.textContent='0 done'; el.statusRemaining.textContent='0 remaining'; return; }
+  const t=list.items.length, d=list.items.filter(i=>i.done).length, r=t-d;
+  el.statusTotal.textContent    = t+' item'+(t!==1?'s':'');
+  el.statusDone.textContent     = d+' done';
+  el.statusRemaining.textContent= r+' remaining';
+}
+
+// ── Actions ──
+function switchList(id){
+  activeId=id;
+  renderSidebar();
+  renderList();
+  closeSortDropdown();
+  // Close mobile sidebar
+  el.sidebar.classList.remove('open');
+}
+
+function addItem(){
+  const list=getActive(); if(!list) { toast('Create or select a list first.'); return; }
+  const text=(el.addInput.value||'').trim(); if(!text){ el.addInput.focus(); return; }
+  const item=makeItem(text);
+  item.priority = el.addPriority.value||'none';
+  item.due      = el.addDueDate.value||'';
+  item.qty      = (el.addQty.value||'').trim();
+  item.note     = (el.addNote.value||'').trim();
+  list.items.push(item);
+  list.updated=Date.now();
+  saveData();
+  // Clear fields
+  el.addInput.value=''; el.addDueDate.value=''; el.addQty.value=''; el.addNote.value='';
+  el.addPriority.value='none';
+  el.addInput.focus();
+  renderList(); renderSidebar();
+  toast('✦ Item added');
+}
+
+function toggleDone(itemId){
+  const list=getActive(); if(!list) return;
+  const it=list.items.find(x=>x.id===itemId); if(!it) return;
+  it.done=!it.done; list.updated=Date.now();
+  saveData(); renderList(); renderSidebar();
+}
+
+function deleteItem(itemId){
+  const list=getActive(); if(!list) return;
+  list.items=list.items.filter(x=>x.id!==itemId);
+  list.updated=Date.now();
+  saveData(); renderList(); renderSidebar();
+  toast('🗑 Item removed');
+}
+
+function reorderItem(srcId, targetId){
+  const list=getActive(); if(!list) return;
+  const si=list.items.findIndex(x=>x.id===srcId);
+  const ti=list.items.findIndex(x=>x.id===targetId);
+  if(si<0||ti<0) return;
+  const [moved]=list.items.splice(si,1);
+  list.items.splice(ti,0,moved);
+  sortMode='manual';
+  saveData(); renderList();
+}
+
+function selectAll(){
+  const list=getActive(); if(!list) return;
+  list.items.forEach(it=>it.done=true); list.updated=Date.now();
+  saveData(); renderList(); renderSidebar();
+}
+function uncheckAll(){
+  const list=getActive(); if(!list) return;
+  list.items.forEach(it=>it.done=false); list.updated=Date.now();
+  saveData(); renderList(); renderSidebar();
+}
+function clearDoneItems(){
+  const list=getActive(); if(!list) return;
+  const n=list.items.filter(i=>i.done).length;
+  if(!n){ toast('No completed items to clear.'); return; }
+  if(!confirm(`Remove ${n} completed item${n!==1?'s':''}?`)) return;
+  list.items=list.items.filter(i=>!i.done);
+  list.updated=Date.now();
+  saveData(); renderList(); renderSidebar();
+  toast(`✕ ${n} item${n!==1?'s':''} cleared`);
+}
+
+function deleteList(id){
+  if(lists.length<=1){ toast('❌ Cannot delete the last list.'); return; }
+  const l=lists.find(x=>x.id===id);
+  if(!confirm(`Delete "${l?.name||'this list'}" and all its items?`)) return;
+  lists=lists.filter(x=>x.id!==id);
+  if(activeId===id) activeId=lists[0].id;
+  saveData(); renderSidebar(); renderList();
+  toast('🗑 List deleted');
+}
+
+// ── New List Modal ──
+let selectedType='custom';
+function openNewListModal(preType=null){
+  selectedType = preType||'custom';
+  buildTemplateGrid();
+  el.newListName.value = preType&&LIST_TYPES[preType] ? LIST_TYPES[preType].label : '';
+  el.newListDesc.value = '';
+  el.newListModal.style.display='flex';
+  setTimeout(()=>el.newListName.focus(),100);
+}
+function buildTemplateGrid(){
+  el.templateGrid.innerHTML='';
+  Object.entries(LIST_TYPES).forEach(([key,t])=>{
+    const btn=document.createElement('div');
+    btn.className='template-card'+(key===selectedType?' selected':'');
+    btn.dataset.type=key;
+    btn.setAttribute('role','radio');
+    btn.setAttribute('aria-checked',key===selectedType?'true':'false');
+    btn.tabIndex=0;
+    btn.innerHTML=`<span class="t-icon">${t.icon}</span><span class="t-name">${t.label.replace(' List','').replace(' Maker','')}</span>`;
+    btn.addEventListener('click',()=>{ selectedType=key; buildTemplateGrid(); el.newListName.placeholder=t.label; });
+    btn.addEventListener('keydown',e=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); btn.click(); }});
+    el.templateGrid.appendChild(btn);
+  });
+}
+function closeNewListModal(){ el.newListModal.style.display='none'; }
+function confirmNewList(){
+  const name=(el.newListName.value||'').trim() || (LIST_TYPES[selectedType]||LIST_TYPES.custom).label;
+  const desc=(el.newListDesc.value||'').trim();
+  const list=makeList(selectedType,name);
+  list.desc=desc;
+  lists.unshift(list);
+  activeId=list.id;
+  saveData(); closeNewListModal(); renderSidebar(); renderList();
+  el.addInput.focus();
+  toast('✦ List created');
+}
+
+// ── Edit Item Modal ──
+function openEditModal(itemId){
+  const list=getActive(); if(!list) return;
+  const it=list.items.find(x=>x.id===itemId); if(!it) return;
+  editingItemId=itemId;
+  el.editItemText.value     = it.text;
+  el.editItemPriority.value = it.priority||'none';
+  el.editItemDue.value      = it.due||'';
+  el.editItemQty.value      = it.qty||'';
+  el.editItemNote.value     = it.note||'';
+  el.editModal.style.display='flex';
+  setTimeout(()=>el.editItemText.focus(),100);
+}
+function closeEditModal(){ el.editModal.style.display='none'; editingItemId=null; }
+function saveEditItem(){
+  const list=getActive(); if(!list) return;
+  const it=list.items.find(x=>x.id===editingItemId); if(!it) return;
+  it.text     = (el.editItemText.value||'').trim() || it.text;
+  it.priority = el.editItemPriority.value||'none';
+  it.due      = el.editItemDue.value||'';
+  it.qty      = (el.editItemQty.value||'').trim();
+  it.note     = (el.editItemNote.value||'').trim();
+  it.updated  = Date.now();
+  list.updated=Date.now();
+  saveData(); closeEditModal(); renderList(); renderSidebar();
+  toast('✎ Item updated');
+}
+
+// ── Sort ──
+function toggleSortDropdown(){
+  const dd=el.sortDropdown;
+  if(dd.style.display!=='none'){ closeSortDropdown(); return; }
+  const btn=$('sortBtn');
+  const rect=btn.getBoundingClientRect();
+  dd.style.top=(rect.bottom+6)+'px';
+  dd.style.left=rect.left+'px';
+  dd.style.display='block';
+}
+function closeSortDropdown(){ el.sortDropdown.style.display='none'; }
+function applySortMode(mode){ sortMode=mode; closeSortDropdown(); renderList(); }
+
+// ── Export ──
+function exportTxt(){
+  const list=getActive(); if(!list){ toast('No list to export.'); return; }
+  const t=LIST_TYPES[list.type]||LIST_TYPES.custom;
+  let txt=`${t.icon} ${list.name}\n`;
+  if(list.desc) txt+=`${list.desc}\n`;
+  txt+=`${'─'.repeat(40)}\n`;
+  list.items.forEach((it,i)=>{
+    const chk=it.done?'[✓]':'[ ]';
+    txt+=`${chk} ${it.text}`;
+    if(it.qty) txt+=` (${it.qty})`;
+    if(it.priority&&it.priority!=='none') txt+=` [${it.priority.toUpperCase()}]`;
+    if(it.due) txt+=` · Due: ${fmtDate(it.due)}`;
+    txt+='\n';
+    if(it.note) txt+=`     Note: ${it.note}\n`;
+  });
+  const done=list.items.filter(i=>i.done).length;
+  txt+=`${'─'.repeat(40)}\n${done}/${list.items.length} completed · Exported from webnotepad.github.io`;
+  download(txt, slugify(list.name)+'.txt','text/plain;charset=utf-8');
+  toast('⬇ Exported as TXT');
+}
+function exportHtml(){
+  const list=getActive(); if(!list){ toast('No list to export.'); return; }
+  const t=LIST_TYPES[list.type]||LIST_TYPES.custom;
+  const done=list.items.filter(i=>i.done).length;
+  const pct=list.items.length?Math.round((done/list.items.length)*100):0;
+  const html=`<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<title>${esc(list.name)} – WebNotePad List</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;max-width:680px;margin:40px auto;padding:0 24px;color:#1e1b14;background:#f7f5f0;line-height:1.6}
+h1{font-size:1.8rem;margin-bottom:6px}
+.meta{font-size:.85rem;color:#8a8070;margin-bottom:20px}
+.progress{height:8px;background:#e0dbd1;border-radius:4px;margin-bottom:24px;overflow:hidden}
+.progress-fill{height:100%;background:#1f7a4a;border-radius:4px}
+.item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:6px;border:1px solid #e0dbd1;background:#fff;margin-bottom:6px}
+.chk{width:20px;height:20px;border-radius:5px;border:2px solid #ccc8bc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff}
+.chk.done{background:#1f7a4a;border-color:#1f7a4a}
+.item.done .text{text-decoration:line-through;color:#8a8070}
+.text{font-size:.9rem;font-weight:500}
+.badge{padding:2px 8px;border-radius:100px;font-size:.65rem;font-weight:700;font-family:monospace;margin-left:6px}
+.high{background:#fde8e8;color:#d12e2e}
+.medium{background:#fdf5dc;color:#b8860b}
+.low{background:#e6f5ee;color:#1f7a4a}
+.note{font-size:.78rem;color:#4a4438;font-style:italic;margin-top:4px}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid #e0dbd1;font-size:.75rem;color:#8a8070}
+</style></head><body>
+<h1>${t.icon} ${esc(list.name)}</h1>
+<div class="meta">${list.desc?esc(list.desc)+' · ':''} ${done}/${list.items.length} completed</div>
+<div class="progress"><div class="progress-fill" style="width:${pct}%"></div></div>
+${list.items.map(it=>`
+<div class="item${it.done?' done':''}">
+  <div class="chk${it.done?' done':''}">✓</div>
+  <div>
+    <span class="text">${esc(it.text)}${it.qty?` <small>(${esc(it.qty)})</small>`:''}${it.priority!=='none'?`<span class="badge ${it.priority}">${it.priority.toUpperCase()}</span>`:''}</span>
+    ${it.note?`<div class="note">${esc(it.note)}</div>`:''}
+  </div>
+</div>`).join('')}
+<footer>Exported from WebNotePad List Maker — webnotepad.github.io</footer>
+</body></html>`;
+  download(html, slugify(list.name)+'.html','text/html;charset=utf-8');
+  toast('⬇ Exported as HTML');
+}
+async function copyList(){
+  const list=getActive(); if(!list){ toast('No list to copy.'); return; }
+  const t=LIST_TYPES[list.type]||LIST_TYPES.custom;
+  let txt=`${t.icon} ${list.name}\n`;
+  list.items.forEach(it=>{ txt+=(it.done?'✓':'○')+' '+it.text+(it.qty?` (${it.qty})`:'')+(it.priority!=='none'?` [${it.priority}]`:'')+'\n'; });
+  try{ await navigator.clipboard.writeText(txt); toast('⎘ List copied to clipboard!'); }
+  catch(e){ toast('⚠ Could not copy — try exporting.'); }
+}
+
+// ── Utils ──
+function prioVal(p){ return p==='high'?3:p==='medium'?2:p==='low'?1:0; }
+function esc(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+function slugify(s){ return s.replace(/[^a-z0-9]/gi,'-').replace(/-+/g,'-').toLowerCase().slice(0,40)||'list'; }
+function fmtDate(d){
+  if(!d) return '';
+  const dt=new Date(d+'T12:00:00');
+  return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function download(content,filename,mime){
+  const blob=new Blob([content],{type:mime});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download=filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function toast(msg,d=2500){
+  const t=el.toast; if(!t) return;
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),d);
+}
+function scrollToApp(){ document.querySelector('.topbar')?.scrollIntoView({behavior:'smooth'}); }
+
+// ── Dark Mode ──
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  const isDark=document.body.classList.contains('dark');
+  $('darkModeBtn').textContent=isDark?'☀️':'🌙';
+  localStorage.setItem('webnotepad_dark',isDark?'1':'0');
+}
+
+// ── FAQ ──
+function initFAQ(){
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const a=btn.nextElementSibling, open=a.style.display==='block';
+      document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+      document.querySelectorAll('.faq-q').forEach(b=>b.setAttribute('aria-expanded','false'));
+      if(!open){ a.style.display='block'; btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+}
+
+// ── Scroll Reveal ──
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=`${(i%6)*0.07}s`;
+    obs.observe(el);
+  });
+}
+
+// ── Quick create from type buttons ──
+window.quickCreateList = function(type){
+  openNewListModal(type);
+};
+
+// ── Event Bindings ──
+function bind(){
+  // Add item
+  el.addItemBtn.addEventListener('click', addItem);
+  el.addInput.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); addItem(); }});
+
+  // Keyboard shortcut Ctrl+Shift+N
+  document.addEventListener('keydown', e=>{
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key==='N'){ e.preventDefault(); openNewListModal(); }
+    if(e.key==='Escape'){ closeNewListModal(); closeEditModal(); closeSortDropdown(); }
+  });
+
+  // Title / desc
+  el.listTitleInput.addEventListener('input', ()=>{
+    const list=getActive(); if(!list) return;
+    list.name=el.listTitleInput.value||'Untitled';
+    list.updated=Date.now(); saveData(); renderSidebar();
+  });
+  el.listDescInput.addEventListener('input', ()=>{
+    const list=getActive(); if(!list) return;
+    list.desc=el.listDescInput.value||'';
+    list.updated=Date.now(); saveData();
+  });
+
+  // Filters
+  el.filterStatus.addEventListener('change',   renderList);
+  el.filterPriority.addEventListener('change', renderList);
+  el.searchInput.addEventListener('input',     renderList);
+
+  // Toolbar
+  $('topNewListBtn').addEventListener('click', ()=>openNewListModal());
+  $('newListBtn').addEventListener('click',    ()=>openNewListModal());
+  $('selectAllBtn').addEventListener('click',  selectAll);
+  $('uncheckAllBtn').addEventListener('click', uncheckAll);
+  $('clearDoneBtn').addEventListener('click',  clearDoneItems);
+  $('exportTxtBtn').addEventListener('click',  exportTxt);
+  $('exportHtmlBtn').addEventListener('click', exportHtml);
+  $('copyListBtn').addEventListener('click',   copyList);
+  $('darkModeBtn').addEventListener('click',   toggleDark);
+  $('sortBtn').addEventListener('click',       toggleSortDropdown);
+
+  // Sort options
+  document.querySelectorAll('.sort-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>applySortMode(btn.dataset.sort));
+    btn.addEventListener('mouseover', ()=>btn.style.background='var(--bg-warm)');
+    btn.addEventListener('mouseout',  ()=>btn.style.background='');
+  });
+  document.addEventListener('click', e=>{
+    if(!el.sortDropdown.contains(e.target)&&e.target.id!=='sortBtn') closeSortDropdown();
+  });
+
+  // New list modal
+  $('closeNewListModal').addEventListener('click', closeNewListModal);
+  $('cancelNewList').addEventListener('click',     closeNewListModal);
+  $('confirmNewList').addEventListener('click',    confirmNewList);
+  el.newListName.addEventListener('keydown', e=>{ if(e.key==='Enter') confirmNewList(); });
+  el.newListModal.addEventListener('click', e=>{ if(e.target===el.newListModal) closeNewListModal(); });
+
+  // Edit modal
+  $('closeEditModal').addEventListener('click', closeEditModal);
+  $('cancelEditItem').addEventListener('click', closeEditModal);
+  $('saveEditItem').addEventListener('click',   saveEditItem);
+  el.editModal.addEventListener('click', e=>{ if(e.target===el.editModal) closeEditModal(); });
+
+  // Type quick buttons
+  document.querySelectorAll('.type-quick-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>quickCreateList(btn.dataset.type));
+  });
+
+  // Hamburger
+  $('hamburgerBtn').addEventListener('click',()=>{
+    const open=el.sidebar.classList.toggle('open');
+    $('hamburgerBtn').setAttribute('aria-expanded',open);
+  });
+
+  // Close sidebar on outside click (mobile)
+  document.addEventListener('click',e=>{
+    if(window.innerWidth<=768&&el.sidebar.classList.contains('open')&&!el.sidebar.contains(e.target)&&!$('hamburgerBtn').contains(e.target)){
+      el.sidebar.classList.remove('open');
+    }
+  });
+}
+
+// ── Init ──
+function init(){
+  bindDOM();
+  loadData();
+  bind();
+  renderSidebar();
+  renderList();
+  initFAQ();
+  initReveal();
+
+  // Dark mode restore
+  if(localStorage.getItem('webnotepad_dark')==='1'){
+    document.body.classList.add('dark');
+    $('darkModeBtn').textContent='☀️';
+  }
+}
+
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+else init();
+})();
+</script>
+
+</body>
+</html>

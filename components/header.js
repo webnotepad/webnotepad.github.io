@@ -14,7 +14,7 @@
         <nav class="header-nav" aria-label="Main navigation">
           <a href="/#notepad" class="nav-link">Notepad</a>
           <a href="/#features" class="nav-link">Features</a>
-          <a href="/online-diary" class="nav-link">Diary</a>
+          <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
           <a href="/about" class="nav-link">About</a>          
@@ -34,7 +34,7 @@
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="#notepad" class="nav-link">📝 Notepad</a>
       <a href="#features" class="nav-link">⚡ Features</a>
-      <a href="online-diary" class="nav-link">🔄 Diary</a>
+      <a href="diary" class="nav-link">🔄 Diary</a>
       <a href="mindmap" class="nav-link">👥 MindMap</a>
       <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="#about" class="nav-link">ℹ️ About</a>

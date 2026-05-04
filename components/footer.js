@@ -29,8 +29,8 @@
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
               <li><a href="/#faq">FAQ</a></li>
-              <li><a href="/online-diary">Online Diary</a></li>
-              <li><a href="/mindmap-online">MindMap Online</a></li>
+              <li><a href="/diary">Online Diary</a></li>
+              <li><a href="/mindmap">MindMap Online</a></li>
               <li><a href="/list-maker">List Maker</a></li>
               </ul>
           </div>

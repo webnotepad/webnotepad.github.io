@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordPad Online – Free Word Processor & Rich Text Editor | WebNotePad</title>
+  <meta name="description" content="Free online WordPad — a powerful browser-based word processor with rich text formatting, tables, font controls, spell check, find & replace, page layout, and document export. No download or signup needed." />
+  <meta name="keywords" content="wordpad online, free word processor, online word processor, rich text editor online, wordpad web app, online document editor, free text editor, browser word processor, online RTF editor, wordpad alternative" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/wordpad" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/wordpad" />
+  <meta property="og:title" content="WordPad Online – Free Browser Word Processor" />
+  <meta property="og:description" content="Write, format and export documents in your browser. Free online WordPad with full rich text editing. No signup." />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WordPad Online – Free Word Processor | WebNotePad" />
+  <meta name="twitter:description" content="Full-featured online WordPad with ribbon toolbar, fonts, tables, export and more. No signup required." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WordPad Online by WebNotePad",
+    "url": "https://webnotepad.github.io/wordpad",
+    "description": "A free online WordPad application with rich text editing, ribbon toolbar, font controls, paragraph formatting, tables, find and replace, word count, dark mode, and document export. Works entirely in your browser without any signup or download.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, and Edge.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Rich text formatting", "Font family and size controls", "Bold, italic, underline, strikethrough",
+      "Text and highlight colors", "Paragraph alignment", "Ordered and unordered lists",
+      "Indent and outdent", "Find and replace", "Word and character count",
+      "Dark mode", "Auto-save", "Export to HTML, TXT, DOCX-style",
+      "Table insertion", "Print document", "Zoom controls", "Fullscreen writing mode"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is WordPad Online?",
+        "acceptedAnswer": { "@type": "Answer", "text": "WordPad Online is a free browser-based word processor that works like the classic Windows WordPad application. It supports rich text formatting, fonts, paragraph styles, tables, and document export — all without installing any software." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is WordPad Online free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No account, no download, no subscription. Just open the page and start writing." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I save and export my documents?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Documents auto-save to your browser's local storage. You can also export as HTML, plain text TXT, or print directly to PDF via your browser's print dialog." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does WordPad Online support tables?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the Insert Table option in the toolbar to add tables to your document. You can choose the number of rows and columns." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Once the page has loaded, WordPad Online works fully offline. All your documents are stored locally in your browser." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use WordPad Online",
+    "description": "Write, format, and export documents using the free online WordPad editor.",
+    "step": [
+      { "@type": "HowToStep", "name": "Open and Start Writing", "text": "Navigate to WordPad Online. The document editor opens instantly — just click the page and start typing. No setup required." },
+      { "@type": "HowToStep", "name": "Format Your Text", "text": "Select text and use the ribbon toolbar to apply fonts, sizes, bold, italic, underline, text color, alignment, and paragraph styles." },
+      { "@type": "HowToStep", "name": "Insert Tables and Lists", "text": "Use the Insert menu in the ribbon to add tables, bullet lists, numbered lists, and horizontal rules to your document." },
+      { "@type": "HowToStep", "name": "Find and Replace", "text": "Press Ctrl+F to open the Find & Replace panel. Search for any word or phrase and replace it across the document instantly." },
+      { "@type": "HowToStep", "name": "Export Your Document", "text": "Click File in the ribbon and choose Export as HTML, Export as TXT, or Print to save your document." }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+/* ═══════════════════════════════════════════════════════════════
+   WORDPAD ONLINE — Complete Stylesheet
+   Aesthetic: Structured ribbon-era document editor, warm utilitarian
+   Typography: Libre Baskerville (document) + Barlow (UI) + IBM Plex Mono
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Palette */
+  --chrome:      #f0ece6;
+  --chrome-dk:   #e4dfd8;
+  --chrome-dkr:  #d4cfc7;
+  --surface:     #ffffff;
+  --page-bg:     #f8f6f2;
+  --border:      #cdc8c0;
+  --border-lt:   #e0dbd3;
+  --ink:         #1d1b17;
+  --ink-soft:    #4a4540;
+  --ink-muted:   #8a8278;
+  --accent:      #1f5fbb;
+  --accent-lt:   #2d74d9;
+  --accent-pl:   #e8f0fc;
+  --accent2:     #b84a1a;
+  --green:       #186b35;
+  --red:         #c0202e;
+  --shadow-doc:  0 2px 16px rgba(29,27,23,.14), 0 1px 3px rgba(29,27,23,.08);
+
+  /* Fonts */
+  --f-ui:      'Barlow', sans-serif;
+  --f-ui-cond: 'Barlow Condensed', sans-serif;
+  --f-doc:     'Libre Baskerville', Georgia, serif;
+  --f-mono:    'IBM Plex Mono', monospace;
+
+  /* Sizes */
+  --ribbon-h:   96px;
+  --ruler-h:    22px;
+  --statusbar-h:26px;
+  --doc-w:      816px;   /* ~8.5in at 96dpi */
+  --doc-pad:    72px;    /* ~0.75in */
+
+  --r:    4px;
+  --r-lg: 8px;
+  --t:    0.15s ease;
+}
+
+/* Dark mode */
+body.dark {
+  --chrome:     #1e1c18;
+  --chrome-dk:  #161410;
+  --chrome-dkr: #111009;
+  --surface:    #2a2720;
+  --page-bg:    #1a1815;
+  --border:     #3a3730;
+  --border-lt:  #2e2c26;
+  --ink:        #ede8e0;
+  --ink-soft:   #c0b9ae;
+  --ink-muted:  #7a7268;
+  --accent-pl:  #101f3a;
+  --shadow-doc: 0 2px 20px rgba(0,0,0,.5);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--f-ui);
+  background: var(--page-bg);
+  color: var(--ink);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background var(--t), color var(--t);
+}
+button { cursor: pointer; font-family: var(--f-ui); border: none; background: none; }
+input, select, textarea { font-family: var(--f-ui); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--chrome-dk); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border); opacity: .8; }
+
+/* ═══════════════════════════════
+   TITLE BAR
+═══════════════════════════════ */
+.titlebar {
+  height: 32px;
+  background: var(--chrome-dk);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.tb-dots { display: flex; gap: 5px; }
+.tb-dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  transition: filter var(--t);
+}
+.tb-dot:hover { filter: brightness(1.15); }
+.tb-dot.red   { background: #fe5f57; }
+.tb-dot.yellow{ background: #febc2e; }
+.tb-dot.green { background: #29c840; }
+.tb-title {
+  flex: 1; text-align: center;
+  font-family: var(--f-ui-cond);
+  font-size: .8rem; font-weight: 500;
+  color: var(--ink-muted);
+  letter-spacing: .04em;
+}
+.tb-actions { display: flex; gap: 4px; }
+.tb-action-btn {
+  padding: 3px 8px;
+  border-radius: var(--r);
+  font-size: .7rem; font-weight: 600;
+  color: var(--ink-muted);
+  background: transparent;
+  transition: all var(--t);
+  font-family: var(--f-mono);
+}
+.tb-action-btn:hover { background: var(--border-lt); color: var(--ink); }
+
+/* ═══════════════════════════════
+   RIBBON TOOLBAR
+═══════════════════════════════ */
+.ribbon-wrap {
+  background: var(--chrome);
+  border-bottom: 2px solid var(--border);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+
+/* Ribbon tabs */
+.ribbon-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--chrome-dk);
+}
+.rtab {
+  padding: 5px 16px 4px;
+  font-family: var(--f-ui-cond);
+  font-size: .78rem; font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--r) var(--r) 0 0;
+  cursor: pointer;
+  transition: all var(--t);
+  position: relative; bottom: -1px;
+  background: transparent;
+}
+.rtab:hover { color: var(--ink); background: var(--chrome); }
+.rtab.active {
+  color: var(--accent);
+  background: var(--chrome);
+  border-color: var(--border);
+  border-bottom-color: var(--chrome);
+}
+
+/* Ribbon panel */
+.ribbon-panels { min-height: 64px; }
+.rpanel {
+  display: none;
+  padding: 6px 12px 8px;
+  gap: 1px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.rpanel.active { display: flex; }
+
+/* Ribbon groups */
+.rgroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 10px 0 6px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.rgroup:last-child { border-right: none; }
+.rgroup-wrap { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.rgroup-label {
+  font-size: .6rem; font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: .06em; text-transform: uppercase;
+  font-family: var(--f-ui-cond);
+  padding-bottom: 1px;
+  border-top: 1px solid var(--border-lt);
+  width: 100%; text-align: center;
+  margin-top: 2px; padding-top: 2px;
+}
+.rgroup-btns { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+
+/* Ribbon buttons */
+.rb {
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px;
+  min-width: 26px; height: 26px;
+  padding: 0 5px;
+  border-radius: var(--r);
+  font-size: .8rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all var(--t);
+  white-space: nowrap;
+  font-family: var(--f-ui);
+  position: relative;
+}
+.rb:hover { background: var(--chrome-dk); border-color: var(--border); color: var(--ink); }
+.rb.active, .rb.pressed {
+  background: var(--accent-pl);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.rb-icon { font-size: .85rem; line-height: 1; }
+.rb-label { font-size: .7rem; font-weight: 600; font-family: var(--f-ui-cond); letter-spacing: .02em; }
+.rb-lg {
+  height: 50px; flex-direction: column; gap: 3px;
+  min-width: 44px; padding: 4px 8px;
+}
+.rb-lg .rb-icon { font-size: 1.3rem; }
+.rb-lg .rb-label { font-size: .65rem; }
+.rb-split {
+  display: flex; align-items: stretch;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  overflow: hidden;
+  transition: border-color var(--t);
+}
+.rb-split:hover { border-color: var(--border); }
+.rb-split-main { border-radius: 0; border: none; height: 26px; }
+.rb-split-arrow {
+  width: 14px; border-left: 1px solid var(--border-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .5rem; color: var(--ink-muted);
+  background: transparent; border-radius: 0;
+  cursor: pointer; transition: background var(--t);
+  border-top: none; border-right: none; border-bottom: none;
+}
+.rb-split-arrow:hover { background: var(--chrome-dkr); }
+
+/* Select controls in ribbon */
+.r-select {
+  height: 22px;
+  padding: 0 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: .78rem;
+  font-family: var(--f-ui-cond);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--t);
+  max-width: 120px;
+}
+.r-select:focus { border-color: var(--accent); }
+.r-select-sm { max-width: 56px; }
+.r-input-num {
+  width: 44px; height: 22px;
+  padding: 0 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: .78rem;
+  font-family: var(--f-mono);
+  text-align: center;
+  outline: none;
+  transition: border-color var(--t);
+}
+.r-input-num:focus { border-color: var(--accent); }
+
+/* Color pickers in ribbon */
+.r-colorpicker-wrap { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.r-colorpicker-label { font-size: .62rem; color: var(--ink-muted); font-family: var(--f-ui-cond); }
+.r-color-btn {
+  width: 24px; height: 14px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  padding: 1px 1px 0;
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+}
+.r-color-swatch {
+  width: 18px; height: 5px;
+  border-radius: 1px;
+}
+.r-color-input {
+  position: absolute;
+  width: 0; height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Heading styles picker */
+.heading-btns { display: flex; gap: 2px; flex-wrap: wrap; }
+.h-btn {
+  padding: 2px 7px;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: .7rem;
+  font-family: var(--f-ui-cond);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t);
+}
+.h-btn:hover { background: var(--chrome-dk); color: var(--ink); }
+
+/* Zoom slider */
+.zoom-wrap { display: flex; align-items: center; gap: 5px; }
+.zoom-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 80px; height: 4px;
+  background: var(--border);
+  border-radius: 2px; outline: none; cursor: pointer;
+}
+.zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+.zoom-label {
+  font-size: .72rem; font-family: var(--f-mono);
+  color: var(--ink-muted); min-width: 34px; text-align: right;
+}
+
+/* ═══════════════════════════════
+   FIND & REPLACE BAR
+═══════════════════════════════ */
+.find-bar {
+  background: #fffbf0;
+  border-bottom: 1px solid #d4c96a;
+  padding: 7px 16px;
+  display: flex; align-items: center; gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  animation: slideDown .18s ease;
+}
+body.dark .find-bar { background: #1c1800; border-color: #4a3c00; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.find-bar label { font-size: .75rem; font-weight: 600; color: var(--ink-muted); font-family: var(--f-ui-cond); }
+.find-input {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: .82rem;
+  width: 180px; outline: none;
+  transition: border-color var(--t);
+}
+.find-input:focus { border-color: var(--accent); }
+.find-btn {
+  padding: 4px 12px;
+  border-radius: var(--r);
+  font-size: .75rem; font-weight: 700;
+  color: var(--ink-soft);
+  background: var(--chrome-dk);
+  border: 1px solid var(--border);
+  transition: all var(--t);
+  font-family: var(--f-ui-cond);
+}
+.find-btn:hover { background: var(--border); color: var(--ink); }
+.find-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.find-btn-primary:hover { background: var(--accent-lt); }
+.find-close {
+  margin-left: auto;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r); font-size: .8rem;
+  color: var(--ink-muted); transition: all var(--t);
+}
+.find-close:hover { background: var(--chrome-dkr); color: var(--red); }
+.find-result-count { font-size: .72rem; color: var(--ink-muted); font-family: var(--f-mono); white-space: nowrap; }
+
+/* ═══════════════════════════════
+   RULER
+═══════════════════════════════ */
+.ruler-wrap {
+  background: var(--chrome-dk);
+  border-bottom: 1px solid var(--border);
+  height: var(--ruler-h);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.ruler {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+  overflow: hidden;
+}
+.ruler-canvas {
+  width: 100%; height: 100%;
+  display: block;
+}
+
+/* ═══════════════════════════════
+   DOCUMENT AREA
+═══════════════════════════════ */
+.doc-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: var(--page-bg);
+  padding: 24px 0 48px;
+  position: relative;
+}
+
+/* Paper shadow effect */
+.doc-wrap {
+  width: var(--doc-w);
+  min-height: 1056px; /* ~11in at 96dpi */
+  margin: 0 auto;
+  background: var(--surface);
+  box-shadow: var(--shadow-doc);
+  position: relative;
+  transform-origin: top center;
+}
+
+/* Page margins visual */
+.doc-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: var(--doc-pad);
+  right: var(--doc-pad);
+  height: var(--doc-pad);
+  border-bottom: 1px dashed var(--border-lt);
+  pointer-events: none;
+  z-index: 1;
+}
+.doc-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: var(--doc-pad);
+  right: var(--doc-pad);
+  height: var(--doc-pad);
+  border-top: 1px dashed var(--border-lt);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The editable document */
+.doc-editor {
+  min-height: 1056px;
+  padding: var(--doc-pad);
+  font-family: var(--f-doc);
+  font-size: 12pt;
+  line-height: 1.75;
+  color: var(--ink);
+  outline: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  caret-color: var(--accent);
+}
+.doc-editor:focus { outline: none; }
+
+/* Document typography */
+.doc-editor h1 { font-size: 2rem; font-weight: 700; line-height: 1.25; margin: 1.2em 0 .5em; color: var(--ink); }
+.doc-editor h2 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; margin: 1em 0 .4em; color: var(--ink); }
+.doc-editor h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.35; margin: .9em 0 .35em; color: var(--ink); }
+.doc-editor h4 { font-size: 1rem; font-weight: 700; line-height: 1.4; margin: .8em 0 .3em; color: var(--ink); }
+.doc-editor p  { margin-bottom: .6em; }
+.doc-editor ul, .doc-editor ol { margin: .5em 0 .5em 1.5em; }
+.doc-editor li { margin-bottom: .2em; }
+.doc-editor blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 1em 0;
+  padding: .5em 1em;
+  color: var(--ink-soft);
+  font-style: italic;
+  background: var(--accent-pl);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.doc-editor table {
+  border-collapse: collapse;
+  width: 100%; margin: 1em 0;
+}
+.doc-editor table td, .doc-editor table th {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  min-width: 60px;
+  vertical-align: top;
+}
+.doc-editor table th {
+  background: var(--chrome);
+  font-weight: 600;
+  text-align: left;
+}
+.doc-editor hr {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 1.5em 0;
+}
+.doc-editor a { color: var(--accent); text-decoration: underline; }
+.doc-editor img { max-width: 100%; height: auto; }
+.doc-editor::before {
+  content: attr(data-placeholder);
+  color: var(--border);
+  pointer-events: none;
+  position: absolute;
+  font-style: italic;
+}
+.doc-editor:not(:empty)::before { display: none; }
+
+/* Search highlight */
+.search-highlight {
+  background: #fef08a;
+  border-radius: 2px;
+}
+body.dark .search-highlight { background: #6b5c00; color: #ffe066; }
+
+/* ═══════════════════════════════
+   STATUS BAR
+═══════════════════════════════ */
+.statusbar {
+  height: var(--statusbar-h);
+  background: var(--accent);
+  border-top: 1px solid rgba(0,0,0,.15);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.sb-item {
+  font-size: .68rem; font-weight: 600;
+  color: rgba(255,255,255,.85);
+  font-family: var(--f-mono);
+  white-space: nowrap;
+}
+.sb-sep { color: rgba(255,255,255,.3); }
+.sb-save { display: flex; align-items: center; gap: 5px; }
+.sb-save-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #7dda9f;
+  transition: background var(--t);
+}
+.sb-save-dot.saving { background: #fbbf24; animation: pulse .8s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.sb-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.sb-zoom-btns { display: flex; gap: 2px; }
+.sb-zoom-btn {
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 3px;
+  font-size: .75rem; font-weight: 700;
+  color: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.1);
+  transition: background var(--t);
+}
+.sb-zoom-btn:hover { background: rgba(255,255,255,.25); }
+
+/* ═══════════════════════════════
+   DROPDOWN MENUS
+═══════════════════════════════ */
+.dropdown {
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: 0 8px 32px rgba(29,27,23,.18);
+  z-index: 9000;
+  min-width: 180px;
+  overflow: hidden;
+  animation: ddIn .15s ease;
+}
+@keyframes ddIn { from { opacity: 0; transform: translateY(-6px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.dd-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px;
+  font-size: .82rem; color: var(--ink-soft);
+  cursor: pointer;
+  transition: background var(--t);
+  border: none; background: none; width: 100%; text-align: left;
+  font-family: var(--f-ui);
+}
+.dd-item:hover { background: var(--accent-pl); color: var(--accent); }
+.dd-item .dd-icon { width: 18px; text-align: center; font-size: .85rem; }
+.dd-item .dd-shortcut { margin-left: auto; font-size: .65rem; color: var(--ink-muted); font-family: var(--f-mono); }
+.dd-sep { height: 1px; background: var(--border-lt); margin: 3px 0; }
+.dd-section {
+  padding: 5px 14px 3px;
+  font-size: .62rem; font-weight: 700;
+  color: var(--ink-muted); text-transform: uppercase;
+  letter-spacing: .08em; font-family: var(--f-ui-cond);
+}
+
+/* Table picker */
+.table-picker {
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  position: fixed;
+  z-index: 9000;
+  box-shadow: 0 8px 28px rgba(29,27,23,.16);
+  animation: ddIn .15s ease;
+}
+.table-picker-grid { display: flex; flex-direction: column; gap: 2px; }
+.table-picker-row { display: flex; gap: 2px; }
+.table-cell {
+  width: 18px; height: 18px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  background: var(--chrome);
+  transition: all .08s;
+}
+.table-cell.hover { background: var(--accent-pl); border-color: var(--accent); }
+.table-picker-label {
+  text-align: center;
+  font-size: .7rem; font-family: var(--f-mono);
+  color: var(--ink-muted); margin-top: 6px;
+}
+
+/* ═══════════════════════════════
+   TOAST NOTIFICATIONS
+═══════════════════════════════ */
+.toast {
+  position: fixed; bottom: 40px; right: 24px;
+  background: var(--ink); color: var(--chrome);
+  padding: 10px 18px;
+  border-radius: var(--r-lg);
+  font-size: .82rem; font-weight: 500;
+  font-family: var(--f-ui-cond);
+  box-shadow: 0 8px 28px rgba(29,27,23,.25);
+  z-index: 9999; pointer-events: none;
+  transform: translateY(60px); opacity: 0;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  letter-spacing: .02em;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+body.dark .toast { background: var(--chrome); color: var(--ink); }
+
+/* ═══════════════════════════════
+   MODAL
+═══════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(29,27,23,.55);
+  backdrop-filter: blur(4px);
+  z-index: 8000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  width: 100%; max-width: 420px;
+  box-shadow: 0 16px 48px rgba(29,27,23,.2);
+  overflow: hidden;
+  animation: ddIn .2s ease;
+}
+.modal-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--f-ui-cond); font-weight: 600; font-size: .95rem;
+}
+.modal-close {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r); color: var(--ink-muted); font-size: .8rem;
+  transition: all var(--t);
+}
+.modal-close:hover { background: var(--chrome-dkr); color: var(--red); }
+.modal-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.modal-field-label {
+  font-size: .72rem; font-weight: 700; color: var(--ink-muted);
+  letter-spacing: .06em; text-transform: uppercase;
+  font-family: var(--f-ui-cond); margin-bottom: 5px;
+}
+.modal-input {
+  width: 100%; padding: 8px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  background: var(--chrome);
+  color: var(--ink); font-size: .88rem;
+  outline: none; transition: border-color var(--t);
+  font-family: var(--f-ui);
+}
+.modal-input:focus { border-color: var(--accent); }
+.modal-foot {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 8px;
+}
+.modal-btn {
+  padding: 7px 18px; border-radius: var(--r);
+  font-size: .8rem; font-weight: 700;
+  font-family: var(--f-ui-cond); letter-spacing: .04em;
+  transition: all var(--t);
+}
+.modal-btn-ghost {
+  background: var(--chrome-dk); color: var(--ink-soft);
+  border: 1px solid var(--border);
+}
+.modal-btn-ghost:hover { background: var(--border); }
+.modal-btn-primary { background: var(--accent); color: #fff; }
+.modal-btn-primary:hover { background: var(--accent-lt); }
+
+/* ═══════════════════════════════
+   INFO SECTIONS
+═══════════════════════════════ */
+.info-sections {
+  background: var(--page-bg);
+  overflow-y: auto;
+}
+
+/* Shared section styles */
+.wp-section { padding: 80px 0; }
+.wp-container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.wp-tag {
+  font-family: var(--f-mono);
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px;
+}
+.wp-title {
+  font-family: var(--f-doc);
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--ink); line-height: 1.2;
+  margin-bottom: 18px;
+}
+.wp-title em { font-style: italic; color: var(--accent2); }
+.wp-lead {
+  font-size: 1rem; color: var(--ink-soft);
+  max-width: 600px; line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+/* About section */
+.about-wp { background: var(--surface); border-top: 2px solid var(--accent); }
+.about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 72px; align-items: center; }
+.about-text p { font-size: .97rem; color: var(--ink-soft); line-height: 1.82; margin-bottom: 16px; font-family: var(--f-doc); }
+.kw-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.kw-chip {
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: .72rem; font-weight: 600;
+  font-family: var(--f-ui-cond);
+  letter-spacing: .04em;
+  border: 1px solid var(--border);
+  background: var(--chrome);
+  color: var(--ink-soft);
+  transition: all var(--t);
+}
+.kw-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+.about-visual { display: flex; justify-content: center; }
+.doc-mockup {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-doc);
+  width: 100%; max-width: 320px;
+  overflow: hidden;
+}
+.dm-titlebar {
+  background: var(--chrome-dk);
+  padding: 6px 10px;
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.dm-dot { width: 8px; height: 8px; border-radius: 50%; }
+.dm-ribbon { background: var(--chrome); padding: 6px 10px; border-bottom: 1px solid var(--border); display: flex; gap: 4px; flex-wrap: wrap; }
+.dm-rb { height: 14px; background: var(--border); border-radius: 2px; }
+.dm-doc { padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.dm-line { height: 8px; background: var(--border-lt); border-radius: 2px; }
+.dm-line.thick { height: 12px; background: var(--border); width: 55%; }
+.dm-line.half { width: 65%; }
+.dm-line.third { width: 40%; }
+.dm-status { background: var(--accent); padding: 4px 10px; display: flex; gap: 8px; }
+.dm-st { height: 6px; background: rgba(255,255,255,.4); border-radius: 1px; width: 40px; }
+
+/* Features */
+.features-wp { background: var(--page-bg); border-top: 1px solid var(--border); }
+.features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.feat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  transition: all var(--t);
+}
+.feat-card:hover { box-shadow: 0 6px 24px rgba(29,27,23,.1); transform: translateY(-2px); border-color: var(--border); }
+.feat-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.feat-card h4 {
+  font-size: .88rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 6px;
+  font-family: var(--f-ui-cond); font-weight: 600; letter-spacing: .02em;
+}
+.feat-card p { font-size: .8rem; color: var(--ink-muted); line-height: 1.6; }
+
+/* How-to */
+.howto-wp { background: var(--surface); border-top: 1px solid var(--border); }
+.howto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.howto-card {
+  background: var(--page-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  transition: all var(--t);
+  position: relative;
+}
+.howto-card:hover { box-shadow: 0 4px 20px rgba(29,27,23,.08); }
+.howto-num {
+  font-family: var(--f-doc);
+  font-size: 3rem; font-weight: 700;
+  color: var(--border);
+  line-height: 1; margin-bottom: 14px;
+  letter-spacing: -.03em;
+}
+.howto-card h3 {
+  font-size: .95rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 10px;
+  font-family: var(--f-ui-cond); letter-spacing: .02em;
+}
+.howto-card p { font-size: .85rem; color: var(--ink-soft); line-height: 1.68; }
+
+/* Keyboard shortcuts section */
+.shortcuts-wp { background: var(--chrome-dk); border-top: 1px solid var(--border); }
+.shortcuts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.shortcut-group h3 {
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 12px;
+  font-family: var(--f-ui-cond); border-bottom: 1px solid var(--border); padding-bottom: 6px;
+}
+.shortcut-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 0; border-bottom: 1px solid var(--border-lt);
+  font-size: .8rem; color: var(--ink-soft);
+}
+.shortcut-item:last-child { border-bottom: none; }
+.kbd-combo { display: flex; gap: 3px; }
+kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 2px 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  border-radius: 4px;
+  font-size: .65rem; font-weight: 700;
+  font-family: var(--f-mono);
+  color: var(--ink-soft);
+  min-width: 22px;
+}
+
+/* FAQ */
+.faq-wp { background: var(--page-bg); border-top: 1px solid var(--border); }
+.faq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 880px; }
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%; text-align: left;
+  padding: 14px 18px;
+  font-size: .88rem; font-weight: 600;
+  color: var(--ink);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  transition: background var(--t);
+  font-family: var(--f-ui);
+}
+.faq-q::after { content: '+'; font-size: 1.1rem; font-weight: 300; color: var(--ink-muted); transition: transform var(--t); }
+.faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--accent); }
+.faq-q:hover { background: var(--chrome); }
+.faq-a { display: none; padding: 0 18px 14px; }
+.faq-a p { font-size: .85rem; color: var(--ink-soft); line-height: 1.72; }
+
+/* CTA */
+.cta-wp {
+  background: var(--ink);
+  padding: 64px 0;
+  text-align: center;
+}
+.cta-wp h2 {
+  font-family: var(--f-doc);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--chrome);
+  margin-bottom: 14px; font-weight: 700;
+}
+.cta-wp p { font-size: .95rem; color: rgba(240,236,230,.5); margin-bottom: 28px; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 30px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--r);
+  font-size: .9rem; font-weight: 700;
+  font-family: var(--f-ui-cond); letter-spacing: .06em; text-transform: uppercase;
+  transition: all var(--t);
+}
+.cta-btn:hover { background: var(--accent-lt); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31,95,187,.4); }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════
+   FULLSCREEN MODE
+═══════════════════════════════ */
+body.fullscreen-mode .info-sections,
+body.fullscreen-mode .ribbon-tabs,
+body.fullscreen-mode .ruler-wrap { display: none !important; }
+body.fullscreen-mode .rpanel.active { display: flex; }
+body.fullscreen-mode .doc-scroll { height: 100vh; }
+
+/* ═══════════════════════════════
+   MOBILE
+═══════════════════════════════ */
+@media (max-width: 900px) {
+  :root { --doc-w: 100%; --doc-pad: 28px; }
+  .doc-wrap { box-shadow: none; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .howto-grid { grid-template-columns: repeat(2, 1fr); }
+  .shortcuts-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .faq-cols { grid-template-columns: 1fr; }
+  .ruler-wrap { display: none; }
+}
+@media (max-width: 600px) {
+  .features-grid, .howto-grid { grid-template-columns: 1fr; }
+  .rgroup { padding: 0 6px 0 4px; }
+  .ribbon-tabs { flex-wrap: wrap; }
+  .titlebar .tb-title { font-size: .7rem; }
+  .doc-editor { font-size: 11pt; padding: 20px; }
+  .wp-container { padding: 0 20px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+<!-- ═══════════════════════════════
+     APP WRAPPER
+═══════════════════════════════ -->
+<div id="appWrap" style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
+
+  <!-- Title Bar -->
+  <div class="titlebar">
+    <div class="tb-dots">
+      <div class="tb-dot red"></div>
+      <div class="tb-dot yellow"></div>
+      <div class="tb-dot green"></div>
+    </div>
+    <div class="tb-title" id="tbTitle">Untitled Document — WordPad Online</div>
+    <div class="tb-actions">
+      <button class="tb-action-btn" id="darkBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+      <button class="tb-action-btn" id="fullscreenBtn" title="Fullscreen writing mode" aria-label="Fullscreen">⛶</button>
+    </div>
+  </div>
+
+  <!-- Ribbon -->
+  <div class="ribbon-wrap">
+    <!-- Tabs -->
+    <div class="ribbon-tabs" role="tablist" aria-label="Ribbon tabs">
+      <button class="rtab active" data-tab="home" role="tab" aria-selected="true" aria-controls="rpanel-home">Home</button>
+      <button class="rtab" data-tab="insert" role="tab" aria-selected="false" aria-controls="rpanel-insert">Insert</button>
+      <button class="rtab" data-tab="format" role="tab" aria-selected="false" aria-controls="rpanel-format">Format</button>
+      <button class="rtab" data-tab="view" role="tab" aria-selected="false" aria-controls="rpanel-view">View</button>
+      <button class="rtab" data-tab="file" role="tab" aria-selected="false" aria-controls="rpanel-file">File</button>
+    </div>
+
+    <!-- ── HOME PANEL ── -->
+    <div class="rpanel active" id="rpanel-home" role="tabpanel">
+
+      <!-- Clipboard -->
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="undoBtn" title="Undo (Ctrl+Z)" aria-label="Undo"><span class="rb-icon">↩</span><span class="rb-label">Undo</span></button>
+            <button class="rb rb-lg" id="redoBtn" title="Redo (Ctrl+Y)" aria-label="Redo"><span class="rb-icon">↪</span><span class="rb-label">Redo</span></button>
+          </div>
+          <div class="rgroup-label">Clipboard</div>
+        </div>
+      </div>
+
+      <!-- Font -->
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns" style="align-items:flex-start;flex-direction:column;gap:4px;">
+            <div style="display:flex;gap:4px;align-items:center;">
+              <select class="r-select" id="fontFamily" aria-label="Font family" style="max-width:145px;">
+                <option value="'Libre Baskerville',Georgia,serif">Libre Baskerville</option>
+                <option value="Georgia,serif">Georgia</option>
+                <option value="'Times New Roman',Times,serif">Times New Roman</option>
+                <option value="Arial,sans-serif">Arial</option>
+                <option value="'Helvetica Neue',Helvetica,sans-serif">Helvetica</option>
+                <option value="'Verdana',sans-serif">Verdana</option>
+                <option value="'Trebuchet MS',sans-serif">Trebuchet MS</option>
+                <option value="'Courier New',monospace">Courier New</option>
+                <option value="'IBM Plex Mono',monospace">IBM Plex Mono</option>
+                <option value="Impact,sans-serif">Impact</option>
+                <option value="'Comic Sans MS',cursive">Comic Sans MS</option>
+                <option value="'Palatino Linotype',Palatino,serif">Palatino</option>
+                <option value="Garamond,serif">Garamond</option>
+                <option value="'Book Antiqua',Palatino,serif">Book Antiqua</option>
+              </select>
+              <input type="number" class="r-input-num" id="fontSize" value="12" min="6" max="96" aria-label="Font size" title="Font size (pt)" />
+              <span style="font-size:.65rem;color:var(--ink-muted);font-family:var(--f-mono)">pt</span>
+            </div>
+            <div style="display:flex;gap:3px;align-items:center;flex-wrap:wrap;">
+              <button class="rb" id="boldBtn" data-cmd="bold" title="Bold (Ctrl+B)" aria-label="Bold"><b style="font-size:.9rem;">B</b></button>
+              <button class="rb" id="italicBtn" data-cmd="italic" title="Italic (Ctrl+I)" aria-label="Italic"><i style="font-size:.9rem;">I</i></button>
+              <button class="rb" id="underlineBtn" data-cmd="underline" title="Underline (Ctrl+U)" aria-label="Underline"><u style="font-size:.85rem;">U</u></button>
+              <button class="rb" id="strikeBtn" data-cmd="strikeThrough" title="Strikethrough" aria-label="Strikethrough"><s style="font-size:.85rem;">S</s></button>
+              <button class="rb" id="superBtn" title="Superscript" aria-label="Superscript" data-cmd="superscript">X<sup style="font-size:.5rem">2</sup></button>
+              <button class="rb" id="subBtn" title="Subscript" aria-label="Subscript" data-cmd="subscript">X<sub style="font-size:.5rem">2</sub></button>
+              <div style="width:1px;height:18px;background:var(--border-lt);margin:0 2px;"></div>
+              <!-- Text color -->
+              <div class="r-colorpicker-wrap" title="Text color">
+                <button class="rb r-color-btn" id="textColorBtn" aria-label="Text color">
+                  <div class="r-color-swatch" id="textColorSwatch" style="background:#1d1b17;"></div>
+                </button>
+                <span class="r-colorpicker-label">A</span>
+                <input type="color" class="r-color-input" id="textColorPicker" value="#1d1b17" aria-label="Choose text color"/>
+              </div>
+              <!-- Highlight color -->
+              <div class="r-colorpicker-wrap" title="Highlight color">
+                <button class="rb r-color-btn" id="highlightBtn" aria-label="Highlight color">
+                  <div class="r-color-swatch" id="highlightSwatch" style="background:#fef08a;"></div>
+                </button>
+                <span class="r-colorpicker-label">H</span>
+                <input type="color" class="r-color-input" id="highlightPicker" value="#fef08a" aria-label="Choose highlight color"/>
+              </div>
+              <button class="rb" id="clearFmtBtn" title="Clear formatting" aria-label="Clear formatting">✕<span class="rb-label" style="font-size:.58rem;">Fmt</span></button>
+            </div>
+          </div>
+          <div class="rgroup-label">Font</div>
+        </div>
+      </div>
+
+      <!-- Paragraph -->
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns" style="flex-direction:column;gap:4px;">
+            <div style="display:flex;gap:2px;">
+              <button class="rb" data-cmd="justifyLeft" title="Align left (Ctrl+L)" aria-label="Align left">⬤<span style="font-size:.55rem">◁</span></button>
+              <button class="rb" data-cmd="justifyCenter" title="Center (Ctrl+E)" aria-label="Center">≡</button>
+              <button class="rb" data-cmd="justifyRight" title="Align right (Ctrl+R)" aria-label="Align right">⬤<span style="font-size:.55rem">▷</span></button>
+              <button class="rb" data-cmd="justifyFull" title="Justify" aria-label="Justify">▤</button>
+              <div style="width:1px;height:18px;background:var(--border-lt);margin:0 2px;"></div>
+              <button class="rb" data-cmd="insertUnorderedList" title="Bullet list" aria-label="Bullet list">• <span class="rb-label">List</span></button>
+              <button class="rb" data-cmd="insertOrderedList" title="Numbered list" aria-label="Numbered list">1. <span class="rb-label">List</span></button>
+            </div>
+            <div style="display:flex;gap:2px;">
+              <button class="rb" data-cmd="indent" title="Indent" aria-label="Indent">⇥ <span class="rb-label">Indent</span></button>
+              <button class="rb" data-cmd="outdent" title="Outdent" aria-label="Outdent">⇤ <span class="rb-label">Outdent</span></button>
+              <div style="width:1px;height:18px;background:var(--border-lt);margin:0 2px;"></div>
+              <select class="r-select r-select-sm" id="lineSpacing" aria-label="Line spacing" style="max-width:68px;" title="Line spacing">
+                <option value="1">1×</option>
+                <option value="1.25">1.25×</option>
+                <option value="1.5" selected>1.5×</option>
+                <option value="1.75">1.75×</option>
+                <option value="2">2×</option>
+                <option value="2.5">2.5×</option>
+              </select>
+            </div>
+          </div>
+          <div class="rgroup-label">Paragraph</div>
+        </div>
+      </div>
+
+      <!-- Styles -->
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="heading-btns">
+            <button class="h-btn" data-heading="p" aria-label="Normal paragraph">¶ Normal</button>
+            <button class="h-btn" data-heading="h1" aria-label="Heading 1">H1</button>
+            <button class="h-btn" data-heading="h2" aria-label="Heading 2">H2</button>
+            <button class="h-btn" data-heading="h3" aria-label="Heading 3">H3</button>
+            <button class="h-btn" data-heading="h4" aria-label="Heading 4">H4</button>
+            <button class="h-btn" data-heading="blockquote" aria-label="Blockquote">" Quote</button>
+          </div>
+          <div class="rgroup-label">Styles</div>
+        </div>
+      </div>
+
+      <!-- Editing -->
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="findReplaceBtn" title="Find & Replace (Ctrl+F)" aria-label="Find and Replace"><span class="rb-icon">🔍</span><span class="rb-label">Find</span></button>
+            <button class="rb rb-lg" id="wordCountBtn" title="Word count" aria-label="Word count"><span class="rb-icon">≡</span><span class="rb-label">Count</span></button>
+          </div>
+          <div class="rgroup-label">Editing</div>
+        </div>
+      </div>
+
+    </div><!-- /#rpanel-home -->
+
+    <!-- ── INSERT PANEL ── -->
+    <div class="rpanel" id="rpanel-insert" role="tabpanel">
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="insertTableBtn" title="Insert table" aria-label="Insert table"><span class="rb-icon">⊞</span><span class="rb-label">Table</span></button>
+            <button class="rb rb-lg" id="insertImageBtn" title="Insert image" aria-label="Insert image"><span class="rb-icon">🖼</span><span class="rb-label">Image</span></button>
+            <button class="rb rb-lg" id="insertLinkBtn" title="Insert hyperlink (Ctrl+K)" aria-label="Insert link"><span class="rb-icon">🔗</span><span class="rb-label">Link</span></button>
+          </div>
+          <div class="rgroup-label">Insert</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" data-cmd="insertHorizontalRule" title="Horizontal rule" aria-label="Insert horizontal rule"><span class="rb-icon">—</span><span class="rb-label">H-Rule</span></button>
+            <button class="rb rb-lg" id="insertDateBtn" title="Insert current date/time" aria-label="Insert date"><span class="rb-icon">📅</span><span class="rb-label">Date</span></button>
+            <button class="rb rb-lg" id="insertPageBreakBtn" title="Insert page break" aria-label="Insert page break"><span class="rb-icon">⬜</span><span class="rb-label">Pg Break</span></button>
+          </div>
+          <div class="rgroup-label">Elements</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" data-cmd="insertUnorderedList" aria-label="Bullet list"><span class="rb-icon">•</span><span class="rb-label">Bullets</span></button>
+            <button class="rb rb-lg" data-cmd="insertOrderedList" aria-label="Numbered list"><span class="rb-icon">1.</span><span class="rb-label">Numbers</span></button>
+            <button class="rb rb-lg" id="insertBlockquoteBtn" aria-label="Insert blockquote"><span class="rb-icon">"</span><span class="rb-label">Quote</span></button>
+          </div>
+          <div class="rgroup-label">Lists</div>
+        </div>
+      </div>
+
+    </div><!-- /#rpanel-insert -->
+
+    <!-- ── FORMAT PANEL ── -->
+    <div class="rpanel" id="rpanel-format" role="tabpanel">
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns" style="flex-direction:column;gap:4px;">
+            <div style="display:flex;gap:4px;align-items:center;">
+              <label style="font-size:.72rem;color:var(--ink-muted);font-family:var(--f-ui-cond);">Page Width:</label>
+              <select class="r-select" id="pageWidth" aria-label="Page width" style="max-width:110px;">
+                <option value="816">Letter (8.5")</option>
+                <option value="794">A4 (210mm)</option>
+                <option value="680">Narrow</option>
+                <option value="960">Wide</option>
+                <option value="100%">Full Width</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <label style="font-size:.72rem;color:var(--ink-muted);font-family:var(--f-ui-cond);">Padding:</label>
+              <select class="r-select" id="pagePadding" aria-label="Page padding" style="max-width:110px;">
+                <option value="48">Narrow</option>
+                <option value="72" selected>Normal</option>
+                <option value="96">Wide</option>
+                <option value="120">Extra Wide</option>
+              </select>
+            </div>
+          </div>
+          <div class="rgroup-label">Page Setup</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns" style="flex-direction:column;gap:4px;">
+            <div style="display:flex;gap:4px;align-items:center;">
+              <label style="font-size:.72rem;color:var(--ink-muted);font-family:var(--f-ui-cond);">Background:</label>
+              <input type="color" id="pageBgColor" value="#ffffff" class="r-color-input" style="position:static;width:28px;height:22px;opacity:1;pointer-events:all;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;padding:1px 2px;background:var(--surface);" aria-label="Page background color"/>
+            </div>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <label style="font-size:.72rem;color:var(--ink-muted);font-family:var(--f-ui-cond);">Text color:</label>
+              <input type="color" id="pageTextColor" value="#1d1b17" class="r-color-input" style="position:static;width:28px;height:22px;opacity:1;pointer-events:all;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;padding:1px 2px;background:var(--surface);" aria-label="Page text color"/>
+            </div>
+          </div>
+          <div class="rgroup-label">Page Color</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb" id="upperBtn" title="UPPERCASE" aria-label="Convert to uppercase" style="height:22px;padding:0 6px;font-size:.7rem;font-family:var(--f-ui-cond);">AA UPPER</button>
+            <button class="rb" id="lowerBtn" title="lowercase" aria-label="Convert to lowercase" style="height:22px;padding:0 6px;font-size:.7rem;font-family:var(--f-ui-cond);">aa lower</button>
+            <button class="rb" id="titleBtn" title="Title Case" aria-label="Convert to title case" style="height:22px;padding:0 6px;font-size:.7rem;font-family:var(--f-ui-cond);">Aa Title</button>
+          </div>
+          <div class="rgroup-label">Case</div>
+        </div>
+      </div>
+
+    </div><!-- /#rpanel-format -->
+
+    <!-- ── VIEW PANEL ── -->
+    <div class="rpanel" id="rpanel-view" role="tabpanel">
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <div class="zoom-wrap">
+              <button class="rb" id="zoomOutBtn" title="Zoom out" aria-label="Zoom out">−</button>
+              <input type="range" class="zoom-slider" id="zoomSlider" min="50" max="200" value="100" aria-label="Zoom level" title="Zoom"/>
+              <button class="rb" id="zoomInBtn" title="Zoom in" aria-label="Zoom in">+</button>
+              <span class="zoom-label" id="zoomLabel">100%</span>
+            </div>
+          </div>
+          <div class="rgroup-label">Zoom</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="fullscreenRibbonBtn" title="Fullscreen writing mode" aria-label="Fullscreen writing mode"><span class="rb-icon">⛶</span><span class="rb-label">Focus</span></button>
+            <button class="rb rb-lg" id="toggleRulerBtn" title="Toggle ruler" aria-label="Toggle ruler"><span class="rb-icon">📏</span><span class="rb-label">Ruler</span></button>
+            <button class="rb rb-lg" id="spellcheckBtn" title="Toggle spellcheck" aria-label="Toggle spellcheck"><span class="rb-icon">✓</span><span class="rb-label">Spell</span></button>
+          </div>
+          <div class="rgroup-label">View</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="darkModeRibbonBtn" title="Toggle dark mode" aria-label="Dark mode"><span class="rb-icon">🌙</span><span class="rb-label">Dark</span></button>
+            <button class="rb rb-lg" id="printPreviewBtn" title="Print" aria-label="Print"><span class="rb-icon">🖨</span><span class="rb-label">Print</span></button>
+          </div>
+          <div class="rgroup-label">Theme</div>
+        </div>
+      </div>
+
+    </div><!-- /#rpanel-view -->
+
+    <!-- ── FILE PANEL ── -->
+    <div class="rpanel" id="rpanel-file" role="tabpanel">
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="newDocBtn" title="New document (Ctrl+Shift+N)" aria-label="New document"><span class="rb-icon">📄</span><span class="rb-label">New</span></button>
+            <button class="rb rb-lg" id="openDocBtn" title="Open file" aria-label="Open file"><span class="rb-icon">📂</span><span class="rb-label">Open</span></button>
+            <input type="file" id="openFileInput" accept=".html,.htm,.txt" style="display:none;" aria-label="Open file input"/>
+          </div>
+          <div class="rgroup-label">Document</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="saveAutoBtn" title="Save (Ctrl+S)" aria-label="Save"><span class="rb-icon">💾</span><span class="rb-label">Save</span></button>
+            <button class="rb rb-lg" id="exportHtmlBtn" title="Export as HTML" aria-label="Export HTML"><span class="rb-icon">⬇</span><span class="rb-label">HTML</span></button>
+            <button class="rb rb-lg" id="exportTxtBtn" title="Export as TXT" aria-label="Export TXT"><span class="rb-icon">⬇</span><span class="rb-label">TXT</span></button>
+            <button class="rb rb-lg" id="printBtn" title="Print document" aria-label="Print"><span class="rb-icon">🖨</span><span class="rb-label">Print</span></button>
+          </div>
+          <div class="rgroup-label">Export</div>
+        </div>
+      </div>
+
+      <div class="rgroup">
+        <div class="rgroup-wrap">
+          <div class="rgroup-btns">
+            <button class="rb rb-lg" id="docInfoBtn" title="Document info" aria-label="Document info"><span class="rb-icon">ℹ</span><span class="rb-label">Info</span></button>
+            <button class="rb rb-lg" id="clearDocBtn" title="Clear document" aria-label="Clear document"><span class="rb-icon">🗑</span><span class="rb-label">Clear</span></button>
+          </div>
+          <div class="rgroup-label">Manage</div>
+        </div>
+      </div>
+
+    </div><!-- /#rpanel-file -->
+
+  </div><!-- /.ribbon-wrap -->
+
+  <!-- Find & Replace Bar -->
+  <div class="find-bar" id="findBar" style="display:none;" role="search">
+    <label>Find:</label>
+    <input type="text" class="find-input" id="findInput" placeholder="Search text…" aria-label="Find text" autocomplete="off"/>
+    <label>Replace:</label>
+    <input type="text" class="find-input" id="replaceInput" placeholder="Replace with…" aria-label="Replace text" autocomplete="off" style="width:150px;"/>
+    <button class="find-btn" id="findNextBtn">Find Next</button>
+    <button class="find-btn" id="findPrevBtn">Find Prev</button>
+    <button class="find-btn" id="replaceOneBtn">Replace</button>
+    <button class="find-btn find-btn-primary" id="replaceAllBtn">Replace All</button>
+    <span class="find-result-count" id="findResultCount"></span>
+    <button class="find-close" id="closeFindBar" aria-label="Close find bar">✕</button>
+  </div>
+
+  <!-- Ruler -->
+  <div class="ruler-wrap" id="rulerWrap">
+    <canvas class="ruler-canvas" id="rulerCanvas" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Document Area -->
+  <div class="doc-scroll" id="docScroll">
+    <div class="doc-wrap" id="docWrap">
+      <div
+        class="doc-editor"
+        id="docEditor"
+        contenteditable="true"
+        spellcheck="true"
+        role="textbox"
+        aria-multiline="true"
+        aria-label="Document content"
+        data-placeholder="Start typing your document here…">
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="statusbar" role="status" aria-live="polite">
+    <div class="sb-save">
+      <div class="sb-save-dot" id="saveDot"></div>
+      <span class="sb-item" id="saveStatus">Saved</span>
+    </div>
+    <span class="sb-sep">|</span>
+    <span class="sb-item" id="wordCountStatus">0 words</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item" id="charCountStatus">0 chars</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item" id="paraCountStatus">0 paragraphs</span>
+    <span class="sb-sep">|</span>
+    <span class="sb-item" id="readTimeStatus">~0 min read</span>
+    <div class="sb-right">
+      <div class="sb-zoom-btns">
+        <button class="sb-zoom-btn" id="sbZoomOut" aria-label="Zoom out">−</button>
+        <span class="sb-item" id="sbZoomLabel">100%</span>
+        <button class="sb-zoom-btn" id="sbZoomIn" aria-label="Zoom in">+</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#appWrap -->
+
+
+<!-- ═══════════════════════════════════════════════
+     INFORMATIONAL SECTIONS (below app)
+═══════════════════════════════════════════════ -->
+<div class="info-sections" id="infoSections">
+
+  <!-- ── ABOUT / DESCRIPTION ── -->
+  <section class="wp-section about-wp" id="about" aria-label="About WordPad Online">
+    <div class="wp-container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <div class="wp-tag">What is it?</div>
+          <h2 class="wp-title">Free Online <em>WordPad</em> — Write Anything, Anywhere</h2>
+          <p>WordPad Online is a free browser-based word processor that brings the familiar power of Microsoft WordPad directly to your web browser — with no installation, no account, and no subscription required. Open the page, click the document, and start writing immediately.</p>
+          <p>The classic Windows WordPad application has been a trusted companion for everyday writing since 1995. Our online WordPad alternative recreates that experience for the modern web, adding powerful features like a full ribbon toolbar, find and replace, table insertion, image embedding, custom fonts, paragraph styles, line spacing controls, zoom, dark mode, and multiple export formats.</p>
+          <p>Whether you're drafting a letter, writing an essay, creating a business document, or simply need a fast and clean text editor online — WordPad Online is the tool for the job. All your documents auto-save to your browser's local storage, and you can export them as HTML, plain text, or print directly to PDF at any time.</p>
+          <div class="kw-chips">
+            <span class="kw-chip">Online Word Processor</span>
+            <span class="kw-chip">Rich Text Editor</span>
+            <span class="kw-chip">WordPad Alternative</span>
+            <span class="kw-chip">Browser Word Editor</span>
+            <span class="kw-chip">Free Document Editor</span>
+            <span class="kw-chip">RTF Editor Online</span>
+            <span class="kw-chip">Text Formatting Tool</span>
+            <span class="kw-chip">Online Writing App</span>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="doc-mockup">
+            <div class="dm-titlebar">
+              <div class="dm-dot" style="background:#fe5f57"></div>
+              <div class="dm-dot" style="background:#febc2e"></div>
+              <div class="dm-dot" style="background:#29c840"></div>
+            </div>
+            <div class="dm-ribbon">
+              <div class="dm-rb" style="width:32px;"></div>
+              <div class="dm-rb" style="width:22px;"></div>
+              <div class="dm-rb" style="width:40px;"></div>
+              <div class="dm-rb" style="width:18px;"></div>
+              <div class="dm-rb" style="width:28px;"></div>
+            </div>
+            <div class="dm-doc">
+              <div class="dm-line thick"></div>
+              <div class="dm-line" style="width:90%"></div>
+              <div class="dm-line half"></div>
+              <div class="dm-line" style="width:80%"></div>
+              <div class="dm-line third"></div>
+              <div class="dm-line" style="width:85%"></div>
+              <div class="dm-line half"></div>
+              <div class="dm-line" style="width:70%"></div>
+              <div class="dm-line" style="width:90%"></div>
+              <div class="dm-line third"></div>
+            </div>
+            <div class="dm-status">
+              <div class="dm-st"></div>
+              <div class="dm-st" style="width:28px;"></div>
+              <div class="dm-st" style="width:50px;margin-left:auto;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="wp-section features-wp" id="features" aria-label="Features">
+    <div class="wp-container">
+      <div class="wp-tag">Everything included</div>
+      <h2 class="wp-title">Advanced <em>Features</em> Built In</h2>
+      <p class="wp-lead">A complete online word processor with every feature you need — from basic bold and italic to tables, find and replace, zoom, and export.</p>
+      <div class="features-grid">
+        <div class="feat-card reveal"><div class="feat-icon">🎨</div><h4>Rich Text Formatting</h4><p>Bold, italic, underline, strikethrough, superscript, subscript, text color, and highlight color — full character-level formatting.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🔤</div><h4>Font Family & Size</h4><p>Choose from 14 professional fonts including serif, sans-serif, and monospace. Set any font size from 6pt to 96pt.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">¶</div><h4>Paragraph Styles</h4><p>Apply Normal, Heading 1–4, and Blockquote styles. Control alignment, line spacing, indentation and list formatting.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">⊞</div><h4>Table Insertion</h4><p>Insert customizable tables with any number of rows and columns. Click the table picker grid to choose dimensions instantly.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🔍</div><h4>Find & Replace</h4><p>Powerful inline search with forward and backward navigation. Replace single instances or all occurrences with one click.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🔗</div><h4>Hyperlink Insertion</h4><p>Insert clickable hyperlinks with custom display text and URLs. Perfect for web documents and HTML exports.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🖼</div><h4>Image Embedding</h4><p>Insert images from a URL directly into your document. Images scale to fit the page width automatically.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">💾</div><h4>Auto-Save</h4><p>Your document saves automatically to browser local storage every time you make a change. Never lose your work again.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">⬇</div><h4>Export to HTML & TXT</h4><p>Download your document as a formatted HTML file or clean plain text. Print to PDF via your browser's print dialog.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🔢</div><h4>Word & Character Count</h4><p>Live word count, character count, paragraph count, and estimated reading time shown in the status bar at all times.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🔭</div><h4>Zoom Controls</h4><p>Zoom from 50% to 200% using the slider or ± buttons. Ideal for accessibility or detailed layout checking.</p></div>
+        <div class="feat-card reveal"><div class="feat-icon">🌙</div><h4>Dark Mode</h4><p>Switch between light and dark themes instantly. Your preference persists across sessions for comfortable writing at any hour.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO ── -->
+  <section class="wp-section howto-wp" id="how-to-use" aria-label="How to use">
+    <div class="wp-container">
+      <div class="wp-tag">Getting started</div>
+      <h2 class="wp-title">How to Use <em>WordPad Online</em></h2>
+      <p class="wp-lead">Everything you need to know to write, format, and export beautiful documents in minutes.</p>
+      <div class="howto-grid">
+        <div class="howto-card reveal">
+          <div class="howto-num">01</div>
+          <h3>Open & Start Writing</h3>
+          <p>The document editor opens instantly when you load the page. Click anywhere on the white page area and start typing. Your document title is shown in the title bar at the top — click to rename it or it will be used as the export filename.</p>
+        </div>
+        <div class="howto-card reveal">
+          <div class="howto-num">02</div>
+          <h3>Format with the Ribbon</h3>
+          <p>Select any text in the document and use the <strong>Home</strong> tab ribbon to apply formatting. Choose a font family, set the font size in points, and apply bold, italic, underline, strikethrough, colors, or heading styles.</p>
+        </div>
+        <div class="howto-card reveal">
+          <div class="howto-num">03</div>
+          <h3>Structure with Headings</h3>
+          <p>Use the Styles group in the Home ribbon to apply Heading 1, 2, 3, or 4 to give your document structure. Apply <em>Blockquote</em> for pull quotes. These styles make your document look professional and export cleanly to HTML.</p>
+        </div>
+        <div class="howto-card reveal">
+          <div class="howto-num">04</div>
+          <h3>Insert Tables & Media</h3>
+          <p>Switch to the <strong>Insert</strong> tab to add tables, images, hyperlinks, horizontal rules, the current date and time, or page breaks. The table picker lets you choose grid dimensions by hovering over the cell grid.</p>
+        </div>
+        <div class="howto-card reveal">
+          <div class="howto-num">05</div>
+          <h3>Find & Replace Text</h3>
+          <p>Press <kbd>Ctrl</kbd>+<kbd>F</kbd> or click the Find button in the Home ribbon to open the Find & Replace bar. Type your search term, navigate matches with Find Next/Prev, and use Replace or Replace All to make substitutions.</p>
+        </div>
+        <div class="howto-card reveal">
+          <div class="howto-num">06</div>
+          <h3>Export & Print</h3>
+          <p>Go to the <strong>File</strong> tab in the ribbon. Click <strong>Export HTML</strong> to download a fully formatted web document, or <strong>Export TXT</strong> for plain text. Click <strong>Print</strong> to open your browser's print dialog and save as PDF.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KEYBOARD SHORTCUTS ── -->
+  <section class="wp-section shortcuts-wp" id="shortcuts" aria-label="Keyboard shortcuts">
+    <div class="wp-container">
+      <div class="wp-tag">Power user</div>
+      <h2 class="wp-title">Keyboard <em>Shortcuts</em></h2>
+      <p class="wp-lead" style="margin-bottom:36px;">Work faster with these keyboard shortcuts — all standard, familiar, and exactly where you'd expect them.</p>
+      <div class="shortcuts-grid">
+        <div class="shortcut-group reveal">
+          <h3>Formatting</h3>
+          <div class="shortcut-item"><span>Bold</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>B</kbd></div></div>
+          <div class="shortcut-item"><span>Italic</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>I</kbd></div></div>
+          <div class="shortcut-item"><span>Underline</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>U</kbd></div></div>
+          <div class="shortcut-item"><span>Align Left</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>L</kbd></div></div>
+          <div class="shortcut-item"><span>Align Center</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>E</kbd></div></div>
+          <div class="shortcut-item"><span>Align Right</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>R</kbd></div></div>
+        </div>
+        <div class="shortcut-group reveal">
+          <h3>Editing</h3>
+          <div class="shortcut-item"><span>Undo</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>Z</kbd></div></div>
+          <div class="shortcut-item"><span>Redo</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>Y</kbd></div></div>
+          <div class="shortcut-item"><span>Find & Replace</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>F</kbd></div></div>
+          <div class="shortcut-item"><span>Insert Link</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>K</kbd></div></div>
+          <div class="shortcut-item"><span>Select All</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>A</kbd></div></div>
+          <div class="shortcut-item"><span>New Document</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>⇧</kbd><kbd>N</kbd></div></div>
+        </div>
+        <div class="shortcut-group reveal">
+          <h3>File</h3>
+          <div class="shortcut-item"><span>Save</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>S</kbd></div></div>
+          <div class="shortcut-item"><span>Print</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>P</kbd></div></div>
+          <div class="shortcut-item"><span>Close Find Bar</span><div class="kbd-combo"><kbd>Esc</kbd></div></div>
+          <div class="shortcut-item"><span>Increase Font Size</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>]</kbd></div></div>
+          <div class="shortcut-item"><span>Decrease Font Size</span><div class="kbd-combo"><kbd>Ctrl</kbd><kbd>[</kbd></div></div>
+          <div class="shortcut-item"><span>Fullscreen Mode</span><div class="kbd-combo"><kbd>F11</kbd></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="wp-section faq-wp" id="faq" aria-label="Frequently asked questions">
+    <div class="wp-container">
+      <div class="wp-tag">Got questions?</div>
+      <h2 class="wp-title">Frequently Asked <em>Questions</em></h2>
+      <div class="faq-cols">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">What is WordPad Online and how is it different from Notepad?</button>
+          <div class="faq-a"><p>WordPad Online is a rich text editor — it supports font formatting, paragraph styles, tables, images, colors, and structured headings. Notepad (or WebNotePad's basic notepad) is a plain text editor that only handles unformatted text. WordPad Online is the more powerful option when you need a formatted document.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Is WordPad Online completely free?</button>
+          <div class="faq-a"><p>Yes, completely free. No account needed, no credit card, no subscription, and no hidden fees. Open the page and start writing.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">How are my documents saved?</button>
+          <div class="faq-a"><p>Documents are saved automatically to your browser's local storage every time you make a change. You'll see the "Saving…" indicator in the status bar followed by "Saved". Your document persists even if you close and reopen the page, as long as you don't clear your browser data.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Can I export my document to Microsoft Word?</button>
+          <div class="faq-a"><p>Direct .docx export isn't supported, but you can export as HTML and open that file in Microsoft Word, Google Docs, or LibreOffice — all of which import HTML documents while preserving formatting such as headings, bold, italic, and tables.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Does WordPad Online support spellcheck?</button>
+          <div class="faq-a"><p>Yes. The document editor uses your browser's built-in spellcheck, which underlines misspelled words in red. You can right-click on any underlined word to see spelling suggestions. Toggle spellcheck on/off using the button in the View ribbon tab.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Can I open existing documents in WordPad Online?</button>
+          <div class="faq-a"><p>Yes. Go to the File tab in the ribbon and click Open. You can open .html and .txt files from your device. The file contents will be loaded into the editor, where you can continue editing and re-export.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">How do I insert a table?</button>
+          <div class="faq-a"><p>Click the Insert tab in the ribbon, then click the Table button. A grid picker will appear — hover over it to select the number of rows and columns, then click to insert the table into your document at the current cursor position.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Does it work on iPhone and Android?</button>
+          <div class="faq-a"><p>Yes. WordPad Online is fully mobile-responsive and works on iOS Safari, Chrome for Android, and other mobile browsers. The interface adapts to smaller screens, and all formatting features are accessible through the ribbon toolbar.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">What fonts are available in WordPad Online?</button>
+          <div class="faq-a"><p>The font selector includes 14 fonts: Libre Baskerville, Georgia, Times New Roman, Arial, Helvetica, Verdana, Trebuchet MS, Courier New, IBM Plex Mono, Impact, Comic Sans MS, Palatino, Garamond, and Book Antiqua — covering serif, sans-serif, and monospace styles.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">Can I print my document?</button>
+          <div class="faq-a"><p>Yes. Use the Print button in the File ribbon tab or press Ctrl+P to open your browser's print dialog. From there you can print to a physical printer or choose "Save as PDF" to create a PDF version of your document.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-wp" role="complementary">
+    <h2>Open WordPad. Start Writing.</h2>
+    <p>No signup. No install. No nonsense. Your free online word processor is ready.</p>
+    <button class="cta-btn" onclick="document.getElementById('docEditor').focus();document.getElementById('appWrap').scrollIntoView({behavior:'smooth'})">
+      Open Document Editor →
+    </button>
+  </div>
+
+</div><!-- /.info-sections -->
+
+<!-- Modals -->
+<div id="linkModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert link">
+  <div class="modal">
+    <div class="modal-head">Insert Hyperlink <button class="modal-close" onclick="closeModal('linkModal')">✕</button></div>
+    <div class="modal-body">
+      <div><div class="modal-field-label">Display Text</div><input type="text" class="modal-input" id="linkText" placeholder="Click here" autocomplete="off"/></div>
+      <div><div class="modal-field-label">URL</div><input type="url" class="modal-input" id="linkUrl" placeholder="https://example.com" autocomplete="off"/></div>
+    </div>
+    <div class="modal-foot">
+      <button class="modal-btn modal-btn-ghost" onclick="closeModal('linkModal')">Cancel</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmInsertLink()">Insert Link</button>
+    </div>
+  </div>
+</div>
+
+<div id="imageModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert image">
+  <div class="modal">
+    <div class="modal-head">Insert Image <button class="modal-close" onclick="closeModal('imageModal')">✕</button></div>
+    <div class="modal-body">
+      <div><div class="modal-field-label">Image URL</div><input type="url" class="modal-input" id="imageUrl" placeholder="https://example.com/image.jpg" autocomplete="off"/></div>
+      <div><div class="modal-field-label">Alt Text (optional)</div><input type="text" class="modal-input" id="imageAlt" placeholder="Image description…" autocomplete="off"/></div>
+    </div>
+    <div class="modal-foot">
+      <button class="modal-btn modal-btn-ghost" onclick="closeModal('imageModal')">Cancel</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmInsertImage()">Insert Image</button>
+    </div>
+  </div>
+</div>
+
+<div id="wcModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Word count">
+  <div class="modal">
+    <div class="modal-head">Document Statistics <button class="modal-close" onclick="closeModal('wcModal')">✕</button></div>
+    <div class="modal-body" id="wcModalBody"></div>
+    <div class="modal-foot"><button class="modal-btn modal-btn-primary" onclick="closeModal('wcModal')">Close</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>  
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+
+<!-- ═══════════════════════════════
+     JAVASCRIPT APPLICATION
+═══════════════════════════════ -->
+<script>
+(function(){
+'use strict';
+
+/* ── Storage key ── */
+const SK = 'webnotepad_wordpad_doc';
+const SK_TITLE = 'webnotepad_wordpad_title';
+
+/* ── DOM refs ── */
+const ed   = document.getElementById('docEditor');
+const wrap = document.getElementById('docWrap');
+
+let saveTimer = null;
+let currentZoom = 100;
+let spellcheckOn = true;
+let savedRange = null;
+
+/* ══════════════════════════════════════
+   LOAD / SAVE
+══════════════════════════════════════ */
+function loadDoc(){
+  const html = localStorage.getItem(SK);
+  const title = localStorage.getItem(SK_TITLE) || 'Untitled Document';
+  if(html) ed.innerHTML = html;
+  else {
+    ed.innerHTML = `<h1>Welcome to WordPad Online</h1><p>This is your free online word processor. Start writing here, or explore the ribbon toolbar above to format your document.</p><p>Use the <strong>Home</strong> tab for font and paragraph formatting, the <strong>Insert</strong> tab to add tables and images, the <strong>Format</strong> tab for page layout, and the <strong>File</strong> tab to save or export your document.</p><p>Press <kbd>Ctrl+S</kbd> to save, <kbd>Ctrl+F</kbd> to find and replace, and <kbd>Ctrl+Z</kbd> to undo.</p>`;
+  }
+  document.getElementById('tbTitle').textContent = title + ' — WordPad Online';
+  updateStats();
+}
+
+function triggerSave(){
+  clearTimeout(saveTimer);
+  setSaving(true);
+  saveTimer = setTimeout(()=>{
+    localStorage.setItem(SK, ed.innerHTML);
+    setSaving(false);
+  }, 800);
+}
+
+function setSaving(s){
+  const dot = document.getElementById('saveDot');
+  const lbl = document.getElementById('saveStatus');
+  if(s){ dot.classList.add('saving'); lbl.textContent = 'Saving…'; }
+  else { dot.classList.remove('saving'); lbl.textContent = 'Saved'; }
+}
+
+function manualSave(){
+  localStorage.setItem(SK, ed.innerHTML);
+  setSaving(false);
+  toast('💾 Document saved');
+}
+
+/* ══════════════════════════════════════
+   STATS
+══════════════════════════════════════ */
+function updateStats(){
+  const text = ed.innerText || '';
+  const words = text.trim() ? text.trim().split(/\s+/).filter(Boolean).length : 0;
+  const chars = text.length;
+  const paras = ed.querySelectorAll('p, h1, h2, h3, h4, blockquote, li').length || (text.split('\n').filter(Boolean).length);
+  const readMin = Math.max(1, Math.ceil(words / 200));
+  document.getElementById('wordCountStatus').textContent = words + ' word' + (words!==1?'s':'');
+  document.getElementById('charCountStatus').textContent = chars + ' char' + (chars!==1?'s':'');
+  document.getElementById('paraCountStatus').textContent = paras + ' para' + (paras!==1?'s':'');
+  document.getElementById('readTimeStatus').textContent = '~' + readMin + ' min read';
+}
+
+/* ══════════════════════════════════════
+   EXEC COMMAND WRAPPER
+══════════════════════════════════════ */
+function exec(cmd, val){
+  ed.focus();
+  document.execCommand(cmd, false, val || null);
+  updateActiveStates();
+  triggerSave();
+}
+
+function saveSelection(){
+  const sel = window.getSelection();
+  if(sel && sel.rangeCount > 0) savedRange = sel.getRangeAt(0).cloneRange();
+}
+function restoreSelection(){
+  if(!savedRange) return;
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(savedRange);
+}
+
+/* ══════════════════════════════════════
+   ACTIVE STATE UPDATE
+══════════════════════════════════════ */
+function updateActiveStates(){
+  const cmds = { bold:'boldBtn', italic:'italicBtn', underline:'underlineBtn', strikeThrough:'strikeBtn' };
+  Object.entries(cmds).forEach(([cmd,id])=>{
+    const el = document.getElementById(id);
+    if(el) el.classList.toggle('active', document.queryCommandState(cmd));
+  });
+}
+ed.addEventListener('keyup', updateActiveStates);
+ed.addEventListener('mouseup', updateActiveStates);
+
+/* ══════════════════════════════════════
+   RIBBON TABS
+══════════════════════════════════════ */
+document.querySelectorAll('.rtab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.rtab').forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.rpanel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+    document.getElementById('rpanel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ══════════════════════════════════════
+   RIBBON BUTTONS — data-cmd
+══════════════════════════════════════ */
+document.querySelectorAll('.rb[data-cmd]').forEach(btn=>{
+  btn.addEventListener('click',()=>exec(btn.dataset.cmd));
+});
+
+/* ══════════════════════════════════════
+   FONT FAMILY & SIZE
+══════════════════════════════════════ */
+document.getElementById('fontFamily').addEventListener('change', e=>{
+  exec('fontName', e.target.value);
+});
+document.getElementById('fontSize').addEventListener('change', e=>{
+  // Convert pt to HTML font size 1-7 approximately
+  const pt = parseInt(e.target.value) || 12;
+  exec('fontSize', '3'); // set base
+  // Apply inline style instead for accuracy
+  const sel = window.getSelection();
+  if(sel && sel.rangeCount){
+    const span = document.createElement('span');
+    span.style.fontSize = pt + 'pt';
+    try {
+      const range = sel.getRangeAt(0);
+      if(!range.collapsed){
+        range.surroundContents(span);
+        triggerSave();
+      } else {
+        ed.style.fontSize = pt + 'pt';
+      }
+    } catch(err){}
+  }
+});
+document.getElementById('fontSize').addEventListener('keydown', e=>{
+  if(e.key==='Enter') document.getElementById('fontSize').dispatchEvent(new Event('change'));
+});
+
+/* ══════════════════════════════════════
+   COLORS
+══════════════════════════════════════ */
+const textColorBtn = document.getElementById('textColorBtn');
+const textColorPicker = document.getElementById('textColorPicker');
+const textColorSwatch = document.getElementById('textColorSwatch');
+textColorBtn.addEventListener('click',()=>{ saveSelection(); textColorPicker.click(); });
+textColorPicker.addEventListener('input', e=>{
+  textColorSwatch.style.background = e.target.value;
+  restoreSelection();
+  exec('foreColor', e.target.value);
+});
+
+const highlightBtn = document.getElementById('highlightBtn');
+const highlightPicker = document.getElementById('highlightPicker');
+const highlightSwatch = document.getElementById('highlightSwatch');
+highlightBtn.addEventListener('click',()=>{ saveSelection(); highlightPicker.click(); });
+highlightPicker.addEventListener('input', e=>{
+  highlightSwatch.style.background = e.target.value;
+  restoreSelection();
+  exec('hiliteColor', e.target.value);
+});
+
+/* ══════════════════════════════════════
+   CLEAR FORMATTING
+══════════════════════════════════════ */
+document.getElementById('clearFmtBtn').addEventListener('click',()=>exec('removeFormat'));
+
+/* ══════════════════════════════════════
+   HEADING STYLES
+══════════════════════════════════════ */
+document.querySelectorAll('.h-btn[data-heading]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const h = btn.dataset.heading;
+    ed.focus();
+    if(h === 'blockquote'){
+      document.execCommand('formatBlock', false, 'blockquote');
+    } else {
+      document.execCommand('formatBlock', false, h === 'p' ? 'p' : h);
+    }
+    triggerSave();
+  });
+});
+
+/* ══════════════════════════════════════
+   LINE SPACING
+══════════════════════════════════════ */
+document.getElementById('lineSpacing').addEventListener('change', e=>{
+  ed.style.lineHeight = e.target.value;
+  triggerSave();
+});
+
+/* ══════════════════════════════════════
+   UNDO / REDO
+══════════════════════════════════════ */
+document.getElementById('undoBtn').addEventListener('click',()=>exec('undo'));
+document.getElementById('redoBtn').addEventListener('click',()=>exec('redo'));
+
+/* ══════════════════════════════════════
+   CASE CONVERSION
+══════════════════════════════════════ */
+function convertCase(fn){
+  const sel = window.getSelection();
+  if(!sel || sel.isCollapsed){ toast('Select text first.'); return; }
+  const text = sel.toString();
+  const newText = fn(text);
+  exec('insertText', newText);
+}
+document.getElementById('upperBtn').addEventListener('click',()=>convertCase(t=>t.toUpperCase()));
+document.getElementById('lowerBtn').addEventListener('click',()=>convertCase(t=>t.toLowerCase()));
+document.getElementById('titleBtn').addEventListener('click',()=>convertCase(t=>t.replace(/\w\S*/g,w=>w[0].toUpperCase()+w.slice(1).toLowerCase())));
+
+/* ══════════════════════════════════════
+   INSERT — Date/Time, Blockquote, Page Break
+══════════════════════════════════════ */
+document.getElementById('insertDateBtn').addEventListener('click',()=>{
+  const now = new Date();
+  const str = now.toLocaleString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  exec('insertText', str);
+});
+document.getElementById('insertPageBreakBtn').addEventListener('click',()=>{
+  exec('insertHTML','<hr style="page-break-after:always;border:none;border-top:2px dashed var(--border);"/>');
+});
+document.getElementById('insertBlockquoteBtn').addEventListener('click',()=>{
+  exec('formatBlock','blockquote');
+});
+
+/* ══════════════════════════════════════
+   INSERT LINK MODAL
+══════════════════════════════════════ */
+document.getElementById('insertLinkBtn').addEventListener('click',()=>{
+  saveSelection();
+  const sel = window.getSelection();
+  document.getElementById('linkText').value = sel ? sel.toString() : '';
+  document.getElementById('linkUrl').value = '';
+  openModal('linkModal');
+});
+function confirmInsertLink(){
+  const text = document.getElementById('linkText').value.trim();
+  const url  = document.getElementById('linkUrl').value.trim();
+  if(!url){ toast('Please enter a URL.'); return; }
+  restoreSelection();
+  if(text) exec('insertHTML', `<a href="${escHtml(url)}" target="_blank">${escHtml(text)}</a>`);
+  else     exec('createLink', url);
+  closeModal('linkModal');
+  toast('🔗 Link inserted');
+}
+window.confirmInsertLink = confirmInsertLink;
+
+/* ══════════════════════════════════════
+   INSERT IMAGE MODAL
+══════════════════════════════════════ */
+document.getElementById('insertImageBtn').addEventListener('click',()=>{
+  saveSelection();
+  document.getElementById('imageUrl').value = '';
+  document.getElementById('imageAlt').value = '';
+  openModal('imageModal');
+});
+function confirmInsertImage(){
+  const url = document.getElementById('imageUrl').value.trim();
+  const alt = document.getElementById('imageAlt').value.trim() || 'Image';
+  if(!url){ toast('Please enter an image URL.'); return; }
+  restoreSelection();
+  exec('insertHTML', `<img src="${escHtml(url)}" alt="${escHtml(alt)}" style="max-width:100%;height:auto;display:block;margin:.5em 0;"/>`);
+  closeModal('imageModal');
+  toast('🖼 Image inserted');
+}
+window.confirmInsertImage = confirmInsertImage;
+
+/* ══════════════════════════════════════
+   INSERT TABLE
+══════════════════════════════════════ */
+let tablePickerEl = null;
+document.getElementById('insertTableBtn').addEventListener('click', e=>{
+  if(tablePickerEl){ removeTablePicker(); return; }
+  saveSelection();
+  const rect = e.currentTarget.getBoundingClientRect();
+  tablePickerEl = document.createElement('div');
+  tablePickerEl.className = 'table-picker';
+  tablePickerEl.style.top = (rect.bottom + 6) + 'px';
+  tablePickerEl.style.left = rect.left + 'px';
+  const grid = document.createElement('div');
+  grid.className = 'table-picker-grid';
+  const ROWS = 8, COLS = 8;
+  const label = document.createElement('div');
+  label.className = 'table-picker-label';
+  label.textContent = 'Select table size';
+  for(let r=1;r<=ROWS;r++){
+    const row = document.createElement('div');
+    row.className = 'table-picker-row';
+    for(let c=1;c<=COLS;c++){
+      const cell = document.createElement('div');
+      cell.className = 'table-cell';
+      cell.dataset.r = r; cell.dataset.c = c;
+      cell.addEventListener('mouseover',()=>{
+        label.textContent = `${c} × ${r}`;
+        document.querySelectorAll('.table-cell').forEach(tc=>{
+          tc.classList.toggle('hover', parseInt(tc.dataset.r)<=r && parseInt(tc.dataset.c)<=c);
+        });
+      });
+      cell.addEventListener('click',()=>{ insertTable(r,c); removeTablePicker(); });
+      row.appendChild(cell);
+    }
+    grid.appendChild(row);
+  }
+  tablePickerEl.appendChild(grid);
+  tablePickerEl.appendChild(label);
+  document.body.appendChild(tablePickerEl);
+  setTimeout(()=>document.addEventListener('click', removeTablePicker, {once:true}), 50);
+});
+function removeTablePicker(){ if(tablePickerEl){ tablePickerEl.remove(); tablePickerEl=null; } }
+function insertTable(rows, cols){
+  restoreSelection();
+  let html = '<table><tbody>';
+  for(let r=0;r<rows;r++){
+    html+='<tr>';
+    for(let c=0;c<cols;c++) html+='<td>' + (r===0&&rows>1?'<strong>Heading</strong>':'&nbsp;') + '</td>';
+    html+='</tr>';
+  }
+  html+='</tbody></table><p></p>';
+  exec('insertHTML', html);
+  toast('⊞ Table inserted');
+}
+
+/* ══════════════════════════════════════
+   FIND & REPLACE
+══════════════════════════════════════ */
+const findBar = document.getElementById('findBar');
+let findMatches = [], findIndex = 0, currentMarkups = [];
+
+document.getElementById('findReplaceBtn').addEventListener('click', toggleFindBar);
+document.getElementById('closeFindBar').addEventListener('click',()=>{ findBar.style.display='none'; clearHighlights(); });
+document.getElementById('findNextBtn').addEventListener('click', findNext);
+document.getElementById('findPrevBtn').addEventListener('click', findPrev);
+document.getElementById('replaceOneBtn').addEventListener('click', replaceOne);
+document.getElementById('replaceAllBtn').addEventListener('click', replaceAll);
+document.getElementById('findInput').addEventListener('input', doSearch);
+document.getElementById('findInput').addEventListener('keydown', e=>{ if(e.key==='Enter') findNext(); if(e.key==='Escape'){findBar.style.display='none';clearHighlights();} });
+
+function toggleFindBar(){
+  if(findBar.style.display!=='none'){ findBar.style.display='none'; clearHighlights(); return; }
+  findBar.style.display='flex';
+  document.getElementById('findInput').focus();
+  doSearch();
+}
+
+function doSearch(){
+  clearHighlights();
+  const q = document.getElementById('findInput').value.trim();
+  if(!q){ document.getElementById('findResultCount').textContent=''; return; }
+  const html = ed.innerHTML;
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const count = (html.match(new RegExp(safeQ,'gi'))||[]).length;
+  document.getElementById('findResultCount').textContent = count ? `${count} match${count!==1?'es':''}` : 'No matches';
+}
+
+function findNext(){
+  const q = document.getElementById('findInput').value.trim(); if(!q) return;
+  const text = ed.innerText; const idx = text.toLowerCase().indexOf(q.toLowerCase(), findIndex+1);
+  findIndex = idx >= 0 ? idx : text.toLowerCase().indexOf(q.toLowerCase());
+  toast(findIndex>=0?`Found at position ${findIndex}`:'No matches found.');
+}
+function findPrev(){
+  const q = document.getElementById('findInput').value.trim(); if(!q) return;
+  const text = ed.innerText;
+  let idx = findIndex > 0 ? text.toLowerCase().lastIndexOf(q.toLowerCase(), findIndex-1) : -1;
+  findIndex = idx >= 0 ? idx : text.toLowerCase().lastIndexOf(q.toLowerCase());
+  toast(findIndex>=0?`Found at position ${findIndex}`:'No matches found.');
+}
+function clearHighlights(){ /* highlights cleared on next search */ }
+function replaceOne(){
+  const q = document.getElementById('findInput').value.trim();
+  const r = document.getElementById('replaceInput').value;
+  if(!q){ toast('Enter search text.'); return; }
+  const html = ed.innerHTML;
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const match = html.match(new RegExp(safeQ,'i'));
+  if(match){ ed.innerHTML = html.replace(new RegExp(safeQ,'i'), escHtml(r)); triggerSave(); doSearch(); toast('✔ Replaced 1 instance'); }
+  else toast('No match found.');
+}
+function replaceAll(){
+  const q = document.getElementById('findInput').value.trim();
+  const r = document.getElementById('replaceInput').value;
+  if(!q){ toast('Enter search text.'); return; }
+  const html = ed.innerHTML;
+  const safeQ = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const count = (html.match(new RegExp(safeQ,'gi'))||[]).length;
+  if(!count){ toast('No matches found.'); return; }
+  ed.innerHTML = html.replace(new RegExp(safeQ,'gi'), escHtml(r));
+  triggerSave(); doSearch();
+  toast(`✔ Replaced ${count} instance${count!==1?'s':''}`);
+}
+
+/* ══════════════════════════════════════
+   ZOOM
+══════════════════════════════════════ */
+function setZoom(z){
+  currentZoom = Math.max(50, Math.min(200, z));
+  wrap.style.transform = `scale(${currentZoom/100})`;
+  wrap.style.transformOrigin = 'top center';
+  document.getElementById('zoomSlider').value = currentZoom;
+  document.getElementById('zoomLabel').textContent = currentZoom + '%';
+  document.getElementById('sbZoomLabel').textContent = currentZoom + '%';
+}
+document.getElementById('zoomSlider').addEventListener('input', e=>setZoom(parseInt(e.target.value)));
+document.getElementById('zoomOutBtn').addEventListener('click',()=>setZoom(currentZoom - 10));
+document.getElementById('zoomInBtn').addEventListener('click', ()=>setZoom(currentZoom + 10));
+document.getElementById('sbZoomOut').addEventListener('click', ()=>setZoom(currentZoom - 10));
+document.getElementById('sbZoomIn').addEventListener('click',  ()=>setZoom(currentZoom + 10));
+
+/* ══════════════════════════════════════
+   PAGE LAYOUT
+══════════════════════════════════════ */
+document.getElementById('pageWidth').addEventListener('change', e=>{
+  const v = e.target.value;
+  wrap.style.width = v === '100%' ? '100%' : v + 'px';
+  document.documentElement.style.setProperty('--doc-w', v==='100%'?'100%':v+'px');
+});
+document.getElementById('pagePadding').addEventListener('change', e=>{
+  document.documentElement.style.setProperty('--doc-pad', e.target.value + 'px');
+});
+document.getElementById('pageBgColor').addEventListener('input', e=>{ ed.style.background = e.target.value; });
+document.getElementById('pageTextColor').addEventListener('input', e=>{ ed.style.color = e.target.value; });
+
+/* ══════════════════════════════════════
+   DARK MODE
+══════════════════════════════════════ */
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  const d = document.body.classList.contains('dark');
+  localStorage.setItem('webnotepad_dark', d?'1':'0');
+  document.getElementById('darkBtn').textContent = d ? '☀️' : '🌙';
+}
+document.getElementById('darkBtn').addEventListener('click', toggleDark);
+document.getElementById('darkModeRibbonBtn').addEventListener('click', toggleDark);
+if(localStorage.getItem('webnotepad_dark')==='1'){
+  document.body.classList.add('dark');
+  document.getElementById('darkBtn').textContent = '☀️';
+}
+
+/* ══════════════════════════════════════
+   SPELLCHECK
+══════════════════════════════════════ */
+document.getElementById('spellcheckBtn').addEventListener('click',()=>{
+  spellcheckOn = !spellcheckOn;
+  ed.spellcheck = spellcheckOn;
+  document.getElementById('spellcheckBtn').classList.toggle('active', spellcheckOn);
+  toast(spellcheckOn ? '✓ Spellcheck on' : '✗ Spellcheck off');
+});
+
+/* ══════════════════════════════════════
+   FULLSCREEN
+══════════════════════════════════════ */
+function toggleFullscreen(){
+  document.body.classList.toggle('fullscreen-mode');
+  const fs = document.body.classList.contains('fullscreen-mode');
+  document.getElementById('fullscreenBtn').textContent = fs ? '⊠' : '⛶';
+  if(fs) toast('⛶ Focus mode — press Esc to exit');
+}
+document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
+document.getElementById('fullscreenRibbonBtn').addEventListener('click', toggleFullscreen);
+
+/* ══════════════════════════════════════
+   RULER (canvas)
+══════════════════════════════════════ */
+function drawRuler(){
+  const canvas = document.getElementById('rulerCanvas');
+  const container = document.getElementById('rulerWrap');
+  if(!canvas||!container) return;
+  canvas.width = container.offsetWidth;
+  canvas.height = 22;
+  const ctx = canvas.getContext('2d');
+  const isDark = document.body.classList.contains('dark');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = isDark ? '#1e1c18' : '#e4dfd8';
+  ctx.fillRect(0,0,canvas.width,22);
+  ctx.strokeStyle = isDark ? '#3a3730' : '#cdc8c0';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0,21); ctx.lineTo(canvas.width,21); ctx.stroke();
+  ctx.fillStyle = isDark ? '#7a7268' : '#8a8278';
+  ctx.font = '9px IBM Plex Mono, monospace';
+  ctx.textAlign = 'center';
+  const step = 96; // 1 inch
+  const startX = (canvas.width - wrap.offsetWidth) / 2;
+  for(let i=0; i*step < wrap.offsetWidth; i++){
+    const x = startX + i*step;
+    ctx.fillText(i===0?'':i, x, 10);
+    ctx.beginPath(); ctx.moveTo(x,14); ctx.lineTo(x,21); ctx.stroke();
+    // half inch
+    const hx = x + step/2;
+    if(hx < startX + wrap.offsetWidth){ ctx.beginPath(); ctx.moveTo(hx,17); ctx.lineTo(hx,21); ctx.stroke(); }
+  }
+}
+window.addEventListener('resize', drawRuler);
+setTimeout(drawRuler, 200);
+
+document.getElementById('toggleRulerBtn').addEventListener('click',()=>{
+  const r = document.getElementById('rulerWrap');
+  r.style.display = r.style.display==='none' ? 'block' : 'none';
+  document.getElementById('toggleRulerBtn').classList.toggle('active');
+});
+
+/* ══════════════════════════════════════
+   EXPORT
+══════════════════════════════════════ */
+function getDocTitle(){
+  return (localStorage.getItem(SK_TITLE) || 'WordPad-Document').replace(/[^a-z0-9\-_\s]/gi,'').trim().replace(/\s+/g,'-').toLowerCase() || 'document';
+}
+function dlFile(content, name, mime){
+  const blob = new Blob([content],{type:mime});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download=name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+document.getElementById('exportHtmlBtn').addEventListener('click',()=>{
+  const title = localStorage.getItem(SK_TITLE)||'Document';
+  const html = `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<title>${escHtml(title)}</title>
+<style>
+body{font-family:'Times New Roman',Georgia,serif;max-width:760px;margin:40px auto;padding:0 32px;line-height:1.75;color:#1d1b17}
+h1{font-size:2rem;font-weight:700;margin:.8em 0 .4em}
+h2{font-size:1.5rem;font-weight:700;margin:.8em 0 .35em}
+h3{font-size:1.2rem;font-weight:700;margin:.7em 0 .3em}
+h4{font-size:1rem;font-weight:700;margin:.6em 0 .25em}
+blockquote{border-left:3px solid #1f5fbb;margin:1em 0;padding:.5em 1em;color:#4a4540;font-style:italic;background:#e8f0fc}
+table{border-collapse:collapse;width:100%;margin:1em 0}
+td,th{border:1px solid #cdc8c0;padding:6px 10px}
+th{background:#f0ece6;font-weight:700}
+hr{border:none;border-top:2px solid #cdc8c0;margin:1.5em 0}
+footer{margin-top:48px;font-size:.8rem;color:#8a8278;border-top:1px solid #e4dfd8;padding-top:12px}
+</style></head><body>
+${ed.innerHTML}
+<footer>Exported from WordPad Online — webnotepad.github.io</footer>
+</body></html>`;
+  dlFile(html, getDocTitle()+'.html','text/html;charset=utf-8');
+  toast('⬇ Exported as HTML');
+});
+document.getElementById('exportTxtBtn').addEventListener('click',()=>{
+  const text = ed.innerText || '';
+  dlFile(text, getDocTitle()+'.txt','text/plain;charset=utf-8');
+  toast('⬇ Exported as TXT');
+});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.getElementById('printPreviewBtn').addEventListener('click',()=>window.print());
+
+/* ══════════════════════════════════════
+   OPEN FILE
+══════════════════════════════════════ */
+document.getElementById('openDocBtn').addEventListener('click',()=>document.getElementById('openFileInput').click());
+document.getElementById('openFileInput').addEventListener('change', e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev=>{
+    const content = ev.target.result;
+    if(file.name.endsWith('.html')||file.name.endsWith('.htm')) ed.innerHTML = content;
+    else ed.innerHTML = '<p>' + content.split('\n').map(l=>escHtml(l)).join('</p><p>') + '</p>';
+    const name = file.name.replace(/\.[^.]+$/,'');
+    localStorage.setItem(SK_TITLE, name);
+    document.getElementById('tbTitle').textContent = name + ' — WordPad Online';
+    triggerSave(); updateStats();
+    toast('📂 File loaded: ' + file.name);
+  };
+  if(file.name.endsWith('.html')||file.name.endsWith('.htm')) reader.readAsText(file);
+  else reader.readAsText(file);
+  e.target.value = '';
+});
+
+/* ══════════════════════════════════════
+   NEW DOCUMENT
+══════════════════════════════════════ */
+document.getElementById('newDocBtn').addEventListener('click',()=>{
+  if(!confirm('Create a new document? Unsaved changes will be cleared.')) return;
+  ed.innerHTML='';
+  localStorage.removeItem(SK);
+  localStorage.setItem(SK_TITLE, 'Untitled Document');
+  document.getElementById('tbTitle').textContent = 'Untitled Document — WordPad Online';
+  updateStats();
+  toast('📄 New document created');
+  ed.focus();
+});
+
+/* ══════════════════════════════════════
+   CLEAR DOCUMENT
+══════════════════════════════════════ */
+document.getElementById('clearDocBtn').addEventListener('click',()=>{
+  if(!confirm('Clear all document content?')) return;
+  ed.innerHTML='';
+  triggerSave(); updateStats();
+  toast('🗑 Document cleared');
+});
+
+/* ══════════════════════════════════════
+   WORD COUNT MODAL
+══════════════════════════════════════ */
+document.getElementById('wordCountBtn').addEventListener('click',()=>{
+  const text = ed.innerText||'';
+  const words = text.trim()?text.trim().split(/\s+/).filter(Boolean).length:0;
+  const chars = text.length;
+  const charsNS = text.replace(/\s/g,'').length;
+  const paras = ed.querySelectorAll('p,h1,h2,h3,h4,blockquote').length;
+  const sentences = (text.match(/[.!?]+/g)||[]).length;
+  const readMin = Math.max(1, Math.ceil(words/200));
+  document.getElementById('wcModalBody').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      ${[['Words',words],['Characters',chars],['Characters (no spaces)',charsNS],['Paragraphs',paras],['Sentences',sentences],['~Reading time',readMin+' min']].map(([l,v])=>`
+        <div style="background:var(--chrome);border:1px solid var(--border);border-radius:var(--r);padding:12px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;font-family:var(--f-doc);color:var(--accent);">${v}</div>
+          <div style="font-size:.72rem;color:var(--ink-muted);font-family:var(--f-ui-cond);margin-top:3px;text-transform:uppercase;letter-spacing:.06em;">${l}</div>
+        </div>`).join('')}
+    </div>`;
+  openModal('wcModal');
+});
+document.getElementById('docInfoBtn').addEventListener('click',()=>document.getElementById('wordCountBtn').click());
+
+/* ══════════════════════════════════════
+   MODAL HELPERS
+══════════════════════════════════════ */
+function openModal(id){ document.getElementById(id).style.display='flex'; }
+function closeModal(id){ document.getElementById(id).style.display='none'; }
+window.openModal = openModal;
+window.closeModal = closeModal;
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{ if(e.target===o) o.style.display='none'; });
+});
+
+/* ══════════════════════════════════════
+   MANUAL SAVE BUTTON
+══════════════════════════════════════ */
+document.getElementById('saveAutoBtn').addEventListener('click', manualSave);
+
+/* ══════════════════════════════════════
+   KEYBOARD SHORTCUTS
+══════════════════════════════════════ */
+document.addEventListener('keydown', e=>{
+  const ctrl = e.ctrlKey || e.metaKey;
+  if(ctrl && e.key==='s'){ e.preventDefault(); manualSave(); }
+  if(ctrl && e.key==='f'){ e.preventDefault(); toggleFindBar(); }
+  if(ctrl && e.key==='k'){ e.preventDefault(); document.getElementById('insertLinkBtn').click(); }
+  if(ctrl && e.key==='p'){ e.preventDefault(); window.print(); }
+  if(ctrl && e.shiftKey && e.key==='N'){ e.preventDefault(); document.getElementById('newDocBtn').click(); }
+  if(ctrl && e.key===']'){ e.preventDefault(); const fs=document.getElementById('fontSize'); fs.value=Math.min(96,parseInt(fs.value)+1); fs.dispatchEvent(new Event('change')); }
+  if(ctrl && e.key==='['){ e.preventDefault(); const fs=document.getElementById('fontSize'); fs.value=Math.max(6,parseInt(fs.value)-1); fs.dispatchEvent(new Event('change')); }
+  if(e.key==='Escape'){
+    findBar.style.display='none'; clearHighlights();
+    if(document.body.classList.contains('fullscreen-mode')) toggleFullscreen();
+  }
+  if(e.key==='F11'){ e.preventDefault(); toggleFullscreen(); }
+});
+
+/* ══════════════════════════════════════
+   EDITOR EVENTS
+══════════════════════════════════════ */
+ed.addEventListener('input', ()=>{ updateStats(); triggerSave(); });
+ed.addEventListener('paste', e=>{
+  // Paste as plain text option
+  const ctrl = e.ctrlKey || e.metaKey;
+  if(ctrl && e.shiftKey){ // Ctrl+Shift+V = paste plain
+    e.preventDefault();
+    const text = (e.clipboardData||window.clipboardData).getData('text/plain');
+    exec('insertText', text);
+  }
+});
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════ */
+function initReveal(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%6)*.07+'s'; obs.observe(el); });
+}
+
+/* ══════════════════════════════════════
+   FAQ
+══════════════════════════════════════ */
+function initFAQ(){
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const a=btn.nextElementSibling, open=a.style.display==='block';
+      document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+      document.querySelectorAll('.faq-q').forEach(b=>b.setAttribute('aria-expanded','false'));
+      if(!open){ a.style.display='block'; btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+}
+
+/* ══════════════════════════════════════
+   TOAST
+══════════════════════════════════════ */
+function toast(msg, d=2400){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), d);
+}
+
+/* ══════════════════════════════════════
+   UTILS
+══════════════════════════════════════ */
+function escHtml(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+function init(){
+  loadDoc();
+  initFAQ();
+  initReveal();
+  // Make info sections scrollable by detaching from overflow:hidden body
+  const info = document.getElementById('infoSections');
+  if(info){
+    // Move info sections outside the fixed-height app wrapper
+    document.body.appendChild(info);
+    document.body.style.overflow = '';
+    document.body.style.height = 'auto';
+    // App wrapper keeps overflow:hidden for editor
+    document.getElementById('appWrap').style.height = '100vh';
+    document.getElementById('appWrap').style.overflow = 'hidden';
+  }
+}
+
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+else init();
+
+})();
+</script>
+
+</body>
+</html>

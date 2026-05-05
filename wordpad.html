@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WordPad Online – Free Word Processor & Rich Text Editor | WebNotePad</title>
@@ -8,11 +17,13 @@
   <meta name="keywords" content="wordpad online, free word processor, online word processor, rich text editor online, wordpad web app, online document editor, free text editor, browser word processor, online RTF editor, wordpad alternative" />
   <meta name="author" content="WebNotePad" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://webnotepad.github.io/wordpad.html" />
+  <link rel="canonical" href="https://webnotepad.github.io/wordpad" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="stylesheet" href="styles.css" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webnotepad.github.io/wordpad.html" />
+  <meta property="og:url" content="https://webnotepad.github.io/wordpad" />
   <meta property="og:title" content="WordPad Online – Free Browser Word Processor" />
   <meta property="og:description" content="Write, format and export documents in your browser. Free online WordPad with full rich text editing. No signup." />
 
@@ -27,7 +38,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "WordPad Online by WebNotePad",
-    "url": "https://webnotepad.github.io/wordpad.html",
+    "url": "https://webnotepad.github.io/wordpad",
     "description": "A free online WordPad application with rich text editing, ribbon toolbar, font controls, paragraph formatting, tables, find and replace, word count, dark mode, and document export. Works entirely in your browser without any signup or download.",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "Any",
@@ -1054,11 +1065,14 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
 </head>
 <body>
 
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
 <!-- ═══════════════════════════════
      APP WRAPPER
 ═══════════════════════════════ -->
-<div id="appWrap" style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
-
+<!-- Change height to auto and remove overflow hidden -->
+<div id="appWrap" style="display:flex;flex-direction:column;min-height:100vh;">
   <!-- Title Bar -->
   <div class="titlebar">
     <div class="tb-dots">
@@ -1765,6 +1779,9 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
         </div>
       </div>
     </footer>  
+
+  <script src="components/header.js"></script>
+  <script src="app.js"></script>
 
 <!-- ═══════════════════════════════
      JAVASCRIPT APPLICATION

@@ -1070,8 +1070,8 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
 <!-- ═══════════════════════════════
      APP WRAPPER
 ═══════════════════════════════ -->
-<div id="appWrap" style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
-
+<!-- Change height to auto and remove overflow hidden -->
+<div id="appWrap" style="display:flex;flex-direction:column;min-height:100vh;">
   <!-- Title Bar -->
   <div class="titlebar">
     <div class="tb-dots">

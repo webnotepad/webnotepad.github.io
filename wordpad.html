@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VSR10YQZW3');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WordPad Online – Free Word Processor & Rich Text Editor | WebNotePad</title>
@@ -17,12 +8,11 @@
   <meta name="keywords" content="wordpad online, free word processor, online word processor, rich text editor online, wordpad web app, online document editor, free text editor, browser word processor, online RTF editor, wordpad alternative" />
   <meta name="author" content="WebNotePad" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://webnotepad.github.io/wordpad" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="canonical" href="https://webnotepad.github.io/wordpad.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webnotepad.github.io/wordpad" />
+  <meta property="og:url" content="https://webnotepad.github.io/wordpad.html" />
   <meta property="og:title" content="WordPad Online – Free Browser Word Processor" />
   <meta property="og:description" content="Write, format and export documents in your browser. Free online WordPad with full rich text editing. No signup." />
 
@@ -37,7 +27,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "WordPad Online by WebNotePad",
-    "url": "https://webnotepad.github.io/wordpad",
+    "url": "https://webnotepad.github.io/wordpad.html",
     "description": "A free online WordPad application with rich text editing, ribbon toolbar, font controls, paragraph formatting, tables, find and replace, word count, dark mode, and document export. Works entirely in your browser without any signup or download.",
     "applicationCategory": "ProductivityApplication",
     "operatingSystem": "Any",
@@ -108,7 +98,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+
   <style>
 /* ═══════════════════════════════════════════════════════════════
    WORDPAD ONLINE — Complete Stylesheet
@@ -177,8 +167,8 @@ body {
   font-family: var(--f-ui);
   background: var(--page-bg);
   color: var(--ink);
-  overflow: auto;
-  height: auto;
+  overflow: hidden;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   transition: background var(--t), color var(--t);
@@ -1064,14 +1054,11 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
 </head>
 <body>
 
-  <!-- Header injected by header.js -->
-  <div id="header-root"></div>
-
 <!-- ═══════════════════════════════
      APP WRAPPER
 ═══════════════════════════════ -->
-<!-- Change height to auto and remove overflow hidden -->
-<div id="appWrap" style="display:flex;flex-direction:column;min-height:100vh;">
+<div id="appWrap" style="display:flex;flex-direction:column;height:100vh;overflow:hidden;">
+
   <!-- Title Bar -->
   <div class="titlebar">
     <div class="tb-dots">
@@ -1689,7 +1676,46 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
 
 </div><!-- /.info-sections -->
 
-  <footer class="site-footer" id="siteFooter" role="contentinfo">
+<!-- Modals -->
+<div id="linkModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert link">
+  <div class="modal">
+    <div class="modal-head">Insert Hyperlink <button class="modal-close" onclick="closeModal('linkModal')">✕</button></div>
+    <div class="modal-body">
+      <div><div class="modal-field-label">Display Text</div><input type="text" class="modal-input" id="linkText" placeholder="Click here" autocomplete="off"/></div>
+      <div><div class="modal-field-label">URL</div><input type="url" class="modal-input" id="linkUrl" placeholder="https://example.com" autocomplete="off"/></div>
+    </div>
+    <div class="modal-foot">
+      <button class="modal-btn modal-btn-ghost" onclick="closeModal('linkModal')">Cancel</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmInsertLink()">Insert Link</button>
+    </div>
+  </div>
+</div>
+
+<div id="imageModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert image">
+  <div class="modal">
+    <div class="modal-head">Insert Image <button class="modal-close" onclick="closeModal('imageModal')">✕</button></div>
+    <div class="modal-body">
+      <div><div class="modal-field-label">Image URL</div><input type="url" class="modal-input" id="imageUrl" placeholder="https://example.com/image.jpg" autocomplete="off"/></div>
+      <div><div class="modal-field-label">Alt Text (optional)</div><input type="text" class="modal-input" id="imageAlt" placeholder="Image description…" autocomplete="off"/></div>
+    </div>
+    <div class="modal-foot">
+      <button class="modal-btn modal-btn-ghost" onclick="closeModal('imageModal')">Cancel</button>
+      <button class="modal-btn modal-btn-primary" onclick="confirmInsertImage()">Insert Image</button>
+    </div>
+  </div>
+</div>
+
+<div id="wcModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Word count">
+  <div class="modal">
+    <div class="modal-head">Document Statistics <button class="modal-close" onclick="closeModal('wcModal')">✕</button></div>
+    <div class="modal-body" id="wcModalBody"></div>
+    <div class="modal-foot"><button class="modal-btn modal-btn-primary" onclick="closeModal('wcModal')">Close</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<footer class="site-footer" id="siteFooter" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
@@ -1730,7 +1756,7 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
           </div>
         </div>
         <div class="footer-bottom">
-          <span class="footer-copy">© ${year} WebNotePad · webnotepad.github.io · Free Online Notepad</span>
+          <span class="footer-copy">© 2026 WebNotePad · webnotepad.github.io · Free Online Notepad</span>
           <div class="footer-links">
             <a href="privacy">Privacy</a>
             <a href="terms">Terms</a>
@@ -1738,50 +1764,7 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
           </div>
         </div>
       </div>
-    </footer>
-
-<!-- Modals -->
-<div id="linkModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert link">
-  <div class="modal">
-    <div class="modal-head">Insert Hyperlink <button class="modal-close" onclick="closeModal('linkModal')">✕</button></div>
-    <div class="modal-body">
-      <div><div class="modal-field-label">Display Text</div><input type="text" class="modal-input" id="linkText" placeholder="Click here" autocomplete="off"/></div>
-      <div><div class="modal-field-label">URL</div><input type="url" class="modal-input" id="linkUrl" placeholder="https://example.com" autocomplete="off"/></div>
-    </div>
-    <div class="modal-foot">
-      <button class="modal-btn modal-btn-ghost" onclick="closeModal('linkModal')">Cancel</button>
-      <button class="modal-btn modal-btn-primary" onclick="confirmInsertLink()">Insert Link</button>
-    </div>
-  </div>
-</div>
-
-<div id="imageModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Insert image">
-  <div class="modal">
-    <div class="modal-head">Insert Image <button class="modal-close" onclick="closeModal('imageModal')">✕</button></div>
-    <div class="modal-body">
-      <div><div class="modal-field-label">Image URL</div><input type="url" class="modal-input" id="imageUrl" placeholder="https://example.com/image.jpg" autocomplete="off"/></div>
-      <div><div class="modal-field-label">Alt Text (optional)</div><input type="text" class="modal-input" id="imageAlt" placeholder="Image description…" autocomplete="off"/></div>
-    </div>
-    <div class="modal-foot">
-      <button class="modal-btn modal-btn-ghost" onclick="closeModal('imageModal')">Cancel</button>
-      <button class="modal-btn modal-btn-primary" onclick="confirmInsertImage()">Insert Image</button>
-    </div>
-  </div>
-</div>
-
-<div id="wcModal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-label="Word count">
-  <div class="modal">
-    <div class="modal-head">Document Statistics <button class="modal-close" onclick="closeModal('wcModal')">✕</button></div>
-    <div class="modal-body" id="wcModalBody"></div>
-    <div class="modal-foot"><button class="modal-btn modal-btn-primary" onclick="closeModal('wcModal')">Close</button></div>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
- 
-
-  <script src="components/header.js"></script>  
-  <script src="app.js"></script>
+    </footer>  
 
 <!-- ═══════════════════════════════
      JAVASCRIPT APPLICATION

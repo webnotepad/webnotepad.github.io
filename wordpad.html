@@ -178,8 +178,7 @@ body {
   font-family: var(--f-ui);
   background: var(--page-bg);
   color: var(--ink);
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   transition: background var(--t), color var(--t);
@@ -1072,7 +1071,7 @@ body.fullscreen-mode .doc-scroll { height: 100vh; }
      APP WRAPPER
 ═══════════════════════════════ -->
 <!-- Change height to auto and remove overflow hidden -->
-<div id="appWrap" style="display:flex;flex-direction:column;min-height:100vh;">
+<div id="appWrap" style="display:flex;flex-direction:column;">
   <!-- Title Bar -->
   <div class="titlebar">
     <div class="tb-dots">

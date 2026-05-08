@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="WebNotePad Blog – Ideas & Inspiration" />
 
-  <!-- Schema for Blog & Articles -->
+  <!-- Schema for Blog & Articles (full posts now linked) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       {
         "@type": "BlogPosting",
         "headline": "10 Best Ways to Use a Free Online Notepad for Daily Productivity",
-        "url": "#post1",
+        "url": "https://webnotepad.github.io/blog/productivity-10-ways.html",
         "datePublished": "2025-03-15",
         "description": "Discover how a browser-based notepad can transform your daily workflow, from rapid capture to deep work sessions.",
         "author": {"@type": "Organization", "name": "WebNotePad Team"}
@@ -50,7 +50,7 @@
       {
         "@type": "BlogPosting",
         "headline": "How to Take Better Class Notes as a Student with an Online Notepad + Mindmap",
-        "url": "#post2",
+        "url": "https://webnotepad.github.io/blog/student-notes-mindmap.html",
         "datePublished": "2025-03-22",
         "description": "Combine digital notetaking with mindmapping strategies for superior academic results.",
         "author": {"@type": "Organization", "name": "WebNotePad Team"}
@@ -58,7 +58,7 @@
       {
         "@type": "BlogPosting",
         "headline": "Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe",
-        "url": "#post3",
+        "url": "https://webnotepad.github.io/blog/privacy-browser-notepad.html",
         "datePublished": "2025-04-01",
         "description": "Local first, serverless: understand why your notes belong only to you.",
         "author": {"@type": "Organization", "name": "WebNotePad Team"}
@@ -159,6 +159,7 @@
       border-bottom: 1.5px solid var(--accent-pale);
       width: fit-content;
       transition: gap var(--transition), border-color var(--transition);
+      text-decoration: none;
     }
     .read-more:hover {
       gap: 12px;
@@ -196,6 +197,8 @@
       transition: all 0.2s;
       margin-bottom: 16px;
       border: 1px solid var(--paper-edge);
+      text-decoration: none;
+      color: var(--ink);
     }
     .back-home:hover {
       background: var(--paper-edge);
@@ -206,6 +209,73 @@
       .blog-card-content { padding: 22px; }
       .blog-card h2 { font-size: 1.4rem; }
     }
+    /* full article content styles for individual blog posts */
+    .full-article-container {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      background: var(--paper);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--paper-edge);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .full-article-container h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .full-article-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--paper-edge);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .full-article-content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+    .full-article-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      margin: 32px 0 16px;
+      font-weight: 700;
+    }
+    .full-article-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin: 24px 0 12px;
+      font-weight: 600;
+    }
+    .full-article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .full-article-content ul, .full-article-content ol {
+      margin: 1rem 0 1.5rem 1.8rem;
+    }
+    .full-article-content li {
+      margin-bottom: 0.5rem;
+    }
+    .back-to-blog {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 32px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    @media (max-width: 720px) {
+      .full-article-container { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -214,84 +284,93 @@
   <div id="header-root"></div>
 
   <main>
-    <!-- BLOG INTRO / HERO -->
-    <div class="blog-header-section">
-      <div class="container">
-        <a href="/" class="back-home" aria-label="Back to homepage">
-          <span>←</span> Back to WebNotePad
-        </a>
-        <h1 class="blog-title">The Notepad<br />Chronicles</h1>
-        <p class="blog-subhead">Ideas, workflows, and privacy-first thinking — straight from the team behind the cleanest online notepad.</p>
-      </div>
-    </div>
-
-    <div class="container">
-      <!-- subtle ink decoration -->
-      <div class="blog-side-note">
-        <p>✍️ <strong>Zero distractions, pure insight.</strong> All articles are written with the same philosophy as WebNotePad: no fluff, just value. Read, reflect, and apply.</p>
-      </div>
-
-      <!-- BLOG CARDS (no images) -->
-      <div class="blog-grid">
-        
-        <!-- Article 1: Productivity -->
-        <article class="blog-card" id="post1">
-          <div class="blog-card-content">
-            <div class="blog-meta">
-              <span class="date">📅 Mar 15, 2025</span>
-              <span>⚡ 6 min read</span>
-            </div>
-            <div class="card-divider"></div>
-            <h2>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h2>
-            <div class="blog-excerpt">
-              <p>From morning brain dumps to deep-work frameworks, learn how a browser-based notepad can replace sticky notes, become your second memory, and boost efficiency without any signup friction.</p>
-            </div>
-            <a href="notepad-productivity-tips-2026" class="read-more" aria-label="Read full article" onclick="return false;">Read full story →</a>
-            <!-- full content simulated (can expand later) – for demo -->
-            <div style="display:none;">full content expanded</div>
+    <!-- Dynamic Router: Show either blog listing or individual article based on URL hash / query -->
+    <div id="blogRoot">
+      <!-- blog listing view (default) -->
+      <div id="blogListingView">
+        <div class="blog-header-section">
+          <div class="container">
+            <a href="index.html" class="back-home" aria-label="Back to homepage">
+              <span>←</span> Back to WebNotePad
+            </a>
+            <h1 class="blog-title">The Notepad<br />Chronicles</h1>
+            <p class="blog-subhead">Ideas, workflows, and privacy-first thinking — straight from the team behind the cleanest online notepad.</p>
           </div>
-        </article>
+        </div>
 
-        <!-- Article 2: Student + Mindmap -->
-        <article class="blog-card" id="post2">
-          <div class="blog-card-content">
-            <div class="blog-meta">
-              <span class="date">📅 Mar 22, 2025</span>
-              <span>🎓 8 min read</span>
-            </div>
-            <div class="card-divider"></div>
-            <h2>How to Take Better Class Notes as a Student with an Online Notepad + Mindmap</h2>
-            <div class="blog-excerpt">
-              <p>Combine structured outlines with visual mind mapping techniques. This guide shows how to capture lectures in real-time, organize concepts, and boost retention — all without leaving your browser.</p>
-            </div>
-            <a href="student-notes-online-notepad-mindmap" class="read-more" aria-label="Read student guide" onclick="return false;">Read full story →</a>
+        <div class="container">
+          <div class="blog-side-note">
+            <p>✍️ <strong>Zero distractions, pure insight.</strong> All articles are written with the same philosophy as WebNotePad: no fluff, just value. Read, reflect, and apply.</p>
           </div>
-        </article>
 
-        <!-- Article 3: Privacy Matters -->
-        <article class="blog-card" id="post3">
-          <div class="blog-card-content">
-            <div class="blog-meta">
-              <span class="date">📅 Apr 1, 2025</span>
-              <span>🔒 5 min read</span>
-            </div>
-            <div class="card-divider"></div>
-            <h2>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h2>
-            <div class="blog-excerpt">
-              <p>Local storage vs. cloud servers: explore the architecture of zero-data collection, end-to-end encryption by design, and why your thoughts belong only to you. A manifesto for digital autonomy.</p>
-            </div>
-            <a href="privacy-browser-notepad" class="read-more" aria-label="Read privacy deep dive" onclick="return false;">Read full story →</a>
+          <!-- BLOG CARDS (no images, working links) -->
+          <div class="blog-grid">
+            
+            <!-- Article 1: Productivity -->
+            <article class="blog-card" data-article-slug="productivity-10-ways">
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <span class="date">📅 Mar 15, 2025</span>
+                  <span>⚡ 6 min read</span>
+                </div>
+                <div class="card-divider"></div>
+                <h2>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h2>
+                <div class="blog-excerpt">
+                  <p>From morning brain dumps to deep-work frameworks, learn how a browser-based notepad can replace sticky notes, become your second memory, and boost efficiency without any signup friction.</p>
+                </div>
+                <a href="#" class="read-more" data-article-link="productivity-10-ways">Read full story →</a>
+              </div>
+            </article>
+
+            <!-- Article 2: Student + Mindmap -->
+            <article class="blog-card" data-article-slug="student-notes-mindmap">
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <span class="date">📅 Mar 22, 2025</span>
+                  <span>🎓 8 min read</span>
+                </div>
+                <div class="card-divider"></div>
+                <h2>How to Take Better Class Notes as a Student with an Online Notepad + Mindmap</h2>
+                <div class="blog-excerpt">
+                  <p>Combine structured outlines with visual mind mapping techniques. This guide shows how to capture lectures in real-time, organize concepts, and boost retention — all without leaving your browser.</p>
+                </div>
+                <a href="#" class="read-more" data-article-link="student-notes-mindmap">Read full story →</a>
+              </div>
+            </article>
+
+            <!-- Article 3: Privacy Matters -->
+            <article class="blog-card" data-article-slug="privacy-browser-notepad">
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <span class="date">📅 Apr 1, 2025</span>
+                  <span>🔒 5 min read</span>
+                </div>
+                <div class="card-divider"></div>
+                <h2>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h2>
+                <div class="blog-excerpt">
+                  <p>Local storage vs. cloud servers: explore the architecture of zero-data collection, end-to-end encryption by design, and why your thoughts belong only to you. A manifesto for digital autonomy.</p>
+                </div>
+                <a href="#" class="read-more" data-article-link="privacy-browser-notepad">Read full story →</a>
+              </div>
+            </article>
           </div>
-        </article>
+
+          <div style="margin: 40px 0 64px; text-align: center; padding: 32px 24px; background: var(--paper-warm); border-radius: var(--radius-lg); border: 1px solid var(--paper-edge);">
+            <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 12px;">✧ Fresh perspectives ✧</div>
+            <p style="color: var(--ink-muted); max-width: 480px; margin: 0 auto 20px;">New articles each month. No spam, just smart writing tools philosophy.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+              <a href="index.html#notepad" class="btn btn-primary" style="background: var(--ink); border-color: var(--ink);">Try WebNotePad Free</a>
+              <a href="index.html#faq" class="btn btn-ghost">Explore FAQ</a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- optional extra blog teaser: newsletter / CTA (aligned with style) -->
-      <div style="margin: 40px 0 64px; text-align: center; padding: 32px 24px; background: var(--paper-warm); border-radius: var(--radius-lg); border: 1px solid var(--paper-edge);">
-        <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 12px;">✧ Fresh perspectives ✧</div>
-        <p style="color: var(--ink-muted); max-width: 480px; margin: 0 auto 20px;">New articles each month. No spam, just smart writing tools philosophy.</p>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="#notepad" class="btn btn-primary" style="background: var(--ink); border-color: var(--ink);">Try WebNotePad Free</a>
-          <a href="/#faq" class="btn btn-ghost">Explore FAQ</a>
+      <!-- individual article view (hidden by default) -->
+      <div id="articleView" style="display: none;">
+        <div class="container" style="max-width: 960px; margin: 48px auto;">
+          <a href="#" id="backToBlogLink" class="back-home" style="margin-bottom: 28px; display: inline-flex;"><span>←</span> Back to all articles</a>
+          <div id="articleContentContainer"></div>
         </div>
       </div>
     </div>
@@ -301,19 +380,231 @@
   <div id="footer-root"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
-  <!-- scripts (header/footer components + global dark mode sync from main app.js partial but we can use same patterns) -->
   <script src="components/header.js"></script>
   <script src="components/footer.js"></script>
   <script>
-    // ensure dark mode persistence and basic UI interactions from global styles (mirror main app.js logic)
-    (function() {
-      // 1) dark mode toggle and sync with local storage -> applies to blog too
-      const root = document.documentElement;
-      const isDarkStored = localStorage.getItem('webnotepad-theme') === 'dark';
-      if (isDarkStored) {
-        document.body.classList.add('dark');
+    // Full articles content (complete, rich and original)
+    const articlesDB = {
+      "productivity-10-ways": {
+        title: "10 Best Ways to Use a Free Online Notepad for Daily Productivity",
+        date: "March 15, 2025",
+        readTime: "6 min read",
+        category: "Productivity",
+        content: `
+          <h2>Digital simplicity meets everyday workflow</h2>
+          <p>A free online notepad like WebNotePad is more than a blank page — it's a Swiss Army knife for your thoughts. Here are 10 transformative ways to integrate it into your daily routine.</p>
+          
+          <h3>1. Morning brain dump (5-minute journal)</h3>
+          <p>Every morning, open the notepad and write three pages of unfiltered thoughts. This "morning pages" technique clears mental clutter and boosts creativity.</p>
+          
+          <h3>2. The "Capture Anywhere" inbox</h3>
+          <p>Use the notepad as a temporary inbox for phone numbers, links, ideas, or tasks. Later, sort them into your main system without friction.</p>
+          
+          <h3>3. Meeting minutes on the fly</h3>
+          <p>During calls, keep a bullet list of action items. Since WebNotePad auto‑saves, you never lose important decisions.</p>
+          
+          <h3>4. Writing drafts (blog posts, emails, reports)</h3>
+          <p>Draft everything without distractions. Use formatting (bold, lists, headings) to structure longer pieces before moving to final software.</p>
+          
+          <h3>5. Code snippets & terminal commands</h3>
+          <p>Developers love having a clean, plain‑text environment to store temporary API keys, SQL queries, or bash commands.</p>
+          
+          <h3>6. Pomodoro task tracker</h3>
+          <p>Create a simple checkbox list of tasks. Each Pomodoro session, check off completed items. The built‑in word/line count helps track progress.</p>
+          
+          <h3>7. Reverse outline for editing</h3>
+          <p>Paste any draft and use the notepad to write a reverse outline — summarizing each paragraph — to spot structural gaps.</p>
+          
+          <h3>8. Grocery & shopping lists (with emojis)</h3>
+          <p>Rich formatting? Add emojis, checklists (using bullet lists), and group items by store section. Access from any device.</p>
+          
+          <h3>9. Meeting talking points & public speaking notes</h3>
+          <p>Prepare key talking points in a scannable format. The fullscreen mode removes all distractions, helping you rehearse.</p>
+          
+          <h3>10. Evening reflection log</h3>
+          <p>Before sleeping, write three wins and one lesson from the day. WebNotePad’s privacy ensures nobody else reads your personal log — ever.</p>
+          
+          <p><strong>Bonus:</strong> Use the find & replace feature to quickly update recurring terms across your notes. Your productivity toolbox just got lighter.</p>
+          <p>Start now — open WebNotePad and put these ideas into practice.</p>
+        `
+      },
+      "student-notes-mindmap": {
+        title: "How to Take Better Class Notes as a Student with an Online Notepad + Mindmap",
+        date: "March 22, 2025",
+        readTime: "8 min read",
+        category: "Education",
+        content: `
+          <h2>Move beyond linear transcription</h2>
+          <p>Traditional notetaking often becomes passive. By combining an online notepad (for structured detail) with mind mapping techniques, you unlock active learning and higher retention.</p>
+          
+          <h3>Step 1: Prepare your canvas</h3>
+          <p>Open WebNotePad and create separate notes for each lecture. Use the sidebar to organize courses. Name each note with the subject and date.</p>
+          
+          <h3>Step 2: Cornell meets outline method</h3>
+          <p>In the editor, divide concepts into main ideas (headings) and subpoints (lists). Leave space for cues. The formatting toolbar lets you indent, bold key terms, and highlight definitions using text color.</p>
+          
+          <h3>Step 3: Build a parallel mindmap (brain dump)</h3>
+          <p>Open a second note titled "Mindmap – [Topic]". Use short phrases and arrows (→) to visually connect ideas. Because WebNotePad supports unlimited notes, you can instantly switch between linear notes and visual mindmap skeletons.</p>
+          
+          <h3>Step 4: The 24‑hour review ritual</h3>
+          <p>After class, revise your notes and transform important points into a hierarchical mindmap using indented lists. This dual encoding strengthens memory retrieval.</p>
+          
+          <h3>Step 5: Collaborative study groups</h3>
+          <p>Copy excerpts from your notes and paste into a shared chat or document. Since there's no signup, you can quickly export as .txt or .html to share with classmates.</p>
+          
+          <h3>Pro tip: Use find & replace for active recall</h3>
+          <p>Create "fill‑in‑the‑blank" versions of your notes by replacing key terms with underscores (_____). Test yourself, then search again to reveal answers. This is one of the most powerful study hacks.</p>
+          
+          <p>With WebNotePad, you're not just writing — you're building a knowledge ecosystem that adapts to how your brain works.</p>
+        `
+      },
+      "privacy-browser-notepad": {
+        title: "Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe",
+        date: "April 1, 2025",
+        readTime: "5 min read",
+        category: "Privacy",
+        content: `
+          <h2>The silent shift toward local-first software</h2>
+          <p>In an era of cloud breaches and data mining, browser‑based notepads that rely on local storage offer a radical shift: your thoughts never leave your device.</p>
+          
+          <h3>No server, no surveillance</h3>
+          <p>WebNotePad stores everything inside your browser's local storage. Unlike cloud apps, there's no database, no telemetry, no "anonymous" analytics. What you write stays inside the walls of your computer or phone.</p>
+          
+          <h3>End-to-end encryption by architecture</h3>
+          <p>Because there is no backend, your data is never transmitted over the internet (except for loading the static page). This means no man-in-the-middle, no subpoena‑able logs, and no risk of server‑side vulnerabilities.</p>
+          
+          <h3>GDPR & CCPA friendly by default</h3>
+          <p>WebNotePad collects zero personal information. There are no cookies for tracking, no signup forms, no email lists. That’s why we don’t ask for consent banners — there’s nothing to track.</p>
+          
+          <h3>Offline mode: your notes, your control</h3>
+          <p>Once the page loads, WebNotePad works offline. You can be on a plane, in a remote cabin, or behind a firewall — your notes are always accessible and exclusively under your control.</p>
+          
+          <h3>What about backups?</h3>
+          <p>You retain full authority: use the export buttons to download .txt or .html archives. Store them on an encrypted drive, or print them. No company can lock you out of your own writing.</p>
+          
+          <p>Privacy isn't a feature — it's the foundation of trust. WebNotePad was built so that the only person who reads your notes is you.</p>
+        `
       }
-      // function to set dark mode (used by header button after loading)
+    };
+
+    // DOM elements
+    const listingView = document.getElementById('blogListingView');
+    const articleView = document.getElementById('articleView');
+    const articleContentContainer = document.getElementById('articleContentContainer');
+    const backToBlogLink = document.getElementById('backToBlogLink');
+
+    // Helper: display a specific article by slug
+    function showArticle(slug) {
+      const article = articlesDB[slug];
+      if (!article) return;
+      
+      // Build full article HTML
+      const articleHTML = `
+        <div class="full-article-container">
+          <h1>${escapeHtml(article.title)}</h1>
+          <div class="full-article-meta">
+            <span>📅 ${escapeHtml(article.date)}</span>
+            <span>⏱️ ${escapeHtml(article.readTime)}</span>
+            <span>🏷️ ${escapeHtml(article.category)}</span>
+          </div>
+          <div class="full-article-content">
+            ${article.content}
+          </div>
+          <a href="#" id="inlineBackLink" class="back-to-blog">← Back to all articles</a>
+        </div>
+      `;
+      
+      articleContentContainer.innerHTML = articleHTML;
+      
+      // Toggle views
+      listingView.style.display = 'none';
+      articleView.style.display = 'block';
+      
+      // Update URL without reload (push state)
+      const newUrl = `${window.location.pathname}?article=${slug}`;
+      window.history.pushState({ articleSlug: slug }, '', newUrl);
+      
+      // attach back link handler for inline back link
+      const inlineBack = document.getElementById('inlineBackLink');
+      if (inlineBack) {
+        inlineBack.addEventListener('click', (e) => {
+          e.preventDefault();
+          showListing();
+        });
+      }
+    }
+    
+    function showListing() {
+      listingView.style.display = 'block';
+      articleView.style.display = 'none';
+      // clean URL
+      window.history.pushState({ listing: true }, '', window.location.pathname);
+    }
+    
+    function escapeHtml(str) {
+      return str.replace(/[&<>]/g, function(m) {
+        if(m === '&') return '&amp;';
+        if(m === '<') return '&lt;';
+        if(m === '>') return '&gt;';
+        return m;
+      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+        return c;
+      });
+    }
+    
+    // attach click handlers on "Read more" links (event delegation)
+    function bindArticleLinks() {
+      const readMoreLinks = document.querySelectorAll('.read-more');
+      readMoreLinks.forEach(link => {
+        link.removeEventListener('click', handleArticleClick);
+        link.addEventListener('click', handleArticleClick);
+      });
+    }
+    
+    function handleArticleClick(e) {
+      e.preventDefault();
+      const slug = this.getAttribute('data-article-link');
+      if (slug && articlesDB[slug]) {
+        showArticle(slug);
+      }
+    }
+    
+    // Initial load: check URL param ?article=xxx
+    function checkUrlForArticle() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const articleSlug = urlParams.get('article');
+      if (articleSlug && articlesDB[articleSlug]) {
+        showArticle(articleSlug);
+      } else {
+        showListing();
+        bindArticleLinks(); // make sure listing links work
+      }
+    }
+    
+    // back button support (popstate)
+    window.addEventListener('popstate', (event) => {
+      if (event.state && event.state.articleSlug) {
+        showArticle(event.state.articleSlug);
+      } else {
+        showListing();
+        bindArticleLinks();
+      }
+    });
+    
+    // back to blog link (top bar)
+    if (backToBlogLink) {
+      backToBlogLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showListing();
+        bindArticleLinks();
+      });
+    }
+    
+    // dark mode / header & footer integration
+    (function initThemeAndWidgets() {
+      const isDarkStored = localStorage.getItem('webnotepad-theme') === 'dark';
+      if (isDarkStored) document.body.classList.add('dark');
+      
       window.setDarkMode = (isDark) => {
         if (isDark) {
           document.body.classList.add('dark');
@@ -323,59 +614,30 @@
           localStorage.setItem('webnotepad-theme', 'light');
         }
       };
-      // listen for custom event from header (if header uses darkModeBtn)
+      
       document.addEventListener('darkModeToggled', (e) => {
-        if (e.detail && typeof e.detail.isDark !== 'undefined') {
-          window.setDarkMode(e.detail.isDark);
-        }
+        if (e.detail && typeof e.detail.isDark !== 'undefined') window.setDarkMode(e.detail.isDark);
       });
       
-      // 2) simple FAQ like expandable? but not needed – but any blog cards we can add a mini tooltip? no, just decorative
-      // Also support for header and components loading:
-      // ensure header-cta scroll to notepad? main index doesn't exist in blog but we can link softly
-      const startBtn = document.querySelector('.btn-primary[href="#notepad"]');
-      if (startBtn) {
-        startBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.location.href = '/#notepad';
-        });
-      }
-      
-      // additional: optional reading time simulation (plain)
-      console.log('Blog page ready — ink on paper aesthetic active');
-      
-      // Additionally: toast compatibility with main app mock for any export?
-      function showToast(msg, duration = 2500) {
-        const toastEl = document.getElementById('toast');
-        if (toastEl) {
-          toastEl.textContent = msg;
-          toastEl.classList.add('show');
-          setTimeout(() => toastEl.classList.remove('show'), duration);
-        }
-      }
-      
-      // make read-more links show a friendly toast (since full articles demo)
-      const readMoreLinks = document.querySelectorAll('.read-more');
-      readMoreLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          showToast('✨ Full article coming soon. Stay tuned for the complete guide!', 2000);
-        });
-      });
-      
-      // share consistent color picker? not needed but fine
+      checkUrlForArticle();
     })();
+    
+    // toast compatibility (optional)
+    function showToast(msg) {
+      const toastEl = document.getElementById('toast');
+      if (toastEl) {
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        setTimeout(() => toastEl.classList.remove('show'), 2500);
+      }
+    }
   </script>
   <style>
-    /* small overrides to guarantee no ghost images */
-    .blog-card::before { display: none; }
-    .blog-card img { display: none; }
-    .blog-card-content p { word-break: break-word; }
-    .back-home {
-      text-decoration: none;
-    }
-    .btn-ghost:hover {
-      background: var(--paper-edge);
+    .full-article-content code {
+      background: var(--paper-warm);
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
     }
   </style>
 </body>

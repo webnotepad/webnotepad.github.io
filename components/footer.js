@@ -20,6 +20,7 @@
               <li><a href="/#features">Features</a></li>
               <li><a href="/#how-it-works">How It Works</a></li>
               <li><a href="/#use-cases">Use Cases</a></li>
+              <li><a href="/blog">Blog</a></li>
             </ul>
           </div>
           <div class="footer-col">

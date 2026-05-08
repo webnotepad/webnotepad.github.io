@@ -17,7 +17,8 @@
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
-          <a href="/about" class="nav-link">About</a>          
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/about" class="nav-link">About</a>  
         </nav>
 
         <div class="header-right">
@@ -32,13 +33,14 @@
       </div>
     </header>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="#notepad" class="nav-link">📝 Notepad</a>
-      <a href="#features" class="nav-link">⚡ Features</a>
+      <a href="/#notepad" class="nav-link">📝 Notepad</a>
+      <a href="/#features" class="nav-link">⚡ Features</a>
       <a href="diary" class="nav-link">🔄 Diary</a>
       <a href="mindmap" class="nav-link">👥 MindMap</a>
       <a href="list-maker" class="nav-link">❓ List Maker</a>
-      <a href="#about" class="nav-link">ℹ️ About</a>
-      <a href="#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>
+      <a href="/about" class="nav-link">ℹ️ About</a>
+      <a href="/blog" class="nav-link">📝 Blog</a>
+      <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>
     </nav>
   `;
 

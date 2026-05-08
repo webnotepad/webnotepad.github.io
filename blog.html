@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Blog | WebNotePad – Insights on Notetaking, Productivity & Privacy</title>
+  <meta name="description" content="Explore WebNotePad blog: productivity tips, student note-taking strategies, privacy insights, and best ways to use an online notepad." />
+  <meta name="keywords" content="online notepad blog, note taking tips, productivity, privacy browser notepad, student notes" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/blog.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/blog.html" />
+  <meta property="og:title" content="WebNotePad Blog – Write Better, Think Clearer" />
+  <meta property="og:description" content="Actionable advice, deep dives on digital notetaking, and privacy-first writing tips." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebNotePad Blog – Ideas & Inspiration" />
+
+  <!-- Schema for Blog & Articles -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "WebNotePad Blog",
+    "url": "https://webnotepad.github.io/blog.html",
+    "description": "Articles about free online notepad usage, productivity, student success and privacy-first writing.",
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "10 Best Ways to Use a Free Online Notepad for Daily Productivity",
+        "url": "#post1",
+        "datePublished": "2025-03-15",
+        "description": "Discover how a browser-based notepad can transform your daily workflow, from rapid capture to deep work sessions.",
+        "author": {"@type": "Organization", "name": "WebNotePad Team"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Take Better Class Notes as a Student with an Online Notepad + Mindmap",
+        "url": "#post2",
+        "datePublished": "2025-03-22",
+        "description": "Combine digital notetaking with mindmapping strategies for superior academic results.",
+        "author": {"@type": "Organization", "name": "WebNotePad Team"}
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe",
+        "url": "#post3",
+        "datePublished": "2025-04-01",
+        "description": "Local first, serverless: understand why your notes belong only to you.",
+        "author": {"@type": "Organization", "name": "WebNotePad Team"}
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* additional blog-specific refinements (no-image cards, layout polish) */
+    .blog-header-section {
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--paper-edge);
+      padding: 48px 0 32px;
+    }
+    .blog-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .blog-subhead {
+      color: var(--ink-muted);
+      font-size: 1.1rem;
+      margin-top: 12px;
+      max-width: 640px;
+      font-family: var(--font-body);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin: 40px 0 56px;
+    }
+    .blog-card {
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-pale);
+    }
+    .blog-card-content {
+      padding: 28px 28px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .blog-meta .date {
+      color: var(--ink-muted);
+    }
+    .blog-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .blog-excerpt {
+      color: var(--ink-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent-pale);
+      width: fit-content;
+      transition: gap var(--transition), border-color var(--transition);
+    }
+    .read-more:hover {
+      gap: 12px;
+      border-bottom-color: var(--accent);
+      color: var(--accent-light);
+    }
+    .card-divider {
+      height: 3px;
+      width: 50px;
+      background: var(--accent);
+      margin-bottom: 20px;
+      border-radius: 3px;
+    }
+    .blog-side-note {
+      background: var(--accent-pale);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 20px 0 40px;
+      border-left: 4px solid var(--accent);
+    }
+    .blog-side-note p {
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0;
+    }
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--paper-warm);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-bottom: 16px;
+      border: 1px solid var(--paper-edge);
+    }
+    .back-home:hover {
+      background: var(--paper-edge);
+      color: var(--accent);
+    }
+    @media (max-width: 680px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card-content { padding: 22px; }
+      .blog-card h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header placeholder (dynamic) -->
+  <div id="header-root"></div>
+
+  <main>
+    <!-- BLOG INTRO / HERO -->
+    <div class="blog-header-section">
+      <div class="container">
+        <a href="index.html" class="back-home" aria-label="Back to homepage">
+          <span>←</span> Back to WebNotePad
+        </a>
+        <h1 class="blog-title">The Notepad<br />Chronicles</h1>
+        <p class="blog-subhead">Ideas, workflows, and privacy-first thinking — straight from the team behind the cleanest online notepad.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- subtle ink decoration -->
+      <div class="blog-side-note">
+        <p>✍️ <strong>Zero distractions, pure insight.</strong> All articles are written with the same philosophy as WebNotePad: no fluff, just value. Read, reflect, and apply.</p>
+      </div>
+
+      <!-- BLOG CARDS (no images) -->
+      <div class="blog-grid">
+        
+        <!-- Article 1: Productivity -->
+        <article class="blog-card" id="post1">
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="date">📅 Mar 15, 2025</span>
+              <span>⚡ 6 min read</span>
+            </div>
+            <div class="card-divider"></div>
+            <h2>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h2>
+            <div class="blog-excerpt">
+              <p>From morning brain dumps to deep-work frameworks, learn how a browser-based notepad can replace sticky notes, become your second memory, and boost efficiency without any signup friction.</p>
+            </div>
+            <a href="#" class="read-more" aria-label="Read full article" onclick="return false;">Read full story →</a>
+            <!-- full content simulated (can expand later) – for demo -->
+            <div style="display:none;">full content expanded</div>
+          </div>
+        </article>
+
+        <!-- Article 2: Student + Mindmap -->
+        <article class="blog-card" id="post2">
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="date">📅 Mar 22, 2025</span>
+              <span>🎓 8 min read</span>
+            </div>
+            <div class="card-divider"></div>
+            <h2>How to Take Better Class Notes as a Student with an Online Notepad + Mindmap</h2>
+            <div class="blog-excerpt">
+              <p>Combine structured outlines with visual mind mapping techniques. This guide shows how to capture lectures in real-time, organize concepts, and boost retention — all without leaving your browser.</p>
+            </div>
+            <a href="#" class="read-more" aria-label="Read student guide" onclick="return false;">Read full story →</a>
+          </div>
+        </article>
+
+        <!-- Article 3: Privacy Matters -->
+        <article class="blog-card" id="post3">
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="date">📅 Apr 1, 2025</span>
+              <span>🔒 5 min read</span>
+            </div>
+            <div class="card-divider"></div>
+            <h2>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h2>
+            <div class="blog-excerpt">
+              <p>Local storage vs. cloud servers: explore the architecture of zero-data collection, end-to-end encryption by design, and why your thoughts belong only to you. A manifesto for digital autonomy.</p>
+            </div>
+            <a href="#" class="read-more" aria-label="Read privacy deep dive" onclick="return false;">Read full story →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- optional extra blog teaser: newsletter / CTA (aligned with style) -->
+      <div style="margin: 40px 0 64px; text-align: center; padding: 32px 24px; background: var(--paper-warm); border-radius: var(--radius-lg); border: 1px solid var(--paper-edge);">
+        <div style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--ink); margin-bottom: 12px;">✧ Fresh perspectives ✧</div>
+        <p style="color: var(--ink-muted); max-width: 480px; margin: 0 auto 20px;">New articles each month. No spam, just smart writing tools philosophy.</p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="#notepad" class="btn btn-primary" style="background: var(--ink); border-color: var(--ink);">Try WebNotePad Free</a>
+          <a href="index.html#faq" class="btn btn-ghost">Explore FAQ</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- footer injected -->
+  <div id="footer-root"></div>
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- scripts (header/footer components + global dark mode sync from main app.js partial but we can use same patterns) -->
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    // ensure dark mode persistence and basic UI interactions from global styles (mirror main app.js logic)
+    (function() {
+      // 1) dark mode toggle and sync with local storage -> applies to blog too
+      const root = document.documentElement;
+      const isDarkStored = localStorage.getItem('webnotepad-theme') === 'dark';
+      if (isDarkStored) {
+        document.body.classList.add('dark');
+      }
+      // function to set dark mode (used by header button after loading)
+      window.setDarkMode = (isDark) => {
+        if (isDark) {
+          document.body.classList.add('dark');
+          localStorage.setItem('webnotepad-theme', 'dark');
+        } else {
+          document.body.classList.remove('dark');
+          localStorage.setItem('webnotepad-theme', 'light');
+        }
+      };
+      // listen for custom event from header (if header uses darkModeBtn)
+      document.addEventListener('darkModeToggled', (e) => {
+        if (e.detail && typeof e.detail.isDark !== 'undefined') {
+          window.setDarkMode(e.detail.isDark);
+        }
+      });
+      
+      // 2) simple FAQ like expandable? but not needed – but any blog cards we can add a mini tooltip? no, just decorative
+      // Also support for header and components loading:
+      // ensure header-cta scroll to notepad? main index doesn't exist in blog but we can link softly
+      const startBtn = document.querySelector('.btn-primary[href="#notepad"]');
+      if (startBtn) {
+        startBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = 'index.html#notepad';
+        });
+      }
+      
+      // additional: optional reading time simulation (plain)
+      console.log('Blog page ready — ink on paper aesthetic active');
+      
+      // Additionally: toast compatibility with main app mock for any export?
+      function showToast(msg, duration = 2500) {
+        const toastEl = document.getElementById('toast');
+        if (toastEl) {
+          toastEl.textContent = msg;
+          toastEl.classList.add('show');
+          setTimeout(() => toastEl.classList.remove('show'), duration);
+        }
+      }
+      
+      // make read-more links show a friendly toast (since full articles demo)
+      const readMoreLinks = document.querySelectorAll('.read-more');
+      readMoreLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          showToast('✨ Full article coming soon. Stay tuned for the complete guide!', 2000);
+        });
+      });
+      
+      // share consistent color picker? not needed but fine
+    })();
+  </script>
+  <style>
+    /* small overrides to guarantee no ghost images */
+    .blog-card::before { display: none; }
+    .blog-card img { display: none; }
+    .blog-card-content p { word-break: break-word; }
+    .back-home {
+      text-decoration: none;
+    }
+    .btn-ghost:hover {
+      background: var(--paper-edge);
+    }
+  </style>
+</body>
+</html>

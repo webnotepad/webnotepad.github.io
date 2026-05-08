@@ -16,9 +16,9 @@
           <div class="dropdown">
             <button class="dropdown-btn nav-link">More ▼</button>
             <div class="dropdown-content">
-              <a href="/tools/case-converter" class="dropdown-item">Case Converter</a>
-              <a href="/tools/random-text" class="dropdown-item">Random Text</a>
-              <a href="/tools/word-shuffler" class="dropdown-item">Word Shuffler</a>
+              <a href="/case-converter" class="dropdown-item">Case Converter</a>
+              <a href="/random-text" class="dropdown-item">Random Text</a>
+              <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>
             </div>
           </div>
           <a href="/#features" class="nav-link">Features</a>
@@ -45,9 +45,9 @@
       <div class="mobile-dropdown">
         <button class="mobile-dropdown-btn">📁 More ▼</button>
         <div class="mobile-dropdown-content">
-          <a href="/tools/case-converter" class="nav-link" style="padding-left: 32px;">• Case Converter</a>
-          <a href="/tools/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
-          <a href="/tools/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>
+          <a href="/case-converter" class="nav-link" style="padding-left: 32px;">• Case Converter</a>
+          <a href="/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
+          <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>
         </div>
       </div>
       <a href="/#features" class="nav-link">⚡ Features</a>

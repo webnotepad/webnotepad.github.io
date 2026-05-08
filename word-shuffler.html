@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Online Word Shuffler – Randomize Words & Sentences Instantly | WebNotePad</title>
+    <meta name="description" content="Free online word shuffler tool. Randomly shuffle words in sentences or lists. Create word scrambles, random name pickers, creative writing prompts, and more. No signup required." />
+    <meta name="keywords" content="word shuffler, word randomizer, shuffle words online, sentence shuffler, random word order, text scrambler, word mixer, online word shuffler, free word randomizer, shuffle list" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/word-shuffler" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/word-shuffler" />
+    <meta property="og:title" content="Free Online Word Shuffler – Randomize Words & Sentences Instantly" />
+    <meta property="og:description" content="Instantly shuffle words in any text. Create word scrambles, random name lists, creative prompts. Free, fast, no signup required." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Word Shuffler – Randomize Words & Sentences Instantly" />
+    <meta name="twitter:description" content="Instantly shuffle words in any text. Create word scrambles, random name lists, creative prompts. Free, fast, no signup required." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Word Shuffler by WebNotePad",
+            "url": "https://webnotepad.github.io/word-shuffler",
+            "description": "A free online word shuffler tool to randomly reorder words in sentences, lists, or any text. Shuffle all words or shuffle sentence-by-sentence. Keep punctuation and line breaks intact.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Shuffle words randomly",
+                "Preserve punctuation",
+                "Shuffle sentence-by-sentence",
+                "Shuffle line-by-line",
+                "Copy to clipboard",
+                "Swap input/output",
+                "Real-time word count"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is a word shuffler?", "acceptedAnswer": { "@type": "Answer", "text": "A word shuffler is a free online tool that randomly rearranges the words in your text while preserving punctuation marks, line breaks, and overall structure. It's perfect for creative writing, word games, and randomizing lists." } },
+                { "@type": "Question", "name": "Can I shuffle words within each sentence separately?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Enable the 'Shuffle Each Sentence' option to keep sentences in their original order but randomize the words inside each sentence. Or turn it off to shuffle all words across the entire text at once." } },
+                { "@type": "Question", "name": "Does the word shuffler keep my punctuation intact?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The tool preserves all punctuation marks, line breaks, and special characters. Only the order of actual words changes — everything else stays exactly where it was." } },
+                { "@type": "Question", "name": "Is my text private when I use this tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely. All word shuffling happens in your browser using JavaScript. Your text is never uploaded to any server, stored remotely, or shared with anyone." } },
+                { "@type": "Question", "name": "Can I use the word shuffler on mobile?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! The word shuffler is fully responsive and works seamlessly on smartphones and tablets, including iOS Safari and Android Chrome." } }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ws-accent: #0d7c6b;
+            --ws-accent-light: #10a58d;
+            --ws-accent-pale: #e6f7f3;
+            --ws-surface: #faf8f4;
+            --ws-border: #e8e2d6;
+            --ws-ink: #1a1a2e;
+            --ws-muted: #6b6b85;
+            --ws-warm: #f4f0e8;
+            --ws-radius: 8px;
+            --ws-radius-lg: 14px;
+            --ws-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ws-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark {
+            --ws-accent: #10a58d;
+            --ws-accent-light: #14c9aa;
+            --ws-accent-pale: #0f2f2a;
+            --ws-surface: #141418;
+            --ws-border: #2a2a34;
+            --ws-ink: #e8e4dc;
+            --ws-muted: #8a8678;
+            --ws-warm: #1c1c22;
+            --ws-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== WORD SHUFFLER HERO ===== */
+        .ws-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 72px 0 48px;
+            overflow: hidden;
+            background: var(--ws-surface);
+            transition: background var(--ws-transition);
+        }
+        .ws-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ws-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ws-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ws-hero-bg { opacity: 0.1; }
+        .ws-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ws-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ws-hero-glow { opacity: 0.35; }
+        .ws-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .ws-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--ws-accent-pale);
+            color: var(--ws-accent);
+            border: 1px solid var(--ws-accent);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ws-hero-badge { background: rgba(13, 124, 107, 0.18); }
+        .ws-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.08;
+            color: var(--ws-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ws-hero-accent {
+            color: var(--ws-accent);
+            font-style: italic;
+        }
+        .ws-hero-sub {
+            font-size: 1.1rem;
+            color: var(--ws-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ws-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+        }
+        .ws-hero-demo {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ws-demo-chip {
+            padding: 7px 16px;
+            background: var(--ws-warm);
+            border: 1px solid var(--ws-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ws-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ws-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ws-demo-chip:hover {
+            background: var(--ws-accent-pale);
+            border-color: var(--ws-accent);
+            color: var(--ws-accent);
+        }
+        .ws-demo-shuffled {
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* ===== SHUFFLER APP SECTION ===== */
+        .ws-app-section {
+            padding: 0 0 80px;
+            background: var(--ws-surface);
+            transition: background var(--ws-transition);
+        }
+        .ws-app-shell {
+            background: var(--ws-warm);
+            border: 1px solid var(--ws-border);
+            border-radius: var(--ws-radius-lg);
+            box-shadow: var(--ws-shadow);
+            overflow: hidden;
+            transition: all var(--ws-transition);
+        }
+        .ws-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--ws-border);
+            background: var(--ws-surface);
+            flex-wrap: wrap;
+        }
+        .ws-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ws-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ws-app-title .ws-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ws-accent);
+            display: inline-block;
+            animation: wsPulse 2s infinite;
+        }
+        @keyframes wsPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        .ws-app-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Options bar */
+        .ws-options-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--ws-border);
+            background: var(--ws-surface);
+            flex-wrap: wrap;
+        }
+        .ws-option-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ws-ink);
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            user-select: none;
+        }
+        .ws-option-label input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--ws-accent);
+            cursor: pointer;
+            margin: 0;
+        }
+        .ws-option-sep {
+            width: 1px;
+            height: 20px;
+            background: var(--ws-border);
+            flex-shrink: 0;
+        }
+
+        /* Input area */
+        .ws-input-wrap {
+            padding: 16px 20px 8px;
+        }
+        .ws-input-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ws-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .ws-textarea {
+            width: 100%;
+            min-height: 140px;
+            max-height: 320px;
+            padding: 16px 18px;
+            border-radius: var(--ws-radius);
+            border: 1px solid var(--ws-border);
+            background: var(--ws-surface);
+            color: var(--ws-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--ws-transition);
+            box-sizing: border-box;
+        }
+        .ws-textarea:focus {
+            border-color: var(--ws-accent);
+            box-shadow: 0 0 0 3px var(--ws-accent-pale);
+        }
+        .ws-textarea::placeholder {
+            color: #c4c0b8;
+            font-style: italic;
+        }
+        body.dark .ws-textarea::placeholder { color: #5a5660; }
+
+        /* Shuffle button */
+        .ws-shuffle-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+        .ws-shuffle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--ws-accent);
+            color: #ffffff;
+            border: 2px solid var(--ws-accent);
+            border-radius: var(--ws-radius);
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ws-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .ws-shuffle-btn:hover {
+            background: var(--ws-accent-light);
+            border-color: var(--ws-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(13, 124, 107, 0.3);
+        }
+        .ws-shuffle-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .ws-shuffle-btn .ws-shuffle-icon {
+            font-size: 1.2rem;
+            transition: transform var(--ws-transition);
+        }
+        .ws-shuffle-btn:hover .ws-shuffle-icon {
+            transform: rotate(30deg);
+        }
+        .ws-shuffle-count {
+            font-size: 0.73rem;
+            color: var(--ws-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+
+        /* Output area */
+        .ws-output-wrap {
+            padding: 8px 20px 16px;
+            position: relative;
+        }
+        .ws-output-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ws-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ws-output-badge {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--ws-accent-pale);
+            color: var(--ws-accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .ws-output-textarea {
+            width: 100%;
+            min-height: 120px;
+            max-height: 300px;
+            padding: 16px 18px;
+            border-radius: var(--ws-radius);
+            border: 1px solid var(--ws-accent);
+            background: var(--ws-surface);
+            color: var(--ws-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--ws-transition);
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px var(--ws-accent-pale);
+        }
+        .ws-output-textarea:focus {
+            border-color: var(--ws-accent);
+            box-shadow: 0 0 0 4px var(--ws-accent-pale);
+        }
+
+        /* Stats bar */
+        .ws-stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--ws-border);
+            background: var(--ws-surface);
+            font-size: 0.73rem;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--ws-muted);
+            flex-wrap: wrap;
+        }
+        .ws-stats-sep { color: var(--ws-border); flex-shrink: 0; }
+        .ws-stat-val { font-weight: 600; color: var(--ws-ink); }
+
+        /* Toast */
+        .ws-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ws-ink);
+            color: var(--ws-surface);
+            padding: 12px 20px;
+            border-radius: var(--ws-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ws-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .ws-toast {
+            background: var(--ws-warm);
+            color: var(--ws-ink);
+            border: 1px solid var(--ws-border);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .ws-how {
+            background: var(--ws-warm);
+            transition: background var(--ws-transition);
+        }
+        .ws-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ws-how-card {
+            background: var(--ws-surface);
+            border: 1px solid var(--ws-border);
+            border-radius: var(--ws-radius-lg);
+            padding: 26px;
+            transition: all var(--ws-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ws-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ws-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ws-transition);
+        }
+        .ws-how-card:hover { box-shadow: var(--ws-shadow); transform: translateY(-3px); }
+        .ws-how-card:hover::before { transform: scaleX(1); }
+        .ws-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ws-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ws-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ws-ink);
+            margin-bottom: 8px;
+        }
+        .ws-how-card p {
+            font-size: 0.85rem;
+            color: var(--ws-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .ws-desc {
+            background: var(--ws-surface);
+            transition: background var(--ws-transition);
+        }
+        .ws-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .ws-desc-text p {
+            font-size: 0.95rem;
+            color: var(--ws-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .ws-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .ws-benefit-tag {
+            padding: 6px 14px;
+            background: var(--ws-warm);
+            border: 1px solid var(--ws-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ws-ink);
+            transition: all var(--ws-transition);
+        }
+        .ws-benefit-tag:hover {
+            background: var(--ws-accent-pale);
+            border-color: var(--ws-accent);
+            color: var(--ws-accent);
+        }
+        .ws-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ws-visual-card {
+            background: var(--ws-ink);
+            color: var(--ws-surface);
+            border-radius: var(--ws-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--ws-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+        }
+        body.dark .ws-visual-card {
+            background: var(--ws-warm);
+            border: 1px solid var(--ws-border);
+            color: var(--ws-ink);
+        }
+        .ws-visual-card .ws-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--ws-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .ws-visual-card .ws-v-original {
+            opacity: 0.5;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+        }
+        .ws-visual-card .ws-v-shuffled {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ws-accent-light);
+        }
+        body.dark .ws-visual-card .ws-v-shuffled { color: var(--ws-accent); }
+        .ws-visual-card .ws-v-arrow { color: var(--ws-accent); margin: 4px 0; }
+
+        /* ===== FAQ SECTION ===== */
+        .ws-faq {
+            background: var(--ws-warm);
+            transition: background var(--ws-transition);
+        }
+        .ws-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ws-faq-item {
+            border: 1px solid var(--ws-border);
+            border-radius: var(--ws-radius);
+            overflow: hidden;
+            background: var(--ws-surface);
+            transition: border-color var(--ws-transition);
+        }
+        .ws-faq-item:has(.ws-faq-a[style*="block"]) { border-color: var(--ws-accent); }
+        .ws-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ws-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--ws-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ws-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ws-muted);
+            flex-shrink: 0;
+            transition: transform var(--ws-transition);
+        }
+        .ws-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ws-accent); }
+        .ws-faq-q:hover { background: var(--ws-warm); }
+        .ws-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ws-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ws-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ws-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .ws-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .ws-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .ws-hero { min-height: auto; padding: 48px 0 36px; }
+            .ws-how-grid { grid-template-columns: 1fr; }
+            .ws-textarea { min-height: 100px; max-height: 220px; font-size: 0.88rem; }
+            .ws-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .ws-stats-bar { gap: 8px; font-size: 0.68rem; }
+            .ws-options-bar { gap: 10px; padding: 10px 14px; }
+            .ws-hero-demo { gap: 6px; }
+            .ws-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+        }
+        @media (max-width: 480px) {
+            .ws-hero-title { font-size: 2rem; }
+            .ws-shuffle-btn { padding: 10px 20px; font-size: 0.82rem; }
+            .ws-input-wrap, .ws-output-wrap { padding-left: 12px; padding-right: 12px; }
+            .ws-textarea { padding: 12px 14px; min-height: 80px; max-height: 180px; }
+            .ws-app-header { padding: 10px 14px; }
+            .ws-stats-bar { padding: 8px 12px; font-size: 0.65rem; gap: 6px; }
+            .ws-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+            .ws-options-bar { gap: 6px; padding: 8px 12px; }
+            .ws-option-label { font-size: 0.72rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="ws-hero" id="home" aria-label="Word Shuffler Hero">
+            <div class="ws-hero-bg"></div>
+            <div class="ws-hero-glow"></div>
+            <div class="container ws-hero-inner">
+                <div class="ws-hero-badge">✦ Free Text Randomizer Tool</div>
+                <h1 class="ws-hero-title">
+                    Shuffle words.<br />
+                    <span class="ws-hero-accent">Unlock creativity.</span>
+                </h1>
+                <p class="ws-hero-sub">Randomly rearrange words in any text instantly. Create word scrambles, random name pickers, creative writing prompts, and randomized lists — all in your browser with zero signup.</p>
+                <div class="ws-hero-cta">
+                    <a href="#shuffler-app" class="btn btn-primary" style="background:var(--ws-accent);border-color:var(--ws-accent);">Open Word Shuffler <span>→</span></a>
+                </div>
+                <div class="ws-hero-demo">
+                    <span class="ws-demo-chip">the quick brown fox</span>
+                    <span class="ws-demo-chip ws-demo-shuffled">→ fox brown the quick</span>
+                    <span class="ws-demo-chip ws-demo-shuffled">→ quick fox the brown</span>
+                    <span class="ws-demo-chip ws-demo-shuffled">→ brown the quick fox</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WORD SHUFFLER APP SECTION ===== -->
+        <section class="ws-app-section" id="shuffler-app" aria-label="Word Shuffler Application">
+            <div class="container">
+                <div class="ws-app-shell">
+                    <!-- App Header -->
+                    <div class="ws-app-header">
+                        <span class="ws-app-title"><span class="ws-dot"></span> Word Shuffler</span>
+                        <div class="ws-app-actions-header">
+                            <button class="btn-tool" id="wsSwapBtn" title="Swap input and output" aria-label="Swap input and output">⇄ Swap</button>
+                            <button class="btn-tool" id="wsCopyBtn" title="Copy result to clipboard" aria-label="Copy result">⎘ Copy</button>
+                            <button class="btn-tool" id="wsClearBtn" title="Clear all text" aria-label="Clear all">✕ Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Options Bar -->
+                    <div class="ws-options-bar">
+                        <label class="ws-option-label">
+                            <input type="checkbox" id="wsSentenceMode" checked />
+                            <span>Shuffle Each Sentence</span>
+                        </label>
+                        <span class="ws-option-sep"></span>
+                        <label class="ws-option-label">
+                            <input type="checkbox" id="wsKeepPunctuation" checked disabled />
+                            <span>Preserve Punctuation</span>
+                        </label>
+                        <span class="ws-option-sep"></span>
+                        <span style="font-size:0.72rem;color:var(--ws-muted);font-family:'DM Mono',monospace;">
+                            Words shuffled: <span id="wsShuffleCount" style="color:var(--ws-accent);font-weight:600;">0</span>
+                        </span>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="ws-input-wrap">
+                        <label class="ws-input-label" for="wsInputArea">📝 Original Text</label>
+                        <textarea class="ws-textarea" id="wsInputArea" placeholder="Type or paste your text here… try a sentence, a list of names, a poem, or any block of words you want to shuffle." aria-label="Input text to shuffle" rows="4"></textarea>
+                    </div>
+
+                    <!-- Shuffle Button Row -->
+                    <div class="ws-shuffle-row">
+                        <button class="ws-shuffle-btn" id="wsShuffleBtn" aria-label="Shuffle words randomly">
+                            <span class="ws-shuffle-icon">🔀</span> Shuffle Words Now
+                        </button>
+                        <span class="ws-shuffle-count" id="wsShuffleCounter">No shuffles yet</span>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="ws-output-wrap">
+                        <label class="ws-output-label" for="wsOutputArea">
+                            ✅ Shuffled Result
+                            <span class="ws-output-badge" id="wsOutputBadge" style="display:none;">🔀 Shuffled</span>
+                        </label>
+                        <textarea class="ws-output-textarea" id="wsOutputArea" placeholder="Your shuffled text will appear here… click 'Shuffle Words Now' to randomize your text." aria-label="Shuffled text output" rows="4" readonly></textarea>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="ws-stats-bar">
+                        <span>Input: <span class="ws-stat-val" id="wsInputWords">0</span> words / <span class="ws-stat-val" id="wsInputChars">0</span> chars</span>
+                        <span class="ws-stats-sep">|</span>
+                        <span>Output: <span class="ws-stat-val" id="wsOutputWords">0</span> words / <span class="ws-stat-val" id="wsOutputChars">0</span> chars</span>
+                        <span class="ws-stats-sep">|</span>
+                        <span>Lines: <span class="ws-stat-val" id="wsLineCount">0</span></span>
+                        <span class="ws-stats-sep">|</span>
+                        <span id="wsModeIndicator" style="color:var(--ws-accent);font-weight:600;">Mode: Shuffle Each Sentence</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section ws-how" id="how-to-use" aria-label="How to use the word shuffler">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Shuffle words in <em>3 easy steps.</em></h2>
+                <div class="ws-how-grid">
+                    <div class="ws-how-card">
+                        <div class="ws-how-num">01</div>
+                        <h3>Paste or Type Your Text</h3>
+                        <p>Enter any text into the input box — a sentence, a list of names, a creative writing piece, or a block of vocabulary words. The tool accepts text of any length.</p>
+                    </div>
+                    <div class="ws-how-card">
+                        <div class="ws-how-num">02</div>
+                        <h3>Choose Your Shuffle Mode</h3>
+                        <p>Toggle "Shuffle Each Sentence" to keep sentences in order but mix their words. Turn it off to shuffle all words across the entire text at once. Punctuation is always preserved.</p>
+                    </div>
+                    <div class="ws-how-card">
+                        <div class="ws-how-num">03</div>
+                        <h3>Shuffle & Use</h3>
+                        <p>Click the Shuffle button as many times as you like. Each click produces a new random arrangement. Copy the result and paste it anywhere — documents, games, social media, or creative projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section ws-desc" id="about-shuffler" aria-label="About the word shuffler">
+            <div class="container ws-desc-inner">
+                <div class="ws-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Ultimate Free <em>Word Shuffler</em> Online</h2>
+                    <p>A word shuffler is a text tool that randomly rearranges the order of words in your text while intelligently preserving punctuation marks, line breaks, and special characters. Whether you need to scramble sentences for creative writing exercises, randomize a list of names for a draw, or generate unexpected word combinations for brainstorming — this tool handles it all.</p>
+                    <p>Built on the same privacy-first philosophy as WebNotePad, this word shuffler processes everything locally in your browser. Your text never leaves your device. No server uploads, no tracking, no ads — just instant, fun word randomization whenever inspiration strikes.</p>
+                    <p>Perfect for teachers creating word scramble worksheets, writers looking for fresh perspectives, event organizers doing random name draws, game designers generating randomized content, and anyone who wants to play with the order of words. Bookmark this page and unleash your creativity anytime.</p>
+                    <div class="ws-desc-benefits">
+                        <span class="ws-benefit-tag">🔒 100% Private</span>
+                        <span class="ws-benefit-tag">🔀 Endless Variations</span>
+                        <span class="ws-benefit-tag">📋 Copy to Clipboard</span>
+                        <span class="ws-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="ws-benefit-tag">✍️ Preserves Punctuation</span>
+                        <span class="ws-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="ws-desc-visual">
+                    <div class="ws-visual-card">
+                        <div class="ws-v-line"></div>
+                        <div class="ws-v-original">original:</div>
+                        <div style="color:var(--ws-muted);opacity:0.7;">apples bananas cherries dates</div>
+                        <div class="ws-v-arrow">↓ shuffle ↓</div>
+                        <div class="ws-v-shuffled">cherries apples dates bananas</div>
+                        <div class="ws-v-arrow" style="margin-top:12px;">↓ shuffle again ↓</div>
+                        <div class="ws-v-shuffled">dates bananas apples cherries</div>
+                        <div class="ws-v-arrow" style="margin-top:12px;">↓ shuffle again ↓</div>
+                        <div class="ws-v-shuffled">bananas cherries dates apples</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section ws-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ws-faq-list" id="wsFaqList">
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">What is a word shuffler?</button>
+                        <div class="ws-faq-a"><p>A word shuffler is a free online tool that randomly rearranges the words in your text. It preserves punctuation, line breaks, and special characters — only the order of actual words changes. It's perfect for creative writing exercises, word games, and randomizing lists.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">What's the difference between the two shuffle modes?</button>
+                        <div class="ws-faq-a"><p><strong>Shuffle Each Sentence</strong> (on) keeps sentences in their original order but randomizes the words inside each sentence individually. This maintains the overall flow while mixing up the phrasing. When turned <strong>off</strong>, every word in the entire text is pooled together and completely reshuffled — sentences may break apart and words can end up anywhere.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">Does the shuffler preserve punctuation?</button>
+                        <div class="ws-faq-a"><p>Yes! The word shuffler automatically preserves all punctuation marks (periods, commas, question marks, exclamation points, quotes, etc.), special characters, and line breaks. Only the word order is randomized — everything else stays exactly where it was in the original text.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">Can I shuffle words multiple times to get different results?</button>
+                        <div class="ws-faq-a"><p>Absolutely! Each click of the 'Shuffle Words Now' button produces a completely new random arrangement. You can shuffle the same text as many times as you like until you get a result that inspires you or suits your purpose.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">Is my text private when using this tool?</button>
+                        <div class="ws-faq-a"><p>Yes, completely. All word shuffling happens entirely within your browser using JavaScript. Your text is never uploaded to any server, stored remotely, or accessible to anyone but you. You can use this tool with complete confidence.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">What can I use the word shuffler for?</button>
+                        <div class="ws-faq-a"><p>The word shuffler has many creative and practical uses: creating word scramble puzzles for students, generating random writing prompts, shuffling name lists for draws or raffles, randomizing vocabulary lists for study, brainstorming unexpected word combinations, and adding variety to creative writing exercises.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">Does the tool work on mobile devices?</button>
+                        <div class="ws-faq-a"><p>Yes! The word shuffler is fully responsive and works seamlessly on smartphones and tablets. The interface adapts to smaller screens so you can randomize text on the go from any iOS or Android device.</p></div>
+                    </div>
+                    <div class="ws-faq-item">
+                        <button class="ws-faq-q" aria-expanded="false">Does the word count limit apply?</button>
+                        <div class="ws-faq-a"><p>There is no hard limit on the number of words you can shuffle. The tool handles texts of any length efficiently. Very large texts (thousands of words) may take a fraction of a second longer, but performance scales smoothly thanks to modern browser JavaScript engines.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="ws-toast" id="wsToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script>
+        (function() {
+            // ===== DOM ELEMENTS =====
+            const inputArea = document.getElementById('wsInputArea');
+            const outputArea = document.getElementById('wsOutputArea');
+            const shuffleBtn = document.getElementById('wsShuffleBtn');
+            const sentenceModeCheckbox = document.getElementById('wsSentenceMode');
+            const copyBtn = document.getElementById('wsCopyBtn');
+            const swapBtn = document.getElementById('wsSwapBtn');
+            const clearBtn = document.getElementById('wsClearBtn');
+            const toast = document.getElementById('wsToast');
+            const outputBadge = document.getElementById('wsOutputBadge');
+            const inputWordsEl = document.getElementById('wsInputWords');
+            const inputCharsEl = document.getElementById('wsInputChars');
+            const outputWordsEl = document.getElementById('wsOutputWords');
+            const outputCharsEl = document.getElementById('wsOutputChars');
+            const lineCountEl = document.getElementById('wsLineCount');
+            const modeIndicator = document.getElementById('wsModeIndicator');
+            const shuffleCounterEl = document.getElementById('wsShuffleCounter');
+            const faqItems = document.querySelectorAll('.ws-faq-q');
+
+            let shuffleCount = 0;
+            let toastTimer = null;
+
+            // ===== SHUFFLE ARRAY (Fisher-Yates) =====
+            function shuffleArray(arr) {
+                const shuffled = [...arr];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            // ===== WORD EXTRACTION =====
+            function extractWordsAndDelimiters(text) {
+                // Split text into tokens: words (including contractions, hyphens) and everything else
+                const tokens = [];
+                const regex = /([A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:[''-][A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*)|([^A-Za-zÀ-ÖØ-öø-ÿ0-9]+)/g;
+                let match;
+                while ((match = regex.exec(text)) !== null) {
+                    if (match[1] !== undefined) {
+                        tokens.push({ type: 'word', value: match[1], index: match.index });
+                    } else if (match[2] !== undefined) {
+                        tokens.push({ type: 'delimiter', value: match[2], index: match.index });
+                    }
+                }
+                return tokens;
+            }
+
+            // ===== MAIN SHUFFLE FUNCTION =====
+            function shuffleText(text, sentenceMode) {
+                if (!text.trim()) return '';
+
+                if (sentenceMode) {
+                    // Split by sentence boundaries (period, exclamation, question mark followed by space or end)
+                    // Keep the sentence-ending punctuation with its sentence
+                    const sentences = [];
+                    const sentenceRegex = /([^.!?]+[.!?]+[\s]*|[^.!?]+$)/g;
+                    let sentMatch;
+                    while ((sentMatch = sentenceRegex.exec(text)) !== null) {
+                        sentences.push(sentMatch[0]);
+                    }
+
+                    // If no sentence boundaries found, treat entire text as one sentence
+                    if (sentences.length === 0) {
+                        sentences.push(text);
+                    }
+
+                    const shuffledSentences = sentences.map(sentence => {
+                        const tokens = extractWordsAndDelimiters(sentence);
+                        const words = tokens.filter(t => t.type === 'word');
+                        const delimiters = tokens.filter(t => t.type === 'delimiter');
+
+                        if (words.length === 0) return sentence;
+
+                        const shuffledWords = shuffleArray(words.map(w => w.value));
+
+                        // Rebuild sentence: alternate between delimiters and shuffled words
+                        let result = '';
+                        let wordIdx = 0;
+                        let delimIdx = 0;
+
+                        // Reconstruct based on original token order
+                        for (const token of tokens) {
+                            if (token.type === 'word') {
+                                result += shuffledWords[wordIdx];
+                                wordIdx++;
+                            } else {
+                                result += delimiters[delimIdx].value;
+                                delimIdx++;
+                            }
+                        }
+                        return result;
+                    });
+
+                    return shuffledSentences.join('');
+                } else {
+                    // Shuffle all words across entire text
+                    const tokens = extractWordsAndDelimiters(text);
+                    const words = tokens.filter(t => t.type === 'word');
+                    const delimiters = tokens.filter(t => t.type === 'delimiter');
+
+                    if (words.length === 0) return text;
+
+                    const shuffledWords = shuffleArray(words.map(w => w.value));
+
+                    let result = '';
+                    let wordIdx = 0;
+                    let delimIdx = 0;
+
+                    for (const token of tokens) {
+                        if (token.type === 'word') {
+                            result += shuffledWords[wordIdx];
+                            wordIdx++;
+                        } else {
+                            result += delimiters[delimIdx].value;
+                            delimIdx++;
+                        }
+                    }
+                    return result;
+                }
+            }
+
+            // ===== PERFORM SHUFFLE =====
+            function performShuffle() {
+                const inputText = inputArea.value;
+                if (!inputText.trim()) {
+                    showToast('⚠️ Please enter some text to shuffle.');
+                    return;
+                }
+
+                const sentenceMode = sentenceModeCheckbox.checked;
+                const shuffledText = shuffleText(inputText, sentenceMode);
+
+                outputArea.value = shuffledText;
+                outputBadge.style.display = 'inline-flex';
+                shuffleCount++;
+                shuffleCounterEl.textContent = `${shuffleCount} shuffle${shuffleCount !== 1 ? 's' : ''}`;
+                updateAllStats();
+                updateModeIndicator();
+
+                // Subtle pulse animation on output
+                outputArea.style.transition = 'none';
+                outputArea.style.boxShadow = '0 0 0 6px var(--ws-accent-pale)';
+                setTimeout(() => {
+                    outputArea.style.transition = 'all 0.35s ease';
+                    outputArea.style.boxShadow = '0 0 0 2px var(--ws-accent-pale)';
+                }, 50);
+            }
+
+            // ===== STATS =====
+            function countWords(text) {
+                if (!text.trim()) return 0;
+                const words = text.match(/[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:[''-][A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*/g);
+                return words ? words.length : 0;
+            }
+
+            function countChars(text) {
+                return text.length;
+            }
+
+            function countLines(text) {
+                if (!text) return 0;
+                return text.split(/\n/).length;
+            }
+
+            function updateAllStats() {
+                const inputText = inputArea.value;
+                const outputText = outputArea.value;
+                inputWordsEl.textContent = countWords(inputText);
+                inputCharsEl.textContent = countChars(inputText);
+                outputWordsEl.textContent = countWords(outputText);
+                outputCharsEl.textContent = countChars(outputText);
+                lineCountEl.textContent = countLines(inputText);
+            }
+
+            function updateModeIndicator() {
+                const mode = sentenceModeCheckbox.checked;
+                modeIndicator.textContent = mode ? 'Mode: Shuffle Each Sentence' : 'Mode: Shuffle All Words';
+            }
+
+            // ===== TOAST =====
+            function showToast(message) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2200);
+            }
+
+            // ===== EVENT LISTENERS =====
+
+            // Shuffle button
+            shuffleBtn.addEventListener('click', performShuffle);
+
+            // Sentence mode toggle
+            sentenceModeCheckbox.addEventListener('change', () => {
+                updateModeIndicator();
+                // If output exists, re-shuffle with new mode
+                if (inputArea.value.trim()) {
+                    performShuffle();
+                }
+            });
+
+            // Input live stats
+            inputArea.addEventListener('input', () => {
+                updateAllStats();
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to copy. Shuffle some text first.');
+                    return;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(outputText).then(() => {
+                        showToast('✅ Copied to clipboard!');
+                    }).catch(() => {
+                        fallbackCopy(outputText);
+                    });
+                } else {
+                    fallbackCopy(outputText);
+                }
+            });
+
+            function fallbackCopy(text) {
+                outputArea.removeAttribute('readonly');
+                outputArea.select();
+                outputArea.setSelectionRange(0, 99999);
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Copied to clipboard!');
+                } catch (err) {
+                    showToast('⚠️ Copy failed. Please select and copy manually.');
+                }
+                outputArea.setAttribute('readonly', 'true');
+                window.getSelection().removeAllRanges();
+            }
+
+            // Swap button
+            swapBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to swap. Shuffle some text first.');
+                    return;
+                }
+                inputArea.value = outputText;
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                shuffleCount = 0;
+                shuffleCounterEl.textContent = 'No shuffles yet';
+                updateAllStats();
+                updateModeIndicator();
+                inputArea.focus();
+                showToast('⇄ Swapped! Shuffled text moved to input.');
+            });
+
+            // Clear button
+            clearBtn.addEventListener('click', () => {
+                inputArea.value = '';
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                shuffleCount = 0;
+                shuffleCounterEl.textContent = 'No shuffles yet';
+                updateAllStats();
+                updateModeIndicator();
+                inputArea.focus();
+                showToast('✕ All cleared.');
+            });
+
+            // FAQ accordion
+            faqItems.forEach(qBtn => {
+                qBtn.addEventListener('click', () => {
+                    const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                    qBtn.setAttribute('aria-expanded', !expanded);
+                    const answer = qBtn.nextElementSibling;
+                    if (answer) {
+                        answer.style.display = expanded ? 'none' : 'block';
+                    }
+                });
+            });
+
+            // Keyboard shortcut: Ctrl+Enter to shuffle
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    performShuffle();
+                }
+                // Ctrl+Shift+C to copy
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    copyBtn.click();
+                }
+                // Ctrl+Shift+S to swap
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
+                    e.preventDefault();
+                    swapBtn.click();
+                }
+            });
+
+            // ===== INITIALIZATION =====
+            updateAllStats();
+            updateModeIndicator();
+            shuffleCounterEl.textContent = 'No shuffles yet';
+
+            console.log('✅ Word Shuffler ready — randomize words in any text.');
+            console.log('   Modes: Shuffle Each Sentence | Shuffle All Words');
+            console.log('   Shortcuts: Ctrl+Enter = shuffle | Ctrl+Shift+C = copy | Ctrl+Shift+S = swap');
+        })();
+    </script>
+</body>
+</html>

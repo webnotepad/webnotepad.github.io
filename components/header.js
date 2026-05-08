@@ -20,8 +20,7 @@
               <a href="/random-text" class="dropdown-item">Random Text</a>
               <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>
             </div>
-          </div>
-          <a href="/#features" class="nav-link">Features</a>
+          </div>          
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
@@ -49,8 +48,7 @@
           <a href="/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
           <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>
         </div>
-      </div>
-      <a href="/#features" class="nav-link">⚡ Features</a>
+      </div>      
       <a href="diary" class="nav-link">🔄 Diary</a>
       <a href="mindmap" class="nav-link">👥 MindMap</a>
       <a href="list-maker" class="nav-link">❓ List Maker</a>

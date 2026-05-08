@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Online Case Converter – Uppercase, Lowercase, Title Case & More | WebNotePad</title>
+    <meta name="description" content="Free online case converter tool. Instantly convert text to UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, iNVERSE cASE, aLtErNaTiNg cAsE and more. No signup required. Copy, swap and export your converted text." />
+    <meta name="keywords" content="case converter, uppercase converter, lowercase converter, title case converter, sentence case converter, text case changer, online case converter, free case converter, text transformer, capitalize text, alternating case, inverse case, toggle case" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/case-converter" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/case-converter" />
+    <meta property="og:title" content="Free Online Case Converter – Uppercase, Lowercase, Title Case & More" />
+    <meta property="og:description" content="Instantly convert text between 8 case formats. Free, fast, no signup required. Copy, swap and transform your text in seconds." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Case Converter – Uppercase, Lowercase, Title Case & More" />
+    <meta name="twitter:description" content="Instantly convert text between 8 case formats. Free, fast, no signup required." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Case Converter by WebNotePad",
+            "url": "https://webnotepad.github.io/case-converter",
+            "description": "A free online case converter tool to instantly transform text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, iNVERSE cASE, aLtErNaTiNg cAsE, and Toggle Case.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Uppercase conversion",
+                "Lowercase conversion",
+                "Title Case conversion",
+                "Sentence case conversion",
+                "Capitalized Case conversion",
+                "Inverse Case conversion",
+                "Alternating Case conversion",
+                "Toggle Case conversion",
+                "Copy to clipboard",
+                "Swap input/output",
+                "Real-time character and word count"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is a case converter?", "acceptedAnswer": { "@type": "Answer", "text": "A case converter is a free online tool that transforms your text into different letter case formats — such as UPPERCASE, lowercase, Title Case, Sentence case, and more — instantly without any software installation." } },
+                { "@type": "Question", "name": "Is the case converter free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, WebNotePad's case converter is 100% free with no signup, no ads, and no hidden costs. Use it as many times as you like directly in your browser." } },
+                { "@type": "Question", "name": "Can I convert text to alternating case?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Our converter includes aLtErNaTiNg cAsE mode which alternates between lowercase and uppercase letters for a fun, eye-catching text style." } },
+                { "@type": "Question", "name": "How does Title Case differ from Capitalized Case?", "acceptedAnswer": { "@type": "Answer", "text": "Title Case follows standard rules — it capitalizes major words while keeping articles (a, an, the), short prepositions, and conjunctions lowercase (unless they are the first or last word). Capitalized Case simply capitalizes the first letter of every single word regardless of its role." } },
+                { "@type": "Question", "name": "Does the tool work on mobile devices?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The case converter is fully responsive and works perfectly on smartphones and tablets across iOS Safari, Android Chrome, and all modern mobile browsers." } },
+                { "@type": "Question", "name": "Is my text private when using this converter?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All text processing happens entirely in your browser. Your text is never sent to any server, stored remotely, or accessible to anyone but you." } }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --cc-accent: #5b4caf;
+            --cc-accent-light: #7e6fd4;
+            --cc-accent-pale: #f0edfa;
+            --cc-surface: #faf8f4;
+            --cc-border: #e8e2d6;
+            --cc-ink: #1a1a2e;
+            --cc-muted: #6b6b85;
+            --cc-warm: #f4f0e8;
+            --cc-radius: 8px;
+            --cc-radius-lg: 14px;
+            --cc-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --cc-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark {
+            --cc-accent: #9b8eeb;
+            --cc-accent-light: #b5aaf5;
+            --cc-accent-pale: #1e1a2e;
+            --cc-surface: #141418;
+            --cc-border: #2a2a34;
+            --cc-ink: #e8e4dc;
+            --cc-muted: #8a8678;
+            --cc-warm: #1c1c22;
+            --cc-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== CASE CONVERTER HERO ===== */
+        .cc-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 72px 0 48px;
+            overflow: hidden;
+            background: var(--cc-surface);
+            transition: background var(--cc-transition);
+        }
+        .cc-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--cc-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--cc-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .cc-hero-bg {
+            opacity: 0.1;
+        }
+        .cc-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--cc-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .cc-hero-glow {
+            opacity: 0.35;
+        }
+        .cc-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .cc-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--cc-accent-pale);
+            color: var(--cc-accent);
+            border: 1px solid var(--cc-accent);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .cc-hero-badge {
+            background: rgba(91, 76, 175, 0.18);
+        }
+        .cc-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.08;
+            color: var(--cc-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .cc-hero-accent {
+            color: var(--cc-accent);
+            font-style: italic;
+        }
+        .cc-hero-sub {
+            font-size: 1.1rem;
+            color: var(--cc-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .cc-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+        }
+        .cc-hero-demo {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .cc-demo-chip {
+            padding: 7px 16px;
+            background: var(--cc-warm);
+            border: 1px solid var(--cc-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--cc-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--cc-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .cc-demo-chip:hover {
+            background: var(--cc-accent-pale);
+            border-color: var(--cc-accent);
+            color: var(--cc-accent);
+        }
+
+        /* ===== CONVERTER APP SECTION ===== */
+        .cc-app-section {
+            padding: 0 0 80px;
+            background: var(--cc-surface);
+            transition: background var(--cc-transition);
+        }
+        .cc-app-shell {
+            background: var(--cc-warm);
+            border: 1px solid var(--cc-border);
+            border-radius: var(--cc-radius-lg);
+            box-shadow: var(--cc-shadow);
+            overflow: hidden;
+            transition: all var(--cc-transition);
+        }
+        .cc-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--cc-border);
+            background: var(--cc-surface);
+            flex-wrap: wrap;
+        }
+        .cc-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cc-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cc-app-title .cc-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cc-accent);
+            display: inline-block;
+        }
+        .cc-app-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Input area */
+        .cc-input-wrap {
+            padding: 16px 20px 8px;
+        }
+        .cc-input-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--cc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .cc-input-textarea {
+            width: 100%;
+            min-height: 140px;
+            max-height: 320px;
+            padding: 16px 18px;
+            border-radius: var(--cc-radius);
+            border: 1px solid var(--cc-border);
+            background: var(--cc-surface);
+            color: var(--cc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--cc-transition);
+            box-sizing: border-box;
+        }
+        .cc-input-textarea:focus {
+            border-color: var(--cc-accent);
+            box-shadow: 0 0 0 3px var(--cc-accent-pale);
+        }
+        .cc-input-textarea::placeholder {
+            color: #c4c0b8;
+            font-style: italic;
+        }
+        body.dark .cc-input-textarea::placeholder {
+            color: #5a5660;
+        }
+
+        /* Conversion buttons grid */
+        .cc-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 12px 20px;
+        }
+        .cc-conv-btn {
+            padding: 10px 12px;
+            border-radius: var(--cc-radius);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid var(--cc-border);
+            background: var(--cc-surface);
+            color: var(--cc-ink);
+            transition: all var(--cc-transition);
+            white-space: nowrap;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.01em;
+            position: relative;
+            overflow: hidden;
+        }
+        .cc-conv-btn:hover {
+            background: var(--cc-warm);
+            border-color: var(--cc-accent);
+            color: var(--cc-accent);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 12px rgba(91, 76, 175, 0.15);
+        }
+        .cc-conv-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .cc-conv-btn.active {
+            background: var(--cc-accent-pale);
+            border-color: var(--cc-accent);
+            color: var(--cc-accent);
+            font-weight: 700;
+        }
+        body.dark .cc-conv-btn.active {
+            background: rgba(91, 76, 175, 0.2);
+        }
+        .cc-conv-btn .cc-btn-icon {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        /* Output area */
+        .cc-output-wrap {
+            padding: 8px 20px 16px;
+            position: relative;
+        }
+        .cc-output-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--cc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cc-output-type-badge {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--cc-accent-pale);
+            color: var(--cc-accent);
+            font-weight: 600;
+        }
+        .cc-output-textarea {
+            width: 100%;
+            min-height: 120px;
+            max-height: 300px;
+            padding: 16px 18px;
+            border-radius: var(--cc-radius);
+            border: 1px solid var(--cc-accent);
+            background: var(--cc-surface);
+            color: var(--cc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--cc-transition);
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px var(--cc-accent-pale);
+        }
+        .cc-output-textarea:focus {
+            border-color: var(--cc-accent);
+            box-shadow: 0 0 0 4px var(--cc-accent-pale);
+        }
+
+        /* Stats bar */
+        .cc-stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--cc-border);
+            background: var(--cc-surface);
+            font-size: 0.73rem;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--cc-muted);
+            flex-wrap: wrap;
+        }
+        .cc-stats-sep {
+            color: var(--cc-border);
+            flex-shrink: 0;
+        }
+        .cc-stat-val {
+            font-weight: 600;
+            color: var(--cc-ink);
+        }
+
+        /* Toast override for case converter */
+        .cc-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--cc-ink);
+            color: var(--cc-surface);
+            padding: 12px 20px;
+            border-radius: var(--cc-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .cc-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        body.dark .cc-toast {
+            background: var(--cc-warm);
+            color: var(--cc-ink);
+            border: 1px solid var(--cc-border);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .cc-how {
+            background: var(--cc-warm);
+            transition: background var(--cc-transition);
+        }
+        .cc-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .cc-how-card {
+            background: var(--cc-surface);
+            border: 1px solid var(--cc-border);
+            border-radius: var(--cc-radius-lg);
+            padding: 26px;
+            transition: all var(--cc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .cc-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--cc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--cc-transition);
+        }
+        .cc-how-card:hover {
+            box-shadow: var(--cc-shadow);
+            transform: translateY(-3px);
+        }
+        .cc-how-card:hover::before {
+            transform: scaleX(1);
+        }
+        .cc-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--cc-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .cc-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cc-ink);
+            margin-bottom: 8px;
+        }
+        .cc-how-card p {
+            font-size: 0.85rem;
+            color: var(--cc-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .cc-desc {
+            background: var(--cc-surface);
+            transition: background var(--cc-transition);
+        }
+        .cc-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .cc-desc-text p {
+            font-size: 0.95rem;
+            color: var(--cc-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .cc-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .cc-benefit-tag {
+            padding: 6px 14px;
+            background: var(--cc-warm);
+            border: 1px solid var(--cc-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--cc-ink);
+            transition: all var(--cc-transition);
+        }
+        .cc-benefit-tag:hover {
+            background: var(--cc-accent-pale);
+            border-color: var(--cc-accent);
+            color: var(--cc-accent);
+        }
+        .cc-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cc-visual-card {
+            background: var(--cc-ink);
+            color: var(--cc-surface);
+            border-radius: var(--cc-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--cc-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+        }
+        body.dark .cc-visual-card {
+            background: var(--cc-warm);
+            border: 1px solid var(--cc-border);
+            color: var(--cc-ink);
+        }
+        .cc-visual-card .cc-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--cc-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .cc-visual-card .cc-v-original {
+            opacity: 0.5;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+        }
+        .cc-visual-card .cc-v-converted {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--cc-accent-light);
+        }
+        body.dark .cc-visual-card .cc-v-converted {
+            color: var(--cc-accent);
+        }
+        .cc-visual-card .cc-v-arrow {
+            color: var(--cc-accent);
+            margin: 4px 0;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .cc-faq {
+            background: var(--cc-warm);
+            transition: background var(--cc-transition);
+        }
+        .cc-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .cc-faq-item {
+            border: 1px solid var(--cc-border);
+            border-radius: var(--cc-radius);
+            overflow: hidden;
+            background: var(--cc-surface);
+            transition: border-color var(--cc-transition);
+        }
+        .cc-faq-item:has(.cc-faq-a[style*="block"]) {
+            border-color: var(--cc-accent);
+        }
+        .cc-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--cc-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--cc-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .cc-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--cc-muted);
+            flex-shrink: 0;
+            transition: transform var(--cc-transition);
+        }
+        .cc-faq-q[aria-expanded="true"]::after {
+            transform: rotate(45deg);
+            color: var(--cc-accent);
+        }
+        .cc-faq-q:hover {
+            background: var(--cc-warm);
+        }
+        .cc-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .cc-faq-a p {
+            font-size: 0.88rem;
+            color: var(--cc-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .cc-btn-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+            .cc-how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cc-desc-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .cc-desc-visual {
+                justify-content: flex-start;
+            }
+            .cc-conv-btn {
+                font-size: 0.72rem;
+                padding: 8px 6px;
+            }
+        }
+        @media (max-width: 768px) {
+            .cc-hero {
+                min-height: auto;
+                padding: 48px 0 36px;
+            }
+            .cc-btn-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+                padding: 10px 14px;
+            }
+            .cc-conv-btn {
+                font-size: 0.78rem;
+                padding: 10px 10px;
+            }
+            .cc-how-grid {
+                grid-template-columns: 1fr;
+            }
+            .cc-input-textarea,
+            .cc-output-textarea {
+                min-height: 100px;
+                max-height: 220px;
+                font-size: 0.88rem;
+            }
+            .cc-app-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .cc-stats-bar {
+                gap: 8px;
+                font-size: 0.68rem;
+            }
+            .cc-hero-demo {
+                gap: 6px;
+            }
+            .cc-demo-chip {
+                font-size: 0.7rem;
+                padding: 5px 11px;
+            }
+        }
+        @media (max-width: 480px) {
+            .cc-hero-title {
+                font-size: 2rem;
+            }
+            .cc-btn-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5px;
+                padding: 8px 10px;
+            }
+            .cc-conv-btn {
+                font-size: 0.7rem;
+                padding: 8px 6px;
+                border-radius: 6px;
+            }
+            .cc-input-wrap,
+            .cc-output-wrap {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            .cc-input-textarea,
+            .cc-output-textarea {
+                padding: 12px 14px;
+                min-height: 80px;
+                max-height: 180px;
+            }
+            .cc-app-header {
+                padding: 10px 14px;
+            }
+            .cc-stats-bar {
+                padding: 8px 12px;
+                font-size: 0.65rem;
+                gap: 6px;
+            }
+            .cc-visual-card {
+                padding: 24px 20px;
+                max-width: 100%;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="cc-hero" id="home" aria-label="Case Converter Hero">
+            <div class="cc-hero-bg"></div>
+            <div class="cc-hero-glow"></div>
+            <div class="container cc-hero-inner">
+                <div class="cc-hero-badge">✦ Free Text Transformation Tool</div>
+                <h1 class="cc-hero-title">
+                    Transform your text.<br />
+                    <span class="cc-hero-accent">Any case, instantly.</span>
+                </h1>
+                <p class="cc-hero-sub">The most complete free online case converter. Switch between UPPERCASE, lowercase, Title Case, Sentence case, aLtErNaTiNg cAsE and more — all in your browser with zero signup.</p>
+                <div class="cc-hero-cta">
+                    <a href="#converter-app" class="btn btn-primary" style="background:var(--cc-accent);border-color:var(--cc-accent);">Open Converter <span>→</span></a>
+                </div>
+                <div class="cc-hero-demo">
+                    <span class="cc-demo-chip">HELLO WORLD</span>
+                    <span class="cc-demo-chip">hello world</span>
+                    <span class="cc-demo-chip">Hello World</span>
+                    <span class="cc-demo-chip">hELLO wORLD</span>
+                    <span class="cc-demo-chip">hElLo wOrLd</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CASE CONVERTER APP SECTION ===== -->
+        <section class="cc-app-section" id="converter-app" aria-label="Case Converter Application">
+            <div class="container">
+                <div class="cc-app-shell">
+                    <!-- App Header -->
+                    <div class="cc-app-header">
+                        <span class="cc-app-title"><span class="cc-dot"></span> Case Converter</span>
+                        <div class="cc-app-actions-header">
+                            <button class="btn-tool" id="ccSwapBtn" title="Swap input and output" aria-label="Swap input and output">⇄ Swap</button>
+                            <button class="btn-tool" id="ccCopyBtn" title="Copy result to clipboard" aria-label="Copy result">⎘ Copy</button>
+                            <button class="btn-tool" id="ccClearBtn" title="Clear all text" aria-label="Clear all">✕ Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="cc-input-wrap">
+                        <label class="cc-input-label" for="ccInputArea">📝 Your Text</label>
+                        <textarea class="cc-input-textarea" id="ccInputArea" placeholder="Type or paste your text here… try a sentence, a headline, or any block of text you want to transform." aria-label="Input text to convert" rows="4"></textarea>
+                    </div>
+
+                    <!-- Conversion Buttons Grid -->
+                    <div class="cc-btn-grid" role="toolbar" aria-label="Case conversion options">
+                        <button class="cc-conv-btn" data-case="upper" aria-label="Convert to UPPERCASE">
+                            <span class="cc-btn-icon">AA</span> UPPERCASE
+                        </button>
+                        <button class="cc-conv-btn" data-case="lower" aria-label="Convert to lowercase">
+                            <span class="cc-btn-icon">aa</span> lowercase
+                        </button>
+                        <button class="cc-conv-btn" data-case="title" aria-label="Convert to Title Case">
+                            <span class="cc-btn-icon">Aa</span> Title Case
+                        </button>
+                        <button class="cc-conv-btn" data-case="sentence" aria-label="Convert to Sentence case">
+                            <span class="cc-btn-icon">A.</span> Sentence case
+                        </button>
+                        <button class="cc-conv-btn" data-case="capitalized" aria-label="Convert to Capitalized Case">
+                            <span class="cc-btn-icon">Aa Bb</span> Capitalized
+                        </button>
+                        <button class="cc-conv-btn" data-case="inverse" aria-label="Convert to iNVERSE cASE">
+                            <span class="cc-btn-icon">iN</span> iNVERSE cASE
+                        </button>
+                        <button class="cc-conv-btn" data-case="alternating" aria-label="Convert to aLtErNaTiNg cAsE">
+                            <span class="cc-btn-icon">aLt</span> aLtErNaTiNg
+                        </button>
+                        <button class="cc-conv-btn" data-case="toggle" aria-label="Convert to Toggle Case">
+                            <span class="cc-btn-icon">tOGGLE</span> Toggle Case
+                        </button>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="cc-output-wrap">
+                        <label class="cc-output-label" for="ccOutputArea">
+                            ✅ Converted Result
+                            <span class="cc-output-type-badge" id="ccOutputBadge" style="display:none;"></span>
+                        </label>
+                        <textarea class="cc-output-textarea" id="ccOutputArea" placeholder="Your converted text will appear here… select a conversion type above to transform your text." aria-label="Converted text output" rows="4" readonly></textarea>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="cc-stats-bar">
+                        <span>Input: <span class="cc-stat-val" id="ccInputChars">0</span> chars / <span class="cc-stat-val" id="ccInputWords">0</span> words</span>
+                        <span class="cc-stats-sep">|</span>
+                        <span>Output: <span class="cc-stat-val" id="ccOutputChars">0</span> chars / <span class="cc-stat-val" id="ccOutputWords">0</span> words</span>
+                        <span class="cc-stats-sep">|</span>
+                        <span>Lines: <span class="cc-stat-val" id="ccLineCount">0</span></span>
+                        <span class="cc-stats-sep">|</span>
+                        <span id="ccActiveCase" style="color:var(--cc-accent);font-weight:600;">No conversion applied</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section cc-how" id="how-to-use" aria-label="How to use the case converter">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Convert text in <em>3 easy steps.</em></h2>
+                <div class="cc-how-grid">
+                    <div class="cc-how-card">
+                        <div class="cc-how-num">01</div>
+                        <h3>Paste or Type Your Text</h3>
+                        <p>Enter any text into the input box — a headline, an email draft, a social media caption, or a full document. The tool accepts any length of text instantly.</p>
+                    </div>
+                    <div class="cc-how-card">
+                        <div class="cc-how-num">02</div>
+                        <h3>Choose a Case Format</h3>
+                        <p>Click one of the 8 conversion buttons: UPPERCASE, lowercase, Title Case, Sentence case, Capitalized, iNVERSE, aLtErNaTiNg, or Toggle. Your text transforms immediately.</p>
+                    </div>
+                    <div class="cc-how-card">
+                        <div class="cc-how-num">03</div>
+                        <h3>Copy & Use Anywhere</h3>
+                        <p>Click the Copy button to copy the converted result to your clipboard. Paste it into documents, emails, social media, code, or anywhere else you need perfectly formatted text.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section cc-desc" id="about-converter" aria-label="About the case converter">
+            <div class="container cc-desc-inner">
+                <div class="cc-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Ultimate Free <em>Case Converter</em> Online</h2>
+                    <p>A case converter is an essential text tool that transforms the letter casing of any text between multiple formats. Whether you need to shout with <strong>UPPERCASE</strong>, whisper with <strong>lowercase</strong>, format headlines in <strong>Title Case</strong>, or add flair with <strong>aLtErNaTiNg cAsE</strong> — our tool handles all eight conversion types in one place.</p>
+                    <p>Built on the same privacy-first philosophy as WebNotePad, this case converter processes everything locally in your browser. Your text never leaves your device. No server uploads, no tracking, no ads — just instant, accurate text transformation whenever you need it.</p>
+                    <p>Perfect for writers formatting article headlines, developers normalizing code comments, social media managers creating eye-catching posts, students polishing essays, and anyone who works with text daily. Bookmark this page and you'll never need another case conversion tool again.</p>
+                    <div class="cc-desc-benefits">
+                        <span class="cc-benefit-tag">🔒 100% Private</span>
+                        <span class="cc-benefit-tag">⚡ Instant Results</span>
+                        <span class="cc-benefit-tag">📋 Copy to Clipboard</span>
+                        <span class="cc-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="cc-benefit-tag">🔄 8 Case Types</span>
+                        <span class="cc-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="cc-desc-visual">
+                    <div class="cc-visual-card">
+                        <div class="cc-v-line"></div>
+                        <div class="cc-v-original">original text:</div>
+                        <div style="color:var(--cc-muted);opacity:0.7;">the quick brown fox</div>
+                        <div class="cc-v-arrow">↓ Title Case ↓</div>
+                        <div class="cc-v-converted">The Quick Brown Fox</div>
+                        <div class="cc-v-arrow" style="margin-top:12px;">↓ UPPERCASE ↓</div>
+                        <div class="cc-v-converted">THE QUICK BROWN FOX</div>
+                        <div class="cc-v-arrow" style="margin-top:12px;">↓ aLtErNaTiNg ↓</div>
+                        <div class="cc-v-converted">tHe qUiCk bRoWn fOx</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section cc-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="cc-faq-list" id="ccFaqList">
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">What is a case converter?</button>
+                        <div class="cc-faq-a"><p>A case converter is a free online tool that instantly transforms your text into different letter case formats — such as UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, iNVERSE cASE, aLtErNaTiNg cAsE, and Toggle Case. It saves you the hassle of manually retyping or reformatting text.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">Is this case converter completely free?</button>
+                        <div class="cc-faq-a"><p>Yes! WebNotePad's case converter is 100% free with no signup required, no ads, and no usage limits. Use it as many times as you need, anytime, anywhere.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">How does Title Case differ from Capitalized Case?</button>
+                        <div class="cc-faq-a"><p><strong>Title Case</strong> follows standard writing conventions — it capitalizes major words (nouns, verbs, adjectives, adverbs) while keeping short articles (a, an, the), coordinating conjunctions (and, but, or), and short prepositions (in, on, at, to, for, of) lowercase — unless they appear as the first or last word. <strong>Capitalized Case</strong> simply capitalizes the first letter of every single word regardless of its grammatical role. For example: "The Lord of the Rings" (Title Case) vs "The Lord Of The Rings" (Capitalized Case).</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">What is alternating case used for?</button>
+                        <div class="cc-faq-a"><p>Alternating case (like tHiS) is popular in internet culture, memes, and social media to convey a mocking or sarcastic tone. It's also used stylistically in graphic design and usernames to create a visually distinctive text effect.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">Is my text private and secure?</button>
+                        <div class="cc-faq-a"><p>Absolutely. All text processing happens entirely within your browser using JavaScript. Your text is never uploaded to any server, stored remotely, or accessible to anyone but you. You can use this tool with complete confidence even for sensitive content.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">Can I use this on my phone or tablet?</button>
+                        <div class="cc-faq-a"><p>Yes! The case converter is fully responsive and works perfectly on all devices — smartphones, tablets, and desktops. The interface adapts to smaller screens so you can convert text on the go with ease.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">What's the difference between Inverse Case and Toggle Case?</button>
+                        <div class="cc-faq-a"><p>Both <strong>Inverse Case</strong> and <strong>Toggle Case</strong> perform the same function — they invert the case of every letter in your text. Uppercase letters become lowercase, and lowercase letters become uppercase. For example, "Hello World" becomes "hELLO wORLD". We include both labels as different users search for either term.</p></div>
+                    </div>
+                    <div class="cc-faq-item">
+                        <button class="cc-faq-q" aria-expanded="false">Can I chain multiple conversions?</button>
+                        <div class="cc-faq-a"><p>Yes! Use the <strong>Swap</strong> button (⇄) to move the converted result back into the input area, then apply a different case conversion. This lets you experiment with multiple transformations in sequence.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="cc-toast" id="ccToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script>
+        (function() {
+            // ===== DOM ELEMENTS =====
+            const inputArea = document.getElementById('ccInputArea');
+            const outputArea = document.getElementById('ccOutputArea');
+            const convButtons = document.querySelectorAll('.cc-conv-btn');
+            const outputBadge = document.getElementById('ccOutputBadge');
+            const copyBtn = document.getElementById('ccCopyBtn');
+            const swapBtn = document.getElementById('ccSwapBtn');
+            const clearBtn = document.getElementById('ccClearBtn');
+            const toast = document.getElementById('ccToast');
+            const inputCharsEl = document.getElementById('ccInputChars');
+            const inputWordsEl = document.getElementById('ccInputWords');
+            const outputCharsEl = document.getElementById('ccOutputChars');
+            const outputWordsEl = document.getElementById('ccOutputWords');
+            const lineCountEl = document.getElementById('ccLineCount');
+            const activeCaseEl = document.getElementById('ccActiveCase');
+            const faqItems = document.querySelectorAll('.cc-faq-q');
+
+            let activeCaseType = null;
+            let toastTimer = null;
+
+            // ===== CASE CONVERSION FUNCTIONS =====
+            const caseConverters = {
+                upper: (text) => text.toUpperCase(),
+                lower: (text) => text.toLowerCase(),
+                title: (text) => {
+                    const minorWords = new Set([
+                        'a', 'an', 'the', 'and', 'but', 'or', 'nor', 'for', 'so', 'yet',
+                        'in', 'on', 'at', 'to', 'for', 'of', 'by', 'up', 'off', 'out',
+                        'with', 'from', 'into', 'onto', 'upon', 'over', 'under', 'as', 'than',
+                        'that', 'this', 'these', 'those', 'is', 'am', 'are', 'was', 'were', 'be',
+                        'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
+                        'could', 'should', 'may', 'might', 'can', 'shall'
+                    ]);
+                    return text.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g, (word, index, words) => {
+                        const isFirstWord = index === 0;
+                        const isLastWord = index === words.length - 1;
+                        const isWordBeforeColon =
+                            index > 0 && words[index - 1].trim().endsWith(':');
+                        const lower = word.toLowerCase();
+                        if (isFirstWord || isLastWord || isWordBeforeColon || !minorWords.has(
+                                lower)) {
+                            return lower.charAt(0).toUpperCase() + lower.slice(1);
+                        }
+                        return lower;
+                    });
+                },
+                sentence: (text) => {
+                    return text.replace(/([^.!?]*[.!?]+\s*|^[^.!?]*$)/g, (sentence) => {
+                        const trimmed = sentence.trimStart();
+                        if (trimmed.length === 0) return sentence;
+                        const leadingSpaces = sentence.length - trimmed.length;
+                        return ' '.repeat(leadingSpaces) + trimmed.charAt(0).toUpperCase() + trimmed
+                            .slice(1).toLowerCase();
+                    });
+                },
+                capitalized: (text) => {
+                    return text.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g, (word) => {
+                        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+                    });
+                },
+                inverse: (text) => {
+                    return text.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]/g, (char) => {
+                        if (char === char.toUpperCase()) return char.toLowerCase();
+                        return char.toUpperCase();
+                    });
+                },
+                alternating: (text) => {
+                    let letterIndex = 0;
+                    return text.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]/g, (char) => {
+                        const result = (letterIndex % 2 === 0) ? char.toLowerCase() : char
+                            .toUpperCase();
+                        letterIndex++;
+                        return result;
+                    });
+                },
+                toggle: (text) => {
+                    return text.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]/g, (char) => {
+                        if (char === char.toUpperCase()) return char.toLowerCase();
+                        return char.toUpperCase();
+                    });
+                }
+            };
+
+            const caseLabels = {
+                upper: 'UPPERCASE',
+                lower: 'lowercase',
+                title: 'Title Case',
+                sentence: 'Sentence case',
+                capitalized: 'Capitalized Case',
+                inverse: 'iNVERSE cASE',
+                alternating: 'aLtErNaTiNg cAsE',
+                toggle: 'Toggle Case'
+            };
+
+            // ===== APPLY CONVERSION =====
+            function applyConversion(caseType) {
+                const inputText = inputArea.value;
+                if (!inputText.trim()) {
+                    outputArea.value = '';
+                    outputBadge.style.display = 'none';
+                    activeCaseEl.textContent = 'No conversion applied';
+                    activeCaseType = null;
+                    updateOutputStats();
+                    updateButtonStates();
+                    return;
+                }
+
+                const converter = caseConverters[caseType];
+                if (!converter) return;
+
+                const converted = converter(inputText);
+                outputArea.value = converted;
+                activeCaseType = caseType;
+                outputBadge.textContent = caseLabels[caseType];
+                outputBadge.style.display = 'inline-flex';
+                activeCaseEl.textContent = 'Active: ' + caseLabels[caseType];
+                updateOutputStats();
+                updateButtonStates();
+
+                // Subtle pulse animation on output
+                outputArea.style.transition = 'none';
+                outputArea.style.boxShadow = '0 0 0 6px var(--cc-accent-pale)';
+                setTimeout(() => {
+                    outputArea.style.transition = 'all 0.35s ease';
+                    outputArea.style.boxShadow = '0 0 0 2px var(--cc-accent-pale)';
+                }, 50);
+            }
+
+            function updateButtonStates() {
+                convButtons.forEach(btn => {
+                    const btnCase = btn.getAttribute('data-case');
+                    if (btnCase === activeCaseType) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            // ===== STATS UPDATING =====
+            function countWords(text) {
+                if (!text.trim()) return 0;
+                return text.trim().split(/\s+/).length;
+            }
+
+            function countChars(text) {
+                return text.length;
+            }
+
+            function countLines(text) {
+                if (!text) return 0;
+                return text.split(/\n/).length;
+            }
+
+            function updateInputStats() {
+                const text = inputArea.value;
+                inputCharsEl.textContent = countChars(text);
+                inputWordsEl.textContent = countWords(text);
+                lineCountEl.textContent = countLines(text);
+            }
+
+            function updateOutputStats() {
+                const text = outputArea.value;
+                outputCharsEl.textContent = countChars(text);
+                outputWordsEl.textContent = countWords(text);
+            }
+
+            function updateAllStats() {
+                updateInputStats();
+                updateOutputStats();
+            }
+
+            // ===== TOAST NOTIFICATION =====
+            function showToast(message) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2200);
+            }
+
+            // ===== EVENT LISTENERS =====
+
+            // Conversion buttons
+            convButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const caseType = btn.getAttribute('data-case');
+                    if (caseType) {
+                        applyConversion(caseType);
+                    }
+                });
+            });
+
+            // Live input stats
+            inputArea.addEventListener('input', () => {
+                updateInputStats();
+                lineCountEl.textContent = countLines(inputArea.value);
+                // Re-apply conversion if one is active (live update)
+                if (activeCaseType && inputArea.value.trim()) {
+                    const converter = caseConverters[activeCaseType];
+                    if (converter) {
+                        outputArea.value = converter(inputArea.value);
+                        updateOutputStats();
+                    }
+                } else if (!inputArea.value.trim()) {
+                    outputArea.value = '';
+                    outputBadge.style.display = 'none';
+                    activeCaseEl.textContent = 'No conversion applied';
+                    activeCaseType = null;
+                    updateOutputStats();
+                    updateButtonStates();
+                }
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to copy. Convert some text first.');
+                    return;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(outputText).then(() => {
+                        showToast('✅ Copied to clipboard!');
+                    }).catch(() => {
+                        fallbackCopy(outputText);
+                    });
+                } else {
+                    fallbackCopy(outputText);
+                }
+            });
+
+            function fallbackCopy(text) {
+                outputArea.removeAttribute('readonly');
+                outputArea.select();
+                outputArea.setSelectionRange(0, 99999);
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Copied to clipboard!');
+                } catch (err) {
+                    showToast('⚠️ Copy failed. Please select and copy manually.');
+                }
+                outputArea.setAttribute('readonly', 'true');
+                window.getSelection().removeAllRanges();
+            }
+
+            // Swap button
+            swapBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to swap. Convert some text first.');
+                    return;
+                }
+                inputArea.value = outputText;
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                activeCaseType = null;
+                activeCaseEl.textContent = 'No conversion applied';
+                updateAllStats();
+                updateButtonStates();
+                inputArea.focus();
+                showToast('⇄ Swapped! Output moved to input.');
+            });
+
+            // Clear button
+            clearBtn.addEventListener('click', () => {
+                inputArea.value = '';
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                activeCaseType = null;
+                activeCaseEl.textContent = 'No conversion applied';
+                updateAllStats();
+                updateButtonStates();
+                inputArea.focus();
+                showToast('✕ All cleared.');
+            });
+
+            // FAQ accordion
+            faqItems.forEach(qBtn => {
+                qBtn.addEventListener('click', () => {
+                    const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                    qBtn.setAttribute('aria-expanded', !expanded);
+                    const answer = qBtn.nextElementSibling;
+                    if (answer) {
+                        answer.style.display = expanded ? 'none' : 'block';
+                    }
+                });
+            });
+
+            // Keyboard shortcut: Ctrl+Enter to apply last conversion or Title Case
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    if (activeCaseType) {
+                        applyConversion(activeCaseType);
+                    } else if (inputArea.value.trim()) {
+                        applyConversion('title');
+                    }
+                }
+                // Ctrl+Shift+C to copy
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    copyBtn.click();
+                }
+                // Ctrl+Shift+S to swap
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
+                    e.preventDefault();
+                    swapBtn.click();
+                }
+            });
+
+            // ===== INITIALIZATION =====
+            updateAllStats();
+
+            // Auto-focus input on page load (with slight delay for smooth page load)
+            setTimeout(() => {
+                if (window.location.hash === '#converter-app') {
+                    inputArea.focus();
+                }
+            }, 600);
+
+            console.log('✅ Case Converter ready — 8 conversion types available.');
+            console.log('   UPPERCASE | lowercase | Title Case | Sentence case | Capitalized | iNVERSE | aLtErNaTiNg | Toggle');
+            console.log('   Shortcuts: Ctrl+Enter = convert | Ctrl+Shift+C = copy | Ctrl+Shift+S = swap');
+        })();
+    </script>
+</body>
+</html>

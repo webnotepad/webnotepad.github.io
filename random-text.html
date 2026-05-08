@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Random Text Generator – Generate Lorem Ipsum, Dummy Text & Random Words | WebNotePad</title>
+    <meta name="description" content="Free online random text generator. Create dummy text, Lorem Ipsum paragraphs, random words, and custom placeholder text instantly. Control word count, paragraphs, and text type. No signup required." />
+    <meta name="keywords" content="random text generator, lorem ipsum generator, dummy text generator, placeholder text, random words generator, generate random paragraphs, online text generator, free text generator, filler text" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/random-text" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/random-text" />
+    <meta property="og:title" content="Free Random Text Generator – Generate Lorem Ipsum, Dummy Text & Random Words" />
+    <meta property="og:description" content="Generate random text, Lorem Ipsum paragraphs, and random words instantly. Free, fast, no signup. Perfect for designers, developers, and writers." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Random Text Generator – Generate Lorem Ipsum, Dummy Text & Random Words" />
+    <meta name="twitter:description" content="Generate random text, Lorem Ipsum paragraphs, and random words instantly. Free, fast, no signup." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Random Text Generator by WebNotePad",
+            "url": "https://webnotepad.github.io/random-text",
+            "description": "A free online random text generator to create Lorem Ipsum paragraphs, dummy text, random words, and custom placeholder text. Control word count, paragraph count, and text type.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Lorem Ipsum paragraphs",
+                "Random English words",
+                "Custom word count",
+                "Adjustable paragraph count",
+                "Copy to clipboard",
+                "Regenerate with one click",
+                "Live character and word count"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is a random text generator?", "acceptedAnswer": { "@type": "Answer", "text": "A random text generator is a free online tool that creates blocks of text — either classic Lorem Ipsum placeholder text or random English words — for use in design mockups, testing layouts, or creative writing exercises." } },
+                { "@type": "Question", "name": "What is Lorem Ipsum?", "acceptedAnswer": { "@type": "Answer", "text": "Lorem Ipsum is a centuries-old scrambled passage from Latin literature used by designers and typesetters as placeholder text. It approximates the visual feel of readable text without distracting the viewer with meaningful content." } },
+                { "@type": "Question", "name": "Can I generate random English words instead of Lorem Ipsum?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! The generator lets you choose between classic Lorem Ipsum and randomized English word lists. Control the number of words or paragraphs to get exactly the output you need." } },
+                { "@type": "Question", "name": "How do I use the generated text?", "acceptedAnswer": { "@type": "Answer", "text": "Use the Copy button to copy the entire generated output to your clipboard, then paste it into design software, websites, documents, or code editors. Perfect for placeholder content and layout testing." } },
+                { "@type": "Question", "name": "Is my generated text private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All text generation happens entirely in your browser. Nothing is sent to any server, stored remotely, or tracked. The generator works completely offline once loaded." } }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --rt-accent: #8b5cf6;
+            --rt-accent-light: #a78bfa;
+            --rt-accent-pale: #f3f0ff;
+            --rt-surface: #faf8f4;
+            --rt-border: #e8e2d6;
+            --rt-ink: #1a1a2e;
+            --rt-muted: #6b6b85;
+            --rt-warm: #f4f0e8;
+            --rt-radius: 8px;
+            --rt-radius-lg: 14px;
+            --rt-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --rt-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark {
+            --rt-accent: #a78bfa;
+            --rt-accent-light: #c4b5fd;
+            --rt-accent-pale: #1e1a2e;
+            --rt-surface: #141418;
+            --rt-border: #2a2a34;
+            --rt-ink: #e8e4dc;
+            --rt-muted: #8a8678;
+            --rt-warm: #1c1c22;
+            --rt-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== RANDOM TEXT HERO ===== */
+        .rt-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 72px 0 48px;
+            overflow: hidden;
+            background: var(--rt-surface);
+            transition: background var(--rt-transition);
+        }
+        .rt-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--rt-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rt-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .rt-hero-bg { opacity: 0.1; }
+        .rt-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--rt-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .rt-hero-glow { opacity: 0.35; }
+        .rt-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .rt-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: var(--rt-accent-pale);
+            color: var(--rt-accent);
+            border: 1px solid var(--rt-accent);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .rt-hero-badge { background: rgba(139, 92, 246, 0.18); }
+        .rt-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.08;
+            color: var(--rt-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .rt-hero-accent {
+            color: var(--rt-accent);
+            font-style: italic;
+        }
+        .rt-hero-sub {
+            font-size: 1.1rem;
+            color: var(--rt-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .rt-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+        }
+        .rt-hero-demo {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .rt-demo-chip {
+            padding: 7px 16px;
+            background: var(--rt-warm);
+            border: 1px solid var(--rt-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--rt-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--rt-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .rt-demo-chip:hover {
+            background: var(--rt-accent-pale);
+            border-color: var(--rt-accent);
+            color: var(--rt-accent);
+        }
+        .rt-demo-chip.rt-lorem {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* ===== GENERATOR APP SECTION ===== */
+        .rt-app-section {
+            padding: 0 0 80px;
+            background: var(--rt-surface);
+            transition: background var(--rt-transition);
+        }
+        .rt-app-shell {
+            background: var(--rt-warm);
+            border: 1px solid var(--rt-border);
+            border-radius: var(--rt-radius-lg);
+            box-shadow: var(--rt-shadow);
+            overflow: hidden;
+            transition: all var(--rt-transition);
+        }
+        .rt-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            flex-wrap: wrap;
+        }
+        .rt-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--rt-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rt-app-title .rt-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--rt-accent);
+            display: inline-block;
+            animation: rtPulse 2s infinite;
+        }
+        @keyframes rtPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .rt-app-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Controls area */
+        .rt-controls-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            flex-wrap: wrap;
+        }
+        .rt-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rt-control-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--rt-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .rt-select {
+            padding: 7px 12px;
+            border-radius: var(--rt-radius);
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            color: var(--rt-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--rt-transition);
+            min-width: 140px;
+        }
+        .rt-select:focus {
+            border-color: var(--rt-accent);
+            box-shadow: 0 0 0 3px var(--rt-accent-pale);
+        }
+        .rt-input-number {
+            width: 70px;
+            padding: 7px 10px;
+            border-radius: var(--rt-radius);
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            color: var(--rt-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            text-align: center;
+            transition: all var(--rt-transition);
+        }
+        .rt-input-number:focus {
+            border-color: var(--rt-accent);
+            box-shadow: 0 0 0 3px var(--rt-accent-pale);
+        }
+        .rt-control-sep {
+            width: 1px;
+            height: 24px;
+            background: var(--rt-border);
+            flex-shrink: 0;
+        }
+        .rt-generate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--rt-accent);
+            color: #ffffff;
+            border: 2px solid var(--rt-accent);
+            border-radius: var(--rt-radius);
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--rt-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+        }
+        .rt-generate-btn:hover {
+            background: var(--rt-accent-light);
+            border-color: var(--rt-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+        }
+        .rt-generate-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .rt-generate-btn .rt-gen-icon {
+            font-size: 1.1rem;
+            transition: transform var(--rt-transition);
+        }
+        .rt-generate-btn:hover .rt-gen-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Output area */
+        .rt-output-wrap {
+            padding: 16px 20px;
+            position: relative;
+        }
+        .rt-output-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--rt-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rt-output-badge {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--rt-accent-pale);
+            color: var(--rt-accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .rt-output-textarea {
+            width: 100%;
+            min-height: 200px;
+            max-height: 400px;
+            padding: 18px 20px;
+            border-radius: var(--rt-radius);
+            border: 1px solid var(--rt-accent);
+            background: var(--rt-surface);
+            color: var(--rt-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            resize: vertical;
+            outline: none;
+            transition: all var(--rt-transition);
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px var(--rt-accent-pale);
+        }
+        .rt-output-textarea:focus {
+            border-color: var(--rt-accent);
+            box-shadow: 0 0 0 4px var(--rt-accent-pale);
+        }
+
+        /* Stats bar */
+        .rt-stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            font-size: 0.73rem;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--rt-muted);
+            flex-wrap: wrap;
+        }
+        .rt-stats-sep { color: var(--rt-border); flex-shrink: 0; }
+        .rt-stat-val { font-weight: 600; color: var(--rt-ink); }
+
+        /* Toast */
+        .rt-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--rt-ink);
+            color: var(--rt-surface);
+            padding: 12px 20px;
+            border-radius: var(--rt-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rt-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .rt-toast {
+            background: var(--rt-warm);
+            color: var(--rt-ink);
+            border: 1px solid var(--rt-border);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .rt-how {
+            background: var(--rt-warm);
+            transition: background var(--rt-transition);
+        }
+        .rt-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .rt-how-card {
+            background: var(--rt-surface);
+            border: 1px solid var(--rt-border);
+            border-radius: var(--rt-radius-lg);
+            padding: 26px;
+            transition: all var(--rt-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rt-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rt-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--rt-transition);
+        }
+        .rt-how-card:hover { box-shadow: var(--rt-shadow); transform: translateY(-3px); }
+        .rt-how-card:hover::before { transform: scaleX(1); }
+        .rt-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--rt-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .rt-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rt-ink);
+            margin-bottom: 8px;
+        }
+        .rt-how-card p {
+            font-size: 0.85rem;
+            color: var(--rt-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .rt-desc {
+            background: var(--rt-surface);
+            transition: background var(--rt-transition);
+        }
+        .rt-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .rt-desc-text p {
+            font-size: 0.95rem;
+            color: var(--rt-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .rt-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .rt-benefit-tag {
+            padding: 6px 14px;
+            background: var(--rt-warm);
+            border: 1px solid var(--rt-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--rt-ink);
+            transition: all var(--rt-transition);
+        }
+        .rt-benefit-tag:hover {
+            background: var(--rt-accent-pale);
+            border-color: var(--rt-accent);
+            color: var(--rt-accent);
+        }
+        .rt-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rt-visual-card {
+            background: var(--rt-ink);
+            color: var(--rt-surface);
+            border-radius: var(--rt-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--rt-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+        }
+        body.dark .rt-visual-card {
+            background: var(--rt-warm);
+            border: 1px solid var(--rt-border);
+            color: var(--rt-ink);
+        }
+        .rt-visual-card .rt-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--rt-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .rt-visual-card .rt-v-label {
+            opacity: 0.5;
+            margin-bottom: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .rt-visual-card .rt-v-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--rt-accent-light);
+            margin-bottom: 16px;
+        }
+        body.dark .rt-visual-card .rt-v-text { color: var(--rt-accent); }
+
+        /* ===== FAQ SECTION ===== */
+        .rt-faq {
+            background: var(--rt-warm);
+            transition: background var(--rt-transition);
+        }
+        .rt-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .rt-faq-item {
+            border: 1px solid var(--rt-border);
+            border-radius: var(--rt-radius);
+            overflow: hidden;
+            background: var(--rt-surface);
+            transition: border-color var(--rt-transition);
+        }
+        .rt-faq-item:has(.rt-faq-a[style*="block"]) { border-color: var(--rt-accent); }
+        .rt-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--rt-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--rt-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rt-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--rt-muted);
+            flex-shrink: 0;
+            transition: transform var(--rt-transition);
+        }
+        .rt-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--rt-accent); }
+        .rt-faq-q:hover { background: var(--rt-warm); }
+        .rt-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .rt-faq-a p {
+            font-size: 0.88rem;
+            color: var(--rt-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .rt-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .rt-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .rt-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .rt-hero { min-height: auto; padding: 48px 0 36px; }
+            .rt-how-grid { grid-template-columns: 1fr; }
+            .rt-output-textarea { min-height: 150px; max-height: 280px; font-size: 0.88rem; }
+            .rt-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .rt-stats-bar { gap: 8px; font-size: 0.68rem; }
+            .rt-controls-bar { gap: 10px; padding: 10px 14px; }
+            .rt-hero-demo { gap: 6px; }
+            .rt-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .rt-select { min-width: 110px; font-size: 0.75rem; }
+            .rt-input-number { width: 55px; font-size: 0.75rem; }
+        }
+        @media (max-width: 480px) {
+            .rt-hero-title { font-size: 2rem; }
+            .rt-generate-btn { padding: 10px 18px; font-size: 0.8rem; }
+            .rt-output-wrap { padding-left: 12px; padding-right: 12px; }
+            .rt-output-textarea { padding: 14px 16px; min-height: 120px; max-height: 220px; }
+            .rt-app-header { padding: 10px 14px; }
+            .rt-controls-bar { padding: 8px 12px; gap: 6px; flex-direction: column; align-items: stretch; }
+            .rt-control-group { justify-content: space-between; }
+            .rt-stats-bar { padding: 8px 12px; font-size: 0.65rem; gap: 6px; }
+            .rt-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="rt-hero" id="home" aria-label="Random Text Generator Hero">
+            <div class="rt-hero-bg"></div>
+            <div class="rt-hero-glow"></div>
+            <div class="container rt-hero-inner">
+                <div class="rt-hero-badge">✦ Free Placeholder Text Tool</div>
+                <h1 class="rt-hero-title">
+                    Generate random text.<br />
+                    <span class="rt-hero-accent">Instantly, effortlessly.</span>
+                </h1>
+                <p class="rt-hero-sub">Create Lorem Ipsum placeholder text or random English words in seconds. Control paragraphs, word counts, and text type — all in your browser with zero signup required.</p>
+                <div class="rt-hero-cta">
+                    <a href="#generator-app" class="btn btn-primary" style="background:var(--rt-accent);border-color:var(--rt-accent);">Open Generator <span>→</span></a>
+                </div>
+                <div class="rt-hero-demo">
+                    <span class="rt-demo-chip rt-lorem">Lorem ipsum dolor sit amet</span>
+                    <span class="rt-demo-chip">consectetur adipiscing elit</span>
+                    <span class="rt-demo-chip rt-lorem">sed do eiusmod tempor</span>
+                    <span class="rt-demo-chip">incididunt ut labore</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RANDOM TEXT GENERATOR APP SECTION ===== -->
+        <section class="rt-app-section" id="generator-app" aria-label="Random Text Generator Application">
+            <div class="container">
+                <div class="rt-app-shell">
+                    <!-- App Header -->
+                    <div class="rt-app-header">
+                        <span class="rt-app-title"><span class="rt-dot"></span> Random Text Generator</span>
+                        <div class="rt-app-actions-header">
+                            <button class="btn-tool" id="rtCopyBtn" title="Copy generated text" aria-label="Copy generated text">⎘ Copy</button>
+                            <button class="btn-tool" id="rtClearBtn" title="Clear output" aria-label="Clear output">✕ Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Controls Bar -->
+                    <div class="rt-controls-bar">
+                        <div class="rt-control-group">
+                            <label class="rt-control-label" for="rtTextType">Text Type</label>
+                            <select class="rt-select" id="rtTextType" aria-label="Select text type">
+                                <option value="lorem">Lorem Ipsum</option>
+                                <option value="random">Random Words</option>
+                            </select>
+                        </div>
+                        <span class="rt-control-sep"></span>
+                        <div class="rt-control-group">
+                            <label class="rt-control-label" for="rtParagraphs">Paragraphs</label>
+                            <input type="number" class="rt-input-number" id="rtParagraphs" value="3" min="1" max="20" aria-label="Number of paragraphs" />
+                        </div>
+                        <span class="rt-control-sep"></span>
+                        <div class="rt-control-group">
+                            <label class="rt-control-label" for="rtWordsPerPara">Words/Paragraph</label>
+                            <input type="number" class="rt-input-number" id="rtWordsPerPara" value="40" min="5" max="200" aria-label="Words per paragraph" />
+                        </div>
+                        <button class="rt-generate-btn" id="rtGenerateBtn" aria-label="Generate random text">
+                            <span class="rt-gen-icon">⚡</span> Generate Text
+                        </button>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="rt-output-wrap">
+                        <label class="rt-output-label" for="rtOutputArea">
+                            ✅ Generated Text
+                            <span class="rt-output-badge" id="rtOutputBadge" style="display:none;">✨ Generated</span>
+                        </label>
+                        <textarea class="rt-output-textarea" id="rtOutputArea" placeholder="Your generated text will appear here… configure the settings above and click 'Generate Text' to create placeholder content." aria-label="Generated text output" rows="6" readonly></textarea>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="rt-stats-bar">
+                        <span>Words: <span class="rt-stat-val" id="rtWordCount">0</span></span>
+                        <span class="rt-stats-sep">|</span>
+                        <span>Chars: <span class="rt-stat-val" id="rtCharCount">0</span></span>
+                        <span class="rt-stats-sep">|</span>
+                        <span>Paragraphs: <span class="rt-stat-val" id="rtParaCount">0</span></span>
+                        <span class="rt-stats-sep">|</span>
+                        <span id="rtTypeIndicator" style="color:var(--rt-accent);font-weight:600;">Type: Lorem Ipsum</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section rt-how" id="how-to-use" aria-label="How to use the random text generator">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Generate text in <em>3 easy steps.</em></h2>
+                <div class="rt-how-grid">
+                    <div class="rt-how-card">
+                        <div class="rt-how-num">01</div>
+                        <h3>Choose Your Text Type</h3>
+                        <p>Select between classic <strong>Lorem Ipsum</strong> (the standard placeholder text used by designers) or <strong>Random English Words</strong> for more varied and unpredictable content.</p>
+                    </div>
+                    <div class="rt-how-card">
+                        <div class="rt-how-num">02</div>
+                        <h3>Set Your Parameters</h3>
+                        <p>Adjust the number of paragraphs (1–20) and words per paragraph (5–200) to get exactly the volume of text you need for your design mockup, layout test, or writing exercise.</p>
+                    </div>
+                    <div class="rt-how-card">
+                        <div class="rt-how-num">03</div>
+                        <h3>Generate & Copy</h3>
+                        <p>Click the Generate button to create fresh text instantly. Use the Copy button to grab the entire output, then paste it into your designs, documents, websites, or code projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section rt-desc" id="about-generator" aria-label="About the random text generator">
+            <div class="container rt-desc-inner">
+                <div class="rt-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Ultimate Free <em>Random Text Generator</em> Online</h2>
+                    <p>A random text generator is a tool that creates blocks of text content — either structured Lorem Ipsum placeholder text or randomized English word collections — for use in design mockups, website prototypes, document templates, and creative writing prompts.</p>
+                    <p>Classic <strong>Lorem Ipsum</strong> is a scrambled passage from Cicero's "De Finibus Bonorum et Malorum" written in 45 BC. It mimics the visual rhythm and letter distribution of readable text without any meaningful content to distract viewers. Designers, developers, and typesetters have used it as placeholder text for over 500 years.</p>
+                    <p>Our random English words mode pulls from a curated vocabulary of common English words and assembles them into readable paragraph structures. This creates varied, unpredictable text that feels more natural than Lorem Ipsum for certain use cases like testing text-processing pipelines or generating writing prompts.</p>
+                    <p>Built on the same privacy-first philosophy as WebNotePad, this generator processes everything locally in your browser. No server requests, no tracking, no ads — just instant text generation whenever you need it.</p>
+                    <div class="rt-desc-benefits">
+                        <span class="rt-benefit-tag">🔒 100% Private</span>
+                        <span class="rt-benefit-tag">⚡ Instant Generation</span>
+                        <span class="rt-benefit-tag">📋 One-Click Copy</span>
+                        <span class="rt-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="rt-benefit-tag">🎛️ Adjustable Counts</span>
+                        <span class="rt-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="rt-desc-visual">
+                    <div class="rt-visual-card">
+                        <div class="rt-v-line"></div>
+                        <div class="rt-v-label">Lorem Ipsum</div>
+                        <div class="rt-v-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="rt-v-label">Random Words</div>
+                        <div class="rt-v-text">The gentle breeze carried the fragrance of distant flowers across the quiet meadow under the afternoon sun.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section rt-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="rt-faq-list" id="rtFaqList">
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">What is a random text generator?</button>
+                        <div class="rt-faq-a"><p>A random text generator is a free online tool that creates blocks of text content — either classic Lorem Ipsum placeholder text or random English words — for use in design mockups, website prototypes, document templates, content testing, and creative writing exercises.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">What is Lorem Ipsum and why is it used?</button>
+                        <div class="rt-faq-a"><p>Lorem Ipsum is a scrambled passage from "De Finibus Bonorum et Malorum" (On the Ends of Good and Evil), a philosophical work by Cicero written in 45 BC. It begins "Lorem ipsum dolor sit amet…" and has been used as placeholder text by the printing and typesetting industry since the 1500s. It approximates the visual feel of readable text — including letter frequency and word length distribution — without any meaningful content to distract from the design.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">What's the difference between Lorem Ipsum and Random Words mode?</button>
+                        <div class="rt-faq-a"><p><strong>Lorem Ipsum</strong> generates the classic Latin-based placeholder text in a continuous passage format, perfect for traditional design mockups. <strong>Random Words</strong> pulls from a curated vocabulary of common English words and assembles them into varied, natural-sounding paragraph structures — ideal when you want placeholder text that feels more like real content.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">How many paragraphs can I generate at once?</button>
+                        <div class="rt-faq-a"><p>You can generate between 1 and 20 paragraphs in a single click. Each paragraph contains the number of words you specify (between 5 and 200 words). This gives you flexibility for everything from a single short block to multiple pages of placeholder text.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">Can I customize the word count per paragraph?</button>
+                        <div class="rt-faq-a"><p>Yes! Use the "Words/Paragraph" input to set exactly how many words you want in each paragraph (between 5 and 200). The generator will create the exact number of paragraphs you specify, each with the chosen word count.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">Is my generated text private?</button>
+                        <div class="rt-faq-a"><p>Absolutely. All text generation happens entirely within your browser using JavaScript. No data is sent to any server, and nothing is stored or tracked remotely. The tool works completely offline once the page has loaded.</p></div>
+                    </div>
+                    <div class="rt-faq-item">
+                        <button class="rt-faq-q" aria-expanded="false">Does the tool work on mobile devices?</button>
+                        <div class="rt-faq-a"><p>Yes! The random text generator is fully responsive and works seamlessly on smartphones and tablets. The interface adapts to smaller screens so you can generate placeholder text on the go from any iOS or Android device.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="rt-toast" id="rtToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script>
+        (function() {
+            // ===== DOM ELEMENTS =====
+            const outputArea = document.getElementById('rtOutputArea');
+            const generateBtn = document.getElementById('rtGenerateBtn');
+            const textTypeSelect = document.getElementById('rtTextType');
+            const paragraphsInput = document.getElementById('rtParagraphs');
+            const wordsPerParaInput = document.getElementById('rtWordsPerPara');
+            const copyBtn = document.getElementById('rtCopyBtn');
+            const clearBtn = document.getElementById('rtClearBtn');
+            const toast = document.getElementById('rtToast');
+            const outputBadge = document.getElementById('rtOutputBadge');
+            const wordCountEl = document.getElementById('rtWordCount');
+            const charCountEl = document.getElementById('rtCharCount');
+            const paraCountEl = document.getElementById('rtParaCount');
+            const typeIndicator = document.getElementById('rtTypeIndicator');
+            const faqItems = document.querySelectorAll('.rt-faq-q');
+
+            let toastTimer = null;
+
+            // ===== LOREM IPSUM WORD POOL =====
+            const loremWords = [
+                'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
+                'sed', 'do', 'eiusmod', 'tempor', 'incididunt', 'ut', 'labore', 'et', 'dolore',
+                'magna', 'aliqua', 'ut', 'enim', 'ad', 'minim', 'veniam', 'quis', 'nostrud',
+                'exercitation', 'ullamco', 'laboris', 'nisi', 'aliquip', 'ex', 'ea', 'commodo',
+                'consequat', 'duis', 'aute', 'irure', 'reprehenderit', 'in', 'voluptate',
+                'velit', 'esse', 'cillum', 'fugiat', 'nulla', 'pariatur', 'excepteur', 'sint',
+                'occaecat', 'cupidatat', 'non', 'proident', 'sunt', 'culpa', 'qui', 'officia',
+                'deserunt', 'mollit', 'anim', 'id', 'est', 'laborum', 'diam', 'vulputate',
+                'facilisis', 'laoreet', 'aliquet', 'egestas', 'ultrices', 'pharetra', 'purus',
+                'ornare', 'tincidunt', 'fermentum', 'suscipit', 'vivamus', 'integer', 'porttitor',
+                'cursus', 'auctor', 'blandit', 'imperdiet', 'condimentum', 'maximus', 'sapien',
+                'vehicula', 'lacinia', 'pellentesque', 'risus', 'lectus', 'maecenas', 'gravida',
+                'tortor', 'quam', 'felis', 'nibh', 'habitasse', 'platea', 'dictumst'
+            ];
+
+            // ===== RANDOM ENGLISH WORD POOL (common, varied words) =====
+            const englishWords = [
+                'the', 'be', 'to', 'of', 'and', 'a', 'in', 'that', 'have', 'it', 'for', 'not',
+                'on', 'with', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 'from',
+                'they', 'we', 'say', 'her', 'she', 'or', 'an', 'will', 'my', 'one', 'all', 'would',
+                'there', 'their', 'what', 'so', 'up', 'out', 'if', 'about', 'who', 'get', 'which',
+                'go', 'me', 'when', 'make', 'can', 'like', 'time', 'no', 'just', 'him', 'know',
+                'take', 'people', 'into', 'year', 'your', 'good', 'some', 'could', 'them', 'see',
+                'other', 'than', 'then', 'now', 'look', 'only', 'come', 'its', 'over', 'think',
+                'also', 'back', 'after', 'use', 'two', 'how', 'our', 'work', 'first', 'well',
+                'way', 'even', 'new', 'want', 'because', 'any', 'these', 'give', 'day', 'most',
+                'us', 'great', 'between', 'need', 'large', 'beautiful', 'quiet', 'gentle',
+                'fragrant', 'distant', 'meadow', 'afternoon', 'breeze', 'carried', 'garden',
+                'peaceful', 'wonder', 'morning', 'evening', 'forest', 'mountain', 'river',
+                'ocean', 'sky', 'cloud', 'star', 'moon', 'flower', 'tree', 'bird', 'song',
+                'memory', 'dream', 'journey', 'story', 'light', 'shadow', 'color', 'music',
+                'silence', 'voice', 'heart', 'mind', 'world', 'begin', 'continue', 'discover',
+                'explore', 'create', 'imagine', 'reflect', 'wander', 'gather'
+            ];
+
+            // ===== RANDOM NUMBER GENERATOR =====
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            // ===== SHUFFLE ARRAY =====
+            function shuffleArray(arr) {
+                const shuffled = [...arr];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            // ===== GENERATE LOREM IPSUM PARAGRAPH =====
+            function generateLoremParagraph(wordCount) {
+                const words = [];
+                let wordPool = shuffleArray(loremWords);
+
+                // Ensure first word is 'Lorem' for authentic feel
+                words.push('Lorem');
+                let remaining = wordCount - 1;
+
+                // Build the rest
+                for (let i = 0; i < remaining; i++) {
+                    const poolIdx = i % wordPool.length;
+                    let word = wordPool[poolIdx];
+                    // Avoid consecutive identical words
+                    if (words.length > 0 && word === words[words.length - 1]) {
+                        word = wordPool[(poolIdx + 1) % wordPool.length];
+                    }
+                    words.push(word);
+                }
+
+                // Join into sentences with proper punctuation
+                return formatIntoParagraph(words);
+            }
+
+            // ===== GENERATE RANDOM ENGLISH PARAGRAPH =====
+            function generateRandomParagraph(wordCount) {
+                const words = [];
+                const shuffledPool = shuffleArray(englishWords);
+
+                for (let i = 0; i < wordCount; i++) {
+                    const poolIdx = i % shuffledPool.length;
+                    let word = shuffledPool[poolIdx];
+                    if (words.length > 0 && word === words[words.length - 1]) {
+                        word = shuffledPool[(poolIdx + 1) % shuffledPool.length];
+                    }
+                    words.push(word);
+                }
+
+                return formatIntoParagraph(words);
+            }
+
+            // ===== FORMAT WORDS INTO SENTENCED PARAGRAPH =====
+            function formatIntoParagraph(words) {
+                const sentences = [];
+                let wordIndex = 0;
+
+                while (wordIndex < words.length) {
+                    const sentenceLength = getRandomInt(4, 14); // varied sentence lengths
+                    const sentenceWords = words.slice(wordIndex, wordIndex + sentenceLength);
+                    if (sentenceWords.length === 0) break;
+
+                    // Capitalize first word
+                    let sentence = sentenceWords.join(' ');
+
+                    // Add period for all sentences
+                    sentence += '.';
+
+                    sentences.push(sentence);
+                    wordIndex += sentenceLength;
+                }
+
+                // Join sentences with a single space
+                const paragraph = sentences.join(' ');
+
+                return paragraph.charAt(0).toUpperCase() + paragraph.slice(1);
+            }
+
+            // ===== MAIN GENERATION FUNCTION =====
+            function generateText() {
+                const textType = textTypeSelect.value;
+                const paragraphCount = Math.max(1, Math.min(20, parseInt(paragraphsInput.value) || 3));
+                const wordsPerPara = Math.max(5, Math.min(200, parseInt(wordsPerParaInput.value) || 40));
+
+                // Update inputs to reflect clamped values
+                paragraphsInput.value = paragraphCount;
+                wordsPerParaInput.value = wordsPerPara;
+
+                const paragraphs = [];
+                for (let i = 0; i < paragraphCount; i++) {
+                    if (textType === 'lorem') {
+                        paragraphs.push(generateLoremParagraph(wordsPerPara));
+                    } else {
+                        paragraphs.push(generateRandomParagraph(wordsPerPara));
+                    }
+                }
+
+                const fullText = paragraphs.join('\n\n');
+                outputArea.value = fullText;
+                outputBadge.style.display = 'inline-flex';
+                updateTypeIndicator();
+                updateStats();
+
+                // Pulse animation
+                outputArea.style.transition = 'none';
+                outputArea.style.boxShadow = '0 0 0 6px var(--rt-accent-pale)';
+                setTimeout(() => {
+                    outputArea.style.transition = 'all 0.35s ease';
+                    outputArea.style.boxShadow = '0 0 0 2px var(--rt-accent-pale)';
+                }, 50);
+            }
+
+            // ===== STATS =====
+            function countWords(text) {
+                if (!text.trim()) return 0;
+                return text.trim().split(/\s+/).length;
+            }
+
+            function countChars(text) {
+                return text.length;
+            }
+
+            function countParagraphs(text) {
+                if (!text.trim()) return 0;
+                return text.split(/\n\n+/).filter(p => p.trim().length > 0).length;
+            }
+
+            function updateStats() {
+                const text = outputArea.value;
+                wordCountEl.textContent = countWords(text);
+                charCountEl.textContent = countChars(text);
+                paraCountEl.textContent = countParagraphs(text);
+            }
+
+            function updateTypeIndicator() {
+                const textType = textTypeSelect.value;
+                typeIndicator.textContent = textType === 'lorem' ? 'Type: Lorem Ipsum' : 'Type: Random Words';
+            }
+
+            // ===== TOAST =====
+            function showToast(message) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2200);
+            }
+
+            // ===== EVENT LISTENERS =====
+
+            // Generate button
+            generateBtn.addEventListener('click', generateText);
+
+            // Text type change
+            textTypeSelect.addEventListener('change', () => {
+                updateTypeIndicator();
+                if (outputArea.value.trim()) {
+                    generateText(); // Re-generate with new type
+                }
+            });
+
+            // Input validation
+            paragraphsInput.addEventListener('change', () => {
+                let val = parseInt(paragraphsInput.value);
+                if (isNaN(val) || val < 1) paragraphsInput.value = 1;
+                if (val > 20) paragraphsInput.value = 20;
+            });
+
+            wordsPerParaInput.addEventListener('change', () => {
+                let val = parseInt(wordsPerParaInput.value);
+                if (isNaN(val) || val < 5) wordsPerParaInput.value = 5;
+                if (val > 200) wordsPerParaInput.value = 200;
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to copy. Generate some text first.');
+                    return;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(outputText).then(() => {
+                        showToast('✅ Copied to clipboard!');
+                    }).catch(() => {
+                        fallbackCopy(outputText);
+                    });
+                } else {
+                    fallbackCopy(outputText);
+                }
+            });
+
+            function fallbackCopy(text) {
+                outputArea.removeAttribute('readonly');
+                outputArea.select();
+                outputArea.setSelectionRange(0, 99999);
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Copied to clipboard!');
+                } catch (err) {
+                    showToast('⚠️ Copy failed. Please select and copy manually.');
+                }
+                outputArea.setAttribute('readonly', 'true');
+                window.getSelection().removeAllRanges();
+            }
+
+            // Clear button
+            clearBtn.addEventListener('click', () => {
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                updateStats();
+                showToast('✕ Output cleared.');
+            });
+
+            // FAQ accordion
+            faqItems.forEach(qBtn => {
+                qBtn.addEventListener('click', () => {
+                    const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                    qBtn.setAttribute('aria-expanded', !expanded);
+                    const answer = qBtn.nextElementSibling;
+                    if (answer) {
+                        answer.style.display = expanded ? 'none' : 'block';
+                    }
+                });
+            });
+
+            // Keyboard shortcut: Ctrl+Enter to generate
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    generateText();
+                }
+                // Ctrl+Shift+C to copy
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    copyBtn.click();
+                }
+            });
+
+            // ===== INITIALIZATION =====
+            updateTypeIndicator();
+            updateStats();
+
+            // Auto-generate on page load for immediate results
+            generateText();
+
+            console.log('✅ Random Text Generator ready — Lorem Ipsum & Random Words.');
+            console.log('   Controls: text type, paragraph count, words per paragraph.');
+            console.log('   Shortcuts: Ctrl+Enter = generate | Ctrl+Shift+C = copy');
+        })();
+    </script>
+</body>
+</html>

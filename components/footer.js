@@ -51,7 +51,8 @@
             <ul>
               <li><a href="/case-converter">Case Converter</a></li>
               <li><a href="/random-text">Random Text</a></li>
-              <li><a href="/word-shuffler">Shuffle Words</a></li>              
+              <li><a href="/word-shuffler">Shuffle Words</a></li>
+              <li><a href="/wordpad">Wordpad</a></li>  
             </ul>
           </div>
         </div>

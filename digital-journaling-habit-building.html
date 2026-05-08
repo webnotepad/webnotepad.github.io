@@ -43,6 +43,7 @@
   }
   </script>
   <link rel="stylesheet" href="blog.css"/>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
       --accent:   #9333ea;
@@ -179,26 +180,8 @@
 <article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
 
   <!-- Header -->
-  <header class="article-header">
-    <div class="post-category">Journaling &amp; Wellbeing</div>
-    <h1 class="article-title" itemprop="headline">
-      Digital Journaling 101: Turn Your <em>Online Diary</em> into a Habit-Building Tool
-    </h1>
-    <p class="article-subtitle">Journaling is one of the most researched self-improvement practices in psychology. Most people try it once and quit. Here's the science of making it stick — with your free online diary as the anchor.</p>
-    <div class="article-meta">
-      <div class="meta-author">
-        <div class="author-avatar" style="background:#3b0764;">WN</div>
-        <div>
-          <div class="author-name">WebNotePad Team</div>
-          <div class="author-role">Wellbeing &amp; Personal Development</div>
-        </div>
-      </div>
-      <span class="meta-sep">·</span>
-      <span class="meta-date" itemprop="datePublished" content="2026-03-10">March 10, 2026</span>
-      <span class="meta-sep">·</span>
-      <span class="meta-read">11 min read</span>
-    </div>
-  </header>
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
 
   <!-- Featured Image -->
   <div class="featured-img-wrap" role="img" aria-label="Open digital diary on screen showing journal entry with mood tracking and streak calendar">
@@ -655,11 +638,15 @@
 </article>
 </main>
 
-<footer class="blog-footer">
-  <div class="blog-footer-brand">WebNotePad</div>
-  <p>Free online notepad, diary, mind map, list maker &amp; word processor. No signup. No ads.</p>
-  <p style="margin-top:8px;"><a href="https://webnotepad.github.io/">webnotepad.github.io</a></p>
-</footer>
+<!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
 
 <script>
 window.addEventListener('scroll', () => {

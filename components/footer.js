@@ -46,6 +46,14 @@
               <li><a href="/#notepad">Fullscreen</a></li>
             </ul>
           </div>
+          <div class="footer-col">
+            <h4>More</h4>
+            <ul>
+              <li><a href="/case-converter">Case Converter</a></li>
+              <li><a href="/random-text">Random Text</a></li>
+              <li><a href="/word-shuffler">Shuffle Words</a></li>              
+            </ul>
+          </div>
         </div>
         <div class="footer-bottom">
           <span class="footer-copy">© ${year} WebNotePad · webnotepad.github.io · Free Online Notepad</span>

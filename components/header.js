@@ -25,6 +25,7 @@
               <a href="/wordpad" class="dropdown-item">Wordpad</a>
               <a href="/pomodoro-timer" class="dropdown-item">Pomodoro Timer</a>
               <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
+              <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
             </div>
           </div>    
           <a href="/blog" class="nav-link">Blog</a>
@@ -53,13 +54,14 @@
           <a href="/wordpad" class="nav-link" style="padding-left: 32px;">• Wordpad</a>
           <a href="/pomodoro-timer" class="nav-link" style="padding-left: 32px;">• Pomodoro Timer</a>
           <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
+          <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>
         </div>
       </div>      
       <a href="diary" class="nav-link">🔄 Diary</a>
       <a href="mindmap" class="nav-link">👥 MindMap</a>
       <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
-      <a href="/blog" class="nav-link">📝 Blog</a>
+      <a href="/blog" class="nav-link">📝 Blog</a>      
       <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>
     </nav>
   `;

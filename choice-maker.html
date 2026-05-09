@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Free Decision Maker Online | Spin the Wheel & Random Choice Picker</title>
+  <meta name="description" content="Can't decide? Use our free online Decision Maker. Spin the wheel or randomize a list to make quick, unbiased choices. Easy decision maker tool, no signup required." />
+  <meta name="keywords" content="easy decision maker, decision maker tool, choice maker, decision maker online, decision generator, decision decider, wheel spinner, random choice picker, yes or no wheel, randomizer" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/choice-maker" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/choice-maker" />
+  <meta property="og:title" content="Free Decision Maker Online | Spin the Wheel & Random Choice Picker" />
+  <meta property="og:description" content="Stop overthinking. Spin the wheel or pick a random choice from your list instantly. Free, private, and works offline." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image-decision.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Decision Maker Online | Spin the Wheel & Random Choice Picker" />
+  <meta name="twitter:description" content="An easy decision maker tool. Add your options, spin the wheel, and get an instant answer. No signup, no ads interrupting your flow." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad Decision Maker",
+    "url": "https://webnotepad.github.io/choice-maker",
+    "description": "A free online decision maker tool featuring a spinning wheel and list randomizer. Make quick, unbiased choices from your custom options.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Spinning wheel animation",
+      "List randomizer",
+      "Custom options input",
+      "Yes/No mode",
+      "Dark mode",
+      "No signup required",
+      "Works offline"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the decision maker wheel work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add your options to the list, then click Spin. The wheel will rotate and land on a random choice. It uses a mathematically fair randomization algorithm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this decision maker tool free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is 100% free. No hidden fees, no account required, and no limits on how many times you can spin or how many options you can add."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use it for Yes/No decisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. You can quickly generate a Yes or No answer, or add custom binary options. The tool handles any number of choices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my options saved?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, your option list is automatically saved in your browser's local storage. It will be there when you return, unless you clear your browser data."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Decision Maker specific styles */
+    .decision-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--paper);
+      min-height: 520px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .wheel-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      background: var(--paper-warm);
+      border-right: 1px solid var(--paper-edge);
+      position: relative;
+      gap: 20px;
+    }
+    .wheel-container {
+      position: relative;
+      width: 260px;
+      height: 260px;
+    }
+    .wheel-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(0deg);
+      transition: transform 3.5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    }
+    .wheel-pointer {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-top: 28px solid var(--accent);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      z-index: 2;
+    }
+    .wheel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: var(--paper);
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink);
+      z-index: 2;
+    }
+    .result-display {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+      min-height: 40px;
+      transition: color var(--transition);
+    }
+    .result-display .choice {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .list-panel {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 12px;
+    }
+    .list-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .list-panel-header h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .option-input-area {
+      display: flex;
+      gap: 8px;
+    }
+    .option-input-area input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      transition: all var(--transition);
+    }
+    .option-input-area input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-pale);
+    }
+    .options-list {
+      flex: 1;
+      overflow-y: auto;
+      max-height: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--paper-warm);
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      color: var(--ink);
+      transition: all var(--transition);
+    }
+    .option-item:hover {
+      border-color: var(--paper-edge);
+    }
+    .option-color {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .option-text {
+      flex: 1;
+      word-break: break-word;
+    }
+    .option-delete {
+      color: var(--ink-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: all var(--transition);
+      background: none;
+      border: none;
+      padding: 2px 4px;
+    }
+    .option-item:hover .option-delete {
+      opacity: 1;
+    }
+    .option-delete:hover {
+      color: #c0392b;
+    }
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mode-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--paper-warm);
+      padding: 4px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+    }
+    .mode-tab {
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      background: transparent;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .mode-tab.active {
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 768px) {
+      .decision-shell {
+        grid-template-columns: 1fr;
+      }
+      .wheel-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--paper-edge);
+        padding: 24px 16px;
+      }
+      .wheel-container {
+        width: 200px;
+        height: 200px;
+      }
+      .options-list {
+        max-height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Decision Maker Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">🎯 Stop Overthinking</div>
+        <h1 class="hero-title">
+          Make decisions<br />
+          <span class="hero-accent">in a spin.</span>
+        </h1>
+        <p class="hero-sub">An easy decision maker tool for when you're stuck. Spin the wheel, randomize a list, or flip a virtual coin — all in your browser, completely free.</p>
+        <div class="hero-cta-group">
+          <a href="#decision-app" class="btn btn-primary">Try Decision Maker <span>→</span></a>
+          <a href="#how-decision" class="btn btn-ghost">How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>0</strong><span>Overthinking</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>∞</strong><span>Options</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>100%</strong><span>Random</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to spin ↓</div>
+    </section>
+
+    <!-- Decision Maker Application Section -->
+    <section class="section-app" id="decision-app" aria-label="Decision Maker Application">
+      <div class="container">
+        <div class="decision-shell">
+          <!-- Wheel Panel -->
+          <div class="wheel-panel">
+            <div class="wheel-container" id="wheelContainer">
+              <div class="wheel-pointer"></div>
+              <svg class="wheel-svg" id="wheelSvg" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="98" fill="var(--paper-edge)" stroke="var(--paper-edge)" stroke-width="2"/>
+              </svg>
+              <div class="wheel-center">SPIN</div>
+            </div>
+            <div class="result-display" id="resultDisplay">
+              <span id="resultText">Add options and spin!</span>
+            </div>
+            <button class="btn btn-primary" id="spinBtn">🎡 Spin the Wheel</button>
+            <div class="mode-tabs">
+              <button class="mode-tab active" data-mode="custom">Custom</button>
+              <button class="mode-tab" data-mode="yesno">Yes / No</button>
+            </div>
+          </div>
+
+          <!-- List Panel -->
+          <div class="list-panel">
+            <div class="list-panel-header">
+              <h3>📝 Your Options</h3>
+              <button class="btn-tool" id="clearAllBtn" title="Clear all options">Clear All</button>
+            </div>
+            <div class="option-input-area">
+              <input type="text" id="optionInput" placeholder="Add an option (e.g., Pizza)..." aria-label="New option" />
+              <button class="btn-tool" id="addOptionBtn">Add</button>
+            </div>
+            <div class="options-list" id="optionsList">
+              <div style="text-align:center; color:var(--ink-muted); padding:20px; font-style:italic;">No options yet. Add some above!</div>
+            </div>
+            <div class="quick-actions">
+              <button class="btn-tool" id="quickRandomBtn">🎲 Pick Random</button>
+              <button class="btn-tool" id="darkModeDecisionBtn" title="Toggle dark mode">🌙 Dark</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description / How It Works Section -->
+    <section class="section section-how" id="how-decision" aria-label="How decision maker works">
+      <div class="container">
+        <div class="section-label">The Method</div>
+        <h2 class="section-title">Decide <em>without the bias.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>List Your Options</h3>
+              <p>Type in every possible choice — restaurants, movies, names, tasks. The more, the better. No option is too silly.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Spin or Randomize</h3>
+              <p>Click Spin to watch the wheel land on a random choice, or use Pick Random for an instant text result.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Accept & Move On</h3>
+              <p>The decision is made. No second-guessing. The tool removes emotional bias and lets chance guide you forward.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-content" style="margin-top: 48px;">
+          <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.75;">Decision fatigue is real. Research shows that making too many choices depletes your mental energy. This decision maker acts as your unbiased assistant — it doesn't get tired, doesn't have preferences, and doesn't judge your options. Whether you need an easy decision maker for dinner choices or a random name picker for a raffle, this tool has you covered.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-features" id="features" aria-label="Decision Maker Features">
+      <div class="container">
+        <div class="section-label">Tool Features</div>
+        <h2 class="section-title">Everything a <em>decision decider</em> needs.</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎡</div>
+            <h3>Animated Spinning Wheel</h3>
+            <p>Watch the colorful wheel spin and land on your random choice. Satisfying animation with sound feedback.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎲</div>
+            <h3>Instant Random Pick</h3>
+            <p>Prefer a quick result? Click "Pick Random" to instantly highlight a choice without waiting for the wheel.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3>Yes / No Mode</h3>
+            <p>Toggle to Yes/No mode for binary decisions. Perfect for "Should I go out?" or "Is now the right time?" moments.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3>Auto-Save Options</h3>
+            <p>Your option list is automatically saved in your browser. Come back anytime — your choices are still there.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Color-Coded Wheel</h3>
+            <p>Each option gets a unique color on the wheel. Easy to distinguish segments as they spin past the pointer.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Works Everywhere</h3>
+            <p>Fully responsive. Use this decision generator on your phone, tablet, or desktop. No download needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Common questions</div>
+        <h2 class="section-title">Decision Maker <em>FAQs.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How does the spinning wheel work?</button>
+            <div class="faq-a"><p>The wheel uses a mathematically fair randomization algorithm. Each option has an equal chance of being selected. The spinning animation is purely visual and the result is determined before the wheel starts spinning.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this decision maker tool free?</button>
+            <div class="faq-a"><p>Yes, it's 100% free. No hidden costs, no account required, no limits on how many options you can add or how many times you can spin.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use it for Yes/No decisions?</button>
+            <div class="faq-a"><p>Absolutely. Click the "Yes / No" tab above the wheel to instantly switch to binary mode. You can also manually add "Yes" and "No" as custom options.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How many options can I add?</button>
+            <div class="faq-a"><p>There's no hard limit, but for the best visual experience on the wheel, we recommend between 2 and 12 options. The list randomizer works with any number.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Are my options saved?</button>
+            <div class="faq-a"><p>Yes! Your options are automatically saved to your browser's local storage. They'll be waiting for you when you return, unless you clear your browser data.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I remove an option after adding it?</button>
+            <div class="faq-a"><p>Yes. Hover over any option in the list and click the ✕ button that appears. You can also use "Clear All" to start fresh.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is the result truly random?</button>
+            <div class="faq-a"><p>Yes. We use JavaScript's Math.random() which provides cryptographically sufficient randomness for decision-making purposes. Each option has an equal probability.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does this work on mobile devices?</button>
+            <div class="faq-a"><p>Yes! The decision maker is fully responsive. On mobile, the wheel and options list stack vertically for easy use on smaller screens.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Stop overthinking. Start deciding.</h2>
+          <p>Add your options, give the wheel a spin, and let chance guide your next move. Free, fast, and surprisingly fun.</p>
+          <a href="#decision-app" class="btn btn-primary btn-lg">Try the Decision Maker Free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    (function() {
+      // --- Decision Maker Logic ---
+      const wheelSvg = document.getElementById('wheelSvg');
+      const spinBtn = document.getElementById('spinBtn');
+      const resultText = document.getElementById('resultText');
+      const optionInput = document.getElementById('optionInput');
+      const addOptionBtn = document.getElementById('addOptionBtn');
+      const optionsList = document.getElementById('optionsList');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+      const quickRandomBtn = document.getElementById('quickRandomBtn');
+      const darkModeBtn = document.getElementById('darkModeDecisionBtn');
+      const modeTabs = document.querySelectorAll('.mode-tab');
+      const toast = document.getElementById('toast');
+
+      const STORAGE_KEY = 'webnotepad_decision_options';
+      const MODE_KEY = 'webnotepad_decision_mode';
+
+      let options = [];
+      let currentMode = 'custom'; // 'custom' or 'yesno'
+      let isSpinning = false;
+      let currentRotation = 0;
+
+      const wheelColors = [
+        '#c4562a', '#2d6a4f', '#b8960c', '#4a6fa5', '#8b5cf6',
+        '#e8714a', '#52b788', '#d4a017', '#5b8cce', '#a78bfa',
+        '#f4a261', '#40916c'
+      ];
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2000);
+      }
+
+      function loadData() {
+        const savedOptions = localStorage.getItem(STORAGE_KEY);
+        const savedMode = localStorage.getItem(MODE_KEY);
+        
+        if (savedMode) {
+          currentMode = savedMode;
+          updateModeTabs();
+        }
+        
+        if (currentMode === 'yesno') {
+          options = ['Yes', 'No'];
+        } else if (savedOptions) {
+          try {
+            options = JSON.parse(savedOptions);
+          } catch (e) {
+            options = [];
+          }
+        }
+        
+        if (options.length === 0 && currentMode === 'custom') {
+          options = ['Pizza', 'Sushi', 'Tacos', 'Burger'];
+        }
+        
+        saveData();
+        renderOptions();
+        drawWheel();
+      }
+
+      function saveData() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
+        localStorage.setItem(MODE_KEY, currentMode);
+      }
+
+      function updateModeTabs() {
+        modeTabs.forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.mode === currentMode);
+        });
+      }
+
+      function setMode(mode) {
+        if (isSpinning) return;
+        currentMode = mode;
+        updateModeTabs();
+        
+        if (mode === 'yesno') {
+          options = ['Yes', 'No'];
+        } else {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            try {
+              options = JSON.parse(saved);
+            } catch (e) {
+              options = ['Pizza', 'Sushi', 'Tacos', 'Burger'];
+            }
+          } else {
+            options = ['Pizza', 'Sushi', 'Tacos', 'Burger'];
+          }
+        }
+        
+        saveData();
+        renderOptions();
+        drawWheel();
+        resultText.textContent = 'Add options and spin!';
+      }
+
+      function drawWheel() {
+        const svg = wheelSvg;
+        const centerX = 100, centerY = 100, radius = 96;
+        
+        if (options.length === 0) {
+          svg.innerHTML = '<circle cx="100" cy="100" r="98" fill="var(--paper-edge)" stroke="var(--paper-edge)" stroke-width="2"/><text x="100" y="105" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--ink-muted)">No options</text>';
+          return;
+        }
+
+        const sliceAngle = 360 / options.length;
+        let paths = '';
+
+        options.forEach((option, index) => {
+          const startAngle = index * sliceAngle;
+          const endAngle = startAngle + sliceAngle;
+          const color = wheelColors[index % wheelColors.length];
+          
+          const startRad = (startAngle - 90) * Math.PI / 180;
+          const endRad = (endAngle - 90) * Math.PI / 180;
+          
+          const x1 = centerX + radius * Math.cos(startRad);
+          const y1 = centerY + radius * Math.sin(startRad);
+          const x2 = centerX + radius * Math.cos(endRad);
+          const y2 = centerY + radius * Math.sin(endRad);
+          
+          const largeArc = sliceAngle > 180 ? 1 : 0;
+          
+          paths += `<path d="M${centerX},${centerY} L${x1},${y1} A${radius},${radius} 0 ${largeArc} 1 ${x2},${y2} Z" fill="${color}" stroke="var(--paper)" stroke-width="1.5"/>`;
+          
+          // Text label
+          const midAngle = (startAngle + sliceAngle / 2 - 90) * Math.PI / 180;
+          const textRadius = radius * 0.65;
+          const tx = centerX + textRadius * Math.cos(midAngle);
+          const ty = centerY + textRadius * Math.sin(midAngle);
+          const displayText = option.length > 12 ? option.substring(0, 11) + '…' : option;
+          paths += `<text x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" font-family="var(--font-body)" font-size="9" font-weight="600" fill="white" transform="rotate(${startAngle + sliceAngle/2}, ${tx}, ${ty})">${escapeHtml(displayText)}</text>`;
+        });
+
+        svg.innerHTML = paths;
+        svg.style.transform = `rotate(${currentRotation}deg)`;
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function spinWheel() {
+        if (isSpinning) return;
+        if (options.length === 0) {
+          showToast('Please add at least one option.');
+          return;
+        }
+        if (options.length === 1) {
+          resultText.innerHTML = `The only choice: <span class="choice">${escapeHtml(options[0])}</span>`;
+          showToast('Only one option available!');
+          return;
+        }
+
+        isSpinning = true;
+        spinBtn.disabled = true;
+        
+        // Pick random winner first
+        const winnerIndex = Math.floor(Math.random() * options.length);
+        const sliceAngle = 360 / options.length;
+        
+        // Calculate target rotation to land on winner
+        // Winner segment center angle from top (pointer at top = -90 degrees)
+        const targetAngle = winnerIndex * sliceAngle + sliceAngle / 2;
+        // We need the wheel to rotate so that targetAngle aligns with pointer (top, which is -90 or 270)
+        // Current rotation + additional spins + final offset
+        const extraSpins = 5 + Math.floor(Math.random() * 5); // 5-9 full rotations
+        const fullSpinsAngle = extraSpins * 360;
+        // Final rotation: we want the pointer (at top, 0 degrees in wheel coordinate) to point to targetAngle
+        // Pointer is at 0 degrees (top). We want targetAngle to be at top.
+        // So wheel must rotate by (360 - targetAngle) relative to current
+        const landingRotation = (360 - targetAngle) % 360;
+        const totalRotation = currentRotation + fullSpinsAngle + landingRotation;
+        
+        currentRotation = totalRotation;
+        wheelSvg.style.transform = `rotate(${currentRotation}deg)`;
+        
+        setTimeout(() => {
+          isSpinning = false;
+          spinBtn.disabled = false;
+          const winner = options[winnerIndex];
+          resultText.innerHTML = `The wheel says: <span class="choice">${escapeHtml(winner)}</span>`;
+          
+          // Play simple sound
+          try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            if (ctx.state === 'suspended') ctx.resume();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            gain.gain.value = 0.08;
+            osc.frequency.value = 600;
+            osc.type = 'sine';
+            osc.start();
+            setTimeout(() => { osc.stop(); }, 150);
+          } catch(e) {}
+        }, 3600);
+      }
+
+      function quickRandom() {
+        if (isSpinning) return;
+        if (options.length === 0) {
+          showToast('Please add at least one option.');
+          return;
+        }
+        const winner = options[Math.floor(Math.random() * options.length)];
+        resultText.innerHTML = `Random pick: <span class="choice">${escapeHtml(winner)}</span>`;
+        
+        // Highlight on wheel briefly
+        const winnerIndex = options.indexOf(winner);
+        const sliceAngle = 360 / options.length;
+        const targetAngle = winnerIndex * sliceAngle + sliceAngle / 2;
+        const landingRotation = (360 - targetAngle) % 360;
+        currentRotation = currentRotation + landingRotation;
+        wheelSvg.style.transition = 'transform 0.6s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+        wheelSvg.style.transform = `rotate(${currentRotation}deg)`;
+        setTimeout(() => {
+          wheelSvg.style.transition = 'transform 3.5s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+        }, 700);
+      }
+
+      function addOption() {
+        if (currentMode === 'yesno') {
+          showToast('Switch to Custom mode to add options.');
+          return;
+        }
+        const name = optionInput.value.trim();
+        if (!name) {
+          showToast('Please enter an option.');
+          return;
+        }
+        if (options.includes(name)) {
+          showToast('This option already exists.');
+          return;
+        }
+        options.push(name);
+        optionInput.value = '';
+        saveData();
+        renderOptions();
+        drawWheel();
+        optionInput.focus();
+      }
+
+      function removeOption(index) {
+        if (currentMode === 'yesno') {
+          showToast('Cannot remove options in Yes/No mode.');
+          return;
+        }
+        options.splice(index, 1);
+        saveData();
+        renderOptions();
+        drawWheel();
+        resultText.textContent = options.length > 0 ? 'Add options and spin!' : 'No options yet.';
+      }
+
+      function clearAll() {
+        if (currentMode === 'yesno') {
+          showToast('Switch to Custom mode to clear options.');
+          return;
+        }
+        options = [];
+        saveData();
+        renderOptions();
+        drawWheel();
+        resultText.textContent = 'No options yet.';
+        showToast('All options cleared.');
+      }
+
+      function renderOptions() {
+        if (options.length === 0) {
+          optionsList.innerHTML = '<div style="text-align:center; color:var(--ink-muted); padding:20px; font-style:italic;">No options yet. Add some above!</div>';
+          return;
+        }
+
+        optionsList.innerHTML = options.map((option, index) => {
+          const color = wheelColors[index % wheelColors.length];
+          return `
+            <div class="option-item">
+              <div class="option-color" style="background:${color};"></div>
+              <span class="option-text">${escapeHtml(option)}</span>
+              <button class="option-delete" data-index="${index}" aria-label="Remove option">✕</button>
+            </div>
+          `;
+        }).join('');
+
+        // Add delete event listeners
+        optionsList.querySelectorAll('.option-delete').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt(btn.dataset.index);
+            removeOption(index);
+          });
+        });
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        darkModeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+        localStorage.setItem('decisionDarkMode', isDark ? 'true' : 'false');
+      }
+
+      // Event Listeners
+      spinBtn.addEventListener('click', spinWheel);
+      quickRandomBtn.addEventListener('click', quickRandom);
+      addOptionBtn.addEventListener('click', addOption);
+      clearAllBtn.addEventListener('click', clearAll);
+      darkModeBtn.addEventListener('click', toggleDarkMode);
+      
+      optionInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addOption();
+      });
+
+      modeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          setMode(tab.dataset.mode);
+        });
+      });
+
+      // Initialize dark mode
+      if (localStorage.getItem('decisionDarkMode') === 'true') {
+        document.body.classList.add('dark');
+        darkModeBtn.textContent = '☀️ Light';
+      }
+
+      // FAQ accordion logic
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          const answer = this.nextElementSibling;
+          if (answer) {
+            answer.style.display = expanded ? 'none' : 'block';
+          }
+        });
+      });
+
+      // Initial load
+      loadData();
+
+      // Ensure header/footer load
+      window.addEventListener('load', () => {
+        if (typeof window.initHeader === 'function') window.initHeader();
+        if (typeof window.initFooter === 'function') window.initFooter();
+      });
+    })();
+  </script>
+</body>
+</html>

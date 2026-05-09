@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Free Habit Tracker Online | Build Better Routines Daily</title>
+  <meta name="description" content="Track your daily habits with this free, private online habit tracker. Build streaks, stay consistent, and achieve your goals. No signup, works offline." />
+  <meta name="keywords" content="habit tracker, free habit tracker, daily habit tracker, online habit tracker, build habits, routine tracker, goal tracker, streak tracker, productivity tool" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/habit-tracker" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/habit-tracker" />
+  <meta property="og:title" content="Free Habit Tracker Online | Build Better Routines Daily" />
+  <meta property="og:description" content="A simple, private habit tracker that helps you build consistency. Track daily habits, view streaks, and stay motivated. No account needed." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image-habit.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Habit Tracker Online | Build Better Routines Daily" />
+  <meta name="twitter:description" content="Stay consistent with a free, private habit tracker. Mark habits daily, watch your streaks grow. Works offline, totally free." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad Habit Tracker",
+    "url": "https://webnotepad.github.io/habit-tracker",
+    "description": "A free online habit tracker to build better routines. Track daily habits, maintain streaks, and visualize progress privately in your browser.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Create custom habits",
+      "Daily check-in tracking",
+      "Streak counting",
+      "Weekly and monthly views",
+      "Dark mode support",
+      "Local storage privacy",
+      "No signup required"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this habit tracker really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely free. No hidden fees, no premium tiers, and no advertisements that interrupt your tracking experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add a new habit to track?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply type the habit name in the input field and click Add or press Enter. Your habit will appear instantly in your list."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my habits be saved if I close the browser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all your habits and tracking history are stored locally in your browser's storage. They will persist across sessions as long as you don't clear your browser data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I track habits for previous days?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tracker focuses on the current day to encourage immediacy. Each day starts fresh, helping you build a consistent daily routine."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styles for habit tracker, extending the editorial design system */
+    .habit-shell {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--paper);
+      min-height: 500px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .habit-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .habit-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+      flex: 1;
+    }
+    .habit-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      background: var(--paper);
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--paper-edge);
+    }
+    .habit-input-area {
+      display: flex;
+      gap: 10px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--paper-edge);
+      background: var(--paper);
+      flex-wrap: wrap;
+    }
+    .habit-input-area input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all var(--transition);
+    }
+    .habit-input-area input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-pale);
+    }
+    .habit-input-area input::placeholder {
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+    .habit-list {
+      flex: 1;
+      padding: 8px 16px;
+      overflow-y: auto;
+      max-height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .habit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      background: var(--paper-warm);
+      border: 1px solid transparent;
+      transition: all var(--transition);
+    }
+    .habit-item:hover {
+      border-color: var(--paper-edge);
+      background: var(--paper);
+    }
+    .habit-checkbox {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      color: transparent;
+    }
+    .habit-checkbox.checked {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+    .habit-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .habit-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      word-break: break-word;
+    }
+    .habit-name.done {
+      text-decoration: line-through;
+      color: var(--ink-muted);
+    }
+    .habit-streak {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+    .habit-delete {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+      background: transparent;
+      border: none;
+    }
+    .habit-delete:hover {
+      background: #fde8e8;
+      color: #c0392b;
+    }
+    .habit-footer {
+      padding: 12px 24px;
+      border-top: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+    .habit-stats {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .stat-badge {
+      background: var(--paper);
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--paper-edge);
+      font-weight: 500;
+    }
+    .habit-progress {
+      width: 100%;
+      height: 4px;
+      background: var(--paper-edge);
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+    .habit-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .empty-habits {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .habit-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .habit-input-area {
+        flex-direction: column;
+      }
+      .habit-stats {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Habit Tracker Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✅ Small Steps, Big Changes</div>
+        <h1 class="hero-title">
+          Build habits that<br />
+          <span class="hero-accent">actually stick.</span>
+        </h1>
+        <p class="hero-sub">A free, private habit tracker that lives in your browser. Mark your daily wins, maintain streaks, and watch consistency become your superpower.</p>
+        <div class="hero-cta-group">
+          <a href="#tracker-app" class="btn btn-primary">Start Tracking <span>→</span></a>
+          <a href="#how-habits" class="btn btn-ghost">Why It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>66</strong><span>Days to Form Habit</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>0</strong><span>Signup Needed</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>100%</strong><span>Private</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to tracker ↓</div>
+    </section>
+
+    <!-- Habit Tracker Application Section -->
+    <section class="section-app" id="tracker-app" aria-label="Habit Tracker Application">
+      <div class="container">
+        <div class="habit-shell">
+          <div class="habit-header">
+            <h3>📋 My Daily Habits</h3>
+            <span class="habit-date" id="currentDate"></span>
+          </div>
+          <div class="habit-input-area">
+            <input type="text" id="habitInput" placeholder="Enter a new habit (e.g., Read 20 pages)..." aria-label="New habit name" />
+            <button class="btn btn-primary" id="addHabitBtn">Add Habit</button>
+          </div>
+          <div class="habit-list" id="habitList">
+            <div class="empty-habits">✨ No habits yet. Add one to get started!</div>
+          </div>
+          <div class="habit-footer">
+            <div class="habit-stats">
+              <span>📊 <span id="completedCount">0</span>/<span id="totalCount">0</span> done</span>
+              <span class="stat-badge">🔥 <span id="bestStreak">0</span> best streak</span>
+            </div>
+            <button class="btn-tool" id="resetDayBtn" title="Reset today's checks">↺ Reset Today</button>
+            <button class="btn-tool" id="darkModeHabitBtn" title="Toggle dark mode">🌙 Dark</button>
+          </div>
+          <div class="habit-progress">
+            <div class="habit-progress-fill" id="habitProgressFill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Description / How It Works Section -->
+    <section class="section section-how" id="how-habits" aria-label="How habit tracking works">
+      <div class="container">
+        <div class="section-label">The Science</div>
+        <h2 class="section-title">Why <em>habit tracking</em> works.</h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Make It Visible</h3>
+              <p>Writing down your habits creates awareness. You can't improve what you don't measure. The tracker becomes your mirror.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Never Break the Chain</h3>
+              <p>Each check builds a streak. The psychological drive to maintain that unbroken chain keeps you showing up every single day.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Celebrate Progress</h3>
+              <p>Watching your completed habits stack up releases dopamine. This positive reinforcement turns discipline into a rewarding ritual.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-content" style="margin-top: 48px;">
+          <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.75;">Research shows it takes an average of 66 days to form a new habit. This tracker helps you stay consistent during those crucial early weeks. Your data is stored privately in your browser — no accounts, no servers, no data collection. Just you and your commitment to becoming 1% better every day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-features" id="features" aria-label="Tracker Features">
+      <div class="container">
+        <div class="section-label">Tracker Features</div>
+        <h2 class="section-title">Everything for <em>consistency.</em></h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Custom Habits</h3>
+            <p>Create any habit you want to build — from drinking water to coding practice. Tailor your tracker to your unique goals.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔥</div>
+            <h3>Streak Counter</h3>
+            <p>Each habit shows your current streak. The longer the chain, the harder it is to break. Momentum becomes your motivation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Daily Progress</h3>
+            <p>See your completion percentage at a glance. The progress bar fills up as you check off habits, giving instant visual feedback.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>100% Private</h3>
+            <p>All habit data stays in your browser's local storage. No one else can see your habits. No account creation required.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Daily Fresh Start</h3>
+            <p>Each day, the tracker resets. This encourages daily check-ins and prevents the guilt of missed days from piling up.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>Track habits on your phone, tablet, or desktop. The responsive design adapts perfectly to any screen size.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Common questions</div>
+        <h2 class="section-title">Habit Tracking <em>FAQs.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this habit tracker really free?</button>
+            <div class="faq-a"><p>Yes, completely and forever free. No hidden costs, no premium features behind paywalls, and no advertisements that interrupt your tracking experience.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I add a new habit?</button>
+            <div class="faq-a"><p>Type the name of your habit in the input field above the list and click "Add Habit" or press Enter. Your new habit will appear instantly and is automatically saved.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Will my habits be saved if I close the browser?</button>
+            <div class="faq-a"><p>Absolutely. All your habits, streaks, and daily progress are stored locally in your browser using localStorage. They persist across sessions until you clear your browser data.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What happens when I check off a habit?</button>
+            <div class="faq-a"><p>The habit gets marked as completed for today with a satisfying checkmark. Your streak counter increases by one. The overall progress bar updates to reflect your daily achievement.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I track habits for previous days?</button>
+            <div class="faq-a"><p>This tracker focuses on the current day to encourage immediate action. Each morning, habits reset automatically. Consistency is built one day at a time.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I delete a habit?</button>
+            <div class="faq-a"><p>Hover over any habit item and click the ✕ icon that appears. The habit and its streak data will be permanently removed from your list.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is my data private and secure?</button>
+            <div class="faq-a"><p>Completely. All data lives exclusively in your browser's local storage. Nothing is sent to any server. We have zero access to your habits. Your privacy is absolute.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does the habit tracker work on mobile?</button>
+            <div class="faq-a"><p>Yes! The tracker is fully responsive and works beautifully on smartphones and tablets. Install it to your home screen for quick daily access.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Start building better habits today.</h2>
+          <p>No account, no setup, no excuses. Just add your first habit and check it off. Consistency starts now.</p>
+          <a href="#tracker-app" class="btn btn-primary btn-lg">Start Tracking Free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    (function() {
+      // --- Habit Tracker Logic ---
+      const habitInput = document.getElementById('habitInput');
+      const addHabitBtn = document.getElementById('addHabitBtn');
+      const habitList = document.getElementById('habitList');
+      const completedCountEl = document.getElementById('completedCount');
+      const totalCountEl = document.getElementById('totalCount');
+      const bestStreakEl = document.getElementById('bestStreak');
+      const habitProgressFill = document.getElementById('habitProgressFill');
+      const resetDayBtn = document.getElementById('resetDayBtn');
+      const darkModeBtn = document.getElementById('darkModeHabitBtn');
+      const currentDateEl = document.getElementById('currentDate');
+      const toast = document.getElementById('toast');
+
+      const STORAGE_KEY = 'webnotepad_habits';
+      const STREAK_KEY = 'webnotepad_habits_streaks';
+      const DATE_KEY = 'webnotepad_habits_date';
+
+      let habits = [];
+      let streaks = {};
+      let todayDate = new Date().toLocaleDateString();
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2000);
+      }
+
+      function formatDate() {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        currentDateEl.textContent = new Date().toLocaleDateString('en-US', options);
+      }
+
+      function loadData() {
+        const savedDate = localStorage.getItem(DATE_KEY);
+        const savedHabits = localStorage.getItem(STORAGE_KEY);
+        const savedStreaks = localStorage.getItem(STREAK_KEY);
+
+        if (savedDate !== todayDate) {
+          // New day: reset completions but keep habits and update streaks
+          if (savedHabits) {
+            habits = JSON.parse(savedHabits);
+            // If yesterday was not completed, reset streaks for unchecked habits
+            habits.forEach(h => h.done = false);
+          }
+          if (savedStreaks) {
+            streaks = JSON.parse(savedStreaks);
+          }
+          localStorage.setItem(DATE_KEY, todayDate);
+          saveData();
+        } else {
+          if (savedHabits) habits = JSON.parse(savedHabits);
+          if (savedStreaks) streaks = JSON.parse(savedStreaks);
+        }
+        
+        // Ensure streaks object matches habits
+        habits.forEach(h => {
+          if (!streaks[h.id]) streaks[h.id] = 0;
+        });
+      }
+
+      function saveData() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(habits));
+        localStorage.setItem(STREAK_KEY, JSON.stringify(streaks));
+        localStorage.setItem(DATE_KEY, todayDate);
+      }
+
+      function updateStats() {
+        const total = habits.length;
+        const completed = habits.filter(h => h.done).length;
+        completedCountEl.textContent = completed;
+        totalCountEl.textContent = total;
+        
+        const bestStreak = Math.max(0, ...Object.values(streaks));
+        bestStreakEl.textContent = bestStreak;
+        
+        const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+        habitProgressFill.style.width = `${percent}%`;
+      }
+
+      function renderHabits() {
+        if (habits.length === 0) {
+          habitList.innerHTML = '<div class="empty-habits">✨ No habits yet. Add one to get started!</div>';
+          updateStats();
+          return;
+        }
+
+        habitList.innerHTML = habits.map((habit, index) => {
+          const streakCount = streaks[habit.id] || 0;
+          return `
+            <div class="habit-item" data-id="${habit.id}">
+              <div class="habit-checkbox ${habit.done ? 'checked' : ''}" data-action="toggle" data-id="${habit.id}">
+                ${habit.done ? '✓' : ''}
+              </div>
+              <div class="habit-info">
+                <span class="habit-name ${habit.done ? 'done' : ''}">${escapeHtml(habit.name)}</span>
+                <span class="habit-streak">🔥 ${streakCount} day${streakCount !== 1 ? 's' : ''}</span>
+              </div>
+              <button class="habit-delete" data-action="delete" data-id="${habit.id}" aria-label="Delete habit">✕</button>
+            </div>
+          `;
+        }).join('');
+
+        updateStats();
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function addHabit() {
+        const name = habitInput.value.trim();
+        if (!name) {
+          showToast('Please enter a habit name.');
+          return;
+        }
+        if (habits.some(h => h.name.toLowerCase() === name.toLowerCase())) {
+          showToast('This habit already exists.');
+          return;
+        }
+
+        const newHabit = {
+          id: Date.now().toString(),
+          name: name,
+          done: false
+        };
+        habits.push(newHabit);
+        streaks[newHabit.id] = 0;
+        habitInput.value = '';
+        saveData();
+        renderHabits();
+        showToast(`"${name}" added!`);
+        habitInput.focus();
+      }
+
+      function toggleHabit(id) {
+        const habit = habits.find(h => h.id === id);
+        if (!habit) return;
+        
+        habit.done = !habit.done;
+        
+        if (habit.done) {
+          streaks[id] = (streaks[id] || 0) + 1;
+        } else {
+          streaks[id] = Math.max(0, (streaks[id] || 0) - 1);
+        }
+        
+        saveData();
+        renderHabits();
+      }
+
+      function deleteHabit(id) {
+        const habit = habits.find(h => h.id === id);
+        if (!habit) return;
+        
+        habits = habits.filter(h => h.id !== id);
+        delete streaks[id];
+        saveData();
+        renderHabits();
+        showToast(`"${habit.name}" removed.`);
+      }
+
+      function resetDay() {
+        habits.forEach(h => h.done = false);
+        saveData();
+        renderHabits();
+        showToast('Today\'s checks have been reset.');
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        darkModeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+        localStorage.setItem('habitDarkMode', isDark ? 'true' : 'false');
+      }
+
+      // Event delegation for habit list
+      habitList.addEventListener('click', (e) => {
+        const target = e.target.closest('[data-action]');
+        if (!target) return;
+        
+        const action = target.getAttribute('data-action');
+        const id = target.getAttribute('data-id');
+        
+        if (action === 'toggle') {
+          toggleHabit(id);
+        } else if (action === 'delete') {
+          deleteHabit(id);
+        }
+      });
+
+      // Add habit events
+      addHabitBtn.addEventListener('click', addHabit);
+      habitInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          addHabit();
+        }
+      });
+
+      resetDayBtn.addEventListener('click', resetDay);
+      darkModeBtn.addEventListener('click', toggleDarkMode);
+
+      // Initialize dark mode
+      if (localStorage.getItem('habitDarkMode') === 'true') {
+        document.body.classList.add('dark');
+        darkModeBtn.textContent = '☀️ Light';
+      }
+
+      // FAQ accordion logic
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          const answer = this.nextElementSibling;
+          if (answer) {
+            answer.style.display = expanded ? 'none' : 'block';
+          }
+        });
+      });
+
+      // Initial load
+      formatDate();
+      loadData();
+      renderHabits();
+
+      // Ensure header/footer load if not already
+      window.addEventListener('load', () => {
+        if (typeof window.initHeader === 'function') window.initHeader();
+        if (typeof window.initFooter === 'function') window.initFooter();
+      });
+    })();
+  </script>
+</body>
+</html>

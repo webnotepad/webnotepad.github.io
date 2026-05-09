@@ -54,7 +54,8 @@
               <li><a href="/word-shuffler">Shuffle Words</a></li>
               <li><a href="/wordpad">Wordpad</a></li>
               <li><a href="/habit-tracker">Habit Tracker</a></li> 
-              <li><a href="/pomodoro-timer">Pomodoro Timer</a></li> 
+              <li><a href="/pomodoro-timer">Pomodoro Timer</a></li>
+              <li><a href="/choice-maker">Decision Maker</a></li>
             </ul>
           </div>
         </div>

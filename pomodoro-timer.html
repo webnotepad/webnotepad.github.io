@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Free Pomodoro Timer Online | Boost Focus & Productivity</title>
+  <meta name="description" content="A free, distraction-free online Pomodoro Timer. Use the 25/5 technique to enhance focus, manage time, and boost productivity. No signup, works offline." />
+  <meta name="keywords" content="pomodoro timer, free pomodoro, online timer, focus timer, productivity tool, time management, study timer, work timer, tomato timer" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/pomodoro-timer" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/pomodoro-timer" />
+  <meta property="og:title" content="Free Pomodoro Timer Online | Boost Focus & Productivity" />
+  <meta property="og:description" content="Stay focused with a clean, free Pomodoro Timer. Custom intervals, auto-cycle, and dark mode. No signup required." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image-pomodoro.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Pomodoro Timer Online | Boost Focus & Productivity" />
+  <meta name="twitter:description" content="A simple, elegant Pomodoro timer that helps you get things done. Works offline, totally free." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad Pomodoro Timer",
+    "url": "https://webnotepad.github.io/pomodoro-timer",
+    "description": "A free online Pomodoro Timer application to boost focus and productivity using timed work sessions and breaks.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Customizable work/break intervals",
+      "Auto-cycle between sessions",
+      "Dark mode support",
+      "Audio alerts",
+      "Works offline",
+      "No signup required"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Pomodoro Technique?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Pomodoro Technique is a time management method using a timer to break work into intervals, traditionally 25 minutes long, separated by short breaks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this Pomodoro timer completely free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is 100% free. No account, no hidden fees, and no advertisements interfering with your focus sessions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize the timer intervals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. You can adjust the focus session length, short break, and long break durations to fit your personal workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the timer work if I close the browser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The timer runs in your browser tab. For best results, keep the tab open. It will continue to work even if your device is offline."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styles specific to pomodoro timer, extending existing design system */
+    .pomodoro-shell {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--paper-warm);
+      min-height: 500px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .timer-display-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      background: var(--paper);
+      position: relative;
+    }
+    .timer-circle {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: var(--paper-warm);
+      border: 4px solid var(--paper-edge);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      transition: border-color var(--transition), background var(--transition);
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    body.dark .timer-circle {
+      background: var(--paper-warm);
+      border-color: var(--paper-edge);
+    }
+    .timer-time {
+      font-family: var(--font-mono);
+      font-size: 3.8rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .timer-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .timer-controls {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .timer-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--paper-warm);
+      border: 2px solid var(--paper-edge);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .timer-btn:hover {
+      background: var(--paper-edge);
+      border-color: var(--ink-muted);
+    }
+    .timer-btn.primary-action {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+      width: 64px;
+      height: 64px;
+      font-size: 1.8rem;
+    }
+    .timer-btn.primary-action:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: scale(1.05);
+    }
+    .session-indicator {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      background: var(--paper-warm);
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1px solid var(--paper-edge);
+    }
+    .session-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--paper-edge);
+    }
+    .session-dot.active {
+      background: var(--accent);
+    }
+    .settings-panel {
+      background: var(--paper-warm);
+      border-top: 1px solid var(--paper-edge);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .setting-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+    .setting-item input {
+      width: 60px;
+      padding: 5px 8px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      text-align: center;
+      outline: none;
+    }
+    .setting-item input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-pale);
+    }
+    .text-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .timer-time {
+        font-size: 2.8rem;
+      }
+      .timer-circle {
+        width: 180px;
+        height: 180px;
+      }
+      .settings-panel {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Pomodoro Timer Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">⏳ Stay Focused. Get More Done.</div>
+        <h1 class="hero-title">
+          Master your time,<br />
+          <span class="hero-accent">one tomato at a time.</span>
+        </h1>
+        <p class="hero-sub">A clean, free online Pomodoro timer to help you work in focused intervals. No noise, no signup — just pure productivity.</p>
+        <div class="hero-cta-group">
+          <a href="#timer-app" class="btn btn-primary">Start Timer <span>→</span></a>
+          <a href="#how-pomodoro" class="btn btn-ghost">Learn the Method</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>25/5</strong><span>Classic Cycle</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>0</strong><span>Distractions</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>∞</strong><span>Free Sessions</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to use timer ↓</div>
+    </section>
+
+    <!-- Timer Application Section -->
+    <section class="section-app" id="timer-app" aria-label="Pomodoro Timer Application">
+      <div class="container">
+        <div class="pomodoro-shell">
+          <div class="timer-display-area">
+            <div class="timer-circle" id="timerCircle">
+              <span class="timer-time" id="timerDisplay">25:00</span>
+              <span class="timer-label" id="sessionLabel">Focus</span>
+            </div>
+            <div class="timer-controls">
+              <button class="timer-btn" id="resetBtn" title="Reset Timer" aria-label="Reset timer">↺</button>
+              <button class="timer-btn primary-action" id="startPauseBtn" title="Start / Pause" aria-label="Start or pause timer">▶</button>
+              <button class="timer-btn" id="skipBtn" title="Skip Session" aria-label="Skip to next session">⏭</button>
+            </div>
+            <div class="session-indicator" id="sessionIndicator">
+              <span class="session-dot active"></span>
+              <span class="session-dot"></span>
+              <span class="session-dot"></span>
+              <span class="session-dot"></span>
+              <span>Sessions</span>
+            </div>
+          </div>
+          <div class="settings-panel">
+            <div class="setting-item">
+              <label for="focusInput">🍅 Focus</label>
+              <input type="number" id="focusInput" value="25" min="1" max="60" step="1" />
+            </div>
+            <div class="setting-item">
+              <label for="shortBreakInput">☕ Short Break</label>
+              <input type="number" id="shortBreakInput" value="5" min="1" max="30" step="1" />
+            </div>
+            <div class="setting-item">
+              <label for="longBreakInput">🌿 Long Break</label>
+              <input type="number" id="longBreakInput" value="15" min="1" max="45" step="1" />
+            </div>
+            <button class="btn-tool" id="applySettingsBtn">Apply</button>
+            <button class="btn-tool" id="darkModePomodoroBtn" title="Toggle dark mode">🌙 Dark</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works / Description Section -->
+    <section class="section section-how" id="how-pomodoro" aria-label="How Pomodoro works">
+      <div class="container">
+        <div class="section-label">The Technique</div>
+        <h2 class="section-title">How to use the <em>Pomodoro Timer.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Pick a Task</h3>
+              <p>Choose one specific task you want to work on. No multitasking. One goal, one focus session.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Work for 25 Minutes</h3>
+              <p>Start the timer and dedicate your full attention to the task. Ignore all distractions until the timer rings.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Take a Short Break</h3>
+              <p>Step away for 5 minutes. Stretch, breathe, grab water. After 4 sessions, enjoy a longer 15-minute break.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-content" style="margin-top: 48px;">
+          <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.75;">The Pomodoro Technique was developed by Francesco Cirillo in the late 1980s. It uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. This method trains your brain to focus for short periods and helps you stay productive, avoid burnout, and manage distractions. Our free online timer brings this technique to your browser with customizable intervals, clean visuals, and zero interruptions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-features" id="features" aria-label="Timer Features">
+      <div class="container">
+        <div class="section-label">Why our timer</div>
+        <h2 class="section-title">Designed for <em>deep work.</em></h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Custom Intervals</h3>
+            <p>Adjust focus, short break, and long break durations to match your personal rhythm. Not everyone works in 25-minute chunks.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3>Auto-Cycle</h3>
+            <p>The timer automatically switches between focus and break sessions. After four focus rounds, you get a well-deserved longer break.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔔</div>
+            <h3>Audio Alerts</h3>
+            <p>Gentle browser notifications let you know when a session ends, even if you're in another tab. Never miss a break.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Session Tracking</h3>
+            <p>Visual dots show how many focus sessions you've completed in the current cycle. Stay motivated by visible progress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Common questions</div>
+        <h2 class="section-title">Pomodoro <em>FAQs.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the Pomodoro Technique?</button>
+            <div class="faq-a"><p>The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes long, separated by short breaks. "Pomodoro" is Italian for tomato, named after the tomato-shaped kitchen timer Cirillo used.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this online timer really free?</button>
+            <div class="faq-a"><p>Yes, completely free. No signup, no ads that disrupt your focus, and no premium features locked behind a paywall. Just a timer that works.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I change the timer durations?</button>
+            <div class="faq-a"><p>Absolutely. Use the settings panel below the timer to set your preferred focus time (e.g., 45 minutes), short break, and long break lengths. Click Apply to update.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does the timer work on mobile?</button>
+            <div class="faq-a"><p>Yes, the Pomodoro timer is fully responsive and works on all modern browsers on both desktop and mobile devices. The interface adapts to smaller screens.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Will I get a notification when time is up?</button>
+            <div class="faq-a"><p>Yes, the timer plays a sound and shows a browser notification when a session ends, provided your browser permissions allow it. You'll know it's time for a break.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use this timer offline?</button>
+            <div class="faq-a"><p>Once the page is loaded, the timer runs entirely in your browser and does not require an internet connection to count down. Perfect for distraction-free work.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Ready to focus?</h2>
+          <p>Start your first Pomodoro session now. No account, no setup. Just press play and get to work.</p>
+          <a href="#timer-app" class="btn btn-primary btn-lg">Start Timer Free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    (function() {
+      // --- Pomodoro Timer Logic ---
+      const timerDisplay = document.getElementById('timerDisplay');
+      const sessionLabel = document.getElementById('sessionLabel');
+      const startPauseBtn = document.getElementById('startPauseBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const skipBtn = document.getElementById('skipBtn');
+      const focusInput = document.getElementById('focusInput');
+      const shortBreakInput = document.getElementById('shortBreakInput');
+      const longBreakInput = document.getElementById('longBreakInput');
+      const applySettingsBtn = document.getElementById('applySettingsBtn');
+      const darkModeBtn = document.getElementById('darkModePomodoroBtn');
+      const sessionDots = document.querySelectorAll('.session-dot');
+      const toast = document.getElementById('toast');
+
+      // State
+      let timerInterval = null;
+      let timeLeft = 25 * 60; // seconds
+      let isRunning = false;
+      let currentSession = 'focus'; // 'focus', 'shortBreak', 'longBreak'
+      let completedPomodoros = 0;
+      let settings = {
+        focus: 25,
+        shortBreak: 5,
+        longBreak: 15
+      };
+
+      function updateDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (currentSession === 'focus') {
+          sessionLabel.textContent = 'Focus';
+        } else if (currentSession === 'shortBreak') {
+          sessionLabel.textContent = 'Short Break';
+        } else if (currentSession === 'longBreak') {
+          sessionLabel.textContent = 'Long Break';
+        }
+        updateDots();
+      }
+
+      function updateDots() {
+        sessionDots.forEach((dot, index) => {
+          if (index < completedPomodoros) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      function stopTimer() {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        isRunning = false;
+        startPauseBtn.textContent = '▶';
+      }
+
+      function startTimer() {
+        if (isRunning) return;
+        isRunning = true;
+        startPauseBtn.textContent = '⏸';
+        
+        timerInterval = setInterval(() => {
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            isRunning = false;
+            startPauseBtn.textContent = '▶';
+            handleSessionEnd();
+            return;
+          }
+          timeLeft--;
+          updateDisplay();
+        }, 1000);
+      }
+
+      function handleSessionEnd() {
+        // Play sound / notification
+        try {
+          if (Notification.permission === "granted") {
+            new Notification("Pomodoro Timer", { body: `${currentSession === 'focus' ? 'Focus session over! Take a break.' : 'Break is over! Time to focus.'}` });
+          }
+        } catch (e) {}
+        
+        // Simple audio beep
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        if (ctx.state === 'suspended') ctx.resume();
+        const oscillator = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        gainNode.gain.value = 0.1;
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+        oscillator.start();
+        setTimeout(() => { oscillator.stop(); }, 200);
+
+        if (currentSession === 'focus') {
+          completedPomodoros++;
+          if (completedPomodoros >= 4) {
+            currentSession = 'longBreak';
+            timeLeft = settings.longBreak * 60;
+            completedPomodoros = 0;
+            showToast('Great focus! Take a long break.');
+          } else {
+            currentSession = 'shortBreak';
+            timeLeft = settings.shortBreak * 60;
+            showToast('Focus done. Short break!');
+          }
+        } else {
+          currentSession = 'focus';
+          timeLeft = settings.focus * 60;
+          showToast('Break over. Time to focus!');
+        }
+        updateDisplay();
+        updateDots();
+      }
+
+      function resetTimer() {
+        stopTimer();
+        completedPomodoros = 0;
+        currentSession = 'focus';
+        timeLeft = settings.focus * 60;
+        updateDisplay();
+        showToast('Timer reset.');
+      }
+
+      function skipSession() {
+        stopTimer();
+        if (currentSession === 'focus') {
+          completedPomodoros++;
+        }
+        handleSessionEnd();
+        updateDisplay();
+      }
+
+      function applySettings() {
+        const newFocus = parseInt(focusInput.value, 10);
+        const newShort = parseInt(shortBreakInput.value, 10);
+        const newLong = parseInt(longBreakInput.value, 10);
+        
+        if (isNaN(newFocus) || newFocus < 1 || isNaN(newShort) || newShort < 1 || isNaN(newLong) || newLong < 1) {
+          showToast('Please enter valid positive numbers.');
+          return;
+        }
+        
+        settings.focus = newFocus;
+        settings.shortBreak = newShort;
+        settings.longBreak = newLong;
+        
+        stopTimer();
+        completedPomodoros = 0;
+        currentSession = 'focus';
+        timeLeft = settings.focus * 60;
+        updateDisplay();
+        showToast('Settings applied.');
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        darkModeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+        localStorage.setItem('pomodoroDarkMode', isDark ? 'true' : 'false');
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2000);
+      }
+
+      // Event Listeners
+      startPauseBtn.addEventListener('click', () => {
+        if (isRunning) {
+          stopTimer();
+          showToast('Timer paused.');
+        } else {
+          // Request notification permission on first interaction if needed
+          if (Notification.permission === "default") {
+            Notification.requestPermission();
+          }
+          startTimer();
+        }
+      });
+
+      resetBtn.addEventListener('click', resetTimer);
+      skipBtn.addEventListener('click', skipSession);
+      applySettingsBtn.addEventListener('click', applySettings);
+      darkModeBtn.addEventListener('click', toggleDarkMode);
+
+      // Initialize dark mode from storage
+      if (localStorage.getItem('pomodoroDarkMode') === 'true') {
+        document.body.classList.add('dark');
+        darkModeBtn.textContent = '☀️ Light';
+      }
+
+      // Initialize display
+      updateDisplay();
+
+      // FAQ accordion logic
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          const answer = this.nextElementSibling;
+          if (answer) {
+            answer.style.display = expanded ? 'none' : 'block';
+          }
+        });
+      });
+
+      // Ensure header/footer load if not already
+      window.addEventListener('load', () => {
+        if (typeof window.initHeader === 'function') window.initHeader();
+        if (typeof window.initFooter === 'function') window.initFooter();
+      });
+    })();
+  </script>
+</body>
+</html>

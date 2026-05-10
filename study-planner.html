@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9759808041159779"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Free Study Planner Online | Organize Tasks, Track Progress & Boost Productivity</title>
+  <meta name="description" content="Plan your study sessions with this free online Study Planner. Create tasks, set deadlines, track progress with a built-in timer, and organize subjects. No signup required." />
+  <meta name="keywords" content="study planner, online study planner, free study planner, student planner, study schedule maker, exam planner, homework planner, study timer, study tracker, revision planner, academic planner, study organizer" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/study-planner" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/study-planner" />
+  <meta property="og:title" content="Free Study Planner Online | Organize Tasks, Track Progress & Boost Productivity" />
+  <meta property="og:description" content="A complete study planner with task management, subject organization, progress tracking, and a built-in focus timer. Free, private, and works offline." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image-study.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Study Planner Online | Organize Tasks, Track Progress & Boost Productivity" />
+  <meta name="twitter:description" content="Plan smarter, study better. Create study tasks, set deadlines, track your progress, and use the built-in timer to stay focused. Completely free." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad Study Planner",
+    "url": "https://webnotepad.github.io/study-planner",
+    "description": "A free online study planner to organize tasks, track progress, manage subjects, and use a built-in focus timer for productive study sessions.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Task management with priorities",
+      "Subject categorization",
+      "Deadline tracking",
+      "Progress visualization",
+      "Built-in study timer",
+      "Daily and weekly views",
+      "Dark mode support",
+      "Local storage privacy",
+      "No signup required"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I use this study planner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add your subjects, create study tasks with deadlines and priority levels, then use the built-in timer to focus. Track your progress as you complete each task."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this study planner free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is 100% free with no hidden costs, no account required, and no advertisements that interrupt your study flow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I track multiple subjects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. You can add unlimited subjects and assign tasks to each one. The planner helps you organize your workload across all your courses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the study planner work offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, once loaded, the study planner works fully offline. All your tasks, subjects, and progress are saved locally in your browser."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .study-shell {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--paper);
+      min-height: 580px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .study-sidebar {
+      background: var(--paper-warm);
+      border-right: 1px solid var(--paper-edge);
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 16px;
+      overflow-y: auto;
+      transition: all var(--transition);
+    }
+    .sidebar-section h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .subject-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .subject-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: all var(--transition);
+      background: transparent;
+      border: 1px solid transparent;
+      font-family: var(--font-body);
+      text-align: left;
+      width: 100%;
+    }
+    .subject-item:hover {
+      background: var(--paper);
+      border-color: var(--paper-edge);
+    }
+    .subject-item.active {
+      background: var(--accent-pale);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .subject-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .subject-count {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      background: var(--paper);
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+    .add-subject-area {
+      display: flex;
+      gap: 6px;
+    }
+    .add-subject-area input {
+      flex: 1;
+      padding: 7px 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-family: var(--font-body);
+      outline: none;
+    }
+    .add-subject-area input:focus {
+      border-color: var(--accent);
+    }
+    .progress-mini {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 12px;
+      border: 1px solid var(--paper-edge);
+    }
+    .progress-bar-mini {
+      height: 6px;
+      background: var(--paper-edge);
+      border-radius: 3px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+    .progress-fill-mini {
+      height: 100%;
+      background: var(--green);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .study-main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .study-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--paper-edge);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--paper);
+    }
+    .study-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      flex: 1;
+    }
+    .task-input-area {
+      display: flex;
+      gap: 8px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      flex-wrap: wrap;
+    }
+    .task-input-area input,
+    .task-input-area select {
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-family: var(--font-body);
+      outline: none;
+    }
+    .task-input-area input {
+      flex: 1;
+      min-width: 160px;
+    }
+    .task-input-area input:focus,
+    .task-input-area select:focus {
+      border-color: var(--accent);
+    }
+    .task-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-height: 350px;
+    }
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--paper-warm);
+      border: 1px solid transparent;
+      transition: all var(--transition);
+    }
+    .task-item:hover {
+      border-color: var(--paper-edge);
+    }
+    .task-checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      color: transparent;
+    }
+    .task-checkbox.done {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+    .task-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .task-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      word-break: break-word;
+    }
+    .task-name.completed {
+      text-decoration: line-through;
+      color: var(--ink-muted);
+    }
+    .task-meta {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+      display: flex;
+      gap: 10px;
+      margin-top: 2px;
+      flex-wrap: wrap;
+    }
+    .priority-badge {
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+    .priority-high { background: #fde8e8; color: #c0392b; }
+    .priority-medium { background: #fef3cd; color: #b8960c; }
+    .priority-low { background: #e8f5e9; color: #2d6a4f; }
+    body.dark .priority-high { background: #2a1a14; color: #e8714a; }
+    body.dark .priority-medium { background: #1e1c10; color: #d4a017; }
+    body.dark .priority-low { background: #1a2a1e; color: #52b788; }
+    .task-delete {
+      opacity: 0;
+      color: var(--ink-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      background: none;
+      border: none;
+      padding: 4px;
+      transition: all var(--transition);
+    }
+    .task-item:hover .task-delete { opacity: 1; }
+    .task-delete:hover { color: #c0392b; }
+    .timer-panel {
+      border-top: 1px solid var(--paper-edge);
+      padding: 14px 20px;
+      background: var(--paper-warm);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .timer-display {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--ink);
+      min-width: 80px;
+      text-align: center;
+    }
+    .timer-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .timer-preset {
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      color: var(--ink-muted);
+      transition: all var(--transition);
+    }
+    .timer-preset:hover,
+    .timer-preset.active {
+      background: var(--accent-pale);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--ink-muted);
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .study-shell {
+        grid-template-columns: 1fr;
+      }
+      .study-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--paper-edge);
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px;
+      }
+      .sidebar-section {
+        flex: 1;
+        min-width: 120px;
+      }
+      .task-list {
+        max-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Study Planner Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">📚 Plan Smarter, Study Better</div>
+        <h1 class="hero-title">
+          Your complete<br />
+          <span class="hero-accent">study companion.</span>
+        </h1>
+        <p class="hero-sub">A free online study planner to organize tasks, manage subjects, track progress, and stay focused with a built-in timer. No signup, no distractions — just effective studying.</p>
+        <div class="hero-cta-group">
+          <a href="#study-app" class="btn btn-primary">Start Planning <span>→</span></a>
+          <a href="#how-study" class="btn btn-ghost">How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>100%</strong><span>Free Forever</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>0</strong><span>Signup Needed</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>∞</strong><span>Study Tasks</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to planner ↓</div>
+    </section>
+
+    <!-- Study Planner Application Section -->
+    <section class="section-app" id="study-app" aria-label="Study Planner Application">
+      <div class="container">
+        <div class="study-shell">
+          <!-- Sidebar -->
+          <aside class="study-sidebar">
+            <div class="sidebar-section">
+              <h4>📖 My Subjects</h4>
+              <div class="subject-list" id="subjectList">
+                <button class="subject-item active" data-subject="all">
+                  <span class="subject-dot" style="background:var(--ink);"></span>
+                  All Tasks
+                  <span class="subject-count" id="allCount">0</span>
+                </button>
+              </div>
+              <div class="add-subject-area" style="margin-top:8px;">
+                <input type="text" id="subjectInput" placeholder="Add subject..." aria-label="New subject" />
+                <button class="btn-tool" id="addSubjectBtn">+</button>
+              </div>
+            </div>
+            <div class="sidebar-section">
+              <h4>📊 Progress</h4>
+              <div class="progress-mini">
+                <span style="font-size:0.8rem; color:var(--ink);" id="progressPercent">0% Complete</span>
+                <div class="progress-bar-mini">
+                  <div class="progress-fill-mini" id="progressFill" style="width:0%;"></div>
+                </div>
+                <div style="font-size:0.7rem; color:var(--ink-muted); margin-top:4px;">
+                  <span id="doneCount">0</span> / <span id="totalTasksCount">0</span> tasks done
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-section">
+              <h4>⏱️ Quick Timer</h4>
+              <div class="timer-display" id="miniTimerDisplay">25:00</div>
+              <div class="timer-controls" style="margin-top:6px;">
+                <button class="timer-preset active" data-minutes="25">25m</button>
+                <button class="timer-preset" data-minutes="45">45m</button>
+                <button class="timer-preset" data-minutes="60">60m</button>
+              </div>
+              <button class="btn-tool" id="miniTimerToggle" style="margin-top:6px; width:100%;">▶ Start Focus</button>
+            </div>
+            <button class="btn-tool" id="darkModeStudyBtn" style="margin-top:auto;">🌙 Dark Mode</button>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="study-main">
+            <div class="study-header">
+              <h3 id="currentSubjectTitle">📋 All Study Tasks</h3>
+              <button class="btn-tool" id="clearDoneBtn">Clear Completed</button>
+            </div>
+            <div class="task-input-area">
+              <input type="text" id="taskNameInput" placeholder="Task name (e.g., Read Chapter 5)..." aria-label="Task name" />
+              <select id="taskSubjectSelect" aria-label="Subject">
+                <option value="">Select subject</option>
+              </select>
+              <select id="taskPrioritySelect" aria-label="Priority">
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+              <input type="date" id="taskDeadlineInput" aria-label="Deadline" />
+              <button class="btn btn-primary" id="addTaskBtn">Add Task</button>
+            </div>
+            <div class="task-list" id="taskList">
+              <div class="empty-state">✨ No tasks yet. Add one to get started!</div>
+            </div>
+            <div class="timer-panel">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-muted);">⏱️ Study Timer</span>
+              <div class="timer-display" id="studyTimerDisplay">25:00</div>
+              <div class="timer-controls">
+                <button class="timer-preset active" data-study-minutes="25">25m</button>
+                <button class="timer-preset" data-study-minutes="45">45m</button>
+                <button class="timer-preset" data-study-minutes="60">60m</button>
+              </div>
+              <button class="btn btn-primary" id="studyTimerToggle">▶ Start</button>
+              <button class="btn-tool" id="studyTimerReset">↺ Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="section section-how" id="how-study" aria-label="How to use Study Planner">
+      <div class="container">
+        <div class="section-label">Getting Started</div>
+        <h2 class="section-title">How to use the <em>Study Planner.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Add Your Subjects</h3>
+              <p>Start by adding your courses or subjects in the sidebar. Color-code them visually to organize your study load across all areas.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Create Study Tasks</h3>
+              <p>Add tasks with names, subjects, priority levels, and deadlines. Break large assignments into smaller, manageable study chunks.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Focus & Track Progress</h3>
+              <p>Use the built-in timer for focused study sessions. Check off tasks as you complete them and watch your progress bar fill up.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-content" style="margin-top: 48px;">
+          <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.75;">Research shows that structured study planning significantly improves academic performance. This study planner combines task management with a focus timer to help you stay organized and productive. All your data is stored privately in your browser — no accounts, no servers, no distractions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-features" id="features" aria-label="Study Planner Features">
+      <div class="container">
+        <div class="section-label">Planner Features</div>
+        <h2 class="section-title">Everything for <em>effective studying.</em></h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📖</div>
+            <h3>Subject Organization</h3>
+            <p>Create unlimited subjects and assign tasks to each one. Filter tasks by subject to focus on what matters most right now.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Task Management</h3>
+            <p>Add study tasks with priorities and deadlines. Mark them complete as you finish. Edit or delete tasks anytime.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Built-in Study Timer</h3>
+            <p>Stay focused with a customizable countdown timer. Choose 25, 45, or 60-minute sessions. Works alongside your task list.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Progress Tracking</h3>
+            <p>Visual progress bar shows your completion rate. See how many tasks you've finished and stay motivated to reach 100%.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Priority Levels</h3>
+            <p>Assign High, Medium, or Low priority to each task. Focus on urgent assignments first with clear visual indicators.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h3>Deadline Tracking</h3>
+            <p>Set due dates for each task. Never miss an assignment deadline again with date-based organization.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3>Auto-Save</h3>
+            <p>All subjects, tasks, and progress are automatically saved to your browser. Pick up right where you left off.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>100% Private</h3>
+            <p>Your study data never leaves your device. No account creation, no data collection, complete privacy.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>Plan your studies on any device. The responsive design works perfectly on phones, tablets, and desktops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Common questions</div>
+        <h2 class="section-title">Study Planner <em>FAQs.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I use this study planner?</button>
+            <div class="faq-a"><p>Start by adding your subjects in the sidebar. Then create study tasks with names, subjects, priorities, and deadlines. Use the built-in timer for focused sessions, and check off tasks as you complete them.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this study planner really free?</button>
+            <div class="faq-a"><p>Yes, completely and forever free. No hidden fees, no premium features behind paywalls, and no account registration required.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I track multiple subjects?</button>
+            <div class="faq-a"><p>Absolutely. You can add unlimited subjects and assign tasks to each one. Filter tasks by subject to focus on specific courses or topics.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does the timer work while I'm in another tab?</button>
+            <div class="faq-a"><p>Yes, the study timer continues counting down even if you switch to another browser tab. You'll receive a notification when the session ends.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Will my tasks be saved if I close the browser?</button>
+            <div class="faq-a"><p>Yes, all your subjects, tasks, and progress are automatically saved to your browser's local storage. They persist across sessions.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use this planner offline?</button>
+            <div class="faq-a"><p>Once loaded, the study planner works fully offline. No internet connection is needed to manage tasks or run the timer.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I delete completed tasks?</button>
+            <div class="faq-a"><p>Use the "Clear Completed" button at the top of the task list to remove all checked-off tasks at once. You can also delete individual tasks using the ✕ button.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is my study data private?</button>
+            <div class="faq-a"><p>Completely. All data is stored locally in your browser. We have no access to your subjects, tasks, or study habits. Your privacy is absolute.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Ready to ace your exams?</h2>
+          <p>No account, no setup, no cost. Just a powerful study planner waiting for your tasks. Start organizing now.</p>
+          <a href="#study-app" class="btn btn-primary btn-lg">Start Planning Free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    (function() {
+      // --- Study Planner Logic ---
+      const STORAGE_SUBJECTS = 'studyplanner_subjects';
+      const STORAGE_TASKS = 'studyplanner_tasks';
+      const STORAGE_DARK = 'studyplanner_dark';
+
+      const subjectColors = ['#c4562a','#2d6a4f','#4a6fa5','#b8960c','#8b5cf6','#e8714a','#52b788','#5b8cce'];
+      let subjects = [];
+      let tasks = [];
+      let currentFilter = 'all';
+      let studyTimerInterval = null;
+      let studyTimeLeft = 25 * 60;
+      let isStudyTimerRunning = false;
+      let miniTimerInterval = null;
+      let miniTimeLeft = 25 * 60;
+      let isMiniTimerRunning = false;
+
+      const toast = document.getElementById('toast');
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+
+      function loadData() {
+        const savedSubjects = localStorage.getItem(STORAGE_SUBJECTS);
+        const savedTasks = localStorage.getItem(STORAGE_TASKS);
+        if (savedSubjects) subjects = JSON.parse(savedSubjects);
+        if (savedTasks) tasks = JSON.parse(savedTasks);
+        if (subjects.length === 0) {
+          subjects = [
+            { id: 's1', name: 'Mathematics', color: subjectColors[0] },
+            { id: 's2', name: 'Science', color: subjectColors[1] },
+            { id: 's3', name: 'History', color: subjectColors[2] }
+          ];
+        }
+        saveData();
+      }
+
+      function saveData() {
+        localStorage.setItem(STORAGE_SUBJECTS, JSON.stringify(subjects));
+        localStorage.setItem(STORAGE_TASKS, JSON.stringify(tasks));
+      }
+
+      function renderSubjects() {
+        const list = document.getElementById('subjectList');
+        const select = document.getElementById('taskSubjectSelect');
+        const allCount = tasks.length;
+        document.getElementById('allCount').textContent = allCount;
+
+        let html = `<button class="subject-item ${currentFilter === 'all' ? 'active' : ''}" data-subject="all">
+          <span class="subject-dot" style="background:var(--ink);"></span>
+          All Tasks
+          <span class="subject-count">${allCount}</span>
+        </button>`;
+
+        subjects.forEach((sub, i) => {
+          const count = tasks.filter(t => t.subjectId === sub.id && !t.done).length;
+          html += `<button class="subject-item ${currentFilter === sub.id ? 'active' : ''}" data-subject="${sub.id}">
+            <span class="subject-dot" style="background:${sub.color};"></span>
+            ${escapeHtml(sub.name)}
+            <span class="subject-count">${count}</span>
+          </button>`;
+        });
+        list.innerHTML = html;
+
+        // Populate select
+        select.innerHTML = '<option value="">Select subject</option>' + subjects.map(s => `<option value="${s.id}">${escapeHtml(s.name)}</option>`).join('');
+
+        // Click handlers
+        list.querySelectorAll('.subject-item').forEach(btn => {
+          btn.addEventListener('click', () => {
+            currentFilter = btn.dataset.subject;
+            renderSubjects();
+            renderTasks();
+            updateTitle();
+          });
+        });
+      }
+
+      function updateTitle() {
+        const title = document.getElementById('currentSubjectTitle');
+        if (currentFilter === 'all') {
+          title.textContent = '📋 All Study Tasks';
+        } else {
+          const sub = subjects.find(s => s.id === currentFilter);
+          title.textContent = sub ? `📋 ${sub.name} Tasks` : '📋 All Study Tasks';
+        }
+      }
+
+      function renderTasks() {
+        const list = document.getElementById('taskList');
+        let filtered = tasks;
+        if (currentFilter !== 'all') {
+          filtered = tasks.filter(t => t.subjectId === currentFilter);
+        }
+
+        if (filtered.length === 0) {
+          list.innerHTML = '<div class="empty-state">✨ No tasks yet. Add one to get started!</div>';
+        } else {
+          list.innerHTML = filtered.map(t => {
+            const sub = subjects.find(s => s.id === t.subjectId);
+            const subName = sub ? sub.name : 'No Subject';
+            const subColor = sub ? sub.color : 'var(--ink-muted)';
+            const priorityClass = `priority-${t.priority}`;
+            const deadline = t.deadline ? new Date(t.deadline).toLocaleDateString('en-US', { month:'short', day:'numeric' }) : '';
+            return `
+              <div class="task-item" data-id="${t.id}">
+                <div class="task-checkbox ${t.done ? 'done' : ''}" data-action="toggle" data-id="${t.id}">${t.done ? '✓' : ''}</div>
+                <div class="task-info">
+                  <span class="task-name ${t.done ? 'completed' : ''}">${escapeHtml(t.name)}</span>
+                  <div class="task-meta">
+                    <span style="color:${subColor};">📖 ${escapeHtml(subName)}</span>
+                    <span class="priority-badge ${priorityClass}">${t.priority}</span>
+                    ${deadline ? `<span>📅 ${deadline}</span>` : ''}
+                  </div>
+                </div>
+                <button class="task-delete" data-action="delete" data-id="${t.id}" aria-label="Delete task">✕</button>
+              </div>
+            `;
+          }).join('');
+        }
+
+        updateProgress();
+      }
+
+      function updateProgress() {
+        const total = tasks.length;
+        const done = tasks.filter(t => t.done).length;
+        const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+        document.getElementById('progressPercent').textContent = `${percent}% Complete`;
+        document.getElementById('progressFill').style.width = `${percent}%`;
+        document.getElementById('doneCount').textContent = done;
+        document.getElementById('totalTasksCount').textContent = total;
+      }
+
+      function addTask() {
+        const nameInput = document.getElementById('taskNameInput');
+        const subjectSelect = document.getElementById('taskSubjectSelect');
+        const prioritySelect = document.getElementById('taskPrioritySelect');
+        const deadlineInput = document.getElementById('taskDeadlineInput');
+        const name = nameInput.value.trim();
+        if (!name) { showToast('Please enter a task name.'); return; }
+
+        const task = {
+          id: Date.now().toString(),
+          name: name,
+          subjectId: subjectSelect.value || null,
+          priority: prioritySelect.value,
+          deadline: deadlineInput.value || null,
+          done: false,
+          createdAt: new Date().toISOString()
+        };
+        tasks.unshift(task);
+        nameInput.value = '';
+        saveData();
+        renderSubjects();
+        renderTasks();
+        showToast('Task added!');
+        nameInput.focus();
+      }
+
+      function toggleTask(id) {
+        const task = tasks.find(t => t.id === id);
+        if (!task) return;
+        task.done = !task.done;
+        saveData();
+        renderSubjects();
+        renderTasks();
+      }
+
+      function deleteTask(id) {
+        tasks = tasks.filter(t => t.id !== id);
+        saveData();
+        renderSubjects();
+        renderTasks();
+      }
+
+      function clearDone() {
+        const doneCount = tasks.filter(t => t.done).length;
+        if (doneCount === 0) { showToast('No completed tasks to clear.'); return; }
+        tasks = tasks.filter(t => !t.done);
+        saveData();
+        renderSubjects();
+        renderTasks();
+        showToast(`${doneCount} completed task(s) cleared.`);
+      }
+
+      function addSubject() {
+        const input = document.getElementById('subjectInput');
+        const name = input.value.trim();
+        if (!name) { showToast('Please enter a subject name.'); return; }
+        if (subjects.some(s => s.name.toLowerCase() === name.toLowerCase())) {
+          showToast('Subject already exists.'); return;
+        }
+        const sub = {
+          id: Date.now().toString(),
+          name: name,
+          color: subjectColors[subjects.length % subjectColors.length]
+        };
+        subjects.push(sub);
+        input.value = '';
+        saveData();
+        renderSubjects();
+        showToast(`Subject "${name}" added!`);
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Study Timer
+      function updateStudyTimerDisplay() {
+        const m = Math.floor(studyTimeLeft / 60);
+        const s = studyTimeLeft % 60;
+        document.getElementById('studyTimerDisplay').textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+      }
+
+      function studyTimerTick() {
+        if (studyTimeLeft <= 0) {
+          stopStudyTimer();
+          showToast('⏰ Study session complete! Take a break.');
+          try {
+            if (Notification.permission === "granted") {
+              new Notification("Study Planner", { body: "Study session complete! Time for a break." });
+            }
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            if (ctx.state === 'suspended') ctx.resume();
+            const osc = ctx.createOscillator(); const gain = ctx.createGain();
+            osc.connect(gain); gain.connect(ctx.destination);
+            gain.gain.value = 0.08; osc.frequency.value = 700; osc.type = 'sine';
+            osc.start(); setTimeout(() => osc.stop(), 200);
+          } catch(e) {}
+          return;
+        }
+        studyTimeLeft--;
+        updateStudyTimerDisplay();
+      }
+
+      function startStudyTimer() {
+        if (isStudyTimerRunning) return;
+        if (studyTimeLeft <= 0) studyTimeLeft = 25 * 60;
+        isStudyTimerRunning = true;
+        document.getElementById('studyTimerToggle').textContent = '⏸ Pause';
+        studyTimerInterval = setInterval(studyTimerTick, 1000);
+        if (Notification.permission === "default") Notification.requestPermission();
+      }
+
+      function stopStudyTimer() {
+        isStudyTimerRunning = false;
+        document.getElementById('studyTimerToggle').textContent = '▶ Start';
+        if (studyTimerInterval) { clearInterval(studyTimerInterval); studyTimerInterval = null; }
+        updateStudyTimerDisplay();
+      }
+
+      function resetStudyTimer(minutes) {
+        stopStudyTimer();
+        studyTimeLeft = minutes * 60;
+        updateStudyTimerDisplay();
+        document.querySelectorAll('.timer-preset[data-study-minutes]').forEach(b => b.classList.remove('active'));
+        document.querySelector(`.timer-preset[data-study-minutes="${minutes}"]`)?.classList.add('active');
+      }
+
+      // Mini Timer
+      function updateMiniTimerDisplay() {
+        const m = Math.floor(miniTimeLeft / 60);
+        const s = miniTimeLeft % 60;
+        document.getElementById('miniTimerDisplay').textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+      }
+
+      function miniTimerTick() {
+        if (miniTimeLeft <= 0) {
+          stopMiniTimer();
+          showToast('⏰ Focus session done!');
+          return;
+        }
+        miniTimeLeft--;
+        updateMiniTimerDisplay();
+      }
+
+      function startMiniTimer() {
+        if (isMiniTimerRunning) return;
+        if (miniTimeLeft <= 0) miniTimeLeft = 25 * 60;
+        isMiniTimerRunning = true;
+        document.getElementById('miniTimerToggle').textContent = '⏸ Pause';
+        miniTimerInterval = setInterval(miniTimerTick, 1000);
+      }
+
+      function stopMiniTimer() {
+        isMiniTimerRunning = false;
+        document.getElementById('miniTimerToggle').textContent = '▶ Start Focus';
+        if (miniTimerInterval) { clearInterval(miniTimerInterval); miniTimerInterval = null; }
+        updateMiniTimerDisplay();
+      }
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        document.getElementById('darkModeStudyBtn').textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        localStorage.setItem(STORAGE_DARK, isDark ? 'true' : 'false');
+      }
+
+      // Event Listeners
+      document.getElementById('addTaskBtn').addEventListener('click', addTask);
+      document.getElementById('taskNameInput').addEventListener('keypress', e => { if (e.key === 'Enter') addTask(); });
+      document.getElementById('addSubjectBtn').addEventListener('click', addSubject);
+      document.getElementById('subjectInput').addEventListener('keypress', e => { if (e.key === 'Enter') addSubject(); });
+      document.getElementById('clearDoneBtn').addEventListener('click', clearDone);
+      document.getElementById('darkModeStudyBtn').addEventListener('click', toggleDarkMode);
+
+      document.getElementById('taskList').addEventListener('click', e => {
+        const btn = e.target.closest('[data-action]');
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const id = btn.dataset.id;
+        if (action === 'toggle') toggleTask(id);
+        if (action === 'delete') deleteTask(id);
+      });
+
+      document.getElementById('studyTimerToggle').addEventListener('click', () => {
+        isStudyTimerRunning ? stopStudyTimer() : startStudyTimer();
+      });
+      document.getElementById('studyTimerReset').addEventListener('click', () => resetStudyTimer(25));
+      document.querySelectorAll('.timer-preset[data-study-minutes]').forEach(btn => {
+        btn.addEventListener('click', () => resetStudyTimer(parseInt(btn.dataset.studyMinutes)));
+      });
+
+      document.getElementById('miniTimerToggle').addEventListener('click', () => {
+        isMiniTimerRunning ? stopMiniTimer() : startMiniTimer();
+      });
+      document.querySelectorAll('.timer-preset[data-minutes]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          miniTimeLeft = parseInt(btn.dataset.minutes) * 60;
+          updateMiniTimerDisplay();
+          document.querySelectorAll('.timer-preset[data-minutes]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          const answer = this.nextElementSibling;
+          if (answer) answer.style.display = expanded ? 'none' : 'block';
+        });
+      });
+
+      // Init
+      function init() {
+        loadData();
+        if (localStorage.getItem(STORAGE_DARK) === 'true') {
+          document.body.classList.add('dark');
+          document.getElementById('darkModeStudyBtn').textContent = '☀️ Light Mode';
+        }
+        renderSubjects();
+        renderTasks();
+        updateTitle();
+        updateStudyTimerDisplay();
+        updateMiniTimerDisplay();
+        setInterval(saveData, 5000);
+      }
+
+      init();
+
+      window.addEventListener('load', () => {
+        if (typeof window.initHeader === 'function') window.initHeader();
+        if (typeof window.initFooter === 'function') window.initFooter();
+      });
+    })();
+  </script>
+</body>
+</html>

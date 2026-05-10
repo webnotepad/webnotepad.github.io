@@ -56,6 +56,7 @@
               <li><a href="/habit-tracker">Habit Tracker</a></li> 
               <li><a href="/pomodoro-timer">Pomodoro Timer</a></li>
               <li><a href="/choice-maker">Decision Maker</a></li>
+              <li><a href="/study-planner">Study Planner</a></li>
             </ul>
           </div>
         </div>

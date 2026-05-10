@@ -26,6 +26,7 @@
               <a href="/pomodoro-timer" class="dropdown-item">Pomodoro Timer</a>
               <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
               <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
+              <a href="/study-planner" class="dropdown-item">Study Planner</a>
             </div>
           </div>    
           <a href="/blog" class="nav-link">Blog</a>
@@ -55,6 +56,7 @@
           <a href="/pomodoro-timer" class="nav-link" style="padding-left: 32px;">• Pomodoro Timer</a>
           <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
           <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>
+          <a href="/study-planner" class="nav-link" style="padding-left: 32px;">• Study Planner</a>
         </div>
       </div>      
       <a href="diary" class="nav-link">🔄 Diary</a>

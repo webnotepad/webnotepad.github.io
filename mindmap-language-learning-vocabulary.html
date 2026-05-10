@@ -824,11 +824,14 @@
 </article>
 </main>
 
-<footer class="blog-footer">
-  <div class="blog-footer-brand">WebNotePad</div>
-  <p>Free online notepad, diary, mind map, list maker &amp; word processor. No signup. No ads.</p>
-  <p style="margin-top:8px;"><a href="https://webnotepad.github.io/">webnotepad.github.io</a></p>
-</footer>
+<!-- Footer injected by footer.js -->
+  <div id="footer-root"></div> 
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
+
+  
 <script>window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('rpFill').style.width=Math.min(100,(d.scrollTop/(d.scrollHeight-d.clientHeight))*100)+'%';});</script>
 </body>
 </html>

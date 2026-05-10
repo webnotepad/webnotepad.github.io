@@ -285,7 +285,242 @@
           </div>
         </div>
       </div>
-    </section>
+    </section
+
+      <!-- ===== TOOLS NAVIGATION SECTION ===== -->
+<section class="section section-tools" id="tools" aria-label="Quick Tools">
+  <div class="container">
+    <div class="section-label">Explore the toolkit</div>
+    <h2 class="section-title">More ways to <em>stay productive.</em></h2>
+    <p class="section-sub">
+      Beyond the notepad — jump into focused tools for writing, planning, tracking, and deciding. All free, all in your browser.
+    </p>
+
+    <div class="tools-grid">
+      <!-- 1. Notepad -->
+      <a href="#notepad" class="tool-card">
+        <div class="tool-icon">📝</div>
+        <h3 class="tool-title">Notepad</h3>
+        <p class="tool-desc">Write, edit and auto‑save notes instantly. Clean and distraction‑free.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 2. Diary -->
+      <a href="#diary" class="tool-card">
+        <div class="tool-icon">📖</div>
+        <h3 class="tool-title">Diary</h3>
+        <p class="tool-desc">Keep a private daily journal with dated entries and rich text.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 3. MindMap -->
+      <a href="#mindmap" class="tool-card">
+        <div class="tool-icon">🧠</div>
+        <h3 class="tool-title">MindMap</h3>
+        <p class="tool-desc">Visualize ideas and brainstorm with an interactive mind mapping board.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 4. List Maker -->
+      <a href="#list-maker" class="tool-card">
+        <div class="tool-icon">✅</div>
+        <h3 class="tool-title">List Maker</h3>
+        <p class="tool-desc">Create checklists, to‑dos, and bullet lists with drag‑and‑drop ease.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 5. Case Converter -->
+      <a href="#case-converter" class="tool-card">
+        <div class="tool-icon">🔤</div>
+        <h3 class="tool-title">Case Converter</h3>
+        <p class="tool-desc">Transform text to uppercase, lowercase, title case, and more instantly.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 6. Random Text -->
+      <a href="#random-text" class="tool-card">
+        <div class="tool-icon">🎲</div>
+        <h3 class="tool-title">Random Text</h3>
+        <p class="tool-desc">Generate placeholder paragraphs, sentences, or words with one click.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 7. Word Shuffler -->
+      <a href="#word-shuffler" class="tool-card">
+        <div class="tool-icon">🔀</div>
+        <h3 class="tool-title">Word Shuffler</h3>
+        <p class="tool-desc">Randomize word order in any text — perfect for creative prompts.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 8. Wordpad -->
+      <a href="#wordpad" class="tool-card">
+        <div class="tool-icon">📄</div>
+        <h3 class="tool-title">Wordpad</h3>
+        <p class="tool-desc">A lightweight rich‑text editor with basic formatting and export.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 9. Pomodoro Timer -->
+      <a href="#pomodoro" class="tool-card">
+        <div class="tool-icon">🍅</div>
+        <h3 class="tool-title">Pomodoro Timer</h3>
+        <p class="tool-desc">Stay focused with customizable work/break intervals and alerts.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 10. Habit Tracker -->
+      <a href="#habit-tracker" class="tool-card">
+        <div class="tool-icon">📅</div>
+        <h3 class="tool-title">Habit Tracker</h3>
+        <p class="tool-desc">Build streaks and track daily habits with a simple visual calendar.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+
+      <!-- 11. Decision Maker -->
+      <a href="#decision-maker" class="tool-card">
+        <div class="tool-icon">⚖️</div>
+        <h3 class="tool-title">Decision Maker</h3>
+        <p class="tool-desc">Spin a wheel, flip a coin, or let the tool decide between your options.</p>
+        <span class="tool-link">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+    <!-- Inline CSS for the tools section (can be added to your styles.css instead) -->
+<style>
+  /* ===== TOOLS SECTION ===== */
+  .section-tools {
+    background: var(--paper);
+    padding: 96px 0;
+    transition: background var(--transition);
+  }
+
+  body.dark .section-tools {
+    background: var(--paper);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .tool-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--paper-edge);
+    border-radius: var(--radius-lg);
+    padding: 26px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+
+  .tool-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+
+  body.dark .tool-card:hover {
+    background: var(--paper-warm);
+  }
+
+  .tool-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .tool-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    transition: transform var(--transition);
+  }
+
+  .tool-card:hover .tool-icon {
+    transform: scale(1.1);
+  }
+
+  .tool-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .tool-desc {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .tool-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap var(--transition);
+    margin-top: auto;
+  }
+
+  .tool-card:hover .tool-link {
+    gap: 8px;
+    color: var(--accent-light);
+  }
+
+  /* Responsive adjustments for the tools grid */
+  @media (max-width: 1024px) {
+    .tools-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tools-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .section-tools {
+      padding: 64px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .tool-card {
+      padding: 22px 18px 18px;
+    }
+  }
+</style>
 
     <!-- ===== HOW IT WORKS SECTION ===== -->
     <section class="section section-how" id="how-it-works" aria-label="How it works">

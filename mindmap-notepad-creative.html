@@ -260,110 +260,14 @@
   </header>
 
   <!-- Featured Image -->
-  <div class="featured-img-wrap" role="img" aria-label="Vibrant mind map radiating creative ideas from a central concept with colorful branches for brainstorming">
-    <svg viewBox="0 0 740 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1c1007"/>
-          <stop offset="100%" stop-color="#0f0a00"/>
-        </linearGradient>
-        <radialGradient id="glow1" cx="50%" cy="50%" r="40%">
-          <stop offset="0%" stop-color="#d97706" stop-opacity="0.35"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-        <radialGradient id="glow2" cx="30%" cy="40%" r="30%">
-          <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-        <radialGradient id="glow3" cx="70%" cy="60%" r="30%">
-          <stop offset="0%" stop-color="#0369a1" stop-opacity="0.2"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-      </defs>
-
-      <!-- Background -->
-      <rect width="740" height="400" fill="url(#bg1)"/>
-      <rect width="740" height="400" fill="url(#glow1)"/>
-      <rect width="740" height="400" fill="url(#glow2)"/>
-      <rect width="740" height="400" fill="url(#glow3)"/>
-
-      <!-- Subtle grid -->
-      <g opacity="0.05" stroke="white" stroke-width="1">
-        <line x1="0" y1="80"  x2="740" y2="80"/>
-        <line x1="0" y1="160" x2="740" y2="160"/>
-        <line x1="0" y1="240" x2="740" y2="240"/>
-        <line x1="0" y1="320" x2="740" y2="320"/>
-        <line x1="100" y1="0" x2="100" y2="400"/>
-        <line x1="200" y1="0" x2="200" y2="400"/>
-        <line x1="300" y1="0" x2="300" y2="400"/>
-        <line x1="400" y1="0" x2="400" y2="400"/>
-        <line x1="500" y1="0" x2="500" y2="400"/>
-        <line x1="600" y1="0" x2="600" y2="400"/>
-        <line x1="700" y1="0" x2="700" y2="400"/>
-      </g>
-
-      <!-- Central node -->
-      <ellipse cx="370" cy="200" rx="72" ry="40" fill="#b45309"/>
-      <ellipse cx="370" cy="200" rx="72" ry="40" fill="none" stroke="#fcd34d" stroke-width="2" opacity="0.6"/>
-      <text x="370" y="196" fill="white" font-family="serif" font-size="13" font-weight="700" text-anchor="middle">💡 Creative</text>
-      <text x="370" y="212" fill="white" font-family="serif" font-size="13" font-weight="700" text-anchor="middle">Project Idea</text>
-
-      <!-- Branch 1: Top-left — Strategy -->
-      <path d="M 305 173 Q 240 130 185 100" stroke="#d97706" stroke-width="2.5" fill="none"/>
-      <ellipse cx="160" cy="88" rx="52" ry="26" fill="#92400e"/>
-      <text x="160" y="92" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Strategy</text>
-      <!-- sub-nodes -->
-      <path d="M 115 78 Q 80 62 58 52" stroke="#d97706" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="45" cy="46" rx="30" ry="15" fill="#451a03"/>
-      <text x="45" y="50" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="8" text-anchor="middle">Goals</text>
-
-      <!-- Branch 2: Top-right — Design -->
-      <path d="M 435 173 Q 500 130 555 100" stroke="#0369a1" stroke-width="2.5" fill="none"/>
-      <ellipse cx="580" cy="88" rx="52" ry="26" fill="#0c4a6e"/>
-      <text x="580" y="92" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Design</text>
-      <path d="M 625 78 Q 660 62 682 52" stroke="#0369a1" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="695" cy="46" rx="30" ry="15" fill="#082f49"/>
-      <text x="695" y="50" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="8" text-anchor="middle">UI/UX</text>
-
-      <!-- Branch 3: Left — Research -->
-      <path d="M 298 200 Q 230 200 168 200" stroke="#15803d" stroke-width="2.5" fill="none"/>
-      <ellipse cx="140" cy="200" rx="52" ry="26" fill="#14532d"/>
-      <text x="140" y="204" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Research</text>
-      <path d="M 88 200 Q 58 200 38 200" stroke="#15803d" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="22" cy="200" rx="18" ry="12" fill="#052e16"/>
-      <text x="22" y="204" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="7" text-anchor="middle">Data</text>
-
-      <!-- Branch 4: Right — Content -->
-      <path d="M 442 200 Q 510 200 572 200" stroke="#7c3aed" stroke-width="2.5" fill="none"/>
-      <ellipse cx="600" cy="200" rx="52" ry="26" fill="#3b0764"/>
-      <text x="600" y="204" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Content</text>
-      <path d="M 652 200 Q 682 200 702 200" stroke="#7c3aed" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="718" cy="200" rx="18" ry="12" fill="#1e1b2e"/>
-      <text x="718" y="204" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="7" text-anchor="middle">Copy</text>
-
-      <!-- Branch 5: Bottom-left — Launch -->
-      <path d="M 305 227 Q 240 270 185 300" stroke="#dc2626" stroke-width="2.5" fill="none"/>
-      <ellipse cx="160" cy="312" rx="52" ry="26" fill="#7f1d1d"/>
-      <text x="160" y="316" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Launch</text>
-      <path d="M 115 322 Q 80 338 58 348" stroke="#dc2626" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="45" cy="354" rx="30" ry="15" fill="#450a0a"/>
-      <text x="45" y="358" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="8" text-anchor="middle">Timeline</text>
-
-      <!-- Branch 6: Bottom-right — Marketing -->
-      <path d="M 435 227 Q 500 270 555 300" stroke="#c026d3" stroke-width="2.5" fill="none"/>
-      <ellipse cx="580" cy="312" rx="52" ry="26" fill="#701a75"/>
-      <text x="580" y="316" fill="white" font-family="monospace" font-size="10" font-weight="600" text-anchor="middle">Marketing</text>
-      <path d="M 625 322 Q 660 338 682 348" stroke="#c026d3" stroke-width="1.5" fill="none" opacity="0.7"/>
-      <ellipse cx="695" cy="354" rx="30" ry="15" fill="#2e1065"/>
-      <text x="695" y="358" fill="rgba(255,255,255,0.8)" font-family="monospace" font-size="8" text-anchor="middle">Social</text>
-
-      <!-- Bottom label -->
-      <text x="370" y="382" fill="rgba(255,255,255,0.55)" font-family="serif" font-size="14" font-weight="400" font-style="italic" text-anchor="middle">Every great project begins as a mind map</text>
-
-      <!-- Top label -->
-      <text x="370" y="30" fill="rgba(255,255,255,0.85)" font-family="serif" font-size="18" font-weight="700" text-anchor="middle">5 Brainstorming Techniques for Creative Projects</text>
-    </svg>
-  </div>
+  <figure>
+  <img 
+    src='/images/notepads-creative-projects.png' 
+    alt="An illustration of a creative team collaborating on a project using digital tools. A woman stands before a large screen displaying a central 'Creative Project' mind map with branches for target audience, brand identity, and marketing strategy. Two colleagues use a laptop and tablet to access an 'Online Notepad' and 'Project Board,' while icons for brainstormed ideas like film, music, and photography float around the workspace." 
+    style="width: 100%; height: auto; border-radius: 8px;"
+  >
+  <figcaption>Collaborative Creativity: Using integrated online mind maps and notepads to brainstorm complex projects and organize team workflows in real time.</figcaption>
+</figure>
 
   <!-- Body -->
   <div class="article-body" itemprop="articleBody">

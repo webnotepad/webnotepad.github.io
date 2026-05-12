@@ -20,6 +20,7 @@
   <meta name="author" content="WebNotePad"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://webnotepad.github.io/case-converter-tools"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://webnotepad.github.io/case-converter-tools"/>
@@ -83,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600;1,9..144,700&family=Literata:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="blog.css"/>
+  <link rel="stylesheet" href="styles.css" />
 
   <style>
     :root {
@@ -335,19 +337,8 @@
 
 <div class="reading-progress"><div class="reading-progress-fill" id="rpFill"></div></div>
 
-<nav class="blog-nav" aria-label="Site navigation">
-  <a href="https://webnotepad.github.io/" class="blog-nav-brand">
-    <div class="nav-dot" style="background:#8b5cf6;"></div>WebNotePad
-  </a>
-  <div class="blog-nav-links">
-    <a href="https://webnotepad.github.io/">Home</a>
-    <a href="https://webnotepad.github.io/#notepad">Notepad</a>
-    <a href="https://webnotepad.github.io/text-generator.html">Text Generator</a>
-    <a href="https://webnotepad.github.io/wordpad.html">WordPad</a>
-    <a href="https://webnotepad.github.io/list-maker.html">List Maker</a>
-    <a href="https://webnotepad.github.io/case-converter" class="nav-cta">Open Case Converter →</a>
-  </div>
-</nav>
+<!-- Header injected by header.js -->
+  <div id="header-root"></div>
 
 <main>
 <article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
@@ -883,11 +874,12 @@
 </article>
 </main>
 
-<footer class="blog-footer">
-  <div class="blog-footer-brand">WebNotePad</div>
-  <p>Free online notepad, diary, mind map, list maker, word processor &amp; text tools. No signup. No ads.</p>
-  <p style="margin-top:8px;"><a href="https://webnotepad.github.io/">webnotepad.github.io</a></p>
-</footer>
+<!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>  
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="app.js"></script>
 
 <script>
 window.addEventListener('scroll', () => {

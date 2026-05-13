@@ -366,97 +366,14 @@
   </header>
 
   <!-- ══ FEATURED IMAGE ══ -->
-  <div class="featured-img-wrap" role="img" aria-label="Visual showing text transforming between different cases: UPPERCASE, lowercase, Title Case, camelCase and more on a dark screen">
-    <svg viewBox="0 0 740 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="ccbg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1a0a2e"/>
-          <stop offset="100%" stop-color="#0d0618"/>
-        </linearGradient>
-        <linearGradient id="ccpurp" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#7c3aed"/>
-          <stop offset="100%" stop-color="#8b5cf6"/>
-        </linearGradient>
-        <radialGradient id="ccglow" cx="50%" cy="40%" r="55%">
-          <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.22"/>
-          <stop offset="100%" stop-color="transparent"/>
-        </radialGradient>
-      </defs>
-
-      <rect width="740" height="400" fill="url(#ccbg)"/>
-      <rect width="740" height="400" fill="url(#ccglow)"/>
-
-      <!-- Central input box -->
-      <rect x="155" y="48" width="430" height="58" rx="10" fill="rgba(255,255,255,0.07)" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"/>
-      <text x="175" y="72" fill="rgba(255,255,255,0.4)" font-family="monospace" font-size="10">INPUT:</text>
-      <text x="175" y="92" fill="rgba(255,255,255,0.85)" font-family="monospace" font-size="15" font-weight="600">the quick brown fox</text>
-      <!-- cursor -->
-      <rect x="406" y="80" width="2" height="14" rx="1" fill="#8b5cf6" opacity="0.9"/>
-
-      <!-- Arrow down -->
-      <text x="370" y="130" fill="rgba(139,92,246,0.6)" font-family="monospace" font-size="22" text-anchor="middle">↓</text>
-
-      <!-- Output case rows — 4 columns × 2 rows -->
-      <!-- Row 1 -->
-      <!-- UPPERCASE -->
-      <rect x="30"  y="145" width="156" height="52" rx="8" fill="rgba(220,38,38,0.15)" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
-      <text x="44"  y="163" fill="rgba(220,38,38,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">UPPERCASE</text>
-      <text x="44"  y="183" fill="#fca5a5"              font-family="monospace" font-size="12" font-weight="700">THE QUICK BROWN FOX</text>
-
-      <!-- lowercase -->
-      <rect x="196" y="145" width="156" height="52" rx="8" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.35)" stroke-width="1"/>
-      <text x="210" y="163" fill="rgba(37,99,235,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">lowercase</text>
-      <text x="210" y="183" fill="#93c5fd"              font-family="monospace" font-size="12" font-weight="700">the quick brown fox</text>
-
-      <!-- Title Case -->
-      <rect x="362" y="145" width="156" height="52" rx="8" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.35)" stroke-width="1"/>
-      <text x="376" y="163" fill="rgba(124,58,237,0.7)" font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">Title Case</text>
-      <text x="376" y="183" fill="#c4b5fd"              font-family="monospace" font-size="12" font-weight="700">The Quick Brown Fox</text>
-
-      <!-- Sentence case -->
-      <rect x="528" y="145" width="182" height="52" rx="8" fill="rgba(5,150,105,0.15)" stroke="rgba(5,150,105,0.35)" stroke-width="1"/>
-      <text x="542" y="163" fill="rgba(5,150,105,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">Sentence case</text>
-      <text x="542" y="183" fill="#6ee7b7"              font-family="monospace" font-size="12" font-weight="700">The quick brown fox</text>
-
-      <!-- Row 2 -->
-      <!-- camelCase -->
-      <rect x="30"  y="212" width="156" height="52" rx="8" fill="rgba(217,119,6,0.15)"  stroke="rgba(217,119,6,0.35)"  stroke-width="1"/>
-      <text x="44"  y="230" fill="rgba(217,119,6,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">camelCase</text>
-      <text x="44"  y="250" fill="#fcd34d"              font-family="monospace" font-size="12" font-weight="700">theQuickBrownFox</text>
-
-      <!-- PascalCase -->
-      <rect x="196" y="212" width="156" height="52" rx="8" fill="rgba(147,51,234,0.15)" stroke="rgba(147,51,234,0.35)" stroke-width="1"/>
-      <text x="210" y="230" fill="rgba(147,51,234,0.7)" font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">PascalCase</text>
-      <text x="210" y="250" fill="#d8b4fe"              font-family="monospace" font-size="12" font-weight="700">TheQuickBrownFox</text>
-
-      <!-- snake_case -->
-      <rect x="362" y="212" width="156" height="52" rx="8" fill="rgba(3,105,161,0.15)"  stroke="rgba(3,105,161,0.35)"  stroke-width="1"/>
-      <text x="376" y="230" fill="rgba(3,105,161,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">snake_case</text>
-      <text x="376" y="250" fill="#7dd3fc"              font-family="monospace" font-size="12" font-weight="700">the_quick_brown_fox</text>
-
-      <!-- kebab-case -->
-      <rect x="528" y="212" width="182" height="52" rx="8" fill="rgba(190,24,93,0.15)"  stroke="rgba(190,24,93,0.35)"  stroke-width="1"/>
-      <text x="542" y="230" fill="rgba(190,24,93,0.7)"  font-family="monospace" font-size="8"  font-weight="700" letter-spacing="2">kebab-case</text>
-      <text x="542" y="250" fill="#fda4af"              font-family="monospace" font-size="12" font-weight="700">the-quick-brown-fox</text>
-
-      <!-- Row 3 — extra cases -->
-      <rect x="30"  y="278" width="234" height="42" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-      <text x="44"  y="296" fill="rgba(255,255,255,0.35)" font-family="monospace" font-size="8" font-weight="700" letter-spacing="2">CONSTANT_CASE</text>
-      <text x="44"  y="311" fill="rgba(255,255,255,0.55)" font-family="monospace" font-size="10" font-weight="700">THE_QUICK_BROWN_FOX</text>
-
-      <rect x="274" y="278" width="222" height="42" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-      <text x="288" y="296" fill="rgba(255,255,255,0.35)" font-family="monospace" font-size="8" font-weight="700" letter-spacing="2">aLtErNaTiNg CaSe</text>
-      <text x="288" y="311" fill="rgba(255,255,255,0.55)" font-family="monospace" font-size="10" font-weight="700">tHe QuIcK bRoWn FoX</text>
-
-      <rect x="506" y="278" width="204" height="42" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-      <text x="520" y="296" fill="rgba(255,255,255,0.35)" font-family="monospace" font-size="8" font-weight="700" letter-spacing="2">Inverted Case</text>
-      <text x="520" y="311" fill="rgba(255,255,255,0.55)" font-family="monospace" font-size="10" font-weight="700">THE QUICK BROWN FOX →</text>
-
-      <!-- Title -->
-      <text x="370" y="365" fill="rgba(196,181,253,0.6)" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle" letter-spacing="3">ONE TOOL · EVERY CASE · INSTANT CONVERSION</text>
-      <text x="370" y="384" fill="rgba(255,255,255,0.22)" font-family="serif" font-size="14" font-weight="700" font-style="italic" text-anchor="middle">webnotepad.github.io/case-converter</text>
-    </svg>
-  </div>
+  <figure>
+  <img 
+    src='/images/instant-text-formatting.png' 
+    alt="An illustrative graphic for a 'Best Free Online Case Converter Tool' featuring two professional characters. Below them, a digital interface demonstrates a text conversion from mixed case ('hElLo wOrLd!') to 'Sentence case' ('Hello world! Is this ready?'). Options for UPPERCASE, lowercase, Title Case, and Sentence.Case are shown as clickable buttons." 
+    style="width: 100%; height: auto; border-radius: 8px;"
+  >
+  <figcaption>Instant Text Formatting: Use our free online case converter to quickly toggle between uppercase, lowercase, title case, and sentence case with a single click.</figcaption>
+</figure>
 
   <!-- ══ BODY ══ -->
   <div class="article-body" itemprop="articleBody">

@@ -21,8 +21,7 @@
             <div class="dropdown-content">
               <a href="/case-converter" class="dropdown-item">Case Converter</a>
               <a href="/random-text" class="dropdown-item">Random Text</a>
-              <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>
-              <a href="/wordpad" class="dropdown-item">Wordpad</a>
+              <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>              
               <a href="/pomodoro-timer" class="dropdown-item">Pomodoro Timer</a>
               <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
               <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
@@ -51,8 +50,7 @@
         <div class="mobile-dropdown-content">
           <a href="/case-converter" class="nav-link" style="padding-left: 32px;">• Case Converter</a>
           <a href="/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
-          <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>
-          <a href="/wordpad" class="nav-link" style="padding-left: 32px;">• Wordpad</a>
+          <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>          
           <a href="/pomodoro-timer" class="nav-link" style="padding-left: 32px;">• Pomodoro Timer</a>
           <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
           <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>

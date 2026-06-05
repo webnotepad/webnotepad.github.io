@@ -50,9 +50,7 @@
         </div>
         <div class="footer-bottom">
           <span class="footer-copy">© ${year} WebNotePad · webnotepad.github.io · Free Online Notepad</span>
-          <div class="footer-links">
-            <a href="privacy">Privacy</a>
-            <a href="terms">Terms</a>
+          <div class="footer-links">           
             <a href="sitemap.xml">Sitemap</a>
           </div>
         </div>

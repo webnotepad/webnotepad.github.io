@@ -25,27 +25,16 @@
           </div>
           <div class="footer-col">
             <h4>Resources</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
+            <ul>              
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
-              <li><a href="/#faq">FAQ</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+              <li><a href="/terms">Terms of Use</a></li>
               <li><a href="/diary">Online Diary</a></li>
               <li><a href="/mindmap">MindMap Online</a></li>
               <li><a href="/list-maker">List Maker</a></li>
               </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Features</h4>
-            <ul>
-              <li><a href="/#notepad">Auto-Save</a></li>
-              <li><a href="/#notepad">Dark Mode</a></li>
-              <li><a href="/#notepad">Rich Text</a></li>
-              <li><a href="/#notepad">Export Notes</a></li>
-              <li><a href="/#notepad">Find & Replace</a></li>
-              <li><a href="/#notepad">Fullscreen</a></li>
-            </ul>
-          </div>
+          </div>          
           <div class="footer-col">
             <h4>More</h4>
             <ul>

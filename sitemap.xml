@@ -1,33 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main pages -->
     <url>
         <loc>https://webnotepad.github.io/</loc>
-        <lastmod>2026-04-14</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.00</priority>
     </url>
-  <url>
+    
+    <!-- Core tools -->
+    <url>
+        <loc>https://webnotepad.github.io/mindmap</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/diary</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/list-maker</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/case-converter</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/random-text</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/word-shuffler</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/pomodoro-timer</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/habit-tracker</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/choice-maker</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Blog / informational pages -->
+    <url>
+        <loc>https://webnotepad.github.io/alternatives-notion-evernote</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/writers-draft-faster</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/mindmap-notepad-creative</loc>
+        <lastmod>2026-05-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.65</priority>
+    </url>
+    <url>
+        <loc>https://webnotepad.github.io/mindmap-language-learning-vocabulary</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.60</priority>
+    </url>
+
+    <!-- Legal / static pages -->
+    <url>
         <loc>https://webnotepad.github.io/privacy</loc>
-        <lastmod>2026-04-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.00</priority>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.50</priority>
     </url>
-  <url>
+    <url>
         <loc>https://webnotepad.github.io/terms</loc>
-        <lastmod>2026-04-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.00</priority>
-    </url>
-  <url>
-        <loc>https://webnotepad.github.io/about</loc>
-        <lastmod>2026-04-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.00</priority>
-    </url>
-  <url>
-        <loc>https://webnotepad.github.io/contact</loc>
-        <lastmod>2026-04-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.00</priority>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.50</priority>
     </url>
 </urlset>

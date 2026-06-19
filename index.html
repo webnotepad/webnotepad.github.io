@@ -658,6 +658,226 @@
       </div>
     </section>
 
+<section>
+    <div class="blog-preview-grid">
+
+    <!-- Card 1 – Productivity -->
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="date">📅 May 13, 2026</span>
+        <span>⚡ 6 min read</span>
+      </div>
+      <div class="card-divider"></div>
+      <h2>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h2>
+      <div class="blog-excerpt">
+        <p>From morning brain dumps to deep-work frameworks – boost efficiency without any signup friction.</p>
+      </div>
+      <a href="productivity-10-ways" class="read-more" data-article-link="productivity-10-ways">Read full story →</a>
+    </article>
+
+    <!-- Card 2 – Student + Mindmap -->
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="date">📅 May 8, 2026</span>
+        <span>🎓 8 min read</span>
+      </div>
+      <div class="card-divider"></div>
+      <h2>How to Take Better Class Notes with an Online Notepad + Mindmap</h2>
+      <div class="blog-excerpt">
+        <p>Combine structured outlines with visual mind mapping to capture lectures and boost retention.</p>
+      </div>
+      <a href="better-class-notes" class="read-more" data-article-link="student-notes-mindmap">Read full story →</a>
+    </article>
+
+    <!-- Card 3 – Privacy -->
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="date">📅 May 8, 2026</span>
+        <span>🔒 5 min read</span>
+      </div>
+      <div class="card-divider"></div>
+      <h2>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h2>
+      <div class="blog-excerpt">
+        <p>Local storage vs. cloud servers: why your thoughts belong only to you. A manifesto for digital autonomy.</p>
+      </div>
+      <a href="privacy-browser-notepad" class="read-more" data-article-link="privacy-browser-notepad">Read full story →</a>
+    </article>
+
+    <!-- Card 4 – Creative / Mindmap -->
+    <article class="blog-card">
+      <div class="blog-meta">
+        <span class="date">📅 May 8, 2026</span>
+        <span>💡 11 min read</span>
+      </div>
+      <div class="card-divider"></div>
+      <h2>Brainstorming Techniques: Using Free Online Mindmaps and Notepads for Creative Projects</h2>
+      <div class="blog-excerpt">
+        <p>Five proven brainstorming methods that turn blank pages into breakthrough ideas.</p>
+      </div>
+      <a href="mindmap-notepad-creative" class="read-more" data-article-link="mindmap-notepad-creative">Read full story →</a>
+    </article>
+  </div>
+  <style>
+    /* minimal reset + card styling – matching WebNotePad editorial theme */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf8f4;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* Card grid – exactly 4 cards */
+    .blog-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* individual card – clean, border, subtle hover */
+    .blog-card {
+      background: #ffffff;
+      border: 1px solid #e8e2d6;
+      border-radius: 14px;
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle accent line on hover */
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #c4562a;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26, 26, 46, 0.10);
+      border-color: #f0e8dc;
+    }
+
+    .blog-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* meta row (date / reading time) */
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #c4562a;
+      margin-bottom: 16px;
+    }
+
+    .blog-meta .date {
+      color: #6b6b85;
+    }
+
+    /* divider line (accent) */
+    .card-divider {
+      height: 3px;
+      width: 40px;
+      background: #c4562a;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+
+    /* title */
+    .blog-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.3;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    /* description / excerpt */
+    .blog-excerpt {
+      color: #6b6b85;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .blog-excerpt p {
+      margin-bottom: 0;
+    }
+
+    /* clickable link – styled as "read more" */
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #c4562a;
+      border-bottom: 1.5px solid #fce9e3;
+      width: fit-content;
+      transition: gap 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      padding-bottom: 2px;
+      margin-top: auto;
+    }
+
+    .read-more:hover {
+      gap: 12px;
+      border-bottom-color: #c4562a;
+      color: #e8714a;
+    }
+
+    /* responsive: stack to 2 cols on tablet, 1 on mobile */
+    @media (max-width: 1024px) {
+      .blog-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .blog-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .blog-card h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* (optional) dark mode aware – not required for preview, but kept light */
+  </style>
+
+</section>
+    
+
     <!-- ===== CTA SECTION ===== -->
     <section class="section section-cta" id="start" aria-label="Call to action">
       <div class="container cta-inner">

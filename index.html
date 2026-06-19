@@ -616,6 +616,352 @@
       </div>
     </section>
 
+    <section class="section section-blog" id="blog" aria-label="Latest blog posts">
+    <div class="container">
+      <div class="section-label">✍️ From the notebook</div>
+      <h2 class="section-title">Latest <em>Blog Posts</em></h2>
+      <p class="section-sub">Insights on productivity, notetaking, privacy, and creative thinking — from the team behind the cleanest online notepad.</p>
+
+      <div class="blog-grid">
+
+        <!-- Card 1 – Productivity -->
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="date">📅 May 13, 2026</span>
+            <span>⚡ 6 min read</span>
+          </div>
+          <div class="card-divider"></div>
+          <h3>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h3>
+          <div class="blog-excerpt">
+            <p>From morning brain dumps to deep-work frameworks – boost efficiency without any signup friction.</p>
+          </div>
+          <a href="productivity-10-ways" class="read-more" data-article-link="productivity-10-ways">Read full story →</a>
+        </article>
+
+        <!-- Card 2 – Student + Mindmap -->
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="date">📅 May 8, 2026</span>
+            <span>🎓 8 min read</span>
+          </div>
+          <div class="card-divider"></div>
+          <h3>How to Take Better Class Notes with an Online Notepad + Mindmap</h3>
+          <div class="blog-excerpt">
+            <p>Combine structured outlines with visual mind mapping to capture lectures and boost retention.</p>
+          </div>
+          <a href="better-class-notes" class="read-more" data-article-link="student-notes-mindmap">Read full story →</a>
+        </article>
+
+        <!-- Card 3 – Privacy -->
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="date">📅 May 8, 2026</span>
+            <span>🔒 5 min read</span>
+          </div>
+          <div class="card-divider"></div>
+          <h3>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h3>
+          <div class="blog-excerpt">
+            <p>Local storage vs. cloud servers: why your thoughts belong only to you. A manifesto for digital autonomy.</p>
+          </div>
+          <a href="privacy-browser-notepad" class="read-more" data-article-link="privacy-browser-notepad">Read full story →</a>
+        </article>
+
+        <!-- Card 4 – Creative / Mindmap -->
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="date">📅 May 8, 2026</span>
+            <span>💡 11 min read</span>
+          </div>
+          <div class="card-divider"></div>
+          <h3>Brainstorming Techniques: Using Free Online Mindmaps and Notepads for Creative Projects</h3>
+          <div class="blog-excerpt">
+            <p>Five proven brainstorming methods that turn blank pages into breakthrough ideas.</p>
+          </div>
+          <a href="mindmap-notepad-creative" class="read-more" data-article-link="mindmap-notepad-creative">Read full story →</a>
+        </article>
+
+      </div>
+
+      <!-- View All link (optional – matches index CTA style) -->
+      <div class="blog-footer">
+        <a href="/blog" class="btn">View all articles →</a>
+      </div>
+    </div>
+  </section>
+
+    <style>
+    /* =========================================
+       WebNotePad — styles (matching index)
+       ========================================= */
+
+    :root {
+      --ink: #1a1a2e;
+      --ink-soft: #2d2d44;
+      --ink-muted: #6b6b85;
+      --paper: #faf8f4;
+      --paper-warm: #f4f0e8;
+      --paper-edge: #e8e2d6;
+      --accent: #c4562a;
+      --accent-light: #e8714a;
+      --accent-pale: #fce9e3;
+      --gold: #b8960c;
+      --green: #2d6a4f;
+      --white: #ffffff;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'DM Mono', 'Courier New', monospace;
+
+      --radius: 6px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 2px 8px rgba(26,26,46,0.08);
+      --shadow: 0 6px 24px rgba(26,26,46,0.12);
+      --shadow-lg: 0 16px 48px rgba(26,26,46,0.18);
+
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --app-header-h: 64px;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      --ink: #e8e4dc;
+      --ink-soft: #c8c4bc;
+      --ink-muted: #8a8678;
+      --paper: #141418;
+      --paper-warm: #1c1c22;
+      --paper-edge: #2a2a34;
+      --accent: #e8714a;
+      --accent-pale: #2a1a14;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow: 0 6px 24px rgba(0,0,0,0.4);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+      padding: 2rem 1rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    .section { padding: 96px 0; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* ===== BLOG SECTION ===== */
+    .section-blog {
+      background: var(--paper-warm);
+      transition: background var(--transition);
+    }
+
+    body.dark .section-blog {
+      background: var(--paper-warm);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .blog-card {
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent-pale);
+    }
+
+    .blog-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .blog-meta .date {
+      color: var(--ink-muted);
+    }
+
+    .card-divider {
+      height: 3px;
+      width: 40px;
+      background: var(--accent);
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+
+    .blog-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .blog-excerpt {
+      color: var(--ink-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .blog-excerpt p {
+      margin-bottom: 0;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent-pale);
+      width: fit-content;
+      transition: gap var(--transition), border-color var(--transition);
+      text-decoration: none;
+      padding-bottom: 2px;
+      margin-top: auto;
+    }
+
+    .read-more:hover {
+      gap: 12px;
+      border-bottom-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    /* View All link */
+    .blog-footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .blog-footer .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    .blog-footer .btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(196,86,42,0.3);
+    }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+    }
+
+    @media (max-width: 640px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .blog-card h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+
     <!-- ===== FAQ SECTION ===== -->
     <section class="section section-faq" id="faq" aria-label="FAQ">
       <div class="container">
@@ -657,228 +1003,6 @@
         </div>
       </div>
     </section>
-
-<section>
-  <div class="container">
-    <div class="blog-preview-grid">      
-
-    <!-- Card 1 – Productivity -->
-    <article class="blog-card">
-      <div class="blog-meta">
-        <span class="date">📅 May 13, 2026</span>
-        <span>⚡ 6 min read</span>
-      </div>
-      <div class="card-divider"></div>
-      <h2>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h2>
-      <div class="blog-excerpt">
-        <p>From morning brain dumps to deep-work frameworks – boost efficiency without any signup friction.</p>
-      </div>
-      <a href="productivity-10-ways" class="read-more" data-article-link="productivity-10-ways">Read full story →</a>
-    </article>
-
-    <!-- Card 2 – Student + Mindmap -->
-    <article class="blog-card">
-      <div class="blog-meta">
-        <span class="date">📅 May 8, 2026</span>
-        <span>🎓 8 min read</span>
-      </div>
-      <div class="card-divider"></div>
-      <h2>How to Take Better Class Notes with an Online Notepad + Mindmap</h2>
-      <div class="blog-excerpt">
-        <p>Combine structured outlines with visual mind mapping to capture lectures and boost retention.</p>
-      </div>
-      <a href="better-class-notes" class="read-more" data-article-link="student-notes-mindmap">Read full story →</a>
-    </article>
-
-    <!-- Card 3 – Privacy -->
-    <article class="blog-card">
-      <div class="blog-meta">
-        <span class="date">📅 May 8, 2026</span>
-        <span>🔒 5 min read</span>
-      </div>
-      <div class="card-divider"></div>
-      <h2>Why Privacy Matters: How Browser-Based Notepads Keep Your Ideas Safe</h2>
-      <div class="blog-excerpt">
-        <p>Local storage vs. cloud servers: why your thoughts belong only to you. A manifesto for digital autonomy.</p>
-      </div>
-      <a href="privacy-browser-notepad" class="read-more" data-article-link="privacy-browser-notepad">Read full story →</a>
-    </article>
-
-    <!-- Card 4 – Creative / Mindmap -->
-    <article class="blog-card">
-      <div class="blog-meta">
-        <span class="date">📅 May 8, 2026</span>
-        <span>💡 11 min read</span>
-      </div>
-      <div class="card-divider"></div>
-      <h2>Brainstorming Techniques: Using Free Online Mindmaps and Notepads for Creative Projects</h2>
-      <div class="blog-excerpt">
-        <p>Five proven brainstorming methods that turn blank pages into breakthrough ideas.</p>
-      </div>
-      <a href="mindmap-notepad-creative" class="read-more" data-article-link="mindmap-notepad-creative">Read full story →</a>
-    </article>
-  </div>
-</div>
-  <style>
-    /* minimal reset + card styling – matching WebNotePad editorial theme */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #faf8f4;
-      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem 1rem;
-    }
-
-    /* Card grid – exactly 4 cards */
-    .blog-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 1200px;
-      width: 100%;
-    }
-
-    /* individual card – clean, border, subtle hover */
-    .blog-card {
-      background: #ffffff;
-      border: 1px solid #e8e2d6;
-      border-radius: 14px;
-      padding: 28px 24px 32px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.04);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* subtle accent line on hover */
-    .blog-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: #c4562a;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.2s ease;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(26, 26, 46, 0.10);
-      border-color: #f0e8dc;
-    }
-
-    .blog-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    /* meta row (date / reading time) */
-    .blog-meta {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      font-family: 'DM Mono', 'Courier New', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #c4562a;
-      margin-bottom: 16px;
-    }
-
-    .blog-meta .date {
-      color: #6b6b85;
-    }
-
-    /* divider line (accent) */
-    .card-divider {
-      height: 3px;
-      width: 40px;
-      background: #c4562a;
-      border-radius: 3px;
-      margin-bottom: 20px;
-    }
-
-    /* title */
-    .blog-card h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      line-height: 1.3;
-      color: #1a1a2e;
-      margin-bottom: 14px;
-      letter-spacing: -0.01em;
-    }
-
-    /* description / excerpt */
-    .blog-excerpt {
-      color: #6b6b85;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 24px;
-      flex: 1;
-    }
-
-    .blog-excerpt p {
-      margin-bottom: 0;
-    }
-
-    /* clickable link – styled as "read more" */
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #c4562a;
-      border-bottom: 1.5px solid #fce9e3;
-      width: fit-content;
-      transition: gap 0.2s ease, border-color 0.2s ease;
-      text-decoration: none;
-      padding-bottom: 2px;
-      margin-top: auto;
-    }
-
-    .read-more:hover {
-      gap: 12px;
-      border-bottom-color: #c4562a;
-      color: #e8714a;
-    }
-
-    /* responsive: stack to 2 cols on tablet, 1 on mobile */
-    @media (max-width: 1024px) {
-      .blog-preview-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .blog-preview-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .blog-card h2 {
-        font-size: 1.3rem;
-      }
-    }
-
-    /* (optional) dark mode aware – not required for preview, but kept light */
-  </style>
-
-</section>
-    
 
     <!-- ===== CTA SECTION ===== -->
     <section class="section section-cta" id="start" aria-label="Call to action">

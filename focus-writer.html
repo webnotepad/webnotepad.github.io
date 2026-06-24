@@ -621,25 +621,30 @@
 
   <script>
   (function(){
-    // Dark mode
+    // Safe Header/Dark Mode Initialization (Checks if elements exist)
     const darkBtn = document.getElementById('darkBtn');
     if(localStorage.getItem('fw-dark')==='1') document.body.classList.add('dark');
-    darkBtn.addEventListener('click',()=>{
-      document.body.classList.toggle('dark');
-      localStorage.setItem('fw-dark', document.body.classList.contains('dark')?'1':'0');
-      darkBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    });
-    if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+    if (darkBtn) {
+      darkBtn.addEventListener('click',()=>{
+        document.body.classList.toggle('dark');
+        localStorage.setItem('fw-dark', document.body.classList.contains('dark')?'1':'0');
+        darkBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      });
+      if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+    }
 
-    // Mobile nav
-    const hamburger=document.getElementById('hamburger'), mobileNav=document.getElementById('mobileNav');
-    hamburger.addEventListener('click',()=>{
-      const open=mobileNav.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open);
-      hamburger.textContent = open ? '✕' : '☰';
-    });
+    // Safe Mobile Nav Initialization
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click',()=>{
+        const open=mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+        hamburger.textContent = open ? '✕' : '☰';
+      });
+    }
 
-    // Elements
+    // Core Elements
     const editor = document.getElementById('focusEditor');
     const fwArea = document.getElementById('fwAreaWrap');
     const bgSelect = document.getElementById('bgSelect');
@@ -775,13 +780,20 @@
         const ans=btn.nextElementSibling;
         const open=btn.getAttribute('aria-expanded')==='true';
         document.querySelectorAll('.faq-q').forEach(b=>{ b.setAttribute('aria-expanded','false'); b.nextElementSibling.style.display='none'; });
-        if(!open){ btn.setAttribute('aria-expanded','true'); ans.style.display='block'; }
+        if(!open){ btn.setAttribute('aria-expanded','true'); ans.style.with = 'block'; ans.style.display='block'; }
       });
     });
 
-    // Toast
-    function showToast(msg){ const t=document.getElementById('ccToast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
+    // Toast (Fixed target to use 'ccToast')
+    function showToast(msg){ 
+      const t=document.getElementById('ccToast'); 
+      if(t) {
+        t.textContent=msg; 
+        t.classList.add('show'); 
+        setTimeout(()=>t.classList.remove('show'),2800); 
+      }
+    }
   })();
-  </script>
+</script>
 </body>
 </html>

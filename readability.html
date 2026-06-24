@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Analyzer – Flesch Score, Reading Time & Text Summary | WebNotePad</title>
+  <meta name="description" content="Free online readability analyzer. Get Flesch-Kincaid score, grade level, reading time, vocabulary density, and an auto-generated text summary. Paste any text and analyze instantly." />
+  <meta name="keywords" content="readability analyzer, flesch kincaid score, reading time calculator, text readability checker, vocabulary level analyzer, text summarizer online, grade level checker" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/readability" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/readability" />
+  <meta property="og:title" content="Readability Analyzer – Flesch Score & Text Summary" />
+  <meta property="og:description" content="Paste any text and instantly get Flesch readability score, grade level, reading time, vocabulary stats, and a smart text summary." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Readability Analyzer",
+    "url": "https://webnotepad.github.io/readability",
+    "description": "A free online tool to analyze text readability using Flesch-Kincaid scores, compute reading time, vocabulary density, and generate a text summary.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": ["Flesch Reading Ease score","Flesch-Kincaid Grade Level","Reading time estimate","Vocabulary density analysis","Auto-generated text summary","Sentence & word statistics","Longest sentence finder","Common words frequency"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://webnotepad.github.io/"},
+      {"@type":"ListItem","position":2,"name":"Readability Analyzer","item":"https://webnotepad.github.io/readability"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is the Flesch Reading Ease score?","acceptedAnswer":{"@type":"Answer","text":"The Flesch Reading Ease score rates text on a 0–100 scale. Higher scores (70–100) mean easy reading; lower scores (0–30) indicate very difficult academic or technical writing."}},
+      {"@type":"Question","name":"How is reading time calculated?","acceptedAnswer":{"@type":"Answer","text":"Reading time is calculated based on an average adult reading speed of 238 words per minute, which is the commonly cited research average."}},
+      {"@type":"Question","name":"How does the text summarizer work?","acceptedAnswer":{"@type":"Answer","text":"The summarizer uses a client-side extractive approach: it scores each sentence by the frequency of significant words and returns the top-scoring sentences as the summary."}},
+      {"@type":"Question","name":"Is my text stored anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All analysis happens entirely in your browser with JavaScript. No text is sent to any server. Your content stays completely private."}}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink:#1a1a2e;--ink-soft:#2d2d44;--ink-muted:#6b6b85;
+      --paper:#faf8f4;--paper-warm:#f4f0e8;--paper-edge:#e8e2d6;
+      --accent:#c4562a;--accent-light:#e8714a;--accent-pale:#fce9e3;
+      --gold:#b8960c;--green:#2d6a4f;--white:#ffffff;
+      --font-display:'Playfair Display',Georgia,serif;
+      --font-body:'Outfit',sans-serif;
+      --font-mono:'DM Mono','Courier New',monospace;
+      --radius:6px;--radius-lg:14px;
+      --shadow-sm:0 2px 8px rgba(26,26,46,.08);
+      --shadow:0 6px 24px rgba(26,26,46,.12);
+      --shadow-lg:0 16px 48px rgba(26,26,46,.18);
+      --transition:.2s cubic-bezier(.4,0,.2,1);
+    }
+    body.dark{--ink:#e8e4dc;--ink-soft:#c8c4bc;--ink-muted:#8a8678;--paper:#141418;--paper-warm:#1c1c22;--paper-edge:#2a2a34;--accent:#e8714a;--accent-pale:#2a1a14;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.65;transition:background var(--transition),color var(--transition);overflow-x:hidden;}
+    img{max-width:100%;display:block;} a{text-decoration:none;color:inherit;} button{cursor:pointer;font-family:var(--font-body);border:none;background:none;} ul{list-style:none;}
+    .container{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:1000;height:64px;background:var(--paper);border-bottom:1px solid var(--paper-edge);display:flex;align-items:center;backdrop-filter:blur(12px);transition:background var(--transition);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;}
+    .header-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+    .logo-mark{width:34px;height:34px;background:var(--ink);color:var(--paper);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-family:var(--font-mono);font-weight:500;}
+    body.dark .logo-mark{background:var(--accent);color:var(--white);}
+    .header-nav{display:flex;align-items:center;gap:6px;}
+    .nav-link{font-size:.875rem;font-weight:500;color:var(--ink-muted);padding:6px 12px;border-radius:var(--radius);transition:color var(--transition),background var(--transition);}
+    .nav-link:hover,.nav-link.active{color:var(--ink);background:var(--paper-warm);}
+    .nav-link.active{font-weight:600;}
+    .header-right{display:flex;align-items:center;gap:10px;}
+    .header-dark-btn{width:36px;height:36px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--ink-muted);background:var(--paper-warm);border:1px solid var(--paper-edge);transition:all var(--transition);}
+    .header-dark-btn:hover{color:var(--ink);background:var(--paper-edge);}
+    .header-cta{background:var(--ink);color:var(--paper);font-size:.875rem;font-weight:600;padding:8px 18px;border-radius:var(--radius);transition:all var(--transition);}
+    .header-cta:hover{background:var(--accent);}
+    body.dark .header-cta{background:var(--accent);color:var(--white);}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;font-size:1.25rem;color:var(--ink);border-radius:var(--radius);background:var(--paper-warm);border:1px solid var(--paper-edge);}
+    .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--paper-edge);padding:16px 24px 24px;flex-direction:column;gap:4px;z-index:999;box-shadow:var(--shadow);}
+    .mobile-nav.open{display:flex;} .mobile-nav .nav-link{font-size:1rem;padding:10px 12px;}
+
+    /* HERO */
+    .hero{padding:80px 0 64px;position:relative;overflow:hidden;background:var(--paper-warm);}
+    .hero-bg-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,var(--paper-edge) 40px,var(--paper-edge) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,var(--paper-edge) 40px,var(--paper-edge) 41px);opacity:.3;}
+    .hero-ink{position:absolute;top:-80px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(196,86,42,.12) 0%,transparent 70%);pointer-events:none;}
+    .hero-inner{position:relative;z-index:1;max-width:720px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-pale);color:var(--accent);border:1px solid rgba(196,86,42,.2);border-radius:100px;padding:6px 16px;font-size:.8rem;font-weight:600;font-family:var(--font-mono);margin-bottom:24px;letter-spacing:.04em;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;}
+    .hero-accent{color:var(--accent);}
+    .hero-sub{font-size:1.1rem;color:var(--ink-muted);max-width:560px;line-height:1.7;margin-bottom:32px;}
+    .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:all var(--transition);cursor:pointer;border:2px solid transparent;}
+    .btn-primary{background:var(--accent);color:var(--white);border-color:var(--accent);}
+    .btn-primary:hover{background:var(--accent-light);border-color:var(--accent-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(196,86,42,.3);}
+    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--paper-edge);}
+    .btn-ghost:hover{background:var(--paper-warm);border-color:var(--ink-muted);}
+    .btn-lg{padding:16px 32px;font-size:1rem;}
+
+    /* SECTION COMMONS */
+    .section{padding:96px 0;}
+    .section-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px;}
+    .section-title em{color:var(--accent);font-style:italic;}
+    .section-sub{font-size:1.05rem;color:var(--ink-muted);max-width:580px;line-height:1.7;}
+
+    /* APP */
+    .section-app{padding:0 0 80px;background:var(--paper);}
+    .app-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+
+    /* Input Panel */
+    .ra-panel{background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+    .ra-panel-header{padding:14px 20px;background:var(--paper);border-bottom:1px solid var(--paper-edge);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .ra-panel-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--ink);}
+    .ra-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+    .ra-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:var(--radius);font-size:.75rem;font-weight:600;color:var(--ink-muted);background:var(--paper-warm);border:1px solid var(--paper-edge);transition:all var(--transition);cursor:pointer;white-space:nowrap;}
+    .ra-btn:hover{color:var(--ink);background:var(--paper-edge);}
+    .ra-btn.primary{background:var(--accent);color:var(--white);border-color:var(--accent);}
+    .ra-btn.primary:hover{background:var(--accent-light);}
+    #raInput{width:100%;min-height:280px;padding:20px;background:transparent;border:none;outline:none;font-family:var(--font-body);font-size:.95rem;color:var(--ink);line-height:1.7;resize:vertical;}
+    #raInput::placeholder{color:var(--ink-muted);}
+    .ra-char-count{padding:8px 20px;font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);background:var(--paper);border-top:1px solid var(--paper-edge);}
+
+    /* Results Panel */
+    .ra-results{display:flex;flex-direction:column;gap:16px;}
+
+    /* Score Card */
+    .score-card{background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);}
+    .score-card-title{font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+    .score-big{font-family:var(--font-display);font-size:3.5rem;font-weight:900;line-height:1;color:var(--ink);margin-bottom:4px;}
+    .score-label{font-size:.85rem;color:var(--ink-muted);margin-bottom:14px;}
+    .score-gauge{height:8px;background:var(--paper-edge);border-radius:4px;overflow:hidden;margin-bottom:10px;}
+    .score-gauge-fill{height:100%;border-radius:4px;transition:width .5s ease, background .5s ease;}
+    .score-meta{font-size:.8rem;font-family:var(--font-mono);color:var(--ink-muted);}
+
+    /* Stats Grid */
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .stat-card{background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius);padding:14px 16px;}
+    .stat-card-val{font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:var(--ink);line-height:1;}
+    .stat-card-label{font-size:.75rem;color:var(--ink-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+
+    /* Summary */
+    .summary-card{background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);padding:20px;}
+    .summary-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+    .summary-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--ink);}
+    #summaryText{font-size:.875rem;color:var(--ink-muted);line-height:1.7;min-height:60px;}
+    .summary-placeholder{font-size:.875rem;color:var(--ink-muted);opacity:.5;font-style:italic;}
+
+    /* Word Freq */
+    .freq-card{background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);padding:20px;}
+    .freq-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+    .freq-list{display:flex;flex-direction:column;gap:8px;}
+    .freq-row{display:flex;align-items:center;gap:10px;}
+    .freq-word{font-family:var(--font-mono);font-size:.8rem;font-weight:500;color:var(--ink);width:100px;flex-shrink:0;}
+    .freq-bar-wrap{flex:1;height:6px;background:var(--paper-edge);border-radius:3px;overflow:hidden;}
+    .freq-bar{height:100%;background:var(--accent);border-radius:3px;transition:width .4s ease;}
+    .freq-count{font-family:var(--font-mono);font-size:.75rem;color:var(--ink-muted);width:24px;text-align:right;}
+
+    /* FEATURES */
+    .section-features{background:var(--paper-warm);}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+    .feature-card{padding:28px 24px;background:var(--paper);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);transition:all var(--transition);}
+    .feature-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--accent-pale);}
+    .feature-icon{font-size:2rem;margin-bottom:16px;}
+    .feature-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .feature-card p{font-size:.875rem;color:var(--ink-muted);line-height:1.6;}
+
+    /* HOW */
+    .section-how{background:var(--paper);}
+    .how-steps{display:flex;align-items:flex-start;gap:0;margin-top:56px;}
+    .how-step{flex:1;padding:32px;background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);}
+    .how-connector{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:60px;font-family:var(--font-mono);font-size:.85rem;color:var(--accent);padding-top:40px;}
+    .step-num{font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--paper-edge);line-height:1;margin-bottom:16px;}
+    .how-step h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px;}
+    .how-step p{font-size:.9rem;color:var(--ink-muted);line-height:1.65;}
+
+    /* USE CASES */
+    .section-usecases{background:var(--paper-warm);}
+    .usecases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+    .usecase-card{padding:28px;background:var(--paper);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);transition:all var(--transition);}
+    .usecase-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+    .usecase-emoji{font-size:2rem;margin-bottom:14px;}
+    .usecase-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .usecase-card p{font-size:.875rem;color:var(--ink-muted);line-height:1.65;}
+
+    /* FAQ */
+    .section-faq{background:var(--paper-warm);}
+    .faq-list{max-width:720px;margin:56px auto 0;display:flex;flex-direction:column;gap:2px;}
+    .faq-item{border:1px solid var(--paper-edge);border-radius:var(--radius);overflow:hidden;background:var(--paper);}
+    .faq-q{width:100%;text-align:left;padding:18px 20px;font-size:.975rem;font-weight:600;color:var(--ink);background:transparent;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background var(--transition);}
+    .faq-q::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--ink-muted);flex-shrink:0;transition:transform var(--transition);}
+    .faq-q[aria-expanded="true"]::after{transform:rotate(45deg);color:var(--accent);}
+    .faq-q:hover{background:var(--paper-warm);}
+    .faq-a{display:none;padding:0 20px 18px;}
+    .faq-a p{font-size:.9rem;color:var(--ink-muted);line-height:1.7;}
+
+    /* CTA */
+    .section-cta{background:var(--ink);padding:80px 0;position:relative;overflow:hidden;}
+    .cta-ink{position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,86,42,.2) 0%,transparent 70%);pointer-events:none;}
+    .cta-inner{position:relative;z-index:1;text-align:center;}
+    .cta-text h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--paper);margin-bottom:16px;}
+    .cta-text p{font-size:1.05rem;color:rgba(250,248,244,.6);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+    /* FOOTER */
+    .site-footer{background:var(--ink);color:var(--paper);padding:56px 0 0;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;}
+    .footer-brand .footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:12px;color:var(--paper);}
+    .footer-brand p{font-size:.875rem;color:rgba(250,248,244,.55);line-height:1.7;max-width:280px;}
+    .footer-col h4{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-bottom:16px;}
+    .footer-col ul{display:flex;flex-direction:column;gap:8px;}
+    .footer-col ul li a{font-size:.875rem;color:rgba(250,248,244,.65);transition:color var(--transition);}
+    .footer-col ul li a:hover{color:var(--paper);}
+    .footer-bottom{border-top:1px solid rgba(250,248,244,.1);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .footer-copy{font-size:.8rem;color:rgba(250,248,244,.35);font-family:var(--font-mono);}
+    .footer-links{display:flex;gap:20px;}
+    .footer-links a{font-size:.8rem;color:rgba(250,248,244,.4);transition:color var(--transition);}
+    .footer-links a:hover{color:rgba(250,248,244,.8);}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:var(--radius);font-size:.875rem;font-weight:500;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all .3s ease;z-index:9999;pointer-events:none;max-width:320px;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:transparent;} ::-webkit-scrollbar-thumb{background:var(--paper-edge);border-radius:3px;}
+
+    @media(max-width:1024px){.app-layout{grid-template-columns:1fr;}.features-grid,.usecases-grid{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){.section{padding:64px 0;}.features-grid,.usecases-grid{grid-template-columns:1fr;}.header-nav{display:none;}.hamburger{display:flex;}.how-steps{flex-direction:column;}.how-connector{display:none;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;align-items:flex-start;}.stats-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:480px){.hero-title{font-size:2.2rem;}.hero-cta-group{flex-direction:column;}.btn-lg{padding:14px 24px;}}
+  </style>
+</head>
+<body>
+
+  <div id="header-root"></div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Flesch Score · Grade Level · Smart Summary</div>
+        <h1 class="hero-title">Know exactly how<br /><span class="hero-accent">readable your text is.</span></h1>
+        <p class="hero-sub">Paste any text and get instant Flesch readability scores, grade level, reading time, vocabulary density, a smart extractive summary, and word frequency stats — all in your browser.</p>
+        <div class="hero-cta-group">
+          <a href="#analyzer" class="btn btn-primary btn-lg">Analyze Text →</a>
+          <a href="#features" class="btn btn-ghost">See All Metrics</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP -->
+    <section class="section-app" id="analyzer" aria-label="Readability Analyzer">
+      <div class="container">
+        <div class="app-layout">
+
+          <!-- INPUT -->
+          <div class="ra-panel">
+            <div class="ra-panel-header">
+              <span class="ra-panel-title">📄 Paste Your Text</span>
+              <div class="ra-actions">
+                <button class="ra-btn" id="raSampleBtn">Load Sample</button>
+                <button class="ra-btn" id="raClearBtn">✕ Clear</button>
+                <button class="ra-btn primary" id="raAnalyzeBtn">Analyze →</button>
+              </div>
+            </div>
+            <textarea id="raInput" placeholder="Paste or type your text here — article, essay, blog post, report…"></textarea>
+            <div class="ra-char-count" id="raCharCount">0 words · 0 characters</div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="ra-results">
+
+            <!-- Flesch Score -->
+            <div class="score-card">
+              <div class="score-card-title">Flesch Reading Ease</div>
+              <div class="score-big" id="fleschScore">—</div>
+              <div class="score-label" id="fleschLabel">Paste text and click Analyze</div>
+              <div class="score-gauge"><div class="score-gauge-fill" id="fleschGauge" style="width:0%"></div></div>
+              <div class="score-meta" id="fleschMeta">0–30 Very Difficult · 30–60 Moderate · 60–80 Standard · 80–100 Easy</div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-card-val" id="statWordCount">—</div>
+                <div class="stat-card-label">Words</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-val" id="statSentences">—</div>
+                <div class="stat-card-label">Sentences</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-val" id="statReadTime">—</div>
+                <div class="stat-card-label">Reading Time</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-val" id="statGrade">—</div>
+                <div class="stat-card-label">Grade Level</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-val" id="statAvgWords">—</div>
+                <div class="stat-card-label">Avg Words/Sentence</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card-val" id="statVocabDensity">—</div>
+                <div class="stat-card-label">Vocabulary Density</div>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-card">
+              <div class="summary-header">
+                <span class="summary-title">📝 Auto Summary</span>
+                <button class="ra-btn" id="raCopySum" title="Copy summary">⎘ Copy</button>
+              </div>
+              <div id="summaryText"><span class="summary-placeholder">Your 3-sentence extractive summary will appear here after analysis.</span></div>
+            </div>
+
+            <!-- Word Frequency -->
+            <div class="freq-card">
+              <div class="freq-title">🔤 Top Words</div>
+              <div class="freq-list" id="freqList">
+                <span style="font-size:.85rem;color:var(--ink-muted);opacity:.5;font-style:italic;">Word frequency chart appears after analysis.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section section-features" id="features">
+      <div class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">Eight metrics,<br /><em>one paste.</em></h2>
+        <p class="section-sub">Every analysis runs instantly in your browser using proven readability formulas — no server, no account, no wait.</p>
+        <div class="features-grid">
+          <div class="feature-card"><div class="feature-icon">📊</div><h3>Flesch Reading Ease</h3><p>The industry-standard 0–100 readability score. Know immediately if your content is too complex or perfectly pitched for your audience.</p></div>
+          <div class="feature-card"><div class="feature-icon">🎓</div><h3>Grade Level (FK)</h3><p>Flesch-Kincaid Grade Level tells you the US school grade needed to understand your text — invaluable for targeting the right readers.</p></div>
+          <div class="feature-card"><div class="feature-icon">⏱️</div><h3>Reading Time</h3><p>Estimated read time based on the 238 wpm adult average — useful for blog posts, newsletters, and any content where time-to-read matters.</p></div>
+          <div class="feature-card"><div class="feature-icon">💡</div><h3>Vocabulary Density</h3><p>Ratio of unique words to total words. Higher density means richer, more varied vocabulary; lower suggests repetitive text.</p></div>
+          <div class="feature-card"><div class="feature-icon">📝</div><h3>Extractive Summary</h3><p>A client-side algorithm scores each sentence by keyword frequency and returns the three most informative sentences as your summary.</p></div>
+          <div class="feature-card"><div class="feature-icon">🔤</div><h3>Word Frequency</h3><p>See the top 10 most-used meaningful words with a proportional bar chart — reveals your text's main themes instantly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-how" id="how">
+      <div class="container">
+        <div class="section-label">It takes 10 seconds</div>
+        <h2 class="section-title">Paste, analyze,<br /><em>improve.</em></h2>
+        <div class="how-steps">
+          <div class="how-step"><div class="step-num">01</div><h3>Paste your text</h3><p>Copy any text — an article, essay, email, or report — and paste it into the input panel on the left.</p></div>
+          <div class="how-connector">→</div>
+          <div class="how-step"><div class="step-num">02</div><h3>Click Analyze</h3><p>Hit the Analyze button. All metrics compute instantly in your browser with no data sent anywhere.</p></div>
+          <div class="how-connector">→</div>
+          <div class="how-step"><div class="step-num">03</div><h3>Read and improve</h3><p>Review the Flesch score, grade level, summary, and word frequency. Adjust your text and re-analyze to track improvement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section section-usecases" id="usecases">
+      <div class="container">
+        <div class="section-label">Who uses this</div>
+        <h2 class="section-title">Tools for every<br /><em>writing task.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card"><div class="usecase-emoji">✍️</div><h3>Content Writers</h3><p>Check blog posts and articles hit a Flesch score of 60+ so readers don't bounce due to difficult language.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">🎓</div><h3>Academics</h3><p>Verify research papers and theses match expected grade levels, and quickly summarize long sections.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">📢</div><h3>Marketers</h3><p>Ensure copy, landing pages, and emails are clear and conversational — high readability improves conversions.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">👩‍🏫</div><h3>Teachers</h3><p>Assess whether reading materials are grade-appropriate for students before distributing them.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">⚖️</div><h3>Legal & Technical</h3><p>Simplify contracts and documentation by identifying sentences with high complexity scores.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">📱</div><h3>UX Writers</h3><p>Keep product copy at a low grade level so instructions and UI text are universally accessible.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What is the Flesch Reading Ease score?</button><div class="faq-a"><p>The Flesch Reading Ease score rates text on a 0–100 scale. Scores of 70–100 are easy to read (plain English, consumer content). Scores of 30–60 are moderate (standard articles). Scores below 30 are very difficult (academic and legal writing).</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How is reading time calculated?</button><div class="faq-a"><p>Reading time is estimated based on an average adult reading speed of 238 words per minute — the commonly cited research figure. Results are rounded up to the nearest minute.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the text summarizer work?</button><div class="faq-a"><p>The summarizer is extractive: it builds a frequency map of meaningful words (excluding common stop words), then scores each sentence by the sum of its word frequencies. The highest-scoring 3 sentences are returned as the summary.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is my text private?</button><div class="faq-a"><p>Yes. All analysis runs entirely in your browser using JavaScript. No text is sent to any server and nothing is stored outside your browser session.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What is vocabulary density?</button><div class="faq-a"><p>Vocabulary density is the ratio of unique words to total words. A high density (e.g. 70%) means varied vocabulary; a low density (e.g. 30%) means many words repeat, which can indicate repetitive writing.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-cta" id="start">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Analyze your first text now.</h2>
+          <p>Paste anything — it takes 10 seconds to know exactly how readable your writing is.</p>
+          <a href="#analyzer" class="btn btn-lg btn-primary">Analyze Text Free →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="cc-toast" id="ccToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+
+  <script>
+  (function(){
+    // Dark mode
+    const darkBtn=document.getElementById('darkBtn');
+    if(localStorage.getItem('ra-dark')==='1') document.body.classList.add('dark');
+    darkBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('ra-dark',document.body.classList.contains('dark')?'1':'0'); darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; });
+    if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+
+    // Mobile nav
+    const ham=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+    ham.addEventListener('click',()=>{ const o=mn.classList.toggle('open'); ham.setAttribute('aria-expanded',o); ham.textContent=o?'✕':'☰'; });
+
+    const raInput=document.getElementById('raInput');
+    const raCharCount=document.getElementById('raCharCount');
+
+    // Update char count live
+    raInput.addEventListener('input',()=>{
+      const t=raInput.value.trim();
+      const w=t===''?0:t.split(/\s+/).length;
+      raCharCount.textContent=`${w} words · ${raInput.value.length} characters`;
+    });
+
+    // Sample text
+    document.getElementById('raSampleBtn').addEventListener('click',()=>{
+      raInput.value=`The history of writing stretches back thousands of years, beginning with the invention of cuneiform script in Mesopotamia around 3200 BCE. Ancient scribes pressed wedge-shaped marks into clay tablets to record trade, laws, and stories. This revolutionary system allowed knowledge to be stored and transmitted across generations with unprecedented precision. Writing did not evolve from a single origin; independent writing systems also emerged in ancient Egypt, China, and Mesoamerica. Each civilization developed its own symbols, yet all served the same fundamental purpose: to extend human memory beyond the limits of a single lifetime. Today, we inherit this extraordinary tradition every time we set words to a page.`;
+      raCharCount.textContent=`${raInput.value.trim().split(/\s+/).length} words · ${raInput.value.length} characters`;
+    });
+    document.getElementById('raClearBtn').addEventListener('click',()=>{ raInput.value=''; raCharCount.textContent='0 words · 0 characters'; });
+
+    // Syllable counter (approx)
+    function countSyllables(word){
+      word=word.toLowerCase().replace(/[^a-z]/g,'');
+      if(word.length<=3) return 1;
+      word=word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'');
+      word=word.replace(/^y/,'');
+      const m=word.match(/[aeiouy]{1,2}/g);
+      return m?m.length:1;
+    }
+
+    // Stop words for summary & freq
+    const STOP=new Set(['the','a','an','and','or','but','in','on','at','to','for','of','with','by','from','is','was','are','were','be','been','has','have','had','it','its','this','that','these','those','i','we','you','he','she','they','as','so','do','did','not','no','if','my','our','your','his','her','their','which','who','will','can','all','more','also','than','then','when','there','what','how','each','about','into','over','after','before','such','any','some','other','while','us','up','out','would','could','should','may','might','shall','being','here','just','even','very','much','many','most']);
+
+    // Analyze
+    document.getElementById('raAnalyzeBtn').addEventListener('click', analyze);
+
+    function analyze(){
+      const text=raInput.value.trim();
+      if(!text){ showToast('Please paste some text first.'); return; }
+
+      // Tokenize
+      const words=text.match(/\b[a-zA-Z']+\b/g)||[];
+      const sentences=text.match(/[^.!?]+[.!?]+/g)||[text];
+      const wc=words.length, sc=sentences.length;
+      if(wc<5){ showToast('Please paste a longer text for accurate analysis.'); return; }
+
+      // Syllables
+      let totalSyl=0;
+      words.forEach(w=>{ totalSyl+=countSyllables(w); });
+      const avgSyl=totalSyl/wc;
+      const avgWps=wc/sc;
+
+      // Flesch Reading Ease
+      const flesch=206.835-(1.015*avgWps)-(84.6*avgSyl);
+      const fleschClamped=Math.min(100,Math.max(0,Math.round(flesch)));
+
+      // Flesch-Kincaid Grade Level
+      const fkGrade=0.39*avgWps+11.8*avgSyl-15.59;
+      const fkRound=Math.max(1,Math.round(fkGrade*10)/10);
+
+      // Reading time (238 wpm)
+      const minutes=Math.ceil(wc/238);
+
+      // Vocabulary density
+      const unique=new Set(words.map(w=>w.toLowerCase())).size;
+      const density=Math.round((unique/wc)*100);
+
+      // Update UI
+      document.getElementById('fleschScore').textContent=fleschClamped;
+      const fleschLabel=fleschClamped>=80?'Very Easy':fleschClamped>=70?'Easy':fleschClamped>=60?'Standard':fleschClamped>=50?'Fairly Difficult':fleschClamped>=30?'Difficult':'Very Difficult';
+      document.getElementById('fleschLabel').textContent=fleschLabel;
+      const gaugeColor=fleschClamped>=70?'#2d6a4f':fleschClamped>=50?'#b8960c':'#c4562a';
+      const g=document.getElementById('fleschGauge'); g.style.width=fleschClamped+'%'; g.style.background=gaugeColor;
+      document.getElementById('statWordCount').textContent=wc.toLocaleString();
+      document.getElementById('statSentences').textContent=sc;
+      document.getElementById('statReadTime').textContent=minutes+'m';
+      document.getElementById('statGrade').textContent=`Grade ${fkRound}`;
+      document.getElementById('statAvgWords').textContent=Math.round(avgWps*10)/10;
+      document.getElementById('statVocabDensity').textContent=density+'%';
+
+      // Extractive summary
+      const wordFreq={};
+      words.forEach(w=>{ const lw=w.toLowerCase(); if(!STOP.has(lw)&&lw.length>2) wordFreq[lw]=(wordFreq[lw]||0)+1; });
+      const maxFreq=Math.max(...Object.values(wordFreq),1);
+      Object.keys(wordFreq).forEach(k=>wordFreq[k]/=maxFreq);
+      const sentScores=sentences.map(s=>{
+        const sw=s.match(/\b[a-zA-Z]+\b/g)||[];
+        const score=sw.reduce((a,w)=>(a+(wordFreq[w.toLowerCase()]||0)),0);
+        return {s:s.trim(),score};
+      });
+      const top3=[...sentScores].sort((a,b)=>b.score-a.score).slice(0,3).map(x=>x.s).join(' ');
+      document.getElementById('summaryText').textContent=top3||'Not enough content to summarize.';
+
+      // Word frequency chart
+      const freqArr=Object.entries(wordFreq).sort((a,b)=>b[1]-a[1]).slice(0,10);
+      const freqList=document.getElementById('freqList');
+      freqList.innerHTML='';
+      freqArr.forEach(([w,score])=>{
+        const realCount=wordFreq[w]*maxFreq;
+        const row=document.createElement('div'); row.className='freq-row';
+        row.innerHTML=`<span class="freq-word">${w}</span><div class="freq-bar-wrap"><div class="freq-bar" style="width:${Math.round(score*100)}%"></div></div><span class="freq-count">${Math.round(realCount)}</span>`;
+        freqList.appendChild(row);
+      });
+
+      showToast('Analysis complete!');
+    }
+
+    // Copy summary
+    document.getElementById('raCopySum').addEventListener('click',()=>{
+      const t=document.getElementById('summaryText').textContent;
+      if(t&&!t.includes('appear here')){ navigator.clipboard.writeText(t).then(()=>showToast('Summary copied!')); }
+    });
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const ans=btn.nextElementSibling; const open=btn.getAttribute('aria-expanded')==='true';
+        document.querySelectorAll('.faq-q').forEach(b=>{ b.setAttribute('aria-expanded','false'); b.nextElementSibling.style.display='none'; });
+        if(!open){ btn.setAttribute('aria-expanded','true'); ans.style.display='block'; }
+      });
+    });
+
+    function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
+  })();
+  </script>
+</body>
+</html>

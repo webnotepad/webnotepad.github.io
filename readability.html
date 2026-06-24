@@ -442,34 +442,64 @@
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
 
+
   <script>
   (function(){
-    // Dark mode
-    const darkBtn=document.getElementById('darkBtn');
+    // Safe Dark Mode Configuration (Prevents script crash if elements don't exist yet)
+    const darkBtn = document.getElementById('darkBtn');
     if(localStorage.getItem('ra-dark')==='1') document.body.classList.add('dark');
-    darkBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('ra-dark',document.body.classList.contains('dark')?'1':'0'); darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; });
-    if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+    if (darkBtn) {
+      darkBtn.addEventListener('click',()=>{ 
+        document.body.classList.toggle('dark'); 
+        localStorage.setItem('ra-dark',document.body.classList.contains('dark')?'1':'0'); 
+        darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; 
+      });
+      if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+    }
 
-    // Mobile nav
-    const ham=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
-    ham.addEventListener('click',()=>{ const o=mn.classList.toggle('open'); ham.setAttribute('aria-expanded',o); ham.textContent=o?'✕':'☰'; });
+    // Safe Mobile Navigation Initialization
+    const ham = document.getElementById('hamburger');
+    const mn = document.getElementById('mobileNav');
+    if (ham && mn) {
+      ham.addEventListener('click',()=>{ 
+        const o=mn.classList.toggle('open'); 
+        ham.setAttribute('aria-expanded',o); 
+        ham.textContent=o?'✕':'☰'; 
+      });
+    }
 
-    const raInput=document.getElementById('raInput');
-    const raCharCount=document.getElementById('raCharCount');
+    const raInput = document.getElementById('raInput');
+    const raCharCount = document.getElementById('raCharCount');
 
     // Update char count live
-    raInput.addEventListener('input',()=>{
-      const t=raInput.value.trim();
-      const w=t===''?0:t.split(/\s+/).length;
-      raCharCount.textContent=`${w} words · ${raInput.value.length} characters`;
-    });
+    if (raInput && raCharCount) {
+      raInput.addEventListener('input',()=>{
+        const t=raInput.value.trim();
+        const w=t===''?0:t.split(/\s+/).length;
+        raCharCount.textContent=`${w} words · ${raInput.value.length} characters`;
+      });
+    }
 
     // Sample text
-    document.getElementById('raSampleBtn').addEventListener('click',()=>{
-      raInput.value=`The history of writing stretches back thousands of years, beginning with the invention of cuneiform script in Mesopotamia around 3200 BCE. Ancient scribes pressed wedge-shaped marks into clay tablets to record trade, laws, and stories. This revolutionary system allowed knowledge to be stored and transmitted across generations with unprecedented precision. Writing did not evolve from a single origin; independent writing systems also emerged in ancient Egypt, China, and Mesoamerica. Each civilization developed its own symbols, yet all served the same fundamental purpose: to extend human memory beyond the limits of a single lifetime. Today, we inherit this extraordinary tradition every time we set words to a page.`;
-      raCharCount.textContent=`${raInput.value.trim().split(/\s+/).length} words · ${raInput.value.length} characters`;
-    });
-    document.getElementById('raClearBtn').addEventListener('click',()=>{ raInput.value=''; raCharCount.textContent='0 words · 0 characters'; });
+    const sampleBtn = document.getElementById('raSampleBtn');
+    if (sampleBtn) {
+      sampleBtn.addEventListener('click',()=>{
+        if (raInput && raCharCount) {
+          raInput.value=`The history of writing stretches back thousands of years, beginning with the invention of cuneiform script in Mesopotamia around 3200 BCE. Ancient scribes pressed wedge-shaped marks into clay tablets to record trade, laws, and stories. This revolutionary system allowed knowledge to be stored and transmitted across generations with unprecedented precision. Writing did not evolve from a single origin; independent writing systems also emerged in ancient Egypt, China, and Mesoamerica. Each civilization developed its own symbols, yet all served the same fundamental purpose: to extend human memory beyond the limits of a single lifetime. Today, we inherit this extraordinary tradition every time we set words to a page.`;
+          raCharCount.textContent=`${raInput.value.trim().split(/\s+/).length} words · ${raInput.value.length} characters`;
+        }
+      });
+    }
+    
+    const clearBtn = document.getElementById('raClearBtn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click',()=>{ 
+        if (raInput && raCharCount) {
+          raInput.value=''; 
+          raCharCount.textContent='0 words · 0 characters'; 
+        }
+      });
+    }
 
     // Syllable counter (approx)
     function countSyllables(word){
@@ -484,10 +514,14 @@
     // Stop words for summary & freq
     const STOP=new Set(['the','a','an','and','or','but','in','on','at','to','for','of','with','by','from','is','was','are','were','be','been','has','have','had','it','its','this','that','these','those','i','we','you','he','she','they','as','so','do','did','not','no','if','my','our','your','his','her','their','which','who','will','can','all','more','also','than','then','when','there','what','how','each','about','into','over','after','before','such','any','some','other','while','us','up','out','would','could','should','may','might','shall','being','here','just','even','very','much','many','most']);
 
-    // Analyze
-    document.getElementById('raAnalyzeBtn').addEventListener('click', analyze);
+    // Analyze click handler connection
+    const analyzeBtn = document.getElementById('raAnalyzeBtn');
+    if (analyzeBtn) {
+      analyzeBtn.addEventListener('click', analyze);
+    }
 
     function analyze(){
+      if (!raInput) return;
       const text=raInput.value.trim();
       if(!text){ showToast('Please paste some text first.'); return; }
 
@@ -518,12 +552,15 @@
       const unique=new Set(words.map(w=>w.toLowerCase())).size;
       const density=Math.round((unique/wc)*100);
 
-      // Update UI
+      // Update UI Metrics
       document.getElementById('fleschScore').textContent=fleschClamped;
       const fleschLabel=fleschClamped>=80?'Very Easy':fleschClamped>=70?'Easy':fleschClamped>=60?'Standard':fleschClamped>=50?'Fairly Difficult':fleschClamped>=30?'Difficult':'Very Difficult';
       document.getElementById('fleschLabel').textContent=fleschLabel;
       const gaugeColor=fleschClamped>=70?'#2d6a4f':fleschClamped>=50?'#b8960c':'#c4562a';
-      const g=document.getElementById('fleschGauge'); g.style.width=fleschClamped+'%'; g.style.background=gaugeColor;
+      
+      const g=document.getElementById('fleschGauge'); 
+      if (g) { g.style.width=fleschClamped+'%'; g.style.background=gaugeColor; }
+      
       document.getElementById('statWordCount').textContent=wc.toLocaleString();
       document.getElementById('statSentences').textContent=sc;
       document.getElementById('statReadTime').textContent=minutes+'m';
@@ -547,24 +584,31 @@
       // Word frequency chart
       const freqArr=Object.entries(wordFreq).sort((a,b)=>b[1]-a[1]).slice(0,10);
       const freqList=document.getElementById('freqList');
-      freqList.innerHTML='';
-      freqArr.forEach(([w,score])=>{
-        const realCount=wordFreq[w]*maxFreq;
-        const row=document.createElement('div'); row.className='freq-row';
-        row.innerHTML=`<span class="freq-word">${w}</span><div class="freq-bar-wrap"><div class="freq-bar" style="width:${Math.round(score*100)}%"></div></div><span class="freq-count">${Math.round(realCount)}</span>`;
-        freqList.appendChild(row);
-      });
+      if (freqList) {
+        freqList.innerHTML='';
+        freqArr.forEach(([w,score])=>{
+          const realCount=wordFreq[w]*maxFreq;
+          const row=document.createElement('div'); row.className='freq-row';
+          row.innerHTML=`<span class="freq-word">${w}</span><div class="freq-bar-wrap"><div class="freq-bar" style="width:${Math.round(score*100)}%"></div></div><span class="freq-count">${Math.round(realCount)}</span>`;
+          freqList.appendChild(row);
+        });
+      }
 
       showToast('Analysis complete!');
     }
 
     // Copy summary
-    document.getElementById('raCopySum').addEventListener('click',()=>{
+    const copySumBtn = document.getElementById('raCopySum');
+    if (copySumBtn) {
+      copySumBtn.addEventListener('click',CustomCopy);
+    }
+    
+    function CustomCopy(){
       const t=document.getElementById('summaryText').textContent;
       if(t&&!t.includes('appear here')){ navigator.clipboard.writeText(t).then(()=>showToast('Summary copied!')); }
-    });
+    }
 
-    // FAQ
+    // FAQ collapsing accordions
     document.querySelectorAll('.faq-q').forEach(btn=>{
       btn.addEventListener('click',()=>{
         const ans=btn.nextElementSibling; const open=btn.getAttribute('aria-expanded')==='true';
@@ -573,8 +617,18 @@
       });
     });
 
-    function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
+    // Fixed targeting pointing directly to #ccToast container element
+    function showToast(msg){ 
+      const t=document.getElementById('ccToast'); 
+      if (t) {
+        t.textContent=msg; 
+        t.classList.add('show'); 
+        setTimeout(()=>t.classList.remove('show'),2800); 
+      }
+    }
   })();
   </script>
+
+  
 </body>
 </html>

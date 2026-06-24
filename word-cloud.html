@@ -398,17 +398,16 @@
       });
     }
 
-    // Core Word Cloud Elements
-    const textInput = document.getElementById('textInput');
-    const generateBtn = document.getElementById('generateBtn');
-    const cloudCanvas = document.getElementById('cloudCanvas');
-    const wordCountSelect = document.getElementById('wordCountSelect');
-    const minLengthSelect = document.getElementById('minLengthSelect');
-    const shapeSelect = document.getElementById('shapeSelect');
-    const themeSelect = document.getElementById('themeSelect');
-    const downloadPngBtn = document.getElementById('downloadPngBtn');
-    const downloadSvgBtn = document.getElementById('downloadSvgBtn');
-    const clearTextBtn = document.getElementById('clearTextBtn');
+    // Core Word Cloud Elements mapped to your precise HTML IDs
+    const textInput = document.getElementById('wcText');
+    const generateBtn = document.getElementById('wcGenerateBtn');
+    const cloudCanvas = document.getElementById('wcCanvas');
+    const wordCountSelect = document.getElementById('wcCount');
+    const minLengthSelect = document.getElementById('wcMinLength');
+    const shapeSelect = document.getElementById('wcShape');
+    const themeSelect = document.getElementById('wcTheme');
+    const downloadPngBtn = document.getElementById('wcDownloadBtn');
+    const clearTextBtn = document.getElementById('wcClearBtn');
     
     // Stop words to filter out common prose elements
     const stopWords = new Set([
@@ -477,7 +476,7 @@
       // Clean canvas slate
       ctx.clearRect(0, 0, width, height);
 
-      // Simple placement system based on concentric circles (Archimedean spiral placement simulation)
+      // Simple placement system based on concentric circles
       const maxFreq = processedWords[0].value;
       const minFreq = processedWords[processedWords.length - 1].value;
 
@@ -516,7 +515,7 @@
       showToast('Word cloud successfully generated!');
     }
 
-    // Event Wireframes
+    // Event Listeners
     if(generateBtn) generateBtn.addEventListener('click', generateWordCloud);
     
     if(clearTextBtn) {
@@ -531,21 +530,26 @@
       });
     }
 
+    // Sample Text Button listener
+    const sampleBtn = document.getElementById('wcSampleBtn');
+    if (sampleBtn) {
+      sampleBtn.addEventListener('click', () => {
+        if (textInput) {
+          textInput.value = `The internet has transformed the way people communicate, learn, and work. Social media platforms allow billions of users to share ideas, news, and personal stories in real time. Digital technology has democratized access to information and education around the world. However, concerns about privacy, misinformation, and mental health have grown alongside these benefits. Artificial intelligence continues to reshape industries from healthcare to transportation. The future of digital society depends on our collective ability to balance innovation with responsibility and ensure that technology serves human flourishing.`;
+          generateWordCloud();
+        }
+      });
+    }
+
     // Image exporters
     if(downloadPngBtn) {
       downloadPngBtn.addEventListener('click', () => {
         if(!cloudCanvas) return;
         const link = document.createElement('a');
         link.download = 'word-cloud.png';
-        link.href = cloudCanvas.toDataURL();
+        link.href = cloudCanvas.toDataURL('image/png');
         link.click();
         showToast('Exported asset as word-cloud.png');
-      });
-    }
-
-    if(downloadSvgBtn) {
-      downloadSvgBtn.addEventListener('click', () => {
-        showToast('SVG vector parsing complete. Download triggered.');
       });
     }
 

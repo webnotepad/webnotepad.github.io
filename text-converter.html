@@ -425,177 +425,210 @@
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>  
 
-  <script>
+
+<script>
   (function(){
-    // Dark mode
-    const darkBtn=document.getElementById('darkBtn');
+    // Safe Header/Dark Mode Initialization
+    const darkBtn = document.getElementById('darkBtn');
     if(localStorage.getItem('tc-dark')==='1') document.body.classList.add('dark');
-    darkBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('tc-dark',document.body.classList.contains('dark')?'1':'0'); darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; });
-    if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
-    const ham=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
-    ham.addEventListener('click',()=>{ const o=mn.classList.toggle('open'); ham.setAttribute('aria-expanded',o); ham.textContent=o?'✕':'☰'; });
-
-    const tcInput=document.getElementById('tcInput');
-    const tcOutput=document.getElementById('tcOutput');
-    let history=[];
-
-    // Live stats
-    function stats(text,wEl,cEl,lEl){
-      const t=text.trim();
-      wEl.textContent=t===''?0:t.split(/\s+/).length;
-      cEl.textContent=text.length;
-      lEl.textContent=text===''?0:text.split('\n').length;
-    }
-    tcInput.addEventListener('input',()=>stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')));
-    tcOutput.addEventListener('input',()=>stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines')));
-
-    function setOutput(text,opName){
-      history.push(tcOutput.value);
-      if(history.length>50) history.shift();
-      tcOutput.value=text;
-      stats(text,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
-      document.getElementById('lastOpStat').textContent='Last: '+opName;
+    if (darkBtn) {
+      darkBtn.addEventListener('click',()=>{
+        document.body.classList.toggle('dark');
+        localStorage.setItem('tc-dark', document.body.classList.contains('dark')?'1':'0');
+        darkBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      });
+      if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
     }
 
-    function getSource(){ return tcOutput.value||tcInput.value; }
+    // Safe Mobile Nav Initialization
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click',()=>{
+        const open=mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+        hamburger.textContent = open ? '✕' : '☰';
+      });
+    }
 
-    // Case helpers
-    function toTitle(s){ return s.replace(/\w\S*/g,w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()); }
-    function toSentence(s){ return s.replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase()).replace(/(?<=^\s*)\w|(?<=[.!?]\s)\w/g,c=>c.toUpperCase()); }
-    function toCamel(s){ return s.trim().replace(/[-_\s]+(.)/g,(_,c)=>c.toUpperCase()).replace(/^./,c=>c.toLowerCase()); }
-    function toPascal(s){ return s.trim().replace(/[-_\s]+(.)/g,(_,c)=>c.toUpperCase()).replace(/^./,c=>c.toUpperCase()); }
-    function toSnake(s){ return s.trim().replace(/([A-Z])/g,'_$1').replace(/[-\s]+/g,'_').replace(/^_/,'').toLowerCase(); }
-    function toKebab(s){ return s.trim().replace(/([A-Z])/g,'-$1').replace(/[_\s]+/g,'-').replace(/^-/,'').toLowerCase(); }
-    function toConstant(s){ return toSnake(s).toUpperCase(); }
-    function toAlternating(s){ let i=0; return s.replace(/[a-zA-Z]/g,c=>(i++%2===0)?c.toUpperCase():c.toLowerCase()); }
+    const tcInput = document.getElementById('tcInput');
+    const inWords = document.getElementById('inWords');
+    const inChars = document.getElementById('inChars');
+    const inLines = document.getElementById('inLines');
 
-    // Operations map
-    const OPS={
-      upper:s=>s.toUpperCase(),
-      lower:s=>s.toLowerCase(),
-      title:s=>toTitle(s),
-      sentence:s=>toSentence(s),
-      camel:s=>s.split('\n').map(l=>toCamel(l)).join('\n'),
-      snake:s=>s.split('\n').map(l=>toSnake(l)).join('\n'),
-      kebab:s=>s.split('\n').map(l=>toKebab(l)).join('\n'),
-      pascal:s=>s.split('\n').map(l=>toPascal(l)).join('\n'),
-      constant:s=>s.split('\n').map(l=>toConstant(l)).join('\n'),
-      alternating:s=>toAlternating(s),
-      sortAZ:s=>s.split('\n').sort((a,b)=>a.localeCompare(b)).join('\n'),
-      sortZA:s=>s.split('\n').sort((a,b)=>b.localeCompare(a)).join('\n'),
-      sortLen:s=>s.split('\n').sort((a,b)=>a.length-b.length).join('\n'),
-      dedup:s=>[...new Set(s.split('\n'))].join('\n'),
-      dedupCI:s=>{const seen=new Set();return s.split('\n').filter(l=>{ const k=l.toLowerCase();if(seen.has(k))return false;seen.add(k);return true;}).join('\n');},
-      shuffle:s=>{const a=s.split('\n');for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.join('\n');},
-      'reverse-lines':s=>s.split('\n').reverse().join('\n'),
-      'number-lines':s=>s.split('\n').map((l,i)=>`${i+1}. ${l}`).join('\n'),
-      'remove-empty':s=>s.split('\n').filter(l=>l.trim()!=='').join('\n'),
-      reverse:s=>s.split('').reverse().join(''),
-      trim:s=>s.split('\n').map(l=>l.trim()).join('\n'),
-      collapse:s=>s.replace(/ {2,}/g,' '),
-      'remove-punct':s=>s.replace(/[^\w\s]/g,''),
-      'remove-nums':s=>s.replace(/[0-9]/g,''),
-      'remove-html':s=>s.replace(/<[^>]*>/g,''),
-      'count-chars':s=>{
-        const freq={};[...s].forEach(c=>{ if(c.trim()) freq[c]=(freq[c]||0)+1; });
-        return Object.entries(freq).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`"${c}" × ${n}`).join('\n');
+    function stats(val, wEl, cEl, lEl){
+      if(!wEl || !cEl || !lEl) return;
+      const clean = val.trim();
+      const w = clean===''?0:clean.split(/\s+/).length;
+      const l = clean===''?0:val.split('\n').length;
+      wEl.textContent = w;
+      cEl.textContent = val.length;
+      lEl.textContent = l;
+    }
+
+    if (tcInput) {
+      tcInput.addEventListener('input', () => {
+        stats(tcInput.value, inWords, inChars, inLines);
+      });
+    }
+
+    // Helper to get text, transform, update panel and stats
+    function process(fn){
+      if (!tcInput) return;
+      const txt = tcInput.value;
+      if(!txt.trim()){ showToast('Please enter some text first.'); return; }
+      tcInput.value = fn(txt);
+      stats(tcInput.value, inWords, inChars, inLines);
+    }
+
+    // Conversion Engine Wireframes
+    const lowerBtn = document.getElementById('tcLowerBtn');
+    if(lowerBtn) lowerBtn.addEventListener('click', () => process(t => t.toLowerCase()));
+
+    const upperBtn = document.getElementById('tcUpperBtn');
+    if(upperBtn) upperBtn.addEventListener('click', () => process(t => t.toUpperCase()));
+
+    const titleBtn = document.getElementById('tcTitleBtn');
+    if(titleBtn) {
+      titleBtn.addEventListener('click', () => process(t => t.replace(/\b[a-z]/g, c => c.toUpperCase())));
+    }
+
+    const camelBtn = document.getElementById('tcCamelBtn');
+    if(camelBtn) {
+      camelBtn.addEventListener('click', () => process(t => t.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase()).replace(/[^a-zA-Z0-9]/g, '')));
+    }
+
+    const snakeBtn = document.getElementById('tcSnakeBtn');
+    if(snakeBtn) {
+      snakeBtn.addEventListener('click', () => process(t => t.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '')));
+    }
+
+    const sortBtn = document.getElementById('tcSortBtn');
+    if(sortBtn) {
+      sortBtn.addEventListener('click', () => process(t => t.split('\n').sort((a,b) => a.localeCompare(b)).join('\n')));
+    }
+
+    const uniqBtn = document.getElementById('tcUniqBtn');
+    if(uniqBtn) {
+      uniqBtn.addEventListener('click', () => process(t => [...new Set(t.split('\n'))].join('\n')));
+    }
+
+    const revBtn = document.getElementById('tcRevBtn');
+    if(revBtn) {
+      revBtn.addEventListener('click', () => process(t => t.split('').reverse().join('')));
+    }
+
+    const trimBtn = document.getElementById('tcTrimBtn');
+    if(trimBtn) {
+      trimBtn.addEventListener('click', () => process(t => t.split('\n').map(l => l.trim().replace(/\s+/g, ' ')).filter(l => l !== '').join('\n')));
+    }
+
+    const noHtmlBtn = document.getElementById('tcNoHtmlBtn');
+    if(noHtmlBtn) {
+      noHtmlBtn.addEventListener('click', () => process(t => t.replace(/<\/?[^>]+(>|$)/g, "")));
+    }
+
+    // Regex Find/Replace
+    const replaceBtn = document.getElementById('tcReplaceBtn');
+    if(replaceBtn) {
+      replaceBtn.addEventListener('click', () => {
+        if (!tcInput) return;
+        const findVal = document.getElementById('tcFind').value;
+        const repVal = document.getElementById('tcRep').value;
+        const txt = tcInput.value;
+        if(!txt.trim()){ showToast('Please enter some text first.'); return; }
+        if(!findVal){ showToast('Enter text or regex pattern to find.'); return; }
+        try {
+          const re = new RegExp(findVal, 'g');
+          tcInput.value = txt.replace(re, repVal);
+          stats(tcInput.value, inWords, inChars, inLines);
+          showToast('Replacement operations completed!');
+        } catch(e) {
+          showToast('Invalid Regular Expression pattern.');
+        }
+      });
+    }
+
+    // Copy to clipboard
+    const copyBtn = document.getElementById('tcCopyBtn');
+    if(copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        if (!tcInput) return;
+        if(!tcInput.value.trim()){ showToast('Nothing to copy.'); return; }
+        tcInput.select();
+        try {
+          navigator.clipboard.writeText(tcInput.value).then(() => showToast('Text copied to clipboard!'));
+        } catch(e) {
+          showToast('Failed to copy text safely.');
+        }
+      });
+    }
+
+    // Paste from clipboard
+    const pasteBtn = document.getElementById('tcPasteBtn');
+    if(pasteBtn) {
+      pasteBtn.addEventListener('click', async () => {
+        if (!tcInput) return;
+        try {
+          const text = await navigator.clipboard.readText();
+          tcInput.value = text;
+          stats(text, inWords, inChars, inLines);
+          showToast('Text pasted securely!');
+        } catch(e) {
+          showToast('Paste manually with Ctrl+V/Cmd+V.');
+        }
+      });
+    }
+
+    // Clear Panel Action
+    const clearBtn = document.getElementById('tcClearBtn');
+    if(clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (tcInput) {
+          tcInput.value = '';
+          stats('', inWords, inChars, inLines);
+        }
+      });
+    }
+
+    // Sample Loader Action
+    const sampleBtn = document.getElementById('tcSampleBtn');
+    if(sampleBtn) {
+      sampleBtn.addEventListener('click', () => {
+        if (tcInput) {
+          tcInput.value = `the quick brown fox jumps over the lazy dog\nThe QUICK Brown Fox Jumps Over The Lazy Dog\nhello world\nhello world\nHELLO WORLD\n  extra   spaces   here  \n<p>Some <b>HTML</b> content</p>\nline three\nline one\nline two\nline one`;
+          stats(tcInput.value, inWords, inChars, inLines);
+        }
+      });
+    }
+
+    // FAQ Accordion Collapsing logic
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const a = btn.nextElementSibling;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.style.display = 'none';
+        });
+        if (!open) {
+          btn.setAttribute('aria-expanded', 'true');
+          a.style.display = 'block';
+        }
+      });
+    });
+
+    // Toast Target Adjustment mapping directly onto #ccToast layout target
+    function showToast(msg){
+      const t = document.getElementById('ccToast');
+      if (t) {
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2800);
       }
-    };
-    const OP_NAMES={upper:'UPPERCASE',lower:'lowercase',title:'Title Case',sentence:'Sentence case',camel:'camelCase',snake:'snake_case',kebab:'kebab-case',pascal:'PascalCase',constant:'CONSTANT_CASE',alternating:'AlTeRnAtInG',sortAZ:'Sort A→Z',sortZA:'Sort Z→A',sortLen:'Sort by Length',dedup:'Remove Dupes',dedupCI:'Dedup (CI)',shuffle:'Shuffle Lines','reverse-lines':'Reverse Line Order','number-lines':'Number Lines','remove-empty':'Remove Empty Lines',reverse:'Reverse Text',trim:'Trim Whitespace',collapse:'Collapse Spaces','remove-punct':'Remove Punctuation','remove-nums':'Remove Numbers','remove-html':'Strip HTML','count-chars':'Char Frequency'};
-
-    document.querySelectorAll('.op-btn[data-op]').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const op=btn.dataset.op;
-        const src=getSource();
-        if(!src){ showToast('Paste some text in the Input panel first.'); return; }
-        try{ setOutput(OPS[op](src),OP_NAMES[op]); }
-        catch(e){ showToast('Error: '+e.message); }
-      });
-    });
-
-    // Regex
-    document.getElementById('regexRunBtn').addEventListener('click',()=>{
-      const src=getSource();
-      if(!src){ showToast('Paste some text first.'); return; }
-      const find=document.getElementById('regexFind').value;
-      const flags=document.getElementById('regexFlags').value||'g';
-      const replace=document.getElementById('regexReplace').value;
-      const errEl=document.getElementById('regexError');
-      errEl.textContent='';
-      if(!find){ showToast('Enter a regex pattern in the Find field.'); return; }
-      try{
-        const re=new RegExp(find,flags);
-        setOutput(src.replace(re,replace),'Regex Replace');
-      } catch(e){ errEl.textContent='Invalid regex: '+e.message; }
-    });
-
-    // Undo
-    document.getElementById('tcUndoBtn').addEventListener('click',()=>{
-      if(!history.length){ showToast('Nothing to undo.'); return; }
-      tcOutput.value=history.pop();
-      stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
-      document.getElementById('lastOpStat').textContent='Undone';
-    });
-
-    // Swap
-    document.getElementById('tcSwapBtn').addEventListener('click',()=>{
-      const tmp=tcInput.value;
-      tcInput.value=tcOutput.value;
-      tcOutput.value=tmp;
-      stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines'));
-      stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
-      showToast('Input and output swapped.');
-    });
-
-    // Copy
-    document.getElementById('tcCopyBtn').addEventListener('click',()=>{
-      if(!tcOutput.value){ showToast('Nothing to copy yet.'); return; }
-      navigator.clipboard.writeText(tcOutput.value).then(()=>showToast('Output copied to clipboard!'));
-    });
-
-    // Download
-    document.getElementById('tcDownloadBtn').addEventListener('click',()=>{
-      if(!tcOutput.value){ showToast('Nothing to download yet.'); return; }
-      const blob=new Blob([tcOutput.value],{type:'text/plain'});
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');a.href=url;a.download='converted-text.txt';a.click();URL.revokeObjectURL(url);
-    });
-
-    // Paste
-    document.getElementById('tcPasteBtn').addEventListener('click',async()=>{
-      try{ const t=await navigator.clipboard.readText(); tcInput.value=t; stats(t,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')); } catch(e){ showToast('Paste manually with Ctrl+V.'); }
-    });
-
-    // Clear
-    document.getElementById('tcClearBtn').addEventListener('click',()=>{ tcInput.value=''; stats('',document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')); });
-
-    // Sample
-    document.getElementById('tcSampleBtn').addEventListener('click',()=>{
-      tcInput.value=`the quick brown fox jumps over the lazy dog
-The QUICK Brown Fox Jumps Over The Lazy Dog
-hello world
-hello world
-HELLO WORLD
-  extra   spaces   here  
-<p>Some <b>HTML</b> content</p>
-line three
-line one
-line two
-line one`;
-      stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines'));
-    });
-
-    // FAQ
-    document.querySelectorAll('.faq-q').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const a=btn.nextElementSibling,open=btn.getAttribute('aria-expanded')==='true';
-        document.querySelectorAll('.faq-q').forEach(b=>{ b.setAttribute('aria-expanded','false'); b.nextElementSibling.style.display='none'; });
-        if(!open){ btn.setAttribute('aria-expanded','true'); a.style.display='block'; }
-      });
-    });
-
-    function showToast(msg){ const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800); }
+    }
   })();
   </script>
+  
 </body>
 </html>

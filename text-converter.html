@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text Converter – Case Conversion, Sort Lines, Remove Duplicates & Regex Find/Replace | WebNotePad</title>
+  <meta name="description" content="Free online text converter with batch case conversion (UPPERCASE, lowercase, Title Case, camelCase, snake_case), sort lines, remove duplicates, reverse text, and regex find & replace. Instant results, no signup." />
+  <meta name="keywords" content="text converter, case converter, uppercase converter, lowercase converter, title case, camelCase converter, snake case, sort lines, remove duplicates, regex find replace, text tools online" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/text-converter" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/text-converter" />
+  <meta property="og:title" content="Text Converter – Case, Sort, Deduplicate & Regex Replace" />
+  <meta property="og:description" content="Instantly convert text case, sort lines, remove duplicates, and run regex find & replace — all free in your browser." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Text Converter","url":"https://webnotepad.github.io/text-converter","description":"A free browser-based text converter with batch case conversion, sort lines, remove duplicates, reverse text, and regex find & replace.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["UPPERCASE conversion","lowercase conversion","Title Case conversion","camelCase conversion","snake_case conversion","Sort lines A–Z / Z–A","Remove duplicate lines","Reverse text","Trim whitespace","Regex Find & Replace","Line count & word count","Copy to clipboard"]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webnotepad.github.io/"},{"@type":"ListItem","position":2,"name":"Text Converter","item":"https://webnotepad.github.io/text-converter"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Text Converter?","acceptedAnswer":{"@type":"Answer","text":"The Text Converter is a free browser-based tool that lets you instantly transform text — change case (UPPERCASE, lowercase, Title Case, camelCase, snake_case), sort lines alphabetically, remove duplicate lines, reverse text, trim whitespace, and run regex find & replace."}},{"@type":"Question","name":"Does it support regex?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Find & Replace panel accepts standard JavaScript regular expressions with optional flags (g for global, i for case-insensitive, m for multiline)."}},{"@type":"Question","name":"Is my text stored or shared?","acceptedAnswer":{"@type":"Answer","text":"No. All conversions run entirely in your browser with JavaScript. Nothing is sent to any server."}},{"@type":"Question","name":"Can I undo a conversion?","acceptedAnswer":{"@type":"Answer","text":"Yes. The undo button (↩) restores the previous state of your text, step by step."}}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ink:#1a1a2e;--ink-soft:#2d2d44;--ink-muted:#6b6b85;--paper:#faf8f4;--paper-warm:#f4f0e8;--paper-edge:#e8e2d6;--accent:#c4562a;--accent-light:#e8714a;--accent-pale:#fce9e3;--gold:#b8960c;--green:#2d6a4f;--white:#ffffff;--font-display:'Playfair Display',Georgia,serif;--font-body:'Outfit',sans-serif;--font-mono:'DM Mono','Courier New',monospace;--radius:6px;--radius-lg:14px;--shadow-sm:0 2px 8px rgba(26,26,46,.08);--shadow:0 6px 24px rgba(26,26,46,.12);--shadow-lg:0 16px 48px rgba(26,26,46,.18);--transition:.2s cubic-bezier(.4,0,.2,1);}
+    body.dark{--ink:#e8e4dc;--ink-soft:#c8c4bc;--ink-muted:#8a8678;--paper:#141418;--paper-warm:#1c1c22;--paper-edge:#2a2a34;--accent:#e8714a;--accent-pale:#2a1a14;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.65;transition:background var(--transition),color var(--transition);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;} button{cursor:pointer;font-family:var(--font-body);border:none;background:none;} ul{list-style:none;}
+    .container{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:1000;height:64px;background:var(--paper);border-bottom:1px solid var(--paper-edge);display:flex;align-items:center;backdrop-filter:blur(12px);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;gap:24px;}
+    .header-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+    .logo-mark{width:34px;height:34px;background:var(--ink);color:var(--paper);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-family:var(--font-mono);font-weight:500;}
+    body.dark .logo-mark{background:var(--accent);}
+    .header-nav{display:flex;align-items:center;gap:6px;}
+    .nav-link{font-size:.875rem;font-weight:500;color:var(--ink-muted);padding:6px 12px;border-radius:var(--radius);transition:color var(--transition),background var(--transition);}
+    .nav-link:hover,.nav-link.active{color:var(--ink);background:var(--paper-warm);} .nav-link.active{font-weight:600;}
+    .header-right{display:flex;align-items:center;gap:10px;}
+    .header-dark-btn{width:36px;height:36px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--ink-muted);background:var(--paper-warm);border:1px solid var(--paper-edge);transition:all var(--transition);}
+    .header-dark-btn:hover{color:var(--ink);background:var(--paper-edge);}
+    .header-cta{background:var(--ink);color:var(--paper);font-size:.875rem;font-weight:600;padding:8px 18px;border-radius:var(--radius);transition:all var(--transition);}
+    .header-cta:hover{background:var(--accent);}
+    body.dark .header-cta{background:var(--accent);}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;font-size:1.25rem;color:var(--ink);border-radius:var(--radius);background:var(--paper-warm);border:1px solid var(--paper-edge);}
+    .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--paper-edge);padding:16px 24px 24px;flex-direction:column;gap:4px;z-index:999;box-shadow:var(--shadow);}
+    .mobile-nav.open{display:flex;} .mobile-nav .nav-link{font-size:1rem;padding:10px 12px;}
+
+    /* HERO */
+    .hero{padding:80px 0 64px;position:relative;overflow:hidden;background:var(--paper-warm);}
+    .hero-bg-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,var(--paper-edge) 40px,var(--paper-edge) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,var(--paper-edge) 40px,var(--paper-edge) 41px);opacity:.3;}
+    .hero-ink{position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,86,42,.12) 0%,transparent 70%);pointer-events:none;}
+    .hero-inner{position:relative;z-index:1;max-width:720px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-pale);color:var(--accent);border:1px solid rgba(196,86,42,.2);border-radius:100px;padding:6px 16px;font-size:.8rem;font-weight:600;font-family:var(--font-mono);margin-bottom:24px;letter-spacing:.04em;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;}
+    .hero-accent{color:var(--accent);}
+    .hero-sub{font-size:1.1rem;color:var(--ink-muted);max-width:560px;line-height:1.7;margin-bottom:32px;}
+    .hero-cta-group{display:flex;gap:14px;flex-wrap:wrap;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:all var(--transition);cursor:pointer;border:2px solid transparent;}
+    .btn-primary{background:var(--accent);color:var(--white);border-color:var(--accent);}
+    .btn-primary:hover{background:var(--accent-light);border-color:var(--accent-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(196,86,42,.3);}
+    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--paper-edge);}
+    .btn-ghost:hover{background:var(--paper-warm);border-color:var(--ink-muted);}
+    .btn-lg{padding:16px 32px;font-size:1rem;}
+
+    /* SECTION COMMONS */
+    .section{padding:96px 0;}
+    .section-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px;}
+    .section-title em{color:var(--accent);font-style:italic;}
+    .section-sub{font-size:1.05rem;color:var(--ink-muted);max-width:580px;line-height:1.7;}
+
+    /* APP LAYOUT */
+    .section-app{padding:0 0 80px;background:var(--paper);}
+    .tc-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);}
+
+    /* Panels */
+    .tc-panel{display:flex;flex-direction:column;}
+    .tc-panel-header{padding:12px 16px;background:var(--paper);border-bottom:1px solid var(--paper-edge);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+    .tc-panel-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--ink);}
+    .tc-panel-actions{display:flex;gap:6px;align-items:center;}
+    .tc-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:var(--radius);font-size:.75rem;font-weight:600;color:var(--ink-muted);background:var(--paper-warm);border:1px solid var(--paper-edge);transition:all var(--transition);cursor:pointer;white-space:nowrap;}
+    .tc-btn:hover{color:var(--ink);background:var(--paper-edge);}
+    .tc-btn.accent{background:var(--accent);color:var(--white);border-color:var(--accent);}
+    .tc-btn.accent:hover{background:var(--accent-light);}
+    #tcInput{width:100%;min-height:320px;padding:20px;background:transparent;border:none;outline:none;font-family:var(--font-mono);font-size:.9rem;color:var(--ink);line-height:1.7;resize:none;border-right:1px solid var(--paper-edge);}
+    #tcOutput{width:100%;min-height:320px;padding:20px;background:transparent;border:none;outline:none;font-family:var(--font-mono);font-size:.9rem;color:var(--ink);line-height:1.7;resize:none;}
+    .tc-statusbar{padding:8px 16px;font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);background:var(--paper);border-top:1px solid var(--paper-edge);display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+    .tc-stat{display:flex;gap:5px;align-items:center;}
+    .tc-stat-val{color:var(--ink);font-weight:500;}
+
+    /* OPERATIONS PANEL */
+    .tc-ops{background:var(--paper-warm);border-top:1px solid var(--paper-edge);padding:16px;grid-column:1/-1;}
+    .tc-ops-title{font-family:var(--font-mono);font-size:.72rem;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+    .tc-ops-grid{display:flex;flex-wrap:wrap;gap:8px;}
+
+    /* Case buttons */
+    .op-group{display:flex;flex-direction:column;gap:6px;min-width:0;}
+    .op-group-label{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.08em;}
+    .op-btns{display:flex;flex-wrap:wrap;gap:6px;}
+    .op-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:var(--radius);font-size:.8rem;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--paper-edge);transition:all var(--transition);cursor:pointer;white-space:nowrap;}
+    .op-btn:hover{background:var(--accent-pale);border-color:var(--accent);color:var(--accent);}
+    .op-btn:active{transform:scale(.97);}
+    .op-divider{width:1px;background:var(--paper-edge);margin:0 4px;align-self:stretch;}
+
+    /* Regex panel */
+    .tc-regex{background:var(--paper);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);padding:16px;margin-top:16px;grid-column:1/-1;}
+    .tc-regex-title{font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+    .tc-regex-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+    .tc-regex-input{flex:1;padding:8px 12px;border-radius:var(--radius);border:1px solid var(--paper-edge);background:var(--paper-warm);color:var(--ink);font-family:var(--font-mono);font-size:.85rem;outline:none;min-width:120px;transition:border-color var(--transition);}
+    .tc-regex-input:focus{border-color:var(--accent);}
+    .tc-regex-flags{width:80px;padding:8px 10px;border-radius:var(--radius);border:1px solid var(--paper-edge);background:var(--paper-warm);color:var(--ink);font-family:var(--font-mono);font-size:.85rem;outline:none;}
+    .tc-regex-sep{color:var(--ink-muted);font-family:var(--font-mono);font-size:1.2rem;flex-shrink:0;}
+    .tc-regex-error{font-size:.8rem;color:#c4562a;font-family:var(--font-mono);margin-top:6px;}
+
+    /* FEATURES */
+    .section-features{background:var(--paper-warm);}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+    .feature-card{padding:28px 24px;background:var(--paper);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);transition:all var(--transition);}
+    .feature-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--accent-pale);}
+    .feature-icon{font-size:2rem;margin-bottom:16px;}
+    .feature-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .feature-card p{font-size:.875rem;color:var(--ink-muted);line-height:1.6;}
+
+    .section-how{background:var(--paper);}
+    .how-steps{display:flex;align-items:flex-start;gap:0;margin-top:56px;}
+    .how-step{flex:1;padding:32px;background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);}
+    .how-connector{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:60px;font-family:var(--font-mono);font-size:.85rem;color:var(--accent);padding-top:40px;}
+    .step-num{font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--paper-edge);line-height:1;margin-bottom:16px;}
+    .how-step h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px;}
+    .how-step p{font-size:.9rem;color:var(--ink-muted);line-height:1.65;}
+
+    .section-usecases{background:var(--paper-warm);}
+    .usecases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+    .usecase-card{padding:28px;background:var(--paper);border:1px solid var(--paper-edge);border-radius:var(--radius-lg);transition:all var(--transition);}
+    .usecase-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+    .usecase-emoji{font-size:2rem;margin-bottom:14px;}
+    .usecase-card h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .usecase-card p{font-size:.875rem;color:var(--ink-muted);line-height:1.65;}
+
+    .section-faq{background:var(--paper-warm);}
+    .faq-list{max-width:720px;margin:56px auto 0;display:flex;flex-direction:column;gap:2px;}
+    .faq-item{border:1px solid var(--paper-edge);border-radius:var(--radius);overflow:hidden;background:var(--paper);}
+    .faq-q{width:100%;text-align:left;padding:18px 20px;font-size:.975rem;font-weight:600;color:var(--ink);background:transparent;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background var(--transition);}
+    .faq-q::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--ink-muted);flex-shrink:0;transition:transform var(--transition);}
+    .faq-q[aria-expanded="true"]::after{transform:rotate(45deg);color:var(--accent);}
+    .faq-q:hover{background:var(--paper-warm);}
+    .faq-a{display:none;padding:0 20px 18px;}
+    .faq-a p{font-size:.9rem;color:var(--ink-muted);line-height:1.7;}
+
+    .section-cta{background:var(--ink);padding:80px 0;position:relative;overflow:hidden;}
+    .cta-ink{position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(196,86,42,.2) 0%,transparent 70%);pointer-events:none;}
+    .cta-inner{position:relative;z-index:1;text-align:center;}
+    .cta-text h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--paper);margin-bottom:16px;}
+    .cta-text p{font-size:1.05rem;color:rgba(250,248,244,.6);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+    .site-footer{background:var(--ink);color:var(--paper);padding:56px 0 0;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;}
+    .footer-brand .footer-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:12px;color:var(--paper);}
+    .footer-brand p{font-size:.875rem;color:rgba(250,248,244,.55);line-height:1.7;max-width:280px;}
+    .footer-col h4{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,244,.4);margin-bottom:16px;}
+    .footer-col ul{display:flex;flex-direction:column;gap:8px;}
+    .footer-col ul li a{font-size:.875rem;color:rgba(250,248,244,.65);transition:color var(--transition);}
+    .footer-col ul li a:hover{color:var(--paper);}
+    .footer-bottom{border-top:1px solid rgba(250,248,244,.1);padding:20px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+    .footer-copy{font-size:.8rem;color:rgba(250,248,244,.35);font-family:var(--font-mono);}
+    .footer-links{display:flex;gap:20px;}
+    .footer-links a{font-size:.8rem;color:rgba(250,248,244,.4);transition:color var(--transition);}
+    .footer-links a:hover{color:rgba(250,248,244,.8);}
+
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:var(--radius);font-size:.875rem;font-weight:500;box-shadow:var(--shadow-lg);transform:translateY(80px);opacity:0;transition:all .3s ease;z-index:9999;pointer-events:none;max-width:320px;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:transparent;} ::-webkit-scrollbar-thumb{background:var(--paper-edge);border-radius:3px;}
+
+    @media(max-width:1024px){.features-grid,.usecases-grid{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){.section{padding:64px 0;}.tc-layout{grid-template-columns:1fr;}.tc-panel:first-child{border-right:none;border-bottom:1px solid var(--paper-edge);}#tcInput{border-right:none;min-height:200px;}#tcOutput{min-height:200px;}.features-grid,.usecases-grid{grid-template-columns:1fr;}.header-nav{display:none;}.hamburger{display:flex;}.how-steps{flex-direction:column;}.how-connector{display:none;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;align-items:flex-start;}.tc-regex-row{flex-direction:column;align-items:stretch;}}
+    @media(max-width:480px){.hero-title{font-size:2.2rem;}.hero-cta-group{flex-direction:column;}.tc-ops-grid{gap:6px;}}
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Case · Sort · Deduplicate · Regex Replace</div>
+        <h1 class="hero-title">Every text transform<br /><span class="hero-accent">in one place.</span></h1>
+        <p class="hero-sub">UPPERCASE, lowercase, Title Case, camelCase, snake_case — plus sort lines, remove duplicates, reverse, trim whitespace, and powerful regex find & replace. One paste, instant results.</p>
+        <div class="hero-cta-group">
+          <a href="#converter" class="btn btn-primary btn-lg">Open Text Converter →</a>
+          <a href="#features" class="btn btn-ghost">See All Operations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP -->
+    <section class="section-app" id="converter" aria-label="Text Converter Application">
+      <div class="container">
+
+        <!-- Operations Bar (above the editor) -->
+        <div style="background:var(--paper-warm);border:1px solid var(--paper-edge);border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding:14px 16px 0;border-bottom:none;">
+          <div class="tc-ops-title">Operations — paste text below, then click any transformation</div>
+          <div class="tc-ops-grid">
+            <!-- Case -->
+            <div class="op-group">
+              <div class="op-group-label">Case</div>
+              <div class="op-btns">
+                <button class="op-btn" data-op="upper" title="Convert to UPPERCASE">UPPER</button>
+                <button class="op-btn" data-op="lower" title="Convert to lowercase">lower</button>
+                <button class="op-btn" data-op="title" title="Convert to Title Case">Title</button>
+                <button class="op-btn" data-op="sentence" title="Sentence case">Sentence</button>
+                <button class="op-btn" data-op="camel" title="Convert to camelCase">camelCase</button>
+                <button class="op-btn" data-op="snake" title="Convert to snake_case">snake_case</button>
+                <button class="op-btn" data-op="kebab" title="Convert to kebab-case">kebab-case</button>
+                <button class="op-btn" data-op="pascal" title="Convert to PascalCase">PascalCase</button>
+                <button class="op-btn" data-op="constant" title="Convert to CONSTANT_CASE">CONSTANT_CASE</button>
+                <button class="op-btn" data-op="alternating" title="aLtErNaTiNg">AlTeRnAtInG</button>
+              </div>
+            </div>
+            <div class="op-divider"></div>
+            <!-- Lines -->
+            <div class="op-group">
+              <div class="op-group-label">Lines</div>
+              <div class="op-btns">
+                <button class="op-btn" data-op="sortAZ" title="Sort lines A → Z">Sort A→Z</button>
+                <button class="op-btn" data-op="sortZA" title="Sort lines Z → A">Sort Z→A</button>
+                <button class="op-btn" data-op="sortLen" title="Sort by line length">By Length</button>
+                <button class="op-btn" data-op="dedup" title="Remove duplicate lines">Remove Dupes</button>
+                <button class="op-btn" data-op="dedupCI" title="Remove duplicates (case-insensitive)">Dedup (CI)</button>
+                <button class="op-btn" data-op="shuffle" title="Shuffle lines randomly">Shuffle</button>
+                <button class="op-btn" data-op="reverse-lines" title="Reverse line order">Reverse Order</button>
+                <button class="op-btn" data-op="number-lines" title="Add line numbers">Number Lines</button>
+                <button class="op-btn" data-op="remove-empty" title="Remove empty lines">Remove Empty</button>
+              </div>
+            </div>
+            <div class="op-divider"></div>
+            <!-- Text -->
+            <div class="op-group">
+              <div class="op-group-label">Text</div>
+              <div class="op-btns">
+                <button class="op-btn" data-op="reverse" title="Reverse all text">Reverse</button>
+                <button class="op-btn" data-op="trim" title="Trim leading/trailing whitespace per line">Trim</button>
+                <button class="op-btn" data-op="collapse" title="Collapse multiple spaces">Collapse Spaces</button>
+                <button class="op-btn" data-op="remove-punct" title="Remove punctuation">Remove Punct.</button>
+                <button class="op-btn" data-op="remove-nums" title="Remove numbers">Remove Numbers</button>
+                <button class="op-btn" data-op="remove-html" title="Strip HTML tags">Strip HTML</button>
+                <button class="op-btn" data-op="count-chars" title="Show character frequency">Char Frequency</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regex row -->
+          <div style="margin-top:14px;padding:14px;background:var(--paper);border-radius:var(--radius);border:1px solid var(--paper-edge);margin-bottom:14px;">
+            <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">🔍 Regex Find &amp; Replace</div>
+            <div class="tc-regex-row">
+              <span style="font-size:.8rem;font-family:var(--font-mono);color:var(--ink-muted);white-space:nowrap;">Find:</span>
+              <input type="text" class="tc-regex-input" id="regexFind" placeholder="e.g. \bword\b or [0-9]+" aria-label="Regex pattern" />
+              <span class="tc-regex-sep">/</span>
+              <span style="font-size:.8rem;font-family:var(--font-mono);color:var(--ink-muted);white-space:nowrap;">Flags:</span>
+              <input type="text" class="tc-regex-flags" id="regexFlags" value="gi" placeholder="gi" aria-label="Regex flags" />
+              <span style="font-size:.8rem;font-family:var(--font-mono);color:var(--ink-muted);white-space:nowrap;">Replace:</span>
+              <input type="text" class="tc-regex-input" id="regexReplace" placeholder="replacement (use $1 for groups)" aria-label="Replacement string" />
+              <button class="op-btn" id="regexRunBtn" style="flex-shrink:0;background:var(--accent);color:var(--white);border-color:var(--accent);">Run Replace</button>
+            </div>
+            <div class="tc-regex-error" id="regexError"></div>
+          </div>
+        </div>
+
+        <!-- Editor -->
+        <div class="tc-layout">
+          <!-- Input -->
+          <div class="tc-panel">
+            <div class="tc-panel-header">
+              <span class="tc-panel-title">📥 Input</span>
+              <div class="tc-panel-actions">
+                <button class="tc-btn" id="tcSampleBtn">Load Sample</button>
+                <button class="tc-btn" id="tcPasteBtn">⎘ Paste</button>
+                <button class="tc-btn" id="tcClearBtn">✕ Clear</button>
+              </div>
+            </div>
+            <textarea id="tcInput" placeholder="Paste or type your text here…" spellcheck="false" aria-label="Input text"></textarea>
+            <div class="tc-statusbar">
+              <span class="tc-stat">Words: <span class="tc-stat-val" id="inWords">0</span></span>
+              <span class="tc-stat">Chars: <span class="tc-stat-val" id="inChars">0</span></span>
+              <span class="tc-stat">Lines: <span class="tc-stat-val" id="inLines">0</span></span>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="tc-panel">
+            <div class="tc-panel-header">
+              <span class="tc-panel-title">📤 Output</span>
+              <div class="tc-panel-actions">
+                <button class="tc-btn" id="tcUndoBtn" title="Undo last operation">↩ Undo</button>
+                <button class="tc-btn" id="tcSwapBtn" title="Swap input ↔ output">⇄ Swap</button>
+                <button class="tc-btn" id="tcCopyBtn">⎘ Copy</button>
+                <button class="tc-btn" id="tcDownloadBtn">⬇ Download</button>
+              </div>
+            </div>
+            <textarea id="tcOutput" placeholder="Converted text appears here…" spellcheck="false" aria-label="Output text" readonly></textarea>
+            <div class="tc-statusbar">
+              <span class="tc-stat">Words: <span class="tc-stat-val" id="outWords">0</span></span>
+              <span class="tc-stat">Chars: <span class="tc-stat-val" id="outChars">0</span></span>
+              <span class="tc-stat">Lines: <span class="tc-stat-val" id="outLines">0</span></span>
+              <span class="tc-stat" id="lastOpStat" style="margin-left:auto;color:var(--accent);"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section section-features" id="features">
+      <div class="container">
+        <div class="section-label">Everything included</div>
+        <h2 class="section-title">20+ text operations,<br /><em>zero friction.</em></h2>
+        <p class="section-sub">Every transformation you actually need — from quick case flips to powerful regex replacements — in a single clean interface.</p>
+        <div class="features-grid">
+          <div class="feature-card"><div class="feature-icon">🔡</div><h3>10 Case Conversions</h3><p>UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE, and aLtErNaTiNg — all in one click.</p></div>
+          <div class="feature-card"><div class="feature-icon">📋</div><h3>Line Operations</h3><p>Sort A→Z or Z→A, sort by length, remove duplicate lines (with case-sensitive or insensitive option), shuffle, reverse order, and number lines.</p></div>
+          <div class="feature-card"><div class="feature-icon">🔍</div><h3>Regex Find & Replace</h3><p>Full JavaScript regex support with flag control (global, case-insensitive, multiline) and capture group references in the replacement string.</p></div>
+          <div class="feature-card"><div class="feature-icon">✂️</div><h3>Text Cleaning</h3><p>Trim whitespace, collapse multiple spaces, remove punctuation, strip numbers, strip HTML tags, and remove empty lines — clean up messy text instantly.</p></div>
+          <div class="feature-card"><div class="feature-icon">↩</div><h3>Undo History</h3><p>Every operation is tracked in a history stack. Click Undo to step back through transformations one at a time, without losing your original text.</p></div>
+          <div class="feature-card"><div class="feature-icon">⬇</div><h3>Copy & Download</h3><p>Copy the output to clipboard with one click, or download it as a .txt file. Swap input and output to chain multiple operations together.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-how" id="how">
+      <div class="container">
+        <div class="section-label">Simple workflow</div>
+        <h2 class="section-title">Paste, transform,<br /><em>copy. Done.</em></h2>
+        <div class="how-steps">
+          <div class="how-step"><div class="step-num">01</div><h3>Paste your text</h3><p>Drop any text into the Input panel — code, prose, a list of names, CSV data, HTML, anything you need to transform.</p></div>
+          <div class="how-connector">→</div>
+          <div class="how-step"><div class="step-num">02</div><h3>Click an operation</h3><p>Choose any transformation from the operations bar — case conversion, line sorting, deduplication, or a custom regex replace.</p></div>
+          <div class="how-connector">→</div>
+          <div class="how-step"><div class="step-num">03</div><h3>Copy or download</h3><p>The converted text lands in the Output panel instantly. Copy to clipboard, download as TXT, or swap it back to chain another operation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section section-usecases" id="usecases">
+      <div class="container">
+        <div class="section-label">Real-world uses</div>
+        <h2 class="section-title">Save hours on<br /><em>repetitive text work.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card"><div class="usecase-emoji">👩‍💻</div><h3>Developers</h3><p>Convert variable names between camelCase, snake_case, and PascalCase when switching languages or refactoring codebases.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">📊</div><h3>Data Cleaners</h3><p>Sort and deduplicate lists of emails, names, or IDs before importing into databases or spreadsheets. Strip HTML from exported content.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">✍️</div><h3>Writers & Editors</h3><p>Fix copy-pasted text that arrives in all-caps, normalize capitalization across a document, or clean up smart quote issues with regex.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">🎨</div><h3>Designers</h3><p>Convert design token names between formats for different design system tools — CSS variables to Sass, kebab to camel and back.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">📧</div><h3>Email Marketers</h3><p>Clean up mailing lists: remove duplicates, sort alphabetically, and ensure consistent formatting before importing to your ESP.</p></div>
+          <div class="usecase-card"><div class="usecase-emoji">🎓</div><h3>Students</h3><p>Fix citation formatting, normalize references, remove duplicate lines from research notes, and quickly reformat text for submissions.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-faq" id="faq">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What text operations are available?</button><div class="faq-a"><p>The Text Converter offers 10 case conversions (UPPER, lower, Title, Sentence, camelCase, snake_case, kebab-case, PascalCase, CONSTANT_CASE, aLtErNaTiNg), 9 line operations (sort A–Z/Z–A, by length, dedup, dedup CI, shuffle, reverse, number, remove empty), 6 text cleaning operations (reverse, trim, collapse spaces, remove punctuation, remove numbers, strip HTML), and a full regex find & replace panel.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it support regex?</button><div class="faq-a"><p>Yes. Enter any JavaScript regular expression in the Find field. Control flags (g for global, i for case-insensitive, m for multiline) in the Flags field. Use $1, $2 etc. in the replacement string to reference capture groups.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I undo transformations?</button><div class="faq-a"><p>Yes. Every operation saves the previous output state to a history stack. Click the ↩ Undo button to step back through your changes one at a time.</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is there a text length limit?</button><div class="faq-a"><p>No limit is enforced by the tool itself. Practical limits are determined only by your browser's memory when handling very large documents (megabytes of text).</p></div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is my text private?</button><div class="faq-a"><p>Yes. All operations run entirely in JavaScript in your browser. No text is ever sent to a server — everything stays on your device.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-cta" id="start">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Stop doing text work manually.</h2>
+          <p>20+ transformations, regex support, and undo history — all free in your browser.</p>
+          <a href="#converter" class="btn btn-lg btn-primary">Open Text Converter →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <script>
+  (function(){
+    // Dark mode
+    const darkBtn=document.getElementById('darkBtn');
+    if(localStorage.getItem('tc-dark')==='1') document.body.classList.add('dark');
+    darkBtn.addEventListener('click',()=>{ document.body.classList.toggle('dark'); localStorage.setItem('tc-dark',document.body.classList.contains('dark')?'1':'0'); darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'; });
+    if(document.body.classList.contains('dark')) darkBtn.textContent='☀️';
+    const ham=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+    ham.addEventListener('click',()=>{ const o=mn.classList.toggle('open'); ham.setAttribute('aria-expanded',o); ham.textContent=o?'✕':'☰'; });
+
+    const tcInput=document.getElementById('tcInput');
+    const tcOutput=document.getElementById('tcOutput');
+    let history=[];
+
+    // Live stats
+    function stats(text,wEl,cEl,lEl){
+      const t=text.trim();
+      wEl.textContent=t===''?0:t.split(/\s+/).length;
+      cEl.textContent=text.length;
+      lEl.textContent=text===''?0:text.split('\n').length;
+    }
+    tcInput.addEventListener('input',()=>stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')));
+    tcOutput.addEventListener('input',()=>stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines')));
+
+    function setOutput(text,opName){
+      history.push(tcOutput.value);
+      if(history.length>50) history.shift();
+      tcOutput.value=text;
+      stats(text,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
+      document.getElementById('lastOpStat').textContent='Last: '+opName;
+    }
+
+    function getSource(){ return tcOutput.value||tcInput.value; }
+
+    // Case helpers
+    function toTitle(s){ return s.replace(/\w\S*/g,w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()); }
+    function toSentence(s){ return s.replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase()).replace(/(?<=^\s*)\w|(?<=[.!?]\s)\w/g,c=>c.toUpperCase()); }
+    function toCamel(s){ return s.trim().replace(/[-_\s]+(.)/g,(_,c)=>c.toUpperCase()).replace(/^./,c=>c.toLowerCase()); }
+    function toPascal(s){ return s.trim().replace(/[-_\s]+(.)/g,(_,c)=>c.toUpperCase()).replace(/^./,c=>c.toUpperCase()); }
+    function toSnake(s){ return s.trim().replace(/([A-Z])/g,'_$1').replace(/[-\s]+/g,'_').replace(/^_/,'').toLowerCase(); }
+    function toKebab(s){ return s.trim().replace(/([A-Z])/g,'-$1').replace(/[_\s]+/g,'-').replace(/^-/,'').toLowerCase(); }
+    function toConstant(s){ return toSnake(s).toUpperCase(); }
+    function toAlternating(s){ let i=0; return s.replace(/[a-zA-Z]/g,c=>(i++%2===0)?c.toUpperCase():c.toLowerCase()); }
+
+    // Operations map
+    const OPS={
+      upper:s=>s.toUpperCase(),
+      lower:s=>s.toLowerCase(),
+      title:s=>toTitle(s),
+      sentence:s=>toSentence(s),
+      camel:s=>s.split('\n').map(l=>toCamel(l)).join('\n'),
+      snake:s=>s.split('\n').map(l=>toSnake(l)).join('\n'),
+      kebab:s=>s.split('\n').map(l=>toKebab(l)).join('\n'),
+      pascal:s=>s.split('\n').map(l=>toPascal(l)).join('\n'),
+      constant:s=>s.split('\n').map(l=>toConstant(l)).join('\n'),
+      alternating:s=>toAlternating(s),
+      sortAZ:s=>s.split('\n').sort((a,b)=>a.localeCompare(b)).join('\n'),
+      sortZA:s=>s.split('\n').sort((a,b)=>b.localeCompare(a)).join('\n'),
+      sortLen:s=>s.split('\n').sort((a,b)=>a.length-b.length).join('\n'),
+      dedup:s=>[...new Set(s.split('\n'))].join('\n'),
+      dedupCI:s=>{const seen=new Set();return s.split('\n').filter(l=>{ const k=l.toLowerCase();if(seen.has(k))return false;seen.add(k);return true;}).join('\n');},
+      shuffle:s=>{const a=s.split('\n');for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.join('\n');},
+      'reverse-lines':s=>s.split('\n').reverse().join('\n'),
+      'number-lines':s=>s.split('\n').map((l,i)=>`${i+1}. ${l}`).join('\n'),
+      'remove-empty':s=>s.split('\n').filter(l=>l.trim()!=='').join('\n'),
+      reverse:s=>s.split('').reverse().join(''),
+      trim:s=>s.split('\n').map(l=>l.trim()).join('\n'),
+      collapse:s=>s.replace(/ {2,}/g,' '),
+      'remove-punct':s=>s.replace(/[^\w\s]/g,''),
+      'remove-nums':s=>s.replace(/[0-9]/g,''),
+      'remove-html':s=>s.replace(/<[^>]*>/g,''),
+      'count-chars':s=>{
+        const freq={};[...s].forEach(c=>{ if(c.trim()) freq[c]=(freq[c]||0)+1; });
+        return Object.entries(freq).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`"${c}" × ${n}`).join('\n');
+      }
+    };
+    const OP_NAMES={upper:'UPPERCASE',lower:'lowercase',title:'Title Case',sentence:'Sentence case',camel:'camelCase',snake:'snake_case',kebab:'kebab-case',pascal:'PascalCase',constant:'CONSTANT_CASE',alternating:'AlTeRnAtInG',sortAZ:'Sort A→Z',sortZA:'Sort Z→A',sortLen:'Sort by Length',dedup:'Remove Dupes',dedupCI:'Dedup (CI)',shuffle:'Shuffle Lines','reverse-lines':'Reverse Line Order','number-lines':'Number Lines','remove-empty':'Remove Empty Lines',reverse:'Reverse Text',trim:'Trim Whitespace',collapse:'Collapse Spaces','remove-punct':'Remove Punctuation','remove-nums':'Remove Numbers','remove-html':'Strip HTML','count-chars':'Char Frequency'};
+
+    document.querySelectorAll('.op-btn[data-op]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const op=btn.dataset.op;
+        const src=getSource();
+        if(!src){ showToast('Paste some text in the Input panel first.'); return; }
+        try{ setOutput(OPS[op](src),OP_NAMES[op]); }
+        catch(e){ showToast('Error: '+e.message); }
+      });
+    });
+
+    // Regex
+    document.getElementById('regexRunBtn').addEventListener('click',()=>{
+      const src=getSource();
+      if(!src){ showToast('Paste some text first.'); return; }
+      const find=document.getElementById('regexFind').value;
+      const flags=document.getElementById('regexFlags').value||'g';
+      const replace=document.getElementById('regexReplace').value;
+      const errEl=document.getElementById('regexError');
+      errEl.textContent='';
+      if(!find){ showToast('Enter a regex pattern in the Find field.'); return; }
+      try{
+        const re=new RegExp(find,flags);
+        setOutput(src.replace(re,replace),'Regex Replace');
+      } catch(e){ errEl.textContent='Invalid regex: '+e.message; }
+    });
+
+    // Undo
+    document.getElementById('tcUndoBtn').addEventListener('click',()=>{
+      if(!history.length){ showToast('Nothing to undo.'); return; }
+      tcOutput.value=history.pop();
+      stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
+      document.getElementById('lastOpStat').textContent='Undone';
+    });
+
+    // Swap
+    document.getElementById('tcSwapBtn').addEventListener('click',()=>{
+      const tmp=tcInput.value;
+      tcInput.value=tcOutput.value;
+      tcOutput.value=tmp;
+      stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines'));
+      stats(tcOutput.value,document.getElementById('outWords'),document.getElementById('outChars'),document.getElementById('outLines'));
+      showToast('Input and output swapped.');
+    });
+
+    // Copy
+    document.getElementById('tcCopyBtn').addEventListener('click',()=>{
+      if(!tcOutput.value){ showToast('Nothing to copy yet.'); return; }
+      navigator.clipboard.writeText(tcOutput.value).then(()=>showToast('Output copied to clipboard!'));
+    });
+
+    // Download
+    document.getElementById('tcDownloadBtn').addEventListener('click',()=>{
+      if(!tcOutput.value){ showToast('Nothing to download yet.'); return; }
+      const blob=new Blob([tcOutput.value],{type:'text/plain'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');a.href=url;a.download='converted-text.txt';a.click();URL.revokeObjectURL(url);
+    });
+
+    // Paste
+    document.getElementById('tcPasteBtn').addEventListener('click',async()=>{
+      try{ const t=await navigator.clipboard.readText(); tcInput.value=t; stats(t,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')); } catch(e){ showToast('Paste manually with Ctrl+V.'); }
+    });
+
+    // Clear
+    document.getElementById('tcClearBtn').addEventListener('click',()=>{ tcInput.value=''; stats('',document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines')); });
+
+    // Sample
+    document.getElementById('tcSampleBtn').addEventListener('click',()=>{
+      tcInput.value=`the quick brown fox jumps over the lazy dog
+The QUICK Brown Fox Jumps Over The Lazy Dog
+hello world
+hello world
+HELLO WORLD
+  extra   spaces   here  
+<p>Some <b>HTML</b> content</p>
+line three
+line one
+line two
+line one`;
+      stats(tcInput.value,document.getElementById('inWords'),document.getElementById('inChars'),document.getElementById('inLines'));
+    });
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const a=btn.nextElementSibling,open=btn.getAttribute('aria-expanded')==='true';
+        document.querySelectorAll('.faq-q').forEach(b=>{ b.setAttribute('aria-expanded','false'); b.nextElementSibling.style.display='none'; });
+        if(!open){ btn.setAttribute('aria-expanded','true'); a.style.display='block'; }
+      });
+    });
+
+    function showToast(msg){ const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800); }
+  })();
+  </script>
+</body>
+</html>

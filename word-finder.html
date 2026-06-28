@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Finder & Word Unscrambler – Find Words from Letters | WebNotePad</title>
+  <meta name="description" content="Free Word Finder and Word Unscrambler tool. Enter your letters and instantly find all valid words you can make. Filter by length, starts-with, ends-with, and contains. Perfect for Scrabble, Wordle, and crosswords." />
+  <meta name="keywords" content="word finder, word unscrambler, unscramble letters, find words from letters, scrabble word finder, wordle helper, anagram solver, words with letters, word builder online" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/word-finder" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/word-finder" />
+  <meta property="og:title" content="Word Finder & Word Unscrambler – Find Words from Letters" />
+  <meta property="og:description" content="Unscramble any set of letters and find every valid word instantly. Filter by length, starting letter, ending letter, and more." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Word Finder & Word Unscrambler | WebNotePad" />
+  <meta name="twitter:description" content="Enter any letters and find all valid words instantly. The best free word unscrambler online." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Finder & Word Unscrambler",
+    "url": "https://webnotepad.github.io/word-finder",
+    "description": "A free browser-based word finder and word unscrambler that finds all valid words from any set of scrambled letters, with filters for length, prefix, suffix, and must-contain letters.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Unscramble letters into valid words",
+      "Filter by word length",
+      "Filter by starting letter",
+      "Filter by ending letter",
+      "Must-contain letter filter",
+      "Sort by length or alphabetically",
+      "Word score calculator (Scrabble values)",
+      "Copy results to clipboard",
+      "Wildcard / blank tile support",
+      "Instant results from large word list"
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Word Finder", "item": "https://webnotepad.github.io/word-finder" }
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Word Finder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Word Finder is a tool that finds all valid dictionary words that can be formed from a given set of letters. You enter your letters and the tool returns every word you can make using some or all of them." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Word Unscrambler?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A Word Unscrambler takes a jumbled set of letters and rearranges them to reveal all valid words. It is the same as a Word Finder — both solve the problem of 'what words can I make from these letters?'" }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this as a Scrabble word finder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool finds all valid words from your rack letters and shows each word's Scrabble point value. Use wildcard (?) to represent blank tiles." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it support blank tiles / wildcards?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter a question mark (?) in your letters to represent a blank tile or wildcard that can stand in for any letter." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I filter results?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use the filter panel to narrow results by word length, starting letter, ending letter, and a letter the word must contain. Combine any number of filters together." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Word Finder free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free — no account, no download, no limit on searches." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* HERO */
+    .hero { padding: 80px 0 56px; position: relative; overflow: hidden; background: var(--paper-warm); }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px);
+      opacity: 0.3; pointer-events: none;
+    }
+    .hero-glow { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(196,86,42,0.13) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-pale); color: var(--accent);
+      border: 1px solid rgba(196,86,42,0.2); border-radius: 100px;
+      padding: 6px 16px; font-size: 0.78rem; font-weight: 600;
+      font-family: var(--font-mono); margin-bottom: 24px; letter-spacing: 0.04em;
+    }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 20px; }
+    .hero-title em { color: var(--accent); font-style: italic; }
+    .hero-sub { font-size: 1.1rem; color: var(--ink-muted); max-width: 580px; line-height: 1.7; margin-bottom: 36px; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+      font-family: var(--font-mono);
+    }
+
+    /* ── SECTION COMMONS ── */
+    .section { padding: 88px 0; }
+    .section-label { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.75rem); font-weight: 900; color: var(--ink); line-height: 1.14; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-title em { color: var(--accent); font-style: italic; }
+    .section-sub { font-size: 1.05rem; color: var(--ink-muted); max-width: 580px; line-height: 1.7; }
+
+    /* ── APP SECTION ── */
+    .section-app { padding: 0 0 80px; background: var(--paper); }
+
+    /* Input card */
+    .wf-input-card {
+      background: var(--paper-warm); border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg); padding: 28px 28px 24px;
+      box-shadow: var(--shadow); margin-bottom: 20px;
+    }
+    .wf-input-top { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+    .wf-input-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 200px; }
+    .wf-input-label { font-family: var(--font-mono); font-size: 0.73rem; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.09em; }
+
+    #wfLetters {
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    #wfLetters:focus { border-color: var(--accent); }
+    #wfLetters::placeholder { font-size: 1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink-muted); opacity: 0.6; text-transform: none; }
+
+    .wf-find-btn {
+      padding: 14px 32px;
+      background: var(--accent); color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: all var(--transition);
+      white-space: nowrap; flex-shrink: 0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .wf-find-btn:hover { background: var(--accent-light); border-color: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(196,86,42,0.3); }
+    .wf-find-btn:active { transform: translateY(0); }
+
+    .wf-clear-btn {
+      padding: 14px 18px; background: transparent; color: var(--ink-muted);
+      border: 2px solid var(--paper-edge); border-radius: var(--radius);
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      transition: all var(--transition); flex-shrink: 0;
+    }
+    .wf-clear-btn:hover { color: var(--ink); background: var(--paper-warm); border-color: var(--ink-muted); }
+
+    /* Filters row */
+    .wf-filters { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--paper-edge); }
+    .wf-filter-group { display: flex; flex-direction: column; gap: 5px; }
+    .wf-filter-label { font-family: var(--font-mono); font-size: 0.69rem; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .wf-filter-input, .wf-filter-select {
+      padding: 7px 12px; border-radius: var(--radius);
+      border: 1px solid var(--paper-edge); background: var(--paper);
+      color: var(--ink); font-family: var(--font-mono); font-size: 0.85rem;
+      outline: none; transition: border-color var(--transition);
+    }
+    .wf-filter-input:focus, .wf-filter-select:focus { border-color: var(--accent); }
+    .wf-filter-input { width: 72px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .wf-filter-select { width: 100px; }
+    #wfLengthMin, #wfLengthMax { width: 56px; }
+    .wf-filter-sep { align-self: flex-end; padding-bottom: 8px; color: var(--ink-muted); font-size: 0.85rem; }
+    .wf-wildcard-note { font-size: 0.78rem; color: var(--ink-muted); font-family: var(--font-mono); margin-left: auto; align-self: flex-end; padding-bottom: 8px; }
+    .wf-wildcard-note strong { color: var(--accent); }
+
+    /* Results meta bar */
+    .wf-results-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      padding: 12px 20px;
+      background: var(--paper-warm); border: 1px solid var(--paper-edge);
+      border-radius: var(--radius); margin-bottom: 14px;
+      font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-muted);
+    }
+    .wf-results-count { font-weight: 600; color: var(--ink); }
+    .wf-results-count span { color: var(--accent); }
+    .wf-meta-actions { display: flex; gap: 8px; align-items: center; }
+    .wf-meta-btn {
+      padding: 5px 12px; background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: var(--radius); font-size: 0.75rem; font-weight: 600;
+      color: var(--ink-muted); cursor: pointer; transition: all var(--transition);
+      font-family: var(--font-mono);
+    }
+    .wf-meta-btn:hover { color: var(--ink); background: var(--paper-edge); }
+    .wf-sort-select {
+      padding: 5px 10px; border-radius: var(--radius);
+      border: 1px solid var(--paper-edge); background: var(--paper);
+      color: var(--ink); font-family: var(--font-mono); font-size: 0.75rem; outline: none;
+    }
+
+    /* Length group headers */
+    .wf-group-header {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 14px 0 8px; border-bottom: 1px solid var(--paper-edge);
+      margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+    }
+    .wf-group-count {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+      color: var(--accent); background: var(--accent-pale);
+      padding: 2px 8px; border-radius: 100px;
+    }
+
+    /* Word tiles */
+    .wf-word-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .wf-word-tile {
+      display: inline-flex; flex-direction: column; align-items: center;
+      padding: 8px 14px 6px;
+      background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      cursor: pointer; transition: all var(--transition);
+      user-select: none; position: relative;
+    }
+    .wf-word-tile:hover {
+      border-color: var(--accent); background: var(--accent-pale);
+      transform: translateY(-2px); box-shadow: var(--shadow-sm);
+    }
+    .wf-word-tile.copied { border-color: var(--green); background: rgba(45,106,79,0.08); }
+    .wf-tile-word { font-family: var(--font-mono); font-size: 0.9rem; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; text-transform: uppercase; }
+    .wf-tile-score {
+      font-family: var(--font-mono); font-size: 0.62rem; color: var(--ink-muted);
+      margin-top: 2px; font-weight: 500;
+    }
+    .wf-tile-score span { color: var(--gold); font-weight: 700; }
+
+    /* Empty / loading states */
+    .wf-empty {
+      text-align: center; padding: 64px 24px;
+      background: var(--paper-warm); border: 1px dashed var(--paper-edge);
+      border-radius: var(--radius-lg); color: var(--ink-muted);
+    }
+    .wf-empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .wf-empty h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--ink); margin-bottom: 8px; }
+    .wf-empty p { font-size: 0.9rem; line-height: 1.6; max-width: 380px; margin: 0 auto; }
+
+    .wf-loading { text-align: center; padding: 48px; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.9rem; }
+    .wf-spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid var(--paper-edge); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; margin-bottom: 12px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Score summary bar */
+    .wf-score-summary {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .wf-score-badge {
+      padding: 6px 14px; border-radius: 100px;
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600;
+      border: 1px solid var(--paper-edge); background: var(--paper);
+      color: var(--ink-muted); cursor: pointer; transition: all var(--transition);
+    }
+    .wf-score-badge.active, .wf-score-badge:hover { background: var(--accent-pale); border-color: var(--accent); color: var(--accent); }    
+
+    /* FEATURES */
+    .section-features { background: var(--paper-warm); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+    .feature-card { padding: 28px 24px; background: var(--paper); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); transition: all var(--transition); }
+    .feature-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--accent-pale); }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+    .feature-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .feature-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* HOW IT WORKS */
+    .section-how { background: var(--paper); }
+    .how-steps { display: flex; align-items: stretch; gap: 0; margin-top: 52px; }
+    .how-step { flex: 1; padding: 28px 24px; background: var(--paper-warm); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); }
+    .how-connector { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 52px; font-family: var(--font-mono); font-size: 1rem; color: var(--accent); }
+    .step-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 900; color: var(--paper-edge); line-height: 1; margin-bottom: 14px; }
+    .how-step h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .how-step p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* GAME GUIDE */
+    .section-guide { background: var(--paper-warm); }
+    .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 52px; }
+    .guide-card { padding: 28px; background: var(--paper); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); }
+    .guide-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .guide-card p, .guide-card li { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; }
+    .guide-card ul { display: flex; flex-direction: column; gap: 6px; padding-left: 0; }
+    .guide-card ul li { padding-left: 18px; position: relative; }
+    .guide-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; }
+    .scrabble-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.82rem; font-family: var(--font-mono); }
+    .scrabble-table th { text-align: left; padding: 6px 10px; border-bottom: 2px solid var(--paper-edge); color: var(--ink-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .scrabble-table td { padding: 6px 10px; border-bottom: 1px solid var(--paper-edge); color: var(--ink); }
+    .scrabble-table td:last-child { color: var(--gold); font-weight: 700; }
+
+    /* USE CASES */
+    .section-usecases { background: var(--paper); }
+    .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+    .usecase-card { padding: 26px; background: var(--paper-warm); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); transition: all var(--transition); }
+    .usecase-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .usecase-emoji { font-size: 2rem; margin-bottom: 14px; }
+    .usecase-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .usecase-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* FAQ */
+    .section-faq { background: var(--paper-warm); }
+    .faq-list { max-width: 720px; margin: 52px auto 0; display: flex; flex-direction: column; gap: 2px; }
+    .faq-item { border: 1px solid var(--paper-edge); border-radius: var(--radius); overflow: hidden; background: var(--paper); }
+    .faq-q { width: 100%; text-align: left; padding: 18px 20px; font-size: 0.975rem; font-weight: 600; color: var(--ink); background: transparent; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: background var(--transition); }
+    .faq-q::after { content: '+'; font-size: 1.2rem; font-weight: 300; color: var(--ink-muted); flex-shrink: 0; transition: transform var(--transition); }
+    .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--accent); }
+    .faq-q:hover { background: var(--paper-warm); }
+    .faq-a { display: none; padding: 0 20px 18px; }
+    .faq-a p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* CTA */
+    .section-cta { background: var(--ink); padding: 80px 0; position: relative; overflow: hidden; }
+    body.dark .section-cta { background: #0e0e12; }
+    .cta-ink { position: absolute; top: -100px; right: -100px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(196,86,42,0.22) 0%, transparent 70%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-text h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--paper); margin-bottom: 16px; }
+    .cta-text p { font-size: 1.05rem; color: rgba(250,248,244,0.6); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; background: var(--accent); color: var(--white); border: 2px solid var(--accent); border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+    .btn-cta:hover { background: var(--accent-light); border-color: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,86,42,0.4); }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; box-shadow: var(--shadow-lg); transform: translateY(80px); opacity: 0; transition: all 0.3s ease; z-index: 9999; pointer-events: none; max-width: 320px; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .usecases-grid { grid-template-columns: repeat(2, 1fr); }
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero { padding: 60px 0 44px; }
+      .features-grid, .usecases-grid { grid-template-columns: 1fr; }
+      .how-steps { flex-direction: column; }
+      .how-connector { display: none; }
+      .wf-input-top { flex-direction: column; align-items: stretch; }
+      .wf-find-btn, .wf-clear-btn { width: 100%; justify-content: center; }
+      .wf-filters { gap: 10px; }
+      .wf-wildcard-note { margin-left: 0; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.1rem; }
+      #wfLetters { font-size: 1.2rem; letter-spacing: 0.1em; }
+      .wf-word-tile { padding: 6px 10px 5px; }
+      .wf-tile-word { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Word Finder · Word Unscrambler · Anagram Solver</div>
+        <h1 class="hero-title">Find every word<br /><em>from your letters.</em></h1>
+        <p class="hero-sub">Enter any set of letters and instantly unscramble them into every valid word. Filter by length, starting letter, ending letter, and more. Perfect for Scrabble, Wordle, crosswords, and word games.</p>
+        <div class="hero-pills">
+          <span class="hero-pill">🎯 Scrabble Helper</span>
+          <span class="hero-pill">💡 Wordle Assistant</span>
+          <span class="hero-pill">🔤 Anagram Solver</span>
+          <span class="hero-pill">❓ Wildcard / Blank Tile</span>
+          <span class="hero-pill">⚡ Instant Results</span>
+          <span class="hero-pill">🆓 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — APP
+    ════════════════════════════════════════ -->
+    <section class="section-app" id="finder" aria-label="Word Finder Application">
+      <div class="container">        
+
+        <!-- Input Card -->
+        <div class="wf-input-card">
+          <div class="wf-input-top">
+            <div class="wf-input-group">
+              <label class="wf-input-label" for="wfLetters">Your Letters <span style="color:var(--accent);">*</span></label>
+              <input
+                type="text"
+                id="wfLetters"
+                maxlength="15"
+                placeholder="e.g.  S T R E A M  or  AEINRST"
+                autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+                aria-label="Enter your letters to unscramble"
+              />
+            </div>
+            <button class="wf-find-btn" id="wfFindBtn" aria-label="Find words">
+              🔍 Find Words
+            </button>
+            <button class="wf-clear-btn" id="wfClearBtn" aria-label="Clear">✕ Clear</button>
+          </div>
+
+          <!-- Filters -->
+          <div class="wf-filters" role="group" aria-label="Filter options">
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfLengthMin">Min Length</label>
+              <input type="number" class="wf-filter-input" id="wfLengthMin" min="1" max="15" value="2" style="width:60px;" aria-label="Minimum word length" />
+            </div>
+            <div class="wf-filter-sep">—</div>
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfLengthMax">Max Length</label>
+              <input type="number" class="wf-filter-input" id="wfLengthMax" min="1" max="15" value="15" style="width:60px;" aria-label="Maximum word length" />
+            </div>
+
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfStartsWith">Starts With</label>
+              <input type="text" class="wf-filter-input" id="wfStartsWith" maxlength="4" placeholder="A…" aria-label="Word starts with" />
+            </div>
+
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfEndsWith">Ends With</label>
+              <input type="text" class="wf-filter-input" id="wfEndsWith" maxlength="4" placeholder="…S" aria-label="Word ends with" />
+            </div>
+
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfContains">Contains</label>
+              <input type="text" class="wf-filter-input" id="wfContains" maxlength="4" placeholder="ER" aria-label="Word must contain" />
+            </div>
+
+            <div class="wf-filter-group">
+              <label class="wf-filter-label" for="wfSortBy">Sort By</label>
+              <select class="wf-filter-select" id="wfSortBy" aria-label="Sort results by">
+                <option value="length-desc">Length ↓</option>
+                <option value="length-asc">Length ↑</option>
+                <option value="alpha">A → Z</option>
+                <option value="score-desc">Score ↓</option>
+              </select>
+            </div>
+
+            <div class="wf-wildcard-note">
+              Use <strong>?</strong> as a wildcard / blank tile
+            </div>
+          </div>
+        </div>
+
+        <!-- Status: loading prompt text -->
+        <div id="wfStatus" aria-live="polite" aria-atomic="true" style="display:none;">
+          <div class="wf-loading">
+            <div class="wf-spinner"></div>
+            <div id="wfStatusMsg">Searching…</div>
+          </div>
+        </div>
+
+        <!-- Results area -->
+        <div id="wfResults" role="region" aria-label="Word results">
+          <div class="wf-empty">
+            <div class="wf-empty-icon">🔤</div>
+            <h3>Enter your letters above</h3>
+            <p>Type or paste up to 15 letters and click <strong>Find Words</strong> to unscramble them into every valid word.</p>
+          </div>
+        </div>        
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — FEATURES
+    ════════════════════════════════════════ -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">The smartest free<br /><em>word unscrambler.</em></h2>
+        <p class="section-sub">Advanced filters, Scrabble scoring, wildcard support, and grouped results — everything a serious word-game player needs.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Unscrambling</h3>
+            <p>All word-finding runs directly in your browser against a comprehensive word list. Results appear in milliseconds — no server round-trips.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Smart Filters</h3>
+            <p>Narrow results by minimum and maximum length, starting letters, ending letters, or a letter the word must contain — combine any number of filters at once.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">❓</div>
+            <h3>Wildcard / Blank Tile</h3>
+            <p>Add a <strong>?</strong> to your letters to represent a blank tile that can be any letter — just like in Scrabble. Multiple wildcards are supported.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Scrabble Scores</h3>
+            <p>Every result shows its Scrabble point value calculated from standard letter scores. Sort by score to find your highest-value play instantly.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📐</div>
+            <h3>Grouped by Length</h3>
+            <p>Results are organized into length groups with word counts per group, so you can quickly jump to 7-letter words or scan 2-letter options.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>One-Click Copy</h3>
+            <p>Click any word tile to copy it to your clipboard instantly. Copy all results at once with the Copy All button above the results list.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — HOW IT WORKS
+    ════════════════════════════════════════ -->
+    <section class="section section-how" id="how" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">It takes 5 seconds</div>
+        <h2 class="section-title">From scrambled letters<br /><em>to winning words.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <h3>Enter your letters</h3>
+            <p>Type your rack letters in the input box — up to 15 letters. Use <strong>?</strong> for blank tiles or wildcards. Spaces and hyphens are ignored.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <h3>Apply filters</h3>
+            <p>Optionally set a word length range, starting letter, ending letter, or must-contain letter to narrow the results to exactly what you need.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <h3>Find & use your word</h3>
+            <p>Browse results grouped by length, sorted by your choice. Click any word to copy it. Sort by Scrabble score to find your best play.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — GAME GUIDE
+    ════════════════════════════════════════ -->
+    <section class="section section-guide" id="guide" aria-label="Word game guide">
+      <div class="container">
+        <div class="section-label">Game strategy</div>
+        <h2 class="section-title">Tips to play smarter<br /><em>in every word game.</em></h2>
+        <p class="section-sub">Whether you play Scrabble, Wordle, Words With Friends, or crosswords, these strategies help you get more from your letters.</p>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h3>🎲 Scrabble Strategy Tips</h3>
+            <ul>
+              <li>Always check for 7-letter words first — they earn a 50-point bonus for using all tiles (a "bingo").</li>
+              <li>High-value letters (Q, Z, X, J) are worth 8–10 points — use them on Triple Letter or Triple Word squares.</li>
+              <li>Keep a balanced vowel-to-consonant ratio on your rack (ideally 2–3 vowels).</li>
+              <li>Two-letter words (AA, AE, OE, etc.) are essential for parallel plays and tight board positions.</li>
+              <li>Sort results by score and look for plays that also set up future moves.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>💡 Wordle Tips</h3>
+            <ul>
+              <li>Start with a word that contains common letters: CRANE, SLATE, AUDIO, or RAISE are popular openers.</li>
+              <li>Use the "Contains" filter to find words that include a confirmed letter (yellow tile).</li>
+              <li>Use "Starts With" and "Ends With" filters once you've confirmed positional letters (green tiles).</li>
+              <li>Eliminate as many letters as possible in your first two guesses to narrow the solution space.</li>
+              <li>Common 5-letter word endings: -TION, -ING, -ER, -LY, -ED, -EST.</li>
+            </ul>
+          </div>
+          <div class="guide-card">
+            <h3>📜 Scrabble Letter Values</h3>
+            <table class="scrabble-table" aria-label="Scrabble letter point values">
+              <thead><tr><th>Letters</th><th>Points</th></tr></thead>
+              <tbody>
+                <tr><td>A, E, I, O, U, L, N, S, T, R</td><td>1</td></tr>
+                <tr><td>D, G</td><td>2</td></tr>
+                <tr><td>B, C, M, P</td><td>3</td></tr>
+                <tr><td>F, H, V, W, Y</td><td>4</td></tr>
+                <tr><td>K</td><td>5</td></tr>
+                <tr><td>J, X</td><td>8</td></tr>
+                <tr><td>Q, Z</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="guide-card">
+            <h3>🔤 Common Word Patterns</h3>
+            <ul>
+              <li><strong>-ING</strong> — adding to verb roots gives long, high-scoring words.</li>
+              <li><strong>-TION / -SION</strong> — common endings for 6–8 letter words.</li>
+              <li><strong>UN- / RE- / IN-</strong> — prefixes that extend short words dramatically.</li>
+              <li><strong>-LY</strong> — quick adverb suffix that works with many adjectives.</li>
+              <li><strong>-ER / -EST</strong> — comparative and superlative endings for easy length boosts.</li>
+              <li><strong>QI, ZA, JO, XU</strong> — short valid Scrabble words for high-value letters.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — USE CASES
+    ════════════════════════════════════════ -->
+    <section class="section section-usecases" id="usecases" aria-label="Use cases">
+      <div class="container">
+        <div class="section-label">Who uses this</div>
+        <h2 class="section-title">Built for every<br /><em>word game player.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎲</div>
+            <h3>Scrabble Players</h3>
+            <p>Find every valid word from your rack, sorted by point value. Spot bingo opportunities and high-score plays before your opponent does.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💚</div>
+            <h3>Wordle Solvers</h3>
+            <p>Stuck on today's Wordle? Use the starts-with, ends-with, and contains filters to narrow down the answer from your confirmed letters.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">📱</div>
+            <h3>Words With Friends</h3>
+            <p>The same letter-set logic applies to Words With Friends. Find the highest-scoring play from your current tiles in seconds.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">✏️</div>
+            <h3>Crossword Helpers</h3>
+            <p>Know some letters in a slot but not all? Use the starts-with, ends-with, and contains filters to solve any crossword clue pattern.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">👩‍🏫</div>
+            <h3>Teachers & Students</h3>
+            <p>Generate word lists from letter sets for classroom vocabulary games, spelling challenges, and anagram puzzles.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🧩</div>
+            <h3>Puzzle Creators</h3>
+            <p>Find all words that fit a specific pattern or length for designing word search grids, crossword puzzles, and language games.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 7 — FAQ
+    ════════════════════════════════════════ -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is a Word Finder?</button>
+            <div class="faq-a"><p>A Word Finder is a tool that finds all valid dictionary words that can be formed using some or all letters from a given set. You enter your available letters and the tool returns every word you can make — sorted and filtered however you need.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is the difference between a Word Finder and a Word Unscrambler?</button>
+            <div class="faq-a"><p>In practice, they're the same thing. A Word Unscrambler takes a jumbled set of letters and rearranges them to reveal valid words. A Word Finder does the same — it finds valid words from a set of letters. This tool does both.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I use a blank tile or wildcard?</button>
+            <div class="faq-a"><p>Type a question mark (<strong>?</strong>) anywhere in your letters to represent a blank tile that can stand in for any letter of the alphabet. For example, entering <em>STREA?</em> will find words using S, T, R, E, A and any one extra letter. Multiple wildcards are supported.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use this as a Scrabble word finder?</button>
+            <div class="faq-a"><p>Yes. Enter your Scrabble rack letters (including ? for blanks), and the tool returns all valid Scrabble words along with their point values. Sort by score to find your highest-value play instantly.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do the filters work?</button>
+            <div class="faq-a"><p>Use the filter bar to set a minimum and/or maximum word length, a starting letter pattern, an ending letter pattern, or a letter the word must contain somewhere. You can combine all four filters at once. Results update the moment you click Find Words.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How many letters can I enter?</button>
+            <div class="faq-a"><p>You can enter up to 15 letters. Scrabble racks have 7 tiles; Words With Friends has 7 too; some variants go up to 10. 15 letters covers all common word games and then some.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this tool completely free?</button>
+            <div class="faq-a"><p>Yes — completely free, no account, no sign-up, no download, and no search limit. The word finder works entirely in your browser.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ════════════════════════════════════════ -->
+    <section class="section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Your next word is waiting.</h2>
+          <p>Enter your letters and find every valid word in seconds — free, instant, and no signup needed.</p>
+          <a href="#finder" class="btn-cta">Find Words Now →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Site components -->
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
+  <script src="/wordlist.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Scrabble letter values ── */
+    const SCORES = {
+      a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,
+      k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,
+      u:1,v:4,w:4,x:8,y:4,z:10
+    };
+    function wordScore(w){ return [...w].reduce((s,c)=>s+(SCORES[c]||0),0); }
+
+    /* ── DOM refs ── */
+    const lettersInput  = document.getElementById('wfLetters');
+    const findBtn       = document.getElementById('wfFindBtn');
+    const clearBtn      = document.getElementById('wfClearBtn');
+    const resultsDiv    = document.getElementById('wfResults');
+    const statusDiv     = document.getElementById('wfStatus');
+    const statusMsg     = document.getElementById('wfStatusMsg');
+    const filterMin     = document.getElementById('wfLengthMin');
+    const filterMax     = document.getElementById('wfLengthMax');
+    const filterStart   = document.getElementById('wfStartsWith');
+    const filterEnd     = document.getElementById('wfEndsWith');
+    const filterCont    = document.getElementById('wfContains');
+    const sortSelect    = document.getElementById('wfSortBy');
+
+    /* ── Uppercase input live ── */
+    lettersInput.addEventListener('input', () => {
+      lettersInput.value = lettersInput.value.toUpperCase();
+    });
+    lettersInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') runSearch();
+    });
+
+    /* ── Buttons ── */
+    findBtn.addEventListener('click', runSearch);
+    clearBtn.addEventListener('click', () => {
+      lettersInput.value = '';
+      filterStart.value = '';
+      filterEnd.value = '';
+      filterCont.value = '';
+      filterMin.value = '2';
+      filterMax.value = '15';
+      renderEmpty('Enter your letters above');
+      lettersInput.focus();
+    });
+
+    /* ── Core: can word be made from letters (with wildcard support) ── */
+    function canMake(word, letters) {
+      const pool = letters.split('');
+      let wildcards = pool.filter(c => c === '?').length;
+      const fixed   = pool.filter(c => c !== '?');
+      const freq    = {};
+      fixed.forEach(c => { freq[c] = (freq[c] || 0) + 1; });
+
+      for (const ch of word) {
+        if (freq[ch] && freq[ch] > 0) {
+          freq[ch]--;
+        } else if (wildcards > 0) {
+          wildcards--;
+        } else {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    /* ── Main search ── */
+    function runSearch() {
+      // Guard: wordlist must be loaded
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        renderError('Word list not loaded yet. Please wait a moment and try again.');
+        return;
+      }
+
+      const raw = lettersInput.value.trim().replace(/\s+/g, '').toUpperCase();
+      if (!raw) {
+        renderEmpty('Please enter at least 1 letter.');
+        return;
+      }
+      if (raw.replace(/[?]/g, '').length === 0 && raw.length > 0) {
+        renderEmpty('Please enter at least one real letter (not only wildcards).');
+        return;
+      }
+
+      // Read filters
+      const minLen   = Math.max(1, parseInt(filterMin.value) || 2);
+      const maxLen   = Math.min(15, parseInt(filterMax.value) || 15);
+      const starts   = filterStart.value.trim().toLowerCase();
+      const ends     = filterEnd.value.trim().toLowerCase();
+      const contains = filterCont.value.trim().toLowerCase();
+      const sortBy   = sortSelect.value;
+      const letters  = raw.toLowerCase();
+
+      // Show loading
+      showLoading('Searching…');
+
+      // Defer to avoid blocking paint
+      setTimeout(() => {
+        const results = [];
+
+        for (const word of WORDLIST) {
+          const wl = word.length;
+          if (wl < minLen || wl > maxLen) continue;
+          if (wl > raw.length && !raw.includes('?')) continue; // can't exceed letter count without wildcard
+          if (starts   && !word.startsWith(starts))   continue;
+          if (ends     && !word.endsWith(ends))        continue;
+          if (contains && !word.includes(contains))    continue;
+          if (!canMake(word, letters))                 continue;
+          results.push(word);
+        }
+
+        // Sort
+        if (sortBy === 'length-desc')  results.sort((a,b) => b.length - a.length || a.localeCompare(b));
+        else if (sortBy === 'length-asc') results.sort((a,b) => a.length - b.length || a.localeCompare(b));
+        else if (sortBy === 'alpha')   results.sort((a,b) => a.localeCompare(b));
+        else if (sortBy === 'score-desc') results.sort((a,b) => wordScore(b) - wordScore(a));
+
+        renderResults(results, raw);
+      }, 10);
+    }
+
+    /* ── Render helpers ── */
+    function showLoading(msg) {
+      statusDiv.style.display = 'block';
+      statusMsg.textContent = msg;
+      resultsDiv.innerHTML = '';
+    }
+
+    function hideLoading() {
+      statusDiv.style.display = 'none';
+    }
+
+    function renderEmpty(msg) {
+      hideLoading();
+      resultsDiv.innerHTML = `
+        <div class="wf-empty">
+          <div class="wf-empty-icon">🔤</div>
+          <h3>${msg}</h3>
+          <p>Type up to 15 letters and click <strong>Find Words</strong>. Use <strong>?</strong> for blank tiles.</p>
+        </div>`;
+    }
+
+    function renderError(msg) {
+      hideLoading();
+      resultsDiv.innerHTML = `
+        <div class="wf-empty">
+          <div class="wf-empty-icon">⚠️</div>
+          <h3>Something went wrong</h3>
+          <p>${msg}</p>
+        </div>`;
+    }
+
+    function renderResults(words, rawLetters) {
+      hideLoading();
+
+      if (!words.length) {
+        resultsDiv.innerHTML = `
+          <div class="wf-empty">
+            <div class="wf-empty-icon">🙁</div>
+            <h3>No words found</h3>
+            <p>Try adjusting your filters — loosen the length range or remove the starts-with/ends-with constraints.</p>
+          </div>`;
+        return;
+      }
+
+      // Group by length
+      const groups = {};
+      words.forEach(w => {
+        const l = w.length;
+        if (!groups[l]) groups[l] = [];
+        groups[l].push(w);
+      });
+
+      const sortedLengths = Object.keys(groups).map(Number).sort((a,b) => {
+        const sortBy = sortSelect.value;
+        return (sortBy === 'length-asc') ? a - b : b - a;
+      });
+
+      // Score summary badges
+      const byScore = [...words].sort((a,b) => wordScore(b)-wordScore(a));
+      const topScore = byScore[0] ? `${byScore[0].toUpperCase()} (${wordScore(byScore[0])}pts)` : '';
+
+      let html = `
+        <div class="wf-results-meta">
+          <div class="wf-results-count">
+            Found <span>${words.length}</span> word${words.length !== 1 ? 's' : ''} 
+            from <span>${rawLetters.toUpperCase()}</span>
+            ${topScore ? `· Best: <span>${topScore}</span>` : ''}
+          </div>
+          <div class="wf-meta-actions">
+            <select class="wf-sort-select" id="wfSortLive" aria-label="Change sort order">
+              <option value="length-desc" ${sortSelect.value==='length-desc'?'selected':''}>Length ↓</option>
+              <option value="length-asc"  ${sortSelect.value==='length-asc' ?'selected':''}>Length ↑</option>
+              <option value="alpha"       ${sortSelect.value==='alpha'      ?'selected':''}>A → Z</option>
+              <option value="score-desc"  ${sortSelect.value==='score-desc' ?'selected':''}>Score ↓</option>
+            </select>
+            <button class="wf-meta-btn" id="wfCopyAll">⎘ Copy All</button>
+          </div>
+        </div>`;
+
+      // Length filter badges
+      html += `<div class="wf-score-summary" role="group" aria-label="Filter by word length">
+        <span class="wf-score-badge active" data-len="all">All (${words.length})</span>`;
+      sortedLengths.forEach(l => {
+        html += `<span class="wf-score-badge" data-len="${l}">${l} letters (${groups[l].length})</span>`;
+      });
+      html += `</div>`;
+
+      // Word groups
+      html += `<div id="wfWordGroups">`;
+      sortedLengths.forEach(l => {
+        html += `
+          <div class="wf-length-group" data-group="${l}">
+            <div class="wf-group-header">
+              ${l}-letter words
+              <span class="wf-group-count">${groups[l].length}</span>
+            </div>
+            <div class="wf-word-grid">`;
+        groups[l].forEach(word => {
+          const sc = wordScore(word);
+          html += `
+              <div class="wf-word-tile" data-word="${word}" tabindex="0" role="button" aria-label="Copy word ${word.toUpperCase()}, score ${sc}">
+                <span class="wf-tile-word">${word.toUpperCase()}</span>
+                <span class="wf-tile-score">pts: <span>${sc}</span></span>
+              </div>`;
+        });
+        html += `</div></div>`;
+      });
+      html += `</div>`;
+
+      resultsDiv.innerHTML = html;
+
+      /* ── Event delegation: word tile clicks ── */
+      resultsDiv.addEventListener('click', e => {
+        const tile = e.target.closest('.wf-word-tile');
+        if (tile) {
+          const w = tile.dataset.word.toUpperCase();
+          navigator.clipboard.writeText(w).then(() => {
+            tile.classList.add('copied');
+            setTimeout(() => tile.classList.remove('copied'), 1200);
+            showToast(`Copied "${w}"`);
+          }).catch(() => showToast(`Word: ${w}`));
+        }
+      });
+      resultsDiv.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const tile = e.target.closest('.wf-word-tile');
+          if (tile) tile.click();
+        }
+      });
+
+      /* ── Copy All ── */
+      document.getElementById('wfCopyAll').addEventListener('click', () => {
+        const allWords = words.map(w => w.toUpperCase()).join(', ');
+        navigator.clipboard.writeText(allWords).then(() => showToast(`Copied ${words.length} words!`));
+      });
+
+      /* ── Live sort ── */
+      document.getElementById('wfSortLive').addEventListener('change', e => {
+        sortSelect.value = e.target.value;
+        runSearch();
+      });
+
+      /* ── Length filter badges ── */
+      resultsDiv.querySelectorAll('.wf-score-badge').forEach(badge => {
+        badge.addEventListener('click', () => {
+          resultsDiv.querySelectorAll('.wf-score-badge').forEach(b => b.classList.remove('active'));
+          badge.classList.add('active');
+          const len = badge.dataset.len;
+          resultsDiv.querySelectorAll('.wf-length-group').forEach(group => {
+            group.style.display = (len === 'all' || group.dataset.group === len) ? 'block' : 'none';
+          });
+        });
+      });
+    }
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ans  = btn.nextElementSibling;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.style.display = 'none';
+        });
+        if (!open) {
+          btn.setAttribute('aria-expanded', 'true');
+          ans.style.display = 'block';
+        }
+      });
+    });
+
+    /* ── Toast ── */
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+    
+
+  })();
+  </script>
+
+</body>
+</html>

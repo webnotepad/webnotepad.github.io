@@ -1,0 +1,36 @@
+# WebNotePad – Free Online Notepad
+
+> A clean, distraction‑free text editor that runs entirely in your browser. No sign‑up, no downloads, no account. Auto‑saves every keystroke to local storage, works offline, supports rich text formatting, multiple notes, export to TXT/HTML, dark mode, and live word/character counts. 100% free forever.
+
+## Quick Links
+- [Editor](https://webnotepad.github.io/): The main writing area — open, type, and save instantly.
+- [Features](#features): Auto‑save, dark mode, rich text formatting, multiple notes, find & replace, export, live stats, offline mode, fullscreen.
+- [Use Cases](#use-cases): Students, professionals, writers, developers, everyday users, creatives.
+- [About / Story](#story): Why WebNotePad was built — no data collection, no monetization, just a tool that works.
+
+## Key Features
+- **Instant Auto‑Save** — Every keystroke is saved to your browser’s local storage. Close the tab accidentally? Your notes are safe.[reference:0]
+- **Dark Mode** — Toggle between light and dark themes to protect your eyes during late‑night writing.[reference:1]
+- **Rich Text Formatting** — Bold, italic, underline, lists, alignment, font sizes, and text color — real formatting without the complexity.[reference:2]
+- **Multiple Notes** — Create unlimited notes, switch between them instantly. Each note has its own title, content, and formatting.[reference:3]
+- **Find & Replace** — Powerful inline search. Find any word or phrase and replace it in one click, or replace all instances at once.[reference:4]
+- **Export Options** — Download your notes as clean `.txt` or formatted `.html` files with one click.[reference:5]
+- **Live Stats** — Real‑time word count, character count, line count, and reading time estimate shown in the status bar.[reference:6]
+- **Works Offline** — Once loaded, WebNotePad runs entirely in your browser. No internet needed. Your notes are stored locally.[reference:7]
+- **Fullscreen Mode** — Enter a distraction‑free fullscreen writing environment with a single click.[reference:8]
+
+## Who Uses WebNotePad
+- **Students** — Class notes, essays, study points — fast, clean, and distraction‑free.[reference:9]
+- **Professionals** — Draft quick memos, track meeting action items, write project briefs, or store temporary code snippets.[reference:10]
+- **Writers & Bloggers** — Capture ideas, write first drafts, brainstorm outlines, or store quotes — without the editor getting in the way.[reference:11]
+- **Developers** — Paste snippets, write quick docs, store API keys temporarily, or jot down terminal commands.[reference:12]
+- **Everyday Users** — Shopping lists, to‑do items, phone numbers, recipes, passwords — anything you need to jot down fast and access instantly.[reference:13]
+- **Creatives** — Brainstorm ideas, write song lyrics, script dialogue, capture fleeting inspiration before it slips away.[reference:14]
+
+## FAQ
+- **Is it really free?** Yes, 100% free forever. No sign‑up, no hidden costs, no monetization of your attention.[reference:15]
+- **Do you store my notes on your servers?** No. Your notes live in your browser’s local storage. We don’t collect your data or read your notes.[reference:16]
+- **Does it work offline?** Yes. Once the page loads, it runs entirely in your browser. No internet connection is required.[reference:17]
+- **Can I export my notes?** Yes — download as `.txt` or formatted `.html` with one click.[reference:18]
+- **How many notes can I create?** Unlimited. Create as many as you need and switch between them instantly.[reference:19]
+- **Does it have dark mode?** Yes — toggle between light and dark themes to protect your eyes.[reference:20]

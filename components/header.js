@@ -62,7 +62,7 @@
       <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
       <a href="/blog" class="nav-link">📝 Blog</a>      
-      <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Open Notepad →</a>
+      <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad →</a>
     </nav>
   `;
 

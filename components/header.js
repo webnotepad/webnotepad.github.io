@@ -8,7 +8,7 @@
       <div class="container header-inner">
         <a href="/" class="header-logo" aria-label="WebNotePad Home">
           <div class="logo-mark" aria-hidden="true">NP</div>
-          <span>Notepad Online</span>
+          <span>Notepad Online</span> 
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">

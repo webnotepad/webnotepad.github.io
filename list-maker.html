@@ -263,24 +263,25 @@
       display: flex;
       flex: 1;
       min-height: 0;
+      height: auto;
     }
 
     /* ══════════════════════════════════
        SIDEBAR
     ══════════════════════════════════ */
     .sidebar {
-      width: var(--sidebar-w);
-      min-width: var(--sidebar-w);
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - 58px);
-      position: sticky;
-      top: 58px;
-      overflow-y: auto;
-      transition: transform var(--t);
-    }
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Change from calc(100vh - 58px) to auto */
+  min-height: 500px; /* Optional: gives it a solid height if empty */
+  position: relative; /* Removes screen-stuck scrolling mechanics */
+  overflow-y: visible; 
+  transition: transform var(--t);
+}
     .sidebar-head {
       padding: 16px 16px 10px;
       border-bottom: 1px solid var(--border);
@@ -378,8 +379,8 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
-      overflow-y: auto;
-      height: calc(100vh - 58px);
+      overflow-y: visible;
+      height: auto;
     }
 
     /* ── Editor Panel ── */
@@ -1090,6 +1091,7 @@
   border-bottom: 1px solid var(--border);
   padding: 60px 24px;
   text-align: center;
+  margin-bottom: 40px;
 }
 .hero-container {
   max-width: 800px;

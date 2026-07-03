@@ -159,6 +159,50 @@ body.dark .d-how-num{color:var(--d-tan)}
 
 /* MOBILE */
 @media(max-width:900px){.d-how-grid{grid-template-columns:repeat(2,1fr)}.d-desc-inner{grid-template-columns:1fr;gap:36px}}
-@media(max-width:680px){.d-how-grid{grid-template-columns:1fr}.d-app-shell{flex-direction:column}.d-sidebar{width:100%;min-width:0;max-height:240px;border-right:none;border-bottom:1px solid var(--d-tan)}.d-mobile-menu{display:flex}.d-editor-header{flex-wrap:wrap}.d-entry-meta{flex-direction:column;align-items:flex-start}.d-tags-input{width:100%}}
-::-webkit-scrollbar{width:5px;height:5px}
+/* Add spacing between the Hero and the Diary App section */
+.d-app-section {
+  margin-top: 40px; /* Adjusts spacing between hero and app */
+}
+
+/* Optimized mobile layout for screens smaller than 680px */
+@media(max-width:680px){
+  .d-how-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .d-app-shell { 
+    flex-direction: column; 
+    min-height: auto; /* Prevents forced height issues on mobile */
+  }
+  
+  .d-sidebar {
+    width: 100%;
+    min-width: 0;
+    max-height: 350px; /* Increased from 240px to show more entries */
+    border-right: none;
+    border-bottom: 1px solid var(--d-tan);
+  }
+  
+  .d-entries-list {
+    max-height: 200px; /* Ensures the list area has a scrollable constraint */
+    overflow-y: auto;
+  }
+
+  .d-mobile-menu { 
+    display: flex; 
+  }
+  
+  .d-editor-header { 
+    flex-wrap: wrap; 
+  }
+  
+  .d-entry-meta { 
+    flex-direction: column; 
+    align-items: stretch; /* Makes inputs span full width for easier tapping */
+  }
+  
+  .d-tags-input { 
+    width: 100%; 
+  }
+}::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-thumb{background:var(--d-tan);border-radius:3px}

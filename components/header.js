@@ -36,7 +36,7 @@
           <button class="header-dark-btn" id="headerDarkBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
             🌙
           </button>
-          <a href="/#notepad" class="header-cta">Open Notepad →</a>
+          <a href="/#notepad" class="header-cta">Notepad →</a>
           <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             ☰
           </button>

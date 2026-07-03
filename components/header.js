@@ -36,7 +36,7 @@
           <button class="header-dark-btn" id="headerDarkBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
             🌙
           </button>
-          <a href="/#notepad" class="header-cta">Notepad →</a>
+          <a href="/#notepad" class="header-cta">Notepad→</a>
           <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             ☰
           </button>
@@ -62,7 +62,7 @@
       <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
       <a href="/blog" class="nav-link">📝 Blog</a>      
-      <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad →</a>
+      <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad→</a>
     </nav>
   `;
 

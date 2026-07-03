@@ -1085,11 +1085,59 @@
       .add-bar { padding: 10px 16px; }
       .list-body { padding: 12px 16px; }
     }
+    .app-hero {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 24px;
+  text-align: center;
+}
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.hero-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--r);
+  font-family: var(--font-mono);
+  transition: all var(--t);
+}
+.hero-btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+.hero-btn-primary:hover {
+  background: var(--accent-lt);
+}
   </style>
 </head>
 <body>
 
   <div id="header-root"></div>
+
+  <header class="app-hero">
+  <div class="hero-container">
+    <h1 class="hero-title">Free Online List Maker</h1>
+    <p class="hero-subtitle">Instantly create, organize, and manage grocery lists, shopping lists, to-dos, and custom checklists. Your data is auto-saved locally in your browser with zero signups required.</p>
+    <div class="hero-actions">
+      <a href="#main-app" class="hero-btn hero-btn-primary">Create a New List</a>
+    </div>
+  </div>
+</header>
    <div class="section-inner">
 
   <!-- ═══════════ TOP BAR ═══════════ -->

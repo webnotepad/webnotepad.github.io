@@ -29,7 +29,7 @@
             </div>
           </div>    
           <a href="/blog" class="nav-link">Blog</a>
-          <a href="/about" class="nav-link">About</a>  
+          <a href="/about" class="nav-link">About</a>   
         </nav>
 
         <div class="header-right">

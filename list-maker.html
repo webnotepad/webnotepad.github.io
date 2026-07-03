@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
-     crossorigin="anonymous"></script>
-  
+     crossorigin="anonymous"></script>  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,8 +19,7 @@
   <meta name="author" content="WebNotePad" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://webnotepad.github.io/list-maker" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">  
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -169,6 +167,7 @@
       --purple-pl: #1a0a2e;
       --sh:        0 2px 12px rgba(0,0,0,.35);
       --sh-lg:     0 8px 32px rgba(0,0,0,.5);
+      color-scheme: dark;
     }
 
     /* ── Reset ── */
@@ -487,6 +486,7 @@
     }
     .add-input {
       flex: 1;
+      min-width: 0;
       padding: 9px 14px;
       border-radius: var(--r);
       border: 1.5px solid var(--border);
@@ -522,7 +522,7 @@
       transition: border-color var(--t);
     }
     .add-extra-field:focus { border-color: var(--accent); }
-    .priority-select { width: 110px; }
+    .priority-select { width: 134px; }
 
     /* ── List Body ── */
     .list-body {
@@ -1075,7 +1075,23 @@
       .add-extras { width: 100%; }
       .list-header-actions { flex-wrap: wrap; }
       .brand-tool { display: none; }
-      .topbar-right { gap: 4px; }
+      .topbar { padding: 0 12px; gap: 8px; }
+      .topbar-brand { min-width: 0; flex-shrink: 1; }
+      .brand-name {
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        max-width: 92px;
+      }
+      .topbar-right {
+        gap: 4px;
+        flex-shrink: 0;
+        max-width: 62vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 1px; /* avoids clipping button focus ring */
+      }
+      .topbar-right::-webkit-scrollbar { display: none; }
+      .tb-btn { flex-shrink: 0; }
       .tb-btn span { display: none; }
     }
     @media (max-width: 540px) {
@@ -1085,6 +1101,21 @@
       .list-header { padding: 14px 16px 10px; }
       .add-bar { padding: 10px 16px; }
       .list-body { padding: 12px 16px; }
+      /* Badge + title + Sort/All/None no longer fit on one line at this
+         width; let actions wrap instead of pushing off-screen, and keep
+         the title input from collapsing to 0 width */
+      .list-header-row1 { flex-wrap: wrap; row-gap: 8px; }
+      .list-title-input { min-width: 140px; }
+      /* Same issue for the filter row: two selects + a fixed-width
+         search box no longer fit in one line */
+      .list-header-row2 { row-gap: 8px; }
+      .filter-group { flex-wrap: wrap; width: 100%; }
+      .search-input { flex: 1; min-width: 120px; width: auto; }
+    }
+    /* Item action buttons (edit/delete) must stay reachable on touch
+       devices, which have no :hover state */
+    @media (hover: none) {
+      .item-actions { opacity: 1; }
     }
     .app-hero {
   background-color: var(--surface);
@@ -1155,7 +1186,7 @@
       <button class="tb-btn" id="exportTxtBtn" aria-label="Export as TXT">⬇ <span>TXT</span></button>
       <button class="tb-btn" id="exportHtmlBtn" aria-label="Export as HTML">⬇ <span>HTML</span></button>
       <button class="tb-btn" id="copyListBtn" aria-label="Copy list">⎘ <span>Copy</span></button>
-      <button class="tb-btn" id="clearDoneBtn" aria-label="Clear completed">✕ <span>Done</span></button>
+      <button class="tb-btn" id="clearDoneBtn" aria-label="Clear completed">🧹 <span>Clear Done</span></button>
       <button class="tb-btn" id="darkModeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
       <button class="tb-btn tb-btn-accent" id="topNewListBtn" aria-label="New list">＋ <span>New List</span></button>
     </div>

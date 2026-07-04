@@ -172,6 +172,225 @@
       </div>
     </section>
 
+    <!-- =============================================
+     IMAGE CARDS SECTION — PDF FEATURE HIGHLIGHT
+     ============================================= -->
+<section class="d-section d-image-cards" id="pdf-feature">
+  <div class="d-container">
+    <div class="d-section-tag">📄 Export &amp; Print</div>
+    <h2 class="d-section-title">
+      Turn Your <em>Online Diary</em> into a Beautiful PDF
+    </h2>
+    <p class="d-cards-intro">
+      Your <strong>online journal</strong> deserves to be kept forever. 
+      With one click, export any entry as a styled PDF — perfect for 
+      printing, archiving, or sharing a chapter of your life.  
+      <span class="d-keyword-highlight">Free online diary</span> • 
+      <span class="d-keyword-highlight">secret diary online free</span> • 
+      <span class="d-keyword-highlight">internet diary</span>
+    </p>
+
+    <div class="d-cards-grid">
+      <!-- CARD 1 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t1.png" alt="Online diary export to PDF" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📄 One‑Click PDF</h3>
+          <p>Export any diary entry as a polished PDF. Choose from multiple journal‑style templates.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t2.png" alt="Free online diary with mood tracker" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🎨 Styled Templates</h3>
+          <p>Pick a warm, minimalist, or classic layout — your <strong>online diary</strong> looks great in print.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t3.png" alt="Secret diary online free backup" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🔒 Private &amp; Secure</h3>
+          <p>PDF generation happens entirely in your browser — nothing is sent to any server. True <strong>internet diary</strong> privacy.</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t4.png" alt="Online journal entries export" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📖 Archive Your Story</h3>
+          <p>Keep a permanent copy of your <strong>online diaries</strong>. Print, share, or save for future reflection.</p>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t5.png" alt="Free online diary PDF download" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🖨️ Print‑Friendly</h3>
+          <p>Your <strong>free online diary</strong> entries are formatted for clean, beautiful printing — no clutter.</p>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="t6.png" alt="Online diary mood and tags export" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📱 Mobile‑Ready</h3>
+          <p>Export from any device. Whether you use a <strong>secret diary online free</strong> on your phone or desktop, PDFs look stunning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- extra call‑to‑action (optional) -->
+    <div class="d-cards-cta">
+      <a href="#diary-app" class="d-btn d-btn-primary">✍️ Write Now &amp; Export Later</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     ADDITIONAL STYLES (round borders, grid, etc.)
+     ============================================= -->
+<style>
+/* ---- image cards section ---- */
+.d-image-cards {
+  background: var(--d-cream);
+  padding: 60px 0 80px;
+}
+
+.d-cards-intro {
+  max-width: 700px;
+  font-size: 1.05rem;
+  color: var(--d-ink-soft);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.d-keyword-highlight {
+  display: inline-block;
+  background: var(--d-rose-pale);
+  color: var(--d-rose);
+  padding: 0 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid var(--d-rose);
+}
+
+.d-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 16px;
+}
+
+.d-card-item {
+  background: var(--d-warm);
+  border-radius: 24px;          /* round border */
+  border: 1px solid var(--d-tan);
+  overflow: hidden;
+  box-shadow: var(--d-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.d-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--d-shadow-lg);
+}
+
+.d-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;          /* square images — adjust if needed */
+  overflow: hidden;
+  background: var(--d-tan);
+  border-radius: 24px 24px 0 0; /* keep top corners round */
+}
+
+.d-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* ensures images fill the square neatly */
+  transition: transform 0.3s ease;
+}
+
+.d-card-item:hover .d-card-image img {
+  transform: scale(1.02);
+}
+
+.d-card-content {
+  padding: 18px 18px 22px;
+}
+
+.d-card-content h3 {
+  font-family: var(--d-font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--d-ink);
+  margin-bottom: 6px;
+}
+
+.d-card-content p {
+  font-size: 0.9rem;
+  color: var(--d-ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.d-cards-cta {
+  margin-top: 44px;
+  text-align: center;
+}
+
+/* ---- responsive: 2 columns on medium, 1 on small ---- */
+@media (max-width: 900px) {
+  .d-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .d-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .d-card-image {
+    aspect-ratio: 4 / 3;        /* slightly taller on mobile */
+  }
+  .d-cards-intro {
+    font-size: 0.95rem;
+  }
+}
+
+/* dark mode adjustments */
+body.dark .d-card-item {
+  background: var(--d-warm);
+  border-color: var(--d-tan);
+}
+body.dark .d-keyword-highlight {
+  background: var(--d-rose-pale);
+  color: var(--d-rose);
+}
+</style>
+
     <!-- DESCRIPTION -->
     <section class="d-section d-desc" id="about-diary">
       <div class="d-container d-desc-inner">

@@ -1,0 +1,214 @@
+/* =============================================
+   WebNotePad — Diary PDF Export (diary-pdf.css)
+   Modal UI + 6 printable journal templates.
+
+   HOW TO CUSTOMIZE A TEMPLATE:
+   Each template is one CSS custom-property block
+   (--tpl-*) plus a matching .pdf-tpl-<id> ruleset.
+   Swap colors/fonts/borders there — nothing else
+   needs to change. Swatch previews reuse the same
+   variables so the picker always matches the PDF.
+   ============================================= */
+
+/* ---------- MODAL ---------- */
+.pdf-modal-overlay{
+  position:fixed; inset:0; background:rgba(20,12,6,.55);
+  display:flex; align-items:center; justify-content:center;
+  z-index:10000; opacity:0; pointer-events:none;
+  transition:opacity .2s ease;
+  padding:20px;
+}
+.pdf-modal-overlay.show{ opacity:1; pointer-events:auto; }
+.pdf-modal{
+  background:var(--d-cream,#fdf6ed); border-radius:16px;
+  width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  transform:translateY(12px); transition:transform .2s ease;
+}
+.pdf-modal-overlay.show .pdf-modal{ transform:translateY(0); }
+.pdf-modal-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px; border-bottom:1px solid var(--d-tan,#e8d5bc);
+}
+.pdf-modal-header h3{ font-family:var(--d-font-serif,serif); font-size:1.15rem; color:var(--d-ink,#2c1a0e); }
+.pdf-modal-close{
+  width:30px; height:30px; border-radius:8px; font-size:.9rem;
+  color:var(--d-ink-muted,#9e7b5e); background:var(--d-tan,#e8d5bc);
+  display:flex; align-items:center; justify-content:center;
+}
+.pdf-modal-close:hover{ background:var(--d-rose,#c4705a); color:#fff; }
+.pdf-modal-body{ padding:20px 22px 24px; }
+.pdf-modal-sub{ font-size:.85rem; color:var(--d-ink-soft,#5c3d2e); margin-bottom:14px; }
+
+.pdf-template-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+  margin-bottom:20px;
+}
+@media(max-width:520px){ .pdf-template-grid{ grid-template-columns:repeat(2,1fr); } }
+
+.pdf-template-swatch{
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  padding:10px 8px 12px; border-radius:12px; border:2px solid var(--d-tan,#e8d5bc);
+  background:#fff; transition:all .15s ease;
+}
+.pdf-template-swatch:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.1); }
+.pdf-template-swatch.selected{ border-color:var(--d-rose,#c4705a); box-shadow:0 0 0 3px rgba(196,112,90,.18); }
+.pdf-swatch-preview{
+  display:block; width:100%; height:64px; border-radius:6px;
+  background-size:cover; background-position:center;
+}
+.pdf-swatch-label{ font-size:.72rem; font-weight:600; text-align:center; color:var(--d-ink,#2c1a0e); line-height:1.3; }
+
+.pdf-modal-actions{ display:flex; justify-content:flex-end; }
+.pdf-generate-btn{
+  padding:11px 26px; border-radius:8px; font-weight:700; font-size:.9rem;
+  background:var(--d-rose,#c4705a); color:#fff; transition:background .15s ease;
+}
+.pdf-generate-btn:hover{ background:var(--d-brown,#8b5e3c); }
+
+.pdf-loading{
+  display:none; align-items:center; gap:10px; margin-top:16px;
+  font-size:.85rem; color:var(--d-ink-soft,#5c3d2e);
+}
+.pdf-loading.active{ display:flex; }
+.pdf-spinner{
+  width:18px; height:18px; border-radius:50%;
+  border:3px solid var(--d-tan,#e8d5bc); border-top-color:var(--d-rose,#c4705a);
+  animation:pdfSpin .7s linear infinite;
+}
+@keyframes pdfSpin{ to{ transform:rotate(360deg); } }
+
+/* PDF export button, styled like the other editor action buttons */
+.pdf-export-btn{ background:var(--d-brown,#8b5e3c); }
+.pdf-export-btn:hover{ background:var(--d-ink-soft,#5c3d2e); }
+
+/* ---------- PRINT AREA (off-screen, captured by html2pdf) ---------- */
+.pdf-print-area{
+  position:fixed; left:-9999px; top:0; width:8.5in;
+  display:none; /* toggled to block only while generating */
+}
+.pdf-page{ width:8.5in; min-height:11in; background:#fff; }
+.pdf-page-inner{ padding:0.85in 0.75in 0.7in; }
+
+.pdf-header{
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-bottom:18px; font-family:'Fira Mono', monospace; font-size:.72rem;
+  letter-spacing:.04em; text-transform:uppercase;
+}
+.pdf-title{ font-size:1.9rem; line-height:1.25; margin-bottom:10px; word-break:break-word; }
+.pdf-meta-row{ display:flex; gap:16px; flex-wrap:wrap; font-size:.85rem; margin-bottom:16px; }
+.pdf-tags em{ font-style:normal; opacity:.85; margin-right:6px; }
+.pdf-divider{ height:1px; margin-bottom:22px; }
+.pdf-content{ font-size:1rem; line-height:1.85; word-wrap:break-word; }
+.pdf-content p{ margin-bottom:14px; }
+.pdf-content ul, .pdf-content ol{ margin:0 0 14px 22px; }
+.pdf-footer{
+  margin-top:40px; padding-top:14px; font-size:.7rem;
+  font-family:'Fira Mono', monospace; text-align:center; opacity:.75;
+}
+
+/* =============================================
+   TEMPLATE 1 — Classic Leather
+   Deep brown leather look, gold rule lines, serif.
+   ============================================= */
+.pdf-tpl-classic{
+  --tpl-bg:#f7f0e4; --tpl-frame:#3b2415; --tpl-ink:#2c1a0e; --tpl-accent:#b8863c;
+  background:var(--tpl-bg); color:var(--tpl-ink);
+  border:14px solid var(--tpl-frame);
+  font-family:'Lora', Georgia, serif;
+}
+.pdf-tpl-classic .pdf-header{ color:var(--tpl-accent); border-bottom:1px solid var(--tpl-accent); padding-bottom:8px; }
+.pdf-tpl-classic .pdf-title{ font-weight:700; color:var(--tpl-frame); }
+.pdf-tpl-classic .pdf-mood, .pdf-tpl-classic .pdf-tags{ color:var(--tpl-accent); font-weight:600; }
+.pdf-tpl-classic .pdf-divider{ background:linear-gradient(to right, var(--tpl-accent), transparent); }
+.pdf-tpl-classic .pdf-footer{ border-top:1px solid var(--tpl-accent); color:var(--tpl-accent); }
+.pdf-tpl-classic-preview{ background:linear-gradient(135deg,#3b2415 0 20%, #f7f0e4 20% 100%); }
+
+/* =============================================
+   TEMPLATE 2 — Floral Vintage
+   Soft pastel florals in the corners, script-style accent.
+   ============================================= */
+.pdf-tpl-floral{
+  --tpl-bg:#fff7f4; --tpl-ink:#5c3040; --tpl-accent:#d98ba0;
+  background:
+    radial-gradient(circle at 0 0, #f7d4de 0, transparent 22%),
+    radial-gradient(circle at 100% 0, #f0e3c8 0, transparent 22%),
+    radial-gradient(circle at 0 100%, #e3ecd0 0, transparent 22%),
+    radial-gradient(circle at 100% 100%, #f7d4de 0, transparent 22%),
+    var(--tpl-bg);
+  color:var(--tpl-ink);
+  font-family:'Lora', Georgia, serif;
+}
+.pdf-tpl-floral .pdf-header{ color:var(--tpl-accent); }
+.pdf-tpl-floral .pdf-title{ font-style:italic; color:#a94f6b; }
+.pdf-tpl-floral .pdf-mood, .pdf-tpl-floral .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-floral .pdf-divider{ background:var(--tpl-accent); opacity:.5; }
+.pdf-tpl-floral .pdf-footer{ color:var(--tpl-accent); }
+.pdf-tpl-floral-preview{ background:radial-gradient(circle at 20% 20%, #f7d4de, #fff7f4 60%); }
+
+/* =============================================
+   TEMPLATE 3 — Minimalist Modern
+   Clean white space, thin rules, sans-serif.
+   ============================================= */
+.pdf-tpl-minimalist{
+  --tpl-bg:#ffffff; --tpl-ink:#1c1c1c; --tpl-accent:#888888;
+  background:var(--tpl-bg); color:var(--tpl-ink);
+  font-family:'Nunito', Helvetica, sans-serif;
+}
+.pdf-tpl-minimalist .pdf-header{ color:var(--tpl-accent); }
+.pdf-tpl-minimalist .pdf-title{ font-weight:800; letter-spacing:-.01em; }
+.pdf-tpl-minimalist .pdf-mood, .pdf-tpl-minimalist .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-minimalist .pdf-divider{ background:#e2e2e2; }
+.pdf-tpl-minimalist .pdf-footer{ border-top:1px solid #e2e2e2; color:var(--tpl-accent); }
+.pdf-tpl-minimalist-preview{ background:#ffffff; border:1px solid #ddd; }
+
+/* =============================================
+   TEMPLATE 4 — Kraft Rustic
+   Kraft-paper tone, stitched border, mono accents.
+   ============================================= */
+.pdf-tpl-kraft{
+  --tpl-bg:#d9c3a0; --tpl-ink:#3a2c1a; --tpl-accent:#7a5a35;
+  background:var(--tpl-bg); color:var(--tpl-ink);
+  border:3px dashed var(--tpl-accent);
+  font-family:'Fira Mono', monospace;
+}
+.pdf-tpl-kraft .pdf-header{ color:var(--tpl-accent); }
+.pdf-tpl-kraft .pdf-title{ font-family:'Lora', serif; font-weight:700; }
+.pdf-tpl-kraft .pdf-mood, .pdf-tpl-kraft .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-kraft .pdf-divider{ background:var(--tpl-accent); opacity:.6; }
+.pdf-tpl-kraft .pdf-footer{ color:var(--tpl-accent); }
+.pdf-tpl-kraft-preview{ background:#d9c3a0; border:2px dashed #7a5a35; }
+
+/* =============================================
+   TEMPLATE 5 — Elegant Rose Gold
+   Blush background, rose-gold rules, refined serif.
+   ============================================= */
+.pdf-tpl-rosegold{
+  --tpl-bg:#fdf1ee; --tpl-ink:#4a2c2c; --tpl-accent:#b8763e;
+  background:var(--tpl-bg); color:var(--tpl-ink);
+  border-top:10px solid var(--tpl-accent);
+  font-family:'Lora', Georgia, serif;
+}
+.pdf-tpl-rosegold .pdf-header{ color:var(--tpl-accent); letter-spacing:.08em; }
+.pdf-tpl-rosegold .pdf-title{ color:#8c4a2f; }
+.pdf-tpl-rosegold .pdf-mood, .pdf-tpl-rosegold .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-rosegold .pdf-divider{ background:var(--tpl-accent); }
+.pdf-tpl-rosegold .pdf-footer{ color:var(--tpl-accent); }
+.pdf-tpl-rosegold-preview{ background:linear-gradient(to bottom, #b8763e 0 12%, #fdf1ee 12% 100%); }
+
+/* =============================================
+   TEMPLATE 6 — Nature Botanical
+   Sage green tones, leafy corner accents.
+   ============================================= */
+.pdf-tpl-botanical{
+  --tpl-bg:#f2f5ec; --tpl-ink:#2f3d2a; --tpl-accent:#5c7a4a;
+  background:var(--tpl-bg); color:var(--tpl-ink);
+  border:10px solid #dfe8d2;
+  font-family:'Lora', Georgia, serif;
+}
+.pdf-tpl-botanical .pdf-header{ color:var(--tpl-accent); }
+.pdf-tpl-botanical .pdf-title{ color:#3f5a30; }
+.pdf-tpl-botanical .pdf-mood, .pdf-tpl-botanical .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-botanical .pdf-divider{ background:var(--tpl-accent); opacity:.5; }
+.pdf-tpl-botanical .pdf-footer{ color:var(--tpl-accent); }
+.pdf-tpl-botanical-preview{ background:linear-gradient(135deg,#5c7a4a 0 15%, #f2f5ec 15% 100%); }

@@ -21,6 +21,7 @@
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://webnotepad.github.io/diary"/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://webnotepad.github.io/diary"/>
   <meta property="og:title" content="Online Diary & Journal – Free Private Digital Journal"/>
@@ -53,6 +54,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/diary.css"/>
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/diary-pdf.css"/>
 </head>
 <body>
   <div id="header-root"></div>
@@ -125,6 +127,7 @@
               </div>
               <div class="d-editor-actions">
                 <button class="d-action-btn" id="dSaveBtn">💾 Save</button>
+                <button class="d-action-btn pdf-export-btn" id="dPdfBtn">📄 PDF</button>
                 <button class="d-action-btn d-delete-btn" id="dDeleteBtn">🗑 Delete</button>
               </div>
             </div>
@@ -217,9 +220,38 @@
   </main>
   <div id="footer-root"></div>
   <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
+
+  <!-- PDF EXPORT MODAL -->
+  <div class="pdf-modal-overlay" id="pdfModalOverlay">
+    <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+      <div class="pdf-modal-header">
+        <h3 id="pdfModalTitle">📄 Export Entry as PDF</h3>
+        <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="pdf-modal-body">
+        <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
+        <div class="pdf-template-grid" id="pdfTemplateGrid"><!-- swatches injected by diary-pdf.js --></div>
+        <div class="pdf-modal-actions">
+          <button class="pdf-generate-btn" id="pdfGenerateBtn">Generate PDF ⬇</button>
+        </div>
+        <div class="pdf-loading" id="pdfLoading">
+          <div class="pdf-spinner"></div>
+          <span>Creating your beautiful PDF…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden printable entry, rendered off-screen and captured by html2pdf -->
+  <div id="pdfPrintArea" class="pdf-print-area" aria-hidden="true"></div>
+
+  <!-- html2pdf.js (client-side only — nothing ever leaves the browser) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/diary.js"></script>
+  <script src="/diary-pdf.js"></script>
   <div id="tools-sidebar-root"></div>
 <script src="/components/sidebar.js"></script>
 </body>

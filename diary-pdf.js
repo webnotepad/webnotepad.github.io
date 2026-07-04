@@ -1,6 +1,6 @@
 /* =============================================
    WebNotePad — Diary PDF Export (diary-pdf.js)
-   Depends on: diary.js (for #dWritingArea etc.),
+   Depends on: diary.js (for #dWritingArea etc.), 
                html2pdf.js CDN (loaded in diary.html)
    Everything runs client-side — no data ever
    leaves the browser.

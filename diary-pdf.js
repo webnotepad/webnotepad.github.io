@@ -133,11 +133,28 @@
     const rawTitle = ($('dEntryTitle') && $('dEntryTitle').value) || 'diary-entry';
     const safeName = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'') || 'diary-entry';
 
+    // --- Fix: html2canvas miscalculates position:fixed offsets based on
+    // the page's current scroll position. If the user has scrolled down
+    // when they click "Generate PDF", the captured content shifts and
+    // renders with blank space above it (looks like content at the bottom).
+    // We scroll to the top before capturing, tell html2canvas explicitly
+    // to ignore scroll offsets, then restore the user's scroll position.
+    const restoreScrollX = window.scrollX;
+    const restoreScrollY = window.scrollY;
+    window.scrollTo(0, 0);
+
     const opt = {
       margin: 0,
       filename: `${safeName}.pdf`,
       image: { type:'jpeg', quality:0.98 },
-      html2canvas: { scale:2, useCORS:true },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: document.documentElement.scrollWidth,
+        windowHeight: document.documentElement.scrollHeight
+      },
       jsPDF: { unit:'in', format:'letter', orientation:'portrait' },
       pagebreak: { mode:['css','legacy'] }
     };
@@ -147,12 +164,14 @@
         if(loading) loading.classList.remove('active');
         printArea.style.display = 'none';
         printArea.innerHTML = '';
+        window.scrollTo(restoreScrollX, restoreScrollY);
         closeModal();
         showToast('📄 PDF downloaded!');
       })
       .catch(err=>{
         console.error('PDF generation failed:', err);
         if(loading) loading.classList.remove('active');
+        window.scrollTo(restoreScrollX, restoreScrollY);
         alert('Something went wrong generating the PDF. Please try again.');
       });
   }

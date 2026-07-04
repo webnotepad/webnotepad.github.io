@@ -128,23 +128,34 @@
    TEMPLATE 2 — Floral Vintage
    Soft pastel florals in the corners, script-style accent.
    ============================================= */
-.pdf-tpl-floral{
-  --tpl-bg:#fff7f4; --tpl-ink:#5c3040; --tpl-accent:#d98ba0;
-  background:
-    radial-gradient(circle at 0 0, #f7d4de 0, transparent 22%),
-    radial-gradient(circle at 100% 0, #f0e3c8 0, transparent 22%),
-    radial-gradient(circle at 0 100%, #e3ecd0 0, transparent 22%),
-    radial-gradient(circle at 100% 100%, #f7d4de 0, transparent 22%),
-    var(--tpl-bg);
-  color:var(--tpl-ink);
-  font-family:'Lora', Georgia, serif;
+/* =============================================
+   TEMPLATE 2 — Floral Vintage (Fixed)
+   ============================================= */
+.pdf-tpl-floral {
+  --tpl-bg: #fff7f4; 
+  --tpl-ink: #5c3040; 
+  --tpl-accent: #d98ba0;
+  
+  /* 1. Separate the fallback color to ensure it works even if gradients fail */
+  background-color: var(--tpl-bg); 
+  
+  /* 2. Standardized syntax using explicit positions and standard spaces */
+  background-image:
+    radial-gradient(circle at top left, #f7d4de 0%, transparent 22%),
+    radial-gradient(circle at top right, #f0e3c8 0%, transparent 22%),
+    radial-gradient(circle at bottom left, #e3ecd0 0%, transparent 22%),
+    radial-gradient(circle at bottom right, #f7d4de 0%, transparent 22%);
+    
+  color: var(--tpl-ink);
+  font-family: 'Lora', Georgia, serif;
 }
-.pdf-tpl-floral .pdf-header{ color:var(--tpl-accent); }
-.pdf-tpl-floral .pdf-title{ font-style:italic; color:#a94f6b; }
-.pdf-tpl-floral .pdf-mood, .pdf-tpl-floral .pdf-tags{ color:var(--tpl-accent); }
-.pdf-tpl-floral .pdf-divider{ background:var(--tpl-accent); opacity:.5; }
-.pdf-tpl-floral .pdf-footer{ color:var(--tpl-accent); }
-.pdf-tpl-floral-preview{ background:radial-gradient(circle at 20% 20%, #f7d4de, #fff7f4 60%); }
+
+.pdf-tpl-floral .pdf-header { color: var(--tpl-accent); }
+.pdf-tpl-floral .pdf-title { font-style: italic; color: #a94f6b; }
+.pdf-tpl-floral .pdf-mood, .pdf-tpl-floral .pdf-tags { color: var(--tpl-accent); }
+.pdf-tpl-floral .pdf-divider { background: var(--tpl-accent); opacity: 0.5; }
+.pdf-tpl-floral .pdf-footer { color: var(--tpl-accent); }
+.pdf-tpl-floral-preview { background: radial-gradient(circle at 20% 20%, #f7d4de, #fff7f4 60%); }
 
 /* =============================================
    TEMPLATE 3 — Minimalist Modern

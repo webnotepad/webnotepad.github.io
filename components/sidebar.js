@@ -24,7 +24,7 @@
     { name: "Word Counter", icon: "📊", url: "/word-counter", desc: "Count words, characters, and sentences." },
     { name: "Crossword Solver", icon: "🔠", url: "/crossword-solver", desc: "clue helper, word finder, and puzzle help." },
     { name: "Word Search Solver", icon: "🕵🏻", url: "/word-search-solver", desc: "word search solver, and word puzzle solver" },
-    { name: "Emoji Picker", icon: "🕵🏻", url: "/emoji-picker", desc: "pick emojies, and copy emojis" }
+    { name: "Emoji Picker", icon: "🙂", url: "/emoji-picker", desc: "pick emojies, and copy emojis" }
   ];
 
   // 2. Inject CSS Styles to perfectly match theme parameters and handle matching transitions

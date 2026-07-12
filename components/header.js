@@ -56,6 +56,7 @@
           <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
           <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>
           <a href="/study-planner" class="nav-link" style="padding-left: 32px;">• Study Planner</a>
+          <a href="/all-tools" class="nav-link" style="padding-left: 32px;">• All Tools</a>
         </div>
       </div>      
       <a href="diary" class="nav-link">🔄 Diary</a>

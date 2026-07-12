@@ -26,6 +26,7 @@
               <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
               <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
               <a href="/study-planner" class="dropdown-item">Study Planner</a>
+              <a href="/all-tools" class="dropdown-item">All Tools</a>
             </div>
           </div>    
           <a href="/blog" class="nav-link">Blog</a>

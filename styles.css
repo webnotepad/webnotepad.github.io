@@ -178,6 +178,11 @@ body.dark .header-cta { background: var(--accent); color: var(--white); }
 .mobile-nav.open { display: flex; }
 .mobile-nav .nav-link { font-size: 1rem; padding: 10px 12px; }
 
+/* FIX: Dark mode mobile nav text color */
+body.dark .mobile-nav .nav-link {
+  color: var(--ink);
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   background: var(--ink);
@@ -198,6 +203,10 @@ body.dark .site-footer { background: #0e0e12; }
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 12px;
+  color: var(--paper);
+}
+/* FIX: Ensure footer logo stays white in dark mode */
+body.dark .footer-brand .footer-logo {
   color: var(--paper);
 }
 .footer-brand p {

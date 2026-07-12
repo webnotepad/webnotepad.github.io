@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Search Solver – Free Online Hidden Word Finder | WebNotepad</title>
+  <meta name="description" content="Free word search solver online. Paste your letter grid and word list to instantly find hidden words forward, backward, and diagonally. No signup, no download." />
+  <meta name="keywords" content="word search solver, word search finder free, word search solver online, hidden word finder, word finder solver free with letters, word search puzzle solver online free, word search puzzle solver" />
+  <meta name="author" content="WebNotepad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/word-search-solver.html" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/word-search-solver.html" />
+  <meta property="og:title" content="Word Search Solver – Find Hidden Words Instantly" />
+  <meta property="og:description" content="Paste a letter grid and a word list — this free word search solver finds every hidden word forward, backward, and diagonally in seconds." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Word Search Solver – Free Online Hidden Word Finder" />
+  <meta name="twitter:description" content="Instantly find hidden words in any letter grid — forward, backward, diagonal. 100% free, no signup required." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Search Solver",
+    "url": "https://webnotepad.github.io/word-search-solver.html",
+    "description": "A free online word search solver that finds hidden words in a letter grid in any direction — forward, backward, horizontal, vertical, and diagonal.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Solves word search puzzles instantly",
+      "Finds words forward, backward, and diagonally",
+      "Highlights every found word on the grid",
+      "Supports custom letter grids of any size",
+      "No signup or download required",
+      "Works on desktop and mobile"
+    ],
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+    "screenshot": "https://webnotepad.github.io/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this word search solver really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This word search solver is 100% free to use online, with no signup, no download, and no hidden costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which directions does the solver check?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The solver checks all eight directions: horizontal forward and backward, vertical up and down, and all four diagonals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I enter my letter grid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Type or paste each row of your puzzle on its own line, either as one continuous string of letters or letters separated by spaces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it solve large or irregular grids?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the solver supports grids of any size, including rows of different lengths."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the word search solver is fully responsive and works smoothly on phones, tablets, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Word Search Solver", "item": "https://webnotepad.github.io/word-search-solver.html" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Forward. Backward. Diagonal. Solved.</div>
+        <h1 class="hero-title">
+          The free <span class="hero-accent">Word Search Solver</span><br />
+          that finds every hidden word.
+        </h1>
+        <p class="hero-sub">Paste your letter grid and word list — this word search solver online instantly locates every hidden word finder result forward, backward, and diagonally, then highlights it on the board.</p>
+        <div class="hero-cta-group">
+          <a href="#solver" class="btn btn-primary">Solve My Puzzle <span>→</span></a>
+          <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>8</strong><span>Directions Checked</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>100%</strong><span>Free Forever</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>0</strong><span>Signup Required</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">scroll to explore ↓</div>
+    </section>
+
+    <!-- ===== SOLVER APP SECTION ===== -->
+    <section class="section-app section-solver" id="solver" aria-label="Word Search Solver Tool">
+      <div class="container">
+        <div class="section-label">The tool</div>
+        <h2 class="section-title">Paste your puzzle. <em>Get instant answers.</em></h2>
+        <p class="section-sub">Enter your letter grid on the left, one row per line, then list the words you're hunting for. This word finder solver free tool does the rest.</p>
+
+        <div class="ws-shell">
+          <!-- Input panel -->
+          <div class="ws-panel ws-input-panel">
+            <div class="ws-field">
+              <label for="wsGridInput">Letter grid <span class="ws-hint">(one row per line)</span></label>
+              <textarea id="wsGridInput" class="ws-textarea" rows="10" spellcheck="false" placeholder="C A T D O G&#10;B I R D X Y&#10;F I S H Q Z&#10;..."></textarea>
+            </div>
+            <div class="ws-field">
+              <label for="wsWordsInput">Words to find <span class="ws-hint">(comma or newline separated)</span></label>
+              <textarea id="wsWordsInput" class="ws-textarea ws-textarea-sm" rows="4" spellcheck="false" placeholder="CAT, DOG, BIRD, FISH"></textarea>
+            </div>
+            <div class="ws-actions">
+              <button class="btn btn-primary" id="wsSolveBtn">🔎 Solve Puzzle</button>
+              <button class="btn-tool" id="wsExampleBtn">Load Example</button>
+              <button class="btn-tool" id="wsClearBtn">✕ Clear</button>
+            </div>
+            <p class="ws-status" id="wsStatus">Enter a grid and word list, then hit Solve.</p>
+          </div>
+
+          <!-- Output panel -->
+          <div class="ws-panel ws-output-panel">
+            <div class="ws-grid-wrap" id="wsGridWrap">
+              <div class="ws-empty-state" id="wsEmptyState">
+                <div class="ws-empty-icon">🧩</div>
+                <p>Your solved grid will appear here.</p>
+              </div>
+              <svg class="ws-lines" id="wsLines"></svg>
+              <div class="ws-grid" id="wsGrid"></div>
+            </div>
+            <div class="ws-results" id="wsResults"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* ===== SOLVER TOOL SECTION ===== */
+      .section-solver { background: var(--paper); padding-bottom: 100px; }
+      .ws-shell {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 28px;
+        margin-top: 40px;
+        align-items: start;
+      }
+      .ws-panel {
+        background: var(--paper-warm);
+        border: 1px solid var(--paper-edge);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+      }
+      .ws-field { margin-bottom: 18px; }
+      .ws-field label {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .ws-hint { color: var(--ink-muted); text-transform: none; letter-spacing: 0; font-weight: 400; }
+      .ws-textarea {
+        width: 100%;
+        resize: vertical;
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: var(--radius);
+        padding: 12px 14px;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--ink);
+        line-height: 1.6;
+        transition: border-color var(--transition);
+      }
+      .ws-textarea:focus { outline: none; border-color: var(--accent); }
+      .ws-textarea-sm { resize: vertical; }
+      .ws-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+      .ws-status { font-size: 0.82rem; color: var(--ink-muted); margin: 0; }
+      .ws-status.is-error { color: #c0392b; }
+      .ws-status.is-success { color: var(--green); }
+
+      .ws-output-panel { min-height: 420px; }
+      .ws-grid-wrap {
+        position: relative;
+        overflow-x: auto;
+        display: flex;
+        justify-content: center;
+        padding: 10px 4px;
+      }
+      .ws-empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--ink-muted);
+        padding: 80px 20px;
+        width: 100%;
+        text-align: center;
+      }
+      .ws-empty-icon { font-size: 2.2rem; }
+      .ws-grid {
+        display: none;
+        position: relative;
+        z-index: 2;
+        gap: 3px;
+      }
+      .ws-grid.is-visible { display: grid; }
+      .ws-lines { position: absolute; top: 0; left: 0; z-index: 1; pointer-events: none; }
+      .ws-cell {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: 4px;
+        user-select: none;
+        transition: background var(--transition), color var(--transition), transform 0.15s ease;
+      }
+      .ws-cell-blank { background: transparent; border-color: transparent; }
+      .ws-cell.is-hit { color: var(--white); font-weight: 700; border-color: transparent; }
+
+      .ws-results { margin-top: 24px; }
+      .ws-results-title {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--ink-muted);
+        margin-bottom: 12px;
+      }
+      .ws-result-list { display: flex; flex-wrap: wrap; gap: 10px; }
+      .ws-result-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--paper-edge);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        background: var(--paper);
+      }
+      .ws-swatch { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+      .ws-result-chip.not-found { opacity: 0.55; text-decoration: line-through; }
+      .ws-result-chip .dir { color: var(--ink-muted); font-size: 0.72rem; }
+
+      @media (max-width: 900px) {
+        .ws-shell { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 480px) {
+        .ws-cell { width: 26px; height: 26px; font-size: 0.8rem; }
+      }
+    </style>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What makes it different</div>
+        <h2 class="section-title">A hidden word finder<br /><em>built for speed.</em></h2>
+        <p class="section-sub">Every feature in this word search puzzle solver is designed to save you time on the trickiest boards.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧭</div>
+            <h3>8-Direction Search</h3>
+            <p>Checks horizontal, vertical, and both diagonals — forward and backward — so no hidden word slips through.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Visual Highlighting</h3>
+            <p>Every found word is highlighted in its own color directly on the grid, with a connecting line so it's easy to spot.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Results</h3>
+            <p>Solve dozens of words across a large grid in a fraction of a second, right in your browser.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📐</div>
+            <h3>Any Grid Size</h3>
+            <p>From a 5×5 warm-up puzzle to a 30×30 monster grid — this solver handles any size or shape.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>100% Private</h3>
+            <p>Your puzzle never leaves your browser. Nothing is uploaded to a server, and no account is required.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📵</div>
+            <h3>Works Offline</h3>
+            <p>Once the page loads, the solver runs entirely client-side — no internet connection required to solve.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>Flexible Input</h3>
+            <p>Paste letters with or without spaces between them. The solver reads either format automatically.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔁</div>
+            <h3>Repeat Occurrences</h3>
+            <p>Detects when a word appears more than once in the grid, not just the first match it finds.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>A fully responsive layout means you can solve a puzzle on your phone just as easily as on desktop.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS SECTION ===== -->
+    <section class="section section-how" id="how-it-works" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">Three simple steps</div>
+        <h2 class="section-title">How the <em>word search solver</em> works.</h2>
+        <div class="how-grid">
+          <div class="how-step">
+            <div class="how-number">01</div>
+            <h3>Paste your grid</h3>
+            <p>Type or paste each row of your puzzle into the grid box, one row per line.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-number">02</div>
+            <h3>List your words</h3>
+            <p>Add the words you're searching for, separated by commas or new lines.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-number">03</div>
+            <h3>Hit solve</h3>
+            <p>The engine scans all 8 directions and highlights every word it finds instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .section-how { background: var(--paper-warm); }
+      .how-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 40px;
+      }
+      .how-step {
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: var(--radius-lg);
+        padding: 30px 26px;
+        position: relative;
+        transition: all var(--transition);
+      }
+      .how-step:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+      .how-number {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--accent-pale);
+        -webkit-text-stroke: 1.5px var(--accent);
+        margin-bottom: 14px;
+      }
+      .how-step h3 {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: var(--ink);
+      }
+      .how-step p { color: var(--ink-muted); font-size: 0.9rem; line-height: 1.65; }
+      @media (max-width: 768px) {
+        .how-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
+    <!-- ===== USE CASES SECTION ===== -->
+    <section class="section section-usecases" id="usecases" aria-label="Who uses this">
+      <div class="container">
+        <div class="section-label">Who uses this word finder</div>
+        <h2 class="section-title">Built for <em>every puzzle solver.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">👩‍🏫</div>
+            <h3>Teachers</h3>
+            <p>Quickly generate an answer key for classroom word search worksheets before handing them out.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">👨‍👩‍👧</div>
+            <h3>Parents</h3>
+            <p>Check a child's puzzle book against the answer key, or settle a friendly family competition.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🧠</div>
+            <h3>Puzzle Enthusiasts</h3>
+            <p>Get unstuck on a tough magazine or newspaper puzzle without spoiling the fun of the rest of it.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">📚</div>
+            <h3>Students</h3>
+            <p>Practice vocabulary lists by building and solving your own custom word search grids.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎉</div>
+            <h3>Event Hosts</h3>
+            <p>Verify large custom puzzles for party games, team-building activities, or trivia nights.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💻</div>
+            <h3>Developers</h3>
+            <p>Sanity-check word search grids generated by your own scripts or apps before publishing them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section section-about" id="about" aria-label="About this word search solver">
+      <div class="container about-inner">
+        <div class="about-text">
+          <div class="section-label">Why we built it</div>
+          <h2 class="section-title">A word search solver <em>online, free forever.</em></h2>
+          <p>Most "word search solver online free" tools out there bury the good stuff behind ads, signups, or clunky uploads. We wanted something that just works: paste a grid, paste your words, and see the answer instantly.</p>
+          <p>Under the hood, this hidden word finder scans every cell of your grid in all eight directions — horizontal, vertical, and diagonal, forward and backward — so nothing gets missed.</p>
+          <p>Your puzzle stays in your browser. Nothing is uploaded, tracked, or stored on a server. It's a free word finder solver you can trust with any puzzle, any time.</p>
+          <div class="about-values">
+            <div class="value-tag">🔒 Private by default</div>
+            <div class="value-tag">🌐 Works everywhere</div>
+            <div class="value-tag">⚡ Instant results</div>
+            <div class="value-tag">♾️ Free forever</div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="about-card-line"></div>
+            <p class="about-quote">"Every hidden word, found in every direction — no puzzle too big."</p>
+            <span class="about-card-sig">— WebNotepad Team</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is this word search solver really free?</button>
+            <div class="faq-a"><p>Yes. This word search solver is 100% free to use online, with no signup, no download, and no hidden costs.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Which directions does the solver check?</button>
+            <div class="faq-a"><p>The solver checks all eight directions: horizontal forward and backward, vertical up and down, and all four diagonals.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I enter my letter grid?</button>
+            <div class="faq-a"><p>Type or paste each row of your puzzle on its own line, either as one continuous string of letters (like <code>CATDOG</code>) or letters separated by spaces (like <code>C A T D O G</code>).</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can it solve large or irregular grids?</button>
+            <div class="faq-a"><p>Yes, the solver supports grids of any size, including rows of different lengths.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What happens if a word isn't in the grid?</button>
+            <div class="faq-a"><p>Any word that can't be located is listed separately as "not found" so you can double-check your spelling or grid entry.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does it work on mobile devices?</button>
+            <div class="faq-a"><p>Yes, the word search solver is fully responsive and works smoothly on phones, tablets, and desktop browsers.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is my puzzle data private?</button>
+            <div class="faq-a"><p>Completely. Solving happens entirely in your browser — your grid and word list are never uploaded or stored anywhere.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Ready to solve your puzzle?</h2>
+          <p>No signup. No download. Just paste your grid and find every hidden word right now.</p>
+          <a href="#solver" class="btn btn-primary btn-lg">Solve My Puzzle Free →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/app.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+
+  <!-- ===== WORD SEARCH SOLVER ENGINE ===== -->
+  <script>
+  (function () {
+    'use strict';
+
+    var PALETTE = ['#c4562a', '#2d6a4f', '#b8960c', '#3a5a9b', '#8e44ad', '#c0392b', '#16797e', '#a85c8e'];
+    var DIRECTIONS = [
+      { dr: 0, dc: 1, label: 'Horizontal →' },
+      { dr: 0, dc: -1, label: 'Horizontal ←' },
+      { dr: 1, dc: 0, label: 'Vertical ↓' },
+      { dr: -1, dc: 0, label: 'Vertical ↑' },
+      { dr: 1, dc: 1, label: 'Diagonal ↘' },
+      { dr: -1, dc: -1, label: 'Diagonal ↖' },
+      { dr: 1, dc: -1, label: 'Diagonal ↙' },
+      { dr: -1, dc: 1, label: 'Diagonal ↗' }
+    ];
+
+    var gridInput = document.getElementById('wsGridInput');
+    var wordsInput = document.getElementById('wsWordsInput');
+    var solveBtn = document.getElementById('wsSolveBtn');
+    var exampleBtn = document.getElementById('wsExampleBtn');
+    var clearBtn = document.getElementById('wsClearBtn');
+    var statusEl = document.getElementById('wsStatus');
+    var gridWrap = document.getElementById('wsGridWrap');
+    var emptyState = document.getElementById('wsEmptyState');
+    var gridEl = document.getElementById('wsGrid');
+    var linesEl = document.getElementById('wsLines');
+    var resultsEl = document.getElementById('wsResults');
+
+    var EXAMPLE_GRID = 'C A T D O G B I R\nB I R D X Y Z A O\nF I S H Q Z O W E\nO W L C A T A P E\nX A E S H A R K O\nB E A R F O X L V\nD U C K O W L N E';
+    var EXAMPLE_WORDS = 'CAT, DOG, BIRD, FISH, OWL, SHARK, BEAR, FOX, DUCK';
+
+    function parseGrid(text) {
+      var lines = text.replace(/\r/g, '').split('\n').filter(function (l) { return l.trim().length > 0; });
+      return lines.map(function (line) {
+        var trimmed = line.trim();
+        var parts = trimmed.indexOf(' ') !== -1 ? trimmed.split(/\s+/) : trimmed.split('');
+        return parts.map(function (ch) { return ch.toUpperCase(); });
+      });
+    }
+
+    function parseWords(text) {
+      var seen = {};
+      return text.split(/[\n,]+/)
+        .map(function (w) { return w.trim().toUpperCase().replace(/[^A-Z]/g, ''); })
+        .filter(function (w) {
+          if (!w || seen[w]) return false;
+          seen[w] = true;
+          return true;
+        });
+    }
+
+    function solve(grid, words) {
+      var rows = grid.length;
+      return words.map(function (word) {
+        var found = null;
+        var occurrences = 0;
+        for (var r = 0; r < rows; r++) {
+          var cols = grid[r].length;
+          for (var c = 0; c < cols; c++) {
+            if (grid[r][c] !== word[0]) continue;
+            for (var d = 0; d < DIRECTIONS.length; d++) {
+              var dir = DIRECTIONS[d];
+              var positions = [];
+              var match = true;
+              for (var k = 0; k < word.length; k++) {
+                var rr = r + dir.dr * k;
+                var cc = c + dir.dc * k;
+                if (!grid[rr] || grid[rr][cc] === undefined || grid[rr][cc] !== word[k]) {
+                  match = false;
+                  break;
+                }
+                positions.push([rr, cc]);
+              }
+              if (match) {
+                occurrences++;
+                if (!found) found = { dir: dir.label, positions: positions };
+              }
+            }
+          }
+        }
+        return { word: word, found: found, occurrences: occurrences };
+      });
+    }
+
+    function renderGrid(grid) {
+      var maxCols = grid.reduce(function (m, row) { return Math.max(m, row.length); }, 0);
+      gridEl.style.gridTemplateColumns = 'repeat(' + maxCols + ', 34px)';
+      gridEl.innerHTML = '';
+      var cellRefs = {};
+      for (var r = 0; r < grid.length; r++) {
+        for (var c = 0; c < maxCols; c++) {
+          var cell = document.createElement('div');
+          var letter = grid[r][c];
+          if (letter === undefined) {
+            cell.className = 'ws-cell ws-cell-blank';
+          } else {
+            cell.className = 'ws-cell';
+            cell.textContent = letter;
+            cell.dataset.r = r;
+            cell.dataset.c = c;
+            cellRefs[r + '_' + c] = cell;
+          }
+          gridEl.appendChild(cell);
+        }
+      }
+      return cellRefs;
+    }
+
+    function highlightResults(results, cellRefs) {
+      var svgNS = 'http://www.w3.org/2000/svg';
+      linesEl.innerHTML = '';
+      var colorIndex = 0;
+
+      // wait a frame so layout is settled before measuring positions
+      requestAnimationFrame(function () {
+        var wrapRect = gridWrap.getBoundingClientRect();
+        var gridRect = gridEl.getBoundingClientRect();
+        linesEl.setAttribute('width', gridRect.width);
+        linesEl.setAttribute('height', gridRect.height);
+        linesEl.style.width = gridRect.width + 'px';
+        linesEl.style.height = gridRect.height + 'px';
+        linesEl.style.left = (gridRect.left - wrapRect.left) + 'px';
+        linesEl.style.top = (gridRect.top - wrapRect.top) + 'px';
+
+        results.forEach(function (res) {
+          if (!res.found) return;
+          var color = PALETTE[colorIndex % PALETTE.length];
+          colorIndex++;
+          var positions = res.found.positions;
+
+          positions.forEach(function (pos) {
+            var cell = cellRefs[pos[0] + '_' + pos[1]];
+            if (!cell) return;
+            cell.classList.add('is-hit');
+            cell.style.background = color;
+            cell.title = (cell.title ? cell.title + ' + ' : '') + res.word;
+          });
+
+          if (positions.length > 1) {
+            var first = cellRefs[positions[0][0] + '_' + positions[0][1]];
+            var last = cellRefs[positions[positions.length - 1][0] + '_' + positions[positions.length - 1][1]];
+            if (first && last) {
+              var fr = first.getBoundingClientRect();
+              var lr = last.getBoundingClientRect();
+              var line = document.createElementNS(svgNS, 'line');
+              line.setAttribute('x1', fr.left - gridRect.left + fr.width / 2);
+              line.setAttribute('y1', fr.top - gridRect.top + fr.height / 2);
+              line.setAttribute('x2', lr.left - gridRect.left + lr.width / 2);
+              line.setAttribute('y2', lr.top - gridRect.top + lr.height / 2);
+              line.setAttribute('stroke', color);
+              line.setAttribute('stroke-width', '3');
+              line.setAttribute('stroke-linecap', 'round');
+              line.setAttribute('opacity', '0.55');
+              linesEl.appendChild(line);
+            }
+          }
+        });
+      });
+    }
+
+    function renderResultsList(results) {
+      var colorIndex = 0;
+      var chips = results.map(function (res) {
+        if (res.found) {
+          var color = PALETTE[colorIndex % PALETTE.length];
+          colorIndex++;
+          var countLabel = res.occurrences > 1 ? ' · ×' + res.occurrences : '';
+          return '<span class="ws-result-chip"><span class="ws-swatch" style="background:' + color + '"></span>' +
+            res.word + ' <span class="dir">' + res.found.dir + countLabel + '</span></span>';
+        }
+        return '<span class="ws-result-chip not-found">' + res.word + ' <span class="dir">not found</span></span>';
+      }).join('');
+
+      var foundCount = results.filter(function (r) { return r.found; }).length;
+      resultsEl.innerHTML =
+        '<div class="ws-results-title">Found ' + foundCount + ' of ' + results.length + ' words</div>' +
+        '<div class="ws-result-list">' + chips + '</div>';
+    }
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = 'ws-status' + (type ? ' is-' + type : '');
+    }
+
+    function runSolve() {
+      var grid = parseGrid(gridInput.value);
+      var words = parseWords(wordsInput.value);
+
+      if (grid.length === 0) {
+        setStatus('Please enter a letter grid first.', 'error');
+        return;
+      }
+      if (words.length === 0) {
+        setStatus('Please enter at least one word to find.', 'error');
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      gridEl.classList.add('is-visible');
+
+      var cellRefs = renderGrid(grid);
+      var results = solve(grid, words);
+
+      // reset any previous highlight state
+      Object.keys(cellRefs).forEach(function (key) {
+        cellRefs[key].classList.remove('is-hit');
+        cellRefs[key].style.background = '';
+        cellRefs[key].title = '';
+      });
+
+      highlightResults(results, cellRefs);
+      renderResultsList(results);
+
+      var foundCount = results.filter(function (r) { return r.found; }).length;
+      setStatus('Solved! Found ' + foundCount + ' of ' + results.length + ' words.', foundCount === results.length ? 'success' : '');
+    }
+
+    function loadExample() {
+      gridInput.value = EXAMPLE_GRID;
+      wordsInput.value = EXAMPLE_WORDS;
+      runSolve();
+    }
+
+    function clearAll() {
+      gridInput.value = '';
+      wordsInput.value = '';
+      gridEl.classList.remove('is-visible');
+      gridEl.innerHTML = '';
+      linesEl.innerHTML = '';
+      resultsEl.innerHTML = '';
+      emptyState.style.display = 'flex';
+      setStatus('Enter a grid and word list, then hit Solve.');
+    }
+
+    if (solveBtn) solveBtn.addEventListener('click', runSolve);
+    if (exampleBtn) exampleBtn.addEventListener('click', loadExample);
+    if (clearBtn) clearBtn.addEventListener('click', clearAll);
+
+    window.addEventListener('resize', function () {
+      if (gridEl.classList.contains('is-visible')) {
+        var grid = parseGrid(gridInput.value);
+        var words = parseWords(wordsInput.value);
+        if (grid.length && words.length) {
+          var cellRefs = {};
+          Array.prototype.forEach.call(gridEl.querySelectorAll('.ws-cell:not(.ws-cell-blank)'), function (cell) {
+            cellRefs[cell.dataset.r + '_' + cell.dataset.c] = cell;
+          });
+          var results = solve(grid, words);
+          highlightResults(results, cellRefs);
+        }
+      }
+    });
+
+    // Fallback FAQ accordion (in case app.js doesn't cover this page)
+    document.querySelectorAll('#faqList .faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var answer = btn.nextElementSibling;
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (answer) answer.style.display = expanded ? 'none' : 'block';
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

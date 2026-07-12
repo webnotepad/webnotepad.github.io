@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Tools – WebNotepad Productivity Toolkit</title>
+  <meta name="description" content="Explore all 17 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, Case Converter, Random Text, Word Shuffler, Word Cloud Generator, Readability Analyzer, Focus Writer, Pomodoro Timer, Habit Tracker, Decision Maker, Word Finder, Word Counter, Crossword Solver, and Word Search Solver." />
+  <meta name="keywords" content="online tools, productivity tools, notepad online, diary online, mindmap, list maker, case converter, random text, word shuffler, word cloud, readability analyzer, focus writer, pomodoro timer, habit tracker, decision maker, word finder, word counter, crossword solver, word search solver" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/all-tools" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/all-tools" />
+  <meta property="og:title" content="All Tools – WebNotepad Productivity Toolkit" />
+  <meta property="og:description" content="Explore all 17 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, and more." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Tools – WebNotepad Productivity Toolkit" />
+  <meta name="twitter:description" content="Explore all 17 free online productivity tools from WebNotepad." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  
+  <style>
+    /* Additional styles for the all-tools page */
+    .tools-hero {
+      padding: 80px 0 40px;
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--paper-edge);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    
+    body.dark .tools-hero {
+      background: var(--paper-warm);
+    }
+    
+    .tools-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    
+    .tools-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    
+    .tools-hero p {
+      font-size: 1.1rem;
+      color: var(--ink-muted);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+    
+    .tools-grid-page {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 60px 0 80px;
+    }
+    
+    .tools-grid-page .tool-card {
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tools-grid-page .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    
+    .tools-grid-page .tool-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      background: var(--paper-warm);
+    }
+    
+    body.dark .tools-grid-page .tool-card:hover {
+      background: var(--paper-warm);
+    }
+    
+    .tools-grid-page .tool-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .tools-grid-page .tool-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+      transition: transform var(--transition);
+    }
+    
+    .tools-grid-page .tool-card:hover .tool-icon {
+      transform: scale(1.1);
+    }
+    
+    .tools-grid-page .tool-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    
+    .tools-grid-page .tool-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    
+    .tools-grid-page .tool-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+      margin-top: auto;
+    }
+    
+    .tools-grid-page .tool-card:hover .tool-link {
+      gap: 10px;
+      color: var(--accent-light);
+    }
+    
+    .tools-stats {
+      display: flex;
+      gap: 40px;
+      padding: 20px 0 0;
+      border-top: 1px solid var(--paper-edge);
+      margin-top: 8px;
+    }
+    
+    .tools-stats .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .tools-stats .stat-number {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+    
+    .tools-stats .stat-label {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .tools-grid-page {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .tools-grid-page {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 40px 0 60px;
+      }
+      
+      .tools-hero {
+        padding: 60px 0 30px;
+      }
+      
+      .tools-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="tools-hero" aria-label="All Tools">
+      <div class="container">
+        <h1>All <em>WebNotepad Tools</em></h1>
+        <p>Your complete productivity toolkit — 17 free, browser-based tools to write, organize, create, and stay focused. No signup required.</p>
+        <div class="tools-stats">
+          <div class="stat-item">
+            <span class="stat-number">17</span>
+            <span class="stat-label">Free Tools</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Free Forever</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Signup Required</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="section" aria-label="All Tools Grid">
+      <div class="container">
+        <div class="tools-grid-page">
+          <!-- 1. Notepad -->
+          <a href="/#notepad" class="tool-card">
+            <div class="tool-icon">📝</div>
+            <h3 class="tool-title">Notepad</h3>
+            <p class="tool-desc">Write, edit and auto‑save notes instantly. Clean and distraction‑free.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 2. Diary -->
+          <a href="/diary" class="tool-card">
+            <div class="tool-icon">📖</div>
+            <h3 class="tool-title">Diary</h3>
+            <p class="tool-desc">Keep a private daily journal with dated entries and rich text.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 3. MindMap -->
+          <a href="/mindmap" class="tool-card">
+            <div class="tool-icon">🧠</div>
+            <h3 class="tool-title">MindMap</h3>
+            <p class="tool-desc">Visualize ideas and brainstorm with an interactive mind mapping board.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 4. List Maker -->
+          <a href="/list-maker" class="tool-card">
+            <div class="tool-icon">✅</div>
+            <h3 class="tool-title">List Maker</h3>
+            <p class="tool-desc">Create checklists, to‑dos, and bullet lists with drag‑and‑drop ease.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 5. Case Converter -->
+          <a href="/case-converter" class="tool-card">
+            <div class="tool-icon">🔤</div>
+            <h3 class="tool-title">Case Converter</h3>
+            <p class="tool-desc">Transform text to uppercase, lowercase, title case, and more instantly.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 6. Random Text -->
+          <a href="/random-text" class="tool-card">
+            <div class="tool-icon">🎲</div>
+            <h3 class="tool-title">Random Text</h3>
+            <p class="tool-desc">Generate placeholder paragraphs, sentences, or words with one click.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 7. Word Shuffler -->
+          <a href="/word-shuffler" class="tool-card">
+            <div class="tool-icon">🔀</div>
+            <h3 class="tool-title">Word Shuffler</h3>
+            <p class="tool-desc">Randomize word order in any text — perfect for creative prompts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 8. Word Cloud Generator -->
+          <a href="/word-cloud" class="tool-card">
+            <div class="tool-icon">☁️</div>
+            <h3 class="tool-title">Word Cloud Generator</h3>
+            <p class="tool-desc">Turn your text into a beautiful visual word cloud. Customize colors, fonts, and layouts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 9. Readability Analyzer -->
+          <a href="/readability" class="tool-card">
+            <div class="tool-icon">📊</div>
+            <h3 class="tool-title">Readability Analyzer</h3>
+            <p class="tool-desc">Check reading ease, grade level, and complexity scores for any text or document.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 10. Focus Writer -->
+          <a href="/focus-writer" class="tool-card">
+            <div class="tool-icon">🎯</div>
+            <h3 class="tool-title">Focus Writer</h3>
+            <p class="tool-desc">Minimalist writing mode with a zen focus and real‑time word count tracking.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 11. Pomodoro Timer -->
+          <a href="/pomodoro-timer" class="tool-card">
+            <div class="tool-icon">🍅</div>
+            <h3 class="tool-title">Pomodoro Timer</h3>
+            <p class="tool-desc">Stay focused with customizable work/break intervals and alerts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 12. Habit Tracker -->
+          <a href="/habit-tracker" class="tool-card">
+            <div class="tool-icon">📅</div>
+            <h3 class="tool-title">Habit Tracker</h3>
+            <p class="tool-desc">Build streaks and track daily habits with a simple visual calendar.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 13. Decision Maker -->
+          <a href="/choice-maker" class="tool-card">
+            <div class="tool-icon">⚖️</div>
+            <h3 class="tool-title">Decision Maker</h3>
+            <p class="tool-desc">Spin a wheel, flip a coin, or let the tool decide between your options.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 14. Word Finder -->
+          <a href="/word-finder" class="tool-card">
+            <div class="tool-icon">🔍</div>
+            <h3 class="tool-title">Word Finder</h3>
+            <p class="tool-desc">Find words, solve anagrams, and discover hidden vocabulary with ease.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 15. Word Counter -->
+          <a href="/word-counter" class="tool-card">
+            <div class="tool-icon">📊</div>
+            <h3 class="tool-title">Word Counter</h3>
+            <p class="tool-desc">Count words, characters, sentences, and paragraphs in your text instantly.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 16. Crossword Solver -->
+          <a href="/crossword-solver" class="tool-card">
+            <div class="tool-icon">🔠</div>
+            <h3 class="tool-title">Crossword Solver</h3>
+            <p class="tool-desc">Clue helper, word finder, and puzzle solver for crossword enthusiasts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- 17. Word Search Solver -->
+          <a href="/word-search-solver" class="tool-card">
+            <div class="tool-icon">🕵🏻</div>
+            <h3 class="tool-title">Word Search Solver</h3>
+            <p class="tool-desc">Word search solver and word puzzle solver for grid-based puzzles.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" aria-label="Get started">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Start using these tools now</h2>
+          <p>All tools are free, private, and work directly in your browser. No downloads. No accounts.</p>
+          <a href="/#notepad" class="btn btn-primary btn-lg">Open Notepad →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+</body>
+</html>

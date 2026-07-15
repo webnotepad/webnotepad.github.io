@@ -2,7 +2,7 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the 15 productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
- * Updated: Category-wise organization
+ * Updated: Category-wise organization with attention-grabbing pulse
  */
 
 (function () {
@@ -74,49 +74,35 @@
       bottom: 120px;
       right: 24px;
       z-index: 9999;
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       background: var(--ink);
       color: var(--paper);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      box-shadow: var(--shadow);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(196, 86, 42, 0.3);
       cursor: pointer;
       border: 2px solid var(--accent);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
     
-    /* Neon blinking ring effect */
+    /* Outer glow ring */
     .tools-floating-trigger::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -4px;
       border-radius: 50%;
-      padding: 3px;
-      background: var(--accent);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      animation: neonPulse 2s ease-in-out infinite;
+      background: transparent;
+      border: 2px solid var(--accent);
+      opacity: 0.6;
+      animation: ringPulse 2s ease-in-out infinite;
     }
     
-    @keyframes neonPulse {
-      0%, 100% {
-        opacity: 0;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-    }
-    
-    /* Glow shadow effect */
+    /* Inner glow */
     .tools-floating-trigger::after {
       content: '';
       position: absolute;
@@ -124,9 +110,20 @@
       border-radius: 50%;
       background: var(--accent);
       opacity: 0;
-      filter: blur(12px);
+      filter: blur(15px);
       animation: glowPulse 2s ease-in-out infinite;
       z-index: -1;
+    }
+    
+    @keyframes ringPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
     }
     
     @keyframes glowPulse {
@@ -135,8 +132,8 @@
         transform: scale(0.9);
       }
       50% {
-        opacity: 0.4;
-        transform: scale(1.2);
+        opacity: 0.5;
+        transform: scale(1.3);
       }
     }
     
@@ -144,13 +141,28 @@
       background: var(--accent);
       color: var(--white);
       border-color: var(--accent-light);
+      box-shadow: 0 4px 30px rgba(232, 113, 74, 0.4);
+    }
+    
+    body.dark .tools-floating-trigger::before {
+      border-color: var(--accent-light);
+    }
+    
+    body.dark .tools-floating-trigger::after {
+      background: var(--accent-light);
     }
     
     .tools-floating-trigger:hover {
-      transform: scale(1.08) rotate(15deg);
+      transform: scale(1.12) rotate(10deg);
       background: var(--accent);
       color: var(--white);
       border-color: var(--accent-light);
+      box-shadow: 0 6px 30px rgba(196, 86, 42, 0.5);
+    }
+    
+    body.dark .tools-floating-trigger:hover {
+      background: var(--accent-light);
+      box-shadow: 0 6px 40px rgba(232, 113, 74, 0.6);
     }
     
     .tools-floating-trigger.active {
@@ -158,13 +170,47 @@
       background: var(--paper-warm);
       color: var(--ink);
       border-color: var(--paper-edge);
+      box-shadow: var(--shadow);
     }
     
-    /* Stop animations when active */
     .tools-floating-trigger.active::before,
     .tools-floating-trigger.active::after {
       animation: none;
       opacity: 0;
+    }
+    
+    /* Pulsing dot indicator - subtle attention grabber */
+    .tools-floating-trigger .pulse-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--paper);
+      animation: dotPulse 1.5s ease-in-out infinite;
+    }
+    
+    body.dark .tools-floating-trigger .pulse-dot {
+      border-color: var(--paper-warm);
+    }
+    
+    @keyframes dotPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+      }
+    }
+    
+    .tools-floating-trigger.active .pulse-dot {
+      animation: none;
+      opacity: 0;
+      transform: scale(0);
     }
 
     /* Fixed Sidebar Layout Container */
@@ -379,6 +425,13 @@
       .tools-sb-item-name {
         font-size: 0.82rem;
       }
+      .tools-floating-trigger {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+        bottom: 100px;
+        right: 16px;
+      }
     }
   `;
 
@@ -394,7 +447,10 @@
   // Render the floating toggle switch, backdrop container, and sidebar dashboard
   rootContainer.innerHTML = `
     <div class="tools-sidebar-overlay" id="toolsSidebarOverlay"></div>
-    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">🧰</div>
+    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">
+      <span class="pulse-dot"></span>
+      🧰
+    </div>
     <aside class="tools-fixed-sidebar" id="toolsFixedSidebar" aria-label="WebNotepad Toolkit Sidebar">
       <div class="tools-sb-header">
         <h2>WebNotepad <em>Toolkit</em></h2>
@@ -444,7 +500,7 @@
     const isOpen = sidebar.classList.toggle("open");
     trigger.classList.toggle("active", isOpen);
     overlay.classList.toggle("visible", isOpen);
-    trigger.innerHTML = isOpen ? "✕" : "🧰";
+    trigger.innerHTML = isOpen ? "✕" : "🧰<span class='pulse-dot'></span>";
 
     // Re-trigger animations when opening
     if (isOpen) {
@@ -462,7 +518,7 @@
     sidebar.classList.remove("open");
     trigger.classList.remove("active");
     overlay.classList.remove("visible");
-    trigger.innerHTML = "🧰";
+    trigger.innerHTML = "🧰<span class='pulse-dot'></span>";
   }
 
   // Bind Listeners

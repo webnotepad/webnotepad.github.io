@@ -39,7 +39,7 @@
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
               <li><a href="/privacy">Privacy Policy</a></li>              
-              <li><a href="/terms">Terms of Service</a></li> 
+              <li><a href="/terms">Terms of Use</a></li> 
               <li><a href="/disclaimer">Disclaimer</a></li>
               <li><a href="/cookies">Cookies Policy</a></li>              
             </ul>

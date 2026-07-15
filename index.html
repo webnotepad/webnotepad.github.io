@@ -491,6 +491,50 @@
   </div>
 </section>
 
+    <style>
+      /* ===== TOOLS CATEGORY STYLING ===== */
+.tools-category {
+  margin-bottom: 2.5rem;
+}
+
+.tools-category-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted, #6b6b7b);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--paper-edge, #e8e4de);
+  margin-bottom: 1.25rem;
+}
+
+/* Keep existing tools-grid layout */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .tools-category-title {
+    font-size: 0.8rem;
+  }
+}
+      </style>
+
     <!-- Inline CSS for the tools section (can be added to your styles.css instead) -->
 <style>
   /* ===== TOOLS SECTION ===== */

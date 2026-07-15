@@ -44,7 +44,7 @@ button{cursor:pointer;font-family:var(--d-font-sans);border:none;background:none
 input,select,textarea{font-family:var(--d-font-sans)}
 
 /* HERO */
-.d-hero{position:relative;min-height:56vh;display:flex;align-items:center;padding:80px 0 60px;overflow:hidden;background:var(--d-warm)}
+.d-hero{position:relative;min-height:56vh;display:flex;align-items:center;padding:30px 0 40px;overflow:hidden;background:var(--d-warm)}
 .d-hero-orbs{position:absolute;inset:0;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
 .orb1{width:400px;height:400px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}

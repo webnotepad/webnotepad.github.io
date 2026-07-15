@@ -49,6 +49,54 @@
     setTimeout(()=>t.classList.remove('show'), 2500);
   }
 
+  // ---- Load html2pdf dynamically --------------------------------
+  let pdfLibraryLoaded = false;
+  let pdfLibraryLoading = false;
+
+  function loadHtml2Pdf() {
+    return new Promise((resolve, reject) => {
+      // Already loaded
+      if (typeof html2pdf !== 'undefined') {
+        pdfLibraryLoaded = true;
+        resolve();
+        return;
+      }
+
+      // Already loading
+      if (pdfLibraryLoading) {
+        // Wait for it to finish
+        const checkInterval = setInterval(() => {
+          if (typeof html2pdf !== 'undefined') {
+            clearInterval(checkInterval);
+            pdfLibraryLoaded = true;
+            pdfLibraryLoading = false;
+            resolve();
+          }
+        }, 100);
+        return;
+      }
+
+      // Start loading
+      pdfLibraryLoading = true;
+      const script = document.createElement('script');
+      script.src = '/js/html2pdf.bundle.min.js';
+      script.async = true;
+      
+      script.onload = () => {
+        pdfLibraryLoaded = true;
+        pdfLibraryLoading = false;
+        resolve();
+      };
+      
+      script.onerror = () => {
+        pdfLibraryLoading = false;
+        reject(new Error('Failed to load PDF library'));
+      };
+      
+      document.head.appendChild(script);
+    });
+  }
+
   // ---- Modal open / close ----------------------------------------------
   function openModal(){
     buildTemplateGrid();
@@ -117,63 +165,67 @@
   }
 
   // ---- Generate + download the PDF ---------------------------------------
-  function generatePDF(){
-    if(typeof html2pdf === 'undefined'){
-      alert('The PDF library did not load. Please check your connection and try again.');
-      return;
-    }
-
+  async function generatePDF(){
     const loading = $('pdfLoading');
     if(loading) loading.classList.add('active');
 
-    const printArea = $('pdfPrintArea');
-    printArea.innerHTML = buildPrintHTML();
-    printArea.style.display = 'block';
+    try {
+      // Load the PDF library if needed
+      await loadHtml2Pdf();
 
-    const rawTitle = ($('dEntryTitle') && $('dEntryTitle').value) || 'diary-entry';
-    const safeName = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'') || 'diary-entry';
+      // Double-check it loaded
+      if (typeof html2pdf === 'undefined') {
+        throw new Error('PDF library failed to load');
+      }
 
-    // --- Fix: html2canvas miscalculates position:fixed offsets based on
-    // the page's current scroll position. If the user has scrolled down
-    // when they click "Generate PDF", the captured content shifts and
-    // renders with blank space above it (looks like content at the bottom).
-    // We scroll to the top before capturing, tell html2canvas explicitly
-    // to ignore scroll offsets, then restore the user's scroll position.
-    const restoreScrollX = window.scrollX;
-    const restoreScrollY = window.scrollY;
-    window.scrollTo(0, 0);
+      const printArea = $('pdfPrintArea');
+      printArea.innerHTML = buildPrintHTML();
+      printArea.style.display = 'block';
 
-    const opt = {
-      margin: 0,
-      filename: `${safeName}.pdf`,
-      image: { type:'jpeg', quality:0.98 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: document.documentElement.scrollWidth,
-        windowHeight: document.documentElement.scrollHeight
-      },
-      jsPDF: { unit:'in', format:'letter', orientation:'portrait' },
-      pagebreak: { mode:['css','legacy'] }
-    };
+      const rawTitle = ($('dEntryTitle') && $('dEntryTitle').value) || 'diary-entry';
+      const safeName = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'') || 'diary-entry';
 
-    html2pdf().set(opt).from(printArea.querySelector('.pdf-page')).save()
-      .then(()=>{
-        if(loading) loading.classList.remove('active');
-        printArea.style.display = 'none';
-        printArea.innerHTML = '';
-        window.scrollTo(restoreScrollX, restoreScrollY);
-        closeModal();
-        showToast('📄 PDF downloaded!');
-      })
-      .catch(err=>{
-        console.error('PDF generation failed:', err);
-        if(loading) loading.classList.remove('active');
-        window.scrollTo(restoreScrollX, restoreScrollY);
+      // Scroll to top to avoid capture issues
+      const restoreScrollX = window.scrollX;
+      const restoreScrollY = window.scrollY;
+      window.scrollTo(0, 0);
+
+      const opt = {
+        margin: 0,
+        filename: `${safeName}.pdf`,
+        image: { type:'jpeg', quality:0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: document.documentElement.scrollWidth,
+          windowHeight: document.documentElement.scrollHeight
+        },
+        jsPDF: { unit:'in', format:'letter', orientation:'portrait' },
+        pagebreak: { mode:['css','legacy'] }
+      };
+
+      await html2pdf().set(opt).from(printArea.querySelector('.pdf-page')).save();
+
+      // Success
+      if(loading) loading.classList.remove('active');
+      printArea.style.display = 'none';
+      printArea.innerHTML = '';
+      window.scrollTo(restoreScrollX, restoreScrollY);
+      closeModal();
+      showToast('📄 PDF downloaded!');
+
+    } catch (err) {
+      console.error('PDF generation failed:', err);
+      if(loading) loading.classList.remove('active');
+      // Show a more helpful error message
+      if (err.message === 'Failed to load PDF library') {
+        alert('The PDF library could not be loaded. Please check that /js/html2pdf.bundle.min.js exists and try again.');
+      } else {
         alert('Something went wrong generating the PDF. Please try again.');
-      });
+      }
+    }
   }
 
   // ---- Wire up events -----------------------------------------------------

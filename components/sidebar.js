@@ -85,22 +85,86 @@
       font-size: 1.4rem;
       box-shadow: var(--shadow);
       cursor: pointer;
-      border: 1px solid var(--paper-edge);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease;
+      border: 2px solid var(--accent);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
+      position: relative;
     }
+    
+    /* Neon blinking ring effect */
+    .tools-floating-trigger::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--accent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      animation: neonPulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes neonPulse {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+    
+    /* Glow shadow effect */
+    .tools-floating-trigger::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0;
+      filter: blur(12px);
+      animation: glowPulse 2s ease-in-out infinite;
+      z-index: -1;
+    }
+    
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      50% {
+        opacity: 0.4;
+        transform: scale(1.2);
+      }
+    }
+    
     body.dark .tools-floating-trigger {
       background: var(--accent);
       color: var(--white);
+      border-color: var(--accent-light);
     }
+    
     .tools-floating-trigger:hover {
       transform: scale(1.08) rotate(15deg);
       background: var(--accent);
       color: var(--white);
+      border-color: var(--accent-light);
     }
+    
     .tools-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
       background: var(--paper-warm);
       color: var(--ink);
+      border-color: var(--paper-edge);
+    }
+    
+    /* Stop animations when active */
+    .tools-floating-trigger.active::before,
+    .tools-floating-trigger.active::after {
+      animation: none;
+      opacity: 0;
     }
 
     /* Fixed Sidebar Layout Container */

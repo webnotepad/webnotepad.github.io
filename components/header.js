@@ -7,7 +7,7 @@
     <header class="site-header" id="siteHeader" role="banner">
       <div class="container header-inner">
         <a href="/" class="header-logo" aria-label="WebNotePad Home">
-          <div class="logo-mark" aria-hidden="true">NP</div>
+          <img src="/logo.png" alt="WebNotePad Logo" class="logo-image" width="34" height="34" />
           <span>Notepad Online</span> 
         </a>
 

@@ -469,9 +469,14 @@ body.dark .d-keyword-highlight {
   <!-- html2pdf.js (client-side only — nothing ever leaves the browser) -->
   
 
-  <script src="/components.js" defer></script>
-  <script src="/js/diary-combined.js"></script>  
+  
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>  
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>  
   <div id="tools-sidebar-root"></div>
+<script src="/components/sidebar.js"></script>
 
   <!-- Load html2pdf lazily (only when PDF button is clicked) -->
 <script>

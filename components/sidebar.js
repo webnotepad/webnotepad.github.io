@@ -2,7 +2,7 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the 15 productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
- * Updated: Category-wise organization with attention-grabbing pulse
+ * Updated: Category-wise organization with visible attention-grabbing icon
  */
 
 (function () {
@@ -68,7 +68,7 @@
 
   // 2. Inject CSS Styles with category enhancements
   const cssStyles = `
-    /* Floating Launch Trigger Button */
+    /* Floating Launch Trigger Button - Now with visible icon! */
     .tools-floating-trigger {
       position: fixed;
       bottom: 120px;
@@ -76,41 +76,42 @@
       z-index: 9999;
       width: 56px;
       height: 56px;
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--accent);
+      color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 20px rgba(196, 86, 42, 0.3);
+      font-size: 1.6rem;
+      box-shadow: 0 4px 25px rgba(196, 86, 42, 0.5);
       cursor: pointer;
-      border: 2px solid var(--accent);
+      border: 3px solid var(--accent-light);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     
-    /* Outer glow ring */
+    /* Outer pulsing ring */
     .tools-floating-trigger::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: transparent;
-      border: 2px solid var(--accent);
-      opacity: 0.6;
-      animation: ringPulse 2s ease-in-out infinite;
-    }
-    
-    /* Inner glow */
-    .tools-floating-trigger::after {
       content: '';
       position: absolute;
       inset: -8px;
       border-radius: 50%;
+      background: transparent;
+      border: 3px solid var(--accent);
+      opacity: 0.6;
+      animation: ringPulse 2s ease-in-out infinite;
+    }
+    
+    /* Glow effect */
+    .tools-floating-trigger::after {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
       background: var(--accent);
       opacity: 0;
-      filter: blur(15px);
+      filter: blur(20px);
       animation: glowPulse 2s ease-in-out infinite;
       z-index: -1;
     }
@@ -121,7 +122,7 @@
         opacity: 0.6;
       }
       50% {
-        transform: scale(1.15);
+        transform: scale(1.2);
         opacity: 1;
       }
     }
@@ -132,16 +133,16 @@
         transform: scale(0.9);
       }
       50% {
-        opacity: 0.5;
-        transform: scale(1.3);
+        opacity: 0.6;
+        transform: scale(1.4);
       }
     }
     
     body.dark .tools-floating-trigger {
       background: var(--accent);
-      color: var(--white);
+      color: #ffffff;
       border-color: var(--accent-light);
-      box-shadow: 0 4px 30px rgba(232, 113, 74, 0.4);
+      box-shadow: 0 4px 30px rgba(232, 113, 74, 0.6);
     }
     
     body.dark .tools-floating-trigger::before {
@@ -153,16 +154,15 @@
     }
     
     .tools-floating-trigger:hover {
-      transform: scale(1.12) rotate(10deg);
-      background: var(--accent);
-      color: var(--white);
-      border-color: var(--accent-light);
-      box-shadow: 0 6px 30px rgba(196, 86, 42, 0.5);
+      transform: scale(1.15) rotate(10deg);
+      background: var(--accent-light);
+      border-color: #ffffff;
+      box-shadow: 0 6px 35px rgba(196, 86, 42, 0.7);
     }
     
     body.dark .tools-floating-trigger:hover {
       background: var(--accent-light);
-      box-shadow: 0 6px 40px rgba(232, 113, 74, 0.6);
+      box-shadow: 0 6px 40px rgba(232, 113, 74, 0.8);
     }
     
     .tools-floating-trigger.active {
@@ -179,17 +179,18 @@
       opacity: 0;
     }
     
-    /* Pulsing dot indicator - subtle attention grabber */
+    /* Small pulsing dot indicator */
     .tools-floating-trigger .pulse-dot {
       position: absolute;
-      top: -2px;
-      right: -2px;
-      width: 14px;
-      height: 14px;
-      background: var(--accent);
+      top: -4px;
+      right: -4px;
+      width: 16px;
+      height: 16px;
+      background: #ff6b35;
       border-radius: 50%;
-      border: 2px solid var(--paper);
+      border: 2px solid #ffffff;
       animation: dotPulse 1.5s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
     }
     
     body.dark .tools-floating-trigger .pulse-dot {
@@ -202,8 +203,8 @@
         opacity: 1;
       }
       50% {
-        transform: scale(1.3);
-        opacity: 0.7;
+        transform: scale(1.4);
+        opacity: 0.6;
       }
     }
     

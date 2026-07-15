@@ -1021,3 +1021,63 @@ body.fullscreen .site-footer { display: none; }
   .btn-lg { padding: 14px 24px; }
   .editor-area { padding: 16px; }
 }
+/* ===== REDUCED HERO FONT SIZES ===== */
+.hero {
+  min-height: auto; /* Remove the 92vh - let content determine height */
+  padding: 40px 0 30px; /* Reduced vertical padding */
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important; /* Was 2.8rem-5rem */
+  margin-bottom: 12px !important; /* Reduced from 24px */
+}
+
+.hero-sub {
+  font-size: 0.95rem !important; /* Was 1.15rem */
+  max-width: 480px;
+  margin-bottom: 20px !important; /* Reduced from 36px */
+}
+
+.hero-badge {
+  font-size: 0.7rem !important; /* Was 0.8rem */
+  padding: 4px 12px !important; /* Slightly smaller */
+  margin-bottom: 16px !important; /* Reduced from 28px */
+}
+
+.hero-cta-group {
+  margin-bottom: 24px !important; /* Reduced from 56px */
+}
+
+.hero-cta-group .btn {
+  padding: 10px 20px !important; /* Smaller buttons */
+  font-size: 0.85rem !important;
+}
+
+.hero-stats {
+  gap: 12px !important; /* Reduced from 24px */
+}
+
+.hero-stats .stat strong {
+  font-size: 1.2rem !important; /* Was 1.5rem */
+}
+
+.hero-stats .stat span {
+  font-size: 0.7rem !important; /* Was 0.75rem */
+}
+
+.hero-scroll-hint {
+  display: none; /* Optional: hide the scroll hint */
+}
+
+/* Optional: Reduce the splash effect size */
+.hero-ink-splash {
+  width: 300px !important;
+  height: 300px !important;
+  top: -60px !important;
+  right: -60px !important;
+}
+
+/* Reduce hero grid opacity for less visual noise */
+.hero-bg-grid {
+  opacity: 0.2 !important;
+}

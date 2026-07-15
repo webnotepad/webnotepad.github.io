@@ -12,8 +12,23 @@
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/all-tools" class="nav-link">Tools</a>
+          <a href="/#notepad" class="nav-link">Notepad</a>                
+          <a href="/diary" class="nav-link">Diary</a>
+          <a href="/mindmap" class="nav-link">MindMap</a>
+          <a href="/list-maker" class="nav-link">List Maker</a>
+          <div class="dropdown">
+            <button class="dropdown-btn nav-link">More ▼</button>
+            <div class="dropdown-content">
+              <a href="/case-converter" class="dropdown-item">Case Converter</a>
+              <a href="/random-text" class="dropdown-item">Random Text</a>
+              <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>              
+              <a href="/pomodoro-timer" class="dropdown-item">Pomodoro Timer</a>
+              <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
+              <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
+              <a href="/study-planner" class="dropdown-item">Study Planner</a>
+              <a href="/all-tools" class="dropdown-item">All Tools</a>
+            </div>
+          </div>    
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
         </nav>
@@ -30,8 +45,23 @@
       </div>
     </header>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="/home" class="nav-link">📝 Notepad</a>
-      <a href="/all-tools" class="nav-link">🔧 Tools</a> 
+      <a href="/#notepad" class="nav-link">📝 Notepad</a>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">📁 More ▼</button>
+        <div class="mobile-dropdown-content">
+          <a href="/case-converter" class="nav-link" style="padding-left: 32px;">• Case Converter</a>
+          <a href="/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
+          <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>          
+          <a href="/pomodoro-timer" class="nav-link" style="padding-left: 32px;">• Pomodoro Timer</a>
+          <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
+          <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>
+          <a href="/study-planner" class="nav-link" style="padding-left: 32px;">• Study Planner</a>
+          <a href="/all-tools" class="nav-link" style="padding-left: 32px;">• All Tools</a>
+        </div>
+      </div>      
+      <a href="diary" class="nav-link">🔄 Diary</a>
+      <a href="mindmap" class="nav-link">👥 MindMap</a>
+      <a href="list-maker" class="nav-link">❓ List Maker</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
       <a href="/blog" class="nav-link">📝 Blog</a>      
       <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad→</a>

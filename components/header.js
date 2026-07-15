@@ -45,7 +45,7 @@
       </div>
     </header>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="/#notepad" class="nav-link">📝 Notepad</a>
+      <a href="/" class="nav-link">📝 Home</a>
       <div class="mobile-dropdown">
         <button class="mobile-dropdown-btn">📁 More ▼</button>
         <div class="mobile-dropdown-content">

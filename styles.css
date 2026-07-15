@@ -1021,63 +1021,68 @@ body.fullscreen .site-footer { display: none; }
   .btn-lg { padding: 14px 24px; }
   .editor-area { padding: 16px; }
 }
-/* ===== REDUCED HERO FONT SIZES ===== */
+/* ===== MEDIUM HERO FONT SIZES ===== */
 .hero {
-  min-height: auto; /* Remove the 92vh - let content determine height */
-  padding: 40px 0 30px; /* Reduced vertical padding */
+  min-height: 60vh; /* Medium height - between 92vh and auto */
+  padding: 60px 0 40px; /* Medium padding */
 }
 
 .hero-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem) !important; /* Was 2.8rem-5rem */
-  margin-bottom: 12px !important; /* Reduced from 24px */
+  font-size: clamp(2.2rem, 5vw, 3.8rem) !important; /* Medium - between 1.8-2.8 and 2.8-5 */
+  margin-bottom: 18px !important; /* Medium - between 12px and 24px */
 }
 
 .hero-sub {
-  font-size: 0.95rem !important; /* Was 1.15rem */
-  max-width: 480px;
-  margin-bottom: 20px !important; /* Reduced from 36px */
+  font-size: 1.05rem !important; /* Medium - between 0.95 and 1.15 */
+  max-width: 500px;
+  margin-bottom: 28px !important; /* Medium - between 20px and 36px */
 }
 
 .hero-badge {
-  font-size: 0.7rem !important; /* Was 0.8rem */
-  padding: 4px 12px !important; /* Slightly smaller */
-  margin-bottom: 16px !important; /* Reduced from 28px */
+  font-size: 0.75rem !important; /* Medium - between 0.7 and 0.8 */
+  padding: 5px 14px !important;
+  margin-bottom: 20px !important; /* Medium - between 16px and 28px */
 }
 
 .hero-cta-group {
-  margin-bottom: 24px !important; /* Reduced from 56px */
+  margin-bottom: 36px !important; /* Medium - between 24px and 56px */
+  gap: 10px !important;
 }
 
 .hero-cta-group .btn {
-  padding: 10px 20px !important; /* Smaller buttons */
-  font-size: 0.85rem !important;
+  padding: 12px 24px !important; /* Medium button size */
+  font-size: 0.9rem !important;
 }
 
 .hero-stats {
-  gap: 12px !important; /* Reduced from 24px */
+  gap: 18px !important; /* Medium - between 12px and 24px */
 }
 
 .hero-stats .stat strong {
-  font-size: 1.2rem !important; /* Was 1.5rem */
+  font-size: 1.35rem !important; /* Medium - between 1.2 and 1.5 */
 }
 
 .hero-stats .stat span {
-  font-size: 0.7rem !important; /* Was 0.75rem */
+  font-size: 0.72rem !important; /* Medium - between 0.7 and 0.75 */
+}
+
+.stat-div {
+  height: 30px !important; /* Medium height */
 }
 
 .hero-scroll-hint {
-  display: none; /* Optional: hide the scroll hint */
+  display: none; /* Keep hidden for cleaner look */
 }
 
-/* Optional: Reduce the splash effect size */
+/* Medium splash effect */
 .hero-ink-splash {
-  width: 300px !important;
-  height: 300px !important;
-  top: -60px !important;
-  right: -60px !important;
+  width: 400px !important;
+  height: 400px !important;
+  top: -80px !important;
+  right: -80px !important;
 }
 
-/* Reduce hero grid opacity for less visual noise */
+/* Medium grid opacity */
 .hero-bg-grid {
-  opacity: 0.2 !important;
+  opacity: 0.28 !important;
 }

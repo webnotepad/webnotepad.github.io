@@ -467,7 +467,7 @@ body.dark .d-keyword-highlight {
   <div id="pdfPrintArea" class="pdf-print-area" aria-hidden="true"></div>
 
   <!-- html2pdf.js (client-side only — nothing ever leaves the browser) -->
-  <script src="/js/html2pdf.bundle.min.js"></script>
+  
 
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>
@@ -475,5 +475,23 @@ body.dark .d-keyword-highlight {
   <script src="/diary-pdf.js"></script>
   <div id="tools-sidebar-root"></div>
 <script src="/components/sidebar.js"></script>
+  <!-- Load html2pdf lazily (only when PDF button is clicked) -->
+<script>
+  // Load html2pdf only when needed
+  function loadHtml2Pdf() {
+    return new Promise((resolve, reject) => {
+      if (typeof html2pdf !== 'undefined') {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = '/js/html2pdf.bundle.min.js';
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+</script>
 </body>
 </html>

@@ -334,7 +334,7 @@ body.dark .btn-ghost { color: var(--ink); border-color: rgba(250,248,244,0.15); 
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   padding: 30px 0 40px;

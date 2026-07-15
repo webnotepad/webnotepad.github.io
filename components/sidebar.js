@@ -2,7 +2,7 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the 15 productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
- * Updated: Category-wise organization
+ * Updated: Category-wise organization with attention-grabbing pulsing trigger
  */
 
 (function () {
@@ -66,7 +66,7 @@
   // Flatten tools for any potential use
   const allTools = categories.flatMap(cat => cat.tools);
 
-  // 2. Inject CSS Styles with category enhancements
+  // 2. Inject CSS Styles with category enhancements and pulsing keyframes
   const cssStyles = `
     /* Floating Launch Trigger Button */
     .tools-floating-trigger {
@@ -86,7 +86,10 @@
       box-shadow: var(--shadow);
       cursor: pointer;
       border: 1px solid var(--paper-edge);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
+      
+      /* Attention Grabber Pulse */
+      animation: attentionPulse 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
     }
     body.dark .tools-floating-trigger {
       background: var(--accent);
@@ -96,11 +99,15 @@
       transform: scale(1.08) rotate(15deg);
       background: var(--accent);
       color: var(--white);
+      animation-play-state: paused; /* Pause pulsing while user hovers */
+      box-shadow: 0 8px 24px rgba(196, 86, 42, 0.3);
     }
     .tools-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
       background: var(--paper-warm);
       color: var(--ink);
+      animation: none; /* Kill animation when the sidebar is open */
+      box-shadow: none;
     }
 
     /* Fixed Sidebar Layout Container */
@@ -294,6 +301,22 @@
       to {
         opacity: 1;
         transform: translateX(0);
+      }
+    }
+
+    /* Elegant, Organic Attention Pulse Animation */
+    @keyframes attentionPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.4), var(--shadow);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 12px rgba(196, 86, 42, 0), var(--shadow);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0), var(--shadow);
       }
     }
 

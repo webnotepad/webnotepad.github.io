@@ -12,7 +12,7 @@
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="/#notepad" class="nav-link">Notepad</a>                
+          <a href="/" class="nav-link">Home</a>                
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
@@ -37,7 +37,7 @@
           <button class="header-dark-btn" id="headerDarkBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
             🌙
           </button>
-          <a href="/#notepad" class="header-cta">Notepad→</a>
+          <a href="/" class="header-cta">Home→</a>
           <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
             ☰
           </button>

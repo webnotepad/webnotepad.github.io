@@ -14,8 +14,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Tools – WebNotepad Productivity Toolkit</title>
-  <meta name="description" content="Explore all 17 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, Case Converter, Random Text, Word Shuffler, Word Cloud Generator, Readability Analyzer, Focus Writer, Pomodoro Timer, Habit Tracker, Decision Maker, Word Finder, Word Counter, Crossword Solver, and Word Search Solver." />
-  <meta name="keywords" content="online tools, productivity tools, notepad online, diary online, mindmap, list maker, case converter, random text, word shuffler, word cloud, readability analyzer, focus writer, pomodoro timer, habit tracker, decision maker, word finder, word counter, crossword solver, word search solver" />
+  <meta name="description" content="Explore all 18 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, Case Converter, Random Text, Word Shuffler, Word Cloud Generator, Readability Analyzer, Focus Writer, Pomodoro Timer, Habit Tracker, Decision Maker, Word Finder, Word Counter, Crossword Solver, Word Search Solver, and Emoji Picker." />
+  <meta name="keywords" content="online tools, productivity tools, notepad online, diary online, mindmap, list maker, case converter, random text, word shuffler, word cloud, readability analyzer, focus writer, pomodoro timer, habit tracker, decision maker, word finder, word counter, crossword solver, word search solver, emoji picker" />
   <meta name="author" content="WebNotePad" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://webnotepad.github.io/all-tools" />
@@ -25,13 +25,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webnotepad.github.io/all-tools" />
   <meta property="og:title" content="All Tools – WebNotepad Productivity Toolkit" />
-  <meta property="og:description" content="Explore all 17 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, and more." />
+  <meta property="og:description" content="Explore all 18 free online productivity tools from WebNotepad. Notepad, Diary, MindMap, List Maker, and more." />
   <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="All Tools – WebNotepad Productivity Toolkit" />
-  <meta name="twitter:description" content="Explore all 17 free online productivity tools from WebNotepad." />
+  <meta name="twitter:description" content="Explore all 18 free online productivity tools from WebNotepad." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,11 +72,43 @@
       line-height: 1.7;
     }
     
+    /* Category Section Styles */
+    .category-section {
+      padding: 40px 0 20px;
+      border-bottom: 1px solid var(--paper-edge);
+    }
+    
+    .category-section:last-child {
+      border-bottom: none;
+      padding-bottom: 40px;
+    }
+    
+    .category-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .category-title .category-emoji {
+      font-size: 1.6rem;
+    }
+    
+    .category-subtitle {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      padding-left: 4px;
+    }
+    
     .tools-grid-page {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      padding: 60px 0 80px;
     }
     
     .tools-grid-page .tool-card {
@@ -202,7 +234,6 @@
       .tools-grid-page {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 40px 0 60px;
       }
       
       .tools-hero {
@@ -212,6 +243,10 @@
       .tools-stats {
         gap: 20px;
         flex-wrap: wrap;
+      }
+      
+      .category-title {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -226,10 +261,10 @@
     <section class="tools-hero" aria-label="All Tools">
       <div class="container">
         <h1>All <em>WebNotepad Tools</em></h1>
-        <p>Your complete productivity toolkit — 17 free, browser-based tools to write, organize, create, and stay focused. No signup required.</p>
+        <p>Your complete productivity toolkit — 18 free, browser-based tools to write, organize, create, and stay focused. No signup required.</p>
         <div class="tools-stats">
           <div class="stat-item">
-            <span class="stat-number">17</span>
+            <span class="stat-number">18</span>
             <span class="stat-label">Free Tools</span>
           </div>
           <div class="stat-item">
@@ -244,11 +279,16 @@
       </div>
     </section>
 
-    <!-- Tools Grid -->
-    <section class="section" aria-label="All Tools Grid">
+    <!-- Category: Writing & Note-Taking -->
+    <section class="category-section" aria-label="Writing & Note-Taking">
       <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">📝</span>
+          Writing &amp; Note-Taking
+        </h2>
+        <p class="category-subtitle">Capture thoughts, journal daily, and write without distraction.</p>
         <div class="tools-grid-page">
-          <!-- 1. Notepad -->
+          <!-- Notepad -->
           <a href="/#notepad" class="tool-card">
             <div class="tool-icon">📝</div>
             <h3 class="tool-title">Notepad</h3>
@@ -256,7 +296,7 @@
             <span class="tool-link">Open →</span>
           </a>
 
-          <!-- 2. Diary -->
+          <!-- Diary -->
           <a href="/diary" class="tool-card">
             <div class="tool-icon">📖</div>
             <h3 class="tool-title">Diary</h3>
@@ -264,23 +304,27 @@
             <span class="tool-link">Open →</span>
           </a>
 
-          <!-- 3. MindMap -->
-          <a href="/mindmap" class="tool-card">
-            <div class="tool-icon">🧠</div>
-            <h3 class="tool-title">MindMap</h3>
-            <p class="tool-desc">Visualize ideas and brainstorm with an interactive mind mapping board.</p>
+          <!-- Focus Writer -->
+          <a href="/focus-writer" class="tool-card">
+            <div class="tool-icon">🎯</div>
+            <h3 class="tool-title">Focus Writer</h3>
+            <p class="tool-desc">Minimalist writing mode with a zen focus and real‑time word count tracking.</p>
             <span class="tool-link">Open →</span>
           </a>
+        </div>
+      </div>
+    </section>
 
-          <!-- 4. List Maker -->
-          <a href="/list-maker" class="tool-card">
-            <div class="tool-icon">✅</div>
-            <h3 class="tool-title">List Maker</h3>
-            <p class="tool-desc">Create checklists, to‑dos, and bullet lists with drag‑and‑drop ease.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 5. Case Converter -->
+    <!-- Category: Text Analysis & Manipulation -->
+    <section class="category-section" aria-label="Text Analysis & Manipulation">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">📊</span>
+          Text Analysis &amp; Manipulation
+        </h2>
+        <p class="category-subtitle">Transform, count, analyze, and randomize your text.</p>
+        <div class="tools-grid-page">
+          <!-- Case Converter -->
           <a href="/case-converter" class="tool-card">
             <div class="tool-icon">🔤</div>
             <h3 class="tool-title">Case Converter</h3>
@@ -288,79 +332,7 @@
             <span class="tool-link">Open →</span>
           </a>
 
-          <!-- 6. Random Text -->
-          <a href="/random-text" class="tool-card">
-            <div class="tool-icon">🎲</div>
-            <h3 class="tool-title">Random Text</h3>
-            <p class="tool-desc">Generate placeholder paragraphs, sentences, or words with one click.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 7. Word Shuffler -->
-          <a href="/word-shuffler" class="tool-card">
-            <div class="tool-icon">🔀</div>
-            <h3 class="tool-title">Word Shuffler</h3>
-            <p class="tool-desc">Randomize word order in any text — perfect for creative prompts.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 8. Word Cloud Generator -->
-          <a href="/word-cloud" class="tool-card">
-            <div class="tool-icon">☁️</div>
-            <h3 class="tool-title">Word Cloud Generator</h3>
-            <p class="tool-desc">Turn your text into a beautiful visual word cloud. Customize colors, fonts, and layouts.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 9. Readability Analyzer -->
-          <a href="/readability" class="tool-card">
-            <div class="tool-icon">📊</div>
-            <h3 class="tool-title">Readability Analyzer</h3>
-            <p class="tool-desc">Check reading ease, grade level, and complexity scores for any text or document.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 10. Focus Writer -->
-          <a href="/focus-writer" class="tool-card">
-            <div class="tool-icon">🎯</div>
-            <h3 class="tool-title">Focus Writer</h3>
-            <p class="tool-desc">Minimalist writing mode with a zen focus and real‑time word count tracking.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 11. Pomodoro Timer -->
-          <a href="/pomodoro-timer" class="tool-card">
-            <div class="tool-icon">🍅</div>
-            <h3 class="tool-title">Pomodoro Timer</h3>
-            <p class="tool-desc">Stay focused with customizable work/break intervals and alerts.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 12. Habit Tracker -->
-          <a href="/habit-tracker" class="tool-card">
-            <div class="tool-icon">📅</div>
-            <h3 class="tool-title">Habit Tracker</h3>
-            <p class="tool-desc">Build streaks and track daily habits with a simple visual calendar.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 13. Decision Maker -->
-          <a href="/choice-maker" class="tool-card">
-            <div class="tool-icon">⚖️</div>
-            <h3 class="tool-title">Decision Maker</h3>
-            <p class="tool-desc">Spin a wheel, flip a coin, or let the tool decide between your options.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 14. Word Finder -->
-          <a href="/word-finder" class="tool-card">
-            <div class="tool-icon">🔍</div>
-            <h3 class="tool-title">Word Finder</h3>
-            <p class="tool-desc">Find words, solve anagrams, and discover hidden vocabulary with ease.</p>
-            <span class="tool-link">Open →</span>
-          </a>
-
-          <!-- 15. Word Counter -->
+          <!-- Word Counter -->
           <a href="/word-counter" class="tool-card">
             <div class="tool-icon">📊</div>
             <h3 class="tool-title">Word Counter</h3>
@@ -368,7 +340,107 @@
             <span class="tool-link">Open →</span>
           </a>
 
-          <!-- 16. Crossword Solver -->
+          <!-- Readability Analyzer -->
+          <a href="/readability" class="tool-card">
+            <div class="tool-icon">📊</div>
+            <h3 class="tool-title">Readability Analyzer</h3>
+            <p class="tool-desc">Check reading ease, grade level, and complexity scores for any text or document.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- Word Shuffler -->
+          <a href="/word-shuffler" class="tool-card">
+            <div class="tool-icon">🔀</div>
+            <h3 class="tool-title">Word Shuffler</h3>
+            <p class="tool-desc">Randomize word order in any text — perfect for creative prompts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category: Idea Organization & Visualization -->
+    <section class="category-section" aria-label="Idea Organization & Visualization">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">🧠</span>
+          Idea Organization &amp; Visualization
+        </h2>
+        <p class="category-subtitle">Visualize, plan, and organize your thoughts effectively.</p>
+        <div class="tools-grid-page">
+          <!-- MindMap -->
+          <a href="/mindmap" class="tool-card">
+            <div class="tool-icon">🧠</div>
+            <h3 class="tool-title">MindMap</h3>
+            <p class="tool-desc">Visualize ideas and brainstorm with an interactive mind mapping board.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- List Maker -->
+          <a href="/list-maker" class="tool-card">
+            <div class="tool-icon">✅</div>
+            <h3 class="tool-title">List Maker</h3>
+            <p class="tool-desc">Create checklists, to‑dos, and bullet lists with drag‑and‑drop ease.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category: Creativity & Randomization -->
+    <section class="category-section" aria-label="Creativity & Randomization">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">🎲</span>
+          Creativity &amp; Randomization
+        </h2>
+        <p class="category-subtitle">Generate content, visualize words, and make decisions creatively.</p>
+        <div class="tools-grid-page">
+          <!-- Random Text -->
+          <a href="/random-text" class="tool-card">
+            <div class="tool-icon">🎲</div>
+            <h3 class="tool-title">Random Text</h3>
+            <p class="tool-desc">Generate placeholder paragraphs, sentences, or words with one click.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- Word Cloud Generator -->
+          <a href="/word-cloud" class="tool-card">
+            <div class="tool-icon">☁️</div>
+            <h3 class="tool-title">Word Cloud Generator</h3>
+            <p class="tool-desc">Turn your text into a beautiful visual word cloud. Customize colors, fonts, and layouts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- Decision Maker -->
+          <a href="/choice-maker" class="tool-card">
+            <div class="tool-icon">⚖️</div>
+            <h3 class="tool-title">Decision Maker</h3>
+            <p class="tool-desc">Spin a wheel, flip a coin, or let the tool decide between your options.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category: Word & Puzzle Helpers -->
+    <section class="category-section" aria-label="Word & Puzzle Helpers">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">🔍</span>
+          Word &amp; Puzzle Helpers
+        </h2>
+        <p class="category-subtitle">Find words, solve puzzles, and discover hidden vocabulary.</p>
+        <div class="tools-grid-page">
+          <!-- Word Finder -->
+          <a href="/word-finder" class="tool-card">
+            <div class="tool-icon">🔍</div>
+            <h3 class="tool-title">Word Finder</h3>
+            <p class="tool-desc">Find words, solve anagrams, and discover hidden vocabulary with ease.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- Crossword Solver -->
           <a href="/crossword-solver" class="tool-card">
             <div class="tool-icon">🔠</div>
             <h3 class="tool-title">Crossword Solver</h3>
@@ -376,19 +448,59 @@
             <span class="tool-link">Open →</span>
           </a>
 
-          <!-- 17. Word Search Solver -->
+          <!-- Word Search Solver -->
           <a href="/word-search-solver" class="tool-card">
             <div class="tool-icon">🕵🏻</div>
             <h3 class="tool-title">Word Search Solver</h3>
             <p class="tool-desc">Word search solver and word puzzle solver for grid-based puzzles.</p>
             <span class="tool-link">Open →</span>
           </a>
+        </div>
+      </div>
+    </section>
 
-          <!-- 18. Emoji Picker -->
+    <!-- Category: Productivity & Habit Management -->
+    <section class="category-section" aria-label="Productivity & Habit Management">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">⏳</span>
+          Productivity &amp; Habit Management
+        </h2>
+        <p class="category-subtitle">Stay focused, manage time, and build positive routines.</p>
+        <div class="tools-grid-page">
+          <!-- Pomodoro Timer -->
+          <a href="/pomodoro-timer" class="tool-card">
+            <div class="tool-icon">🍅</div>
+            <h3 class="tool-title">Pomodoro Timer</h3>
+            <p class="tool-desc">Stay focused with customizable work/break intervals and alerts.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+
+          <!-- Habit Tracker -->
+          <a href="/habit-tracker" class="tool-card">
+            <div class="tool-icon">📅</div>
+            <h3 class="tool-title">Habit Tracker</h3>
+            <p class="tool-desc">Build streaks and track daily habits with a simple visual calendar.</p>
+            <span class="tool-link">Open →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category: Fun & Utilities -->
+    <section class="category-section" aria-label="Fun & Utilities">
+      <div class="container">
+        <h2 class="category-title">
+          <span class="category-emoji">😊</span>
+          Fun &amp; Utilities
+        </h2>
+        <p class="category-subtitle">Handy tools for everyday use.</p>
+        <div class="tools-grid-page">
+          <!-- Emoji Picker -->
           <a href="/emoji-picker" class="tool-card">
             <div class="tool-icon">🙂</div>
             <h3 class="tool-title">Emoji Picker</h3>
-            <p class="tool-desc">Pick Emojis of your choice.</p>
+            <p class="tool-desc">Pick emojis of your choice and copy them with one click.</p>
             <span class="tool-link">Open →</span>
           </a>
         </div>

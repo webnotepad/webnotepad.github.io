@@ -63,6 +63,10 @@
     if (history.length > 50) history.shift();
   }
 
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
   // ===================== CANVAS SETUP =====================
   function initCanvas() {
     canvas = document.getElementById('mmCanvas');
@@ -224,6 +228,16 @@
     const cx = touch ? touch.clientX : e.clientX;
     const cy = touch ? touch.clientY : e.clientY;
     return { x: cx - rect.left, y: cy - rect.top };
+  }
+
+  function clampToCanvas(x, y, padding = 60) {
+    if (!canvas) return { x, y };
+    const W = canvas.width / dpr;
+    const H = canvas.height / dpr;
+    return {
+      x: Math.max(padding, Math.min(W - padding, x)),
+      y: Math.max(padding, Math.min(H - padding, y))
+    };
   }
 
   // ===================== EVENTS =====================
@@ -454,10 +468,17 @@
     pushHistory();
     const parent = nodes.find(n => n.id === selectedId);
     if (!parent) return;
-    const angle = Math.random() * Math.PI * 2;
-    const dist = 180;
+    
+    const mobile = isMobile();
+    const dist = mobile ? 100 : 180;
+    
+    // Find existing children to distribute them better
+    const children = nodes.filter(n => n.parent === selectedId);
+    const angleStep = (Math.PI * 2) / Math.max(children.length + 1, 1);
+    const angle = children.length * angleStep + Math.random() * 0.3;
+    
     const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    const child = {
+    let child = {
       id: 'n_' + Date.now(),
       text: 'New idea',
       x: parent.x + Math.cos(angle) * dist,
@@ -466,6 +487,12 @@
       parent: parent.id,
       collapsed: false
     };
+    
+    // Clamp position to canvas bounds
+    const clamped = clampToCanvas(child.x, child.y, mobile ? 40 : 60);
+    child.x = clamped.x;
+    child.y = clamped.y;
+    
     nodes.push(child);
     saveMap();
     draw();
@@ -480,15 +507,33 @@
     pushHistory();
     const parent = nodes.find(n => n.id === node.parent);
     const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    const sibling = {
+    
+    const mobile = isMobile();
+    const dist = mobile ? 120 : 180;
+    
+    // Get siblings to spread them out
+    const siblings = nodes.filter(n => n.parent === node.parent);
+    const index = siblings.indexOf(node);
+    const totalSiblings = siblings.length;
+    const angleStep = (Math.PI * 1.2) / Math.max(totalSiblings, 1);
+    const startAngle = -Math.PI * 0.6;
+    const angle = startAngle + (index + 0.5) * angleStep;
+    
+    let sibling = {
       id: 'n_' + Date.now(),
       text: 'New idea',
-      x: node.x + 180,
-      y: node.y,
+      x: parent.x + Math.cos(angle) * dist,
+      y: parent.y + Math.sin(angle) * dist,
       color: color,
       parent: node.parent,
       collapsed: false
     };
+    
+    // Clamp position to canvas bounds
+    const clamped = clampToCanvas(sibling.x, sibling.y, mobile ? 40 : 60);
+    sibling.x = clamped.x;
+    sibling.y = clamped.y;
+    
     nodes.push(sibling);
     saveMap();
     draw();

@@ -321,6 +321,15 @@ body.dark .mm-danger:hover:not(:disabled) {
   box-shadow: var(--mm-shadow);
   transition: background var(--mm-t), border-color var(--mm-t);
 }
+
+/* Mobile - allow canvas content to be visible */
+@media (max-width: 768px) {
+  .mm-canvas-wrap {
+    overflow: visible !important;
+    border-radius: var(--mm-radius);
+  }
+}
+
 #mmCanvas {
   display: block;
   width: 100%;
@@ -328,6 +337,22 @@ body.dark .mm-danger:hover:not(:disabled) {
   cursor: crosshair;
   touch-action: none;
 }
+
+/* Mobile canvas height */
+@media (max-width: 768px) {
+  #mmCanvas {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  #mmCanvas {
+    height: 320px;
+    min-height: 320px;
+  }
+}
+
 .mm-node-editor {
   position: absolute;
   z-index: 10;
@@ -682,9 +707,6 @@ body.dark .mm-danger:hover:not(:disabled) {
     padding: 4px 8px;
     font-size: 0.7rem;
   }
-  #mmCanvas {
-    height: 400px;
-  }
   .mm-how-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -756,9 +778,6 @@ body.dark .mm-danger:hover:not(:disabled) {
   .mm-toolbar-right {
     flex-wrap: wrap;
     justify-content: center;
-  }
-  #mmCanvas {
-    height: 300px;
   }
   .mm-node-editor input {
     min-width: 80px;

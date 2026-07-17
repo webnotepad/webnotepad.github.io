@@ -3,7 +3,7 @@
  * A floating social sharing widget with a pin-style aesthetic
  * Features: Pinterest, Threads, Twitter/X, Telegram
  * Style: Clean, modern, with subtle hover animations
- * Updated: Better mobile positioning to work with sidebar
+ * Updated: Fixed alignment and visibility issues
  */
 
 (function () {
@@ -368,25 +368,24 @@
     }
 
     /* ============================================================
-       RESPONSIVE: Mobile adjustments
+       RESPONSIVE: Mobile adjustments - RIGHT ALIGNED
        ============================================================ */
     @media (max-width: 768px) {
-      /* Move share widget higher to avoid sidebar overlap */
+      /* Keep share widget right-aligned like sidebar */
       .social-share-trigger {
         bottom: 180px;
-        right: 16px;
+        right: 24px; /* Match sidebar's right: 24px */
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
-        z-index: 9998; /* Lower than sidebar trigger (9999) */
+        z-index: 9998;
       }
 
       .social-share-popover {
         bottom: 170px;
-        right: 12px;
-        left: 12px;
-        min-width: unset;
-        max-width: unset;
+        right: 24px; /* Match sidebar's right: 24px */
+        min-width: 200px;
+        max-width: 240px;
         padding: 16px;
         border-radius: 16px;
         z-index: 9997;
@@ -417,7 +416,7 @@
     @media (max-width: 480px) {
       .social-share-trigger {
         bottom: 160px;
-        right: 14px;
+        right: 16px; /* Match sidebar's right: 16px on mobile */
         width: 46px;
         height: 46px;
         font-size: 1.2rem;
@@ -426,8 +425,10 @@
 
       .social-share-popover {
         bottom: 150px;
-        right: 10px;
-        left: 10px;
+        right: 16px; /* Match sidebar's right: 16px on mobile */
+        left: auto; /* Remove left constraint */
+        min-width: 180px;
+        max-width: 200px;
         padding: 14px;
         border-radius: 14px;
       }
@@ -446,16 +447,6 @@
     }
 
     /* When sidebar is open, hide share widget to avoid conflicts */
-    .tools-fixed-sidebar.open ~ .social-share-trigger,
-    .tools-fixed-sidebar.open ~ #social-share-root .social-share-trigger,
-    .tools-fixed-sidebar.open ~ .social-share-popover,
-    .tools-fixed-sidebar.open ~ #social-share-root .social-share-popover {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Alternative: Use a class-based approach */
     body.sidebar-open .social-share-trigger,
     body.sidebar-open .social-share-popover {
       opacity: 0;
@@ -488,13 +479,15 @@
     };
   };
 
-  // Build popover HTML
+  // Build popover HTML with better Twitter icon
   const platformsHTML = CONFIG.platforms
     .map((p) => {
       const label = p.id === "twitter" ? "X" : p.name;
+      // Use different icon for Twitter/X
+      const icon = p.id === "twitter" ? "𝕏" : p.icon;
       return `
         <button class="social-share-btn" data-platform="${p.id}" data-name="${p.name}" aria-label="Share on ${p.name}">
-          <span class="social-share-btn-icon">${p.icon}</span>
+          <span class="social-share-btn-icon">${icon}</span>
           <span class="social-share-btn-label">${label}</span>
         </button>
       `;

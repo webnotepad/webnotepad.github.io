@@ -3,7 +3,7 @@
  * A floating social sharing widget with a pin-style aesthetic
  * Features: Pinterest, Threads, Twitter/X, Telegram
  * Style: Clean, modern, with subtle hover animations
- * Updated: Fixed alignment and visibility issues
+ * Updated: Fixed z-index, alignment, and Twitter icon visibility
  */
 
 (function () {
@@ -46,7 +46,7 @@
       {
         id: "twitter",
         name: "Twitter / X",
-        icon: "🐦",
+        icon: "𝕏", // Changed to X symbol for better visibility
         color: "#000000",
         bgColor: "#000000",
         shareUrl: (url, text) =>
@@ -77,7 +77,7 @@
       position: fixed;
       bottom: 200px;
       right: 24px;
-      z-index: 9999;
+      z-index: 9998; /* Lower than sidebar trigger (9999) */
       width: 52px;
       height: 52px;
       background: #ffffff;
@@ -133,7 +133,7 @@
       position: fixed;
       bottom: 190px;
       right: 24px;
-      z-index: 9998;
+      z-index: 9997; /* Lower than trigger */
       background: #ffffff;
       border-radius: 20px;
       padding: 20px 20px 18px;
@@ -260,6 +260,15 @@
       font-size: 1.5rem;
       line-height: 1;
       transition: transform 0.2s ease;
+      /* Ensure Twitter X icon is visible */
+      font-weight: 700;
+    }
+
+    /* Special styling for Twitter/X icon */
+    .social-share-btn[data-platform="twitter"] .social-share-btn-icon {
+      font-size: 1.6rem;
+      font-weight: 900;
+      font-family: 'Times New Roman', serif;
     }
 
     .social-share-btn:hover .social-share-btn-icon {
@@ -368,13 +377,13 @@
     }
 
     /* ============================================================
-       RESPONSIVE: Mobile adjustments - RIGHT ALIGNED
+       RESPONSIVE: Mobile adjustments - PERFECT ALIGNMENT
        ============================================================ */
     @media (max-width: 768px) {
       /* Keep share widget right-aligned like sidebar */
       .social-share-trigger {
-        bottom: 240px;
-        right: 30px; /* Match sidebar's right: 24px */
+        bottom: 200px;
+        right: 24px; /* EXACT match with sidebar */
         width: 50px;
         height: 50px;
         font-size: 1.3rem;
@@ -382,8 +391,8 @@
       }
 
       .social-share-popover {
-        bottom: 170px;
-        right: 24px; /* Match sidebar's right: 24px */
+        bottom: 190px;
+        right: 24px; /* EXACT match with sidebar */
         min-width: 200px;
         max-width: 240px;
         padding: 16px;
@@ -403,6 +412,10 @@
         font-size: 1.3rem;
       }
 
+      .social-share-btn[data-platform="twitter"] .social-share-btn-icon {
+        font-size: 1.4rem;
+      }
+
       .social-share-btn-label {
         font-size: 0.5rem;
       }
@@ -416,7 +429,7 @@
     @media (max-width: 480px) {
       .social-share-trigger {
         bottom: 160px;
-        right: 16px; /* Match sidebar's right: 16px on mobile */
+        right: 16px; /* EXACT match with sidebar mobile */
         width: 46px;
         height: 46px;
         font-size: 1.2rem;
@@ -425,8 +438,8 @@
 
       .social-share-popover {
         bottom: 150px;
-        right: 16px; /* Match sidebar's right: 16px on mobile */
-        left: auto; /* Remove left constraint */
+        right: 16px; /* EXACT match with sidebar mobile */
+        left: auto;
         min-width: 180px;
         max-width: 200px;
         padding: 14px;
@@ -444,14 +457,29 @@
       .social-share-btn-icon {
         font-size: 1.1rem;
       }
+
+      .social-share-btn[data-platform="twitter"] .social-share-btn-icon {
+        font-size: 1.2rem;
+      }
     }
 
-    /* When sidebar is open, hide share widget to avoid conflicts */
+    /* When sidebar is open, hide share widget */
     body.sidebar-open .social-share-trigger,
     body.sidebar-open .social-share-popover {
-      opacity: 0;
-      pointer-events: none;
+      opacity: 0 !important;
+      pointer-events: none !important;
       transition: opacity 0.3s ease;
+    }
+
+    /* Ensure share widget is always above content but below sidebar */
+    .social-share-trigger,
+    .social-share-popover {
+      z-index: 9998 !important;
+    }
+
+    /* Sidebar overlay should be above share widget */
+    .tools-sidebar-overlay {
+      z-index: 9999 !important;
     }
   `;
 
@@ -479,12 +507,12 @@
     };
   };
 
-  // Build popover HTML with better Twitter icon
+  // Build popover HTML with proper Twitter icon
   const platformsHTML = CONFIG.platforms
     .map((p) => {
       const label = p.id === "twitter" ? "X" : p.name;
-      // Use different icon for Twitter/X
-      const icon = p.id === "twitter" ? "𝕏" : p.icon;
+      // Use the icon from config (now 𝕏 for twitter)
+      const icon = p.icon;
       return `
         <button class="social-share-btn" data-platform="${p.id}" data-name="${p.name}" aria-label="Share on ${p.name}">
           <span class="social-share-btn-icon">${icon}</span>

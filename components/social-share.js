@@ -74,7 +74,7 @@
     /* ----- Floating Trigger Button (Pin Style) ----- */
     .social-share-trigger {
       position: fixed;
-      bottom: 200px;
+      bottom: 180px;
       right: 24px;
       z-index: 9999;
       width: 56px;

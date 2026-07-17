@@ -78,8 +78,8 @@
       bottom: 200px;
       right: 24px;
       z-index: 9999;
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       background: #ffffff;
       color: #1a1a2e;
       border-radius: 50%;

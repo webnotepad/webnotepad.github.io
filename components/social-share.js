@@ -373,8 +373,8 @@
     @media (max-width: 768px) {
       /* Keep share widget right-aligned like sidebar */
       .social-share-trigger {
-        bottom: 200px;
-        right: 24px; /* Match sidebar's right: 24px */
+        bottom: 240px;
+        right: 30px; /* Match sidebar's right: 24px */
         width: 50px;
         height: 50px;
         font-size: 1.3rem;

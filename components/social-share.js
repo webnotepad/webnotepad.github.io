@@ -3,6 +3,7 @@
  * A floating social sharing widget with a pin-style aesthetic
  * Features: Pinterest, Threads, Twitter/X, Telegram
  * Style: Clean, modern, with subtle hover animations
+ * Updated: Better mobile positioning to work with sidebar
  */
 
 (function () {
@@ -74,7 +75,7 @@
     /* ----- Floating Trigger Button (Pin Style) ----- */
     .social-share-trigger {
       position: fixed;
-      bottom: 180px;
+      bottom: 200px;
       right: 24px;
       z-index: 9999;
       width: 56px;
@@ -324,38 +325,6 @@
       border-color: #2a2a4a;
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .social-share-popover {
-        right: 12px;
-        left: 12px;
-        bottom: 180px;
-        min-width: unset;
-        max-width: unset;
-        padding: 16px;
-        border-radius: 16px;
-      }
-      .social-share-grid {
-        gap: 6px;
-      }
-      .social-share-btn {
-        padding: 8px 2px 6px;
-      }
-      .social-share-btn-icon {
-        font-size: 1.3rem;
-      }
-      .social-share-btn-label {
-        font-size: 0.5rem;
-      }
-      .social-share-trigger {
-        width: 48px;
-        height: 48px;
-        font-size: 1.3rem;
-        bottom: 100px;
-        right: 16px;
-      }
-    }
-
     /* Animation for popover entrance */
     @keyframes popoverSlideUp {
       from {
@@ -398,10 +367,100 @@
       opacity: 1;
     }
 
-    @media (max-width: 480px) {
+    /* ============================================================
+       RESPONSIVE: Mobile adjustments
+       ============================================================ */
+    @media (max-width: 768px) {
+      /* Move share widget higher to avoid sidebar overlap */
+      .social-share-trigger {
+        bottom: 180px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        z-index: 9998; /* Lower than sidebar trigger (9999) */
+      }
+
+      .social-share-popover {
+        bottom: 170px;
+        right: 12px;
+        left: 12px;
+        min-width: unset;
+        max-width: unset;
+        padding: 16px;
+        border-radius: 16px;
+        z-index: 9997;
+      }
+
+      .social-share-grid {
+        gap: 6px;
+      }
+
+      .social-share-btn {
+        padding: 8px 2px 6px;
+      }
+
+      .social-share-btn-icon {
+        font-size: 1.3rem;
+      }
+
+      .social-share-btn-label {
+        font-size: 0.5rem;
+      }
+
       .social-share-trigger-label {
         display: none;
       }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .social-share-trigger {
+        bottom: 160px;
+        right: 14px;
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+        border-width: 1.5px;
+      }
+
+      .social-share-popover {
+        bottom: 150px;
+        right: 10px;
+        left: 10px;
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .social-share-popover-header span {
+        font-size: 0.75rem;
+      }
+
+      .social-share-btn {
+        padding: 6px 2px 4px;
+      }
+
+      .social-share-btn-icon {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* When sidebar is open, hide share widget to avoid conflicts */
+    .tools-fixed-sidebar.open ~ .social-share-trigger,
+    .tools-fixed-sidebar.open ~ #social-share-root .social-share-trigger,
+    .tools-fixed-sidebar.open ~ .social-share-popover,
+    .tools-fixed-sidebar.open ~ #social-share-root .social-share-popover {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Alternative: Use a class-based approach */
+    body.sidebar-open .social-share-trigger,
+    body.sidebar-open .social-share-popover {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
   `;
 
@@ -563,7 +622,45 @@
   });
 
   // ============================================================
-  // 9. OPTIONAL: Expose API for developers
+  // 9. SIDEBAR INTERACTION HANDLING
+  // ============================================================
+  // Listen for sidebar open/close events
+  const sidebarObserver = new MutationObserver(() => {
+    const sidebar = document.getElementById("toolsFixedSidebar");
+    if (sidebar) {
+      if (sidebar.classList.contains("open")) {
+        document.body.classList.add("sidebar-open");
+        // Also close share popover if open
+        if (isOpen) closePopover();
+      } else {
+        document.body.classList.remove("sidebar-open");
+      }
+    }
+  });
+
+  // Wait for sidebar to be in DOM
+  const checkSidebar = setInterval(() => {
+    const sidebar = document.getElementById("toolsFixedSidebar");
+    if (sidebar) {
+      sidebarObserver.observe(sidebar, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+      clearInterval(checkSidebar);
+    }
+  }, 100);
+
+  // Also handle click on sidebar trigger
+  document.addEventListener("click", (e) => {
+    const sidebarTrigger = document.getElementById("toolsSidebarTrigger");
+    if (sidebarTrigger && sidebarTrigger.contains(e.target)) {
+      // Close share popover if open
+      if (isOpen) closePopover();
+    }
+  });
+
+  // ============================================================
+  // 10. OPTIONAL: Expose API for developers
   // ============================================================
   window.SocialShare = {
     open: togglePopover,

@@ -276,20 +276,50 @@ body.dark .d-how-num{color:var(--d-tan)}
   font-family:'Fira Mono', monospace; text-align:center; opacity:.75;
 }
 
-/* PDF TEMPLATES */
+/* =============================================
+   PDF TEMPLATES — FIXED
+   ============================================= */
+
+/* ---------- CLASSIC LEATHER (FIXED) ---------- */
 .pdf-tpl-classic{
-  --tpl-bg:#f7f0e4; --tpl-frame:#3b2415; --tpl-ink:#2c1a0e; --tpl-accent:#b8863c;
-  background:var(--tpl-bg); color:var(--tpl-ink);
-  border:14px solid var(--tpl-frame);
+  --tpl-bg:#f7f0e4; 
+  --tpl-frame:#3b2415; 
+  --tpl-ink:#2c1a0e; 
+  --tpl-accent:#b8863c;
+  background:var(--tpl-bg); 
+  color:var(--tpl-ink);
   font-family:'Lora', Georgia, serif;
 }
-.pdf-tpl-classic .pdf-header{ color:var(--tpl-accent); border-bottom:1px solid var(--tpl-accent); padding-bottom:8px; }
-.pdf-tpl-classic .pdf-title{ font-weight:700; color:var(--tpl-frame); }
-.pdf-tpl-classic .pdf-mood, .pdf-tpl-classic .pdf-tags{ color:var(--tpl-accent); font-weight:600; }
-.pdf-tpl-classic .pdf-divider{ background:linear-gradient(to right, var(--tpl-accent), transparent); }
-.pdf-tpl-classic .pdf-footer{ border-top:1px solid var(--tpl-accent); color:var(--tpl-accent); }
-.pdf-tpl-classic-preview{ background:linear-gradient(135deg,#3b2415 0 20%, #f7f0e4 20% 100%); }
+.pdf-tpl-classic .pdf-page-inner{
+  border:14px solid var(--tpl-frame);
+  padding:0.85in 0.75in 0.7in;
+}
+.pdf-tpl-classic .pdf-header{ 
+  color:var(--tpl-accent); 
+  border-bottom:1px solid var(--tpl-accent); 
+  padding-bottom:8px; 
+}
+.pdf-tpl-classic .pdf-title{ 
+  font-weight:700; 
+  color:var(--tpl-frame); 
+}
+.pdf-tpl-classic .pdf-mood, 
+.pdf-tpl-classic .pdf-tags{ 
+  color:var(--tpl-accent); 
+  font-weight:600; 
+}
+.pdf-tpl-classic .pdf-divider{ 
+  background:linear-gradient(to right, var(--tpl-accent), transparent); 
+}
+.pdf-tpl-classic .pdf-footer{ 
+  border-top:1px solid var(--tpl-accent); 
+  color:var(--tpl-accent); 
+}
+.pdf-tpl-classic-preview{ 
+  background:linear-gradient(135deg,#3b2415 0 20%, #f7f0e4 20% 100%); 
+}
 
+/* ---------- FLORAL VINTAGE ---------- */
 .pdf-tpl-floral {
   --tpl-bg: #fff7f4; 
   --tpl-ink: #5c3040; 
@@ -305,58 +335,97 @@ body.dark .d-how-num{color:var(--d-tan)}
 }
 .pdf-tpl-floral .pdf-header { color: var(--tpl-accent); }
 .pdf-tpl-floral .pdf-title { font-style: italic; color: #a94f6b; }
-.pdf-tpl-floral .pdf-mood, .pdf-tpl-floral .pdf-tags { color: var(--tpl-accent); }
+.pdf-tpl-floral .pdf-mood, 
+.pdf-tpl-floral .pdf-tags { color: var(--tpl-accent); }
 .pdf-tpl-floral .pdf-divider { background: var(--tpl-accent); opacity: 0.5; }
 .pdf-tpl-floral .pdf-footer { color: var(--tpl-accent); }
-.pdf-tpl-floral-preview { background: radial-gradient(circle at 20% 20%, #f7d4de, #fff7f4 60%); }
+.pdf-tpl-floral-preview { 
+  background: radial-gradient(circle at 20% 20%, #f7d4de, #fff7f4 60%); 
+}
 
+/* ---------- MINIMALIST MODERN ---------- */
 .pdf-tpl-minimalist{
-  --tpl-bg:#ffffff; --tpl-ink:#1c1c1c; --tpl-accent:#888888;
-  background:var(--tpl-bg); color:var(--tpl-ink);
+  --tpl-bg:#ffffff; 
+  --tpl-ink:#1c1c1c; 
+  --tpl-accent:#888888;
+  background:var(--tpl-bg); 
+  color:var(--tpl-ink);
   font-family:'Nunito', Helvetica, sans-serif;
 }
 .pdf-tpl-minimalist .pdf-header{ color:var(--tpl-accent); }
 .pdf-tpl-minimalist .pdf-title{ font-weight:800; letter-spacing:-.01em; }
-.pdf-tpl-minimalist .pdf-mood, .pdf-tpl-minimalist .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-minimalist .pdf-mood, 
+.pdf-tpl-minimalist .pdf-tags{ color:var(--tpl-accent); }
 .pdf-tpl-minimalist .pdf-divider{ background:#e2e2e2; }
 .pdf-tpl-minimalist .pdf-footer{ border-top:1px solid #e2e2e2; color:var(--tpl-accent); }
 .pdf-tpl-minimalist-preview{ background:#ffffff; border:1px solid #ddd; }
 
+/* ---------- KRAFT RUSTIC ---------- */
 .pdf-tpl-kraft{
-  --tpl-bg:#d9c3a0; --tpl-ink:#3a2c1a; --tpl-accent:#7a5a35;
-  background:var(--tpl-bg); color:var(--tpl-ink);
-  border:3px dashed var(--tpl-accent);
+  --tpl-bg:#d9c3a0; 
+  --tpl-ink:#3a2c1a; 
+  --tpl-accent:#7a5a35;
+  background:var(--tpl-bg); 
+  color:var(--tpl-ink);
   font-family:'Fira Mono', monospace;
+}
+.pdf-tpl-kraft .pdf-page-inner{
+  border:3px dashed var(--tpl-accent);
+  padding:0.85in 0.75in 0.7in;
 }
 .pdf-tpl-kraft .pdf-header{ color:var(--tpl-accent); }
 .pdf-tpl-kraft .pdf-title{ font-family:'Lora', serif; font-weight:700; }
-.pdf-tpl-kraft .pdf-mood, .pdf-tpl-kraft .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-kraft .pdf-mood, 
+.pdf-tpl-kraft .pdf-tags{ color:var(--tpl-accent); }
 .pdf-tpl-kraft .pdf-divider{ background:var(--tpl-accent); opacity:.6; }
 .pdf-tpl-kraft .pdf-footer{ color:var(--tpl-accent); }
 .pdf-tpl-kraft-preview{ background:#d9c3a0; border:2px dashed #7a5a35; }
 
+/* ---------- ELEGANT ROSE GOLD ---------- */
 .pdf-tpl-rosegold{
-  --tpl-bg:#fdf1ee; --tpl-ink:#4a2c2c; --tpl-accent:#b8763e;
-  background:var(--tpl-bg); color:var(--tpl-ink);
-  border-top:10px solid var(--tpl-accent);
+  --tpl-bg:#fdf1ee; 
+  --tpl-ink:#4a2c2c; 
+  --tpl-accent:#b8763e;
+  background:var(--tpl-bg); 
+  color:var(--tpl-ink);
   font-family:'Lora', Georgia, serif;
 }
-.pdf-tpl-rosegold .pdf-header{ color:var(--tpl-accent); letter-spacing:.08em; }
+.pdf-tpl-rosegold .pdf-page-inner{
+  border-top:10px solid var(--tpl-accent);
+  padding:0.85in 0.75in 0.7in;
+}
+.pdf-tpl-rosegold .pdf-header{ 
+  color:var(--tpl-accent); 
+  letter-spacing:.08em; 
+}
 .pdf-tpl-rosegold .pdf-title{ color:#8c4a2f; }
-.pdf-tpl-rosegold .pdf-mood, .pdf-tpl-rosegold .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-rosegold .pdf-mood, 
+.pdf-tpl-rosegold .pdf-tags{ color:var(--tpl-accent); }
 .pdf-tpl-rosegold .pdf-divider{ background:var(--tpl-accent); }
 .pdf-tpl-rosegold .pdf-footer{ color:var(--tpl-accent); }
-.pdf-tpl-rosegold-preview{ background:linear-gradient(to bottom, #b8763e 0 12%, #fdf1ee 12% 100%); }
+.pdf-tpl-rosegold-preview{ 
+  background:linear-gradient(to bottom, #b8763e 0 12%, #fdf1ee 12% 100%); 
+}
 
+/* ---------- NATURE BOTANICAL ---------- */
 .pdf-tpl-botanical{
-  --tpl-bg:#f2f5ec; --tpl-ink:#2f3d2a; --tpl-accent:#5c7a4a;
-  background:var(--tpl-bg); color:var(--tpl-ink);
-  border:10px solid #dfe8d2;
+  --tpl-bg:#f2f5ec; 
+  --tpl-ink:#2f3d2a; 
+  --tpl-accent:#5c7a4a;
+  background:var(--tpl-bg); 
+  color:var(--tpl-ink);
   font-family:'Lora', Georgia, serif;
+}
+.pdf-tpl-botanical .pdf-page-inner{
+  border:10px solid #dfe8d2;
+  padding:0.85in 0.75in 0.7in;
 }
 .pdf-tpl-botanical .pdf-header{ color:var(--tpl-accent); }
 .pdf-tpl-botanical .pdf-title{ color:#3f5a30; }
-.pdf-tpl-botanical .pdf-mood, .pdf-tpl-botanical .pdf-tags{ color:var(--tpl-accent); }
+.pdf-tpl-botanical .pdf-mood, 
+.pdf-tpl-botanical .pdf-tags{ color:var(--tpl-accent); }
 .pdf-tpl-botanical .pdf-divider{ background:var(--tpl-accent); opacity:.5; }
 .pdf-tpl-botanical .pdf-footer{ color:var(--tpl-accent); }
-.pdf-tpl-botanical-preview{ background:linear-gradient(135deg,#5c7a4a 0 15%, #f2f5ec 15% 100%); }
+.pdf-tpl-botanical-preview{ 
+  background:linear-gradient(135deg,#5c7a4a 0 15%, #f2f5ec 15% 100%); 
+}

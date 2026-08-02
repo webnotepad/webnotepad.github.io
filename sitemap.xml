@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url><loc>https://webnotepad.github.io/</loc></url>
-  <url><loc>https://webnotepad.github.io/about.html</loc></url>
-  <url><loc>https://webnotepad.github.io/contact.html</loc></url>
-  <url><loc>https://webnotepad.github.io/privacy.html</loc></url>
-  <url><loc>https://webnotepad.github.io/terms.html</loc></url>
+  <url><loc>https://webnotepad.github.io/about</loc></url>
+  <url><loc>https://webnotepad.github.io/contact</loc></url>
+  <url><loc>https://webnotepad.github.io/privacy</loc></url>
+  <url><loc>https://webnotepad.github.io/terms</loc></url>
 
   <!-- Core Tools -->
-  <url><loc>https://webnotepad.github.io/all-tools.html</loc></url>
-  <url><loc>https://webnotepad.github.io/diary.html</loc></url>
-  <url><loc>https://webnotepad.github.io/mindmap.html</loc></url>
-  <url><loc>https://webnotepad.github.io/list-maker.html</loc></url>
+  <url><loc>https://webnotepad.github.io/all-tools</loc></url>
+  <url><loc>https://webnotepad.github.io/diary</loc></url>
+  <url><loc>https://webnotepad.github.io/mindmap</loc></url>
+  <url><loc>https://webnotepad.github.io/list-maker</loc></url>
 
   <!-- Text & Writing Tools -->
-  <url><loc>https://webnotepad.github.io/case-converter.html</loc></url>
-  <url><loc>https://webnotepad.github.io/random-text.html</loc></url>
-  <url><loc>https://webnotepad.github.io/word-shuffler.html</loc></url>
-  <url><loc>https://webnotepad.github.io/word-counter.html</loc></url>
-  <url><loc>https://webnotepad.github.io/word-finder.html</loc></url>
-  <url><loc>https://webnotepad.github.io/word-search-solver.html</loc></url>
-  <url><loc>https://webnotepad.github.io/crossword-solver.html</loc></url>
-  <url><loc>https://webnotepad.github.io/emoji-picker.html</loc></url>
-  <url><loc>https://webnotepad.github.io/readability.html</loc></url>
+  <url><loc>https://webnotepad.github.io/case-converter</loc></url>
+  <url><loc>https://webnotepad.github.io/random-text</loc></url>
+  <url><loc>https://webnotepad.github.io/word-shuffler</loc></url>
+  <url><loc>https://webnotepad.github.io/word-counter</loc></url>
+  <url><loc>https://webnotepad.github.io/word-finder</loc></url>
+  <url><loc>https://webnotepad.github.io/word-search-solver</loc></url>
+  <url><loc>https://webnotepad.github.io/crossword-solver</loc></url>
+  <url><loc>https://webnotepad.github.io/emoji-picker</loc></url>
+  <url><loc>https://webnotepad.github.io/readability</loc></url>
 
   <!-- Productivity & Planning Tools -->
-  <url><loc>https://webnotepad.github.io/pomodoro-timer.html</loc></url>
-  <url><loc>https://webnotepad.github.io/habit-tracker.html</loc></url>
-  <url><loc>https://webnotepad.github.io/study-planner.html</loc></url>
-  <url><loc>https://webnotepad.github.io/focus-writer.html</loc></url>
-  <url><loc>https://webnotepad.github.io/choice-maker.html</loc></url>
-  <url><loc>https://webnotepad.github.io/word-cloud.html</loc></url>
+  <url><loc>https://webnotepad.github.io/pomodoro-timer</loc></url>
+  <url><loc>https://webnotepad.github.io/habit-tracker</loc></url>
+  <url><loc>https://webnotepad.github.io/study-planner</loc></url>
+  <url><loc>https://webnotepad.github.io/focus-writer</loc></url>
+  <url><loc>https://webnotepad.github.io/choice-maker</loc></url>
+  <url><loc>https://webnotepad.github.io/word-cloud</loc></url>
 
   <!-- Blog / Articles / Guides -->
-  <url><loc>https://webnotepad.github.io/blog.html</loc></url>
-  <url><loc>https://webnotepad.github.io/alternatives-notion-evernote.html</loc></url>
-  <url><loc>https://webnotepad.github.io/better-class-notes.html</loc></url>
-  <url><loc>https://webnotepad.github.io/digital-journaling-habit-building.html</loc></url>
-  <url><loc>https://webnotepad.github.io/digital-study-planner-guide.html</loc></url>
-  <url><loc>https://webnotepad.github.io/decision-making-randomizers-wheels-guide.html</loc></url>
-  <url><loc>https://webnotepad.github.io/diary-vs-paper-journal.html</loc></url>
-  <url><loc>https://webnotepad.github.io/meal-planning-recipe-organizer-notepad-diary.html</loc></url>
-  <url><loc>https://webnotepad.github.io/mindmap-language-learning-vocabulary.html</loc></url>
-  <url><loc>https://webnotepad.github.io/mindmap-notepad-creative.html</loc></url>
-  <url><loc>https://webnotepad.github.io/notepad-productivity-tips-2026.html</loc></url>
-  <url><loc>https://webnotepad.github.io/organize-life-notepad-weekly-templates.html</loc></url>
-  <url><loc>https://webnotepad.github.io/privacy-browser-notepad.html</loc></url>
-  <url><loc>https://webnotepad.github.io/ultimate-guide-digital-note-taking.html</loc></url>
-  <url><loc>https://webnotepad.github.io/writers-draft-faster.html</loc></url>
-  <url><loc>https://webnotepad.github.io/new-tools-word-search-crossword-emoji-picker.html</loc></url>
-  <url><loc>https://webnotepad.github.io/case-converter-tools.html</loc></url>
+  <url><loc>https://webnotepad.github.io/blog</loc></url>
+  <url><loc>https://webnotepad.github.io/alternatives-notion-evernote</loc></url>
+  <url><loc>https://webnotepad.github.io/better-class-notes</loc></url>
+  <url><loc>https://webnotepad.github.io/digital-journaling-habit-building</loc></url>
+  <url><loc>https://webnotepad.github.io/digital-study-planner-guide</loc></url>
+  <url><loc>https://webnotepad.github.io/decision-making-randomizers-wheels-guide</loc></url>
+  <url><loc>https://webnotepad.github.io/diary-vs-paper-journal</loc></url>
+  <url><loc>https://webnotepad.github.io/meal-planning-recipe-organizer-notepad-diary</loc></url>
+  <url><loc>https://webnotepad.github.io/mindmap-language-learning-vocabulary</loc></url>
+  <url><loc>https://webnotepad.github.io/mindmap-notepad-creative</loc></url>
+  <url><loc>https://webnotepad.github.io/notepad-productivity-tips-2026</loc></url>
+  <url><loc>https://webnotepad.github.io/organize-life-notepad-weekly-templates</loc></url>
+  <url><loc>https://webnotepad.github.io/privacy-browser-notepad</loc></url>
+  <url><loc>https://webnotepad.github.io/ultimate-guide-digital-note-taking</loc></url>
+  <url><loc>https://webnotepad.github.io/writers-draft-faster</loc></url>
+  <url><loc>https://webnotepad.github.io/new-tools-word-search-crossword-emoji-picker</loc></url>
+  <url><loc>https://webnotepad.github.io/case-converter-tools</loc></url>
 </urlset>

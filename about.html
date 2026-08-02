@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us – WebNotePad</title>
-  <meta name="description" content="Learn more about the story behind WebNotePad and our mission to provide a clean, private writing space." />
+  <meta name="description" content="Learn about WebNotePad, the privacy-first online notepad and productivity suite created by Aansa Waqas. Our mission is simple, fast, and private writing tools for everyone." />
+  <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,6 +15,7 @@
     .about-page-hero { padding: 80px 0; background: var(--paper-warm); border-bottom: 1px solid var(--paper-edge); }
     .content-section { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
     .content-section p { font-size: 1.1rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 24px; }
+    .content-section h2 { font-family: var(--font-display); font-size: 1.75rem; margin: 48px 0 20px; color: var(--ink); }
     .founder-card { 
       display: flex; 
       align-items: center; 
@@ -24,9 +26,48 @@
       border-radius: var(--radius-lg);
       margin-top: 48px;
     }
+    .founder-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--paper-edge);
+      flex-shrink: 0;
+      background: var(--paper-warm);
+    }
     .founder-info h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; }
-    .founder-info span { font-family: var(--font-mono); color: var(--accent); font-size: 0.9rem; }
-    @media (max-width: 600px) { .founder-card { flex-direction: column; text-align: center; } }
+    .founder-info span { font-family: var(--font-mono); color: var(--accent); font-size: 0.9rem; display: block; margin-bottom: 12px; }
+    .founder-info p { font-size: 0.95rem; margin-bottom: 12px; }
+    .founder-links { margin-top: 12px; }
+    .founder-links a { color: var(--accent); text-decoration: none; margin-right: 16px; font-size: 0.9rem; }
+    .founder-links a:hover { text-decoration: underline; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .value-item {
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      padding: 24px;
+      border-radius: var(--radius-lg);
+    }
+    .value-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .value-item p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 600px) {
+      .founder-card { flex-direction: column; text-align: center; }
+      .values-grid { grid-template-columns: 1fr; }
+      .founder-links a { display: block; margin: 8px 0; }
+    }
   </style>
 </head>
 <body>
@@ -42,16 +83,63 @@
     </section>
 
     <section class="content-section">
-      <p>WebNotePad was founded on the belief that great ideas shouldn't be interrupted by sign-up forms or flashing advertisements. We created this tool for those who need a digital space that feels as immediate and private as a physical piece of paper.</p>
-      
-      <p>By keeping everything local to your browser, we ensure that your data stays exactly where it belongs: with you. No cloud syncing, no data mining, just pure productivity.</p>
+      <p>WebNotePad was created with one clear goal: to give people a fast, private, and distraction-free place to write — without forcing them to create an account, accept invasive tracking, or deal with cluttered interfaces.</p>
+
+      <p>In a world full of complex note-taking apps that demand sign-ups, subscriptions, and cloud storage, we wanted something different. Something that feels as immediate and personal as a blank sheet of paper, yet powerful enough for real daily use. That’s why every tool on WebNotePad runs entirely in your browser and stores your data only on your own device.</p>
+
+      <h2>What We Believe</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <h3>Privacy by Design</h3>
+          <p>Your notes and diary entries never leave your device. We don’t collect them, we can’t read them, and we have no interest in monetizing your thoughts.</p>
+        </div>
+        <div class="value-item">
+          <h3>Zero Friction</h3>
+          <p>No accounts, no downloads, no waiting. Open the page and start writing instantly — on desktop or mobile.</p>
+        </div>
+        <div class="value-item">
+          <h3>Useful Over Complicated</h3>
+          <p>We build focused tools that do one job well instead of trying to be an all-in-one operating system for your life.</p>
+        </div>
+        <div class="value-item">
+          <h3>Free Forever</h3>
+          <p>Core tools remain free. We support the project through non-intrusive advertising so anyone can use it without barriers.</p>
+        </div>
+      </div>
+
+      <h2>What You’ll Find Here</h2>
+      <p>WebNotePad is a growing suite of free browser-based tools designed around writing, thinking, and light productivity:</p>
+      <ul style="margin-bottom: 24px; padding-left: 20px; color: var(--ink-muted);">
+        <li style="margin-bottom: 8px;">A clean, rich-text online notepad with auto-save, dark mode, and export options</li>
+        <li style="margin-bottom: 8px;">A private digital diary and journal with mood tracking and streaks</li>
+        <li style="margin-bottom: 8px;">Mind mapping, list making, focus writing, and habit tracking tools</li>
+        <li style="margin-bottom: 8px;">Text utilities (word counter, case converter, readability analyzer, and more)</li>
+        <li style="margin-bottom: 8px;">Helpful articles on note-taking, privacy, and productivity</li>
+      </ul>
+
+      <p>Everything is built to work offline once loaded and to keep your data under your control.</p>
 
       <div class="founder-card">
+        <!-- Replace src with your uploaded image path, e.g. /images/aansa-waqas.jpg -->
+        <img src="/images/aansa-waqas.jpg" alt="Aansa Waqas – Founder of WebNotePad" class="founder-photo" width="140" height="140" onerror="this.style.display='none'">
         <div class="founder-info">
           <span>Founder & Lead Developer</span>
           <h3>Aansa Waqas</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 0;">A web developer and SEO specialist based in Pakistan with a passion for building fast, niche utility tools for the global developer community.</p>
+          <p>I’m a web developer and SEO specialist based in Pakistan. I build fast, focused utility tools that respect user privacy and get out of the way so people can actually get work done.</p>
+          <p>WebNotePad started as a personal project to solve a simple problem: I wanted a reliable, private notepad that didn’t require an account or force me into a complicated system. Over time it grew into a full suite of tools used by students, writers, developers, and everyday users around the world.</p>
+          <div class="founder-links">
+            <a href="mailto:aansawaqas50@gmail.com">aansawaqas50@gmail.com</a>
+            <a href="https://github.com/webnotepad/webnotepad.github.io" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          </div>
         </div>
+      </div>
+
+      <h2>Transparency & Contact</h2>
+      <p>WebNotePad is an independent project. The source code for the public site is available on GitHub. If you have feedback, feature suggestions, bug reports, or partnership inquiries, I’d love to hear from you.</p>
+      <p><strong>Email:</strong> <a href="mailto:aansawaqas50@gmail.com" style="color: var(--accent);">aansawaqas50@gmail.com</a></p>
+
+      <div style="margin-top: 48px;">
+        <a href="index.html" class="btn btn-ghost">← Back to Home</a>
       </div>
     </section>
   </main>

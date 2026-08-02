@@ -335,10 +335,10 @@ body.dark .btn-ghost { color: var(--ink); border-color: rgba(250,248,244,0.15); 
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
-  padding: 30px 0 40px;
+  padding: 30px 0 20px; /* reduced bottom from 40px to 20px */
   overflow: hidden;
 }
 .hero-bg-grid {

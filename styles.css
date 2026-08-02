@@ -63,9 +63,10 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 ul { list-style: none; }
 input, select { font-family: var(--font-body); }
 
+
 /* ===== CONTAINER ===== */
 .container {
-  max-width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 48px;
 }

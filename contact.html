@@ -4,27 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us – WebNotePad</title>
-  <meta name="description" content="Have questions or feedback? Reach out to the WebNotePad team." />
+  <meta name="description" content="Get in touch with WebNotePad. Send feedback, report bugs, suggest features, or ask questions. We'd love to hear from you." />
+  <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <style>
-    .contact-container { max-width: 1000px; margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-    .contact-info h1 { font-family: var(--font-display); font-size: 3rem; margin-bottom: 24px; }
-    .contact-method { margin-bottom: 32px; }
-    .contact-method h4 { font-family: var(--font-mono); color: var(--accent); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; }
-    .contact-method p { font-size: 1.1rem; font-weight: 500; }
-    .contact-form { background: var(--paper-warm); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--paper-edge); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 0.9rem; margin-bottom: 8px; font-weight: 600; }
-    .form-group input, .form-group textarea { 
-      width: 100%; padding: 12px; border: 1px solid var(--paper-edge); 
-      border-radius: var(--radius); background: var(--paper); font-family: var(--font-body);
+    .contact-container { 
+      max-width: 1000px; 
+      margin: 0 auto; 
+      padding: 80px 24px; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 64px; 
     }
-    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
-    @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; } }
+    .contact-info h1 { 
+      font-family: var(--font-display); 
+      font-size: 3rem; 
+      margin-bottom: 24px; 
+      line-height: 1.2;
+    }
+    .contact-info > p {
+      color: var(--ink-muted);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .contact-method { 
+      margin-bottom: 28px; 
+    }
+    .contact-method h4 { 
+      font-family: var(--font-mono); 
+      color: var(--accent); 
+      font-size: 0.8rem; 
+      text-transform: uppercase; 
+      margin-bottom: 8px; 
+      letter-spacing: 0.5px;
+    }
+    .contact-method p { 
+      font-size: 1.1rem; 
+      font-weight: 500; 
+      margin: 0;
+    }
+    .contact-method a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-method a:hover {
+      text-decoration: underline;
+    }
+    .contact-form { 
+      background: var(--paper-warm); 
+      padding: 40px; 
+      border-radius: var(--radius-lg); 
+      border: 1px solid var(--paper-edge); 
+    }
+    .contact-form h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .contact-form > p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+    }
+    .form-group { 
+      margin-bottom: 20px; 
+    }
+    .form-group label { 
+      display: block; 
+      font-size: 0.9rem; 
+      margin-bottom: 8px; 
+      font-weight: 600; 
+      color: var(--ink);
+    }
+    .form-group input, 
+    .form-group textarea { 
+      width: 100%; 
+      padding: 12px 14px; 
+      border: 1px solid var(--paper-edge); 
+      border-radius: var(--radius); 
+      background: var(--paper); 
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--ink);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, 
+    .form-group textarea:focus { 
+      outline: none; 
+      border-color: var(--accent); 
+    }
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .submit-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    @media (max-width: 800px) { 
+      .contact-container { 
+        grid-template-columns: 1fr; 
+        gap: 48px;
+        padding: 60px 20px;
+      }
+      .contact-info h1 {
+        font-size: 2.4rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -33,26 +142,72 @@
 
   <main>
     <div class="contact-container">
+      <!-- Left Column: Contact Info -->
       <div class="contact-info">
         <div class="section-label">Get in touch</div>
         <h1>Have a question?<br /><em>We're here.</em></h1>
-        <p style="color: var(--ink-muted); margin-bottom: 40px;">Whether you have a feature suggestion, found a bug, or just want to say hi, we'd love to hear from you.</p>
+        <p>Whether you have a feature suggestion, found a bug, need help, or just want to say hello — I’d love to hear from you.</p>
         
         <div class="contact-method">
-          <h4>Email Us</h4>
-          <p><a href="mailto:aansawaqas50@gmail.com" style="color: var(--accent);">aansawaqas50@gmail.com</a></p>
+          <h4>Email</h4>
+          <p><a href="mailto:aansawaqas50@gmail.com">aansawaqas50@gmail.com</a></p>
         </div>
         
         <div class="contact-method">
+          <h4>Response Time</h4>
+          <p>Usually within 1–2 business days</p>
+        </div>
+
+        <div class="contact-method">
           <h4>Business Hours</h4>
-          <p>Monday — Friday, 9am - 5pm PKT</p>
+          <p>Monday — Friday, 9am – 5pm PKT</p>
         </div>
 
         <div class="contact-method">
           <h4>Founder</h4>
           <p>Aansa Waqas</p>
         </div>
-      </div>      
+
+        <div class="contact-method">
+          <h4>Project</h4>
+          <p><a href="https://github.com/webnotepad/webnotepad.github.io" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <p>Fill out the form below and I’ll get back to you as soon as possible.</p>
+        
+        <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <!-- Replace action with your Formspree, Getform, or other form endpoint -->
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Feature request / Bug report / Question">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+          
+          <p class="note">
+            By submitting this form you agree that your message and email may be stored so I can reply. We never share your details with third parties.
+          </p>
+        </form>
+      </div>
     </div>
   </main>
 
@@ -62,10 +217,14 @@
   <script src="components/footer.js"></script>
   <script src="app.js"></script>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
-      e.target.reset();
+    // Simple fallback if no form backend is set yet
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const form = e.target;
+      if (form.action.includes('your-form-id')) {
+        e.preventDefault();
+        alert('Thank you for your message! Please email aansawaqas50@gmail.com directly for now. Form backend will be connected soon.');
+        form.reset();
+      }
     });
   </script>
 </body>

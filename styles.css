@@ -338,7 +338,7 @@ body.dark .btn-ghost { color: var(--ink); border-color: rgba(250,248,244,0.15); 
   min-height: 40vh;
   display: flex;
   align-items: center;
-  padding: 30px 0 20px; /* reduced bottom from 40px to 20px */
+  padding: 20px 0 20px; /* reduced bottom from 40px to 20px */
   overflow: hidden;
 }
 .hero-bg-grid {

@@ -712,66 +712,66 @@
       <!-- Card 1: Notepad Online - Circle Shape -->
       <article class="explore-card explore-card--circle">
         <div class="explore-card-inner">
-          <figure class="explore-figure">
+          <div class="explore-shape">
             <img
               src="https://placecats.com/600/600?random=1"
               alt="Clean notepad interface with text and toolbar"
               loading="lazy"
               class="explore-img"
             />
-            <div class="explore-overlay">
-              <div class="explore-content">
-                <span class="explore-badge">⚡ Most used</span>
-                <h3 class="explore-title">Notepad Online</h3>
-                <p class="explore-desc">Open, write, save — no signup, no distractions. Auto‑save, rich text, and dark mode.</p>
-                <a href="#notepad" class="explore-link">Open Notepad →</a>
-              </div>
+          </div>
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <span class="explore-badge">⚡ Most used</span>
+              <h3 class="explore-title">Notepad Online</h3>
+              <p class="explore-desc">Open, write, save — no signup, no distractions. Auto‑save, rich text, and dark mode.</p>
+              <a href="#notepad" class="explore-link">Open Notepad →</a>
             </div>
-          </figure>
+          </div>
         </div>
       </article>
 
       <!-- Card 2: Online Diary - Rounded Square Shape -->
       <article class="explore-card explore-card--rounded">
         <div class="explore-card-inner">
-          <figure class="explore-figure">
+          <div class="explore-shape">
             <img
               src="https://placecats.com/600/600?random=2"
               alt="Private diary interface with dated entries"
               loading="lazy"
               class="explore-img"
             />
-            <div class="explore-overlay">
-              <div class="explore-content">
-                <span class="explore-badge">📖 Private</span>
-                <h3 class="explore-title">Online Diary</h3>
-                <p class="explore-desc">Keep a daily journal. Each entry is dated and stored locally. Your thoughts stay yours.</p>
-                <a href="/diary" class="explore-link">Open Diary →</a>
-              </div>
+          </div>
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <span class="explore-badge">📖 Private</span>
+              <h3 class="explore-title">Online Diary</h3>
+              <p class="explore-desc">Keep a daily journal. Each entry is dated and stored locally. Your thoughts stay yours.</p>
+              <a href="/diary" class="explore-link">Open Diary →</a>
             </div>
-          </figure>
+          </div>
         </div>
       </article>
 
       <!-- Card 3: Memo Notepad - Hexagon Shape -->
       <article class="explore-card explore-card--hexagon">
         <div class="explore-card-inner">
-          <figure class="explore-figure">
+          <div class="explore-shape">
             <img
               src="https://placecats.com/600/600?random=3"
               alt="Quick memo notepad with sticky-note style"
               loading="lazy"
               class="explore-img"
             />
-            <div class="explore-overlay">
-              <div class="explore-content">
-                <span class="explore-badge">📌 Quick</span>
-                <h3 class="explore-title">Memo Notepad</h3>
-                <p class="explore-desc">For quick thoughts, shopping lists, and phone numbers. Minimal, fast, and always ready.</p>
-                <a href="/memo" class="explore-link">Open Memo →</a>
-              </div>
+          </div>
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <span class="explore-badge">📌 Quick</span>
+              <h3 class="explore-title">Memo Notepad</h3>
+              <p class="explore-desc">For quick thoughts, shopping lists, and phone numbers. Minimal, fast, and always ready.</p>
+              <a href="/memo" class="explore-link">Open Memo →</a>
             </div>
-          </figure>
+          </div>
         </div>
       </article>
     </div>
@@ -809,58 +809,68 @@ body.dark .section-explore {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== SHAPE WRAPPER ===== */
+.explore-shape {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-warm);
+  border: 3px solid var(--paper-edge);
+  transition: all 0.4s ease;
+}
+
+.explore-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
 }
 
 /* ===== SHAPE 1: CIRCLE ===== */
-.explore-card--circle .explore-figure {
+.explore-card--circle .explore-shape {
   border-radius: 50%;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  border: 3px solid var(--paper-edge);
-  transition: all 0.4s ease;
 }
 
 .explore-card--circle:hover .explore-card-inner {
   transform: scale(1.05) rotate(4deg);
 }
 
-.explore-card--circle:hover .explore-figure {
+.explore-card--circle:hover .explore-shape {
   border-color: var(--accent);
   box-shadow: 0 0 0 8px var(--accent-pale);
 }
 
+.explore-card--circle:hover .explore-img {
+  transform: scale(1.1);
+}
+
 /* ===== SHAPE 2: ROUNDED SQUARE ===== */
-.explore-card--rounded .explore-figure {
+.explore-card--rounded .explore-shape {
   border-radius: 32px;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  border: 3px solid var(--paper-edge);
-  transition: all 0.4s ease;
 }
 
 .explore-card--rounded:hover .explore-card-inner {
   transform: scale(1.05) translateY(-8px);
 }
 
-.explore-card--rounded:hover .explore-figure {
+.explore-card--rounded:hover .explore-shape {
   border-color: var(--gold);
   box-shadow: 0 12px 40px rgba(184, 150, 12, 0.25);
 }
 
+.explore-card--rounded:hover .explore-img {
+  transform: scale(1.1);
+}
+
 /* ===== SHAPE 3: HEXAGON ===== */
-.explore-card--hexagon .explore-figure {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.explore-card--hexagon .explore-shape {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  overflow: hidden;
-  border: 3px solid var(--paper-edge);
-  transition: all 0.4s ease;
+  border: none;
 }
 
 .explore-card--hexagon .explore-img {
@@ -871,59 +881,51 @@ body.dark .section-explore {
   transform: scale(1.05) rotate(-3deg);
 }
 
-.explore-card--hexagon:hover .explore-figure {
-  border-color: var(--green);
-  filter: drop-shadow(0 8px 32px rgba(45, 106, 79, 0.3));
-}
-
-/* ===== IMAGE & OVERLAY ===== */
-.explore-figure {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--paper-warm);
-  position: relative;
-}
-
-.explore-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.explore-card:hover .explore-img {
+.explore-card--hexagon:hover .explore-img {
   transform: scale(1.1);
 }
 
+.explore-card--hexagon:hover .explore-shape {
+  filter: drop-shadow(0 8px 32px rgba(45, 106, 79, 0.3));
+}
+
+/* ===== OVERLAY - NOW ABOVE THE SHAPE ===== */
 .explore-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(26, 26, 46, 0.85) 0%,
-    rgba(26, 26, 46, 0.4) 60%,
-    rgba(26, 26, 46, 0.1) 100%
+    rgba(26, 26, 46, 0.82) 0%,
+    rgba(26, 26, 46, 0.3) 60%,
+    rgba(26, 26, 46, 0.05) 100%
   );
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  padding: 28px;
   opacity: 0;
   transition: opacity 0.4s ease;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 body.dark .explore-overlay {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.5) 60%,
-    rgba(0, 0, 0, 0.2) 100%
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.05) 100%
   );
+}
+
+/* Fix hexagon overlay to match the shape */
+.explore-card--hexagon .explore-overlay {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 0;
 }
 
 .explore-card:hover .explore-overlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .explore-content {
@@ -931,10 +933,15 @@ body.dark .explore-overlay {
   width: 100%;
   transform: translateY(20px);
   transition: transform 0.4s ease 0.1s;
+  pointer-events: none;
 }
 
 .explore-card:hover .explore-content {
   transform: translateY(0);
+}
+
+.explore-content .explore-link {
+  pointer-events: auto;
 }
 
 .explore-badge {
@@ -963,7 +970,7 @@ body.dark .explore-overlay {
 
 .explore-desc {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
   margin-bottom: 12px;
   text-shadow: 0 1px 4px rgba(0,0,0,0.2);
@@ -980,6 +987,8 @@ body.dark .explore-overlay {
   padding-bottom: 2px;
   transition: all 0.3s ease;
   text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .explore-link:hover {
@@ -1013,6 +1022,9 @@ body.dark .explore-overlay {
   .explore-desc {
     font-size: 0.8rem;
   }
+  .explore-overlay {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1023,14 +1035,8 @@ body.dark .explore-overlay {
   .explore-card {
     max-width: 340px;
   }
-  .explore-card--circle .explore-figure {
-    border-radius: 50%;
-  }
-  .explore-card--rounded .explore-figure {
-    border-radius: 28px;
-  }
   .explore-overlay {
-    padding: 20px;
+    padding: 24px;
   }
 }
 </style>

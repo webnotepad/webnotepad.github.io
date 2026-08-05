@@ -701,6 +701,220 @@
       </div>
     </section>
 
+    <!-- ===== EXPLORE TOOLS SECTION ===== -->
+<section class="section section-explore" id="explore" aria-label="Explore Our Notepad Tools">
+  <div class="container">
+    <div class="section-label">✦ Choose your style</div>
+    <h2 class="section-title">Write your way.<br /><em>Three ways.</em></h2>
+    <p class="section-sub">From quick jots to daily reflections, pick the tool that fits your flow.</p>
+
+    <div class="explore-grid">
+      <!-- Card 1: Notepad Online -->
+      <article class="explore-card">
+        <figure class="explore-figure">
+          <img
+            src="https://placecats.com/600/400?random=1"
+            alt="Clean notepad interface with text and toolbar"
+            loading="lazy"
+            class="explore-img"
+          />
+          <div class="explore-badge">⚡ Most used</div>
+        </figure>
+        <div class="explore-body">
+          <h3 class="explore-title">Notepad Online</h3>
+          <p class="explore-desc">
+            The classic. Open, write, save — no signup, no distractions. Auto‑save, rich text, and dark mode included.
+          </p>
+          <a href="#notepad" class="explore-link">Open Notepad →</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Online Diary -->
+      <article class="explore-card">
+        <figure class="explore-figure">
+          <img
+            src="https://placecats.com/600/400?random=2"
+            alt="Private diary interface with dated entries"
+            loading="lazy"
+            class="explore-img"
+          />
+          <div class="explore-badge">📖 Private</div>
+        </figure>
+        <div class="explore-body">
+          <h3 class="explore-title">Online Diary</h3>
+          <p class="explore-desc">
+            Keep a daily journal. Each entry is dated and stored locally. Write freely, reflect deeply — your thoughts stay yours.
+          </p>
+          <a href="/diary" class="explore-link">Open Diary →</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Memo Notepad -->
+      <article class="explore-card">
+        <figure class="explore-figure">
+          <img
+            src="https://placecats.com/600/400?random=3"
+            alt="Quick memo notepad with sticky-note style"
+            loading="lazy"
+            class="explore-img"
+          />
+          <div class="explore-badge">📌 Quick</div>
+        </figure>
+        <div class="explore-body">
+          <h3 class="explore-title">Memo Notepad</h3>
+          <p class="explore-desc">
+            For quick thoughts, shopping lists, and phone numbers. Minimal, fast, and always ready when inspiration strikes.
+          </p>
+          <a href="/memo" class="explore-link">Open Memo →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== EXPLORE TOOLS SECTION ===== */
+.section-explore {
+  background: var(--paper-warm);
+  padding: 96px 0;
+  transition: background var(--transition);
+}
+
+body.dark .section-explore {
+  background: var(--paper-warm);
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.explore-card {
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.explore-figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper-warm);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.explore-card:hover .explore-img {
+  transform: scale(1.03);
+}
+
+.explore-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body.dark .explore-badge {
+  color: var(--white);
+}
+
+.explore-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.explore-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.explore-desc {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--accent);
+  border-bottom: 1.5px solid var(--accent-pale);
+  width: fit-content;
+  transition: gap var(--transition), border-color var(--transition);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.explore-link:hover {
+  gap: 14px;
+  border-bottom-color: var(--accent);
+  color: var(--accent-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-explore {
+    padding: 64px 0;
+  }
+  .explore-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .explore-title {
+    font-size: 1.2rem;
+  }
+}
+</style>
+
     <!-- ===== USE CASES SECTION ===== -->
     <section class="section section-usecases" id="use-cases" aria-label="Use cases">
       <div class="container">

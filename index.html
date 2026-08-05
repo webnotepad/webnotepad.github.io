@@ -709,71 +709,74 @@
     <p class="section-sub">From quick jots to daily reflections, pick the tool that fits your flow.</p>
 
     <div class="explore-grid">
-      <!-- Card 1: Notepad Online - Circle Shape -->
-      <article class="explore-card explore-card--circle">
-        <div class="explore-card-inner">
-          <div class="explore-shape">
-            <img
-              src="https://placecats.com/600/600?random=1"
-              alt="Clean notepad interface with text and toolbar"
-              loading="lazy"
-              class="explore-img"
-            />
-          </div>
-          <div class="explore-overlay">
-            <div class="explore-content">
-              <span class="explore-badge">⚡ Most used</span>
-              <h3 class="explore-title">Notepad Online</h3>
-              <p class="explore-desc">Open, write, save — no signup, no distractions. Auto‑save, rich text, and dark mode.</p>
-              <a href="#notepad" class="explore-link">Open Notepad →</a>
+      <!-- Row 1: Full width image -->
+      <div class="explore-row explore-row--full">
+        <article class="explore-card explore-card--full">
+          <div class="explore-card-inner">
+            <div class="explore-shape">
+              <img
+                src="https://placecats.com/1200/600?random=1"
+                alt="Clean notepad interface with text and toolbar"
+                loading="lazy"
+                class="explore-img"
+              />
+            </div>
+            <div class="explore-overlay">
+              <div class="explore-content">
+                <span class="explore-badge">⚡ Most used</span>
+                <h3 class="explore-title">Notepad Online</h3>
+                <p class="explore-desc">Open, write, save — no signup, no distractions. Auto‑save, rich text, and dark mode.</p>
+                <a href="#notepad" class="explore-link">Open Notepad →</a>
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
-      <!-- Card 2: Online Diary - Rounded Square Shape -->
-      <article class="explore-card explore-card--rounded">
-        <div class="explore-card-inner">
-          <div class="explore-shape">
-            <img
-              src="https://placecats.com/600/600?random=2"
-              alt="Private diary interface with dated entries"
-              loading="lazy"
-              class="explore-img"
-            />
-          </div>
-          <div class="explore-overlay">
-            <div class="explore-content">
-              <span class="explore-badge">📖 Private</span>
-              <h3 class="explore-title">Online Diary</h3>
-              <p class="explore-desc">Keep a daily journal. Each entry is dated and stored locally. Your thoughts stay yours.</p>
-              <a href="/diary" class="explore-link">Open Diary →</a>
+      <!-- Row 2: 60% + 40% split -->
+      <div class="explore-row explore-row--split">
+        <article class="explore-card explore-card--large">
+          <div class="explore-card-inner">
+            <div class="explore-shape">
+              <img
+                src="https://placecats.com/800/600?random=2"
+                alt="Private diary interface with dated entries"
+                loading="lazy"
+                class="explore-img"
+              />
+            </div>
+            <div class="explore-overlay">
+              <div class="explore-content">
+                <span class="explore-badge">📖 Private</span>
+                <h3 class="explore-title">Online Diary</h3>
+                <p class="explore-desc">Keep a daily journal. Each entry is dated and stored locally. Your thoughts stay yours.</p>
+                <a href="/diary" class="explore-link">Open Diary →</a>
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Card 3: Memo Notepad - Hexagon Shape -->
-      <article class="explore-card explore-card--hexagon">
-        <div class="explore-card-inner">
-          <div class="explore-shape">
-            <img
-              src="https://placecats.com/600/600?random=3"
-              alt="Quick memo notepad with sticky-note style"
-              loading="lazy"
-              class="explore-img"
-            />
-          </div>
-          <div class="explore-overlay">
-            <div class="explore-content">
-              <span class="explore-badge">📌 Quick</span>
-              <h3 class="explore-title">Memo Notepad</h3>
-              <p class="explore-desc">For quick thoughts, shopping lists, and phone numbers. Minimal, fast, and always ready.</p>
-              <a href="/memo" class="explore-link">Open Memo →</a>
+        <article class="explore-card explore-card--small">
+          <div class="explore-card-inner">
+            <div class="explore-shape">
+              <img
+                src="https://placecats.com/600/600?random=3"
+                alt="Quick memo notepad with sticky-note style"
+                loading="lazy"
+                class="explore-img"
+              />
+            </div>
+            <div class="explore-overlay">
+              <div class="explore-content">
+                <span class="explore-badge">📌 Quick</span>
+                <h3 class="explore-title">Memo Notepad</h3>
+                <p class="explore-desc">For quick thoughts, shopping lists, and phone numbers.</p>
+                <a href="/memo" class="explore-link">Open Memo →</a>
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -791,25 +794,54 @@ body.dark .section-explore {
 }
 
 .explore-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   margin-top: 56px;
-  justify-items: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.explore-card {
+/* ===== ROWS ===== */
+.explore-row {
+  display: flex;
+  gap: 32px;
   width: 100%;
-  max-width: 380px;
+}
+
+.explore-row--full {
+  justify-content: center;
+}
+
+.explore-row--split {
+  justify-content: space-between;
+}
+
+/* ===== CARDS ===== */
+.explore-card {
   display: flex;
   justify-content: center;
+}
+
+.explore-card--full {
+  width: 100%;
+}
+
+.explore-card--large {
+  width: 60%;
+}
+
+.explore-card--small {
+  width: 40%;
 }
 
 .explore-card-inner {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
 
 /* ===== SHAPE WRAPPER ===== */
@@ -819,6 +851,7 @@ body.dark .section-explore {
   overflow: hidden;
   position: relative;
   background: var(--paper-warm);
+  border-radius: 20px;
   border: 3px solid var(--paper-edge);
   transition: all 0.4s ease;
 }
@@ -831,96 +864,76 @@ body.dark .section-explore {
   display: block;
 }
 
-/* ===== SHAPE 1: CIRCLE ===== */
-.explore-card--circle .explore-shape {
-  border-radius: 50%;
+/* ===== HOVER EFFECTS ===== */
+
+/* Full card hover */
+.explore-card--full:hover .explore-card-inner {
+  transform: scale(1.02);
 }
 
-.explore-card--circle:hover .explore-card-inner {
-  transform: scale(1.05) rotate(4deg);
-}
-
-.explore-card--circle:hover .explore-shape {
+.explore-card--full:hover .explore-shape {
   border-color: var(--accent);
-  box-shadow: 0 0 0 8px var(--accent-pale);
+  box-shadow: 0 8px 40px rgba(196, 86, 42, 0.2);
 }
 
-.explore-card--circle:hover .explore-img {
-  transform: scale(1.1);
+.explore-card--full:hover .explore-img {
+  transform: scale(1.05);
 }
 
-/* ===== SHAPE 2: ROUNDED SQUARE ===== */
-.explore-card--rounded .explore-shape {
-  border-radius: 32px;
+/* Large card hover */
+.explore-card--large:hover .explore-card-inner {
+  transform: scale(1.02) translateY(-4px);
 }
 
-.explore-card--rounded:hover .explore-card-inner {
-  transform: scale(1.05) translateY(-8px);
-}
-
-.explore-card--rounded:hover .explore-shape {
+.explore-card--large:hover .explore-shape {
   border-color: var(--gold);
-  box-shadow: 0 12px 40px rgba(184, 150, 12, 0.25);
+  box-shadow: 0 8px 40px rgba(184, 150, 12, 0.2);
 }
 
-.explore-card--rounded:hover .explore-img {
-  transform: scale(1.1);
+.explore-card--large:hover .explore-img {
+  transform: scale(1.05);
 }
 
-/* ===== SHAPE 3: HEXAGON ===== */
-.explore-card--hexagon .explore-shape {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  border: none;
+/* Small card hover */
+.explore-card--small:hover .explore-card-inner {
+  transform: scale(1.05) rotate(-2deg);
 }
 
-.explore-card--hexagon .explore-img {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+.explore-card--small:hover .explore-shape {
+  border-color: var(--green);
+  box-shadow: 0 8px 40px rgba(45, 106, 79, 0.2);
 }
 
-.explore-card--hexagon:hover .explore-card-inner {
-  transform: scale(1.05) rotate(-3deg);
+.explore-card--small:hover .explore-img {
+  transform: scale(1.08);
 }
 
-.explore-card--hexagon:hover .explore-img {
-  transform: scale(1.1);
-}
-
-.explore-card--hexagon:hover .explore-shape {
-  filter: drop-shadow(0 8px 32px rgba(45, 106, 79, 0.3));
-}
-
-/* ===== OVERLAY - NOW ABOVE THE SHAPE ===== */
+/* ===== OVERLAY ===== */
 .explore-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(26, 26, 46, 0.82) 0%,
-    rgba(26, 26, 46, 0.3) 60%,
+    rgba(26, 26, 46, 0.75) 0%,
+    rgba(26, 26, 46, 0.2) 60%,
     rgba(26, 26, 46, 0.05) 100%
   );
   display: flex;
   align-items: flex-end;
-  padding: 28px;
+  padding: 28px 32px;
   opacity: 0;
   transition: opacity 0.4s ease;
-  border-radius: inherit;
+  border-radius: 20px;
   pointer-events: none;
 }
 
 body.dark .explore-overlay {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.2) 60%,
     rgba(0, 0, 0, 0.05) 100%
   );
-}
-
-/* Fix hexagon overlay to match the shape */
-.explore-card--hexagon .explore-overlay {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  border-radius: 0;
 }
 
 .explore-card:hover .explore-overlay {
@@ -963,7 +976,7 @@ body.dark .explore-overlay {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
@@ -974,6 +987,12 @@ body.dark .explore-overlay {
   line-height: 1.5;
   margin-bottom: 12px;
   text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  max-width: 80%;
+}
+
+.explore-card--small .explore-desc {
+  max-width: 100%;
+  font-size: 0.8rem;
 }
 
 .explore-link {
@@ -999,9 +1018,23 @@ body.dark .explore-overlay {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .explore-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .explore-row--split {
+    flex-direction: column;
     gap: 32px;
+  }
+  
+  .explore-card--large,
+  .explore-card--small {
+    width: 100%;
+  }
+  
+  .explore-card--small .explore-desc {
+    max-width: 80%;
+    font-size: 0.85rem;
+  }
+  
+  .explore-card--small .explore-card-inner {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -1009,34 +1042,55 @@ body.dark .explore-overlay {
   .section-explore {
     padding: 64px 0;
   }
+  
   .explore-grid {
-    grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
-  .explore-card {
-    max-width: 300px;
+  
+  .explore-row {
+    gap: 24px;
   }
+  
+  .explore-overlay {
+    padding: 20px 24px;
+  }
+  
   .explore-title {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
+  
   .explore-desc {
     font-size: 0.8rem;
+    max-width: 100%;
   }
-  .explore-overlay {
-    padding: 20px;
+  
+  .explore-card--small .explore-desc {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .explore-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .explore-card {
-    max-width: 340px;
-  }
   .explore-overlay {
-    padding: 24px;
+    padding: 16px 20px;
+  }
+  
+  .explore-title {
+    font-size: 1.1rem;
+  }
+  
+  .explore-desc {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+  
+  .explore-badge {
+    font-size: 0.55rem;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+  
+  .explore-link {
+    font-size: 0.75rem;
   }
 }
 </style>

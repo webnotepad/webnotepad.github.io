@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336" 
-crossorigin="anonymous"></script>
-  
-  <!-- Google tag (gtag.js) -->  
+         crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -30,7 +27,7 @@ crossorigin="anonymous"></script>
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Memo Notepad Online – Free Quick Notes" />
   <meta name="twitter:description" content="Write quick memos, sticky notes, and to-dos. Auto-save, dark mode, export." />
-  <!-- Schema markup: WebApplication -->
+  <!-- Schema markup: WebApplication + FAQPage -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,6 +49,46 @@ crossorigin="anonymous"></script>
         "Export to TXT",
         "Word & character count",
         "Mobile friendly"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Memo Notepad free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it is 100% free with no sign-up or hidden costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my memos saved automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, your memo is auto-saved to your browser's local storage every few seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Memo Notepad offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, once loaded it works offline and your memos stay in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export my memo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Click the 'TXT' button in the toolbar to download your memo as a text file."
+          }
+        }
       ]
     }
   </script>
@@ -312,11 +349,35 @@ crossorigin="anonymous"></script>
       border: none;
     }
     .btn-icon:hover { color: var(--ink); background: var(--paper-edge); }
-    /* ===== MEMO APP SHELL ===== */
-    .section-memo {
-      padding: 40px 0 80px;
-      background: var(--paper);
+    /* ===== SECTION COMMONS ===== */
+    .section { padding: 64px 0; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
     }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    /* ===== MEMO APP SHELL ===== */
+    .section-memo { padding: 40px 0 0; background: var(--paper); }
     .memo-shell {
       max-width: 860px;
       margin: 0 auto;
@@ -355,18 +416,11 @@ crossorigin="anonymous"></script>
       color: var(--ink-muted);
       letter-spacing: 0.04em;
     }
-    .memo-actions {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .memo-body {
-      padding: 24px 28px;
-      flex: 1;
-    }
+    .memo-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .memo-body { padding: 24px 28px; flex: 1; }
     .memo-textarea {
       width: 100%;
-      min-height: 360px;
+      min-height: 320px;
       padding: 16px 20px;
       font-family: var(--font-body);
       font-size: 0.975rem;
@@ -379,15 +433,9 @@ crossorigin="anonymous"></script>
       outline: none;
       transition: border-color var(--transition), background var(--transition);
     }
-    .memo-textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-pale);
-    }
+    .memo-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-pale); }
     body.dark .memo-textarea:focus { box-shadow: 0 0 0 3px rgba(232,113,74,0.25); }
-    .memo-textarea::placeholder {
-      color: var(--paper-edge);
-      font-style: italic;
-    }
+    .memo-textarea::placeholder { color: var(--paper-edge); font-style: italic; }
     .memo-status {
       display: flex;
       align-items: center;
@@ -424,18 +472,94 @@ crossorigin="anonymous"></script>
     }
     .fmt-btn:hover { background: var(--paper-edge); color: var(--ink); border-color: var(--paper-edge); }
     .fmt-div { width: 1px; height: 18px; background: var(--paper-edge); margin: 0 4px; flex-shrink: 0; }
+    /* ===== DESCRIPTION / HOW-TO / FAQ ===== */
+    .section-description { background: var(--paper-warm); }
+    .section-howto { background: var(--paper); }
+    .section-faq { background: var(--paper-warm); }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .how-card {
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all var(--transition);
+    }
+    .how-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .how-card .step-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--paper-edge);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .how-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .how-card p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.65; }
+    .faq-list {
+      max-width: 720px;
+      margin: 32px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .faq-item {
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper);
+      transition: border-color var(--transition);
+    }
+    .faq-item:has(.faq-a[style*="block"]) { border-color: var(--accent); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--accent); }
+    .faq-q:hover { background: var(--paper-warm); }
+    .faq-a { display: none; padding: 0 20px 18px; }
+    .faq-a p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .container { padding: 0 16px; }
       .memo-header { flex-direction: column; align-items: stretch; gap: 8px; }
       .memo-actions { justify-content: flex-start; }
       .memo-body { padding: 16px; }
-      .memo-textarea { min-height: 260px; }
+      .memo-textarea { min-height: 220px; }
       .header-nav { display: none; }
       .hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-brand p { max-width: 100%; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .how-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .memo-header h1 { font-size: 1rem; }
@@ -472,15 +596,14 @@ crossorigin="anonymous"></script>
   </style>
 </head>
 <body>
-  <!-- ===== HEADER (static inline for memo page) ===== -->
-  <div id="header-root"></div>
+  <!-- ===== HEADER ===== -->
+ <div id="header-root"></div>
 
   <main>
-    <!-- ===== MEMO SECTION ===== -->
+    <!-- ===== MEMO APP ===== -->
     <section class="section-memo" aria-label="Memo Notepad">
       <div class="container">
         <div class="memo-shell">
-          <!-- Header -->
           <div class="memo-header">
             <h1>📌 Memo Notepad <small>quick sticky notes</small></h1>
             <div class="memo-actions">
@@ -490,7 +613,6 @@ crossorigin="anonymous"></script>
               <button class="btn-tool" id="fullscreenMemoBtn" aria-label="Fullscreen">⛶</button>
             </div>
           </div>
-          <!-- Toolbar (simple formatting) -->
           <div class="memo-toolbar" role="toolbar" aria-label="Formatting options">
             <button class="fmt-btn" data-cmd="bold" title="Bold"><b>B</b></button>
             <button class="fmt-btn" data-cmd="italic" title="Italic"><i>I</i></button>
@@ -504,11 +626,9 @@ crossorigin="anonymous"></script>
             <button class="fmt-btn" data-cmd="justifyCenter" title="Align center">↔</button>
             <button class="fmt-btn" data-cmd="justifyRight" title="Align right">➡</button>
           </div>
-          <!-- Editor -->
           <div class="memo-body">
             <textarea class="memo-textarea" id="memoTextarea" placeholder="Write your quick memo, to-do, or reminder here…" spellcheck="true" aria-label="Memo content"></textarea>
           </div>
-          <!-- Status bar -->
           <div class="memo-status">
             <span id="memoSaveStatus" class="status-save">● Saved</span>
             <span class="status-sep">|</span>
@@ -519,15 +639,100 @@ crossorigin="anonymous"></script>
             <span id="memoLineCount">0 lines</span>
           </div>
         </div>
-        <!-- Back link -->
         <div style="margin-top: 24px; text-align: center;">
           <a href="/#notepad" style="color: var(--accent); font-weight: 500; font-size: 0.9rem;">← Back to Notepad</a>
         </div>
       </div>
     </section>
+
+    <!-- ===== DESCRIPTION SECTION ===== -->
+    <section class="section section-description" id="description" aria-label="About Memo Notepad">
+      <div class="container">
+        <div class="section-label">📋 About this tool</div>
+        <h2 class="section-title">Your <em>quick-capture</em> notepad</h2>
+        <p class="section-sub">Memo Notepad is the simplest way to jot down fleeting thoughts, to‑dos, and reminders without opening a full editor. It’s designed for speed, privacy, and zero friction.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; margin-top:8px;">
+          <div style="background:var(--paper); border:1px solid var(--paper-edge); border-radius:var(--radius-lg); padding:24px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">⚡</div>
+            <h4 style="font-family:var(--font-display); font-weight:700; color:var(--ink);">Instant Auto‑Save</h4>
+            <p style="font-size:0.9rem; color:var(--ink-muted);">Every keystroke is saved to your browser. Close the tab? Your memo is waiting.</p>
+          </div>
+          <div style="background:var(--paper); border:1px solid var(--paper-edge); border-radius:var(--radius-lg); padding:24px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">🔒</div>
+            <h4 style="font-family:var(--font-display); font-weight:700; color:var(--ink);">100% Private</h4>
+            <p style="font-size:0.9rem; color:var(--ink-muted);">Nothing leaves your device. No cloud, no servers, no tracking.</p>
+          </div>
+          <div style="background:var(--paper); border:1px solid var(--paper-edge); border-radius:var(--radius-lg); padding:24px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">📱</div>
+            <h4 style="font-family:var(--font-display); font-weight:700; color:var(--ink);">Mobile Friendly</h4>
+            <p style="font-size:0.9rem; color:var(--ink-muted);">Works on any device – phone, tablet, or desktop. Write on the go.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO USE SECTION ===== -->
+    <section class="section section-howto" id="how-to" aria-label="How to use Memo Notepad">
+      <div class="container">
+        <div class="section-label">📖 How to use</div>
+        <h2 class="section-title">Get started in <em>3 steps</em></h2>
+        <p class="section-sub">Using Memo Notepad is as simple as it gets. No learning curve, no setup.</p>
+        <div class="how-grid">
+          <div class="how-card">
+            <div class="step-num">01</div>
+            <h3>Write your memo</h3>
+            <p>Type anything – a reminder, a to‑do item, a quick idea. The text area is your blank canvas. Use the formatting bar for bold, lists, and alignment.</p>
+          </div>
+          <div class="how-card">
+            <div class="step-num">02</div>
+            <h3>Auto‑save works for you</h3>
+            <p>Your memo is saved automatically every few seconds. No need to press a save button – it just happens. The status bar confirms every save.</p>
+          </div>
+          <div class="how-card">
+            <div class="step-num">03</div>
+            <h3>Export or copy</h3>
+            <p>Download your memo as a .txt file with one click, or copy the entire text to your clipboard. Share it anywhere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section section-faq" id="faq" aria-label="Memo FAQ">
+      <div class="container">
+        <div class="section-label">❓ FAQ</div>
+        <h2 class="section-title">Frequently asked <em>questions</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is Memo Notepad completely free?</button>
+            <div class="faq-a"><p>Yes, it is 100% free with no sign‑up, no subscriptions, and no hidden fees. Use it as much as you want.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Are my memos saved automatically?</button>
+            <div class="faq-a"><p>Absolutely. Your memo is auto‑saved to your browser’s local storage every few seconds. You’ll never lose your work.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use Memo Notepad offline?</button>
+            <div class="faq-a"><p>Yes, once loaded it works completely offline. Your memos are stored locally in your browser.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I export my memo?</button>
+            <div class="faq-a"><p>Click the “TXT” button in the toolbar to download your memo as a plain text file instantly.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is my data private?</button>
+            <div class="faq-a"><p>Yes, your data never leaves your browser. We do not collect, store, or access your memos.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I format my memo?</button>
+            <div class="faq-a"><p>Yes, the toolbar provides basic formatting: bold, italic, underline, strikethrough, bullet and numbered lists, and text alignment.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->  
   <div id="footer-root"></div>   
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>
@@ -552,14 +757,12 @@ crossorigin="anonymous"></script>
       const copyBtn = document.getElementById('copyMemoBtn');
       const fullscreenBtn = document.getElementById('fullscreenMemoBtn');
       const toast = document.getElementById('toast');
-
-      // Dark mode toggle
       const darkToggle = document.getElementById('darkModeToggle');
       const mobileNav = document.getElementById('mobileNav');
       const hamburger = document.getElementById('hamburgerBtn');
       const body = document.body;
 
-      // ----- Toast helper -----
+      // ----- Toast -----
       function showToast(msg) {
         toast.textContent = msg;
         toast.classList.add('show');
@@ -567,14 +770,10 @@ crossorigin="anonymous"></script>
         toast._timer = setTimeout(() => toast.classList.remove('show'), 2200);
       }
 
-      // ----- Load / Save from localStorage (key: 'webnotepad_memo') -----
+      // ----- Load / Save -----
       function loadMemo() {
         const saved = localStorage.getItem('webnotepad_memo');
-        if (saved !== null) {
-          memo.value = saved;
-        } else {
-          memo.value = ''; // empty by default
-        }
+        memo.value = saved !== null ? saved : '';
         updateStats();
         saveStatus.textContent = '● Loaded';
         saveStatus.className = 'status-save';
@@ -585,8 +784,6 @@ crossorigin="anonymous"></script>
         saveStatus.className = 'status-save';
         updateStats();
       }
-
-      // ----- Stats -----
       function updateStats() {
         const text = memo.value;
         const words = text.trim() ? text.trim().split(/\s+/).length : 0;
@@ -597,16 +794,14 @@ crossorigin="anonymous"></script>
         lineCount.textContent = lines + ' lines';
       }
 
-      // ----- Auto-save on input (debounced) -----
+      // ----- Auto-save -----
       let saveTimer;
       memo.addEventListener('input', function() {
         updateStats();
         saveStatus.textContent = '● Saving…';
         saveStatus.className = 'status-saving';
         clearTimeout(saveTimer);
-        saveTimer = setTimeout(() => {
-          saveMemo();
-        }, 400);
+        saveTimer = setTimeout(saveMemo, 400);
       });
 
       // ----- Clear -----
@@ -637,7 +832,6 @@ crossorigin="anonymous"></script>
         navigator.clipboard.writeText(memo.value).then(() => {
           showToast('Copied to clipboard');
         }).catch(() => {
-          // fallback
           memo.select();
           document.execCommand('copy');
           showToast('Copied!');
@@ -653,13 +847,11 @@ crossorigin="anonymous"></script>
         }
       });
 
-      // ----- Formatting toolbar (works on textarea via document.execCommand) -----
+      // ----- Formatting toolbar (basic execCommand for textarea) -----
       document.querySelectorAll('.fmt-btn[data-cmd]').forEach(btn => {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
           const cmd = this.dataset.cmd;
-          // For textarea, we need to use document.execCommand with a hidden contenteditable
-          // simpler: wrap selection in tags (basic)
           const start = memo.selectionStart;
           const end = memo.selectionEnd;
           if (start === end) { showToast('Select text first'); return; }
@@ -672,9 +864,6 @@ crossorigin="anonymous"></script>
             case 'strikeThrough': wrapped = '~~' + selected + '~~'; break;
             case 'insertUnorderedList': wrapped = '• ' + selected; break;
             case 'insertOrderedList': wrapped = '1. ' + selected; break;
-            case 'justifyLeft': wrapped = selected; break;
-            case 'justifyCenter': wrapped = selected; break;
-            case 'justifyRight': wrapped = selected; break;
             default: wrapped = selected;
           }
           const before = memo.value.substring(0, start);
@@ -683,13 +872,12 @@ crossorigin="anonymous"></script>
           memo.focus();
           memo.selectionStart = start;
           memo.selectionEnd = start + wrapped.length;
-          // trigger save
           memo.dispatchEvent(new Event('input'));
           showToast('Formatted');
         });
       });
 
-      // ----- Dark mode toggle -----
+      // ----- Dark mode -----
       darkToggle.addEventListener('click', function() {
         body.classList.toggle('dark');
         const isDark = body.classList.contains('dark');
@@ -704,33 +892,34 @@ crossorigin="anonymous"></script>
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
 
-      // ----- Load dark mode preference -----
+      // ----- FAQ toggles -----
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          const answer = this.nextElementSibling;
+          answer.style.display = expanded ? 'none' : 'block';
+        });
+      });
+
+      // ----- Load dark mode -----
       if (localStorage.getItem('webnotepad_dark') === 'true') {
         body.classList.add('dark');
         darkToggle.textContent = '☀️';
       }
 
-      // ----- Initialize -----
+      // ----- Init -----
       loadMemo();
-
-      // Save on page unload
-      window.addEventListener('beforeunload', function() {
-        saveMemo();
-      });
-
-      // Also save on visibility change
+      window.addEventListener('beforeunload', saveMemo);
       document.addEventListener('visibilitychange', function() {
         if (document.hidden) saveMemo();
       });
-
-      // Close mobile nav on link click
       document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileNav.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
         });
       });
-
       console.log('📌 Memo Notepad ready');
     })();
   </script>

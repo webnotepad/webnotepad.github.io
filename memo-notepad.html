@@ -473,34 +473,7 @@ crossorigin="anonymous"></script>
 </head>
 <body>
   <!-- ===== HEADER (static inline for memo page) ===== -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a href="/" class="header-logo" aria-label="WebNotePad Home">
-        <span class="logo-mark">✎</span>
-        WebNotePad
-      </a>
-      <nav class="header-nav" aria-label="Main navigation">
-        <a href="/#notepad" class="nav-link">Notepad</a>
-        <a href="/diary" class="nav-link">Diary</a>
-        <a href="/memo" class="nav-link" style="color:var(--accent);">Memo</a>
-        <a href="/#tools" class="nav-link">Tools</a>
-        <a href="/#blog" class="nav-link">Blog</a>
-      </nav>
-      <div class="header-right">
-        <button class="header-dark-btn" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
-        <a href="/#notepad" class="header-cta">Write</a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      </div>
-    </div>
-  </header>
-  <!-- Mobile nav -->
-  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-    <a href="/#notepad" class="nav-link">Notepad</a>
-    <a href="/diary" class="nav-link">Diary</a>
-    <a href="/memo" class="nav-link" style="color:var(--accent);">Memo</a>
-    <a href="/#tools" class="nav-link">Tools</a>
-    <a href="/#blog" class="nav-link">Blog</a>
-  </nav>
+  <div id="header-root"></div>
 
   <main>
     <!-- ===== MEMO SECTION ===== -->
@@ -555,49 +528,12 @@ crossorigin="anonymous"></script>
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">✎ WebNotePad</div>
-          <p>The cleanest free online notepad. Write, save, and organize your thoughts — no signup, no distractions.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Tools</h4>
-          <ul>
-            <li><a href="/#notepad">Notepad</a></li>
-            <li><a href="/diary">Diary</a></li>
-            <li><a href="/memo">Memo</a></li>
-            <li><a href="/#tools">All Tools</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Learn</h4>
-          <ul>
-            <li><a href="/#how-it-works">How it works</a></li>
-            <li><a href="/#faq">FAQ</a></li>
-            <li><a href="/#blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="mailto:hello@webnotepad.com">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2026 WebNotePad — Made with ☕ &amp; ✍️</span>
-        <div class="footer-links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/sitemap">Sitemap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-root"></div>   
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+<script src="/components/sidebar.js"></script>
 
   <!-- Toast -->
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>

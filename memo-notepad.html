@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336" 
+crossorigin="anonymous"></script>
+  
+  <!-- Google tag (gtag.js) -->  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Memo Notepad Online – Free Quick Notes & Sticky Memos | WebNotepad</title>
+  <meta name="description" content="Free online memo notepad – write quick sticky notes, to-dos, and reminders instantly. Auto-save, dark mode, and export. No sign-up required." />
+  <meta name="keywords" content="memo notepad, quick notes, sticky notes online, free notepad, text memo, to-do list, browser notes" />
+  <meta name="author" content="WebNotePad" />
+  <link rel="canonical" href="https://webnotepad.github.io/memo-notepad" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Memo Notepad Online – Quick Sticky Notes" />
+  <meta property="og:description" content="Jot down quick memos, to-dos, and reminders instantly. Auto-save, dark mode, export." />
+  <meta property="og:url" content="https://webnotepad.github.io/memo-notepad" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Memo Notepad Online – Free Quick Notes" />
+  <meta name="twitter:description" content="Write quick memos, sticky notes, and to-dos. Auto-save, dark mode, export." />
+  <!-- Schema markup: WebApplication -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Memo Notepad Online",
+      "url": "https://webnotepad.github.io/memo-notepad",
+      "description": "A free online memo notepad for quick notes, sticky memos, to-dos and reminders. Auto-save, dark mode, export as TXT.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Quick memo notes",
+        "Auto-save",
+        "Dark mode",
+        "Export to TXT",
+        "Word & character count",
+        "Mobile friendly"
+      ]
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES (matching editorial theme) ===== */
+    :root {
+      --ink: #1a1a2e;
+      --ink-soft: #2d2d44;
+      --ink-muted: #6b6b85;
+      --paper: #faf8f4;
+      --paper-warm: #f4f0e8;
+      --paper-edge: #e8e2d6;
+      --accent: #c4562a;
+      --accent-light: #e8714a;
+      --accent-pale: #fce9e3;
+      --gold: #b8960c;
+      --green: #2d6a4f;
+      --white: #ffffff;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'DM Mono', 'Courier New', monospace;
+      --radius: 6px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 2px 8px rgba(26,26,46,0.08);
+      --shadow: 0 6px 24px rgba(26,26,46,0.12);
+      --shadow-lg: 0 16px 48px rgba(26,26,46,0.18);
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --app-header-h: 64px;
+    }
+    body.dark {
+      --ink: #e8e4dc;
+      --ink-soft: #c8c4bc;
+      --ink-muted: #8a8678;
+      --paper: #141418;
+      --paper-warm: #1c1c22;
+      --paper-edge: #2a2a34;
+      --accent: #e8714a;
+      --accent-pale: #2a1a14;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow: 0 6px 24px rgba(0,0,0,0.4);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.5);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+    ul { list-style: none; }
+    input, textarea { font-family: var(--font-body); }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ===== HEADER & FOOTER ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--app-header-h);
+      background: var(--paper);
+      border-bottom: 1px solid var(--paper-edge);
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 24px;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      transition: background var(--transition);
+    }
+    body.dark .logo-mark { background: var(--accent); color: var(--white); }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-link:hover { color: var(--ink); background: var(--paper-warm); }
+    .header-right { display: flex; align-items: center; gap: 10px; }
+    .header-dark-btn {
+      width: 36px; height: 36px;
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--ink-muted);
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      transition: all var(--transition);
+    }
+    .header-dark-btn:hover { color: var(--ink); background: var(--paper-edge); }
+    .header-cta {
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .header-cta:hover { background: var(--accent); }
+    body.dark .header-cta { background: var(--accent); color: var(--white); }
+    .hamburger {
+      display: none;
+      width: 36px; height: 36px;
+      align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      color: var(--ink);
+      border-radius: var(--radius);
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--app-header-h);
+      left: 0; right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--paper-edge);
+      padding: 16px 24px 24px;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav .nav-link { font-size: 1rem; padding: 10px 12px; }
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 0 0;
+      margin-top: auto;
+      transition: background var(--transition), color var(--transition);
+    }
+    body.dark .site-footer { background: #0e0e12; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+    }
+    .footer-brand .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--paper);
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: rgba(250,248,244,0.55);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250,248,244,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a {
+      font-size: 0.875rem;
+      color: rgba(250,248,244,0.65);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--paper); }
+    .footer-bottom {
+      border-top: 1px solid rgba(250,248,244,0.1);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(250,248,244,0.35);
+      font-family: var(--font-mono);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(250,248,244,0.4);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: rgba(250,248,244,0.8); }
+    /* ===== BUTTONS & TOOLBAR ===== */
+    .btn-tool {
+      display: inline-flex; align-items: center;
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn-tool:hover { color: var(--ink); background: var(--paper-edge); }
+    .btn-icon {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      color: var(--ink-muted);
+      transition: all var(--transition);
+      background: transparent;
+      border: none;
+    }
+    .btn-icon:hover { color: var(--ink); background: var(--paper-edge); }
+    /* ===== MEMO APP SHELL ===== */
+    .section-memo {
+      padding: 40px 0 80px;
+      background: var(--paper);
+    }
+    .memo-shell {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      transition: background var(--transition), border-color var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .memo-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--paper-edge);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--paper);
+    }
+    .memo-header h1 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .memo-header h1 small {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+    }
+    .memo-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .memo-body {
+      padding: 24px 28px;
+      flex: 1;
+    }
+    .memo-textarea {
+      width: 100%;
+      min-height: 360px;
+      padding: 16px 20px;
+      font-family: var(--font-body);
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      resize: vertical;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .memo-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-pale);
+    }
+    body.dark .memo-textarea:focus { box-shadow: 0 0 0 3px rgba(232,113,74,0.25); }
+    .memo-textarea::placeholder {
+      color: var(--paper-edge);
+      font-style: italic;
+    }
+    .memo-status {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 24px;
+      border-top: 1px solid var(--paper-edge);
+      background: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      flex-wrap: wrap;
+    }
+    .status-save { color: var(--green); }
+    .status-sep { color: var(--paper-edge); }
+    .memo-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 12px 24px;
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--paper-edge);
+    }
+    .memo-toolbar .btn-tool { font-size: 0.7rem; padding: 4px 10px; }
+    .fmt-btn {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all var(--transition);
+      line-height: 1.4;
+    }
+    .fmt-btn:hover { background: var(--paper-edge); color: var(--ink); border-color: var(--paper-edge); }
+    .fmt-div { width: 1px; height: 18px; background: var(--paper-edge); margin: 0 4px; flex-shrink: 0; }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .memo-header { flex-direction: column; align-items: stretch; gap: 8px; }
+      .memo-actions { justify-content: flex-start; }
+      .memo-body { padding: 16px; }
+      .memo-textarea { min-height: 260px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .memo-header h1 { font-size: 1rem; }
+      .memo-textarea { font-size: 0.9rem; padding: 12px 14px; }
+      .memo-toolbar { padding: 8px 12px; }
+      .memo-status { font-size: 0.7rem; gap: 8px; }
+    }
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    body.dark .toast { background: var(--paper-warm); color: var(--ink); border: 1px solid var(--paper-edge); }
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--paper-edge); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER (static inline for memo page) ===== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="/" class="header-logo" aria-label="WebNotePad Home">
+        <span class="logo-mark">✎</span>
+        WebNotePad
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="/#notepad" class="nav-link">Notepad</a>
+        <a href="/diary" class="nav-link">Diary</a>
+        <a href="/memo" class="nav-link" style="color:var(--accent);">Memo</a>
+        <a href="/#tools" class="nav-link">Tools</a>
+        <a href="/#blog" class="nav-link">Blog</a>
+      </nav>
+      <div class="header-right">
+        <button class="header-dark-btn" id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+        <a href="/#notepad" class="header-cta">Write</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="/#notepad" class="nav-link">Notepad</a>
+    <a href="/diary" class="nav-link">Diary</a>
+    <a href="/memo" class="nav-link" style="color:var(--accent);">Memo</a>
+    <a href="/#tools" class="nav-link">Tools</a>
+    <a href="/#blog" class="nav-link">Blog</a>
+  </nav>
+
+  <main>
+    <!-- ===== MEMO SECTION ===== -->
+    <section class="section-memo" aria-label="Memo Notepad">
+      <div class="container">
+        <div class="memo-shell">
+          <!-- Header -->
+          <div class="memo-header">
+            <h1>📌 Memo Notepad <small>quick sticky notes</small></h1>
+            <div class="memo-actions">
+              <button class="btn-tool" id="clearMemoBtn" aria-label="Clear memo">✕ Clear</button>
+              <button class="btn-tool" id="exportMemoTxt" aria-label="Export as TXT">⬇ TXT</button>
+              <button class="btn-tool" id="copyMemoBtn" aria-label="Copy memo">⎘ Copy</button>
+              <button class="btn-tool" id="fullscreenMemoBtn" aria-label="Fullscreen">⛶</button>
+            </div>
+          </div>
+          <!-- Toolbar (simple formatting) -->
+          <div class="memo-toolbar" role="toolbar" aria-label="Formatting options">
+            <button class="fmt-btn" data-cmd="bold" title="Bold"><b>B</b></button>
+            <button class="fmt-btn" data-cmd="italic" title="Italic"><i>I</i></button>
+            <button class="fmt-btn" data-cmd="underline" title="Underline"><u>U</u></button>
+            <button class="fmt-btn" data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+            <span class="fmt-div"></span>
+            <button class="fmt-btn" data-cmd="insertUnorderedList" title="Bullet list">• List</button>
+            <button class="fmt-btn" data-cmd="insertOrderedList" title="Numbered list">1. List</button>
+            <span class="fmt-div"></span>
+            <button class="fmt-btn" data-cmd="justifyLeft" title="Align left">⬅</button>
+            <button class="fmt-btn" data-cmd="justifyCenter" title="Align center">↔</button>
+            <button class="fmt-btn" data-cmd="justifyRight" title="Align right">➡</button>
+          </div>
+          <!-- Editor -->
+          <div class="memo-body">
+            <textarea class="memo-textarea" id="memoTextarea" placeholder="Write your quick memo, to-do, or reminder here…" spellcheck="true" aria-label="Memo content"></textarea>
+          </div>
+          <!-- Status bar -->
+          <div class="memo-status">
+            <span id="memoSaveStatus" class="status-save">● Saved</span>
+            <span class="status-sep">|</span>
+            <span id="memoWordCount">0 words</span>
+            <span class="status-sep">|</span>
+            <span id="memoCharCount">0 chars</span>
+            <span class="status-sep">|</span>
+            <span id="memoLineCount">0 lines</span>
+          </div>
+        </div>
+        <!-- Back link -->
+        <div style="margin-top: 24px; text-align: center;">
+          <a href="/#notepad" style="color: var(--accent); font-weight: 500; font-size: 0.9rem;">← Back to Notepad</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">✎ WebNotePad</div>
+          <p>The cleanest free online notepad. Write, save, and organize your thoughts — no signup, no distractions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/#notepad">Notepad</a></li>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/memo">Memo</a></li>
+            <li><a href="/#tools">All Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/#how-it-works">How it works</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="mailto:hello@webnotepad.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 WebNotePad — Made with ☕ &amp; ✍️</span>
+        <div class="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/sitemap">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    (function() {
+      "use strict";
+      // ----- DOM refs -----
+      const memo = document.getElementById('memoTextarea');
+      const saveStatus = document.getElementById('memoSaveStatus');
+      const wordCount = document.getElementById('memoWordCount');
+      const charCount = document.getElementById('memoCharCount');
+      const lineCount = document.getElementById('memoLineCount');
+      const clearBtn = document.getElementById('clearMemoBtn');
+      const exportTxt = document.getElementById('exportMemoTxt');
+      const copyBtn = document.getElementById('copyMemoBtn');
+      const fullscreenBtn = document.getElementById('fullscreenMemoBtn');
+      const toast = document.getElementById('toast');
+
+      // Dark mode toggle
+      const darkToggle = document.getElementById('darkModeToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const body = document.body;
+
+      // ----- Toast helper -----
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+
+      // ----- Load / Save from localStorage (key: 'webnotepad_memo') -----
+      function loadMemo() {
+        const saved = localStorage.getItem('webnotepad_memo');
+        if (saved !== null) {
+          memo.value = saved;
+        } else {
+          memo.value = ''; // empty by default
+        }
+        updateStats();
+        saveStatus.textContent = '● Loaded';
+        saveStatus.className = 'status-save';
+      }
+      function saveMemo() {
+        localStorage.setItem('webnotepad_memo', memo.value);
+        saveStatus.textContent = '● Saved';
+        saveStatus.className = 'status-save';
+        updateStats();
+      }
+
+      // ----- Stats -----
+      function updateStats() {
+        const text = memo.value;
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        const chars = text.length;
+        const lines = text ? text.split('\n').length : 0;
+        wordCount.textContent = words + ' words';
+        charCount.textContent = chars + ' chars';
+        lineCount.textContent = lines + ' lines';
+      }
+
+      // ----- Auto-save on input (debounced) -----
+      let saveTimer;
+      memo.addEventListener('input', function() {
+        updateStats();
+        saveStatus.textContent = '● Saving…';
+        saveStatus.className = 'status-saving';
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => {
+          saveMemo();
+        }, 400);
+      });
+
+      // ----- Clear -----
+      clearBtn.addEventListener('click', function() {
+        if (memo.value && !confirm('Clear this memo?')) return;
+        memo.value = '';
+        saveMemo();
+        showToast('Memo cleared');
+        memo.focus();
+      });
+
+      // ----- Export TXT -----
+      exportTxt.addEventListener('click', function() {
+        const content = memo.value || 'Empty memo';
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'memo-' + new Date().toISOString().slice(0,10) + '.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('Memo exported as TXT');
+      });
+
+      // ----- Copy -----
+      copyBtn.addEventListener('click', function() {
+        if (!memo.value) { showToast('Nothing to copy'); return; }
+        navigator.clipboard.writeText(memo.value).then(() => {
+          showToast('Copied to clipboard');
+        }).catch(() => {
+          // fallback
+          memo.select();
+          document.execCommand('copy');
+          showToast('Copied!');
+        });
+      });
+
+      // ----- Fullscreen -----
+      fullscreenBtn.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen?.().catch(() => {});
+        } else {
+          document.exitFullscreen?.().catch(() => {});
+        }
+      });
+
+      // ----- Formatting toolbar (works on textarea via document.execCommand) -----
+      document.querySelectorAll('.fmt-btn[data-cmd]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const cmd = this.dataset.cmd;
+          // For textarea, we need to use document.execCommand with a hidden contenteditable
+          // simpler: wrap selection in tags (basic)
+          const start = memo.selectionStart;
+          const end = memo.selectionEnd;
+          if (start === end) { showToast('Select text first'); return; }
+          const selected = memo.value.substring(start, end);
+          let wrapped = '';
+          switch(cmd) {
+            case 'bold': wrapped = '**' + selected + '**'; break;
+            case 'italic': wrapped = '_' + selected + '_'; break;
+            case 'underline': wrapped = '__' + selected + '__'; break;
+            case 'strikeThrough': wrapped = '~~' + selected + '~~'; break;
+            case 'insertUnorderedList': wrapped = '• ' + selected; break;
+            case 'insertOrderedList': wrapped = '1. ' + selected; break;
+            case 'justifyLeft': wrapped = selected; break;
+            case 'justifyCenter': wrapped = selected; break;
+            case 'justifyRight': wrapped = selected; break;
+            default: wrapped = selected;
+          }
+          const before = memo.value.substring(0, start);
+          const after = memo.value.substring(end);
+          memo.value = before + wrapped + after;
+          memo.focus();
+          memo.selectionStart = start;
+          memo.selectionEnd = start + wrapped.length;
+          // trigger save
+          memo.dispatchEvent(new Event('input'));
+          showToast('Formatted');
+        });
+      });
+
+      // ----- Dark mode toggle -----
+      darkToggle.addEventListener('click', function() {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        darkToggle.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('webnotepad_dark', isDark ? 'true' : 'false');
+        showToast(isDark ? 'Dark mode' : 'Light mode');
+      });
+
+      // ----- Hamburger -----
+      hamburger.addEventListener('click', function() {
+        const open = mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // ----- Load dark mode preference -----
+      if (localStorage.getItem('webnotepad_dark') === 'true') {
+        body.classList.add('dark');
+        darkToggle.textContent = '☀️';
+      }
+
+      // ----- Initialize -----
+      loadMemo();
+
+      // Save on page unload
+      window.addEventListener('beforeunload', function() {
+        saveMemo();
+      });
+
+      // Also save on visibility change
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) saveMemo();
+      });
+
+      // Close mobile nav on link click
+      document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      console.log('📌 Memo Notepad ready');
+    })();
+  </script>
+</body>
+</html>

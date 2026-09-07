@@ -105,172 +105,254 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* Additional styles specific to pomodoro timer, extending existing design system */
-    .pomodoro-shell {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--paper-edge);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      background: var(--paper-warm);
-      min-height: 500px;
-      transition: background var(--transition), border-color var(--transition);
-    }
-    .timer-display-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
-      background: var(--paper);
-      position: relative;
-    }
-    .timer-circle {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: var(--paper-warm);
-      border: 4px solid var(--paper-edge);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 32px;
-      transition: border-color var(--transition), background var(--transition);
-      position: relative;
-      box-shadow: var(--shadow-sm);
-    }
-    body.dark .timer-circle {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-    }
-    .timer-time {
-      font-family: var(--font-mono);
-      font-size: 3.8rem;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-    .timer-label {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--ink-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 4px;
-    }
-    .timer-controls {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 28px;
-    }
-    .timer-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--paper-warm);
-      border: 2px solid var(--paper-edge);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink);
-      transition: all var(--transition);
-      cursor: pointer;
-    }
-    .timer-btn:hover {
-      background: var(--paper-edge);
-      border-color: var(--ink-muted);
-    }
-    .timer-btn.primary-action {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--white);
-      width: 64px;
-      height: 64px;
-      font-size: 1.8rem;
-    }
-    .timer-btn.primary-action:hover {
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-      transform: scale(1.05);
-    }
-    .session-indicator {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      background: var(--paper-warm);
-      padding: 8px 18px;
-      border-radius: 100px;
-      border: 1px solid var(--paper-edge);
-    }
-    .session-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--paper-edge);
-    }
-    .session-dot.active {
-      background: var(--accent);
-    }
-    .settings-panel {
-      background: var(--paper-warm);
-      border-top: 1px solid var(--paper-edge);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .setting-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      font-family: var(--font-mono);
-    }
-    .setting-item input {
-      width: 60px;
-      padding: 5px 8px;
-      border-radius: var(--radius);
-      border: 1px solid var(--paper-edge);
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--font-mono);
-      text-align: center;
-      outline: none;
-    }
-    .setting-item input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px var(--accent-pale);
-    }
-    .text-content {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) {
-      .timer-time {
-        font-size: 2.8rem;
-      }
-      .timer-circle {
-        width: 180px;
-        height: 180px;
-      }
-      .settings-panel {
-        gap: 12px;
-      }
-    }
+    /* Additional styles specific to pomodoro timer, extending existing design system */
+.pomodoro-shell {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--paper-warm);
+  min-height: 500px;
+  transition: background var(--transition), border-color var(--transition);
+}
+.timer-display-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px 24px;
+  background: var(--paper);
+  position: relative;
+}
+.timer-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--paper-warm);
+  border: 4px solid var(--paper-edge);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: border-color var(--transition), background var(--transition);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+body.dark .timer-circle {
+  background: var(--paper-warm);
+  border-color: var(--paper-edge);
+}
+.timer-time {
+  font-family: var(--font-mono);
+  font-size: 3.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.timer-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+.timer-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.timer-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--paper-warm);
+  border: 2px solid var(--paper-edge);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.timer-btn:hover {
+  background: var(--paper-edge);
+  border-color: var(--ink-muted);
+}
+.timer-btn.primary-action {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  width: 64px;
+  height: 64px;
+  font-size: 1.8rem;
+}
+.timer-btn.primary-action:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  transform: scale(1.05);
+}
+.session-indicator {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  background: var(--paper-warm);
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--paper-edge);
+  margin-bottom: 8px;
+}
+.session-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--paper-edge);
+}
+.session-dot.active {
+  background: var(--accent);
+}
+.settings-panel {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--paper-edge);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.setting-item input {
+  width: 60px;
+  padding: 5px 8px;
+  border-radius: var(--radius);
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  text-align: center;
+  outline: none;
+}
+.setting-item input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-pale);
+}
+.text-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .timer-display-area {
+    padding: 24px 20px 16px;
+  }
+  .timer-time {
+    font-size: 2.8rem;
+  }
+  .timer-circle {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 16px;
+  }
+  .timer-controls {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .session-indicator {
+    margin-bottom: 4px;
+    padding: 6px 14px;
+    font-size: 0.7rem;
+  }
+  .settings-panel {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .timer-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+  .timer-btn.primary-action {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .timer-display-area {
+    padding: 16px 16px 12px;
+  }
+  .timer-time {
+    font-size: 2.2rem;
+  }
+  .timer-circle {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 12px;
+    border-width: 3px;
+  }
+  .timer-label {
+    font-size: 0.7rem;
+  }
+  .timer-controls {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+  .timer-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-width: 1.5px;
+  }
+  .timer-btn.primary-action {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+  .session-indicator {
+    padding: 4px 12px;
+    font-size: 0.65rem;
+    gap: 8px;
+  }
+  .session-dot {
+    width: 6px;
+    height: 6px;
+  }
+  .settings-panel {
+    padding: 10px 12px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .setting-item {
+    font-size: 0.7rem;
+    justify-content: space-between;
+  }
+  .setting-item input {
+    width: 50px;
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
+}
   </style>
 </head>
 <body>

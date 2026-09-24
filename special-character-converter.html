@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Character Converter – German Umlauts, Diacritics & Slugify | WebNotePad</title>
+    <meta name="description" content="Free online special character converter. Transform German umlauts, Nordic letters, French accents, and strip diacritics. Create SEO-friendly URL slugs instantly. No signup required." />
+    <meta name="keywords" content="special character converter, german umlaut converter, diacritic stripper, accent remover, slugify, url slug generator, nordic letters converter, text normalization, unicode converter" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/special-character-converter" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" /> 
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/special-character-converter" />
+    <meta property="og:title" content="Special Character Converter – German Umlauts, Diacritics & Slugify" />
+    <meta property="og:description" content="Convert German umlauts, Nordic letters, French accents, and strip diacritics. Create clean SEO URL slugs instantly. Free, fast, no signup." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Special Character Converter – German Umlauts, Diacritics & Slugify" />
+    <meta name="twitter:description" content="Convert German umlauts, Nordic letters, French accents, and strip diacritics. Create clean SEO URL slugs instantly." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Special Character Converter by WebNotePad",
+            "url": "https://webnotepad.github.io/special-character-converter",
+            "description": "A free online tool to convert special characters: German umlauts (ä→ae, ö→oe, ü→ue, ß→ss), Nordic letters (å→aa, ø→oe, æ→ae), French accents (é→e, è→e, ç→c), and strip diacritics. Also generates SEO-friendly URL slugs.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "German umlaut conversion (ä→ae, ö→oe, ü→ue, ß→ss)",
+                "Nordic letter conversion (å→aa, ø→oe, æ→ae)",
+                "French accent removal (é→e, è→e, ê→e, ç→c)",
+                "Diacritic stripper for all Latin accents",
+                "SEO-friendly URL slug generator",
+                "Real-time conversion as you type",
+                "Copy to clipboard",
+                "Download as TXT",
+                "LocalStorage auto-save"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is a special character converter?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A special character converter is a tool that transforms accented and special characters (like German umlauts, Nordic letters, and French accents) into their plain ASCII equivalents or SEO-friendly alternatives. It's essential for URL slugs, file names, and systems that don't support Unicode."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I convert German umlauts to ae, oe, ue?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Select the 'German Umlauts' mode and type or paste your text. The tool automatically converts ä → ae, ö → oe, ü → ue, and ß → ss. This is the standard German transliteration used when umlauts aren't available."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What does the Diacritic Stripper mode do?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Diacritic Stripper removes all accent marks from Latin characters, converting é→e, è→e, ê→e, ñ→n, ç→c, and hundreds of other accented characters to their base ASCII letters. It's perfect for cleaning text for search engines, databases, or legacy systems."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does SEO URL Slugify work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Slugify transforms any text into a clean, URL-friendly string. It converts accented characters to ASCII, replaces spaces with hyphens, removes special characters, and lowercases everything. For example, 'Café Münster' becomes 'cafe-munster'."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is my text private when using this tool?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, completely. All conversions happen in your browser using JavaScript. Your text is never uploaded to any server, stored remotely, or shared with anyone."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I use the special character converter on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! The tool is fully responsive and works seamlessly on smartphones and tablets, including iOS Safari and Android Chrome."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --sc-accent: #0d7c6b;
+            --sc-accent-light: #10a58d;
+            --sc-accent-pale: #e6f7f3;
+            --sc-surface: #faf8f4;
+            --sc-border: #e8e2d6;
+            --sc-ink: #1a1a2e;
+            --sc-muted: #6b6b85;
+            --sc-warm: #f4f0e8;
+            --sc-radius: 8px;
+            --sc-radius-lg: 14px;
+            --sc-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --sc-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark {
+            --sc-accent: #10a58d;
+            --sc-accent-light: #14c9aa;
+            --sc-accent-pale: #0f2f2a;
+            --sc-surface: #141418;
+            --sc-border: #2a2a34;
+            --sc-ink: #e8e4dc;
+            --sc-muted: #8a8678;
+            --sc-warm: #1c1c22;
+            --sc-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== HERO ===== */
+        .sc-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--sc-surface);
+            transition: background var(--sc-transition);
+        }
+        .sc-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--sc-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--sc-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .sc-hero-bg { opacity: 0.1; }
+        .sc-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--sc-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .sc-hero-glow { opacity: 0.35; }
+        .sc-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .sc-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--sc-accent-pale);
+            color: var(--sc-accent);
+            border: 1px solid var(--sc-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .sc-hero-badge { background: rgba(13, 124, 107, 0.18); }
+        .sc-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--sc-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .sc-hero-accent {
+            color: var(--sc-accent);
+            font-style: italic;
+        }
+        .sc-hero-sub {
+            font-size: 0.9rem;
+            color: var(--sc-muted);
+            max-width: 500px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .sc-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .sc-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .sc-demo-chip {
+            padding: 7px 16px;
+            background: var(--sc-warm);
+            border: 1px solid var(--sc-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--sc-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--sc-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .sc-demo-chip:hover {
+            background: var(--sc-accent-pale);
+            border-color: var(--sc-accent);
+            color: var(--sc-accent);
+        }
+        .sc-demo-converted {
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* ===== APP SECTION ===== */
+        .sc-app-section {
+            padding: 0 0 80px;
+            background: var(--sc-surface);
+            transition: background var(--sc-transition);
+        }
+        .sc-app-shell {
+            background: var(--sc-warm);
+            border: 1px solid var(--sc-border);
+            border-radius: var(--sc-radius-lg);
+            box-shadow: var(--sc-shadow);
+            overflow: hidden;
+            transition: all var(--sc-transition);
+        }
+        .sc-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--sc-border);
+            background: var(--sc-surface);
+            flex-wrap: wrap;
+        }
+        .sc-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--sc-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sc-app-title .sc-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sc-accent);
+            display: inline-block;
+            animation: scPulse 2s infinite;
+        }
+        @keyframes scPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        .sc-app-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Mode selector */
+        .sc-mode-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--sc-border);
+            background: var(--sc-surface);
+            flex-wrap: wrap;
+        }
+        .sc-mode-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--sc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-right: 4px;
+        }
+        .sc-mode-btn {
+            padding: 7px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--sc-border);
+            background: var(--sc-warm);
+            color: var(--sc-ink);
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--sc-transition);
+            white-space: nowrap;
+        }
+        .sc-mode-btn:hover {
+            background: var(--sc-accent-pale);
+            border-color: var(--sc-accent);
+            color: var(--sc-accent);
+        }
+        .sc-mode-btn.active {
+            background: var(--sc-accent);
+            border-color: var(--sc-accent);
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .sc-mode-btn.active:hover {
+            background: var(--sc-accent-light);
+            border-color: var(--sc-accent-light);
+        }
+
+        /* Input area */
+        .sc-input-wrap {
+            padding: 16px 20px 8px;
+        }
+        .sc-input-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--sc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .sc-textarea {
+            width: 100%;
+            min-height: 140px;
+            max-height: 320px;
+            padding: 16px 18px;
+            border-radius: var(--sc-radius);
+            border: 1px solid var(--sc-border);
+            background: var(--sc-surface);
+            color: var(--sc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--sc-transition);
+            box-sizing: border-box;
+        }
+        .sc-textarea:focus {
+            border-color: var(--sc-accent);
+            box-shadow: 0 0 0 3px var(--sc-accent-pale);
+        }
+        .sc-textarea::placeholder {
+            color: #c4c0b8;
+            font-style: italic;
+        }
+        body.dark .sc-textarea::placeholder { color: #5a5660; }
+
+        /* Convert button */
+        .sc-convert-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+        .sc-convert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--sc-accent);
+            color: #ffffff;
+            border: 2px solid var(--sc-accent);
+            border-radius: var(--sc-radius);
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--sc-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .sc-convert-btn:hover {
+            background: var(--sc-accent-light);
+            border-color: var(--sc-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(13, 124, 107, 0.3);
+        }
+        .sc-convert-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .sc-convert-btn .sc-convert-icon {
+            font-size: 1.2rem;
+            transition: transform var(--sc-transition);
+        }
+        .sc-convert-btn:hover .sc-convert-icon {
+            transform: rotate(15deg);
+        }
+        .sc-convert-count {
+            font-size: 0.73rem;
+            color: var(--sc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+
+        /* Output area */
+        .sc-output-wrap {
+            padding: 8px 20px 16px;
+            position: relative;
+        }
+        .sc-output-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--sc-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sc-output-badge {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--sc-accent-pale);
+            color: var(--sc-accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .sc-output-textarea {
+            width: 100%;
+            min-height: 120px;
+            max-height: 300px;
+            padding: 16px 18px;
+            border-radius: var(--sc-radius);
+            border: 1px solid var(--sc-accent);
+            background: var(--sc-surface);
+            color: var(--sc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: all var(--sc-transition);
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px var(--sc-accent-pale);
+        }
+        .sc-output-textarea:focus {
+            border-color: var(--sc-accent);
+            box-shadow: 0 0 0 4px var(--sc-accent-pale);
+        }
+
+        /* Stats bar */
+        .sc-stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--sc-border);
+            background: var(--sc-surface);
+            font-size: 0.73rem;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--sc-muted);
+            flex-wrap: wrap;
+        }
+        .sc-stats-sep { color: var(--sc-border); flex-shrink: 0; }
+        .sc-stat-val { font-weight: 600; color: var(--sc-ink); }
+
+        /* Toast */
+        .sc-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--sc-ink);
+            color: var(--sc-surface);
+            padding: 12px 20px;
+            border-radius: var(--sc-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .sc-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .sc-toast {
+            background: var(--sc-warm);
+            color: var(--sc-ink);
+            border: 1px solid var(--sc-border);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .sc-how {
+            background: var(--sc-warm);
+            transition: background var(--sc-transition);
+        }
+        .sc-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .sc-how-card {
+            background: var(--sc-surface);
+            border: 1px solid var(--sc-border);
+            border-radius: var(--sc-radius-lg);
+            padding: 26px;
+            transition: all var(--sc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .sc-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--sc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--sc-transition);
+        }
+        .sc-how-card:hover { box-shadow: var(--sc-shadow); transform: translateY(-3px); }
+        .sc-how-card:hover::before { transform: scaleX(1); }
+        .sc-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--sc-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .sc-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--sc-ink);
+            margin-bottom: 8px;
+        }
+        .sc-how-card p {
+            font-size: 0.85rem;
+            color: var(--sc-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .sc-desc {
+            background: var(--sc-surface);
+            transition: background var(--sc-transition);
+        }
+        .sc-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .sc-desc-text p {
+            font-size: 0.95rem;
+            color: var(--sc-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .sc-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .sc-benefit-tag {
+            padding: 6px 14px;
+            background: var(--sc-warm);
+            border: 1px solid var(--sc-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--sc-ink);
+            transition: all var(--sc-transition);
+        }
+        .sc-benefit-tag:hover {
+            background: var(--sc-accent-pale);
+            border-color: var(--sc-accent);
+            color: var(--sc-accent);
+        }
+        .sc-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sc-visual-card {
+            background: var(--sc-ink);
+            color: var(--sc-surface);
+            border-radius: var(--sc-radius-lg);
+            padding: 36px 32px;
+            max-width: 340px;
+            box-shadow: var(--sc-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+        }
+        body.dark .sc-visual-card {
+            background: var(--sc-warm);
+            border: 1px solid var(--sc-border);
+            color: var(--sc-ink);
+        }
+        .sc-visual-card .sc-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--sc-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .sc-visual-card .sc-v-original {
+            opacity: 0.5;
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+        }
+        .sc-visual-card .sc-v-converted {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--sc-accent-light);
+        }
+        body.dark .sc-visual-card .sc-v-converted { color: var(--sc-accent); }
+        .sc-visual-card .sc-v-arrow { color: var(--sc-accent); margin: 4px 0; }
+
+        /* ===== REFERENCE TABLE ===== */
+        .sc-ref-table-wrap {
+            margin-top: 32px;
+            overflow-x: auto;
+        }
+        .sc-ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: var(--sc-surface);
+            border-radius: var(--sc-radius);
+            overflow: hidden;
+            border: 1px solid var(--sc-border);
+        }
+        .sc-ref-table thead {
+            background: var(--sc-accent);
+            color: #ffffff;
+        }
+        .sc-ref-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .sc-ref-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--sc-border);
+            color: var(--sc-ink);
+            font-family: 'Outfit', sans-serif;
+        }
+        .sc-ref-table tr:last-child td { border-bottom: none; }
+        .sc-ref-table tr:hover td {
+            background: var(--sc-accent-pale);
+        }
+        body.dark .sc-ref-table tr:hover td {
+            background: rgba(13, 124, 107, 0.12);
+        }
+        .sc-ref-table .sc-char {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-weight: 600;
+            color: var(--sc-accent);
+            font-size: 1rem;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .sc-faq {
+            background: var(--sc-warm);
+            transition: background var(--sc-transition);
+        }
+        .sc-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .sc-faq-item {
+            border: 1px solid var(--sc-border);
+            border-radius: var(--sc-radius);
+            overflow: hidden;
+            background: var(--sc-surface);
+            transition: border-color var(--sc-transition);
+        }
+        .sc-faq-item:has(.sc-faq-a[style*="block"]) { border-color: var(--sc-accent); }
+        .sc-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--sc-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--sc-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .sc-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--sc-muted);
+            flex-shrink: 0;
+            transition: transform var(--sc-transition);
+        }
+        .sc-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--sc-accent); }
+        .sc-faq-q:hover { background: var(--sc-warm); }
+        .sc-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .sc-faq-a p {
+            font-size: 0.88rem;
+            color: var(--sc-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .sc-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .sc-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .sc-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .sc-hero { min-height: auto; padding: 24px 0 20px; }
+            .sc-how-grid { grid-template-columns: 1fr; }
+            .sc-textarea { min-height: 100px; max-height: 220px; font-size: 0.88rem; }
+            .sc-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .sc-stats-bar { gap: 8px; font-size: 0.68rem; }
+            .sc-mode-bar { gap: 8px; padding: 10px 14px; }
+            .sc-hero-demo { gap: 6px; }
+            .sc-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+        }
+        @media (max-width: 480px) {
+            .sc-hero-title { font-size: 1.6rem; }
+            .sc-convert-btn { padding: 10px 20px; font-size: 0.82rem; }
+            .sc-input-wrap, .sc-output-wrap { padding-left: 12px; padding-right: 12px; }
+            .sc-textarea { padding: 12px 14px; min-height: 80px; max-height: 180px; }
+            .sc-app-header { padding: 10px 14px; }
+            .sc-stats-bar { padding: 8px 12px; font-size: 0.65rem; gap: 6px; }
+            .sc-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+            .sc-mode-bar { gap: 6px; padding: 8px 12px; }
+            .sc-mode-btn { font-size: 0.72rem; padding: 6px 12px; }
+            .sc-ref-table { font-size: 0.75rem; }
+            .sc-ref-table th, .sc-ref-table td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="sc-hero" id="home" aria-label="Special Character Converter Hero">
+            <div class="sc-hero-bg"></div>
+            <div class="sc-hero-glow"></div>
+            <div class="container sc-hero-inner">
+                <div class="sc-hero-badge">✦ Free Text Normalization Tool</div>
+                <h1 class="sc-hero-title">
+                    Convert special characters.<br />
+                    <span class="sc-hero-accent">Clean your text.</span>
+                </h1>
+                <p class="sc-hero-sub">Transform German umlauts, Nordic letters, and French accents into plain ASCII. Strip diacritics, create SEO-friendly URL slugs, and normalize text instantly — all in your browser.</p>
+                <div class="sc-hero-cta">
+                    <a href="#converter-app" class="btn btn-primary" style="background:var(--sc-accent);border-color:var(--sc-accent);">Open Converter <span>→</span></a>
+                </div>
+                <div class="sc-hero-demo">
+                    <span class="sc-demo-chip">München</span>
+                    <span class="sc-demo-chip sc-demo-converted">→ Muenchen</span>
+                    <span class="sc-demo-chip">Café</span>
+                    <span class="sc-demo-chip sc-demo-converted">→ Cafe</span>
+                    <span class="sc-demo-chip">Ærø</span>
+                    <span class="sc-demo-chip sc-demo-converted">→ Aeroe</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONVERTER APP SECTION ===== -->
+        <section class="sc-app-section" id="converter-app" aria-label="Special Character Converter Application">
+            <div class="container">
+                <div class="sc-app-shell">
+                    <!-- App Header -->
+                    <div class="sc-app-header">
+                        <span class="sc-app-title"><span class="sc-dot"></span> Special Character Converter</span>
+                        <div class="sc-app-actions-header">
+                            <button class="btn-tool" id="scSwapBtn" title="Swap input and output" aria-label="Swap input and output">⇄ Swap</button>
+                            <button class="btn-tool" id="scCopyBtn" title="Copy result to clipboard" aria-label="Copy result">⎘ Copy</button>
+                            <button class="btn-tool" id="scDownloadBtn" title="Download as .txt" aria-label="Download as TXT">⬇ TXT</button>
+                            <button class="btn-tool" id="scClearBtn" title="Clear all text" aria-label="Clear all">✕ Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Mode Selector Bar -->
+                    <div class="sc-mode-bar" role="radiogroup" aria-label="Conversion mode">
+                        <span class="sc-mode-label">Mode:</span>
+                        <button class="sc-mode-btn active" data-mode="umlaut" role="radio" aria-checked="true" title="Convert German umlauts: ä→ae, ö→oe, ü→ue, ß→ss">🇩🇪 German Umlauts</button>
+                        <button class="sc-mode-btn" data-mode="nordic" role="radio" aria-checked="false" title="Convert Nordic letters: å→aa, ø→oe, æ→ae, ß→ss">🇳🇴 Nordic Letters</button>
+                        <button class="sc-mode-btn" data-mode="diacritic" role="radio" aria-checked="false" title="Strip diacritics: é→e, è→e, ê→e, ç→c, ñ→n">🌍 Diacritic Stripper</button>
+                        <button class="sc-mode-btn" data-mode="slugify" role="radio" aria-checked="false" title="Create SEO-friendly URL slug">🔗 SEO URL Slugify</button>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="sc-input-wrap">
+                        <label class="sc-input-label" for="scInputArea">📝 Original Text</label>
+                        <textarea class="sc-textarea" id="scInputArea" placeholder="Type or paste text with special characters… e.g. München, Café, Ærø, Straße, naïve, façade" aria-label="Input text to convert" rows="4"></textarea>
+                    </div>
+
+                    <!-- Convert Button Row -->
+                    <div class="sc-convert-row">
+                        <button class="sc-convert-btn" id="scConvertBtn" aria-label="Convert special characters">
+                            <span class="sc-convert-icon">🔤</span> Convert Characters
+                        </button>
+                        <span class="sc-convert-count" id="scConvertCount">No conversions yet</span>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="sc-output-wrap">
+                        <label class="sc-output-label" for="scOutputArea">
+                            ✅ Converted Result
+                            <span class="sc-output-badge" id="scOutputBadge" style="display:none;">✅ Converted</span>
+                        </label>
+                        <textarea class="sc-output-textarea" id="scOutputArea" placeholder="Your converted text will appear here… click 'Convert Characters' to transform your text." aria-label="Converted text output" rows="4" readonly></textarea>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="sc-stats-bar">
+                        <span>Input: <span class="sc-stat-val" id="scInputChars">0</span> chars</span>
+                        <span class="sc-stats-sep">|</span>
+                        <span>Output: <span class="sc-stat-val" id="scOutputChars">0</span> chars</span>
+                        <span class="sc-stats-sep">|</span>
+                        <span>Special chars found: <span class="sc-stat-val" id="scSpecialCount">0</span></span>
+                        <span class="sc-stats-sep">|</span>
+                        <span id="scModeIndicator" style="color:var(--sc-accent);font-weight:600;">Mode: German Umlauts</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section sc-how" id="how-to-use" aria-label="How to use the special character converter">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Convert special characters in <em>3 easy steps.</em></h2>
+                <div class="sc-how-grid">
+                    <div class="sc-how-card">
+                        <div class="sc-how-num">01</div>
+                        <h3>Paste or Type Your Text</h3>
+                        <p>Enter any text containing special characters — German umlauts (ä, ö, ü, ß), Nordic letters (å, ø, æ), French accents (é, è, ê, ç), or any accented characters from Latin-based languages.</p>
+                    </div>
+                    <div class="sc-how-card">
+                        <div class="sc-how-num">02</div>
+                        <h3>Choose Your Conversion Mode</h3>
+                        <p>Select from four specialized modes: German Umlauts (ä→ae, ö→oe, ü→ue, ß→ss), Nordic Letters (å→aa, ø→oe, æ→ae), Diacritic Stripper (removes all accent marks), or SEO URL Slugify (creates clean, URL-friendly text).</p>
+                    </div>
+                    <div class="sc-how-card">
+                        <div class="sc-how-num">03</div>
+                        <h3>Convert & Use</h3>
+                        <p>Click the Convert button to transform your text instantly. Copy the result to your clipboard or download it as a .TXT file. Use it for file names, URLs, database entries, or anywhere plain ASCII text is required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section sc-desc" id="about-converter" aria-label="About the special character converter">
+            <div class="container sc-desc-inner">
+                <div class="sc-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Complete <em>Special Character Converter</em></h2>
+                    <p>A special character converter is an essential tool for anyone working with international text. Different languages use accented characters and special letters that, while beautiful in their native scripts, can cause problems in file names, URLs, databases, and legacy systems that only support plain ASCII. This tool bridges that gap by intelligently converting special characters to their closest ASCII equivalents.</p>
+                    <p>Our converter offers four powerful modes. <strong>German Umlauts</strong> handles the classic German transliteration rules: ä becomes ae, ö becomes oe, ü becomes ue, and ß becomes ss. This is the standard method used in Germany when umlauts aren't available. <strong>Nordic Letters</strong> handles Scandinavian characters like å (aa), ø (oe), and æ (ae). <strong>Diacritic Stripper</strong> removes all accent marks from Latin characters — é becomes e, ñ becomes n, ç becomes c, and hundreds more. Finally, <strong>SEO URL Slugify</strong> combines all conversions and adds URL-safe formatting: spaces become hyphens, special characters are removed, and everything is lowercased.</p>
+                    <p>Like all WebNotePad tools, this converter runs entirely in your browser. Your text never leaves your device — no server uploads, no tracking, no privacy concerns. It's perfect for web developers creating clean URLs, data scientists normalizing datasets, content managers preparing SEO-friendly slugs, or anyone who needs to convert text for systems that don't support Unicode.</p>
+                    <div class="sc-desc-benefits">
+                        <span class="sc-benefit-tag">🔒 100% Private</span>
+                        <span class="sc-benefit-tag">🇩🇪 German Umlauts</span>
+                        <span class="sc-benefit-tag">🇳🇴 Nordic Letters</span>
+                        <span class="sc-benefit-tag">🌍 Diacritic Stripper</span>
+                        <span class="sc-benefit-tag">🔗 SEO Slugify</span>
+                        <span class="sc-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="sc-desc-visual">
+                    <div class="sc-visual-card">
+                        <div class="sc-v-line"></div>
+                        <div class="sc-v-original">original:</div>
+                        <div style="color:var(--sc-muted);opacity:0.7;">München Straße Café</div>
+                        <div class="sc-v-arrow">↓ German Umlauts ↓</div>
+                        <div class="sc-v-converted">Muenchen Strasse Cafe</div>
+                        <div class="sc-v-arrow" style="margin-top:12px;">↓ Diacritic Stripper ↓</div>
+                        <div class="sc-v-converted">Munchen Strasse Cafe</div>
+                        <div class="sc-v-arrow" style="margin-top:12px;">↓ SEO Slugify ↓</div>
+                        <div class="sc-v-converted">munchen-strasse-cafe</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference Table -->
+            <div class="container" style="margin-top:56px;">
+                <div class="section-label">Quick Reference</div>
+                <h2 class="section-title" style="font-size:1.5rem;">Character Conversion <em>Lookup Table</em></h2>
+                <div class="sc-ref-table-wrap">
+                    <table class="sc-ref-table">
+                        <thead>
+                            <tr>
+                                <th>Original</th>
+                                <th>German Umlauts</th>
+                                <th>Nordic Letters</th>
+                                <th>Diacritic Stripper</th>
+                                <th>SEO Slugify</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="sc-char">ä</td>
+                                <td>ae</td>
+                                <td>a</td>
+                                <td>a</td>
+                                <td>a</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ö</td>
+                                <td>oe</td>
+                                <td>o</td>
+                                <td>o</td>
+                                <td>o</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ü</td>
+                                <td>ue</td>
+                                <td>u</td>
+                                <td>u</td>
+                                <td>u</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ß</td>
+                                <td>ss</td>
+                                <td>ss</td>
+                                <td>ss</td>
+                                <td>ss</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">å</td>
+                                <td>a</td>
+                                <td>aa</td>
+                                <td>a</td>
+                                <td>a</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ø</td>
+                                <td>o</td>
+                                <td>oe</td>
+                                <td>o</td>
+                                <td>o</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">æ</td>
+                                <td>ae</td>
+                                <td>ae</td>
+                                <td>ae</td>
+                                <td>ae</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">é</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">è</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ê</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                                <td>e</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ç</td>
+                                <td>c</td>
+                                <td>c</td>
+                                <td>c</td>
+                                <td>c</td>
+                            </tr>
+                            <tr>
+                                <td class="sc-char">ñ</td>
+                                <td>n</td>
+                                <td>n</td>
+                                <td>n</td>
+                                <td>n</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section sc-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="sc-faq-list" id="scFaqList">
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">What is a special character converter?</button>
+                        <div class="sc-faq-a"><p>A special character converter is a tool that transforms accented and special characters (like German umlauts, Nordic letters, and French accents) into their plain ASCII equivalents or SEO-friendly alternatives. It's essential for URL slugs, file names, and systems that don't support Unicode.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">How do I convert German umlauts to ae, oe, ue?</button>
+                        <div class="sc-faq-a"><p>Select the 'German Umlauts' mode and type or paste your text. The tool automatically converts ä → ae, ö → oe, ü → ue, and ß → ss. This is the standard German transliteration used when umlauts aren't available — for example, "München" becomes "Muenchen" and "Straße" becomes "Strasse".</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">What does the Diacritic Stripper mode do?</button>
+                        <div class="sc-faq-a"><p>Diacritic Stripper removes all accent marks from Latin characters, converting é→e, è→e, ê→e, ñ→n, ç→c, and hundreds of other accented characters to their base ASCII letters. It's perfect for cleaning text for search engines, databases, or legacy systems that only support basic ASCII.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">How does SEO URL Slugify work?</button>
+                        <div class="sc-faq-a"><p>Slugify transforms any text into a clean, URL-friendly string. It converts accented characters to ASCII, replaces spaces with hyphens, removes special characters and punctuation, and lowercases everything. For example, "Café Münster" becomes "cafe-munster" — perfect for blog post URLs and SEO-friendly links.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">What's the difference between German Umlauts and Nordic Letters modes?</button>
+                        <div class="sc-faq-a"><p>German Umlauts mode focuses on German-specific characters: ä→ae, ö→oe, ü→ue, ß→ss. Nordic Letters mode handles Scandinavian characters: å→aa, ø→oe, æ→ae, plus it also handles ü→u and ß→ss. The Nordic mode uses the traditional Scandinavian transliteration rules, while German mode follows German conventions.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">Is my text private when using this tool?</button>
+                        <div class="sc-faq-a"><p>Yes, completely. All conversions happen entirely within your browser using JavaScript. Your text is never uploaded to any server, stored remotely, or accessible to anyone but you. You can use this tool with complete confidence for sensitive data.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">Can I use the special character converter on mobile?</button>
+                        <div class="sc-faq-a"><p>Yes! The tool is fully responsive and works seamlessly on smartphones and tablets. The interface adapts to smaller screens so you can convert text on the go from any iOS or Android device.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">Does the converter handle all accented characters?</button>
+                        <div class="sc-faq-a"><p>The Diacritic Stripper mode handles all common Latin-based accented characters, including those from French (é, è, ê, ë, à, â, ç), Spanish (á, é, í, ó, ú, ñ, ü), Portuguese (ã, õ, ç), Italian (à, è, é, ì, ò, ù), and many more. It also handles ligatures like æ and œ.</p></div>
+                    </div>
+                    <div class="sc-faq-item">
+                        <button class="sc-faq-q" aria-expanded="false">Can I convert text multiple times with different modes?</button>
+                        <div class="sc-faq-a"><p>Absolutely! You can switch between modes and convert the same text as many times as you like. Each conversion is independent. Use the Swap button to move converted text back to the input area, or click Clear to start fresh.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="sc-toast" id="scToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+        (function() {
+            // ===== DOM ELEMENTS =====
+            const inputArea = document.getElementById('scInputArea');
+            const outputArea = document.getElementById('scOutputArea');
+            const convertBtn = document.getElementById('scConvertBtn');
+            const copyBtn = document.getElementById('scCopyBtn');
+            const downloadBtn = document.getElementById('scDownloadBtn');
+            const swapBtn = document.getElementById('scSwapBtn');
+            const clearBtn = document.getElementById('scClearBtn');
+            const toast = document.getElementById('scToast');
+            const outputBadge = document.getElementById('scOutputBadge');
+            const inputCharsEl = document.getElementById('scInputChars');
+            const outputCharsEl = document.getElementById('scOutputChars');
+            const specialCountEl = document.getElementById('scSpecialCount');
+            const modeIndicator = document.getElementById('scModeIndicator');
+            const convertCountEl = document.getElementById('scConvertCount');
+            const faqItems = document.querySelectorAll('.sc-faq-q');
+            const modeBtns = document.querySelectorAll('.sc-mode-btn');
+
+            let convertCount = 0;
+            let toastTimer = null;
+            let currentMode = 'umlaut';
+
+            // ===== CONVERSION MAPPINGS =====
+
+            // German Umlaut mappings (standard German transliteration)
+            const germanUmlautMap = {
+                'ä': 'ae', 'Ä': 'Ae',
+                'ö': 'oe', 'Ö': 'Oe',
+                'ü': 'ue', 'Ü': 'Ue',
+                'ß': 'ss',
+                // Also handle common accents as fallback
+                'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+                'à': 'a', 'â': 'a', 'á': 'a', 'ã': 'a',
+                'ì': 'i', 'î': 'i', 'í': 'i', 'ï': 'i',
+                'ò': 'o', 'ô': 'o', 'ó': 'o', 'õ': 'o',
+                'ù': 'u', 'û': 'u', 'ú': 'u',
+                'ç': 'c', 'ñ': 'n'
+            };
+
+            // Nordic letter mappings
+            const nordicMap = {
+                'å': 'aa', 'Å': 'Aa',
+                'ø': 'oe', 'Ø': 'Oe',
+                'æ': 'ae', 'Æ': 'Ae',
+                'ä': 'a', 'Ä': 'A',
+                'ö': 'o', 'Ö': 'O',
+                'ü': 'u', 'Ü': 'U',
+                'ß': 'ss',
+                'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+                'à': 'a', 'â': 'a', 'á': 'a', 'ã': 'a',
+                'ì': 'i', 'î': 'i', 'í': 'i', 'ï': 'i',
+                'ò': 'o', 'ô': 'o', 'ó': 'o', 'õ': 'o',
+                'ù': 'u', 'û': 'u', 'ú': 'u',
+                'ç': 'c', 'ñ': 'n'
+            };
+
+            // Diacritic stripper — comprehensive Latin character mapping
+            const diacriticMap = {
+                // Lowercase
+                'á': 'a', 'à': 'a', 'â': 'a', 'ä': 'a', 'ã': 'a', 'å': 'a', 'ā': 'a', 'ă': 'a', 'ą': 'a',
+                'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e', 'ē': 'e', 'ĕ': 'e', 'ė': 'e', 'ę': 'e', 'ě': 'e',
+                'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i', 'ī': 'i', 'ĭ': 'i', 'į': 'i', 'ı': 'i',
+                'ó': 'o', 'ò': 'o', 'ô': 'o', 'ö': 'o', 'õ': 'o', 'ø': 'o', 'ō': 'o', 'ŏ': 'o', 'ő': 'o',
+                'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u', 'ū': 'u', 'ŭ': 'u', 'ů': 'u', 'ű': 'u', 'ų': 'u',
+                'ý': 'y', 'ÿ': 'y', 'ŷ': 'y',
+                'ñ': 'n', 'ń': 'n', 'ņ': 'n', 'ň': 'n',
+                'ç': 'c', 'ć': 'c', 'ĉ': 'c', 'ċ': 'c', 'č': 'c',
+                'š': 's', 'ś': 's', 'ŝ': 's', 'ş': 's',
+                'ž': 'z', 'ź': 'z', 'ż': 'z',
+                'ğ': 'g', 'ĝ': 'g', 'ġ': 'g', 'ģ': 'g',
+                'ĥ': 'h', 'ħ': 'h',
+                'ĵ': 'j',
+                'ķ': 'k',
+                'ĺ': 'l', 'ļ': 'l', 'ľ': 'l', 'ł': 'l',
+                'ŕ': 'r', 'ŗ': 'r', 'ř': 'r',
+                'ţ': 't', 'ť': 't', 'ŧ': 't',
+                'ŵ': 'w',
+                'ŷ': 'y',
+                'ð': 'd', 'þ': 'th',
+                'æ': 'ae', 'œ': 'oe',
+                'ß': 'ss',
+                // Uppercase
+                'Á': 'A', 'À': 'A', 'Â': 'A', 'Ä': 'A', 'Ã': 'A', 'Å': 'A', 'Ā': 'A', 'Ă': 'A', 'Ą': 'A',
+                'É': 'E', 'È': 'E', 'Ê': 'E', 'Ë': 'E', 'Ē': 'E', 'Ĕ': 'E', 'Ė': 'E', 'Ę': 'E', 'Ě': 'E',
+                'Í': 'I', 'Ì': 'I', 'Î': 'I', 'Ï': 'I', 'Ī': 'I', 'Ĭ': 'I', 'Į': 'I', 'İ': 'I',
+                'Ó': 'O', 'Ò': 'O', 'Ô': 'O', 'Ö': 'O', 'Õ': 'O', 'Ø': 'O', 'Ō': 'O', 'Ŏ': 'O', 'Ő': 'O',
+                'Ú': 'U', 'Ù': 'U', 'Û': 'U', 'Ü': 'U', 'Ū': 'U', 'Ŭ': 'U', 'Ů': 'U', 'Ű': 'U', 'Ų': 'U',
+                'Ý': 'Y', 'Ŷ': 'Y', 'Ÿ': 'Y',
+                'Ñ': 'N', 'Ń': 'N', 'Ņ': 'N', 'Ň': 'N',
+                'Ç': 'C', 'Ć': 'C', 'Ĉ': 'C', 'Ċ': 'C', 'Č': 'C',
+                'Š': 'S', 'Ś': 'S', 'Ŝ': 'S', 'Ş': 'S',
+                'Ž': 'Z', 'Ź': 'Z', 'Ż': 'Z',
+                'Ğ': 'G', 'Ĝ': 'G', 'Ġ': 'G', 'Ģ': 'G',
+                'Ĥ': 'H', 'Ħ': 'H',
+                'Ĵ': 'J',
+                'Ķ': 'K',
+                'Ĺ': 'L', 'Ļ': 'L', 'Ľ': 'L', 'Ł': 'L',
+                'Ŕ': 'R', 'Ŗ': 'R', 'Ř': 'R',
+                'Ţ': 'T', 'Ť': 'T', 'Ŧ': 'T',
+                'Ŵ': 'W',
+                'Ŷ': 'Y',
+                'Ð': 'D', 'Þ': 'Th',
+                'Æ': 'Ae', 'Œ': 'Oe',
+                'ẞ': 'SS'
+            };
+
+            // ===== CONVERSION FUNCTIONS =====
+
+            function convertText(text, mode) {
+                if (!text.trim()) return '';
+
+                if (mode === 'slugify') {
+                    return slugify(text);
+                }
+
+                let map;
+                if (mode === 'umlaut') {
+                    map = germanUmlautMap;
+                } else if (mode === 'nordic') {
+                    map = nordicMap;
+                } else if (mode === 'diacritic') {
+                    map = diacriticMap;
+                } else {
+                    return text;
+                }
+
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+                    if (map[char] !== undefined) {
+                        result += map[char];
+                    } else {
+                        result += char;
+                    }
+                }
+                return result;
+            }
+
+            function slugify(text) {
+                // Step 1: Convert all special characters to ASCII using diacritic map
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+                    if (diacriticMap[char] !== undefined) {
+                        result += diacriticMap[char];
+                    } else {
+                        result += char;
+                    }
+                }
+
+                // Step 2: Lowercase
+                result = result.toLowerCase();
+
+                // Step 3: Replace spaces and underscores with hyphens
+                result = result.replace(/[\s_]+/g, '-');
+
+                // Step 4: Remove all characters that aren't alphanumeric or hyphens
+                result = result.replace(/[^a-z0-9-]/g, '');
+
+                // Step 5: Replace multiple consecutive hyphens with a single hyphen
+                result = result.replace(/-+/g, '-');
+
+                // Step 6: Trim hyphens from start and end
+                result = result.replace(/^-+|-+$/g, '');
+
+                return result;
+            }
+
+            // ===== COUNT SPECIAL CHARACTERS =====
+            function countSpecialChars(text, mode) {
+                if (!text.trim()) return 0;
+                let map;
+                if (mode === 'umlaut') map = germanUmlautMap;
+                else if (mode === 'nordic') map = nordicMap;
+                else if (mode === 'diacritic') map = diacriticMap;
+                else if (mode === 'slugify') map = diacriticMap;
+                else return 0;
+
+                let count = 0;
+                for (let i = 0; i < text.length; i++) {
+                    if (map[text[i]] !== undefined) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            // ===== PERFORM CONVERSION =====
+            function performConversion() {
+                const inputText = inputArea.value;
+                if (!inputText.trim()) {
+                    showToast('⚠️ Please enter some text to convert.');
+                    return;
+                }
+
+                const convertedText = convertText(inputText, currentMode);
+
+                outputArea.value = convertedText;
+                outputBadge.style.display = 'inline-flex';
+                convertCount++;
+                convertCountEl.textContent = `${convertCount} conversion${convertCount !== 1 ? 's' : ''}`;
+                updateAllStats();
+                updateModeIndicator();
+
+                // Subtle pulse animation on output
+                outputArea.style.transition = 'none';
+                outputArea.style.boxShadow = '0 0 0 6px var(--sc-accent-pale)';
+                setTimeout(() => {
+                    outputArea.style.transition = 'all 0.35s ease';
+                    outputArea.style.boxShadow = '0 0 0 2px var(--sc-accent-pale)';
+                }, 50);
+            }
+
+            // ===== STATS =====
+            function updateAllStats() {
+                const inputText = inputArea.value;
+                const outputText = outputArea.value;
+                inputCharsEl.textContent = inputText.length;
+                outputCharsEl.textContent = outputText.length;
+                specialCountEl.textContent = countSpecialChars(inputText, currentMode);
+            }
+
+            function updateModeIndicator() {
+                const modeNames = {
+                    'umlaut': 'German Umlauts',
+                    'nordic': 'Nordic Letters',
+                    'diacritic': 'Diacritic Stripper',
+                    'slugify': 'SEO URL Slugify'
+                };
+                modeIndicator.textContent = `Mode: ${modeNames[currentMode] || currentMode}`;
+            }
+
+            // ===== TOAST =====
+            function showToast(message) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2200);
+            }
+
+            // ===== MODE SWITCHING =====
+            function setMode(mode) {
+                currentMode = mode;
+                modeBtns.forEach(btn => {
+                    const isActive = btn.dataset.mode === mode;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-checked', isActive);
+                });
+                updateAllStats();
+                updateModeIndicator();
+
+                // If input has text, auto-convert with new mode
+                if (inputArea.value.trim()) {
+                    performConversion();
+                }
+            }
+
+            // ===== EVENT LISTENERS =====
+
+            // Mode buttons
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setMode(btn.dataset.mode);
+                });
+            });
+
+            // Convert button
+            convertBtn.addEventListener('click', performConversion);
+
+            // Input live stats
+            inputArea.addEventListener('input', () => {
+                updateAllStats();
+            });
+
+            // Copy button
+            copyBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to copy. Convert some text first.');
+                    return;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(outputText).then(() => {
+                        showToast('✅ Copied to clipboard!');
+                    }).catch(() => {
+                        fallbackCopy(outputText);
+                    });
+                } else {
+                    fallbackCopy(outputText);
+                }
+            });
+
+            function fallbackCopy(text) {
+                outputArea.removeAttribute('readonly');
+                outputArea.select();
+                outputArea.setSelectionRange(0, 99999);
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Copied to clipboard!');
+                } catch (err) {
+                    showToast('⚠️ Copy failed. Please select and copy manually.');
+                }
+                outputArea.setAttribute('readonly', 'true');
+                window.getSelection().removeAllRanges();
+            }
+
+            // Download button
+            downloadBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to download. Convert some text first.');
+                    return;
+                }
+                const blob = new Blob([outputText], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `converted-text-${currentMode}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('⬇ Downloaded as .TXT');
+            });
+
+            // Swap button
+            swapBtn.addEventListener('click', () => {
+                const outputText = outputArea.value;
+                if (!outputText.trim()) {
+                    showToast('⚠️ Nothing to swap. Convert some text first.');
+                    return;
+                }
+                inputArea.value = outputText;
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                convertCount = 0;
+                convertCountEl.textContent = 'No conversions yet';
+                updateAllStats();
+                updateModeIndicator();
+                inputArea.focus();
+                showToast('⇄ Swapped! Converted text moved to input.');
+            });
+
+            // Clear button
+            clearBtn.addEventListener('click', () => {
+                inputArea.value = '';
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                convertCount = 0;
+                convertCountEl.textContent = 'No conversions yet';
+                updateAllStats();
+                updateModeIndicator();
+                inputArea.focus();
+                showToast('✕ All cleared.');
+            });
+
+            // FAQ accordion
+            faqItems.forEach(qBtn => {
+                qBtn.addEventListener('click', () => {
+                    const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                    qBtn.setAttribute('aria-expanded', !expanded);
+                    const answer = qBtn.nextElementSibling;
+                    if (answer) {
+                        answer.style.display = expanded ? 'none' : 'block';
+                    }
+                });
+            });
+
+            // Keyboard shortcut: Ctrl+Enter to convert
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    performConversion();
+                }
+                // Ctrl+Shift+C to copy
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    copyBtn.click();
+                }
+                // Ctrl+Shift+S to swap
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
+                    e.preventDefault();
+                    swapBtn.click();
+                }
+                // Ctrl+Shift+D to download
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
+                    e.preventDefault();
+                    downloadBtn.click();
+                }
+            });
+
+            // ===== INITIALIZATION =====
+            updateAllStats();
+            updateModeIndicator();
+            convertCountEl.textContent = 'No conversions yet';
+
+            console.log('✅ Special Character Converter ready.');
+            console.log('   Modes: German Umlauts | Nordic Letters | Diacritic Stripper | SEO URL Slugify');
+            console.log('   Shortcuts: Ctrl+Enter = convert | Ctrl+Shift+C = copy | Ctrl+Shift+S = swap | Ctrl+Shift+D = download');
+        })();
+    </script>
+</body>
+</html>

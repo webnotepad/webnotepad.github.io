@@ -22,7 +22,8 @@
         { name: "Case Converter", icon: "🔤", url: "/case-converter", desc: "Transform text to uppercase, lowercase, etc." },
         { name: "Word Counter", icon: "📊", url: "/word-counter", desc: "Count words, characters, and sentences." },
         { name: "Readability Analyzer", icon: "📊", url: "/readability", desc: "Check reading ease and complexity scores." },
-        { name: "Word Shuffler", icon: "🔀", url: "/word-shuffler", desc: "Randomize word order in any text." }
+        { name: "Word Shuffler", icon: "🔀", url: "/word-shuffler", desc: "Randomize word order in any text." },
+        { name: "Special Character Converter", icon: "🔤", url: "/special-character-converter", desc: "Convert umlauts, diacritics, and special characters." }
       ]
     },
     {

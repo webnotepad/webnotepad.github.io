@@ -48,60 +48,22 @@ button{cursor:pointer;font-family:var(--d-font-sans);border:none;background:none
 input,select,textarea{font-family:var(--d-font-sans)}
 
 /* HERO */
-/* =============================================
-   HERO — Compact overrides (smaller text, shorter height)
-   ============================================= */
-
-/* 1. Reduce hero vertical size */
-.d-hero {
-  min-height: 38vh;          /* was 56vh */
-  padding: 20px 0 28px;      /* was 30px 0 40px */
-}
-
-/* 2. Shrink the H1 (biggest contributor to height) */
-.d-hero h1 {
-  font-size: clamp(1.8rem, 4.2vw, 2.75rem);  /* was clamp(2.4rem, 6vw, 4rem) */
-  margin-bottom: 14px;                        /* was 20px */
-}
-
-/* 3. Tighten the intro paragraph */
-.d-hero p {
-  font-size: 0.95rem;        /* was 1.05rem */
-  line-height: 1.55;         /* was 1.7 */
-  margin-bottom: 22px;       /* was 32px */
-  max-width: 480px;          /* slightly narrower */
-}
-
-/* 4. Shrink the badge + button a touch */
-.d-badge {
-  font-size: 0.72rem;        /* was .8rem */
-  padding: 4px 12px;         /* was 6px 14px */
-  margin-bottom: 16px;       /* was 24px */
-}
-.d-btn {
-  padding: 10px 20px;        /* was 12px 24px */
-  font-size: 0.85rem;        /* was .9rem */
-}
-
-/* 5. Optional — trim the blurred orbs so they don't stretch the section */
-.d-hero .orb1 { width: 300px; height: 300px; top: -80px; right: -60px; }
-.d-hero .orb2 { width: 220px; height: 220px; bottom: -40px; left: -40px; }
-
-/* 6. Mobile-specific tightening */
-@media (max-width: 680px) {
-  .d-hero {
-    min-height: 32vh;
-    padding: 16px 0 22px;
-  }
-  .d-hero h1 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-  .d-hero p {
-    font-size: 0.9rem;
-    margin-bottom: 18px;
-  }
-}
+.d-hero{position:relative;min-height:56vh;display:flex;align-items:center;padding:30px 0 40px;overflow:hidden;background:var(--d-warm)}
+.d-hero-orbs{position:absolute;inset:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
+.orb1{width:400px;height:400px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}
+.orb2{width:300px;height:300px;background:radial-gradient(circle,#e89e82,transparent);bottom:-60px;left:-60px}
+.orb3{width:200px;height:200px;background:radial-gradient(circle,#c9960b44,transparent);top:40%;left:30%}
+body.dark .orb{opacity:.12}
+.d-hero-inner{position:relative;z-index:1;max-width:680px}
+.d-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--d-rose-pale);color:var(--d-rose);border:1px solid var(--d-rose);border-radius:100px;font-size:.8rem;font-weight:600;font-family:var(--d-font-mono);margin-bottom:24px;animation:dfadeIn .5s ease both}
+.d-hero h1{font-family:var(--d-font-serif);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.15;color:var(--d-ink);margin-bottom:20px;animation:dfadeIn .55s .1s ease both}
+.d-accent{color:var(--d-rose);font-style:italic}
+.d-hero p{font-size:1.05rem;color:var(--d-ink-soft);max-width:500px;line-height:1.7;margin-bottom:32px;animation:dfadeIn .55s .2s ease both}
+.d-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--d-radius);font-size:.9rem;font-weight:700;transition:all var(--d-t);cursor:pointer;border:2px solid transparent;animation:dfadeIn .55s .3s ease both}
+.d-btn-primary{background:var(--d-rose);color:#fff;border-color:var(--d-rose)}
+.d-btn-primary:hover{background:var(--d-brown);border-color:var(--d-brown);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,112,90,.3)}
+@keyframes dfadeIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 
 /* APP */
 .d-app-section{padding:0 0 72px;margin-top:40px}

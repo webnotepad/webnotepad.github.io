@@ -1,6 +1,7 @@
 /* =============================================
    WebNotePad — Online Diary (Combined)
    Includes: diary.js + diary-pdf.js
+   Updated: PDF modal with 300x250 ad + 5s countdown gate
    ============================================= */
 
 // =============================================
@@ -381,26 +382,105 @@ function loadHtml2Pdf() {
     const script = document.createElement('script');
     script.src = '/js/html2pdf.bundle.min.js';
     script.async = true;
-    
+
     script.onload = () => {
       pdfLibraryLoaded = true;
       pdfLibraryLoading = false;
       resolve();
     };
-    
+
     script.onerror = () => {
       pdfLibraryLoading = false;
       reject(new Error('Failed to load PDF library'));
     };
-    
+
     document.head.appendChild(script);
   });
 }
 
+// ----- Ad injection for PDF modal -----
+function injectModalAd() {
+  const adFrame = $('pdfModalAdFrame');
+  if (!adFrame) return;
+  if (adFrame.dataset.loaded === '1') return;
+  adFrame.dataset.loaded = '1';
+
+  // 1. atOptions config (must run before invoke script)
+  const configScript = document.createElement('script');
+  configScript.type = 'text/javascript';
+  configScript.text = `
+    atOptions = {
+      'key' : 'f5214acd8479e07d7defe4626c574aa5',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  `;
+  adFrame.appendChild(configScript);
+
+  // 2. External invoke script
+  const invokeScript = document.createElement('script');
+  invokeScript.type = 'text/javascript';
+  invokeScript.src = 'https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js';
+  invokeScript.async = true;
+  adFrame.appendChild(invokeScript);
+}
+
+// ----- Countdown gate state -----
+let countdownTimer = null;
+const COUNTDOWN_SECONDS = 5;
+
+function startCountdown(seconds = COUNTDOWN_SECONDS) {
+  const overlay  = $('pdfCountdownOverlay');
+  const numberEl = $('pdfCountdownNumber');
+  const textEl   = $('pdfCountdownText');
+  const ring     = $('pdfCountdownRing');
+  const btn      = $('pdfGenerateBtn');
+
+  if (!overlay || !numberEl || !textEl || !ring || !btn) return;
+
+  // Reset UI
+  overlay.classList.remove('hidden');
+  btn.disabled = true;
+
+  const total = seconds;
+  const circumference = 2 * Math.PI * 31; // r=31 in the SVG
+  ring.style.strokeDasharray  = circumference;
+  ring.style.strokeDashoffset = 0;
+
+  let remaining = total;
+  numberEl.textContent = remaining;
+  textEl.textContent = remaining + 's';
+
+  // Clear any prior timer
+  if (countdownTimer) clearInterval(countdownTimer);
+
+  countdownTimer = setInterval(() => {
+    remaining -= 1;
+    const elapsed = total - remaining;
+    const offset  = (elapsed / total) * circumference;
+
+    ring.style.strokeDashoffset = offset;
+    const display = Math.max(remaining, 0);
+    numberEl.textContent = display;
+    textEl.textContent = display + 's';
+
+    if (remaining <= 0) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+      overlay.classList.add('hidden');
+      btn.disabled = false;
+    }
+  }, 1000);
+}
+
 function openModal(){
   buildTemplateGrid();
+  injectModalAd();
   const overlay = $('pdfModalOverlay');
   if(overlay) overlay.classList.add('show');
+  startCountdown(COUNTDOWN_SECONDS);
 }
 
 function closeModal(){
@@ -408,6 +488,20 @@ function closeModal(){
   if(overlay) overlay.classList.remove('show');
   const loading = $('pdfLoading');
   if(loading) loading.classList.remove('active');
+
+  // Stop any running countdown when the modal is closed
+  if (countdownTimer) {
+    clearInterval(countdownTimer);
+    countdownTimer = null;
+  }
+
+  // Re-enable the button so it isn't stuck disabled on next open
+  const btn = $('pdfGenerateBtn');
+  if (btn) btn.disabled = false;
+
+  // Make sure the overlay is visible again for the next open
+  const cdOverlay = $('pdfCountdownOverlay');
+  if (cdOverlay) cdOverlay.classList.remove('hidden');
 }
 
 function buildTemplateGrid(){

@@ -443,25 +443,54 @@ body.dark .d-keyword-highlight {
   <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
 
   <!-- PDF EXPORT MODAL -->
-  <div class="pdf-modal-overlay" id="pdfModalOverlay">
-    <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
-      <div class="pdf-modal-header">
-        <h3 id="pdfModalTitle">📄 Export Entry as PDF</h3>
-        <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close">✕</button>
+<div class="pdf-modal-overlay" id="pdfModalOverlay">
+  <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+    <div class="pdf-modal-header">
+      <h3 id="pdfModalTitle">📄 Export Entry as PDF</h3>
+      <button class="pdf-modal-close" id="pdfModalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="pdf-modal-body">
+
+      <!-- 300x250 Banner Ad Slot -->
+      <div class="pdf-modal-ad" id="pdfModalAd">
+        <span class="pdf-modal-ad-label">Advertisement</span>
+        <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
       </div>
-      <div class="pdf-modal-body">
-        <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
+
+      <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
+
+      <!-- Countdown gate wraps the template grid + generate button -->
+      <div class="pdf-countdown-gate" id="pdfCountdownGate">
+        <div class="pdf-countdown-overlay" id="pdfCountdownOverlay">
+          <div class="pdf-countdown-ring">
+            <svg viewBox="0 0 72 72">
+              <circle class="ring-bg" cx="36" cy="36" r="31"></circle>
+              <circle class="ring-fg" cx="36" cy="36" r="31"
+                      stroke-dasharray="194.78"
+                      stroke-dashoffset="0"
+                      id="pdfCountdownRing"></circle>
+            </svg>
+            <div class="pdf-countdown-number" id="pdfCountdownNumber">5</div>
+          </div>
+          <div class="pdf-countdown-text">
+            Your PDF is being prepared… <strong id="pdfCountdownText">5s</strong>
+          </div>
+        </div>
+
         <div class="pdf-template-grid" id="pdfTemplateGrid"><!-- swatches injected by diary-pdf.js --></div>
+
         <div class="pdf-modal-actions">
-          <button class="pdf-generate-btn" id="pdfGenerateBtn">Generate PDF ⬇</button>
+          <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>Generate PDF ⬇</button>
         </div>
-        <div class="pdf-loading" id="pdfLoading">
-          <div class="pdf-spinner"></div>
-          <span>Creating your beautiful PDF…</span>
-        </div>
+      </div>
+
+      <div class="pdf-loading" id="pdfLoading">
+        <div class="pdf-spinner"></div>
+        <span>Creating your beautiful PDF…</span>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Hidden printable entry, rendered off-screen and captured by html2pdf -->
   <div id="pdfPrintArea" class="pdf-print-area" aria-hidden="true"></div>

@@ -429,3 +429,160 @@ body.dark .d-how-num{color:var(--d-tan)}
 .pdf-tpl-botanical-preview{ 
   background:linear-gradient(135deg,#5c7a4a 0 15%, #f2f5ec 15% 100%); 
 }
+/* =============================================
+   PDF MODAL — AD SLOT + COUNTDOWN GATE
+   ============================================= */
+
+/* Ad slot container */
+.pdf-modal-ad {
+  padding: 12px 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--d-tan, #e8d5bc);
+  margin-bottom: 18px;
+}
+
+.pdf-modal-ad-label {
+  font-family: var(--d-font-mono, monospace);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--d-ink-muted, #9e7b5e);
+  opacity: 0.55;
+  align-self: flex-start;
+}
+
+.pdf-modal-ad-frame {
+  width: 300px;
+  max-width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--d-radius, 8px);
+  background: var(--d-warm, #f5ead8);
+  border: 1px solid var(--d-tan, #e8d5bc);
+}
+
+.pdf-modal-ad-frame iframe,
+.pdf-modal-ad-frame img,
+.pdf-modal-ad-frame > div {
+  max-width: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Countdown gate — overlaid on top of the template grid + action button */
+.pdf-countdown-gate {
+  position: relative;
+}
+
+.pdf-countdown-overlay {
+  position: absolute;
+  inset: -6px;
+  background: rgba(253, 246, 237, 0.92);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 5;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+body.dark .pdf-countdown-overlay {
+  background: rgba(26, 20, 16, 0.92);
+}
+
+.pdf-countdown-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pdf-countdown-ring {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.pdf-countdown-ring svg {
+  transform: rotate(-90deg);
+  width: 72px;
+  height: 72px;
+}
+
+.pdf-countdown-ring circle {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.pdf-countdown-ring .ring-bg {
+  stroke: var(--d-tan, #e8d5bc);
+}
+
+.pdf-countdown-ring .ring-fg {
+  stroke: var(--d-rose, #c4705a);
+  transition: stroke-dashoffset 1s linear;
+}
+
+.pdf-countdown-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--d-font-serif, serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--d-rose, #c4705a);
+}
+
+.pdf-countdown-text {
+  font-family: var(--d-font-sans, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--d-ink-soft, #5c3d2e);
+  text-align: center;
+  max-width: 260px;
+  line-height: 1.4;
+}
+
+.pdf-countdown-text strong {
+  color: var(--d-rose, #c4705a);
+}
+
+/* Disabled state for the generate button while counting down */
+.pdf-generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--d-tan, #e8d5bc);
+  color: var(--d-ink-muted, #9e7b5e);
+}
+
+.pdf-generate-btn:disabled:hover {
+  background: var(--d-tan, #e8d5bc);
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  .pdf-modal-ad-frame {
+    height: auto;
+    min-height: 250px;
+  }
+  .pdf-countdown-ring,
+  .pdf-countdown-ring svg {
+    width: 60px;
+    height: 60px;
+  }
+  .pdf-countdown-number {
+    font-size: 1.3rem;
+  }
+}

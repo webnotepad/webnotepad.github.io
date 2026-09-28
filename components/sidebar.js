@@ -3,6 +3,7 @@
  * Injects a fixed dynamic sidebar for the 15 productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
  * Updated: Category-wise organization with attention-grabbing pulsing trigger
+ *          + 300x250 banner ad slot at the top of the sidebar
  */
 
 (function () {
@@ -191,6 +192,47 @@
       background: var(--paper-edge);
     }
 
+    /* ---- Ad Slot (300x250) ---- */
+    .tools-sb-ad {
+      flex-shrink: 0;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid var(--paper-edge);
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .tools-sb-ad-label {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      opacity: 0.55;
+      align-self: flex-start;
+    }
+    .tools-sb-ad-frame {
+      width: 300px;
+      max-width: 100%;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+    }
+    .tools-sb-ad-frame iframe,
+    .tools-sb-ad-frame img,
+    .tools-sb-ad-frame > div {
+      max-width: 100%;
+      border: 0;
+      display: block;
+    }
+
     /* Scrollable items menu wrapper */
     .tools-sb-body {
       flex: 1;
@@ -339,6 +381,13 @@
       .tools-sb-item-name {
         font-size: 0.82rem;
       }
+      .tools-sb-ad {
+        padding: 12px 10px 8px;
+      }
+      .tools-sb-ad-frame {
+        height: auto;
+        min-height: 250px;
+      }
     }
   `;
 
@@ -351,7 +400,7 @@
   const rootContainer = document.getElementById("tools-sidebar-root");
   if (!rootContainer) return;
 
-  // Render the floating toggle switch, backdrop container, and sidebar dashboard
+  // Render the floating toggle switch, backdrop container, sidebar dashboard, and ad slot
   rootContainer.innerHTML = `
     <div class="tools-sidebar-overlay" id="toolsSidebarOverlay"></div>
     <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">🧰</div>
@@ -360,6 +409,13 @@
         <h2>WebNotepad <em>Toolkit</em></h2>
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
+
+      <!-- 300x250 Banner Ad Slot -->
+      <div class="tools-sb-ad" id="toolsSidebarAd">
+        <span class="tools-sb-ad-label">Advertisement</span>
+        <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
+      </div>
+
       <div class="tools-sb-body" id="toolsSidebarBody"></div>
     </aside>
   `;
@@ -369,6 +425,36 @@
   const trigger = document.getElementById("toolsSidebarTrigger");
   const overlay = document.getElementById("toolsSidebarOverlay");
   const closeBtn = document.getElementById("toolsSidebarClose");
+  const adFrame = document.getElementById("toolsSidebarAdFrame");
+
+  // 4a. Inject the 300x250 ad scripts into the ad frame.
+  //     We append the config + external invoke script into the ad frame container.
+  //     The external script writes its iframe to the element it is placed in,
+  //     so we place it directly inside the ad frame wrapper.
+  (function injectAd() {
+    if (!adFrame) return;
+
+    // Inline atOptions configuration (must run before the invoke script loads)
+    const configScript = document.createElement("script");
+    configScript.type = "text/javascript";
+    configScript.text = `
+      atOptions = {
+        'key' : 'f5214acd8479e07d7defe4626c574aa5',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    `;
+    adFrame.appendChild(configScript);
+
+    // External invoke script
+    const invokeScript = document.createElement("script");
+    invokeScript.type = "text/javascript";
+    invokeScript.src = "https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js";
+    invokeScript.async = true;
+    adFrame.appendChild(invokeScript);
+  })();
 
   // 5. Populate list items with categories and staggered animations
   let toolIndex = 0;

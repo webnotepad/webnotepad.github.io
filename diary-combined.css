@@ -47,20 +47,20 @@ a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:var(--d-font-sans);border:none;background:none}
 input,select,textarea{font-family:var(--d-font-sans)}
 
-/* HERO */
-.d-hero{position:relative;min-height:56vh;display:flex;align-items:center;padding:30px 0 40px;overflow:hidden;background:var(--d-warm)}
+/* HERO — compact */
+.d-hero{position:relative;min-height:auto;display:flex;align-items:center;padding:36px 0 44px;overflow:hidden;background:var(--d-warm)}
 .d-hero-orbs{position:absolute;inset:0;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
-.orb1{width:400px;height:400px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}
-.orb2{width:300px;height:300px;background:radial-gradient(circle,#e89e82,transparent);bottom:-60px;left:-60px}
-.orb3{width:200px;height:200px;background:radial-gradient(circle,#c9960b44,transparent);top:40%;left:30%}
+.orb1{width:320px;height:320px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}
+.orb2{width:240px;height:240px;background:radial-gradient(circle,#e89e82,transparent);bottom:-60px;left:-60px}
+.orb3{width:180px;height:180px;background:radial-gradient(circle,#c9960b44,transparent);top:40%;left:30%}
 body.dark .orb{opacity:.12}
-.d-hero-inner{position:relative;z-index:1;max-width:680px}
-.d-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--d-rose-pale);color:var(--d-rose);border:1px solid var(--d-rose);border-radius:100px;font-size:.8rem;font-weight:600;font-family:var(--d-font-mono);margin-bottom:24px;animation:dfadeIn .5s ease both}
-.d-hero h1{font-family:var(--d-font-serif);font-size:clamp(2.4rem,6vw,4rem);font-weight:700;line-height:1.15;color:var(--d-ink);margin-bottom:20px;animation:dfadeIn .55s .1s ease both}
+.d-hero-inner{position:relative;z-index:1;max-width:620px}
+.d-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;background:var(--d-rose-pale);color:var(--d-rose);border:1px solid var(--d-rose);border-radius:100px;font-size:.72rem;font-weight:600;font-family:var(--d-font-mono);margin-bottom:16px;animation:dfadeIn .5s ease both}
+.d-hero h1{font-family:var(--d-font-serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.2;color:var(--d-ink);margin-bottom:14px;animation:dfadeIn .55s .1s ease both}
 .d-accent{color:var(--d-rose);font-style:italic}
-.d-hero p{font-size:1.05rem;color:var(--d-ink-soft);max-width:500px;line-height:1.7;margin-bottom:32px;animation:dfadeIn .55s .2s ease both}
-.d-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--d-radius);font-size:.9rem;font-weight:700;transition:all var(--d-t);cursor:pointer;border:2px solid transparent;animation:dfadeIn .55s .3s ease both}
+.d-hero p{font-size:.95rem;color:var(--d-ink-soft);max-width:480px;line-height:1.6;margin-bottom:22px;animation:dfadeIn .55s .2s ease both}
+.d-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--d-radius);font-size:.85rem;font-weight:700;transition:all var(--d-t);cursor:pointer;border:2px solid transparent;animation:dfadeIn .55s .3s ease both}
 .d-btn-primary{background:var(--d-rose);color:#fff;border-color:var(--d-rose)}
 .d-btn-primary:hover{background:var(--d-brown);border-color:var(--d-brown);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,112,90,.3)}
 @keyframes dfadeIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
@@ -176,6 +176,9 @@ body.dark .d-how-num{color:var(--d-tan)}
   .d-editor-header{flex-wrap:wrap}
   .d-entry-meta{flex-direction:column;align-items:stretch}
   .d-tags-input{width:100%}
+  .d-hero{padding:28px 0 34px}
+  .d-hero h1{font-size:1.65rem}
+  .d-hero p{font-size:.9rem}
 }
 
 /* ---------- PART 2: diary-pdf.css ---------- */
@@ -429,6 +432,7 @@ body.dark .d-how-num{color:var(--d-tan)}
 .pdf-tpl-botanical-preview{ 
   background:linear-gradient(135deg,#5c7a4a 0 15%, #f2f5ec 15% 100%); 
 }
+
 /* =============================================
    PDF MODAL — AD SLOT + COUNTDOWN GATE
    ============================================= */

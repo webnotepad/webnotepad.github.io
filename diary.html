@@ -103,6 +103,7 @@
             <div class="d-entries-list" id="dEntriesList"></div>
             <div class="d-sidebar-footer">
   <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries">⬇ Export</button>
+
   <button class="d-icon-btn d-drive-btn" id="dDriveBackupBtn" title="Backup to Google Drive" aria-label="Backup to Google Drive">
     <svg viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" class="d-drive-icon" aria-hidden="true">
       <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
@@ -114,6 +115,14 @@
     </svg>
     <span class="d-drive-label">Drive</span>
   </button>
+
+  <button class="d-icon-btn" id="dImportBtn" title="Restore from backup file" aria-label="Restore from backup file">
+    <span style="font-size:1rem;">⬆</span>
+    <span style="font-size:0.75rem;margin-left:2px;">Restore</span>
+  </button>
+
+  <input type="file" id="dImportInput" accept="application/json,.json" hidden />
+
   <span class="d-entry-count" id="dEntryCount">0 entries</span>
 </div>
           </aside>

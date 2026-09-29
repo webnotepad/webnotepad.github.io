@@ -102,7 +102,10 @@
             </div>
             <div class="d-entries-list" id="dEntriesList"></div>
             <div class="d-sidebar-footer">
-  <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries" aria-label="Export all entries">⬇ Export</button>
+  <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries" aria-label="Export all entries">
+    <span class="d-btn-icon">⬇</span>
+    <span class="d-btn-text">Export</span>
+  </button>
 
   <button class="d-icon-btn d-drive-btn" id="dDriveBackupBtn" title="Backup to Google Drive" aria-label="Backup to Google Drive">
     <svg viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" class="d-drive-icon" aria-hidden="true">
@@ -113,10 +116,12 @@
       <path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
       <path d="M73.4 26.5L60.7 4.5c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
     </svg>
+    <span class="d-btn-text">Drive</span>
   </button>
 
   <button class="d-icon-btn d-restore-btn" id="dImportBtn" title="Restore from backup file" aria-label="Restore from backup file">
-    <span class="d-restore-icon">⬆ Import</span>
+    <span class="d-btn-icon d-restore-icon">⬆</span>
+    <span class="d-btn-text">Import</span>
   </button>
 
   <input type="file" id="dImportInput" accept="application/json,.json" hidden />

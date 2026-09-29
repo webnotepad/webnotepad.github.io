@@ -15,7 +15,8 @@
       tools: [
         { name: "Notepad", icon: "📝", url: "/#notepad", desc: "Write, edit and auto-save notes instantly." },
         { name: "Diary", icon: "📖", url: "/diary", desc: "Keep a private daily journal with dated entries." },
-        { name: "Focus Writer", icon: "🎯", url: "/focus-writer", desc: "Minimalist writing mode with a zen focus." }
+        { name: "Focus Writer", icon: "🎯", url: "/focus-writer", desc: "Minimalist writing mode with a zen focus." },
+        { name: "Typing Test", icon: "⌨️", url: "/typing-test", desc: "Test your typing speed and accuracy in WPM." }
       ]
     },
     {

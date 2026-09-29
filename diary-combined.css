@@ -590,3 +590,173 @@ body.dark .pdf-countdown-overlay {
     font-size: 1.3rem;
   }
 }
+/* =============================================
+   Compact Sidebar Footer
+   ============================================= */
+.d-sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--d-tan, #e8d5bc);
+  background: var(--d-cream, #fdf6ed);
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.d-sidebar-footer .d-icon-btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--d-tan, #e8d5bc);
+  background: var(--d-warm, #fffaf2);
+  color: var(--d-ink, #2c1a0e);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.d-sidebar-footer .d-icon-btn:hover {
+  background: var(--d-rose-pale, #f8e5df);
+  border-color: var(--d-rose, #b8624a);
+  transform: translateY(-1px);
+}
+
+.d-sidebar-footer .d-entry-count {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-family: 'Fira Mono', 'Courier New', monospace;
+  color: var(--d-ink-muted, #9e7b5e);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ---- Google Drive button (compact) ---- */
+.d-drive-btn {
+  animation: driveBlink 3.2s ease-in-out infinite;
+}
+.d-drive-btn .d-drive-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+}
+@keyframes driveBlink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: var(--d-tan, #e8d5bc);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(66, 133, 244, 0.15);
+    border-color: rgba(66, 133, 244, 0.5);
+  }
+}
+body.dark .d-drive-btn {
+  animation: driveBlinkDark 3.2s ease-in-out infinite;
+}
+@keyframes driveBlinkDark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: var(--d-tan, #2a2a34);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(66, 133, 244, 0.22);
+    border-color: rgba(66, 133, 244, 0.6);
+  }
+}
+
+/* ---- Restore button (green blink) ---- */
+.d-restore-btn {
+  animation: restoreBlink 3.2s ease-in-out infinite;
+}
+.d-restore-btn .d-restore-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #16a34a;
+}
+body.dark .d-restore-btn .d-restore-icon {
+  color: #4ade80;
+}
+@keyframes restoreBlink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+    border-color: var(--d-tan, #e8d5bc);
+    background: var(--d-warm, #fffaf2);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.18);
+    border-color: rgba(22, 163, 74, 0.55);
+    background: rgba(22, 163, 74, 0.06);
+  }
+}
+.d-restore-btn:hover {
+  background: rgba(22, 163, 74, 0.1);
+  border-color: #16a34a;
+}
+body.dark .d-restore-btn {
+  animation: restoreBlinkDark 3.2s ease-in-out infinite;
+}
+@keyframes restoreBlinkDark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    border-color: var(--d-tan, #2a2a34);
+    background: var(--d-warm, #1c1c22);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(74, 222, 128, 0.22);
+    border-color: rgba(74, 222, 128, 0.6);
+    background: rgba(74, 222, 128, 0.08);
+  }
+}
+
+/* Offset the two blink animations so they don't pulse in sync */
+.d-drive-btn {
+  animation-delay: 0s;
+}
+.d-restore-btn {
+  animation-delay: 1.6s;
+}
+
+/* Hover pauses the animation for a clean state */
+.d-sidebar-footer .d-icon-btn:hover {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .d-drive-btn,
+  .d-restore-btn,
+  body.dark .d-drive-btn,
+  body.dark .d-restore-btn {
+    animation: none;
+  }
+}
+
+/* Mobile: keep footer compact */
+@media (max-width: 480px) {
+  .d-sidebar-footer {
+    padding: 6px 10px;
+    gap: 5px;
+  }
+  .d-sidebar-footer .d-icon-btn {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    font-size: 0.78rem;
+  }
+  .d-drive-btn .d-drive-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .d-sidebar-footer .d-entry-count {
+    font-size: 0.65rem;
+  }
+}

@@ -39,9 +39,11 @@
     {
       name: "🎲 Creativity & Randomization",
       tools: [
+        
         { name: "Random Text", icon: "🎲", url: "/random-text", desc: "Generate placeholder paragraphs or words." },
         { name: "Word Cloud Generator", icon: "☁️", url: "/word-cloud", desc: "Turn text into a beautiful visual word cloud." },
-        { name: "Decision Maker", icon: "⚖️", url: "/choice-maker", desc: "Spin a wheel or flip a coin to decide." }
+        { name: "Decision Maker", icon: "⚖️", url: "/choice-maker", desc: "Spin a wheel or flip a coin to decide." },
+        { name: "Random Name Generator", icon: "👤", url: "/random-name-generator", desc: "Generate random first, last, and full names." }
       ]
     },
     {

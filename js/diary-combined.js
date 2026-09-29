@@ -2,6 +2,7 @@
    WebNotePad — Online Diary (Combined)
    Includes: diary.js + diary-pdf.js
    Updated: PDF modal with 300x250 ad + 5s countdown gate
+          + Google Drive backup with instructional overlay
    ============================================= */
 
 // =============================================
@@ -279,6 +280,307 @@ function toast(msg,d=2500){
   setTimeout(()=>t.classList.remove('show'),d);
 }
 
+// =============================================
+// Google Drive Backup with Instructional Overlay
+// =============================================
+function driveBackup(){
+  // 1. Guard: nothing to back up
+  if(!entries || !entries.length){
+    toast('⚠️ No entries to back up yet.');
+    return;
+  }
+
+  // 2. Build a friendly backup payload
+  const backup = {
+    app: 'WebNotePad Diary',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    entryCount: entries.length,
+    entries: entries
+  };
+
+  // 3. Trigger the download
+  const stamp = new Date().toISOString().slice(0,10);
+  const filename = `webnotepad-diary-backup-${stamp}.json`;
+  const blob = new Blob([JSON.stringify(backup, null, 2)], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 1500);
+
+  // 4. Open Google Drive in a new tab (must be synchronous inside the click handler)
+  let driveTab = null;
+  try {
+    driveTab = window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener');
+  } catch(e) {
+    driveTab = null;
+  }
+
+  // 5. Show the mini instructional overlay
+  showDriveOverlay(filename, !!driveTab);
+}
+
+function showDriveOverlay(filename, driveOpened){
+  // Remove any existing overlay
+  const existing = document.getElementById('driveBackupOverlay');
+  if(existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'driveBackupOverlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-live', 'polite');
+  overlay.innerHTML = `
+    <div class="drive-overlay-card">
+      <button class="drive-overlay-close" aria-label="Close">✕</button>
+      <div class="drive-overlay-header">
+        <span class="drive-overlay-icon">☁️</span>
+        <div>
+          <h3>Backup ready for Google Drive</h3>
+          <p class="drive-overlay-file">${filename}</p>
+        </div>
+      </div>
+      <ol class="drive-overlay-steps">
+        <li><strong>1.</strong> Your backup file was downloaded automatically.</li>
+        <li><strong>2.</strong> ${driveOpened ? 'A Google Drive tab just opened.' : 'Open <em>drive.google.com</em> in a new tab.'}</li>
+        <li><strong>3.</strong> <strong>Drag the downloaded file into Drive</strong> to save it in the cloud.</li>
+      </ol>
+      <div class="drive-overlay-note">
+        💡 Tip: Repeat this backup every few weeks to keep your diary safe.
+      </div>
+      <div class="drive-overlay-actions">
+        <button class="drive-overlay-btn drive-overlay-btn-primary" id="driveOverlayGotIt">Got it</button>
+        <button class="drive-overlay-btn" id="driveOverlayReopen">Reopen Drive</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Trigger enter animation
+  requestAnimationFrame(() => overlay.classList.add('show'));
+
+  // Close handlers
+  const close = () => {
+    overlay.classList.remove('show');
+    setTimeout(() => overlay.remove(), 300);
+  };
+  overlay.querySelector('.drive-overlay-close').addEventListener('click', close);
+  overlay.querySelector('#driveOverlayGotIt').addEventListener('click', close);
+  overlay.querySelector('#driveOverlayReopen').addEventListener('click', () => {
+    window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener');
+  });
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay) close();
+  });
+  document.addEventListener('keydown', function escHandler(e){
+    if(e.key === 'Escape'){
+      close();
+      document.removeEventListener('keydown', escHandler);
+    }
+  });
+
+  // Auto-close after 15 seconds
+  setTimeout(() => {
+    if(document.body.contains(overlay)) close();
+  }, 15000);
+}
+
+// =============================================
+// Inject Drive overlay styles once
+// =============================================
+function injectDriveOverlayStyles(){
+  if(document.getElementById('driveOverlayStyles')) return;
+  const style = document.createElement('style');
+  style.id = 'driveOverlayStyles';
+  style.textContent = `
+    #driveBackupOverlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10050;
+      background: rgba(26, 26, 46, 0.35);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    #driveBackupOverlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .drive-overlay-card {
+      background: #fdf6ed;
+      color: #2c1a0e;
+      border-radius: 18px;
+      border: 1px solid #e8d5bc;
+      box-shadow: 0 20px 60px rgba(26, 26, 46, 0.25);
+      padding: 22px 22px 18px;
+      max-width: 380px;
+      width: 100%;
+      font-family: 'Nunito', system-ui, sans-serif;
+      transform: translateY(16px);
+      opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      position: relative;
+    }
+    #driveBackupOverlay.show .drive-overlay-card {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    body.dark .drive-overlay-card {
+      background: #1c1c22;
+      color: #e8e4dc;
+      border-color: #2a2a34;
+    }
+    .drive-overlay-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: inherit;
+      opacity: 0.55;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .drive-overlay-close:hover {
+      opacity: 1;
+      background: rgba(0,0,0,0.06);
+    }
+    body.dark .drive-overlay-close:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .drive-overlay-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-right: 24px;
+    }
+    .drive-overlay-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .drive-overlay-header h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 3px;
+      line-height: 1.25;
+    }
+    .drive-overlay-file {
+      font-size: 0.7rem;
+      font-family: 'Fira Mono', 'Courier New', monospace;
+      opacity: 0.6;
+      margin: 0;
+      word-break: break-all;
+    }
+    .drive-overlay-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .drive-overlay-steps li {
+      padding: 6px 0;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .drive-overlay-steps li strong:first-child {
+      color: #b8624a;
+      flex-shrink: 0;
+    }
+    body.dark .drive-overlay-steps li strong:first-child {
+      color: #e8714a;
+    }
+    .drive-overlay-note {
+      font-size: 0.75rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(184, 98, 74, 0.08);
+      border: 1px solid rgba(184, 98, 74, 0.2);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    body.dark .drive-overlay-note {
+      background: rgba(232, 113, 74, 0.12);
+      border-color: rgba(232, 113, 74, 0.25);
+    }
+    .drive-overlay-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .drive-overlay-btn {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #e8d5bc;
+      background: transparent;
+      color: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .drive-overlay-btn:hover {
+      background: rgba(184, 98, 74, 0.08);
+      border-color: #b8624a;
+    }
+    .drive-overlay-btn-primary {
+      background: #b8624a;
+      color: #fff;
+      border-color: #b8624a;
+    }
+    .drive-overlay-btn-primary:hover {
+      background: #c9705a;
+      border-color: #c9705a;
+      color: #fff;
+    }
+    body.dark .drive-overlay-btn-primary {
+      background: #e8714a;
+      border-color: #e8714a;
+    }
+    body.dark .drive-overlay-btn-primary:hover {
+      background: #f08560;
+      border-color: #f08560;
+    }
+    @media (max-width: 480px) {
+      #driveBackupOverlay {
+        padding: 12px;
+        align-items: flex-end;
+      }
+      .drive-overlay-card {
+        border-radius: 16px;
+        padding: 18px 18px 14px;
+      }
+      .drive-overlay-header h3 {
+        font-size: 0.95rem;
+      }
+      .drive-overlay-steps {
+        font-size: 0.8rem;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function initDiary(){
   load();
   render();
@@ -286,6 +588,7 @@ function initDiary(){
   updateStreak();
   initFAQ();
   initScrollAnim();
+  injectDriveOverlayStyles();
 
   // Restore dark mode
   if(localStorage.getItem('webnotepad_dark')==='1') document.body.classList.add('dark');
@@ -304,6 +607,7 @@ function initDiary(){
   $('dSaveBtn') && $('dSaveBtn').addEventListener('click',()=>{ persistActive(); save(); setSaving(false); toast('💾 Saved!'); });
   $('dDeleteBtn') && $('dDeleteBtn').addEventListener('click', deleteEntry);
   $('dExportAllBtn') && $('dExportAllBtn').addEventListener('click', exportAll);
+  $('dDriveBackupBtn') && $('dDriveBackupBtn').addEventListener('click', driveBackup);
   $('dPromptBtn') && $('dPromptBtn').addEventListener('click', insertPrompt);
   $('dSearch') && $('dSearch').addEventListener('input',e=>render(e.target.value,$('dMoodFilter').value));
   $('dMoodFilter') && $('dMoodFilter').addEventListener('change',e=>render($('dSearch').value,e.target.value));

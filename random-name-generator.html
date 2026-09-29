@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Name Generator – Free Full Names from Multiple Countries</title>
+    <meta name="description" content="Generate realistic random first and last names from many countries. Free, no signup, works offline. Instant results." />
+    <meta name="keywords" content="random name generator, random name, name generator, random full name generator, random first name, random last name, random person name, fake name generator, character name generator, name picker, random names from different countries" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/random-name-generator" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/random-name-generator" />
+    <meta property="og:title" content="Random Name Generator – Free Full Names from Multiple Countries" />
+    <meta property="og:description" content="Generate realistic random first and last names instantly. Free, no signup, works offline." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Random Name Generator – Free Full Names from Multiple Countries" />
+    <meta name="twitter:description" content="Generate realistic random first and last names instantly. Free, no signup, works offline." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Random Name Generator by WebNotePad",
+            "url": "https://webnotepad.github.io/random-name-generator",
+            "description": "A free random name generator that creates realistic first names, last names, and full names from multiple countries. Perfect for writers, game developers, and role-players.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Random first name generator",
+                "Random last name generator",
+                "Random full name generator",
+                "Bulk generation (up to 100 names)",
+                "Country-aware name pools",
+                "Copy to clipboard",
+                "Works offline",
+                "No signup required"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What is a random name generator?", "acceptedAnswer": { "@type": "Answer", "text": "A random name generator is a free online tool that produces plausible first names, last names, or full names by randomly combining entries from curated name lists. It's used by writers, game developers, and anyone needing placeholder names." } },
+                { "@type": "Question", "name": "Can I generate names from a specific country?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The generator can use country-specific name pools. When country data is available, you can pick a country from the dropdown and the tool will generate names that match that country's naming conventions." } },
+                { "@type": "Question", "name": "Can I generate multiple names at once?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Set the count to any value from 1 to 100 and click Generate to create a batch of random names. Perfect for populating character lists, test data, or role-playing campaigns." } },
+                { "@type": "Question", "name": "Are these names real people?", "acceptedAnswer": { "@type": "Answer", "text": "No. Names are randomly combined from public datasets of common first and last names. Any resemblance to a real person is coincidental." } },
+                { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All name generation happens entirely in your browser. Nothing is sent to any server, and nothing is stored. The tool works fully offline once loaded." } },
+                { "@type": "Question", "name": "Is the random name generator free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — 100% free with no signup, no email, and no hidden costs. Generate as many names as you like, as often as you like." } }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --rn-accent: #b8624a;
+            --rn-accent-light: #d17a60;
+            --rn-accent-pale: #f8e5df;
+            --rn-surface: #faf8f4;
+            --rn-border: #e8e2d6;
+            --rn-ink: #1a1a2e;
+            --rn-muted: #6b6b85;
+            --rn-warm: #f4f0e8;
+            --rn-radius: 8px;
+            --rn-radius-lg: 14px;
+            --rn-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --rn-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark {
+            --rn-accent: #e8714a;
+            --rn-accent-light: #f08560;
+            --rn-accent-pale: #2a1a14;
+            --rn-surface: #141418;
+            --rn-border: #2a2a34;
+            --rn-ink: #e8e4dc;
+            --rn-muted: #8a8678;
+            --rn-warm: #1c1c22;
+            --rn-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== HERO ===== */
+        .rn-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--rn-surface);
+            transition: background var(--rn-transition);
+        }
+        .rn-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--rn-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rn-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .rn-hero-bg { opacity: 0.1; }
+        .rn-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--rn-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .rn-hero-glow { opacity: 0.35; }
+        .rn-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .rn-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--rn-accent-pale);
+            color: var(--rn-accent);
+            border: 1px solid var(--rn-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .rn-hero-badge { background: rgba(232, 113, 74, 0.18); }
+        .rn-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--rn-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .rn-hero-accent {
+            color: var(--rn-accent);
+            font-style: italic;
+        }
+        .rn-hero-sub {
+            font-size: 0.9rem;
+            color: var(--rn-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .rn-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .rn-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .rn-demo-chip {
+            padding: 7px 16px;
+            background: var(--rn-warm);
+            border: 1px solid var(--rn-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--rn-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--rn-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .rn-demo-chip:hover {
+            background: var(--rn-accent-pale);
+            border-color: var(--rn-accent);
+            color: var(--rn-accent);
+        }
+
+        /* ===== APP SECTION ===== */
+        .rn-app-section {
+            padding: 0 0 80px;
+            background: var(--rn-surface);
+            transition: background var(--rn-transition);
+        }
+        .rn-app-shell {
+            background: var(--rn-warm);
+            border: 1px solid var(--rn-border);
+            border-radius: var(--rn-radius-lg);
+            box-shadow: var(--rn-shadow);
+            overflow: hidden;
+            transition: all var(--rn-transition);
+        }
+        .rn-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--rn-border);
+            background: var(--rn-surface);
+            flex-wrap: wrap;
+        }
+        .rn-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--rn-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rn-app-title .rn-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--rn-accent);
+            display: inline-block;
+            animation: rnPulse 2s infinite;
+        }
+        @keyframes rnPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .rn-app-actions-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Controls bar */
+        .rn-controls-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--rn-border);
+            background: var(--rn-surface);
+            flex-wrap: wrap;
+        }
+        .rn-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rn-control-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--rn-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .rn-select {
+            padding: 7px 12px;
+            border-radius: var(--rn-radius);
+            border: 1px solid var(--rn-border);
+            background: var(--rn-surface);
+            color: var(--rn-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--rn-transition);
+            min-width: 140px;
+        }
+        .rn-select:focus {
+            border-color: var(--rn-accent);
+            box-shadow: 0 0 0 3px var(--rn-accent-pale);
+        }
+        .rn-input-number {
+            width: 70px;
+            padding: 7px 10px;
+            border-radius: var(--rn-radius);
+            border: 1px solid var(--rn-border);
+            background: var(--rn-surface);
+            color: var(--rn-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            text-align: center;
+            transition: all var(--rn-transition);
+        }
+        .rn-input-number:focus {
+            border-color: var(--rn-accent);
+            box-shadow: 0 0 0 3px var(--rn-accent-pale);
+        }
+        .rn-control-sep {
+            width: 1px;
+            height: 24px;
+            background: var(--rn-border);
+            flex-shrink: 0;
+        }
+        .rn-generate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--rn-accent);
+            color: #ffffff;
+            border: 2px solid var(--rn-accent);
+            border-radius: var(--rn-radius);
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--rn-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+        .rn-generate-btn:hover {
+            background: var(--rn-accent-light);
+            border-color: var(--rn-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(184, 98, 74, 0.3);
+        }
+        .rn-generate-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        .rn-generate-btn .rn-gen-icon {
+            font-size: 1.05rem;
+            transition: transform var(--rn-transition);
+        }
+        .rn-generate-btn:hover .rn-gen-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Output area */
+        .rn-output-wrap {
+            padding: 16px 20px;
+            position: relative;
+        }
+        .rn-output-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--rn-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rn-output-badge {
+            font-size: 0.68rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--rn-accent-pale);
+            color: var(--rn-accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .rn-output-textarea {
+            width: 100%;
+            min-height: 240px;
+            max-height: 420px;
+            padding: 18px 20px;
+            border-radius: var(--rn-radius);
+            border: 1px solid var(--rn-accent);
+            background: var(--rn-surface);
+            color: var(--rn-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.9;
+            resize: vertical;
+            outline: none;
+            transition: all var(--rn-transition);
+            box-sizing: border-box;
+            box-shadow: 0 0 0 2px var(--rn-accent-pale);
+        }
+        .rn-output-textarea:focus {
+            border-color: var(--rn-accent);
+            box-shadow: 0 0 0 4px var(--rn-accent-pale);
+        }
+
+        /* Stats bar */
+        .rn-stats-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-top: 1px solid var(--rn-border);
+            background: var(--rn-surface);
+            font-size: 0.73rem;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--rn-muted);
+            flex-wrap: wrap;
+        }
+        .rn-stats-sep { color: var(--rn-border); flex-shrink: 0; }
+        .rn-stat-val { font-weight: 600; color: var(--rn-ink); }
+
+        /* Toast */
+        .rn-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--rn-ink);
+            color: var(--rn-surface);
+            padding: 12px 20px;
+            border-radius: var(--rn-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rn-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .rn-toast {
+            background: var(--rn-warm);
+            color: var(--rn-ink);
+            border: 1px solid var(--rn-border);
+        }
+
+        /* ===== HOW TO ===== */
+        .rn-how {
+            background: var(--rn-warm);
+            transition: background var(--rn-transition);
+        }
+        .rn-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .rn-how-card {
+            background: var(--rn-surface);
+            border: 1px solid var(--rn-border);
+            border-radius: var(--rn-radius-lg);
+            padding: 26px;
+            transition: all var(--rn-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rn-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rn-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--rn-transition);
+        }
+        .rn-how-card:hover { box-shadow: var(--rn-shadow); transform: translateY(-3px); }
+        .rn-how-card:hover::before { transform: scaleX(1); }
+        .rn-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--rn-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .rn-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rn-ink);
+            margin-bottom: 8px;
+        }
+        .rn-how-card p {
+            font-size: 0.85rem;
+            color: var(--rn-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION ===== */
+        .rn-desc {
+            background: var(--rn-surface);
+            transition: background var(--rn-transition);
+        }
+        .rn-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .rn-desc-text p {
+            font-size: 0.95rem;
+            color: var(--rn-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .rn-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .rn-benefit-tag {
+            padding: 6px 14px;
+            background: var(--rn-warm);
+            border: 1px solid var(--rn-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--rn-ink);
+            transition: all var(--rn-transition);
+        }
+        .rn-benefit-tag:hover {
+            background: var(--rn-accent-pale);
+            border-color: var(--rn-accent);
+            color: var(--rn-accent);
+        }
+        .rn-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rn-visual-card {
+            background: var(--rn-ink);
+            color: var(--rn-surface);
+            border-radius: var(--rn-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--rn-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.9;
+            position: relative;
+            width: 100%;
+        }
+        body.dark .rn-visual-card {
+            background: var(--rn-warm);
+            border: 1px solid var(--rn-border);
+            color: var(--rn-ink);
+        }
+        .rn-visual-card .rn-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--rn-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .rn-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        body.dark .rn-visual-row { border-bottom-color: var(--rn-border); }
+        .rn-visual-row:last-child { border-bottom: none; }
+        .rn-v-label {
+            opacity: 0.5;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .rn-v-text {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--rn-accent-light);
+        }
+        body.dark .rn-visual-card .rn-v-text { color: var(--rn-accent); }
+
+        /* ===== FAQ ===== */
+        .rn-faq {
+            background: var(--rn-warm);
+            transition: background var(--rn-transition);
+        }
+        .rn-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .rn-faq-item {
+            border: 1px solid var(--rn-border);
+            border-radius: var(--rn-radius);
+            overflow: hidden;
+            background: var(--rn-surface);
+            transition: border-color var(--rn-transition);
+        }
+        .rn-faq-item:has(.rn-faq-a[style*="block"]) { border-color: var(--rn-accent); }
+        .rn-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--rn-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--rn-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rn-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--rn-muted);
+            flex-shrink: 0;
+            transition: transform var(--rn-transition);
+        }
+        .rn-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--rn-accent); }
+        .rn-faq-q:hover { background: var(--rn-warm); }
+        .rn-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .rn-faq-a p {
+            font-size: 0.88rem;
+            color: var(--rn-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .rn-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .rn-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .rn-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .rn-hero { min-height: auto; padding: 24px 0 20px; }
+            .rn-how-grid { grid-template-columns: 1fr; }
+            .rn-output-textarea { min-height: 180px; max-height: 320px; font-size: 0.92rem; }
+            .rn-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .rn-stats-bar { gap: 8px; font-size: 0.68rem; }
+            .rn-controls-bar { gap: 10px; padding: 10px 14px; }
+            .rn-hero-demo { gap: 6px; }
+            .rn-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .rn-select { min-width: 110px; font-size: 0.75rem; }
+            .rn-input-number { width: 60px; font-size: 0.75rem; }
+            .rn-generate-btn { margin-left: 0; }
+        }
+        @media (max-width: 480px) {
+            .rn-hero-title { font-size: 1.6rem; }
+            .rn-generate-btn { padding: 9px 18px; font-size: 0.8rem; }
+            .rn-output-wrap { padding-left: 12px; padding-right: 12px; }
+            .rn-output-textarea { padding: 14px 16px; min-height: 150px; max-height: 260px; font-size: 0.88rem; }
+            .rn-app-header { padding: 10px 14px; }
+            .rn-controls-bar { padding: 8px 12px; gap: 6px; flex-direction: column; align-items: stretch; }
+            .rn-control-group { justify-content: space-between; }
+            .rn-stats-bar { padding: 8px 12px; font-size: 0.65rem; gap: 6px; }
+            .rn-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="rn-hero" id="home" aria-label="Random Name Generator Hero">
+            <div class="rn-hero-bg"></div>
+            <div class="rn-hero-glow"></div>
+            <div class="container rn-hero-inner">
+                <div class="rn-hero-badge">✦ Free Random Name Tool</div>
+                <h1 class="rn-hero-title">
+                    Generate random names.<br />
+                    <span class="rn-hero-accent">From every country.</span>
+                </h1>
+                <p class="rn-hero-sub">Create realistic first names, last names, and full names from multiple countries. Perfect for writers, game developers, and role-players — no signup, works offline.</p>
+                <div class="rn-hero-cta">
+                    <a href="#generator-app" class="btn btn-primary" style="background:var(--rn-accent);border-color:var(--rn-accent);">Open Generator <span>→</span></a>
+                </div>
+                <div class="rn-hero-demo">
+                    <span class="rn-demo-chip">Amelia Hartley</span>
+                    <span class="rn-demo-chip">Kenji Nakamura</span>
+                    <span class="rn-demo-chip">Sofia Ricci</span>
+                    <span class="rn-demo-chip">Liam O'Connor</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GENERATOR APP ===== -->
+        <section class="rn-app-section" id="generator-app" aria-label="Random Name Generator Application">
+            <div class="container">
+                <div class="rn-app-shell">
+                    <!-- App Header -->
+                    <div class="rn-app-header">
+                        <span class="rn-app-title"><span class="rn-dot"></span> Random Name Generator</span>
+                        <div class="rn-app-actions-header">
+                            <button class="btn-tool" id="rnCopyBtn" title="Copy generated names" aria-label="Copy generated names">⎘ Copy</button>
+                            <button class="btn-tool" id="rnClearBtn" title="Clear output" aria-label="Clear output">✕ Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Controls Bar -->
+                    <div class="rn-controls-bar">
+                        <div class="rn-control-group">
+                            <label class="rn-control-label" for="rnNameType">Type</label>
+                            <select class="rn-select" id="rnNameType" aria-label="Select name type">
+                                <option value="full" selected>Full Name</option>
+                                <option value="first">First Name</option>
+                                <option value="last">Last Name</option>
+                            </select>
+                        </div>
+                        <span class="rn-control-sep"></span>
+                        <div class="rn-control-group">
+                            <label class="rn-control-label" for="rnCountry">Country</label>
+                            <select class="rn-select" id="rnCountry" aria-label="Select country">
+                                <option value="any" selected>Any / Mixed</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="jp">Japan</option>
+                                <option value="it">Italy</option>
+                                <option value="fr">France</option>
+                                <option value="de">Germany</option>
+                                <option value="es">Spain</option>
+                                <option value="in">India</option>
+                                <option value="br">Brazil</option>
+                            </select>
+                        </div>
+                        <span class="rn-control-sep"></span>
+                        <div class="rn-control-group">
+                            <label class="rn-control-label" for="rnCount">Count</label>
+                            <input type="number" class="rn-input-number" id="rnCount" value="10" min="1" max="100" aria-label="Number of names" />
+                        </div>
+                        <button class="rn-generate-btn" id="rnGenerateBtn" aria-label="Generate random names">
+                            <span class="rn-gen-icon">⚡</span> Generate Names
+                        </button>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="rn-output-wrap">
+                        <label class="rn-output-label" for="rnOutputArea">
+                            ✅ Generated Names
+                            <span class="rn-output-badge" id="rnOutputBadge" style="display:none;">✨ Generated</span>
+                        </label>
+                        <textarea class="rn-output-textarea" id="rnOutputArea" placeholder="Your generated names will appear here… configure the settings above and click 'Generate Names' to begin." aria-label="Generated names output" rows="8" readonly></textarea>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="rn-stats-bar">
+                        <span>Names: <span class="rn-stat-val" id="rnNameCount">0</span></span>
+                        <span class="rn-stats-sep">|</span>
+                        <span>Type: <span class="rn-stat-val" id="rnTypeIndicator">Full Name</span></span>
+                        <span class="rn-stats-sep">|</span>
+                        <span>Country: <span class="rn-stat-val" id="rnCountryIndicator">Any / Mixed</span></span>
+                        <span class="rn-stats-sep">|</span>
+                        <span id="rnLoadStatus" style="color:var(--rn-accent);font-weight:600;">Loading name data…</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section rn-how" id="how-to-use" aria-label="How to use the random name generator">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Generate names in <em>3 easy steps.</em></h2>
+                <div class="rn-how-grid">
+                    <div class="rn-how-card">
+                        <div class="rn-how-num">01</div>
+                        <h3>Pick Your Settings</h3>
+                        <p>Choose what to generate — <strong>full name, first name, or last name</strong> — then pick a country (or leave it as "Any / Mixed" for a global pool) and set how many names you need (1–100).</p>
+                    </div>
+                    <div class="rn-how-card">
+                        <div class="rn-how-num">02</div>
+                        <h3>Click Generate</h3>
+                        <p>Hit the <strong>⚡ Generate Names</strong> button to instantly create a fresh batch of realistic names. Every click pulls from a curated pool of common first and last names.</p>
+                    </div>
+                    <div class="rn-how-card">
+                        <div class="rn-how-num">03</div>
+                        <h3>Copy & Use</h3>
+                        <p>Use the <strong>⎘ Copy</strong> button to grab the entire list to your clipboard. Paste into your manuscript, game design doc, screenplay, or test data — anywhere you need names fast.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section rn-desc" id="about-generator" aria-label="About the random name generator">
+            <div class="container rn-desc-inner">
+                <div class="rn-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Ultimate Free <em>Random Name Generator</em></h2>
+                    <p>A random name generator is a tool that produces plausible names by randomly combining entries from curated pools of first names and last names. It's the fastest way to fill in placeholder names for stories, games, screenplays, mockups, and test data.</p>
+                    <p>Writers use it to <strong>name characters</strong> without accidentally reusing a name or getting stuck on one. Game developers use it to <strong>populate NPCs</strong>, players, and quest givers. Role-players use it to <strong>create believable personas</strong>. Designers use it to fill in placeholder content for mockups so real content doesn't bias the layout.</p>
+                    <p>Our generator draws from <strong>country-aware name pools</strong> — so if you select "Japan", you get names that sound Japanese; select "Italy" and you get Italian first and last names. Or leave it set to <strong>"Any / Mixed"</strong> for a truly global random mix.</p>
+                    <p>Everything runs locally in your browser using a simple fetch-and-shuffle approach. No server requests after the initial data load, no accounts, and no tracking. Once the name files are cached, the generator even works <strong>offline</strong>.</p>
+                    <div class="rn-desc-benefits">
+                        <span class="rn-benefit-tag">🌍 Country-Aware</span>
+                        <span class="rn-benefit-tag">⚡ Instant Results</span>
+                        <span class="rn-benefit-tag">📋 One-Click Copy</span>
+                        <span class="rn-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="rn-benefit-tag">🔒 100% Private</span>
+                        <span class="rn-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="rn-desc-visual">
+                    <div class="rn-visual-card">
+                        <div class="rn-v-line"></div>
+                        <div class="rn-visual-row">
+                            <span class="rn-v-label">US</span>
+                            <span class="rn-v-text">Emily Carter</span>
+                        </div>
+                        <div class="rn-visual-row">
+                            <span class="rn-v-label">JP</span>
+                            <span class="rn-v-text">Yuki Tanaka</span>
+                        </div>
+                        <div class="rn-visual-row">
+                            <span class="rn-v-label">IT</span>
+                            <span class="rn-v-text">Marco Rossi</span>
+                        </div>
+                        <div class="rn-visual-row">
+                            <span class="rn-v-label">FR</span>
+                            <span class="rn-v-text">Camille Laurent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section rn-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="rn-faq-list" id="rnFaqList">
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">What is a random name generator?</button>
+                        <div class="rn-faq-a"><p>A random name generator is a free online tool that produces plausible first names, last names, or full names by randomly combining entries from curated name lists. It's used by writers, game developers, and anyone needing placeholder names.</p></div>
+                    </div>
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">Can I generate names from a specific country?</button>
+                        <div class="rn-faq-a"><p>Yes. The generator can use country-specific name pools. When country data is available, you can pick a country from the dropdown and the tool will generate names that match that country's naming conventions.</p></div>
+                    </div>
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">Can I generate multiple names at once?</button>
+                        <div class="rn-faq-a"><p>Yes. Set the count to any value from 1 to 100 and click Generate to create a batch of random names. Perfect for populating character lists, test data, or role-playing campaigns.</p></div>
+                    </div>
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">Are these names real people?</button>
+                        <div class="rn-faq-a"><p>No. Names are randomly combined from public datasets of common first and last names. Any resemblance to a real person is coincidental.</p></div>
+                    </div>
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">Is my data private?</button>
+                        <div class="rn-faq-a"><p>Absolutely. All name generation happens entirely in your browser. Nothing is sent to any server, and nothing is stored. The tool works fully offline once loaded.</p></div>
+                    </div>
+                    <div class="rn-faq-item">
+                        <button class="rn-faq-q" aria-expanded="false">Is the random name generator free?</button>
+                        <div class="rn-faq-a"><p>Yes — 100% free with no signup, no email, and no hidden costs. Generate as many names as you like, as often as you like.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="rn-toast" id="rnToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // ===== FALLBACK NAME POOLS (used if files fail to load) =====
+            const FALLBACK_FIRST_NAMES = [
+                'Amelia','Oliver','Sophia','Liam','Isabella','Noah','Mia','Ethan','Charlotte','Lucas',
+                'Emma','Mason','Ava','Logan','Harper','Elijah','Evelyn','James','Abigail','Benjamin',
+                'Emily','Alexander','Elizabeth','Michael','Sofia','Daniel','Camila','Henry','Aria','Jackson',
+                'Yuki','Haruto','Sakura','Ren','Aoi','Hiroshi','Yuna','Kenji','Mei','Takumi',
+                'Marco','Sofia','Luca','Giulia','Matteo','Chiara','Alessandro','Francesca','Lorenzo','Giulia',
+                'Camille','Lucas','Chloé','Hugo','Manon','Théo','Léa','Nathan','Emma','Louis',
+                'Anna','Lukas','Mia','Finn','Lea','Jonas','Emma','Leon','Sophie','Paul',
+                'Lucía','Hugo','Martina','Pablo','Sofía','Daniel','Paula','Álvaro','Elena','Adrián',
+                'Aarav','Diya','Vivaan','Ananya','Aditya','Ishita','Arjun','Saanvi','Reyansh','Aadhya',
+                'Miguel','Alice','Arthur','Helena','Bernardo','Valentina','Davi','Laura','Gabriel','Beatriz'
+            ];
+            const FALLBACK_LAST_NAMES = [
+                'Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez',
+                'Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin',
+                'Tanaka','Suzuki','Takahashi','Watanabe','Ito','Yamamoto','Nakamura','Kobayashi','Kato','Yoshida',
+                'Rossi','Russo','Ferrari','Esposito','Bianchi','Romano','Colombo','Ricci','Marino','Greco',
+                'Martin','Bernard','Dubois','Thomas','Robert','Richard','Petit','Durand','Leroy','Moreau',
+                'Müller','Schmidt','Schneider','Fischer','Weber','Meyer','Wagner','Becker','Schulz','Hoffmann',
+                'García','Martínez','López','Sánchez','González','Rodríguez','Fernández','Gómez','Ruiz','Díaz',
+                'Sharma','Patel','Kumar','Singh','Gupta','Verma','Reddy','Rao','Nair','Joshi',
+                'Silva','Santos','Oliveira','Souza','Rodrigues','Ferreira','Alves','Pereira','Lima','Gomes',
+                'Smith','Jones','Williams','Brown','Taylor','Davies','Evans','Wilson','Thomas','Roberts'
+            ];
+
+            // ===== STATE =====
+            let firstNames = [];
+            let lastNames = [];
+            let namesByCountry = {};
+            let namesLoaded = false;
+
+            // ===== DOM =====
+            const nameTypeSelect = document.getElementById('rnNameType');
+            const countrySelect = document.getElementById('rnCountry');
+            const countInput = document.getElementById('rnCount');
+            const generateBtn = document.getElementById('rnGenerateBtn');
+            const copyBtn = document.getElementById('rnCopyBtn');
+            const clearBtn = document.getElementById('rnClearBtn');
+            const outputArea = document.getElementById('rnOutputArea');
+            const outputBadge = document.getElementById('rnOutputBadge');
+            const nameCountEl = document.getElementById('rnNameCount');
+            const typeIndicator = document.getElementById('rnTypeIndicator');
+            const countryIndicator = document.getElementById('rnCountryIndicator');
+            const loadStatus = document.getElementById('rnLoadStatus');
+            const toast = document.getElementById('rnToast');
+            const faqItems = document.querySelectorAll('.rn-faq-q');
+
+            let toastTimer = null;
+
+            // ===== HELPERS =====
+            function showToast(msg, duration = 2200) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = msg;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => toast.classList.remove('show'), duration);
+            }
+
+            function getRandomItem(arr) {
+                if (!arr || arr.length === 0) return null;
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            function shuffle(arr) {
+                const a = [...arr];
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                return a;
+            }
+
+            // ===== FILE LOADERS =====
+            async function loadTextNames(firstPath, lastPath) {
+                try {
+                    const [firstRes, lastRes] = await Promise.all([
+                        fetch(firstPath),
+                        fetch(lastPath)
+                    ]);
+
+                    if (!firstRes.ok || !lastRes.ok) {
+                        throw new Error('Failed to load name files');
+                    }
+
+                    const firstText = await firstRes.text();
+                    const lastText = await lastRes.text();
+
+                    firstNames = firstText
+                        .split('\n')
+                        .map(name => name.trim())
+                        .filter(name => name.length > 0);
+
+                    lastNames = lastText
+                        .split('\n')
+                        .map(name => name.trim())
+                        .filter(name => name.length > 0);
+
+                    if (!firstNames.length || !lastNames.length) {
+                        throw new Error('Name files are empty');
+                    }
+
+                    namesLoaded = true;
+                    updateLoadStatus(true, firstNames.length, lastNames.length);
+                    console.log(`Loaded ${firstNames.length} first names and ${lastNames.length} last names`);
+                } catch (error) {
+                    console.warn('Could not load text name files, using fallback lists.', error);
+                    useFallbackNames();
+                }
+            }
+
+            async function loadCountryNames(jsonPath) {
+                try {
+                    const response = await fetch(jsonPath);
+                    if (!response.ok) throw new Error('Failed to load country names');
+                    namesByCountry = await response.json();
+                    console.log('Country-based names loaded successfully');
+                } catch (error) {
+                    console.warn('Country names unavailable — country filter will fall back to the global pool.', error);
+                    namesByCountry = {};
+                }
+            }
+
+            function useFallbackNames() {
+                firstNames = FALLBACK_FIRST_NAMES.slice();
+                lastNames = FALLBACK_LAST_NAMES.slice();
+                namesLoaded = true;
+                updateLoadStatus(false, firstNames.length, lastNames.length);
+            }
+
+            function updateLoadStatus(loadedFromFile, firstCount, lastCount) {
+                if (!loadStatus) return;
+                if (loadedFromFile) {
+                    loadStatus.textContent = `✓ Ready — ${firstCount} first / ${lastCount} last names`;
+                    loadStatus.style.color = '#16a34a';
+                } else {
+                    loadStatus.textContent = `⚠ Using built-in names (${firstCount} first / ${lastCount} last)`;
+                    loadStatus.style.color = 'var(--rn-accent)';
+                }
+            }
+
+            // ===== GENERATION =====
+            function getPoolForCountry(countryKey, kind) {
+                // If a country-specific pool exists, use it
+                if (countryKey && countryKey !== 'any' && namesByCountry[countryKey]) {
+                    const data = namesByCountry[countryKey];
+                    // Try to read the appropriate array from common JSON shapes
+                    if (Array.isArray(data)) return data;
+                    if (kind === 'first' && Array.isArray(data.first)) return data.first;
+                    if (kind === 'last' && Array.isArray(data.last)) return data.last;
+                    if (Array.isArray(data.names)) return data.names;
+                    if (Array.isArray(data.forenames)) return data.forenames;
+                }
+                // Otherwise fall back to the global pool
+                return kind === 'first' ? firstNames : lastNames;
+            }
+
+            function generateOne(kind, countryKey) {
+                if (kind === 'first') {
+                    return getRandomItem(getPoolForCountry(countryKey, 'first')) || '—';
+                }
+                if (kind === 'last') {
+                    return getRandomItem(getPoolForCountry(countryKey, 'last')) || '—';
+                }
+                // full name
+                const first = getRandomItem(getPoolForCountry(countryKey, 'first')) || '—';
+                const last  = getRandomItem(getPoolForCountry(countryKey, 'last'))  || '—';
+                return `${first} ${last}`;
+            }
+
+            function generateNames() {
+                if (!namesLoaded) {
+                    showToast('⏳ Name data is still loading…');
+                    return;
+                }
+
+                const kind = nameTypeSelect.value;
+                const country = countrySelect.value;
+                let count = parseInt(countInput.value, 10);
+                if (isNaN(count) || count < 1) count = 1;
+                if (count > 100) count = 100;
+                countInput.value = count;
+
+                const results = [];
+                for (let i = 0; i < count; i++) {
+                    results.push(generateOne(kind, country));
+                }
+
+                outputArea.value = results.join('\n');
+                outputBadge.style.display = 'inline-flex';
+                nameCountEl.textContent = results.length;
+                updateTypeIndicator();
+                updateCountryIndicator();
+
+                // Pulse animation
+                outputArea.style.transition = 'none';
+                outputArea.style.boxShadow = '0 0 0 6px var(--rn-accent-pale)';
+                setTimeout(() => {
+                    outputArea.style.transition = 'all 0.35s ease';
+                    outputArea.style.boxShadow = '0 0 0 2px var(--rn-accent-pale)';
+                }, 50);
+            }
+
+            function updateTypeIndicator() {
+                const kind = nameTypeSelect.value;
+                const labels = { full: 'Full Name', first: 'First Name', last: 'Last Name' };
+                typeIndicator.textContent = labels[kind] || 'Full Name';
+            }
+
+            function updateCountryIndicator() {
+                const key = countrySelect.value;
+                if (key === 'any') {
+                    countryIndicator.textContent = 'Any / Mixed';
+                } else {
+                    const opt = countrySelect.querySelector(`option[value="${key}"]`);
+                    countryIndicator.textContent = opt ? opt.textContent : key.toUpperCase();
+                }
+            }
+
+            // ===== COPY / CLEAR =====
+            function copyNames() {
+                const text = outputArea.value;
+                if (!text.trim()) {
+                    showToast('⚠️ Nothing to copy. Generate some names first.');
+                    return;
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast('✅ Names copied to clipboard!');
+                    }).catch(() => fallbackCopy(text));
+                } else {
+                    fallbackCopy(text);
+                }
+            }
+
+            function fallbackCopy(text) {
+                outputArea.removeAttribute('readonly');
+                outputArea.select();
+                outputArea.setSelectionRange(0, 99999);
+                try {
+                    document.execCommand('copy');
+                    showToast('✅ Names copied to clipboard!');
+                } catch (err) {
+                    showToast('⚠️ Copy failed. Please select and copy manually.');
+                }
+                outputArea.setAttribute('readonly', 'true');
+                window.getSelection().removeAllRanges();
+            }
+
+            function clearOutput() {
+                outputArea.value = '';
+                outputBadge.style.display = 'none';
+                nameCountEl.textContent = '0';
+                showToast('✕ Output cleared.');
+            }
+
+            // ===== FAQ =====
+            function initFAQ() {
+                faqItems.forEach(qBtn => {
+                    qBtn.addEventListener('click', () => {
+                        const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                        qBtn.setAttribute('aria-expanded', !expanded);
+                        const answer = qBtn.nextElementSibling;
+                        if (answer) answer.style.display = expanded ? 'none' : 'block';
+                    });
+                });
+            }
+
+            // ===== EVENT LISTENERS =====
+            generateBtn.addEventListener('click', generateNames);
+            copyBtn.addEventListener('click', copyNames);
+            clearBtn.addEventListener('click', clearOutput);
+
+            nameTypeSelect.addEventListener('change', () => {
+                updateTypeIndicator();
+                if (outputArea.value.trim()) generateNames();
+            });
+
+            countrySelect.addEventListener('change', () => {
+                updateCountryIndicator();
+                if (outputArea.value.trim()) generateNames();
+            });
+
+            countInput.addEventListener('change', () => {
+                let v = parseInt(countInput.value, 10);
+                if (isNaN(v) || v < 1) countInput.value = 1;
+                if (v > 100) countInput.value = 100;
+            });
+
+            // Keyboard shortcut: Ctrl/Cmd + Enter to generate
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    e.preventDefault();
+                    generateNames();
+                }
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    copyNames();
+                }
+            });
+
+            // ===== INIT =====
+            initFAQ();
+            updateTypeIndicator();
+            updateCountryIndicator();
+
+            // Try to load the name files from the repo. If they fail, fall back gracefully.
+            (async function init() {
+                // 1. Load global text files (one name per line)
+                await loadTextNames(
+                    '/data/first_names.all.txt',
+                    '/data/last_names.all.txt'
+                );
+
+                // 2. Load optional country JSON (adjust path when you add it)
+                //    Expected shape (any of these works):
+                //      { "jp": { "first": [...], "last": [...] }, "it": { ... } }
+                //      { "jp": [...], "it": [...] }  // single array per country
+                await loadCountryNames('/data/names-by-country.json');
+
+                // Auto-generate the first batch so the user sees something immediately
+                if (namesLoaded) {
+                    generateNames();
+                }
+            })();
+
+            console.log('✅ Random Name Generator ready — first, last, and full names.');
+            console.log('   Shortcuts: Ctrl+Enter = generate | Ctrl+Shift+C = copy');
+        })();
+    </script>
+</body>
+</html>

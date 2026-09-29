@@ -3,6 +3,7 @@
    Includes: diary.js + diary-pdf.js
    Updated: PDF modal with 300x250 ad + 5s countdown gate
           + Google Drive backup with instructional overlay
+          + Import / Restore backup from .json file
    ============================================= */
 
 // =============================================
@@ -347,6 +348,7 @@ function showDriveOverlay(filename, driveOpened){
         <li><strong>1.</strong> Your backup file was downloaded automatically.</li>
         <li><strong>2.</strong> ${driveOpened ? 'A Google Drive tab just opened.' : 'Open <em>drive.google.com</em> in a new tab.'}</li>
         <li><strong>3.</strong> <strong>Drag the downloaded file into Drive</strong> to save it in the cloud.</li>
+        <li><strong>4.</strong> To restore later, click <strong>⬆ Restore</strong> and pick this file.</li>
       </ol>
       <div class="drive-overlay-note">
         💡 Tip: Repeat this backup every few weeks to keep your diary safe.
@@ -386,6 +388,101 @@ function showDriveOverlay(filename, driveOpened){
   setTimeout(() => {
     if(document.body.contains(overlay)) close();
   }, 15000);
+}
+
+// =============================================
+// Import / Restore Backup
+// =============================================
+function importBackup(){
+  const input = $('dImportInput');
+  if(!input) {
+    toast('⚠️ Import input not found on the page.');
+    return;
+  }
+  input.value = '';       // reset so the same file can be re-picked
+  input.click();          // open the file picker
+}
+
+function handleImportFile(evt){
+  const file = evt.target.files && evt.target.files[0];
+  if(!file) return;
+
+  // Sanity check: must be a JSON file
+  if(!/\.json$/i.test(file.name)){
+    toast('⚠️ Please choose a .json backup file.');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    let parsed;
+    try {
+      parsed = JSON.parse(e.target.result);
+    } catch(err) {
+      toast('❌ That file is not a valid backup.');
+      return;
+    }
+
+    // Accept both our own payload shape and a raw entries array
+    let incoming = [];
+    if(Array.isArray(parsed)) {
+      incoming = parsed;
+    } else if(parsed && Array.isArray(parsed.entries)) {
+      incoming = parsed.entries;
+    } else {
+      toast('❌ Backup file has an unrecognised format.');
+      return;
+    }
+
+    // Filter to entries that look valid (must have an id + content or title)
+    incoming = incoming.filter(x => x && typeof x === 'object' && (x.id || x.title || x.content));
+    if(!incoming.length){
+      toast('❌ No usable entries found in that file.');
+      return;
+    }
+
+    // Confirm before merging
+    const msg =
+      `Restore ${incoming.length} entr${incoming.length === 1 ? 'y' : 'ies'}?\n\n` +
+      `This will MERGE with your current diary. Entries with the same ID will be updated; new ones will be added.`;
+    if(!confirm(msg)) return;
+
+    // Merge: existing entries by id, incoming entries overwrite/append
+    const byId = new Map();
+    entries.forEach(e => byId.set(e.id, e));
+    let added = 0, updated = 0;
+
+    incoming.forEach(inc => {
+      // Ensure required fields exist on imported entries
+      const clean = {
+        id:       inc.id || ('de_' + Date.now() + '_' + Math.random().toString(36).slice(2,5)),
+        title:    inc.title    || '',
+        date:     inc.date     || today(),
+        mood:     inc.mood     || '',
+        tags:     inc.tags     || '',
+        content:  inc.content  || '',
+        created:  inc.created  || Date.now(),
+        updated:  inc.updated  || Date.now()
+      };
+      if(byId.has(clean.id)) updated++;
+      else added++;
+      byId.set(clean.id, clean);
+    });
+
+    // Rebuild array sorted by updated desc
+    entries = Array.from(byId.values()).sort((a,b) => (b.updated || 0) - (a.updated || 0));
+    activeId = entries[0].id;
+
+    save();
+    loadActive();
+    render();
+    updateStreak();
+
+    toast(`✅ Restored — ${added} new, ${updated} updated.`);
+  };
+
+  reader.onerror = () => toast('❌ Could not read that file.');
+  reader.readAsText(file);
 }
 
 // =============================================
@@ -608,6 +705,8 @@ function initDiary(){
   $('dDeleteBtn') && $('dDeleteBtn').addEventListener('click', deleteEntry);
   $('dExportAllBtn') && $('dExportAllBtn').addEventListener('click', exportAll);
   $('dDriveBackupBtn') && $('dDriveBackupBtn').addEventListener('click', driveBackup);
+  $('dImportBtn') && $('dImportBtn').addEventListener('click', importBackup);
+  $('dImportInput') && $('dImportInput').addEventListener('change', handleImportFile);
   $('dPromptBtn') && $('dPromptBtn').addEventListener('click', insertPrompt);
   $('dSearch') && $('dSearch').addEventListener('input',e=>render(e.target.value,$('dMoodFilter').value));
   $('dMoodFilter') && $('dMoodFilter').addEventListener('change',e=>render($('dSearch').value,e.target.value));

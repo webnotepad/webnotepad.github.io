@@ -4,6 +4,7 @@
  * Theme: Editorial / Ink-on-paper aesthetic
  * Updated: Category-wise organization with attention-grabbing pulsing trigger
  *          + 300x250 banner ad slot at the top of the sidebar
+ *          + 2-column grid layout for tools
  */
 
 (function () {
@@ -233,89 +234,33 @@
       display: block;
     }
 
-    /* Scrollable items menu wrapper */
+    /* Scrollable items menu wrapper — 2 columns */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
       padding: 12px 16px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      align-content: start;
     }
 
-    /* Category Section Headers */
+    /* Category Section Headers — span both columns */
     .tools-sb-category {
+      grid-column: 1 / -1;
       font-family: var(--font-display);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--ink-muted);
-      padding: 16px 6px 6px 6px;
+      padding: 14px 4px 6px 4px;
       border-bottom: 1px solid var(--paper-edge);
       margin-top: 4px;
       opacity: 0.7;
     }
     .tools-sb-category:first-of-type {
       padding-top: 6px;
-    }
-
-    /* Single Tool Items Card Styling & Animation */
-    .tools-sb-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 10px 12px;
-      border-radius: var(--radius);
-      border: 1px solid transparent;
-      background: transparent;
-      transition: all var(--transition);
-      opacity: 0;
-      transform: translateX(20px);
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .tools-fixed-sidebar.open .tools-sb-item {
-      animation: slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    .tools-sb-item:hover {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-      transform: translateY(-1px);
-    }
-    .tools-sb-item-icon {
-      font-size: 1.2rem;
-      width: 34px;
-      height: 34px;
-      background: var(--paper-warm);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--paper-edge);
-      transition: background var(--transition);
-      flex-shrink: 0;
-    }
-    .tools-sb-item:hover .tools-sb-item-icon {
-      background: var(--accent-pale);
-    }
-    body.dark .tools-sb-item:hover .tools-sb-item-icon {
-      background: rgba(196,86,42,0.15);
-    }
-    .tools-sb-item-details {
-      flex: 1;
-      min-width: 0;
-    }
-    .tools-sb-item-name {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 1px;
-    }
-    .tools-sb-item-desc {
-      font-size: 0.74rem;
-      color: var(--ink-muted);
-      line-height: 1.3;
     }
 
     /* Category item count badge */
@@ -325,6 +270,76 @@
       color: var(--ink-muted);
       opacity: 0.5;
       margin-left: 6px;
+    }
+
+    /* Single Tool Items Card — compact for 2-column grid */
+    .tools-sb-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      padding: 14px 8px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      transition: all var(--transition);
+      opacity: 0;
+      transform: translateY(10px);
+      text-decoration: none;
+      cursor: pointer;
+      min-width: 0;
+    }
+    .tools-fixed-sidebar.open .tools-sb-item {
+      animation: slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .tools-sb-item:hover {
+      background: var(--paper);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .tools-sb-item-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      background: var(--paper);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--paper-edge);
+      transition: background var(--transition), border-color var(--transition);
+      flex-shrink: 0;
+    }
+    .tools-sb-item:hover .tools-sb-item-icon {
+      background: var(--accent-pale);
+      border-color: var(--accent);
+    }
+    body.dark .tools-sb-item:hover .tools-sb-item-icon {
+      background: rgba(196,86,42,0.15);
+    }
+    .tools-sb-item-details {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+    }
+    .tools-sb-item-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+    .tools-sb-item-desc {
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Scrollbar styling */
@@ -343,7 +358,7 @@
     @keyframes slideInItem {
       to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
 
@@ -375,11 +390,24 @@
       .tools-sb-header h2 {
         font-size: 1rem;
       }
+      .tools-sb-body {
+        padding: 10px 12px 20px;
+        gap: 6px;
+      }
       .tools-sb-item {
-        padding: 8px 10px;
+        padding: 10px 6px 8px;
+        gap: 6px;
+      }
+      .tools-sb-item-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 1.2rem;
       }
       .tools-sb-item-name {
-        font-size: 0.82rem;
+        font-size: 0.72rem;
+      }
+      .tools-sb-item-desc {
+        font-size: 0.6rem;
       }
       .tools-sb-ad {
         padding: 12px 10px 8px;

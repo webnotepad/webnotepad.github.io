@@ -922,31 +922,215 @@
             'use strict';
 
             // ===== FALLBACK NAME POOLS (used if files fail to load) =====
-            const FALLBACK_FIRST_NAMES = [
-                'Amelia','Oliver','Sophia','Liam','Isabella','Noah','Mia','Ethan','Charlotte','Lucas',
-                'Emma','Mason','Ava','Logan','Harper','Elijah','Evelyn','James','Abigail','Benjamin',
-                'Emily','Alexander','Elizabeth','Michael','Sofia','Daniel','Camila','Henry','Aria','Jackson',
-                'Yuki','Haruto','Sakura','Ren','Aoi','Hiroshi','Yuna','Kenji','Mei','Takumi',
-                'Marco','Sofia','Luca','Giulia','Matteo','Chiara','Alessandro','Francesca','Lorenzo','Giulia',
-                'Camille','Lucas','Chloé','Hugo','Manon','Théo','Léa','Nathan','Emma','Louis',
-                'Anna','Lukas','Mia','Finn','Lea','Jonas','Emma','Leon','Sophie','Paul',
-                'Lucía','Hugo','Martina','Pablo','Sofía','Daniel','Paula','Álvaro','Elena','Adrián',
-                'Aarav','Diya','Vivaan','Ananya','Aditya','Ishita','Arjun','Saanvi','Reyansh','Aadhya',
-                'Miguel','Alice','Arthur','Helena','Bernardo','Valentina','Davi','Laura','Gabriel','Beatriz'
-            ];
-            const FALLBACK_LAST_NAMES = [
-                'Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez',
-                'Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin',
-                'Tanaka','Suzuki','Takahashi','Watanabe','Ito','Yamamoto','Nakamura','Kobayashi','Kato','Yoshida',
-                'Rossi','Russo','Ferrari','Esposito','Bianchi','Romano','Colombo','Ricci','Marino','Greco',
-                'Martin','Bernard','Dubois','Thomas','Robert','Richard','Petit','Durand','Leroy','Moreau',
-                'Müller','Schmidt','Schneider','Fischer','Weber','Meyer','Wagner','Becker','Schulz','Hoffmann',
-                'García','Martínez','López','Sánchez','González','Rodríguez','Fernández','Gómez','Ruiz','Díaz',
-                'Sharma','Patel','Kumar','Singh','Gupta','Verma','Reddy','Rao','Nair','Joshi',
-                'Silva','Santos','Oliveira','Souza','Rodrigues','Ferreira','Alves','Pereira','Lima','Gomes',
-                'Smith','Jones','Williams','Brown','Taylor','Davies','Evans','Wilson','Thomas','Roberts'
-            ];
+const FALLBACK_FIRST_NAMES = [
+    // --- Global / Western / English / Diverse ---
+    'Amelia','Oliver','Sophia','Liam','Isabella','Noah','Mia','Ethan','Charlotte','Lucas',
+    'Emma','Mason','Ava','Logan','Harper','Elijah','Evelyn','James','Abigail','Benjamin',
+    'Emily','Alexander','Elizabeth','Michael','Sofia','Daniel','Camila','Henry','Aria','Jackson',
+    'Scarlett','Sebastian','Victoria','Jack','Avery','Owen','Ella','Gabriel','Chloe','Carter',
+    'Penelope','Jayden','Layla','John','Riley','Luke','Zoey','Anthony','Nora','Isaac',
+    'Lily','Dylan','Eleanor','Wyatt','Hannah','Carter','Lillian','Julian','Addison','Grayson',
+    'Aubrey','Leo','Ellie','Jayce','Stella','Caleb','Natalie','Christian','Zoe','Hunter',
+    'Leah','Eli','Hazel','Ezra','Violet','Aaron','Aurora','Landon','Savannah','Adrian',
+    'Audrey','Jonathan','Brooklyn','Nolan','Bella','Jeremiah','Claire','Ezekiel','Skylar','Easton',
+    'Lucy','Miles','Paisley','Colton','Everly','Tristan','Anna','Carson','Caroline','Jasper',
+    'Nova','Brody','Genesis','Asher','Emery','Silas','Maya','Waylon','Piper','Dominic',
+    'Sadie','Xavier','Ruby','Ian','Serenity','Bentley','Eva','Ryder','Alice','Damian',
+    'Autumn','Lincoln','Autum','Kai','Quinn','Sawyer','Nevaeh','Josiah','Hailey','Declan',
+    'Kaylee','Weston','Cora','Micah','Madelyn','Axel','Clara','Harrison','Vivian','Enzo',
+    'Eliana','Theodore','Jade','Gael','Peyton','Braxton','Brielle','Rowan','Elena','Silas',
+    'Adeline','Jameson','Isla','Everett','Willow','Greyson','Melanie','Wesley','Ivy','Axel',
+    'Lyla','Jeremiah','Rylee','Sloan','Lydia','Jordan','Taylor','Kinsley','Reagan','Jaxon',
+    'Naomi','Brandon','Faith','Zachary','Annabelle','Emmett','Rose','Jason','Alexandra','Declan',
+    'Ashley','Tyler','Brianna','Jose','Sienna','Cole','Mary','Carlos','Julia','Juan',
+    'Gianna','George','Valerie','Timothy','Katherine','Javier','Iris','Damian','Ember','Diego',
+    'Adalynn','Bryan','Kenzie','Victor','Aaliyah','Jude','Sloan','Maxwell','Katelyn','Ivan',
+    'Maeve','Gavin','Genevieve','Preston','Giselle','Emilio','Vanessa','Kenneth','Daisy','Arthur',
+    'Alina','Max','Amara','Oscar','Fiona','Knox','Freya','Patrick','Elise','Edward',
+    'Summer','Richard','Margot','Grant','Mya','Callum','Gemma','Finn','Valeria','Graham',
+    'Sutton','Steven','Teagan','Paul','Alana','Gael','Esther','Marcus','Callie','Bradley',
+    'Camilla','Simon','Dakota','Rafael','Rowan','Bryan','Noelle','Derek','Talia','Kobe',
 
+    // --- East Asian (Japanese, Chinese, Korean) ---
+    'Yuki','Haruto','Sakura','Ren','Aoi','Hiroshi','Yuna','Kenji','Mei','Takumi',
+    'Sora','Kaito','Hina','Riku','Yui','Souta','Akari','Daiki','Mio','Kazuki',
+    'Honoka','Shota','Natsuki','Tatsuya','Rin','Naoki','Misaki','Kenta','Ayaka','Ryota',
+    'Nanami','Kazuya','Koharu','Yuta','Kana','Hinata','Momoka','Yuto','Yuka','Shin',
+    'Wei','Ming','Lian','Chen','Xiu','Yang','Jing','Feng','Mei','Long',
+    'Hao','Zhen','Ting','Lei','Yun','Jian','Fang','Tao','Ping','Hua',
+    'Min','Seo','Jun','Ji','Eun','Hyun','Soo','Doyoung','Haeyoung','Yong',
+    'Jae','Su','Yeon','Dong','Woo','Chae','Kyu','Sung','Jihyun','Seok',
+
+    // --- South Asian (Indian, Pakistani, Bengali) ---
+    'Aarav','Diya','Vivaan','Ananya','Aditya','Ishita','Arjun','Saanvi','Reyansh','Aadhya',
+    'Kabir','Anya','Vihaan','Myra','Ayaan','Pari','Krishna','Riya','Dhruv','Avani',
+    'Atharv','Ira','Shaurya','Kiara','Dev','Prisha','Yash','Aarohi','Ishan','Tanvi',
+    'Samarth','Navya','Rudra','Kavya','Veer','Nisha','Aadi','Anushka','Rohan','Bhavya',
+    'Zayn','Ayra','Hamza','Ayla',' Bilal','Zahra','Omar','Fatima','Tariq','Maryam',
+    'Ahmad','Sana','Rayyan','Aisha','Zaid','Amina','Usman','Hoorain','Faris','Eshal',
+    'Syed','Zara','Mustafa','Mahnoor','Ibrahim','Anaya','Saad','Hania','Ali','Inaya',
+
+    // --- Middle Eastern & North African ---
+    'Amir','Leila','Youssef','Yasmin','Tariq','Nour','Kareem','Dalia','Farid','Hana',
+    'Malik','Samira','Rashid','Salma','Ziad','Rania','Nabil','Lina','Sami','Jana',
+    'Walid','Amani','Hassan','Farida','Khaled','Maya','Bassem','Amira','Rami','Reem',
+    'Sharif','Sherin','Habib','Dina','Elias','Nada','Anas','Lujain','Adel','Mona',
+
+    // --- Italian & Mediterranean ---
+    'Marco','Sofia','Luca','Giulia','Matteo','Chiara','Alessandro','Francesca','Lorenzo','Giuliana',
+    'Giovanni','Elena','Andrea','Martina','Davide','Giorgia','Simone','Sara','Federico','Alice',
+    'Gabriele','Beatrice','Riccardo','Alessia','Tommaso','Camilla','Edoardo','Ludovica','Stefano','Chiara',
+    'Antonio','Serena','Giuseppe','Valentina','Filippo','Silvia','Pietro','Elisa','Daniele','Ilaria',
+
+    // --- French ---
+    'Camille','Lucas','Chloé','Hugo','Manon','Théo','Léa','Nathan','Emma','Louis',
+    'Enzo','Inès','Gabriel','Jade','Jules','Louise','Arthur','Alice','Raphaël','Lina',
+    'Maël','Eva','Paul','Louna','Mathis','Romane','Clement','Clémence','Maxence','Jeanne',
+    'Antoine','Océane','Valentin','Margaux','Julien','Charlotte','Alexandre','Sarah','Bastien','Noémie',
+
+    // --- German & Central European ---
+    'Anna','Lukas','Mia','Finn','Lea','Jonas','Emma','Leon','Sophie','Paul',
+    'Felix','Hannah','Maximilian','Laura','Marie','Tim','Nele','Moritz','Johanna','Jan',
+    'Lara','Julian','Lilly','Florian','Sina','Niklas','Clara','Tobias','Emily','Philipp',
+    'Maja','Sebastian','Pia','Fabian','Luisa','Dominik','Jana','David','Annika','Elias',
+
+    // --- Spanish & Hispanic ---
+    'Lucía','Hugo','Martina','Pablo','Sofía','Daniel','Paula','Álvaro','Elena','Adrián',
+    'Mateo','Valeria','Leo','Irene','Lucas','Alba','Manuel','Claudia','Alejandro','Lola',
+    'Diego','Laura','Javier','Carmen','Marcos','Marta','Gonzalo','Sara','Carlos','Carla',
+    'Mario','Ana','Iker','Nerea','Sergio','Inés','Fernando','Julia','Jorge','Natalia',
+
+    // --- Portuguese & Brazilian ---
+    'Miguel','Alice','Arthur','Helena','Bernardo','Valentina','Davi','Laura','Gabriel','Beatriz',
+    'Heitor','Luiza','Pedro','Maria','Lorenzo','Sophia','Théo','Manuela','Enzo','Guilherme',
+    'Isadora','Rafael','Clarice','Felipe','Cecília','Samuel','Mariana','Gustavo','Lorena','Murilo',
+
+    // --- Slavic / Eastern European ---
+    'Ivan','Anastasia','Dmitry','Elena','Maksim','Olga','Artem','Anna','Nikita','Tatiana',
+    'Alexei','Ekaterina','Sergei','Irina','Mikhail','Yulia','Pavel','Natalia','Andrei','Maria',
+    'Viktor','Svetlana','Roman','Ksenia','Egor','Polina','Denis','Daria','Ilya','Marina',
+    'Jan','Zuzana','Jakub','Eliska','Tomas','Tereza','Petr','Adela','Filip','Kristyna',
+
+    // --- African (West, East, Southern) ---
+    'Kofi','Amara','Kwame','Zuri','Tunde','Nia','Jabari','Amina','Oluwaseun','Fatou',
+    'Sekou','Ayo','Tendai','Makena','Simba','Zola','Siddiq','Sade','Mosi','Keziah',
+    'Dakarai','Khadija','Esi','Chidubem','Folake','Juma','Lindiwe','Babatunde','Abebe','Tariro',
+
+    // --- Nordic / Scandinavian ---
+    'Astrid','Frej','Freja','Sven','Ingrid','Lars','Sigrid','Erik','Elin','Henrik',
+    'Maja','Magnus','Signe','Oskar','Linnea','Gustav','Tuva','Axel','Ida','Nils',
+
+    // --- Modern / Diverse Expanded ---
+    'Ainsley','Boden','Callan','Darian','Elian','Flynn','Gideon','Huxley','Indie','Jett',
+    'Kellan','Lennon','Miller','Nico','Orion','Porter','Quincy','Remi','Stetson','Tate',
+    'Uriah','Vance','Wren','Xander','Yael','Zeke','Adley','Bexley','Colette','Della',
+    'Elowen','Frankie','Goldie','Holland','Ivory','Jubilee','Koa','Lennox','Marlowe','Naya',
+    'Oakley','Paloma','Rory','Sutton','Tinsley','Vienna','Waverly','Xia','Yara','Zelda',
+    'Alistair','Benedict','Caspian','Dorian','Evander','Finnegan','Gideon','Ignatius','Julian','Lucian',
+    'Montgomery','Nicanor','Oswald','Peregrine','Quentin','Roderick','Thaddeus','Ulysses','Valerius','Winston',
+    'Aurelia','Beatrix','Clementine','Cordelia','Evangeline','Flora','Genevieve','Isadora','Lavinia','Magnolia',
+    'Ophelia','Persephone','Rosalind','Seraphina','Theodora','Ursula','Viola','Willa','Xanthe','Yvaine',
+    'Amias','Bram','Cormac','Dashiell','Elio','Ford','Gulliver','Hutton','Inigo','Jovan',
+    'Koa','Leander','Murphy','Niles','Otis','Phineas','Rhodes','Shepherd','Torin','Wells',
+    'Aviva','Blythe','Clover','Delilah','Elora','Faye','Gwen','Greta','Hadley','Ines',
+    'Juno','Kaya','Lulu','Maren','Nola','Opal','Pearl','Romilly','Sylvie','Thea'
+];
+
+const FALLBACK_LAST_NAMES = [
+    // --- Anglo / American / British / Global ---
+    'Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Rodriguez','Martinez',
+    'Hernandez','Lopez','Gonzalez','Wilson','Anderson','Thomas','Taylor','Moore','Jackson','Martin',
+    'Lee','Perez','Thompson','White','Harris','Sanchez','Clark','Ramirez','Lewis','Robinson',
+    'Walker','Young','Allen','King','Wright','Scott','Torres','Nguyen','Hill','Flores',
+    'Green','Adams','Nelson','Baker','Hall','Rivera','Campbell','Mitchell','Carter','Roberts',
+    'Gomez','Phillips','Evans','Turner','Diaz','Parker','Cruz','Edwards','Collins','Reyes',
+    'Stewart','Morris','Morales','Murphy','Cook','Rogers','Gutierrez','Ortiz','Morgan','Cooper',
+    'Peterson','Bailey','Reed','Kelly','Howard','Ramos','Kim','Cox','Ward','Richardson',
+    'Watson','Brooks','Chavez','Wood','James','Bennett','Mendoza','Ruiz','Hughes','Price',
+    'Alvarez','Castillo','Sanders','Patel','Myers','Long','Ross','Foster','Jimenez','Powell',
+    'Jenkins','Perry','Russell','Sullivan','Bell','Coleman','Butler','Henderson','Barnes','Gonzales',
+    'Fisher','Vasquez','Simmons','Romero','Jordan','Patterson','Alexander','Hamilton','Graham','Reynolds',
+    'Griffin','Wallace','Moreno','West','Cole','Hayes','Bryant','Herrera','Gibson','Ellis',
+    'Tran','Medina','Aguilar','Stevens','Murray','Ford','Castro','Marshall','Owens','Harrison',
+    'Fernandez','Mcdonald','Woods','Washington','Kennedy','Wells','Vargas','Henry','Chen','Freeman',
+    'Webb','Tucker','Guzman','Burns','Crawford','Olson','Simpson','Porter','Hunter','Gordon',
+    'Mendez','Silva','Shaw','Snyder','Mason','Dixon','Munoz','Hunt','Hicks','Holmes',
+    'Palmer','Wagner','Black','Robertson','Boyd','Rose','Stone','Salazar','Fox','Warren',
+    'Mills','Meyer','Rice','Schmidt','Garza','Daniels','Ferguson','Nichols','Stephens','Soto',
+    'Weaver','Ryan','Gardner','Payne','Grant','Dunn','Kelley','Spencer','Hawkins','Arnold',
+    'Pierce','Vazquez','Hansen','Peters','Santos','Hart','Bradley','Knight','Elliott','Cunningham',
+    'Duncan','Armstrong','Hudson','Carroll','Lane','Riley','Andrews','Alvarado','Ray','Delgado',
+
+    // --- Japanese ---
+    'Tanaka','Suzuki','Takahashi','Watanabe','Ito','Yamamoto','Nakamura','Kobayashi','Kato','Yoshida',
+    'Yamada','Sasaki','Yamaguchi','Saito','Matsumoto','Inoue','Kimura','Hayashi','Shimizu','Yamazaki',
+    'Mori','Abe','Ikeda','Hashimoto','Yamashita','Ishikawa','Nakajima','Maeda','Fujita','Ogawa',
+    'Goto','Okada','Hasegawa','Murakami','Kondo','Ishii','Saito','Sakai','Inoue','Fukushima',
+
+    // --- Chinese ---
+    'Wang','Li','Zhang','Liu','Chen','Yang','Huang','Zhao','Wu','Zhou',
+    'Xu','Sun','Ma','Zhu','Hu','Guo','He','Gao','Lin','Luo',
+    'Zheng','Liang','Xie','Song','Tang','Xu','Han','Feng','Deng','Cao',
+    'Peng','Zeng','Xiao','Tian','Dong','Yuan','Pan','Yu','Ye','Jiang',
+
+    // --- Korean ---
+    'Kim','Lee','Park','Choi','Jung','Kang','Cho','Yoon','Jang','Lim',
+    'Han','Shin','Seo','Kwon','Son','Hwang','Ahn','Song','Ryu','Hong',
+
+    // --- South Asian (Indian, Pakistani, Bangladeshi) ---
+    'Sharma','Patel','Kumar','Singh','Gupta','Verma','Reddy','Rao','Nair','Joshi',
+    'Khan','Bhatt','Mehta','Shah','Chowdhury','Das','Mukherjee','Banerjee','Roy','Deshmukh',
+    'Bukhari','Siddiqui','Qureshi','Malik','Chaudhry','Rizvi','Mirza','Hussain','Ahmed','Sheikh',
+    'Kapoor','Malhotra','Khanna','Chawla','Bhasin','Saxena','Srivastava','Mishra','Pandey','Tiwari',
+
+    // --- Middle Eastern & North African ---
+    'Al-Mansi','El-Sayed','Hassan','Al-Mansoor','Khoury','Haddad','Nassar','Tahan','Hariri','Bitar',
+    'Suleiman','Daher','Kassir','Masih','Saleh','Fakhoury','Chalhoub','Chamoun','Ghanem','Atiyeh',
+
+    // --- Italian ---
+    'Rossi','Russo','Ferrari','Esposito','Bianchi','Romano','Colombo','Ricci','Marino','Greco',
+    'Bruno','Gallo','Conti','De Luca','Mancini','Costa','Giordano','Rizzo','Lombardi','Moretti',
+    'Barbieri','Fontana','Santoro','Mariani','Rinaldi','Caruso','Ferraro','Gallardo','Leone','Lombardo',
+
+    // --- French ---
+    'Martin','Bernard','Dubois','Thomas','Robert','Richard','Petit','Durand','Leroy','Moreau',
+    'Simon','Laurent','Lefebvre','Michel','Garcia','David','Bertrand','Roux','Vincent','Fournier',
+    'Morel','Girard','Andre','Mercier','Dupont','Lambert','Bonnet','Francois','Martinez','Legrand',
+
+    // --- German & Central European ---
+    'Müller','Schmidt','Schneider','Fischer','Weber','Meyer','Wagner','Becker','Schulz','Hoffmann',
+    'Schäfer','Koch','Bauer','Richter','Klein','Wolf','Schröder','Neumann','Schwarz','Zimmermann',
+    'Braun','Krüger','Hofmann','Hartmann','Lange','Schmitt','Werner','Schmitz','Krause','Meier',
+
+    // --- Spanish & Hispanic ---
+    'García','Martínez','López','Sánchez','González','Rodríguez','Fernández','Gómez','Ruiz','Díaz',
+    'Álvarez','Jiménez','Moreno','Muñoz','Alonso','Gutiérrez','Romero','Navarro','Torres','Domínguez',
+    'Vázquez','Ramos','Gil','Serrano','Blanco','Molina','Morales','Suárez','Ortega','Delgado',
+
+    // --- Portuguese & Brazilian ---
+    'Silva','Santos','Oliveira','Souza','Rodrigues','Ferreira','Alves','Pereira','Lima','Gomes',
+    'Costa','Ribeiro','Martins','Carvalho','Almeida','Lopes','Soares','Fernandes','Vieira','Barbosa',
+    'Rocha','Dias','Nascimento','Andrade','Moreira','Nunes','Marques','Machado','Mendes','Freitas',
+
+    // --- Slavic / Eastern European ---
+    'Ivanov','Smirnov','Kuznetsov','Popov','Vasiliev','Petrov','Sokolov','Mikhailov','Fedorov','Morozov',
+    'Volkov','Alekseev','Lebedev','Semenov','Egorov','Pavlov','Kozlov','Stepanov','Nikolaev','Orlov',
+    'Nowak','Kowalski','Wisniewski','Wojcik','Kowalczyk','Kaminski','Lewandowski','Zielinski','Szymanski','Wozniak',
+
+    // --- Scandinavian ---
+    'Johansson','Andersson','Karlsson','Nilsson','Eriksson','Larsson','Olsson','Persson','Svensson','Gustafsson',
+    'Hansen','Jensen','Olsen','Larsen','Pedersen','Nielsen','Rasmussen','Jørgensen','Madsen','Kristensen',
+
+    // --- Unique & Modern Surname Expansion ---
+    'Ainsley','Ashford','Bexley','Blackwood','Breckenridge','Calder','Cavendish','Davenport','Ellington','Fairfax',
+    'Granville','Holloway','Kingsley','Lancaster','Lennox','Montgomery','Northwood','Pembroke','Radcliffe','Stanhope',
+    'Thornwood','Underwood','Vanguard','Waverly','Winterbourne','Abernathy','Barrington','Chamberlain','Deacon','Eldridge',
+    'Finch','Gallowglass','Hawthorne','Ives','Kensington','Lockwood','Mercer','Nightingale','Oakridge','Prescott',
+    'Quinsley','Redwood','Sterling','Taverner','Upton','Vane','Westbrook','Yates','Zimmerman','Alabaster',
+    'Beaumont','Corbett','Dunsford','Eastaughff','Falkner','Greshman','Hargreaves','Inglewood','Jemison','Keats',
+    'Lovelace','Moncrieff','Netherton','Oakhaven','Pennypacker','Quatremain','Ramsbury','Silverton','Trelawney','Vining',
+    'Wentworth','Yorkshire','Aberdeen','Bancroft','Caldwell','Danforth','Eastwood','Fairweather','Garrington','Hedley'
+];
             // ===== STATE =====
             let firstNames = [];
             let lastNames = [];

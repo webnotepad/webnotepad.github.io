@@ -145,6 +145,17 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
+    /* Hide social share trigger when tools sidebar is open */
+body.tools-sidebar-open .social-floating-trigger,
+body.tools-sidebar-open .social-share-popup,
+body.tools-sidebar-open .social-toast {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    
     .social-popup-header {
       display: flex;
       align-items: center;
@@ -512,7 +523,32 @@
     e.stopPropagation();
     togglePopup();
   });
+  // ---- Hide when tools sidebar is open ----
+const sidebarObserver = new MutationObserver(() => {
+  const sidebar = document.getElementById('toolsFixedSidebar');
+  if (sidebar && sidebar.classList.contains('open')) {
+    document.body.classList.add('tools-sidebar-open');
+    closePopup();
+  } else {
+    document.body.classList.remove('tools-sidebar-open');
+  }
+});
 
+// Observe the sidebar when it exists
+const sidebarEl = document.getElementById('toolsFixedSidebar');
+if (sidebarEl) {
+  sidebarObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class'] });
+} else {
+  // Sidebar may not be in DOM yet — wait for it
+  const bodyObserver = new MutationObserver(() => {
+    const sb = document.getElementById('toolsFixedSidebar');
+    if (sb) {
+      bodyObserver.disconnect();
+      sidebarObserver.observe(sb, { attributes: true, attributeFilter: ['class'] });
+    }
+  });
+  bodyObserver.observe(document.body, { childList: true, subtree: true });
+}
   // Close button inside popup
   const closeBtn = document.getElementById('socialPopupClose');
   if (closeBtn) {

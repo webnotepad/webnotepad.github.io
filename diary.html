@@ -102,10 +102,20 @@
             </div>
             <div class="d-entries-list" id="dEntriesList"></div>
             <div class="d-sidebar-footer">
-              <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries">⬇ Export</button>
-              <button class="d-icon-btn" id="dDriveBackupBtn" title="Backup to Google Drive">☁ Drive</button>
-              <span class="d-entry-count" id="dEntryCount">0 entries</span>
-            </div>
+  <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries">⬇ Export</button>
+  <button class="d-icon-btn d-drive-btn" id="dDriveBackupBtn" title="Backup to Google Drive" aria-label="Backup to Google Drive">
+    <svg viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" class="d-drive-icon" aria-hidden="true">
+      <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+      <path d="M43.65 25L29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44A9.06 9.06 0 000 53h27.5z" fill="#00ac47"/>
+      <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.5z" fill="#ea4335"/>
+      <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+      <path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+      <path d="M73.4 26.5L60.7 4.5c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+    </svg>
+    <span class="d-drive-label">Drive</span>
+  </button>
+  <span class="d-entry-count" id="dEntryCount">0 entries</span>
+</div>
           </aside>
 
           <!-- Editor -->
@@ -271,6 +281,105 @@
      ADDITIONAL STYLES (round borders, grid, etc.)
      ============================================= -->
 <style>
+  /* ---- Google Drive backup button ---- */
+.d-drive-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px !important;
+  background: #ffffff;
+  border: 1px solid var(--d-tan, #e8d5bc);
+  border-radius: 8px;
+  color: var(--d-ink, #2c1a0e);
+  font-weight: 600;
+  font-size: 0.8rem;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  animation: driveBlink 3.2s ease-in-out infinite;
+}
+
+.d-drive-btn .d-drive-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+}
+
+.d-drive-btn .d-drive-label {
+  letter-spacing: 0.01em;
+}
+
+.d-drive-btn:hover {
+  background: #f8f9fa;
+  border-color: #c9c3b8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+  animation-play-state: paused;
+}
+
+.d-drive-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Soft attention pulse — gentle, not annoying */
+@keyframes driveBlink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: var(--d-tan, #e8d5bc);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(66, 133, 244, 0.12);
+    border-color: rgba(66, 133, 244, 0.45);
+  }
+}
+
+/* Dark mode */
+body.dark .d-drive-btn {
+  background: #1c1c22;
+  border-color: #2a2a34;
+  color: #e8e4dc;
+}
+body.dark .d-drive-btn:hover {
+  background: #232329;
+  border-color: #3a3a44;
+}
+body.dark .d-drive-btn {
+  animation: driveBlinkDark 3.2s ease-in-out infinite;
+}
+@keyframes driveBlinkDark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: #2a2a34;
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(66, 133, 244, 0.18);
+    border-color: rgba(66, 133, 244, 0.55);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .d-drive-btn,
+  body.dark .d-drive-btn {
+    animation: none;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .d-drive-btn {
+    padding: 5px 9px !important;
+    font-size: 0.72rem;
+  }
+  .d-drive-btn .d-drive-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
 /* ---- image cards section ---- */
 .d-image-cards {
   background: var(--d-cream);

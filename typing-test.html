@@ -1152,512 +1152,469 @@
     <div id="tools-sidebar-root"></div>
     <script src="/components/sidebar.js"></script>
     <script>
-        (function () {
-            'use strict';
+    (function () {
+        'use strict';
 
-            // ===== WORD / SENTENCE / QUOTE POOLS =====
-            const EASY_WORDS = ['the','and','for','you','that','with','have','this','from','they','know','want','been','good','much','some','time','very','when','come','here','just','like','long','make','many','more','only','over','such','take','than','them','well','were','what','your','about','after','again','could','every','first','found','great','house','large','learn','never','other','place','right','small','sound','still','study','their','there','these','thing','think','three','water','where','which','while','white','whole','world','would','write','young'];
-            const MEDIUM_WORDS = ['ability','absolute','academic','accepted','accurate','achieved','acquired','activity','actually','addition','adequate','adjusted','advanced','advocate','aircraft','alliance','although','analysis','announce','anything','anywhere','apparent','approach','approval','argument','assuming','attitude','attorney','audience','becoming','benefits','birthday','boundary','building','business','campaign','candidate','capacity','category','changing','character','children','citizens','clinical','combined','commercial','committee','compared','complete','composed','computer','concept','concern','condition','conducted','confidence','conflict','confused','congress','consider','constant','consumer','continue','contract','contrast','convince','coverage','creative','criminal','critical','cultural','customer','decision','declared','definite','describe','designed','detailed','determine','develop','difference','difficult','direction','directly','discover','discussed','distance','distinct','division','dominant','dramatic','duration','economic','election','electric','element','emergency','emotion','employee','engineer','enormous','entirely','equipment','essential','evaluate','eventual','evidence','exchange','exercise','existing','expected','experience','explain','external','familiar','feature','federal','feeling','financial','finding','foreign','former','formula','frequent','friendly','function','general','generate','gradual','grateful','growing','guarantee','handful','healthy','hearing','helpful','historic','hospital','however','hundred','husband','identify','imagine','immediate','important','improve','include','increase','indeed','indicate','individual','industry','initial','instead','intense','interest','internal','involve','island','issue','journal','justice','knowledge','language','leading','length','letter','likely','limited','listen','literary','location','magazine','maintain','major','manage','material','matter','measure','medical','member','message','military','million','minute','miss','modern','moment','morning','movement','multiple','music','national','natural','necessary','negative','neither','network','normal','nothing','notice','number','obvious','occur','ocean','offer','office','official','operate','opinion','opportunity','opposite','option','ordinary','organic','original','otherwise','outside','owner','package','particular','partner','passage','patient','pattern','performance','perhaps','period','personal','physical','picture','piece','place','plain','plan','plant','plastic','plate','platform','player','pleasant','please','pleasure','plenty','pocket','poem','poet','point','police','policy','political','poor','popular','population','position','positive','possible','post','potato','potential','pound','power','practical','prepare','present','president','press','pressure','pretty','prevent','previous','price','primary','prime','principle','print','prior','prison','private','prize','probably','problem','process','produce','product','professor','program','progress','project','property','protect','prove','provide','public','publish','purpose','quality','question','quickly','quiet','quite','radio','raise','range','rapidly','rather','reach','reaction','reader','reality','realize','reason','receive','recent','recognize','record','recover','reduce','refer','reflect','reform','refuse','regard','region','regular','reject','relate','relax','release','relief','religion','reluctant','remain','remember','remind','remove','repeat','replace','report','represent','request','require','research','resemble','reserve','resident','resist','resolve','resort','resource','respect','respond','response','responsibility','restore','result','retain','retire','return','reveal','reverse','review','revolution','reward','rhythm','ridiculous','river','rough','round','routine','royal','rural','sacred','safety','salary','sample','satellite','satisfy','scale','scatter','scenario','schedule','scheme','scholar','school','science','scratch','screen','script','sculpture','search','season','second','secret','section','secure','security','select','senior','sense','sentence','series','serious','serve','service','session','settle','several','severe','shadow','shake','shape','share','sharp','shelter','shift','shine','shoot','shore','short','shoulder','shout','shut','sight','signal','silence','silent','silver','similar','simple','simply','since','single','sister','situation','skill','slight','smooth','social','society','software','solid','solution','someone','something','sometime','somewhat','sophisticated','sound','source','southern','specific','spirit','spite','split','spread','spring','square','stable','stadium','staff','stage','standard','standing','statement','station','status','steady','stomach','storage','strange','strategy','street','strength','stress','stretch','strike','string','strong','structure','struggle','student','studio','stuff','stupid','subject','submit','succeed','success','sudden','suffer','suggest','summer','superior','supply','support','suppose','surface','surgery','surprise','surround','survey','survive','suspect','suspend','sustain','sweet','symbol','system','talent','target','teaching','technology','telephone','tendency','tennis','tension','terrible','territory','theater','theory','therapy','threat','threaten','through','throughout','tobacco','together','tomorrow','tonight','totally','tourist','toward','tradition','traffic','tragedy','transfer','transform','translate','transport','travel','treat','treaty','tremendous','trigger','trouble','truck','truly','trust','truth','typical','ultimate','understand','universe','unknown','unlike','unusual','upgrade','upper','urban','usage','useful','usual','utility','vacation','valley','valuable','variety','various','vehicle','version','victim','victory','video','village','violent','virtual','visible','vision','visual','volume','volunteer','warrant','weakness','wealth','weapon','weather','website','weekend','welcome','welfare','western','whatever','whenever','whereas','wherever','whether','which','while','whisper','whoever','wholesale','widespread','willing','window','winner','winter','wisdom','within','without','witness','wonder','wooden','worker','workshop','worried','worry','worth','would','wound','wrist','writer','writing','written','wrong','yesterday','yield','young','youth','zone'];
-            const HARD_WORDS = ['ubiquitous','juxtaposition','conscientious','entrepreneurial','surreptitious','idiosyncratic','unprecedented','metamorphosis','malfeasance','perspicacious','antediluvian','heterogeneous','circumlocution','obfuscation','parliamentary','misanthrope','equilibrium','pneumonia','quintessential','incomprehensible','phosphorescent','archaeological','bourgeoisie','connoisseur','disproportionate','extravaganza','flabbergasted','grandiloquent','hypocritical','inconsequential','juxtapose','kaleidoscope','labyrinthine','magnanimous','narcissistic','obsequious','paradoxical','quizzical','rambunctious','serendipity','tantamount','unambiguous','vicissitude','wherewithal','xenophobic','yesteryear','zealous'];
+        // ===== WORD / SENTENCE / QUOTE POOLS =====
+        const EASY_WORDS = ['the','and','for','you','that','with','have','this','from','they','know','want','been','good','much','some','time','very','when','come','here','just','like','long','make','many','more','only','over','such','take','than','them','well','were','what','your','about','after','again','could','every','first','found','great','house','large','learn','never','other','place','right','small','sound','still','study','their','there','these','thing','think','three','water','where','which','while','white','whole','world','would','write','young'];
+        const MEDIUM_WORDS = ['ability','absolute','academic','accepted','accurate','achieved','acquired','activity','actually','addition','adequate','adjusted','advanced','advocate','aircraft','alliance','although','analysis','announce','anything','anywhere','apparent','approach','approval','argument','assuming','attitude','attorney','audience','becoming','benefits','birthday','boundary','building','business','campaign','candidate','capacity','category','changing','character','children','citizens','clinical','combined','commercial','committee','compared','complete','composed','computer','concept','concern','condition','conducted','confidence','conflict','confused','congress','consider','constant','consumer','continue','contract','contrast','convince','coverage','creative','criminal','critical','cultural','customer','decision','declared','definite','describe','designed','detailed','determine','develop','difference','difficult','direction','directly','discover','discussed','distance','distinct','division','dominant','dramatic','duration','economic','election','electric','element','emergency','emotion','employee','engineer','enormous','entirely','equipment','essential','evaluate','eventual','evidence','exchange','exercise','existing','expected','experience','explain','external','familiar','feature','federal','feeling','financial','finding','foreign','former','formula','frequent','friendly','function','general','generate','gradual','grateful','growing','guarantee','handful','healthy','hearing','helpful','historic','hospital','however','hundred','husband','identify','imagine','immediate','important','improve','include','increase','indeed','indicate','individual','industry','initial','instead','intense','interest','internal','involve','island','issue','journal','justice','knowledge','language','leading','length','letter','likely','limited','listen','literary','location','magazine','maintain','major','manage','material','matter','measure','medical','member','message','military','million','minute','miss','modern','moment','morning','movement','multiple','music','national','natural','necessary','negative','neither','network','normal','nothing','notice','number','obvious','occur','ocean','offer','office','official','operate','opinion','opportunity','opposite','option','ordinary','organic','original','otherwise','outside','owner','package','particular','partner','passage','patient','pattern','performance','perhaps','period','personal','physical','picture','piece','place','plain','plan','plant','plastic','plate','platform','player','pleasant','please','pleasure','plenty','pocket','poem','poet','point','police','policy','political','poor','popular','population','position','positive','possible','post','potato','potential','pound','power','practical','prepare','present','president','press','pressure','pretty','prevent','previous','price','primary','prime','principle','print','prior','prison','private','prize','probably','problem','process','produce','product','professor','program','progress','project','property','protect','prove','provide','public','publish','purpose','quality','question','quickly','quiet','quite','radio','raise','range','rapidly','rather','reach','reaction','reader','reality','realize','reason','receive','recent','recognize','record','recover','reduce','refer','reflect','reform','refuse','regard','region','regular','reject','relate','relax','release','relief','religion','reluctant','remain','remember','remind','remove','repeat','replace','report','represent','request','require','research','resemble','reserve','resident','resist','resolve','resort','resource','respect','respond','response','responsibility','restore','result','retain','retire','return','reveal','reverse','review','revolution','reward','rhythm','ridiculous','river','rough','round','routine','royal','rural','sacred','safety','salary','sample','satellite','satisfy','scale','scatter','scenario','schedule','scheme','scholar','school','science','scratch','screen','script','sculpture','search','season','second','secret','section','secure','security','select','senior','sense','sentence','series','serious','serve','service','session','settle','several','severe','shadow','shake','shape','share','sharp','shelter','shift','shine','shoot','shore','short','shoulder','shout','shut','sight','signal','silence','silent','silver','similar','simple','simply','since','single','sister','situation','skill','slight','smooth','social','society','software','solid','solution','someone','something','sometime','somewhat','sophisticated','sound','source','southern','specific','spirit','spite','split','spread','spring','square','stable','stadium','staff','stage','standard','standing','statement','station','status','steady','stomach','storage','strange','strategy','street','strength','stress','stretch','strike','string','strong','structure','struggle','student','studio','stuff','stupid','subject','submit','succeed','success','sudden','suffer','suggest','summer','superior','supply','support','suppose','surface','surgery','surprise','surround','survey','survive','suspect','suspend','sustain','sweet','symbol','system','talent','target','teaching','technology','telephone','tendency','tennis','tension','terrible','territory','theater','theory','therapy','threat','threaten','through','throughout','tobacco','together','tomorrow','tonight','totally','tourist','toward','tradition','traffic','tragedy','transfer','transform','translate','transport','travel','treat','treaty','tremendous','trigger','trouble','truck','truly','trust','truth','typical','ultimate','understand','universe','unknown','unlike','unusual','upgrade','upper','urban','usage','useful','usual','utility','vacation','valley','valuable','variety','various','vehicle','version','victim','victory','video','village','violent','virtual','visible','vision','visual','volume','volunteer','warrant','weakness','wealth','weapon','weather','website','weekend','welcome','welfare','western','whatever','whenever','whereas','wherever','whether','which','while','whisper','whoever','wholesale','widespread','willing','window','winner','winter','wisdom','within','without','witness','wonder','wooden','worker','workshop','worried','worry','worth','would','wound','wrist','writer','writing','written','wrong','yesterday','yield','young','youth','zone'];
+        const HARD_WORDS = ['ubiquitous','juxtaposition','conscientious','entrepreneurial','surreptitious','idiosyncratic','unprecedented','metamorphosis','malfeasance','perspicacious','antediluvian','heterogeneous','circumlocution','obfuscation','parliamentary','misanthrope','equilibrium','pneumonia','quintessential','incomprehensible','phosphorescent','archaeological','bourgeoisie','connoisseur','disproportionate','extravaganza','flabbergasted','grandiloquent','hypocritical','inconsequential','juxtapose','kaleidoscope','labyrinthine','magnanimous','narcissistic','obsequious','paradoxical','quizzical','rambunctious','serendipity','tantamount','unambiguous','vicissitude','wherewithal','xenophobic','yesteryear','zealous'];
 
-            const SENTENCES = {
-                easy: [
-                    'The quick brown fox jumps over the lazy dog.',
-                    'A journey of a thousand miles begins with a single step.',
-                    'Time flies when you are having fun with friends.',
-                    'Every cloud has a silver lining if you look closely.',
-                    'Practice makes perfect when you work at it daily.',
-                    'The sun rises in the east and sets in the west.',
-                    'A rolling stone gathers no moss on its surface.',
-                    'Kind words can warm three winter months of cold.',
-                    'Small steps every day lead to big changes over time.',
-                    'The early bird catches the worm at sunrise.'
-                ],
-                medium: [
-                    'The magnificent cathedral towered above the ancient city square.',
-                    'Scientists continue to discover remarkable things about our universe.',
-                    'Reading widely across many subjects sharpens the mind and spirit.',
-                    'A thoughtful conversation can change the course of an entire life.',
-                    'Technology has transformed the way we communicate with each other.',
-                    'The library held thousands of volumes on every imaginable subject.',
-                    'Careful planning prevents poor performance in almost every endeavor.',
-                    'Consistency matters far more than intensity when building new habits.',
-                    'Curiosity is the engine that drives all meaningful human progress.',
-                    'The mountain trail wound through forests and over rocky ridges.'
-                ],
-                hard: [
-                    'The quintessential juxtaposition of bureaucracy and innovation characterizes modern institutions.',
-                    'Notwithstanding the unprecedented circumstances, the entrepreneurial spirit remained unwavering.',
-                    'Their conscientious objection to the ubiquitous surveillance apparatus was thoroughly justified.',
-                    'The idiosyncratic methodology yielded results that were simultaneously surprising and inevitable.',
-                    'A perspicacious observer might have noticed the subtle metamorphosis occurring gradually.',
-                    'The grandiloquent orator delivered a circumlocutory speech that obfuscated the central issue.',
-                    'Archaeological discoveries frequently necessitate the reconsideration of established historical narratives.',
-                    'The heterogeneous coalition proved surprisingly resilient despite its internal contradictions.',
-                    'Phosphorescent organisms illuminate the deepest ocean trenches with eerie bioluminescent displays.',
-                    'Kaleidoscopic patterns of light danced across the labyrinthine corridors of the ancient palace.'
-                ]
-            };
+        const SENTENCES = {
+            easy: [
+                'The quick brown fox jumps over the lazy dog.',
+                'A journey of a thousand miles begins with a single step.',
+                'Time flies when you are having fun with friends.',
+                'Every cloud has a silver lining if you look closely.',
+                'Practice makes perfect when you work at it daily.',
+                'The sun rises in the east and sets in the west.',
+                'A rolling stone gathers no moss on its surface.',
+                'Kind words can warm three winter months of cold.',
+                'Small steps every day lead to big changes over time.',
+                'The early bird catches the worm at sunrise.'
+            ],
+            medium: [
+                'The magnificent cathedral towered above the ancient city square.',
+                'Scientists continue to discover remarkable things about our universe.',
+                'Reading widely across many subjects sharpens the mind and spirit.',
+                'A thoughtful conversation can change the course of an entire life.',
+                'Technology has transformed the way we communicate with each other.',
+                'The library held thousands of volumes on every imaginable subject.',
+                'Careful planning prevents poor performance in almost every endeavor.',
+                'Consistency matters far more than intensity when building new habits.',
+                'Curiosity is the engine that drives all meaningful human progress.',
+                'The mountain trail wound through forests and over rocky ridges.'
+            ],
+            hard: [
+                'The quintessential juxtaposition of bureaucracy and innovation characterizes modern institutions.',
+                'Notwithstanding the unprecedented circumstances, the entrepreneurial spirit remained unwavering.',
+                'Their conscientious objection to the ubiquitous surveillance apparatus was thoroughly justified.',
+                'The idiosyncratic methodology yielded results that were simultaneously surprising and inevitable.',
+                'A perspicacious observer might have noticed the subtle metamorphosis occurring gradually.',
+                'The grandiloquent orator delivered a circumlocutory speech that obfuscated the central issue.',
+                'Archaeological discoveries frequently necessitate the reconsideration of established historical narratives.',
+                'The heterogeneous coalition proved surprisingly resilient despite its internal contradictions.',
+                'Phosphorescent organisms illuminate the deepest ocean trenches with eerie bioluminescent displays.',
+                'Kaleidoscopic patterns of light danced across the labyrinthine corridors of the ancient palace.'
+            ]
+        };
 
-            const QUOTES = [
-                'The only way to do great work is to love what you do. — Steve Jobs',
-                'In the middle of difficulty lies opportunity. — Albert Einstein',
-                'The journey of a thousand miles begins with one step. — Lao Tzu',
-                'Whether you think you can or you think you cannot, you are right. — Henry Ford',
-                'Success is not final, failure is not fatal. — Winston Churchill',
-                'The future belongs to those who believe in their dreams. — Eleanor Roosevelt',
-                'It does not matter how slowly you go as long as you do not stop. — Confucius',
-                'The best way to predict the future is to invent it. — Alan Kay',
-                'Simplicity is the ultimate sophistication. — Leonardo da Vinci',
-                'What we think, we become. — Buddha'
-            ];
+        const QUOTES = [
+            'The only way to do great work is to love what you do. — Steve Jobs',
+            'In the middle of difficulty lies opportunity. — Albert Einstein',
+            'The journey of a thousand miles begins with one step. — Lao Tzu',
+            'Whether you think you can or you think you cannot, you are right. — Henry Ford',
+            'Success is not final, failure is not fatal. — Winston Churchill',
+            'The future belongs to those who believe in their dreams. — Eleanor Roosevelt',
+            'It does not matter how slowly you go as long as you do not stop. — Confucius',
+            'The best way to predict the future is to invent it. — Alan Kay',
+            'Simplicity is the ultimate sophistication. — Leonardo da Vinci',
+            'What we think, we become. — Buddha'
+        ];
 
-            // ===== DOM ELEMENTS =====
-            const passageEl = document.getElementById('ttPassage');
-            const hiddenInput = document.getElementById('ttHiddenInput');
-            const focusPrompt = document.getElementById('ttFocusPrompt');
-            const timeLeftEl = document.getElementById('ttTimeLeft');
-            const liveWpmEl = document.getElementById('ttLiveWpm');
-            const liveAccuracyEl = document.getElementById('ttLiveAccuracy');
-            const liveProgressEl = document.getElementById('ttLiveProgress');
-            const resultsEl = document.getElementById('ttResults');
-            const gradeEl = document.getElementById('ttGrade');
-            const resultsTitleEl = document.getElementById('ttResultsTitle');
-            const resultsSubtitleEl = document.getElementById('ttResultsSubtitle');
-            const resultWpmEl = document.getElementById('ttResultWpm');
-            const resultAccuracyEl = document.getElementById('ttResultAccuracy');
-            const resultCorrectEl = document.getElementById('ttResultCorrect');
-            const resultErrorsEl = document.getElementById('ttResultErrors');
-            const restartBtn = document.getElementById('ttRestartBtn');
-            const restartTopBtn = document.getElementById('ttRestartTopBtn');
-            const newTextBtn = document.getElementById('ttNewTextBtn');
-            const newTextResultBtn = document.getElementById('ttNewTextResultBtn');
-            const tryAgainBtn = document.getElementById('ttTryAgainBtn');
-            const copyResultBtn = document.getElementById('ttCopyResultBtn');
-            const modeSelect = document.getElementById('ttModeSelect');
-            const difficultySelect = document.getElementById('ttDifficultySelect');
-            const durationPills = document.querySelectorAll('.tt-pill[data-duration]');
-            const toast = document.getElementById('ttToast');
-            const faqItems = document.querySelectorAll('.tt-faq-q');
+        // ===== DOM ELEMENTS =====
+        const passageEl = document.getElementById('ttPassage');
+        const focusPrompt = document.getElementById('ttFocusPrompt');
+        const timeLeftEl = document.getElementById('ttTimeLeft');
+        const liveWpmEl = document.getElementById('ttLiveWpm');
+        const liveAccuracyEl = document.getElementById('ttLiveAccuracy');
+        const liveProgressEl = document.getElementById('ttLiveProgress');
+        const resultsEl = document.getElementById('ttResults');
+        const gradeEl = document.getElementById('ttGrade');
+        const resultsTitleEl = document.getElementById('ttResultsTitle');
+        const resultsSubtitleEl = document.getElementById('ttResultsSubtitle');
+        const resultWpmEl = document.getElementById('ttResultWpm');
+        const resultAccuracyEl = document.getElementById('ttResultAccuracy');
+        const resultCorrectEl = document.getElementById('ttResultCorrect');
+        const resultErrorsEl = document.getElementById('ttResultErrors');
+        const restartBtn = document.getElementById('ttRestartBtn');
+        const restartTopBtn = document.getElementById('ttRestartTopBtn');
+        const newTextBtn = document.getElementById('ttNewTextBtn');
+        const newTextResultBtn = document.getElementById('ttNewTextResultBtn');
+        const tryAgainBtn = document.getElementById('ttTryAgainBtn');
+        const copyResultBtn = document.getElementById('ttCopyResultBtn');
+        const modeSelect = document.getElementById('ttModeSelect');
+        const difficultySelect = document.getElementById('ttDifficultySelect');
+        const durationPills = document.querySelectorAll('.tt-pill[data-duration]');
+        const toast = document.getElementById('ttToast');
+        const faqItems = document.querySelectorAll('.tt-faq-q');
 
-            // ===== STATE =====
-            const state = {
-                duration: 60,           // seconds
-                mode: 'sentences',
-                difficulty: 'medium',
-                targetText: '',
-                typedChars: [],          // array of chars typed so far (correct or not)
-                started: false,
-                finished: false,
-                startTime: 0,
-                timerId: null,
-                lastTickTime: 0,
-                totalKeystrokes: 0,
-                correctKeystrokes: 0
-            };
+        // ===== STATE =====
+        const state = {
+            duration: 60,
+            mode: 'sentences',
+            difficulty: 'medium',
+            targetText: '',
+            typedChars: [],
+            started: false,
+            finished: false,
+            startTime: 0,
+            timerId: null,
+            isActive: false   // whether keystrokes should be captured
+        };
 
-            let toastTimer = null;
+        let toastTimer = null;
 
-            // ===== HELPERS =====
-            function showToast(msg) {
-                if (toastTimer) clearTimeout(toastTimer);
-                toast.textContent = msg;
-                toast.classList.add('show');
-                toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
             }
+            return a;
+        }
 
-            function getRandomInt(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
+        function pickRandom(arr) {
+            return arr[getRandomInt(0, arr.length - 1)];
+        }
+
+        function buildPassage() {
+            if (state.mode === 'quotes') {
+                return pickRandom(QUOTES);
             }
-
-            function shuffle(arr) {
-                const a = [...arr];
-                for (let i = a.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [a[i], a[j]] = [a[j], a[i]];
+            if (state.mode === 'words') {
+                const count = state.duration >= 300 ? 220 : (state.duration >= 120 ? 140 : 90);
+                const words = state.difficulty === 'easy' ? EASY_WORDS
+                            : state.difficulty === 'hard' ? HARD_WORDS
+                            : MEDIUM_WORDS;
+                const shuffled = shuffle(words);
+                const out = [];
+                for (let i = 0; i < count; i++) out.push(shuffled[i % shuffled.length]);
+                return out.join(' ');
+            }
+            const pool = SENTENCES[state.difficulty] || SENTENCES.medium;
+            const needed = state.duration >= 300 ? 10 : (state.duration >= 120 ? 7 : 5);
+            const picked = [];
+            while (picked.length < needed) {
+                const chunk = shuffle(pool);
+                for (const s of chunk) {
+                    picked.push(s);
+                    if (picked.length >= needed) break;
                 }
-                return a;
             }
+            return picked.join(' ');
+        }
 
-            function pickRandom(arr) {
-                return arr[getRandomInt(0, arr.length - 1)];
+        function renderPassage() {
+            passageEl.innerHTML = '';
+            const chars = state.targetText.split('');
+            chars.forEach((ch, i) => {
+                const span = document.createElement('span');
+                span.textContent = ch;
+                if (ch === ' ') span.style.whiteSpace = 'pre';
+                span.dataset.index = i;
+                span.className = 'tt-pending';
+                passageEl.appendChild(span);
+            });
+            if (chars.length > 0) {
+                passageEl.children[0].classList.add('tt-current');
             }
+        }
 
-            // Build a target passage based on mode + difficulty
-            function buildPassage() {
-                if (state.mode === 'quotes') {
-                    return pickRandom(QUOTES);
-                }
-                if (state.mode === 'words') {
-                    // Build a long word stream (enough for the duration)
-                    const count = state.duration >= 300 ? 220 : (state.duration >= 120 ? 140 : 90);
-                    const words = state.difficulty === 'easy' ? EASY_WORDS
-                                : state.difficulty === 'hard' ? HARD_WORDS
-                                : MEDIUM_WORDS;
-                    const shuffled = shuffle(words);
-                    const out = [];
-                    for (let i = 0; i < count; i++) out.push(shuffled[i % shuffled.length]);
-                    // Return as space-joined tokens; we'll wrap each word for highlighting
-                    return out.join(' ');
-                }
-                // Sentences mode
-                const pool = SENTENCES[state.difficulty] || SENTENCES.medium;
-                // Repeat the pool until it's long enough
-                const needed = state.duration >= 300 ? 10 : (state.duration >= 120 ? 7 : 5);
-                const picked = [];
-                while (picked.length < needed) {
-                    const chunk = shuffle(pool);
-                    for (const s of chunk) {
-                        picked.push(s);
-                        if (picked.length >= needed) break;
+        function updatePassageHighlight() {
+            const spans = passageEl.children;
+            const typed = state.typedChars;
+            for (let i = 0; i < spans.length; i++) {
+                const span = spans[i];
+                span.classList.remove('tt-correct', 'tt-wrong', 'tt-current', 'tt-extra');
+                if (i < typed.length) {
+                    const t = typed[i];
+                    const target = state.targetText[i];
+                    if (t === target) {
+                        span.classList.add('tt-correct');
+                    } else {
+                        span.classList.add('tt-wrong');
                     }
-                }
-                return picked.join(' ');
-            }
-
-            // Render the passage into spans
-            function renderPassage() {
-                passageEl.innerHTML = '';
-                const chars = state.targetText.split('');
-                chars.forEach((ch, i) => {
-                    const span = document.createElement('span');
-                    // Preserve spaces visually
-                    span.textContent = ch;
-                    if (ch === ' ') span.style.whiteSpace = 'pre';
-                    span.dataset.index = i;
-                    span.className = 'tt-pending';
-                    passageEl.appendChild(span);
-                });
-                // Highlight the first character as current
-                if (chars.length > 0) {
-                    passageEl.children[0].classList.add('tt-current');
+                } else if (i === typed.length) {
+                    span.classList.add('tt-current');
                 }
             }
+        }
 
-            // Update the visual state of all spans based on typedChars
-            function updatePassageHighlight() {
-                const spans = passageEl.children;
-                const typed = state.typedChars;
-                for (let i = 0; i < spans.length; i++) {
-                    const span = spans[i];
-                    span.classList.remove('tt-correct', 'tt-wrong', 'tt-current', 'tt-extra');
-                    if (i < typed.length) {
-                        const t = typed[i];
-                        const target = state.targetText[i];
-                        if (t === target) {
-                            span.classList.add('tt-correct');
-                        } else {
-                            span.classList.add('tt-wrong');
-                        }
-                    } else if (i === typed.length) {
-                        span.classList.add('tt-current');
-                    }
-                }
+        function resetTest(newPassage) {
+            clearInterval(state.timerId);
+            state.timerId = null;
+            state.started = false;
+            state.finished = false;
+            state.typedChars = [];
+            state.startTime = 0;
+            resultsEl.classList.remove('tt-show');
+            focusPrompt.classList.remove('tt-hidden');
+
+            if (newPassage) {
+                state.targetText = buildPassage();
             }
 
-            // Reset the entire test (same passage)
-            function resetTest(newPassage) {
-                clearInterval(state.timerId);
-                state.timerId = null;
-                state.started = false;
-                state.finished = false;
-                state.typedChars = [];
-                state.startTime = 0;
-                state.lastTickTime = 0;
-                state.totalKeystrokes = 0;
-                state.correctKeystrokes = 0;
-                hiddenInput.value = '';
-                resultsEl.classList.remove('tt-show');
-                focusPrompt.classList.remove('tt-hidden');
+            renderPassage();
+            updateStatsUI();
+            timeLeftEl.textContent = state.duration;
+            liveWpmEl.textContent = '0';
+            liveAccuracyEl.textContent = '100%';
+            liveProgressEl.textContent = '0%';
+            liveWpmEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
+            liveAccuracyEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
+            timeLeftEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
+        }
 
-                if (newPassage) {
-                    state.targetText = buildPassage();
-                }
-
-                renderPassage();
-                updateStatsUI();
-                timeLeftEl.textContent = state.duration;
-                liveWpmEl.textContent = '0';
-                liveAccuracyEl.textContent = '100%';
-                liveProgressEl.textContent = '0%';
-                liveWpmEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
-                liveAccuracyEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
-                timeLeftEl.classList.remove('tt-active', 'tt-good', 'tt-warn');
-
-                // Re-focus hidden input if passage had focus
-                if (document.activeElement === passageEl) {
-                    hiddenInput.focus();
-                }
+        // ===== STATS: SINGLE SOURCE OF TRUTH =====
+        // Counts correct/wrong chars directly from typedChars vs targetText
+        function computeStats() {
+            const typed = state.typedChars.length;
+            let correct = 0;
+            let errors = 0;
+            for (let i = 0; i < typed; i++) {
+                if (state.typedChars[i] === state.targetText[i]) correct++;
+                else errors++;
             }
+            return { typed, correct, errors };
+        }
 
-            // Update live stats display (time, wpm, accuracy, progress)
-            function updateStatsUI() {
-                const elapsed = state.started ? (Date.now() - state.startTime) / 1000 : 0;
-                const remaining = Math.max(0, state.duration - elapsed);
-                timeLeftEl.textContent = Math.ceil(remaining);
+        function updateStatsUI() {
+            const elapsed = state.started ? (Date.now() - state.startTime) / 1000 : 0;
+            const remaining = Math.max(0, state.duration - elapsed);
+            timeLeftEl.textContent = Math.ceil(remaining);
 
-                const typed = state.typedChars.length;
-                const total = state.targetText.length;
-                const progress = total > 0 ? Math.min(100, Math.round((typed / total) * 100)) : 0;
-                liveProgressEl.textContent = progress + '%';
+            const { typed, correct, errors } = computeStats();
+            const total = state.targetText.length;
+            const progress = total > 0 ? Math.min(100, Math.round((typed / total) * 100)) : 0;
+            liveProgressEl.textContent = progress + '%';
 
-                // Accuracy
-                let correct = 0;
-                for (let i = 0; i < typed; i++) {
-                    if (state.typedChars[i] === state.targetText[i]) correct++;
-                }
-                const acc = typed > 0 ? Math.round((correct / typed) * 100) : 100;
-                liveAccuracyEl.textContent = acc + '%';
-                liveAccuracyEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
+            // Accuracy: correct / (correct + errors). If nothing typed yet, show 100%.
+            const acc = typed > 0 ? Math.round((correct / typed) * 100) : 100;
+            liveAccuracyEl.textContent = acc + '%';
+            liveAccuracyEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
+            if (typed > 0) {
                 if (acc >= 95) liveAccuracyEl.classList.add('tt-good');
                 else if (acc < 80) liveAccuracyEl.classList.add('tt-warn');
-
-                // WPM (live)
-                let wpm = 0;
-                if (elapsed > 0) {
-                    wpm = Math.round((correct / 5) / (elapsed / 60));
-                }
-                liveWpmEl.textContent = wpm;
-                liveWpmEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
-                if (wpm >= 60) liveWpmEl.classList.add('tt-good');
-                else if (wpm > 0 && wpm < 30) liveWpmEl.classList.add('tt-warn');
-
-                // Time color
-                timeLeftEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
-                if (remaining <= 5) timeLeftEl.classList.add('tt-warn');
-                else if (remaining <= 15) timeLeftEl.classList.add('tt-active');
             }
 
-            // ===== TIMER =====
-            function startTimer() {
-                if (state.timerId) return;
-                state.lastTickTime = Date.now();
-                state.timerId = setInterval(() => {
-                    const elapsed = (Date.now() - state.startTime) / 1000;
-                    const remaining = state.duration - elapsed;
-                    if (remaining <= 0) {
-                        finishTest();
-                        return;
-                    }
-                    updateStatsUI();
-                }, 200);
+            // WPM (live): standard 5-char word
+            let wpm = 0;
+            if (elapsed > 0) {
+                wpm = Math.round((correct / 5) / (elapsed / 60));
+            }
+            liveWpmEl.textContent = wpm;
+            liveWpmEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
+            if (wpm >= 60) liveWpmEl.classList.add('tt-good');
+            else if (wpm > 0 && wpm < 30) liveWpmEl.classList.add('tt-warn');
+
+            timeLeftEl.classList.remove('tt-good', 'tt-warn', 'tt-active');
+            if (remaining <= 5) timeLeftEl.classList.add('tt-warn');
+            else if (remaining <= 15) timeLeftEl.classList.add('tt-active');
+        }
+
+        function startTimer() {
+            if (state.timerId) return;
+            state.timerId = setInterval(() => {
+                const elapsed = (Date.now() - state.startTime) / 1000;
+                if (elapsed >= state.duration) {
+                    finishTest();
+                    return;
+                }
+                updateStatsUI();
+            }, 150);
+        }
+
+        function finishTest() {
+            if (state.finished) return;
+            state.finished = true;
+            state.isActive = false;
+            clearInterval(state.timerId);
+            state.timerId = null;
+
+            const elapsed = state.duration;
+            const { typed, correct, errors } = computeStats();
+
+            const wpm = Math.max(0, Math.round((correct / 5) / (elapsed / 60)));
+            const acc = typed > 0 ? Math.round((correct / typed) * 100) : 0;
+
+            resultWpmEl.textContent = wpm;
+            resultAccuracyEl.textContent = acc + '%';
+            resultCorrectEl.textContent = correct;
+            resultErrorsEl.textContent = errors;
+
+            let grade = 'D';
+            let title = 'Keep practising!';
+            let sub = 'Every test makes you faster. Try again to improve.';
+            if (wpm >= 100) { grade = 'S'; title = 'Outstanding!'; sub = 'You type at a professional level.'; }
+            else if (wpm >= 80) { grade = 'A'; title = 'Excellent work!'; sub = 'You are well above average.'; }
+            else if (wpm >= 60) { grade = 'B'; title = 'Great job!'; sub = 'You are faster than most people.'; }
+            else if (wpm >= 40) { grade = 'C'; title = 'Good effort!'; sub = 'Right around the average — keep going.'; }
+
+            gradeEl.textContent = grade;
+            gradeEl.className = 'tt-results-grade';
+            if (grade === 'S') gradeEl.classList.add('tt-grade-s');
+            else if (grade === 'A') gradeEl.classList.add('tt-grade-a');
+            else if (grade === 'B') gradeEl.classList.add('tt-grade-b');
+            else if (grade === 'C') gradeEl.classList.add('tt-grade-c');
+            else gradeEl.classList.add('tt-grade-d');
+
+            resultsTitleEl.textContent = title;
+            resultsSubtitleEl.textContent = sub;
+
+            resultsEl.classList.add('tt-show');
+            resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            timeLeftEl.textContent = '0';
+            liveWpmEl.textContent = wpm;
+            liveAccuracyEl.textContent = acc + '%';
+            liveProgressEl.textContent = '100%';
+        }
+
+        // ===== KEYBOARD HANDLING =====
+        // Global keydown. Only processed when state.isActive === true.
+        function handleKeyDown(e) {
+            if (!state.isActive || state.finished) return;
+
+            // Ignore modifier-only and navigation keys
+            if (['Shift','Control','Alt','Meta','CapsLock','Escape','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown','Tab','F5','F12'].includes(e.key)) {
+                return;
             }
 
-            // ===== FINISH =====
-            function finishTest() {
-                if (state.finished) return;
-                state.finished = true;
-                clearInterval(state.timerId);
-                state.timerId = null;
-
-                const elapsed = state.duration; // fixed: test ran full duration (or finished passage)
-                const typed = state.typedChars.length;
-
-                // Count correct characters
-                let correct = 0;
-                let errors = 0;
-                for (let i = 0; i < typed; i++) {
-                    if (state.typedChars[i] === state.targetText[i]) correct++;
-                    else errors++;
-                }
-
-                // WPM using standard formula
-                const wpm = Math.max(0, Math.round((correct / 5) / (elapsed / 60)));
-
-                // Accuracy
-                const acc = typed > 0 ? Math.round((correct / typed) * 100) : 0;
-
-                // Update UI
-                resultWpmEl.textContent = wpm;
-                resultAccuracyEl.textContent = acc + '%';
-                resultCorrectEl.textContent = correct;
-                resultErrorsEl.textContent = errors;
-
-                // Grade
-                let grade = 'D';
-                let title = 'Keep practising!';
-                let sub = 'Every test makes you faster. Try again to improve.';
-                if (wpm >= 100) { grade = 'S'; title = 'Outstanding!'; sub = 'You type at a professional level.'; }
-                else if (wpm >= 80) { grade = 'A'; title = 'Excellent work!'; sub = 'You are well above average.'; }
-                else if (wpm >= 60) { grade = 'B'; title = 'Great job!'; sub = 'You are faster than most people.'; }
-                else if (wpm >= 40) { grade = 'C'; title = 'Good effort!'; sub = 'Right around the average — keep going.'; }
-
-                gradeEl.textContent = grade;
-                gradeEl.className = 'tt-results-grade';
-                if (grade === 'S') gradeEl.classList.add('tt-grade-s');
-                else if (grade === 'A') gradeEl.classList.add('tt-grade-a');
-                else if (grade === 'B') gradeEl.classList.add('tt-grade-b');
-                else if (grade === 'C') gradeEl.classList.add('tt-grade-c');
-                else gradeEl.classList.add('tt-grade-d');
-
-                resultsTitleEl.textContent = title;
-                resultsSubtitleEl.textContent = sub;
-
-                // Show results
-                resultsEl.classList.add('tt-show');
-                resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-                // Final live stats
-                timeLeftEl.textContent = '0';
-                liveWpmEl.textContent = wpm;
-                liveAccuracyEl.textContent = acc + '%';
-                liveProgressEl.textContent = '100%';
-            }
-
-            // ===== TYPING INPUT HANDLING =====
-            function handleKeyDown(e) {
-                if (state.finished) return;
-
-                // Ignore modifier-only keys
-                if (['Shift','Control','Alt','Meta','CapsLock','Tab','Escape','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown'].includes(e.key)) {
-                    return;
-                }
-
-                // Backspace: remove last typed char
-                if (e.key === 'Backspace') {
-                    e.preventDefault();
-                    if (state.typedChars.length > 0) {
-                        state.typedChars.pop();
-                        if (state.totalKeystrokes > 0) state.totalKeystrokes--;
-                        updatePassageHighlight();
-                        updateStatsUI();
-                    }
-                    return;
-                }
-
-                // Enter: treat as newline? We'll just ignore for passages
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    return;
-                }
-
-                // Regular character
-                if (e.key.length === 1) {
-                    e.preventDefault();
-
-                    // Start timer on first keystroke
-                    if (!state.started) {
-                        state.started = true;
-                        state.startTime = Date.now();
-                        startTimer();
-                        focusPrompt.classList.add('tt-hidden');
-                    }
-
-                    // If we've reached the end, stop
-                    if (state.typedChars.length >= state.targetText.length) {
-                        return;
-                    }
-
-                    state.totalKeystrokes++;
-                    const expected = state.targetText[state.typedChars.length];
-                    if (e.key === expected) state.correctKeystrokes++;
-                    state.typedChars.push(e.key);
+            // Backspace: remove last typed char
+            if (e.key === 'Backspace') {
+                e.preventDefault();
+                if (state.typedChars.length > 0) {
+                    state.typedChars.pop();
                     updatePassageHighlight();
                     updateStatsUI();
-
-                    // Check if passage completed
-                    if (state.typedChars.length >= state.targetText.length) {
-                        finishTest();
-                    }
                 }
+                return;
             }
 
-            // ===== EVENT LISTENERS =====
-            passageEl.addEventListener('click', () => {
-                hiddenInput.focus();
-                passageEl.focus();
-            });
-            focusPrompt.addEventListener('click', () => {
-                hiddenInput.focus();
-                passageEl.focus();
-            });
+            // Enter: ignore (treat as no-op for passages)
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                return;
+            }
 
-            document.addEventListener('keydown', (e) => {
-                // Only capture when the typing test area is "active"
-                const active = document.activeElement;
-                if (active === passageEl || active === hiddenInput) {
-                    handleKeyDown(e);
-                }
-            });
+            // Only process single-character keys
+            if (e.key.length !== 1) return;
 
-            hiddenInput.addEventListener('input', (e) => {
-                // We use keydown instead; clear the input so mobile keyboards
-                // don't accumulate text but still trigger keydown events.
-                e.target.value = '';
-            });
+            e.preventDefault();
 
-            // Duration pills
-            durationPills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    durationPills.forEach(p => p.classList.remove('active'));
-                    pill.classList.add('active');
-                    state.duration = parseInt(pill.dataset.duration, 10);
-                    resetTest(true);
-                });
-            });
+            // Start the timer on the very first character
+            if (!state.started) {
+                state.started = true;
+                state.startTime = Date.now();
+                startTimer();
+                focusPrompt.classList.add('tt-hidden');
+            }
 
-            // Mode / difficulty
-            modeSelect.addEventListener('change', () => {
-                state.mode = modeSelect.value;
+            // If we've reached the end of the passage, ignore
+            if (state.typedChars.length >= state.targetText.length) {
+                return;
+            }
+
+            // Record the character exactly as typed
+            state.typedChars.push(e.key);
+
+            // Update visuals
+            updatePassageHighlight();
+            updateStatsUI();
+
+            // If the passage is complete, finish early
+            if (state.typedChars.length >= state.targetText.length) {
+                finishTest();
+            }
+        }
+
+        // ===== ACTIVATION =====
+        function activateTest() {
+            state.isActive = true;
+            passageEl.focus();
+            focusPrompt.classList.add('tt-hidden');
+        }
+
+        passageEl.addEventListener('click', activateTest);
+        focusPrompt.addEventListener('click', activateTest);
+        passageEl.addEventListener('focus', () => { state.isActive = true; });
+        passageEl.addEventListener('blur', () => {
+            // Deactivate only if test hasn't started or has finished
+            if (!state.started || state.finished) {
+                state.isActive = false;
+            }
+        });
+
+        // Global keydown listener — the ONLY place we capture typing
+        document.addEventListener('keydown', handleKeyDown);
+
+        // Prevent spacebar scrolling the page while the test is active
+        window.addEventListener('keydown', (e) => {
+            if (state.isActive && e.key === ' ') e.preventDefault();
+        }, { passive: false });
+
+        // ===== UI CONTROLS =====
+        durationPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                durationPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                state.duration = parseInt(pill.dataset.duration, 10);
                 resetTest(true);
             });
-            difficultySelect.addEventListener('change', () => {
-                state.difficulty = difficultySelect.value;
-                resetTest(true);
+        });
+
+        modeSelect.addEventListener('change', () => {
+            state.mode = modeSelect.value;
+            resetTest(true);
+        });
+
+        difficultySelect.addEventListener('change', () => {
+            state.difficulty = difficultySelect.value;
+            resetTest(true);
+        });
+
+        restartBtn.addEventListener('click', () => resetTest(false));
+        restartTopBtn.addEventListener('click', () => resetTest(false));
+        tryAgainBtn.addEventListener('click', () => resetTest(false));
+        newTextBtn.addEventListener('click', () => resetTest(true));
+        newTextResultBtn.addEventListener('click', () => resetTest(true));
+
+        copyResultBtn.addEventListener('click', () => {
+            const wpm = resultWpmEl.textContent;
+            const acc = resultAccuracyEl.textContent;
+            const correct = resultCorrectEl.textContent;
+            const errors = resultErrorsEl.textContent;
+            const text = `Typing Test Result — ${state.duration}s ${state.mode} (${state.difficulty})\nWPM: ${wpm}\nAccuracy: ${acc}\nCorrect Characters: ${correct}\nErrors: ${errors}\n— via WebNotePad Typing Test`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => showToast('✅ Result copied to clipboard!'))
+                    .catch(() => showToast('⚠️ Copy failed.'));
+            } else {
+                showToast('⚠️ Copy not supported on this browser.');
+            }
+        });
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
             });
+        });
 
-            // Restart
-            restartBtn.addEventListener('click', () => resetTest(false));
-            restartTopBtn.addEventListener('click', () => resetTest(false));
-            tryAgainBtn.addEventListener('click', () => resetTest(false));
+        // ===== INIT =====
+        state.targetText = buildPassage();
+        renderPassage();
+        timeLeftEl.textContent = state.duration;
 
-            // New text
-            newTextBtn.addEventListener('click', () => resetTest(true));
-            newTextResultBtn.addEventListener('click', () => resetTest(true));
-
-            // Copy result
-            copyResultBtn.addEventListener('click', () => {
-                const wpm = resultWpmEl.textContent;
-                const acc = resultAccuracyEl.textContent;
-                const correct = resultCorrectEl.textContent;
-                const errors = resultErrorsEl.textContent;
-                const text = `Typing Test Result — ${state.duration}s ${state.mode} (${state.difficulty})\nWPM: ${wpm}\nAccuracy: ${acc}\nCorrect Characters: ${correct}\nErrors: ${errors}\n— via WebNotePad Typing Test`;
-
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text)
-                        .then(() => showToast('✅ Result copied to clipboard!'))
-                        .catch(() => showToast('⚠️ Copy failed.'));
-                } else {
-                    showToast('⚠️ Copy not supported on this browser.');
-                }
-            });
-
-            // FAQ accordion
-            faqItems.forEach(qBtn => {
-                qBtn.addEventListener('click', () => {
-                    const expanded = qBtn.getAttribute('aria-expanded') === 'true';
-                    qBtn.setAttribute('aria-expanded', !expanded);
-                    const answer = qBtn.nextElementSibling;
-                    if (answer) answer.style.display = expanded ? 'none' : 'block';
-                });
-            });
-
-            // Prevent spacebar from scrolling the page when typing
-            window.addEventListener('keydown', (e) => {
-                const active = document.activeElement;
-                if ((active === passageEl || active === hiddenInput) && e.key === ' ') {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-
-            // ===== INIT =====
-            state.targetText = buildPassage();
-            renderPassage();
-            timeLeftEl.textContent = state.duration;
-
-            console.log('✅ Typing Test ready — live WPM, accuracy, and keyboard speed test.');
-            console.log('   Durations: 30s / 1 min / 2 min / 5 min | Modes: words, sentences, quotes | Difficulty: easy, medium, hard');
-        })();
-    </script>
+        console.log('✅ Typing Test ready — live WPM, accuracy, and keyboard speed test.');
+    })();
+</script>
 </body>
 </html>

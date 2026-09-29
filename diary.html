@@ -104,7 +104,7 @@
             <div class="d-sidebar-footer">
   <button class="d-icon-btn" id="dExportAllBtn" title="Export all entries" aria-label="Export all entries">
     <span class="d-btn-icon">⬇</span>
-    <span class="d-btn-text">Export</span>
+    <span class="d-btn-text">Html</span>
   </button>
 
   <button class="d-icon-btn d-drive-btn" id="dDriveBackupBtn" title="Backup to Google Drive" aria-label="Backup to Google Drive">
@@ -126,7 +126,7 @@
 
   <input type="file" id="dImportInput" accept="application/json,.json" hidden />
 
-  <span class="d-entry-count" id="dEntryCount">0 entries</span>
+  
 </div>
           </aside>
 
@@ -169,12 +169,14 @@
             <div class="d-writing-area" id="dWritingArea" contenteditable="true" spellcheck="true"
               data-placeholder="Dear Diary… start writing your thoughts here. This is your private space." role="textbox" aria-multiline="true" aria-label="Diary entry content"></div>
             <div class="d-status-bar">
-              <span id="dAutoSave" class="d-saved">● Saved</span>
-              <span class="d-sep">|</span>
-              <span id="dWordCount">0 words</span>
-              <span class="d-sep">|</span>
-              <span id="dStreak">🔥 0 day streak</span>
-            </div>
+  <span id="dAutoSave" class="d-saved">● Saved</span>
+  <span class="d-sep">|</span>
+  <span id="dWordCount">0 words</span>
+  <span class="d-sep">|</span>
+  <span id="dEntryCount">0 entries</span>
+  <span class="d-sep">|</span>
+  <span id="dStreak">🔥 0 day streak</span>
+</div>
           </div>
         </div>
       </div>

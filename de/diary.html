@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="de">
+<head> 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kostenloses Online Tagebuch & Privates Journal — Stimmung, Tags, Keine Anmeldung</title>
+  <meta name="description" content="Kostenloses Online Tagebuch & privates Journal. Tagebuch als PDF speichern. Schreibe tägliche Einträge mit Stimmungstracker, Tags und Schreibimpulsen. Keine Anmeldung, keine E-Mail — automatisch privat im Browser gespeichert."/>
+  <meta name="keywords" content="online tagebuch, tagebuch app, digitales tagebuch, kostenloses tagebuch, persönliches tagebuch online, tagebuch app kostenlos, tägliches tagebuch, privates tagebuch online, tagebuch ohne anmeldung, online tagebuch schreiben"/>
+  <meta name="author" content="WebNotePad"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://webnotepad.github.io/de/diary"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  
+  <!-- Hreflang tags für mehrsprachige SEO -->
+  <link rel="alternate" hreflang="de" href="https://webnotepad.github.io/de/diary"/>
+  <link rel="alternate" hreflang="nl" href="https://webnotepad.github.io/nl/diary"/>
+  <link rel="alternate" hreflang="en" href="https://webnotepad.github.io/diary"/>
+  <link rel="alternate" hreflang="x-default" href="https://webnotepad.github.io/diary"/>
+
+  <meta property="og:type" content="website"/> 
+  <meta property="og:url" content="https://webnotepad.github.io/de/diary"/>
+  <meta property="og:title" content="Online Tagebuch & Journal – Kostenloses Privates Digitales Tagebuch"/>
+  <meta property="og:description" content="Schreibe private tägliche Tagebucheinträge online. Kostenlos, keine Anmeldung, automatisch im Browser gespeichert."/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Kostenloses Online Tagebuch & Privates Journal von WebNotePad",
+    "url":"https://webnotepad.github.io/de/diary",
+    "description":"Kostenloses Online Tagebuch & privates Journal. Schreibe tägliche Einträge mit Stimmungstracker, Tags und Schreibimpulsen. Keine Anmeldung, keine E-Mail — automatisch privat im Browser gespeichert.",
+    "applicationCategory":"LifestyleApplication",
+    "operatingSystem":"Any",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Ist mein Tagebuch privat?","acceptedAnswer":{"@type":"Answer","text":"Ja. Alle Tagebucheinträge werden nur im lokalen Speicher deines Browsers gespeichert. Nichts wird an einen Server gesendet."}},
+      {"@type":"Question","name":"Kann ich alte Tagebucheinträge durchsuchen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Nutze die Suchleiste, um Einträge sofort nach Stichwort, Stimmung oder Datum in deinem gesamten Tagebuch zu finden."}},
+      {"@type":"Question","name":"Kann ich mein Tagebuch exportieren?","acceptedAnswer":{"@type":"Answer","text":"Ja, du kannst alle Einträge als einzelne HTML- oder TXT-Datei für Backup oder Druck exportieren."}}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/diary-combined.css" />
+  
+</head>
+<body>
+  <div id="header-root"></div>
+  <main>
+
+    <!-- HERO -->
+    <!-- KURZE HERO (SEO beibehalten) -->
+    <section class="d-hero">
+      <div class="d-hero-orbs">
+        <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+      </div>
+      <div class="d-container d-hero-inner">
+        <div class="d-badge">📖 Dein privater Raum zum Schreiben & als PDF speichern</div>
+        <h1>Kostenloses Online Tagebuch & Privates Journal</h1>
+        <p>Schreibe tägliche Einträge mit Stimmungstracker, Tags und Impulsen. 100% privat, automatisch im Browser gespeichert. Exportiere mit einem Klick in wunderschönes PDF.</p>
+        <a href="#diary-app" class="d-btn d-btn-primary">Jetzt Schreiben ↓</a>
+      </div>    
+    </section>
+
+    <!-- DIARY APP -->
+    <section class="d-app-section" id="diary-app">
+      <div class="d-container">
+        <div class="d-app-shell">
+          <!-- Sidebar -->
+          <aside class="d-sidebar" id="diarySidebar">
+            <div class="d-sidebar-top">
+              <h2 class="d-sidebar-brand">📖 Mein Tagebuch</h2>
+              <button class="d-new-btn" id="dNewEntryBtn" title="Neuer Eintrag">＋ Neuer Eintrag</button>
+            </div>
+            <div class="d-search-wrap">
+              <input type="search" id="dSearch" placeholder="Einträge durchsuchen…" aria-label="Tagebucheinträge durchsuchen"/>
+            </div>
+            <div class="d-filter-row">
+              <select id="dMoodFilter" aria-label="Nach Stimmung filtern">
+                <option value="">Alle Stimmungen</option>
+                <option value="😊">😊 Glücklich</option>
+                <option value="😔">😔 Traurig</option>
+                <option value="😤">😤 Wütend</option>
+                <option value="😰">😰 Ängstlich</option>
+                <option value="😌">😌 Ruhig</option>
+                <option value="🤩">🤩 Aufgeregt</option>
+                <option value="😴">😴 Müde</option>
+                <option value="🤔">🤔 Nachdenklich</option>
+              </select>
+            </div>
+            <div class="d-entries-list" id="dEntriesList"></div>
+            <div class="d-sidebar-footer">
+  <button class="d-icon-btn" id="dExportAllBtn" title="Alle Einträge exportieren" aria-label="Alle Einträge exportieren">
+    <span class="d-btn-icon">⬇</span>
+    <span class="d-btn-text">Html</span>
+  </button>
+
+  <button class="d-icon-btn d-drive-btn" id="dDriveBackupBtn" title="Backup zu Google Drive" aria-label="Backup zu Google Drive">
+    <svg viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg" class="d-drive-icon" aria-hidden="true">
+      <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3L27.5 53H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+      <path d="M43.65 25L29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44A9.06 9.06 0 000 53h27.5z" fill="#00ac47"/>
+      <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 57.5c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 11.5z" fill="#ea4335"/>
+      <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+      <path d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+      <path d="M73.4 26.5L60.7 4.5c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+    </svg>
+    <span class="d-btn-text">Drive</span>
+  </button>
+
+  <button class="d-icon-btn d-restore-btn" id="dImportBtn" title="Aus Backup-Datei wiederherstellen" aria-label="Aus Backup-Datei wiederherstellen">
+    <span class="d-btn-icon d-restore-icon">⬆</span>
+    <span class="d-btn-text">Importieren</span>
+  </button>
+
+  <input type="file" id="dImportInput" accept="application/json,.json" hidden />
+
+  
+</div>
+          </aside>
+
+          <!-- Editor -->
+          <div class="d-editor-panel">
+            <div class="d-editor-header">
+              <button class="d-mobile-menu" id="dMobileMenu" aria-label="Einträge-Liste öffnen">☰</button>
+              <div class="d-entry-meta">
+                <input type="date" id="dEntryDate" class="d-date-input" aria-label="Eintragsdatum"/>
+                <select id="dMoodSelect" class="d-mood-select" aria-label="Stimmung auswählen">
+                  <option value="">Stimmung…</option>
+                  <option value="😊">😊 Glücklich</option>
+                  <option value="😔">😔 Traurig</option>
+                  <option value="😤">😤 Wütend</option>
+                  <option value="😰">😰 Ängstlich</option>
+                  <option value="😌">😌 Ruhig</option>
+                  <option value="🤩">🤩 Aufgeregt</option>
+                  <option value="😴">😴 Müde</option>
+                  <option value="🤔">🤔 Nachdenklich</option>
+                </select>
+                <input type="text" id="dTagsInput" class="d-tags-input" placeholder="Tags: Arbeit, Familie, Reisen…" aria-label="Eintrag-Tags"/>
+              </div>
+              <div class="d-editor-actions">
+                <button class="d-action-btn" id="dSaveBtn">💾 Speichern</button>
+                <button class="d-action-btn pdf-export-btn" id="dPdfBtn">📄 PDF</button>
+                <button class="d-action-btn d-delete-btn" id="dDeleteBtn">🗑 Löschen</button>
+              </div>
+            </div>
+            <input type="text" class="d-entry-title" id="dEntryTitle" placeholder="Eintragstitel…" aria-label="Eintragstitel"/>
+            <div class="d-format-bar">
+              <button class="d-fmt" data-cmd="bold"><b>F</b></button>
+              <button class="d-fmt" data-cmd="italic"><i>K</i></button>
+              <button class="d-fmt" data-cmd="underline"><u>U</u></button>
+              <span class="d-fmt-sep"></span>
+              <button class="d-fmt" data-cmd="insertUnorderedList">• Liste</button>
+              <button class="d-fmt" data-cmd="insertOrderedList">1. Liste</button>
+              <span class="d-fmt-sep"></span>
+              <button class="d-fmt" id="dPromptBtn">✨ Impuls</button>
+            </div>
+            <div class="d-writing-area" id="dWritingArea" contenteditable="true" spellcheck="true"
+              data-placeholder="Liebes Tagebuch… beginne hier deine Gedanken zu schreiben. Das ist dein privater Raum." role="textbox" aria-multiline="true" aria-label="Tagebucheintrag Inhalt"></div>
+            <div class="d-status-bar">
+  <span id="dAutoSave" class="d-saved">● Gespeichert</span>
+  <span class="d-sep">|</span>
+  <span id="dWordCount">0 Wörter</span>
+  <span class="d-sep">|</span>
+  <span id="dEntryCount">0 Einträge</span>
+  <span class="d-sep">|</span>
+  <span id="dStreak">🔥 0 Tage Serie</span>
+</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO -->
+    <section class="d-section d-how" id="how-to-use">
+      <div class="d-container">
+        <div class="d-section-tag">So funktioniert's</div>
+        <h2 class="d-section-title">So nutzt du das <em>Online Tagebuch</em></h2>
+        <div class="d-how-grid">
+          <div class="d-how-card"><div class="d-how-num">01</div><h3>Neuen Eintrag Erstellen</h3><p>Klicke auf die Schaltfläche <strong>＋ Neuer Eintrag</strong> in der Seitenleiste. Eine frische Seite öffnet sich mit dem heutigen Datum vorausgefüllt. Gib einen Titel ein oder lass es leer — es ist dein Tagebuch, deine Regeln.</p></div>
+          <div class="d-how-card"><div class="d-how-num">02</div><h3>Stimmung & Tags Festlegen</h3><p>Wähle eine Emoji-Stimmung aus dem Dropdown-Menü (Glücklich, Traurig, Ängstlich, Aufgeregt…) und füge Stichwort-Tags wie "Arbeit", "Reisen" oder "Familie" hinzu, um deine Einträge über die Zeit zu organisieren.</p></div>
+          <div class="d-how-card"><div class="d-how-num">03</div><h3>Frei Schreiben</h3><p>Nutze den Schreibbereich, um deine Gedanken auszudrücken. Formatiere Text mit der Werkzeugleiste oder klicke auf <strong>✨ Impuls</strong> für einen Schreibimpuls, wenn du nicht weißt, wo du anfangen sollst.</p></div>
+          <div class="d-how-card"><div class="d-how-num">04</div><h3>Speichern & Reflektieren</h3><p>Einträge werden automatisch gespeichert, während du tippst. Durchstöbere frühere Einträge in der Seitenleiste, filtere nach Stimmung oder suche Stichwörter, um Erinnerungen wiederzubeleben und deine emotionale Reise zu verfolgen.</p></div>
+          <div class="d-how-card"><div class="d-how-num">05</div><h3>Tagebuch Exportieren</h3><p>Nutze <strong>⬇ PDF</strong>, um alle Tagebucheinträge als PDF-Datei herunterzuladen — perfekt für Backup, Drucken oder Teilen eines Kapitels deines Lebens.</p></div>
+          <div class="d-how-card"><div class="d-how-num">06</div><h3>Eine Serie Aufbauen</h3><p>Der Serien-Zähler unten verfolgt, an wie vielen aufeinanderfolgenden Tagen du geschrieben hast. Baue gesunde Tagebuchgewohnheiten auf und sieh deine Serie wachsen! 🔥</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+     IMAGE CARDS SECTION — PDF FEATURE HIGHLIGHT
+     ============================================= -->
+<section class="d-section d-image-cards" id="pdf-feature">
+  <div class="d-container">
+    <div class="d-section-tag">📄 Export & Drucken</div>
+    <h2 class="d-section-title">
+      Verwandle dein <em>Online Tagebuch</em> in ein Wunderschönes PDF
+    </h2>
+    <p class="d-cards-intro">
+      Dein <strong>Online Tagebuch</strong> verdient es, für immer aufbewahrt zu werden. 
+      Mit einem Klick exportierst du jeden Eintrag als gestyltes PDF — perfekt zum 
+      Drucken, Archivieren oder Teilen eines Kapitels deines Lebens.  
+      <span class="d-keyword-highlight">kostenloses online tagebuch</span> • 
+      <span class="d-keyword-highlight">geheimes tagebuch online gratis</span> • 
+      <span class="d-keyword-highlight">internet tagebuch</span>
+    </p>
+
+    <div class="d-cards-grid">
+      <!-- CARD 1 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t1.PNG" alt="Online Tagebuch Export als PDF" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📄 Ein-Klick PDF</h3>
+          <p>Exportiere jeden Tagebucheintrag als poliertes PDF. Wähle aus mehreren Tagebuch-Stilvorlagen.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t2.PNG" alt="Kostenloses Online Tagebuch mit Stimmungstracker" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🎨 Gestylte Vorlagen</h3>
+          <p>Wähle ein warmes, minimalistisches oder klassisches Layout — dein <strong>Online Tagebuch</strong> sieht im Druck großartig aus.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t3.PNG" alt="Geheimes Tagebuch online gratis Backup" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🔒 Privat & Sicher</h3>
+          <p>PDF-Generierung erfolgt vollständig in deinem Browser — nichts wird an einen Server gesendet. Echte <strong>Internet Tagebuch</strong> Privatsphäre.</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t4.PNG" alt="Online Journal Einträge Export" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📖 Archiviere deine Geschichte</h3>
+          <p>Bewahre eine dauerhafte Kopie deiner <strong>Online Tagebücher</strong>. Drucken, teilen oder für zukünftige Reflexion aufbewahren.</p>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t5.PNG" alt="Kostenloses Online Tagebuch PDF Download" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>🖨️ Druckfreundlich</h3>
+          <p>Deine <strong>kostenlosen Online Tagebuch</strong> Einträge sind für sauberes, schönes Drucken formatiert — kein Durcheinander.</p>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="d-card-item">
+        <div class="d-card-image">
+          <img src="/images/t6.PNG" alt="Online Tagebuch Stimmung und Tags Export" loading="lazy" />
+        </div>
+        <div class="d-card-content">
+          <h3>📱 Mobil Bereit</h3>
+          <p>Exportiere von jedem Gerät. Ob du ein <strong>geheimes Tagebuch online gratis</strong> auf dem Handy oder Desktop nutzt, PDFs sehen atemberaubend aus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- extra call‑to‑action (optional) -->
+    <div class="d-cards-cta">
+      <a href="#diary-app" class="d-btn d-btn-primary">✍️ Jetzt Schreiben & Später Exportieren</a>
+    </div>
+  </div>
+</section>    
+
+<!-- =============================================
+     ADDITIONAL STYLES (round borders, grid, etc.)
+     ============================================= -->
+<style>
+  /* ---- Google Drive backup button ---- */
+.d-drive-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px !important;
+  background: #ffffff;
+  border: 1px solid var(--d-tan, #e8d5bc);
+  border-radius: 8px;
+  color: var(--d-ink, #2c1a0e);
+  font-weight: 600;
+  font-size: 0.8rem;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  animation: driveBlink 3.2s ease-in-out infinite;
+}
+
+.d-drive-btn .d-drive-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+}
+
+.d-drive-btn .d-drive-label {
+  letter-spacing: 0.01em;
+}
+
+.d-drive-btn:hover {
+  background: #f8f9fa;
+  border-color: #c9c3b8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+  animation-play-state: paused;
+}
+
+.d-drive-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Soft attention pulse — gentle, not annoying */
+@keyframes driveBlink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: var(--d-tan, #e8d5bc);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(66, 133, 244, 0.12);
+    border-color: rgba(66, 133, 244, 0.45);
+  }
+}
+
+/* Dark mode */
+body.dark .d-drive-btn {
+  background: #1c1c22;
+  border-color: #2a2a34;
+  color: #e8e4dc;
+}
+body.dark .d-drive-btn:hover {
+  background: #232329;
+  border-color: #3a3a44;
+}
+body.dark .d-drive-btn {
+  animation: driveBlinkDark 3.2s ease-in-out infinite;
+}
+@keyframes driveBlinkDark {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+    border-color: #2a2a34;
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(66, 133, 244, 0.18);
+    border-color: rgba(66, 133, 244, 0.55);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .d-drive-btn,
+  body.dark .d-drive-btn {
+    animation: none;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .d-drive-btn {
+    padding: 5px 9px !important;
+    font-size: 0.72rem;
+  }
+  .d-drive-btn .d-drive-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+/* ---- image cards section ---- */
+.d-image-cards {
+  background: var(--d-cream);
+  padding: 60px 0 80px;
+}
+
+.d-cards-intro {
+  max-width: 700px;
+  font-size: 1.05rem;
+  color: var(--d-ink-soft);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.d-keyword-highlight {
+  display: inline-block;
+  background: var(--d-rose-pale);
+  color: var(--d-rose);
+  padding: 0 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid var(--d-rose);
+}
+
+.d-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 16px;
+}
+
+.d-card-item {
+  background: var(--d-warm);
+  border-radius: 24px;          /* round border */
+  border: 1px solid var(--d-tan);
+  overflow: hidden;
+  box-shadow: var(--d-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.d-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--d-shadow-lg);
+}
+
+.d-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;          /* square images — adjust if needed */
+  overflow: hidden;
+  background: var(--d-tan);
+  border-radius: 24px 24px 0 0; /* keep top corners round */
+}
+
+.d-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* ensures images fill the square neatly */
+  transition: transform 0.3s ease;
+}
+
+.d-card-item:hover .d-card-image img {
+  transform: scale(1.02);
+}
+
+.d-card-content {
+  padding: 18px 18px 22px;
+}
+
+.d-card-content h3 {
+  font-family: var(--d-font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--d-ink);
+  margin-bottom: 6px;
+}
+
+.d-card-content p {
+  font-size: 0.9rem;
+  color: var(--d-ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.d-cards-cta {
+  margin-top: 44px;
+  text-align: center;
+}
+
+/* ---- responsive: 2 columns on medium, 1 on small ---- */
+@media (max-width: 900px) {
+  .d-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .d-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .d-card-image {
+    aspect-ratio: 4 / 3;        /* slightly taller on mobile */
+  }
+  .d-cards-intro {
+    font-size: 0.95rem;
+  }
+}
+
+/* dark mode adjustments */
+body.dark .d-card-item {
+  background: var(--d-warm);
+  border-color: var(--d-tan);
+}
+body.dark .d-keyword-highlight {
+  background: var(--d-rose-pale);
+  color: var(--d-rose);
+}
+</style>
+
+    <!-- =============================================
+     FEATURES SECTION — What's Inside Your Diary
+     ============================================= -->
+<section class="d-section d-features-section" id="diary-features">
+  <div class="d-container">
+    <div class="d-section-tag">✨ Jede Funktion, ein Ort</div>
+    <h2 class="d-section-title">
+      Alles was dein <em>Tagebuch</em> kann
+    </h2>
+    <p class="d-features-intro">
+      Von stillen täglichen Reflexionen bis zu vollständigen Cloud-Backups — dein privates
+      <strong>Online Tagebuch</strong> kommt mit mächtigen Tools, um deine Geschichte sicher,
+      durchsuchbar und wunderschön tragbar zu halten.
+    </p>
+
+    <div class="d-features-split">
+      <!-- LEFT: Landscape image with rounded borders -->
+      <div class="d-features-visual">
+        <img
+          src="/images/diary-features.webp"
+          alt="Online Tagebuch Funktionen — Stimmungstracker, Tags, PDF Export, Google Drive Backup und Serien-Tracking"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- RIGHT: Feature list split into New & Existing -->
+      <div class="d-features-list">
+
+        <!-- NEW FEATURES -->
+        <div class="d-features-group">
+          <h3 class="d-features-group-title">
+            <span class="d-features-badge d-badge-new">NEU</span>
+            Gerade Hinzugefügt
+          </h3>
+          <ul class="d-feature-items">
+            <li>
+              <span class="d-feature-icon d-icon-new">☁️</span>
+              <div>
+                <strong>Google Drive Backup</strong>
+                <p>Lade ein `.json` Backup herunter und ziehe es in Drive — ein Klick, keine Anmeldung.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon d-icon-new">⬆</span>
+              <div>
+                <strong>Importieren & Wiederherstellen</strong>
+                <p>Lade jede Backup-Datei hoch, um Einträge sofort wieder in dein Tagebuch einzufügen.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon d-icon-new">📄</span>
+              <div>
+                <strong>PDF Export mit Vorlagen</strong>
+                <p>Wähle aus 6 Tagebuchstilen — Klassisch, Floral, Minimal, Kraft, Roségold, Botanisch.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- EXISTING FEATURES -->
+        <div class="d-features-group">
+          <h3 class="d-features-group-title">
+            <span class="d-features-badge d-badge-core">KERN</span>
+            Immer Inklusive
+          </h3>
+          <ul class="d-feature-items">
+            <li>
+              <span class="d-feature-icon">📝</span>
+              <div>
+                <strong>Automatisches Speichern</strong>
+                <p>Jeder Tastendruck wird in deinem Browser gespeichert — nie wieder verlorene Gedanken.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon">😊</span>
+              <div>
+                <strong>Stimmungstracking</strong>
+                <p>Markiere jeden Eintrag mit einer Emoji-Stimmung und filtere deine Geschichte nach Emotion.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon">🔍</span>
+              <div>
+                <strong>Suche & Tags</strong>
+                <p>Finde jeden Eintrag nach Stichwort, Stimmung oder eigenem Tag in Sekunden.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon">🔥</span>
+              <div>
+                <strong>Serien-Tracker</strong>
+                <p>Baue eine tägliche Tagebuchgewohnheit auf und sieh deine Serie wachsen.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon">✨</span>
+              <div>
+                <strong>Schreibimpulse</strong>
+                <p>20 eingebaute Impulse, um Ideen zu wecken, wenn du feststeckst.</p>
+              </div>
+            </li>
+            <li>
+              <span class="d-feature-icon">🔒</span>
+              <div>
+                <strong>100% Privat</strong>
+                <p>Alles bleibt in deinem Browser. Keine Konten, keine Server, kein Tracking.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <style>
+    /* =============================================
+   Features Section — Image Left, List Right
+   ============================================= */
+.d-features-section {
+  background: var(--d-cream, #fdf6ed);
+  padding: 60px 0 80px;
+  transition: background var(--d-transition, 0.2s ease);
+}
+
+.d-features-intro {
+  max-width: 700px;
+  font-size: 1.02rem;
+  color: var(--d-ink-soft, #5a3a1e);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Two-column split */
+.d-features-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* ---- LEFT: Landscape image with rounded corners ---- */
+.d-features-visual {
+  position: sticky;
+  top: 24px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--d-tan, #e8d5bc);
+  background: var(--d-warm, #fffaf2);
+  box-shadow: 0 12px 40px rgba(44, 26, 14, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.d-features-visual:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 56px rgba(44, 26, 14, 0.14);
+}
+
+.d-features-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;   /* landscape */
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ---- RIGHT: Feature list ---- */
+.d-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.d-features-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--d-font-serif, 'Lora', Georgia, serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--d-ink, #2c1a0e);
+  margin: 0 0 14px;
+}
+
+.d-features-badge {
+  font-family: 'Fira Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 100px;
+  line-height: 1;
+}
+.d-badge-new {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+  border: 1px solid rgba(22, 163, 74, 0.4);
+}
+.d-badge-core {
+  background: rgba(184, 98, 74, 0.12);
+  color: #b8624a;
+  border: 1px solid rgba(184, 98, 74, 0.35);
+}
+
+/* Feature items list */
+.d-feature-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.d-feature-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--d-warm, #fffaf2);
+  border: 1px solid var(--d-tan, #e8d5bc);
+  border-radius: 14px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.d-feature-items li:hover {
+  transform: translateX(3px);
+  border-color: var(--d-rose, #b8624a);
+  box-shadow: 0 6px 18px rgba(184, 98, 74, 0.08);
+}
+
+.d-feature-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--d-cream, #fdf6ed);
+  border: 1px solid var(--d-tan, #e8d5bc);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+.d-icon-new {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.d-feature-items li strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--d-ink, #2c1a0e);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.d-feature-items li p {
+  font-size: 0.8rem;
+  color: var(--d-ink-muted, #9e7b5e);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =============================================
+   Dark mode
+   ============================================= */
+body.dark .d-features-section {
+  background: var(--d-cream, #141418);
+}
+body.dark .d-features-visual {
+  background: var(--d-warm, #1c1c22);
+  border-color: var(--d-tan, #2a2a34);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+body.dark .d-feature-items li {
+  background: var(--d-warm, #1c1c22);
+  border-color: var(--d-tan, #2a2a34);
+}
+body.dark .d-feature-items li:hover {
+  border-color: var(--d-rose, #e8714a);
+}
+body.dark .d-feature-icon {
+  background: var(--d-cream, #141418);
+  border-color: var(--d-tan, #2a2a34);
+}
+body.dark .d-feature-items li strong {
+  color: #e8e4dc;
+}
+body.dark .d-feature-items li p {
+  color: #8a8678;
+}
+body.dark .d-badge-new {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.4);
+}
+body.dark .d-badge-core {
+  background: rgba(232, 113, 74, 0.15);
+  color: #e8714a;
+  border-color: rgba(232, 113, 74, 0.4);
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 900px) {
+  .d-features-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .d-features-visual {
+    position: static;
+  }
+  .d-features-visual img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 480px) {
+  .d-features-section {
+    padding: 44px 0 60px;
+  }
+  .d-features-visual img {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+  .d-features-visual {
+    border-radius: 18px;
+  }
+  .d-feature-items li {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .d-feature-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  .d-feature-items li strong {
+    font-size: 0.85rem;
+  }
+  .d-feature-items li p {
+    font-size: 0.75rem;
+  }
+  .d-features-group-title {
+    font-size: 0.95rem;
+  }
+}
+</style>
+    <!-- DESCRIPTION -->
+    <section class="d-section d-desc" id="about-diary">
+      <div class="d-container d-desc-inner">
+        <div class="d-desc-text">
+          <div class="d-section-tag">Was ist das?</div>
+          <h2 class="d-section-title">Dein Kostenloses Privates <em>Online Tagebuch</em></h2>
+          <p>Ein Online Tagebuch ist ein persönlicher digitaler Raum, in dem du deine Gedanken, Erfahrungen, Gefühle und Reflexionen festhältst. Anders als ein physisches Notizbuch lässt dich ein digitales Tagebuch Jahre von Einträgen in Sekunden durchsuchen, geht nie aus Seiten aus und ist immer bei dir, wo du auch einen Browser hast.</p>
+          <p>WebNotePads Online Tagebuch App speichert alles im lokalen Speicher deines Browsers — das bedeutet, deine Einträge berühren nie einen Server und bleiben 100% privat. Es gibt kein Konto zu erstellen, keine E-Mail zu verifizieren, kein Abonnement zu verwalten. Öffne einfach die Seite und schreibe. Bewahre kostbare Momente als wunderschöne PDF-Datei auf.</p>
+          <p>Forschung zeigt konsistent, dass regelmäßiges Tagebuchschreiben Stress und Angst reduziert, Selbstbewusstsein verbessert, das Gedächtnis stärkt und hilft, schwierige Emotionen zu verarbeiten. Der einfache Akt des Aufschreibens gibt deinen Gedanken Struktur und deinen Gefühlen ein sicheres Ventil.</p>
+          <div class="d-benefits">
+            <span>🔒 100% Privat</span><span>⚡ Sofortiger Zugriff</span><span>📊 Stimmungstracking</span><span>🔍 Vollständige Suche</span><span>🔥 Serien-Tracking</span><span>⬇ Jederzeit Exportieren</span>
+          </div>
+        </div>
+        <div class="d-desc-visual">
+          <div class="d-journal-card">
+            <div class="d-journal-lines">
+              <div class="d-line"></div><div class="d-line d-line-short"></div>
+              <div class="d-line"></div><div class="d-line d-line-shorter"></div>
+              <div class="d-line"></div><div class="d-line d-line-short"></div>
+              <div class="d-line"></div>
+            </div>
+            <div class="d-journal-mood">😊 Glücklich · 142 Wörter</div>
+            <div class="d-journal-date">Heute · Persönliches Tagebuch</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="d-section d-faq" id="faq">
+      <div class="d-container">
+        <div class="d-section-tag">Fragen</div>
+        <h2 class="d-section-title">Häufig Gestellte <em>Fragen</em></h2>
+        <div class="d-faq-list">
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Ist mein Online Tagebuch vollständig privat?</button><div class="d-faq-a"><p>Ja, vollständig. Alle Tagebucheinträge werden nur im lokalen Speicher deines Browsers auf deinem Gerät gespeichert. Nichts wird jemals an einen Server gesendet. Selbst wir können dein Tagebuch nicht lesen. Deine Gedanken gehören nur dir.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Verliere ich meine Tagebucheinträge, wenn ich meinen Browser leere?</button><div class="d-faq-a"><p>Wenn du die Seitendaten oder den lokalen Speicher deines Browsers löschst, verlierst du deine Einträge. Wir empfehlen dringend, regelmäßig die Schaltfläche <strong>⬇ Exportieren</strong> zu nutzen, um ein Backup deines Tagebuchs als HTML-Datei herunterzuladen.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Kann ich durch alte Tagebucheinträge suchen?</button><div class="d-faq-a"><p>Ja! Nutze die Suchleiste in der Seitenleiste, um alle Einträge nach Stichwort, Titel oder Inhalt zu durchsuchen. Du kannst auch nach Stimmung filtern, um alle Einträge zu sehen, bei denen du eine bestimmte Emotion gefühlt hast.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Was ist ein Schreibimpuls?</button><div class="d-faq-a"><p>Ein Schreibimpuls ist eine Frage oder ein Satzanfang, um dir zu helfen, mit dem Schreiben zu beginnen, wenn du nicht weißt, was du sagen sollst. Klicke auf die Schaltfläche ✨ Impuls in der Werkzeugleiste für einen zufälligen Impuls wie "Was hat dich heute zum Lächeln gebracht?" oder "Beschreibe eine Herausforderung, die du diese Woche gemeistert hast."</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Wie speichere ich einen Eintrag als PDF?</button><div class="d-faq-a"><p>Um einen Tagebucheintrag als PDF zu speichern, öffne den Eintrag, den du exportieren möchtest, und klicke auf die Schaltfläche "Als PDF speichern" in der Werkzeugleiste des Eintrags. Die App generiert sofort ein wunderschön gestyltes, druckfertiges PDF-Dokument, das du herunterladen, drucken oder archivieren kannst. Dieser Prozess erfolgt vollständig in deinem Browser, sodass deine privaten Einträge sicher bleiben.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Wie funktioniert der Serien-Tracker?</button><div class="d-faq-a"><p>Der Serien-Tracker zählt, an wie vielen aufeinanderfolgenden Tagen du mindestens einen Tagebucheintrag geschrieben hast. Jeden Tag zu schreiben erhöht deine Serie. Einen Tag zu verpassen setzt sie auf Null zurück — also halte die Gewohnheit am Laufen!</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Kann ich dieses Tagebuch auf meinem Handy nutzen?</button><div class="d-faq-a"><p>Absolut. Das Online Tagebuch ist vollständig mobil-responsiv und funktioniert auf jedem Smartphone- oder Tablet-Browser, einschließlich Safari auf iOS und Chrome auf Android.</p></div></div>
+          <div class="d-faq-item"><button class="d-faq-q" aria-expanded="false">Gibt es ein Limit, wie viele Einträge ich schreiben kann?</button><div class="d-faq-a"><p>Es gibt kein festes Limit für die Anzahl der Einträge. Die einzige Einschränkung ist die lokale Speicherkapazität deines Browsers, die typischerweise 5–10 MB beträgt — genug für Tausende von Tagebucheinträgen.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="footer-root"></div>
+  <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
+
+  <!-- PDF EXPORT MODAL -->
+<div class="pdf-modal-overlay" id="pdfModalOverlay">
+  <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+    <div class="pdf-modal-header">
+      <h3 id="pdfModalTitle">📄 Eintrag als PDF Exportieren</h3>
+      <button class="pdf-modal-close" id="pdfModalClose" aria-label="Schließen">✕</button>
+    </div>
+    <div class="pdf-modal-body">
+
+      <!-- 300x250 Banner Ad Slot -->
+      <div class="pdf-modal-ad" id="pdfModalAd">
+        <span class="pdf-modal-ad-label">Werbung</span>
+        <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
+      </div>
+
+      <p class="pdf-modal-sub">Wähle einen Tagebuchstil für dein PDF:</p>
+
+      <!-- Countdown gate wraps the template grid + generate button -->
+      <div class="pdf-countdown-gate" id="pdfCountdownGate">
+        <div class="pdf-countdown-overlay" id="pdfCountdownOverlay">
+          <div class="pdf-countdown-ring">
+            <svg viewBox="0 0 72 72">
+              <circle class="ring-bg" cx="36" cy="36" r="31"></circle>
+              <circle class="ring-fg" cx="36" cy="36" r="31"
+                      stroke-dasharray="194.78"
+                      stroke-dashoffset="0"
+                      id="pdfCountdownRing"></circle>
+            </svg>
+            <div class="pdf-countdown-number" id="pdfCountdownNumber">5</div>
+          </div>
+          <div class="pdf-countdown-text">
+            Dein PDF wird vorbereitet… <strong id="pdfCountdownText">5s</strong>
+          </div>
+        </div>
+
+        <div class="pdf-template-grid" id="pdfTemplateGrid"><!-- swatches injected by diary-pdf.js --></div>
+
+        <div class="pdf-modal-actions">
+          <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>PDF Generieren ⬇</button>
+        </div>
+      </div>
+
+      <div class="pdf-loading" id="pdfLoading">
+        <div class="pdf-spinner"></div>
+        <span>Dein wunderschönes PDF wird erstellt…</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Hidden printable entry, rendered off-screen and captured by html2pdf -->
+  <div id="pdfPrintArea" class="pdf-print-area" aria-hidden="true"></div>
+
+  <!-- html2pdf.js (client-side only — nothing ever leaves the browser) -->
+  
+
+  
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>  
+ <script src="/js/diary-combined.js"></script>  
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+<script src="/components/sidebar.js"></script>
+
+  <!-- Load html2pdf lazily (only when PDF button is clicked) -->
+<script>
+  // Load html2pdf only when needed
+  function loadHtml2Pdf() {
+    return new Promise((resolve, reject) => {
+      if (typeof html2pdf !== 'undefined') {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = '/js/html2pdf.bundle.min.js';
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3'); 
+</script>
+  <script src="https://www.gstatic.com/preferredsources/badge.js" async></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Notatnik Online – Darmowy Edytor Tekstu | WebNotepad</title>
+  <meta name="description" content="WebNotePad to darmowa aplikacja notatnika online. Pisz, edytuj, zapisuj i organizuj notatki bezpośrednio w przeglądarce. Bez rejestracji. Automatyczny zapis, bogate formatowanie, tryb ciemny i więcej." />
+  <meta name="keywords" content="notatnik online, web notatnik, darmowy notatnik, notatnik w przeglądarce, edytor tekstu online, aplikacja do notatek, pisz notatki online, notatnik web app, notatnik memo, notepad online, zapisz notatki" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/pl/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Tagi hreflang dla wielojęzycznego SEO -->
+  <link rel="alternate" hreflang="en" href="https://webnotepad.github.io/"/>
+  <link rel="alternate" hreflang="nl" href="https://webnotepad.github.io/nl/"/>
+  <link rel="alternate" hreflang="de" href="https://webnotepad.github.io/de/"/>
+  <link rel="alternate" hreflang="fr" href="https://webnotepad.github.io/fr/"/>
+  <link rel="alternate" hreflang="da" href="https://webnotepad.github.io/da/"/>
+  <link rel="alternate" hreflang="fi" href="https://webnotepad.github.io/fi/"/>
+  <link rel="alternate" hreflang="sv" href="https://webnotepad.github.io/sv/"/>
+  <link rel="alternate" hreflang="pl" href="https://webnotepad.github.io/pl/"/>
+  <link rel="alternate" hreflang="x-default" href="https://webnotepad.github.io/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/pl/" />
+  <meta property="og:title" content="WebNotePad – Darmowy Notatnik Online" />
+  <meta property="og:description" content="Pisz, zapisuj i organizuj notatki bezpośrednio w przeglądarce. Darmowy, szybki, bez rejestracji." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebNotePad – Darmowy Notatnik Online" />
+  <meta name="twitter:description" content="Najlepszy darmowy notatnik online. Pisz i zapisuj notatki bezpośrednio w przeglądarce." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad",
+    "url": "https://webnotepad.github.io/pl/",
+    "description": "Darmowa aplikacja notatnika online do pisania, edytowania, zapisywania i organizowania notatek bezpośrednio w przeglądarce bez rejestracji.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "PLN"
+    },
+    "featureList": [
+      "Automatyczne zapisywanie notatek",
+      "Bogate formatowanie tekstu",
+      "Tryb ciemny",
+      "Wiele notatek",
+      "Eksport do TXT",
+      "Licznik słów",
+      "Znajdź i zamień",
+      "Tryb pełnoekranowy"
+    ],
+    "browserRequirements": "Wymaga JavaScript. Działa w Chrome, Firefox, Safari, Edge.",
+    "screenshot": "https://webnotepad.github.io/screenshot.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Czy WebNotePad jest całkowicie darmowy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, WebNotePad jest w 100% darmowy, bez ukrytych kosztów i bez konta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy moje notatki są zapisywane automatycznie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, WebNotePad automatycznie zapisuje Twoje notatki w pamięci lokalnej przeglądarki co kilka sekund, dzięki czemu nigdy nie tracisz pracy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy mogę używać WebNotePad offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, po załadowaniu WebNotePad działa offline. Twoje notatki są przechowywane lokalnie w przeglądarce."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak eksportować notatki?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Użyj przycisku Eksportuj na pasku narzędzi, aby natychmiast pobrać notatki jako plik .txt lub .html."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Bez rejestracji. Po prostu pisz.</div>
+        <h1 class="hero-title">
+          Notatnik Web <span class="hero-accent">Online.</span>          
+        </h1>         
+        <p class="hero-sub">Najczystszy darmowy edytor tekstu w sieci. Otwórz, pisz, zapisz — to takie proste. Działa offline, automatycznie zapisuje, zero rozproszeń.</p>
+        <div class="hero-cta-group">
+          <a href="#notepad" class="btn btn-primary">Otwórz Notatnik <span>→</span></a>
+          <a href="#features" class="btn btn-ghost">Zobacz Funkcje</a>        
+        </div>
+        <div style="margin-top: 28px; display: flex; justify-content: center;">
+          <div style="background: var(--paper-warm); padding: 8px 20px; border-radius: 100px; border: 1px solid var(--paper-edge);">
+            <div id="google_preferred_sources_badge"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NOTEPAD APP SECTION ===== -->
+    <section class="section-app" id="notepad" aria-label="Aplikacja Notatnika">
+      <div class="container">
+        <div class="app-shell">
+          <!-- Sidebar -->
+          <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+              <span class="sidebar-title">Moje Notatki</span>
+              <button class="btn-icon" id="newNoteBtn" title="Nowa Notatka" aria-label="Utwórz nową notatkę">＋</button>
+            </div>
+            <div class="sidebar-search">
+              <input type="search" id="noteSearch" placeholder="Szukaj notatek…" aria-label="Szukaj notatek" />
+            </div>
+            <ul class="note-list" id="noteList" role="listbox" aria-label="Lista notatek"></ul>
+            <div class="sidebar-footer">
+              <button class="btn-icon" id="toggleSidebarBtn" title="Przełącz pasek boczny" aria-label="Przełącz pasek boczny">◀</button>
+            </div>
+          </aside>
+
+          <!-- Editor -->
+          <div class="app-editor">
+            <div class="editor-topbar">
+              <button class="btn-icon sidebar-toggle-mobile" id="mobileSidebarBtn" aria-label="Otwórz listę notatek">☰</button>
+              <input type="text" class="note-title-input" id="noteTitleInput" placeholder="Tytuł notatki…" aria-label="Tytuł notatki" />
+              <div class="editor-actions">
+                <button class="btn-tool" id="exportTxtBtn" title="Eksportuj jako TXT" aria-label="Eksportuj jako TXT">⬇ TXT</button>
+                <button class="btn-tool" id="exportHtmlBtn" title="Eksportuj jako HTML" aria-label="Eksportuj jako HTML">⬇ HTML</button>
+                <button class="btn-tool" id="copyAllBtn" title="Kopiuj wszystko" aria-label="Kopiuj cały tekst">⎘ Kopiuj</button>
+                <button class="btn-tool" id="clearBtn" title="Wyczyść notatkę" aria-label="Wyczyść notatkę">✕ Wyczyść</button>
+                <button class="btn-tool" id="fullscreenBtn" title="Pełny ekran" aria-label="Przełącz tryb pełnoekranowy">⛶</button>
+              </div>
+            </div>
+
+            <!-- Formatting Toolbar -->
+            <div class="format-toolbar" role="toolbar" aria-label="Opcje formatowania">
+              <button class="fmt-btn" data-cmd="bold" title="Pogrubienie (Ctrl+B)" aria-label="Pogrubienie"><b>P</b></button>
+              <button class="fmt-btn" data-cmd="italic" title="Kursywa (Ctrl+I)" aria-label="Kursywa"><i>K</i></button>
+              <button class="fmt-btn" data-cmd="underline" title="Podkreślenie (Ctrl+U)" aria-label="Podkreślenie"><u>P</u></button>
+              <button class="fmt-btn" data-cmd="strikeThrough" title="Przekreślenie" aria-label="Przekreślenie"><s>P</s></button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="insertUnorderedList" title="Lista punktowana" aria-label="Lista punktowana">• Lista</button>
+              <button class="fmt-btn" data-cmd="insertOrderedList" title="Lista numerowana" aria-label="Lista numerowana">1. Lista</button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="justifyLeft" title="Wyrównaj do lewej" aria-label="Wyrównaj do lewej">⬅</button>
+              <button class="fmt-btn" data-cmd="justifyCenter" title="Wyśrodkuj" aria-label="Wyśrodkuj">↔</button>
+              <button class="fmt-btn" data-cmd="justifyRight" title="Wyrównaj do prawej" aria-label="Wyrównaj do prawej">➡</button>
+              <span class="fmt-div"></span>
+              <select class="fmt-select" id="fontSizeSelect" aria-label="Rozmiar czcionki">
+                <option value="1">Mały</option>
+                <option value="3" selected>Normalny</option>
+                <option value="5">Duży</option>
+                <option value="7">Ogromny</option>
+              </select>
+              <input type="color" class="fmt-color" id="textColorPicker" title="Kolor tekstu" aria-label="Kolor tekstu" value="#1a1a2e" />
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" id="findReplaceToggle" title="Znajdź i zamień" aria-label="Znajdź i zamień">🔍</button>
+              <button class="fmt-btn" id="darkModeBtn" title="Przełącz tryb ciemny" aria-label="Przełącz tryb ciemny">🌙</button>
+            </div>
+
+            <!-- Find & Replace Bar -->
+            <div class="find-replace-bar" id="findReplaceBar" style="display:none;" role="search">
+              <input type="text" id="findInput" placeholder="Znajdź…" aria-label="Znajdź tekst" />
+              <input type="text" id="replaceInput" placeholder="Zamień na…" aria-label="Zamień tekst" />
+              <button class="btn-tool" id="doReplaceBtn">Zamień</button>
+              <button class="btn-tool" id="doReplaceAllBtn">Wszystko</button>
+              <button class="btn-icon" id="closeFindReplace" aria-label="Zamknij znajdź i zamień">✕</button>
+            </div>
+
+            <!-- Content Editable Area -->
+            <div class="editor-area" id="editorArea" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Treść notatki" data-placeholder="Zacznij pisać swoją notatkę tutaj…"></div>
+
+            <!-- Status Bar -->
+            <div class="editor-statusbar">
+              <span id="autoSaveStatus" class="status-save">● Zapisano</span>
+              <span class="status-sep">|</span>
+              <span id="wordCount">0 słów</span>
+              <span class="status-sep">|</span>
+              <span id="charCount">0 znaków</span>
+              <span class="status-sep">|</span>
+              <span id="lineCount">0 wierszy</span>
+              <span class="status-sep">|</span>
+              <span id="readTime">0 min czytania</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section section-features" id="features" aria-label="Funkcje">
+      <div class="container">
+        <div class="section-label">Co nas wyróżnia</div>
+        <h2 class="section-title">Wszystko czego potrzebujesz.<br /><em>Nic zbędnego.</em></h2>
+        <p class="section-sub">NotePad Online usuwa zbędny balast i daje Ci błyskawiczne doświadczenie notatnika, które szanuje Twoją koncentrację.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Natychmiastowy Automatyczny Zapis</h3>
+            <p>Każde naciśnięcie klawisza jest zapisywane w pamięci lokalnej przeglądarki. Przypadkowo zamknięta karta? Twoje notatki są bezpieczne. Zawsze.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Tryb Ciemny</h3>
+            <p>Przełączaj między jasnym i ciemnym motywem, aby chronić oczy podczas późnych sesji pisania.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Bogate Formatowanie Tekstu</h3>
+            <p>Pogrubienie, kursywa, podkreślenie, listy, wyrównanie, rozmiary czcionek, kolor tekstu — prawdziwe formatowanie bez komplikacji.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📂</div>
+            <h3>Wiele Notatek</h3>
+            <p>Twórz nieograniczoną liczbę notatek, przełączaj się między nimi natychmiast. Każda notatka ma własny tytuł, treść i formatowanie.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Znajdź & Zamień</h3>
+            <p>Potężne wyszukiwanie w tekście. Znajdź dowolne słowo lub frazę i zamień je jednym kliknięciem lub zamień wszystkie wystąpienia naraz.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⬇</div>
+            <h3>Opcje Eksportu</h3>
+            <p>Pobierz swoje notatki jako czyste pliki .txt lub sformatowane .html jednym kliknięciem. Twoje dane, Twoja kontrola.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Statystyki na Żywo</h3>
+            <p>Licznik słów, znaków, wierszy i szacowany czas czytania w czasie rzeczywistym wyświetlane na pasku stanu.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📵</div>
+            <h3>Działa Offline</h3>
+            <p>Po załadowaniu WebNotePad działa całkowicie w Twojej przeglądarce. Nie potrzebujesz internetu. Twoje notatki są przechowywane lokalnie.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⛶</div>
+            <h3>Tryb Pełnoekranowy</h3>
+            <p>Wejdź w środowisko pisania bez rozproszeń w trybie pełnoekranowym jednym kliknięciem. Czysta koncentracja, czysty flow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TOOLS NAVIGATION SECTION ===== -->
+    <section class="section section-tools" id="tools" aria-label="Szybkie Narzędzia">
+      <div class="container">
+        <div class="section-label">Odkryj zestaw narzędzi</div>    
+        <h2 class="section-title">Poza WebNotepad <em>Edytor Tekstu</em></h2>
+        <p class="section-sub">
+          Przejdź do wyspecjalizowanych narzędzi do pisania, planowania, śledzenia i podejmowania decyzji. Wszystkie darmowe, wszystkie w Twojej przeglądarce.
+        </p>
+
+        <!-- CATEGORY 1 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">📝 Pisanie &amp; Notatki</h3>
+          <div class="tools-grid">
+            <a href="/pl/#notepad" class="tool-card">
+              <div class="tool-icon">📝</div>
+              <h4 class="tool-title">Notatnik</h4>
+              <p class="tool-desc">Pisz, edytuj i zapisuj notatki natychmiast. Czysto i bez rozproszeń.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/diary" class="tool-card">
+              <div class="tool-icon">📖</div>
+              <h4 class="tool-title">Dziennik</h4>
+              <p class="tool-desc">Prowadź prywatny dziennik z datowanymi wpisami i bogatym tekstem.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/focus-writer" class="tool-card">
+              <div class="tool-icon">🎯</div>
+              <h4 class="tool-title">Focus Writer</h4>
+              <p class="tool-desc">Minimalistyczny tryb pisania z zen-fokusem i licznikiem słów w czasie rzeczywistym.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">📊 Analiza &amp; Przetwarzanie Tekstu</h3>
+          <div class="tools-grid">
+            <a href="/pl/case-converter" class="tool-card">
+              <div class="tool-icon">🔤</div>
+              <h4 class="tool-title">Konwerter Wielkości Liter</h4>
+              <p class="tool-desc">Przekształć tekst na wielkie litery, małe litery, wielkość tytułową i więcej natychmiast.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/word-counter" class="tool-card">
+              <div class="tool-icon">📊</div>
+              <h4 class="tool-title">Licznik Słów</h4>
+              <p class="tool-desc">Policz słowa, znaki, zdania i akapity w swoim tekście natychmiast.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/readability" class="tool-card">
+              <div class="tool-icon">📊</div>
+              <h4 class="tool-title">Analiza Czytelności</h4>
+              <p class="tool-desc">Sprawdź łatwość czytania, poziom szkolny i oceny złożoności dla dowolnego tekstu.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/word-shuffler" class="tool-card">
+              <div class="tool-icon">🔀</div>
+              <h4 class="tool-title">Mieszacz Słów</h4>
+              <p class="tool-desc">Losowo zmieniaj kolejność słów w dowolnym tekście — idealne do kreatywnych podpowiedzi.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 3 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🧠 Organizacja &amp; Wizualizacja Pomysłów</h3>
+          <div class="tools-grid">
+            <a href="/pl/mindmap" class="tool-card">
+              <div class="tool-icon">🧠</div>
+              <h4 class="tool-title">Mapa Myśli</h4>
+              <p class="tool-desc">Wizualizuj pomysły i przeprowadzaj burzę mózgów z interaktywną tablicą mapy myśli.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/list-maker" class="tool-card">
+              <div class="tool-icon">✅</div>
+              <h4 class="tool-title">Kreator List</h4>
+              <p class="tool-desc">Twórz listy kontrolne, listy zadań i listy punktowane z łatwością przeciągnij-i-upuść.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 4 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🎲 Kreatywność &amp; Losowość</h3>
+          <div class="tools-grid">
+            <a href="/pl/random-text" class="tool-card">
+              <div class="tool-icon">🎲</div>
+              <h4 class="tool-title">Losowy Tekst</h4>
+              <p class="tool-desc">Generuj akapity zastępcze, zdania lub słowa jednym kliknięciem.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/word-cloud" class="tool-card">
+              <div class="tool-icon">☁️</div>
+              <h4 class="tool-title">Generator Chmury Słów</h4>
+              <p class="tool-desc">Zamień swój tekst w piękną wizualną chmurę słów. Dostosuj kolory, czcionki i układy.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/choice-maker" class="tool-card">
+              <div class="tool-icon">⚖️</div>
+              <h4 class="tool-title">Podejmowanie Decyzji</h4>
+              <p class="tool-desc">Zakręć kołem, rzuć monetą lub pozwól narzędziu zdecydować między Twoimi opcjami.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 5 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🔍 Pomocnicy Słów &amp; Łamigłówek</h3>
+          <div class="tools-grid">
+            <a href="/pl/word-finder" class="tool-card">
+              <div class="tool-icon">🔍</div>
+              <h4 class="tool-title">Wyszukiwacz Słów</h4>
+              <p class="tool-desc">Znajdź słowa, rozwiąż anagramy i odkryj ukryte słownictwo z łatwością.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/crossword-solver" class="tool-card">
+              <div class="tool-icon">🔠</div>
+              <h4 class="tool-title">Rozwiązywacz Krzyżówek</h4>
+              <p class="tool-desc">Pomoc w podpowiedziach, wyszukiwacz słów i pomoc w łamigłówkach dla entuzjastów krzyżówek.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/word-search-solver" class="tool-card">
+              <div class="tool-icon">🕵🏻</div>
+              <h4 class="tool-title">Rozwiązywacz Wyrazów</h4>
+              <p class="tool-desc">Rozwiązuj łamigłówki wyrazowe i znajdź ukryte słowa w dowolnej siatce liter.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 6 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">⏳ Produktywność &amp; Nawyki</h3>
+          <div class="tools-grid">
+            <a href="/pl/pomodoro-timer" class="tool-card">
+              <div class="tool-icon">🍅</div>
+              <h4 class="tool-title">Timer Pomodoro</h4>
+              <p class="tool-desc">Pozostań skoncentrowany dzięki konfigurowalnym interwałom pracy/przerwy i alertom.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+            <a href="/pl/habit-tracker" class="tool-card">
+              <div class="tool-icon">📅</div>
+              <h4 class="tool-title">Tracker Nawyków</h4>
+              <p class="tool-desc">Buduj serie i śledź codzienne nawyki dzięki prostemu wizualnemu kalendarzowi.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 7 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">😊 Zabawa &amp; Narzędzia</h3>
+          <div class="tools-grid">
+            <a href="/pl/emoji-picker" class="tool-card">
+              <div class="tool-icon">🙂</div>
+              <h4 class="tool-title">Wybór Emoji</h4>
+              <p class="tool-desc">Wybierz emoji, wyszukaj i skopiuj je, aby używać ich wszędzie z łatwością.</p>
+              <span class="tool-link">Otwórz →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS SECTION ===== -->
+    <section class="section section-how" id="how-it-works" aria-label="Jak to działa">
+      <div class="container">
+        <div class="section-label">Prostota przez design</div>
+        <h2 class="section-title">Pisz w <em>3 krokach.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Otwórz & Pisz</h3>
+              <p>Przejdź do WebNotePad w dowolnej przeglądarce. Bez konta. Bez pobierania. Bez czekania. Zacznij pisać natychmiast w edytorze.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Formatuj & Organizuj</h3>
+              <p>Użyj paska narzędzi formatowania, aby stylizować tekst. Twórz wiele notatek z własnymi tytułami. Wyszukuj we wszystkich notatkach natychmiast.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Zapisz & Eksportuj</h3>
+              <p>Notatki zapisują się automatycznie. Gdy gotowe, eksportuj jako TXT lub HTML. Skopiuj do schowka jednym kliknięciem. Udostępniaj wszędzie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPLORE TOOLS SECTION ===== -->
+    <section class="section section-explore" id="explore" aria-label="Odkryj nasze narzędzia notatnika">
+      <div class="container">
+        <div class="section-label">✦ Wybierz swój styl</div>
+        <h2 class="section-title">Pisz po swojemu.<br /><em>Trzy sposoby.</em></h2>
+        <p class="section-sub">Od szybkich notatek po codzienne refleksje, wybierz narzędzie, które pasuje do Twojego przepływu pracy.</p>
+
+        <div class="explore-grid">
+          <!-- Row 1 -->
+          <div class="explore-row explore-row--full">
+            <article class="explore-card explore-card--full">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/notepad-editor.webp" alt="Czysty interfejs notatnika z tekstem i paskiem narzędzi" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">⚡ Najczęściej używane</span>
+                    <h3 class="explore-title">Notatnik Online</h3>
+                    <p class="explore-desc">Otwórz, pisz, zapisz — bez rejestracji, bez rozproszeń. Automatyczny zapis, bogaty tekst i tryb ciemny.</p>
+                    <a href="#notepad" class="explore-link">Otwórz Notatnik →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="explore-row explore-row--split">
+            <article class="explore-card explore-card--large">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/diary-online.webp" alt="Interfejs prywatnego dziennika z datowanymi wpisami" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">📖 Prywatny</span>
+                    <h3 class="explore-title">Dziennik Online</h3>
+                    <p class="explore-desc">Prowadź codzienny dziennik. Każdy wpis jest datowany i przechowywany lokalnie. Twoje myśli pozostają Twoje.</p>
+                    <a href="/pl/diary" class="explore-link">Otwórz Dziennik →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="explore-card explore-card--small">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/memopad.webp" alt="Szybki memo-notatnik w stylu karteczek samoprzylepnych" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">📌 Szybki</span>
+                    <h3 class="explore-title">Memo Notatnik Online</h3>
+                    <p class="explore-desc">Do szybkich myśli, list zakupów i numerów telefonów.</p>
+                    <a href="/pl/memo-notepad" class="explore-link">Otwórz Memo →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USE CASES SECTION ===== -->
+    <section class="section section-usecases" id="use-cases" aria-label="Przypadki użycia">
+      <div class="container">
+        <div class="section-label">Kto używa NotePad Online</div>
+        <h2 class="section-title">Zbudowany dla <em>każdego pisarza.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎓</div>
+            <h3>Studenci</h3>
+            <p>Rób notatki z wykładów, pisz eseje, notuj punkty do nauki i eksportuj je do późniejszej powtórki. Szybko, czysto, bez rozproszeń.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💼</div>
+            <h3>Profesjonaliści</h3>
+            <p>Pisz szybkie notatki służbowe, śledź punkty działań ze spotkań, pisz opisy projektów lub przechowuj tymczasowe fragmenty kodu z łatwością.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">✍️</div>
+            <h3>Pisarze & Blogerzy</h3>
+            <p>Zapisuj pomysły, pisz pierwsze szkice, przeprowadzaj burzę mózgów nad konspektami artykułów lub przechowuj cytaty — bez przeszkadzającego edytora.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💻</div>
+            <h3>Programiści</h3>
+            <p>Wklejaj fragmenty kodu, pisz szybką dokumentację, przechowuj tymczasowo klucze API lub notuj polecenia terminala w czystym notatniku przeglądarki.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🛒</div>
+            <h3>Codzienni Użytkownicy</h3>
+            <p>Listy zakupów, zadania do zrobienia, numery telefonów, przepisy, hasła — wszystko, co musisz szybko zapisać i mieć natychmiastowy dostęp.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎨</div>
+            <h3>Twórcy</h3>
+            <p>Burza mózgów, pisanie tekstów piosenek, dialogów scenariuszy, uchwycenie ulotnej inspiracji, zanim umknie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section section-about" id="about" aria-label="O WebNotePad">
+      <div class="container about-inner">
+        <div class="about-text">
+          <div class="section-label">Nasza historia</div>
+          <h2 class="section-title">Notatnik zbudowany na <em>jednej zasadzie.</em></h2>
+          <p>Notepad Online został stworzony z jedną obsesją: co jeśli notatnik po prostu działał? Bez wyskakujących okien proszących o rejestrację. Bez skomplikowanych menu do nawigacji, zanim możesz napisać choćby jedno słowo.</p>
+          <p>Wierzymy, że narzędzia do pisania powinny być niewidoczne. Najlepszy notatnik to ten, o którym zapominasz, że istnieje — po prostu przechwytuje Twoje myśli w momencie, gdy się pojawiają. To właśnie robi WebNotePad.</p>
+          <p>Twoje notatki żyją w Twojej przeglądarce, nie na naszych serwerach. Nie zbieramy Twoich danych. Nie czytamy Twoich notatek. Nie monetyzujemy Twojej uwagi. WebNotePad jest i zawsze będzie w 100% darmowy i prywatny.</p>
+          <div class="about-values">
+            <div class="value-tag">🔒 Domyślnie prywatny</div>
+            <div class="value-tag">🌐 Działa wszędzie</div>
+            <div class="value-tag">⚡ Błyskawiczny</div>
+            <div class="value-tag">♾️ Darmowy na zawsze</div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="about-card-line"></div>
+            <p class="about-quote">„Najlepsze pomysły zasługują na najlepszy notatnik. Prosty, szybki i zawsze dostępny."</p>
+            <span class="about-card-sig">— Zespół WebNotePad</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="section section-blog" id="blog" aria-label="Najnowsze posty na blogu">
+      <div class="container">
+        <div class="section-label">✍️ Z notesu</div>
+        <h2 class="section-title">Najnowsze <em>Posty na Blogu</em></h2>
+        <p class="section-sub">Spostrzeżenia na temat produktywności, robienia notatek, prywatności i kreatywnego myślenia — od zespołu stojącego za najczystszym notatnikiem online.</p>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 3 lipca 2026</span>
+              <span>⚡ 12 min czytania</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Zwiększ Swoją Produktywność: Ostateczny Przewodnik po Cyfrowych Planerach do Nauki</h3>
+            <div class="blog-excerpt">
+              <p>Oto jak zbudować darmowy, oparty na przeglądarce system nauki do zadań, powtórek i przygotowań do egzaminów.</p>
+            </div>
+            <a href="/pl/blog/digital-study-planner-guide" class="read-more">Przeczytaj całą historię →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 3 lipca 2026</span>
+              <span>🎓 17 min czytania</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Ostateczny Przewodnik po Cyfrowym Robieniu Notatek w 2026</h3>
+            <div class="blog-excerpt">
+              <p>Wszystko, co musisz wiedzieć o zapisywaniu, organizowaniu i działaniu na podstawie pomysłów online.</p>
+            </div>
+            <a href="/pl/blog/ultimate-guide-digital-note-taking" class="read-more">Przeczytaj całą historię →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 8 maja 2026</span>
+              <span>🔒 5 min czytania</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Dlaczego Prywatność Ma Znaczenie: Jak Notatniki Przeglądarkowe Chronią Twoje Pomysły</h3>
+            <div class="blog-excerpt">
+              <p>Pamięć lokalna vs. serwery w chmurze: dlaczego Twoje myśli należą tylko do Ciebie. Manifest cyfrowej autonomii.</p>
+            </div>
+            <a href="/pl/blog/privacy-browser-notepad" class="read-more">Przeczytaj całą historię →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 8 maja 2026</span>
+              <span>💡 11 min czytania</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Techniki Burzy Mózgów: Wykorzystanie Darmowych Map Myśli Online i Notatników do Projektów Kreatywnych</h3>
+            <div class="blog-excerpt">
+              <p>Pięć sprawdzonych metod burzy mózgów, które zamieniają puste strony w przełomowe pomysły.</p>
+            </div>
+            <a href="/pl/blog/mindmap-notepad-creative" class="read-more">Przeczytaj całą historię →</a>
+          </article>
+        </div>
+
+        <div class="blog-footer">
+          <a href="/pl/blog" class="btn btn-ghost" style="border-color: var(--paper-edge);">Zobacz wszystkie artykuły →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Pytania?</div>
+        <h2 class="section-title">Często Zadawane <em>Pytania.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy WebNotePad jest całkowicie darmowy?</button>
+            <div class="faq-a"><p>Tak, WebNotePad jest w 100% darmowy, bez ukrytych kosztów, bez subskrypcji i bez konta — na zawsze.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy moje notatki są zapisywane automatycznie?</button>
+            <div class="faq-a"><p>Tak. WebNotePad automatycznie zapisuje Twoje notatki w pamięci lokalnej przeglądarki co kilka sekund. Nigdy nie stracisz pracy, nawet jeśli przypadkowo zamkniesz kartę.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy mogę używać WebNotePad offline?</button>
+            <div class="faq-a"><p>Po załadowaniu w przeglądarce WebNotePad działa całkowicie offline. Twoje notatki są przechowywane lokalnie — połączenie z internetem nie jest wymagane, aby kontynuować pisanie.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Jak eksportować moje notatki?</button>
+            <div class="faq-a"><p>Użyj przycisków „Eksportuj TXT" lub „Eksportuj HTML" na pasku narzędzi edytora, aby natychmiast pobrać notatki jako plik. Logowanie nie jest wymagane.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy moje notatki są prywatne?</button>
+            <div class="faq-a"><p>Absolutnie. Twoje notatki są przechowywane wyłącznie w pamięci lokalnej przeglądarki. Nie mamy dostępu do Twoich notatek. Nic nie jest wysyłane na żaden serwer.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy mogę utworzyć wiele notatek?</button>
+            <div class="faq-a"><p>Tak! Kliknij przycisk ＋ na pasku bocznym, aby utworzyć nieograniczoną liczbę notatek. Każda notatka ma własny tytuł, treść i formatowanie zapisywane niezależnie.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Które przeglądarki obsługuje WebNotePad?</button>
+            <div class="faq-a"><p>WebNotePad działa we wszystkich nowoczesnych przeglądarkach, w tym Google Chrome, Mozilla Firefox, Safari, Microsoft Edge i Opera zarówno na komputerze, jak i na urządzeniach mobilnych.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Czy WebNotePad działa na telefonie?</button>
+            <div class="faq-a"><p>Tak! WebNotePad jest w pełni responsywny i przyjazny dla urządzeń mobilnych. Interfejs dostosowuje się do mniejszych ekranów, dzięki czemu możesz wygodnie pisać na telefonie lub tablecie.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section section-cta" id="start" aria-label="Wezwanie do działania">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Gotowy do pisania?</h2>
+          <p>Bez rejestracji. Bez pobierania. Bez bzdur. Po prostu otwórz notatnik i zacznij pisać już teraz.</p>
+          <a href="#notepad" class="btn btn-primary btn-lg">Zacznij Pisać Za Darmo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <script src="/pl/app.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+  
+</body>
+</html>

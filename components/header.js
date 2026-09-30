@@ -379,9 +379,8 @@
         }
       }
 
-      /* Hide title text on mobile screens (keeps logo icon) */
-@media (max-width: 768px) {
-  .header-logo span {
+      @media (max-width: 768px) {
+  .logo-image {
     display: none;
   }
 }

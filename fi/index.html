@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3'); 
+</script>
+  <script src="https://www.gstatic.com/preferredsources/badge.js" async></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Online Muistio – Ilmainen Tekstieditori | WebNotepad</title>
+  <meta name="description" content="WebNotePad on ilmainen online-muistiosovellus. Kirjoita, muokkaa, tallenna ja järjestä muistiinpanosi välittömästi selaimessasi. Ei rekisteröitymistä. Automaattinen tallennus, monipuolinen muotoilu, tumma tila ja paljon muuta." />
+  <meta name="keywords" content="online muistio, web muistio, ilmainen muistio, selain muistio, online tekstieditori, muistiinpano sovellus, kirjoita muistiinpanoja online, muistio web-sovellus, memo muistio, online notepad, tallenna muistiinpanoja" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/fi/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Hreflang-tagit monikieliseen SEO:hon -->
+  <link rel="alternate" hreflang="en" href="https://webnotepad.github.io/"/>
+  <link rel="alternate" hreflang="nl" href="https://webnotepad.github.io/nl/"/>
+  <link rel="alternate" hreflang="de" href="https://webnotepad.github.io/de/"/>
+  <link rel="alternate" hreflang="fr" href="https://webnotepad.github.io/fr/"/>
+  <link rel="alternate" hreflang="da" href="https://webnotepad.github.io/da/"/>
+  <link rel="alternate" hreflang="fi" href="https://webnotepad.github.io/fi/"/>
+  <link rel="alternate" hreflang="sv" href="https://webnotepad.github.io/sv/"/>
+  <link rel="alternate" hreflang="pl" href="https://webnotepad.github.io/pl/"/>
+  <link rel="alternate" hreflang="x-default" href="https://webnotepad.github.io/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/fi/" />
+  <meta property="og:title" content="WebNotePad – Ilmainen Online Muistio" />
+  <meta property="og:description" content="Kirjoita, tallenna ja järjestä muistiinpanoja välittömästi selaimessasi. Ilmainen, nopea, ei rekisteröitymistä." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebNotePad – Ilmainen Online Muistio" />
+  <meta name="twitter:description" content="Paras ilmainen online-muistio. Kirjoita ja tallenna muistiinpanoja välittömästi selaimessasi." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "WebNotePad",
+    "url": "https://webnotepad.github.io/fi/",
+    "description": "Ilmainen online-muistio-verkkosovellus, jolla voit kirjoittaa, muokata, tallentaa ja järjestää muistiinpanoja suoraan selaimessasi ilman rekisteröitymistä.",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "featureList": [
+      "Muistiinpanojen automaattinen tallennus",
+      "Monipuolinen tekstin muotoilu",
+      "Tumma tila",
+      "Useita muistiinpanoja",
+      "Vienti TXT-muotoon",
+      "Sanamäärälaskuri",
+      "Etsi ja korvaa",
+      "Koko näytön tila"
+    ],
+    "browserRequirements": "Vaatii JavaScriptin. Toimii Chromessa, Firefoxissa, Safarissa, Edgessä.",
+    "screenshot": "https://webnotepad.github.io/screenshot.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Onko WebNotePad täysin ilmainen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kyllä, WebNotePad on 100% ilmainen ilman piilokustannuksia ja ilman tiliä."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tallennetaanko muistiinpanoni automaattisesti?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kyllä, WebNotePad tallentaa muistiinpanosi automaattisesti selaimesi paikalliseen tallennustilaan muutaman sekunnin välein, jotta et koskaan menetä työtäsi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Voinko käyttää WebNotePadia offline-tilassa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kyllä, kun se on ladattu, WebNotePad toimii offline-tilassa. Muistiinpanosi tallennetaan paikallisesti selaimeesi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Miten vien muistiinpanoni?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Käytä Vienti-painiketta työkalupalkissa ladataksesi muistiinpanosi välittömästi .txt- tai .html-tiedostona."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ink-splash"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Ei rekisteröitymistä. Kirjoita vain.</div>
+        <h1 class="hero-title">
+          Web Muistio <span class="hero-accent">Online.</span>          
+        </h1>         
+        <p class="hero-sub">Selkein ilmainen tekstieditori verkossa. Avaa, kirjoita, tallenna — niin yksinkertaista se on. Toimii offline-tilassa, tallentaa automaattisesti, ei häiriöitä.</p>
+        <div class="hero-cta-group">
+          <a href="#notepad" class="btn btn-primary">Avaa Muistio <span>→</span></a>
+          <a href="#features" class="btn btn-ghost">Katso Ominaisuudet</a>        
+        </div>
+        <div style="margin-top: 28px; display: flex; justify-content: center;">
+          <div style="background: var(--paper-warm); padding: 8px 20px; border-radius: 100px; border: 1px solid var(--paper-edge);">
+            <div id="google_preferred_sources_badge"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NOTEPAD APP SECTION ===== -->
+    <section class="section-app" id="notepad" aria-label="Muistio-sovellus">
+      <div class="container">
+        <div class="app-shell">
+          <!-- Sidebar -->
+          <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+              <span class="sidebar-title">Omat Muistiinpanot</span>
+              <button class="btn-icon" id="newNoteBtn" title="Uusi Muistiinpano" aria-label="Luo uusi muistiinpano">＋</button>
+            </div>
+            <div class="sidebar-search">
+              <input type="search" id="noteSearch" placeholder="Hae muistiinpanoja…" aria-label="Hae muistiinpanoja" />
+            </div>
+            <ul class="note-list" id="noteList" role="listbox" aria-label="Muistiinpanojen luettelo"></ul>
+            <div class="sidebar-footer">
+              <button class="btn-icon" id="toggleSidebarBtn" title="Vaihda sivupalkki" aria-label="Vaihda sivupalkki">◀</button>
+            </div>
+          </aside>
+
+          <!-- Editor -->
+          <div class="app-editor">
+            <div class="editor-topbar">
+              <button class="btn-icon sidebar-toggle-mobile" id="mobileSidebarBtn" aria-label="Avaa muistiinpanojen luettelo">☰</button>
+              <input type="text" class="note-title-input" id="noteTitleInput" placeholder="Muistiinpanon otsikko…" aria-label="Muistiinpanon otsikko" />
+              <div class="editor-actions">
+                <button class="btn-tool" id="exportTxtBtn" title="Vie TXT-muodossa" aria-label="Vie TXT-muodossa">⬇ TXT</button>
+                <button class="btn-tool" id="exportHtmlBtn" title="Vie HTML-muodossa" aria-label="Vie HTML-muodossa">⬇ HTML</button>
+                <button class="btn-tool" id="copyAllBtn" title="Kopioi kaikki" aria-label="Kopioi kaikki teksti">⎘ Kopioi</button>
+                <button class="btn-tool" id="clearBtn" title="Tyhjennä muistiinpano" aria-label="Tyhjennä muistiinpano">✕ Tyhjennä</button>
+                <button class="btn-tool" id="fullscreenBtn" title="Koko näyttö" aria-label="Vaihda koko näytön tilaan">⛶</button>
+              </div>
+            </div>
+
+            <!-- Formatting Toolbar -->
+            <div class="format-toolbar" role="toolbar" aria-label="Muotoiluvaihtoehdot">
+              <button class="fmt-btn" data-cmd="bold" title="Lihava (Ctrl+B)" aria-label="Lihava"><b>L</b></button>
+              <button class="fmt-btn" data-cmd="italic" title="Kursiivi (Ctrl+I)" aria-label="Kursiivi"><i>K</i></button>
+              <button class="fmt-btn" data-cmd="underline" title="Alleviivattu (Ctrl+U)" aria-label="Alleviivattu"><u>A</u></button>
+              <button class="fmt-btn" data-cmd="strikeThrough" title="Yliviivattu" aria-label="Yliviivattu"><s>Y</s></button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="insertUnorderedList" title="Luettelo" aria-label="Luettelo">• Luettelo</button>
+              <button class="fmt-btn" data-cmd="insertOrderedList" title="Numeroitu luettelo" aria-label="Numeroitu luettelo">1. Luettelo</button>
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" data-cmd="justifyLeft" title="Tasaa vasemmalle" aria-label="Tasaa vasemmalle">⬅</button>
+              <button class="fmt-btn" data-cmd="justifyCenter" title="Keskitä" aria-label="Keskitä">↔</button>
+              <button class="fmt-btn" data-cmd="justifyRight" title="Tasaa oikealle" aria-label="Tasaa oikealle">➡</button>
+              <span class="fmt-div"></span>
+              <select class="fmt-select" id="fontSizeSelect" aria-label="Fontin koko">
+                <option value="1">Pieni</option>
+                <option value="3" selected>Normaali</option>
+                <option value="5">Suuri</option>
+                <option value="7">Valtava</option>
+              </select>
+              <input type="color" class="fmt-color" id="textColorPicker" title="Tekstin väri" aria-label="Tekstin väri" value="#1a1a2e" />
+              <span class="fmt-div"></span>
+              <button class="fmt-btn" id="findReplaceToggle" title="Etsi ja korvaa" aria-label="Etsi ja korvaa">🔍</button>
+              <button class="fmt-btn" id="darkModeBtn" title="Vaihda tumma tila" aria-label="Vaihda tumma tila">🌙</button>
+            </div>
+
+            <!-- Find & Replace Bar -->
+            <div class="find-replace-bar" id="findReplaceBar" style="display:none;" role="search">
+              <input type="text" id="findInput" placeholder="Etsi…" aria-label="Etsi tekstiä" />
+              <input type="text" id="replaceInput" placeholder="Korvaa…" aria-label="Korvaa teksti" />
+              <button class="btn-tool" id="doReplaceBtn">Korvaa</button>
+              <button class="btn-tool" id="doReplaceAllBtn">Kaikki</button>
+              <button class="btn-icon" id="closeFindReplace" aria-label="Sulje etsi ja korvaa">✕</button>
+            </div>
+
+            <!-- Content Editable Area -->
+            <div class="editor-area" id="editorArea" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Muistiinpanon sisältö" data-placeholder="Aloita muistiinpanosi kirjoittaminen tästä…"></div>
+
+            <!-- Status Bar -->
+            <div class="editor-statusbar">
+              <span id="autoSaveStatus" class="status-save">● Tallennettu</span>
+              <span class="status-sep">|</span>
+              <span id="wordCount">0 sanaa</span>
+              <span class="status-sep">|</span>
+              <span id="charCount">0 merkkiä</span>
+              <span class="status-sep">|</span>
+              <span id="lineCount">0 riviä</span>
+              <span class="status-sep">|</span>
+              <span id="readTime">0 min lukuaika</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="section section-features" id="features" aria-label="Ominaisuudet">
+      <div class="container">
+        <div class="section-label">Mikä tekee meistä erilaisia</div>
+        <h2 class="section-title">Kaikki mitä tarvitset.<br /><em>Ei mitään ylimääräistä.</em></h2>
+        <p class="section-sub">NotePad Online poistaa ylimääräisen ja tarjoaa salamannopean muistio-kokemuksen, joka kunnioittaa keskittymistäsi.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Välitön Automaattinen Tallennus</h3>
+            <p>Jokainen näppäinpainallus tallennetaan selaimesi paikalliseen tallennustilaan. Vahingossa suljettu välilehti? Muistiinpanosi ovat turvassa. Aina.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h3>Tumma Tila</h3>
+            <p>Vaihda vaalean ja tumman teeman välillä suojataksesi silmiäsi myöhäisissä kirjoitussessioissa.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Monipuolinen Tekstin Muotoilu</h3>
+            <p>Lihava, kursiivi, alleviivattu, luettelot, tasaus, fonttikoot, tekstin väri — oikeaa muotoilua ilman monimutkaisuutta.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📂</div>
+            <h3>Useita Muistiinpanoja</h3>
+            <p>Luo rajattomasti muistiinpanoja, vaihda niiden välillä välittömästi. Jokaisella muistiinpanolla on oma otsikko, sisältö ja muotoilu.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Etsi & Korvaa</h3>
+            <p>Tehokas inline-haku. Etsi mikä tahansa sana tai lause ja korvaa se yhdellä klikkauksella tai korvaa kaikki esiintymät kerralla.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⬇</div>
+            <h3>Vientivaihtoehdot</h3>
+            <p>Lataa muistiinpanosi puhtaina .txt- tai muotoiltuina .html-tiedostoina yhdellä klikkauksella. Sinun tietosi, sinun hallintasi.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Reaaliaikaiset Tilastot</h3>
+            <p>Reaaliaikainen sanamäärä, merkkimäärä, rivimäärä ja lukuaika-arvio näytetään tilarivillä.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📵</div>
+            <h3>Toimii Offline-tilassa</h3>
+            <p>Kun se on ladattu, WebNotePad toimii kokonaan selaimessasi. Ei internetiä tarvita. Muistiinpanosi tallennetaan paikallisesti.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⛶</div>
+            <h3>Koko Näytön Tila</h3>
+            <p>Siirry häiriöttömään koko näytön kirjoitusympäristöön yhdellä klikkauksella. Puhdasta keskittymistä, puhdasta virtausta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TOOLS NAVIGATION SECTION ===== -->
+    <section class="section section-tools" id="tools" aria-label="Pikatyökalut">
+      <div class="container">
+        <div class="section-label">Tutustu työkalupakkiin</div>    
+        <h2 class="section-title">WebNotepadin lisäksi <em>Tekstieditori</em></h2>
+        <p class="section-sub">
+          Siirry kohdennettuihin työkaluihin kirjoittamiseen, suunnitteluun, seurantaan ja päätöksentekoon. Kaikki ilmaisia, kaikki selaimessasi.
+        </p>
+
+        <!-- CATEGORY 1 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">📝 Kirjoittaminen &amp; Muistiinpanot</h3>
+          <div class="tools-grid">
+            <a href="/fi/#notepad" class="tool-card">
+              <div class="tool-icon">📝</div>
+              <h4 class="tool-title">Muistio</h4>
+              <p class="tool-desc">Kirjoita, muokkaa ja tallenna muistiinpanoja välittömästi. Puhdas ja häiriötön.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/diary" class="tool-card">
+              <div class="tool-icon">📖</div>
+              <h4 class="tool-title">Päiväkirja</h4>
+              <p class="tool-desc">Pidä yksityistä päivittäistä päiväkirjaa päivätyillä merkinnöillä ja monipuolisella tekstillä.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/focus-writer" class="tool-card">
+              <div class="tool-icon">🎯</div>
+              <h4 class="tool-title">Focus Writer</h4>
+              <p class="tool-desc">Minimalistinen kirjoitustila zen-keskittymisellä ja reaaliaikaisella sanamäärällä.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">📊 Tekstianalyysi &amp; Käsittely</h3>
+          <div class="tools-grid">
+            <a href="/fi/case-converter" class="tool-card">
+              <div class="tool-icon">🔤</div>
+              <h4 class="tool-title">Kirjainkoon Muunnin</h4>
+              <p class="tool-desc">Muunna teksti välittömästi isoiksi kirjaimiksi, pieniksi kirjaimiksi, otsikkomuotoon ja muuhun.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/word-counter" class="tool-card">
+              <div class="tool-icon">📊</div>
+              <h4 class="tool-title">Sanamäärälaskuri</h4>
+              <p class="tool-desc">Laske sanat, merkit, lauseet ja kappaleet tekstissäsi välittömästi.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/readability" class="tool-card">
+              <div class="tool-icon">📊</div>
+              <h4 class="tool-title">Luettavuusanalyysi</h4>
+              <p class="tool-desc">Tarkista lukemisen helppous, luokkataso ja monimutkaisuuspisteet mille tahansa tekstille.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/word-shuffler" class="tool-card">
+              <div class="tool-icon">🔀</div>
+              <h4 class="tool-title">Sanasekoitin</h4>
+              <p class="tool-desc">Satunnaista sanajärjestys missä tahansa tekstissä — täydellinen luoviin kehoituksiin.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 3 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🧠 Ideoiden Järjestäminen &amp; Visualisointi</h3>
+          <div class="tools-grid">
+            <a href="/fi/mindmap" class="tool-card">
+              <div class="tool-icon">🧠</div>
+              <h4 class="tool-title">MindMap</h4>
+              <p class="tool-desc">Visualisoi ideoita ja aivoriihiä interaktiivisella mindmap-taululla.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/list-maker" class="tool-card">
+              <div class="tool-icon">✅</div>
+              <h4 class="tool-title">Listan Tekijä</h4>
+              <p class="tool-desc">Luo tarkistuslistoja, tehtävälistoja ja luetteloita drag-and-drop-helppoudella.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 4 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🎲 Luovuus &amp; Satunnaistaminen</h3>
+          <div class="tools-grid">
+            <a href="/fi/random-text" class="tool-card">
+              <div class="tool-icon">🎲</div>
+              <h4 class="tool-title">Satunnainen Teksti</h4>
+              <p class="tool-desc">Luo paikkamerkki-kappaleita, lauseita tai sanoja yhdellä klikkauksella.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/word-cloud" class="tool-card">
+              <div class="tool-icon">☁️</div>
+              <h4 class="tool-title">Sanapilvi-generaattori</h4>
+              <p class="tool-desc">Muuta tekstisi kauniiksi visuaaliseksi sanapilveksi. Mukauta värejä, fontteja ja asetteluja.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/choice-maker" class="tool-card">
+              <div class="tool-icon">⚖️</div>
+              <h4 class="tool-title">Päätöksentekijä</h4>
+              <p class="tool-desc">Pyöritä pyörää, heitä kolikkoa tai anna työkalun päättää vaihtoehtojesi välillä.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 5 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">🔍 Sana- &amp; Palapeliavustajat</h3>
+          <div class="tools-grid">
+            <a href="/fi/word-finder" class="tool-card">
+              <div class="tool-icon">🔍</div>
+              <h4 class="tool-title">Sananetsijä</h4>
+              <p class="tool-desc">Etsi sanoja, ratkaise anagrammeja ja löydä piilotettua sanastoa helposti.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/crossword-solver" class="tool-card">
+              <div class="tool-icon">🔠</div>
+              <h4 class="tool-title">Ristisanatehtävän Ratkaisija</h4>
+              <p class="tool-desc">Vihjeapu, sananetsijä ja palapeliapu ristisanatehtävien ystäville.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/word-search-solver" class="tool-card">
+              <div class="tool-icon">🕵🏻</div>
+              <h4 class="tool-title">Sananetsintätehtävän Ratkaisija</h4>
+              <p class="tool-desc">Ratkaise sananetsintätehtäviä ja löydä piilotettuja sanoja missä tahansa kirjainruudukossa.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 6 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">⏳ Tuottavuus &amp; Tottumukset</h3>
+          <div class="tools-grid">
+            <a href="/fi/pomodoro-timer" class="tool-card">
+              <div class="tool-icon">🍅</div>
+              <h4 class="tool-title">Pomodoro-ajastin</h4>
+              <p class="tool-desc">Pysy keskittyneenä mukautettavilla työ-/taukojaksoilla ja hälytyksillä.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+            <a href="/fi/habit-tracker" class="tool-card">
+              <div class="tool-icon">📅</div>
+              <h4 class="tool-title">Tottumusten Seuranta</h4>
+              <p class="tool-desc">Rakenna putkia ja seuraa päivittäisiä tottumuksia yksinkertaisella visuaalisella kalenterilla.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CATEGORY 7 -->
+        <div class="tools-category">
+          <h3 class="tools-category-title">😊 Hauskaa &amp; Apuohjelmia</h3>
+          <div class="tools-grid">
+            <a href="/fi/emoji-picker" class="tool-card">
+              <div class="tool-icon">🙂</div>
+              <h4 class="tool-title">Emoji-valitsin</h4>
+              <p class="tool-desc">Valitse emojeita, hae ja kopioi ne käytettäväksi missä tahansa helposti.</p>
+              <span class="tool-link">Avaa →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS SECTION ===== -->
+    <section class="section section-how" id="how-it-works" aria-label="Näin se toimii">
+      <div class="container">
+        <div class="section-label">Yksinkertainen suunnittelultaan</div>
+        <h2 class="section-title">Kirjoita <em>3 vaiheessa.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h3>Avaa & Kirjoita</h3>
+              <p>Siirry WebNotePadiin missä tahansa selaimessa. Ei tiliä. Ei latausta. Ei odottamista. Aloita heti kirjoittaminen editorissa.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h3>Muotoile & Järjestä</h3>
+              <p>Käytä muotoilutyökalupalkkia tekstisi tyylittämiseen. Luo useita muistiinpanoja mukautetuilla otsikoilla. Hae kaikista muistiinpanoistasi välittömästi.</p>
+            </div>
+          </div>
+          <div class="how-connector">——→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h3>Tallenna & Vie</h3>
+              <p>Muistiinpanot tallennetaan automaattisesti. Kun olet valmis, vie TXT- tai HTML-muodossa. Kopioi leikepöydälle yhdellä klikkauksella. Jaa missä tahansa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPLORE TOOLS SECTION ===== -->
+    <section class="section section-explore" id="explore" aria-label="Tutustu muistio-työkaluihimme">
+      <div class="container">
+        <div class="section-label">✦ Valitse tyylisi</div>
+        <h2 class="section-title">Kirjoita omalla tavallasi.<br /><em>Kolme tapaa.</em></h2>
+        <p class="section-sub">Nopeista muistiinpanoista päivittäisiin pohdintoihin, valitse työkalu, joka sopii työnkulkuusi.</p>
+
+        <div class="explore-grid">
+          <!-- Row 1 -->
+          <div class="explore-row explore-row--full">
+            <article class="explore-card explore-card--full">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/notepad-editor.webp" alt="Selkeä muistio-käyttöliittymä tekstillä ja työkalupalkilla" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">⚡ Käytetyin</span>
+                    <h3 class="explore-title">Muistio Online</h3>
+                    <p class="explore-desc">Avaa, kirjoita, tallenna — ei rekisteröitymistä, ei häiriöitä. Automaattinen tallennus, rikas teksti ja tumma tila.</p>
+                    <a href="#notepad" class="explore-link">Avaa Muistio →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="explore-row explore-row--split">
+            <article class="explore-card explore-card--large">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/diary-online.webp" alt="Yksityinen päiväkirja-käyttöliittymä päivätyillä merkinnöillä" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">📖 Yksityinen</span>
+                    <h3 class="explore-title">Online Päiväkirja</h3>
+                    <p class="explore-desc">Pidä päivittäistä päiväkirjaa. Jokainen merkintä on päivätty ja tallennettu paikallisesti. Ajatuksesi pysyvät sinun.</p>
+                    <a href="/fi/diary" class="explore-link">Avaa Päiväkirja →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="explore-card explore-card--small">
+              <div class="explore-card-inner">
+                <div class="explore-shape">
+                  <img src="/images/memopad.webp" alt="Nopea memo-muistio sticky-note-tyylillä" loading="lazy" class="explore-img" />
+                </div>
+                <div class="explore-overlay">
+                  <div class="explore-content">
+                    <span class="explore-badge">📌 Nopea</span>
+                    <h3 class="explore-title">Memo Muistio Online</h3>
+                    <p class="explore-desc">Nopeisiin ajatuksiin, ostoslistoihin ja puhelinnumeroihin.</p>
+                    <a href="/fi/memo-notepad" class="explore-link">Avaa Memo →</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USE CASES SECTION ===== -->
+    <section class="section section-usecases" id="use-cases" aria-label="Käyttötapaukset">
+      <div class="container">
+        <div class="section-label">Kuka käyttää NotePad Onlinea</div>
+        <h2 class="section-title">Rakennettu <em>jokaiselle kirjoittajalle.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎓</div>
+            <h3>Opiskelijat</h3>
+            <p>Tee luentomuistiinpanoja, kirjoita esseitä, kirjaa opiskelupisteitä ja vie ne myöhempää kertausta varten. Nopea, puhdas, häiriötön.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💼</div>
+            <h3>Ammattilaiset</h3>
+            <p>Kirjoita nopeita memoja, seuraa kokousten toimintakohtia, kirjoita projektikuvauksia tai tallenna väliaikaisia koodinpätkiä helposti.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">✍️</div>
+            <h3>Kirjoittajat & Bloggaajat</h3>
+            <p>Tallenna ideoita, kirjoita ensimmäisiä luonnoksia, aivoriihiä artikkelirakenteita tai tallenna lainauksia — ilman että editori on tiellä.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">💻</div>
+            <h3>Kehittäjät</h3>
+            <p>Liitä koodinpätkiä, kirjoita nopeaa dokumentaatiota, tallenna väliaikaisesti API-avaimia tai kirjaa päätekomentoja puhtaaseen selain-muistioon.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🛒</div>
+            <h3>Jokapäiväiset Käyttäjät</h3>
+            <p>Ostoslistat, tehtävälistat, puhelinnumerot, reseptit, salasanat — kaikki mitä sinun on kirjoitettava nopeasti ja käytettävä välittömästi.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎨</div>
+            <h3>Luovat</h3>
+            <p>Aivoriihiä ideoita, kirjoita laulunsanoja, käsikirjoitusdialogeja, tallenna hetkellinen inspiraatio ennen kuin se karkaa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section section-about" id="about" aria-label="Tietoja WebNotePadista">
+      <div class="container about-inner">
+        <div class="about-text">
+          <div class="section-label">Tarinamme</div>
+          <h2 class="section-title">Muistio, joka on rakennettu <em>yhdelle periaatteelle.</em></h2>
+          <p>Notepad Online luotiin yhdellä pakkomielteellä: entä jos muistio vain toimisi? Ei ponnahdusikkunoita, jotka pyytävät sinua rekisteröitymään. Ei monimutkaisia valikoita, joita selata ennen kuin voit kirjoittaa yhtäkään sanaa.</p>
+          <p>Uskomme, että kirjoitustyökalujen tulisi olla näkymättömiä. Paras muistio on se, jonka unohdat olevan olemassa — se yksinkertaisesti tallentaa ajatuksesi sillä hetkellä, kun ne saapuvat. Sitä WebNotePad tekee.</p>
+          <p>Muistiinpanosi elävät selaimessasi, eivät palvelimillamme. Emme kerää tietojasi. Emme lue muistiinpanojasi. Emme rahallista huomiotasi. WebNotePad on ja tulee aina olemaan 100% ilmainen ja yksityinen.</p>
+          <div class="about-values">
+            <div class="value-tag">🔒 Yksityinen oletuksena</div>
+            <div class="value-tag">🌐 Toimii kaikkialla</div>
+            <div class="value-tag">⚡ Salamannopea</div>
+            <div class="value-tag">♾️ Ilmainen ikuisesti</div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <div class="about-card-line"></div>
+            <p class="about-quote">"Parhaat ideat ansaitsevat parhaan muistion. Yksinkertainen, nopea ja aina saatavilla."</p>
+            <span class="about-card-sig">— WebNotePad-tiimi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="section section-blog" id="blog" aria-label="Uusimmat blogikirjoitukset">
+      <div class="container">
+        <div class="section-label">✍️ Muistikirjasta</div>
+        <h2 class="section-title">Uusimmat <em>Blogikirjoitukset</em></h2>
+        <p class="section-sub">Näkemyksiä tuottavuudesta, muistiinpanojen tekemisestä, yksityisyydestä ja luovasta ajattelusta — selkeimmän online-muistion takana olevalta tiimiltä.</p>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 3. heinäkuuta 2026</span>
+              <span>⚡ 12 min lukuaika</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Tehosta Tuottavuuttasi: Digitaalisten Opiskelusuunnitelmien Perusteellinen Opas</h3>
+            <div class="blog-excerpt">
+              <p>Näin rakennat ilmaisen, selaimeen perustuvan opiskelujärjestelmän tehtäville, kertaukselle ja tenttivalmistelulle.</p>
+            </div>
+            <a href="/fi/blog/digital-study-planner-guide" class="read-more">Lue koko tarina →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 3. heinäkuuta 2026</span>
+              <span>🎓 17 min lukuaika</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Perusteellinen Opas Digitaaliseen Muistiinpanojen Tekemiseen vuonna 2026</h3>
+            <div class="blog-excerpt">
+              <p>Kaikki mitä sinun tarvitsee tietää ideoidesi tallentamisesta, järjestämisestä ja hyödyntämisestä verkossa.</p>
+            </div>
+            <a href="/fi/blog/ultimate-guide-digital-note-taking" class="read-more">Lue koko tarina →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 8. toukokuuta 2026</span>
+              <span>🔒 5 min lukuaika</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Miksi Yksityisyys On Tärkeää: Miten Selainpohjaiset Muistiot Pitävät Ideasi Turvassa</h3>
+            <div class="blog-excerpt">
+              <p>Paikallinen tallennus vs. pilvipalvelimet: miksi ajatuksesi kuuluvat vain sinulle. Manifesti digitaalisesta autonomiasta.</p>
+            </div>
+            <a href="/fi/blog/privacy-browser-notepad" class="read-more">Lue koko tarina →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-meta">
+              <span class="date">📅 8. toukokuuta 2026</span>
+              <span>💡 11 min lukuaika</span>
+            </div>
+            <div class="card-divider"></div>
+            <h3>Aivoriihitekniikat: Ilmaisten Online-Mindmapien ja Muistioiden Käyttö Luovissa Projekteissa</h3>
+            <div class="blog-excerpt">
+              <p>Viisi todistettua aivoriihimenetelmää, jotka muuttavat tyhjät sivut läpimurtoideoiksi.</p>
+            </div>
+            <a href="/fi/blog/mindmap-notepad-creative" class="read-more">Lue koko tarina →</a>
+          </article>
+        </div>
+
+        <div class="blog-footer">
+          <a href="/fi/blog" class="btn btn-ghost" style="border-color: var(--paper-edge);">Katso kaikki artikkelit →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Kysymyksiä?</div>
+        <h2 class="section-title">Usein Kysytyt <em>Kysymykset.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Onko WebNotePad täysin ilmainen?</button>
+            <div class="faq-a"><p>Kyllä, WebNotePad on 100% ilmainen ilman piilokustannuksia, ilman tilauksia ja ilman tiliä — ikuisesti.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Tallennetaanko muistiinpanoni automaattisesti?</button>
+            <div class="faq-a"><p>Kyllä. WebNotePad tallentaa muistiinpanosi automaattisesti selaimesi paikalliseen tallennustilaan muutaman sekunnin välein. Et koskaan menetä työtäsi, vaikka sulkisit vahingossa välilehden.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Voinko käyttää WebNotePadia offline-tilassa?</button>
+            <div class="faq-a"><p>Kun se on ladattu selaimeesi, WebNotePad toimii täysin offline-tilassa. Muistiinpanosi tallennetaan paikallisesti — internet-yhteyttä ei tarvita kirjoittamisen jatkamiseen.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Miten vien muistiinpanoni?</button>
+            <div class="faq-a"><p>Käytä "Vie TXT" tai "Vie HTML" -painikkeita editorin työkalupalkissa ladataksesi muistiinpanosi tiedostona välittömästi. Kirjautumista ei tarvita.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Ovatko muistiinpanoni yksityisiä?</button>
+            <div class="faq-a"><p>Ehdottomasti. Muistiinpanosi tallennetaan vain selaimesi paikalliseen tallennustilaan. Meillä ei ole pääsyä muistiinpanoihisi. Mitään ei lähetetä millekään palvelimelle.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Voinko luoda useita muistiinpanoja?</button>
+            <div class="faq-a"><p>Kyllä! Klikkaa ＋-painiketta sivupalkissa luodaksesi rajattomasti muistiinpanoja. Jokaisella muistiinpanolla on oma otsikko, sisältö ja muotoilu tallennettuna itsenäisesti.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Mitä selaimia WebNotePad tukee?</button>
+            <div class="faq-a"><p>WebNotePad toimii kaikissa nykyaikaisissa selaimissa, mukaan lukien Google Chrome, Mozilla Firefox, Safari, Microsoft Edge ja Opera sekä työpöydällä että mobiilissa.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Toimiiko WebNotePad mobiilissa?</button>
+            <div class="faq-a"><p>Kyllä! WebNotePad on täysin responsiivinen ja mobiiliystävällinen. Käyttöliittymä mukautuu pienempiin näyttöihin, jotta voit kirjoittaa mukavasti puhelimellasi tai tabletillasi.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Valmiina kirjoittamaan?</h2>
+          <p>Ei rekisteröitymistä. Ei latausta. Ei hölynpölyä. Avaa vain muistio ja aloita kirjoittaminen heti.</p>
+          <a href="#notepad" class="btn btn-primary btn-lg">Aloita Ilmainen Kirjoittaminen →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <script src="/fi/app.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+  
+</body>
+</html>

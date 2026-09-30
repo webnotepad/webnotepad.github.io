@@ -3,6 +3,52 @@
  * Injected into #header-root on DOMContentLoaded
  */
 (function () {
+  // Configured supported languages and their respective path prefixes
+  const languages = [
+    { code: 'en', label: '🇬🇧 English', prefix: '' },
+    { code: 'nl', label: '🇳🇱 Dutch', prefix: '/nl' },
+    { code: 'de', label: '🇩🇪 German', prefix: '/de' },
+    { code: 'fr', label: '🇫🇷 French', prefix: '/fr' },
+    { code: 'da', label: '🇩🇰 Danish', prefix: '/da' },
+    { code: 'fi', label: '🇫🇮 Finnish', prefix: '/fi' },
+    { code: 'sv', label: '🇸🇪 Swedish', prefix: '/sv' },
+    { code: 'pl', label: '🇵🇱 Polish', prefix: '/pl' }
+  ];
+
+  // Helper function to resolve localized URLs based on current location
+  function getLocalizedUrl(targetPrefix) {
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+
+    // Known language prefixes
+    const knownPrefixes = languages.map(l => l.code);
+
+    // If the first segment is a language code, strip it to get base route
+    if (pathSegments.length > 0 && knownPrefixes.includes(pathSegments[0])) {
+      pathSegments.shift();
+    }
+
+    const relativePath = pathSegments.join('/');
+    return targetPrefix ? `${targetPrefix}/${relativePath}` : `/${relativePath}`;
+  }
+
+  // Detect current active language prefix
+  const currentPath = window.location.pathname;
+  const activeLangCode = languages.find(l => l.code !== 'en' && currentPath.startsWith(`/${l.code}`))?.code || 'en';
+
+  // Generate options for desktop select
+  const desktopOptions = languages.map(lang => {
+    const isSelected = lang.code === activeLangCode ? 'selected' : '';
+    return `<option value="${lang.prefix}" ${isSelected}>${lang.label}</option>`;
+  }).join('');
+
+  // Generate links for mobile language list
+  const mobileLangLinks = languages.map(lang => {
+    const targetUrl = getLocalizedUrl(lang.prefix);
+    const activeClass = lang.code === activeLangCode ? 'font-weight: bold; color: var(--accent);' : '';
+    return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
+  }).join('');
+
   const headerHTML = `
     <header class="site-header" id="siteHeader" role="banner">
       <div class="container header-inner">
@@ -35,6 +81,12 @@
         </nav>
 
         <div class="header-right">
+          <!-- Desktop Language Switcher Select -->
+          <div class="lang-selector-wrapper">
+            <select id="languageSelect" class="lang-select" aria-label="Select Language">
+              ${desktopOptions}
+            </select>
+          </div>
           <button class="header-dark-btn" id="headerDarkBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
             🌙
           </button>
@@ -47,6 +99,12 @@
     </header>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <a href="/" class="nav-link">📝 Home</a>
+      <div class="mobile-dropdown">
+        <button class="mobile-dropdown-btn">🌐 Language ▼</button>
+        <div class="mobile-dropdown-content">
+          ${mobileLangLinks}
+        </div>
+      </div>
       <div class="mobile-dropdown">
         <button class="mobile-dropdown-btn">📁 More ▼</button>
         <div class="mobile-dropdown-content">
@@ -73,6 +131,15 @@
     const root = document.getElementById('header-root');
     if (!root) return;
     root.innerHTML = headerHTML;
+
+    // Language switch handler (Desktop Select)
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+      languageSelect.addEventListener('change', (e) => {
+        const targetPrefix = e.target.value;
+        window.location.href = getLocalizedUrl(targetPrefix);
+      });
+    }
 
     // Dark mode toggle (header button)
     const headerDarkBtn = document.getElementById('headerDarkBtn');
@@ -118,16 +185,18 @@
     }
 
     // Mobile dropdown menu functionality
-    const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
-    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
-    if (mobileDropdownBtn && mobileDropdownContent) {
-      mobileDropdownBtn.addEventListener('click', (e) => {
+    const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+    mobileDropdownBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        mobileDropdownContent.classList.toggle('show');
-        mobileDropdownBtn.setAttribute('aria-expanded', mobileDropdownContent.classList.contains('show'));
+        const content = btn.nextElementSibling;
+        if (content) {
+          content.classList.toggle('show');
+          btn.setAttribute('aria-expanded', content.classList.contains('show'));
+        }
       });
-    }
+    });
 
     // Hamburger menu
     const hamburger = document.getElementById('hamburgerBtn');
@@ -176,9 +245,39 @@
     }, { rootMargin: '-40% 0px -40% 0px' });
     sections.forEach(s => observer.observe(s));
 
-    // Add CSS for dropdown styling - FIXED with proper dark mode variables
+    // Add CSS for dropdown & language switcher styling
     const style = document.createElement('style');
     style.textContent = `
+      /* Language Switcher Styling */
+      .lang-selector-wrapper {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 8px;
+      }
+
+      .lang-select {
+        background-color: var(--paper);
+        color: var(--ink);
+        border: 1px solid var(--paper-edge);
+        border-radius: 6px;
+        padding: 4px 8px;
+        font-size: 0.875rem;
+        font-family: inherit;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+      }
+
+      .lang-select:hover, .lang-select:focus {
+        border-color: var(--accent);
+      }
+
+      body.dark .lang-select {
+        background-color: var(--paper);
+        color: var(--ink);
+        border-color: var(--paper-edge);
+      }
+
       /* Desktop Dropdown */
       .dropdown {
         position: relative;

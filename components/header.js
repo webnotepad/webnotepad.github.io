@@ -248,7 +248,7 @@
     // Add CSS for dropdown & language switcher styling
     const style = document.createElement('style');
     style.textContent = `
-      /* Language Switcher Styling */
+     /* Language Switcher Styling */
       .lang-selector-wrapper {
         display: inline-flex;
         align-items: center;
@@ -379,11 +379,28 @@
         }
       }
 
+      /* Mobile Optimizations */
       @media (max-width: 768px) {
-  .logo-image {
-    display: none;
-  }
-}
+        .header-inner {
+          padding: 0 8px;
+        }
+        .header-logo {
+          gap: 6px;
+        }
+        .header-logo span {
+          font-size: 0.85rem;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+        .logo-image {
+          width: 26px;
+          height: 26px;
+        }
+        .lang-select {
+          padding: 2px 4px;
+          font-size: 0.75rem;
+        }
+      }
       
       /* Dark mode support for dropdowns */
       body.dark .dropdown-content {

@@ -3,16 +3,16 @@
  * Injected into #header-root on DOMContentLoaded
  */
 (function () {
-  // Configured supported languages and their respective path prefixes
+  // Configured supported languages with concise flag labels for the desktop selector
   const languages = [
-    { code: 'en', label: '🇬🇧 English', prefix: '' },
-    { code: 'nl', label: '🇳🇱 Dutch', prefix: '/nl' },
-    { code: 'de', label: '🇩🇪 German', prefix: '/de' },
-    { code: 'fr', label: '🇫🇷 French', prefix: '/fr' },
-    { code: 'da', label: '🇩🇰 Danish', prefix: '/da' },
-    { code: 'fi', label: '🇫🇮 Finnish', prefix: '/fi' },
-    { code: 'sv', label: '🇸🇪 Swedish', prefix: '/sv' },
-    { code: 'pl', label: '🇵🇱 Polish', prefix: '/pl' }
+    { code: 'en', label: '🇬🇧 English', flag: '🇬🇧', prefix: '' },
+    { code: 'nl', label: '🇳🇱 Dutch', flag: '🇳🇱', prefix: '/nl' },
+    { code: 'de', label: '🇩🇪 German', flag: '🇩🇪', prefix: '/de' },
+    { code: 'fr', label: '🇫🇷 French', flag: '🇫🇷', prefix: '/fr' },
+    { code: 'da', label: '🇩🇰 Danish', flag: '🇩🇰', prefix: '/da' },
+    { code: 'fi', label: '🇫🇮 Finnish', flag: '🇫🇮', prefix: '/fi' },
+    { code: 'sv', label: '🇸🇪 Swedish', flag: '🇸🇪', prefix: '/sv' },
+    { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
   // Helper function to resolve localized URLs based on current location
@@ -36,7 +36,7 @@
   const currentPath = window.location.pathname;
   const activeLangCode = languages.find(l => l.code !== 'en' && currentPath.startsWith(`/${l.code}`))?.code || 'en';
 
-  // Generate options for desktop select
+  // Generate options for desktop select (displays flag only on select, full label in option dropdown)
   const desktopOptions = languages.map(lang => {
     const isSelected = lang.code === activeLangCode ? 'selected' : '';
     return `<option value="${lang.prefix}" ${isSelected}>${lang.label}</option>`;
@@ -81,9 +81,9 @@
         </nav>
 
         <div class="header-right">
-          <!-- Desktop Language Switcher Select -->
+          <!-- Compact Flag Language Selector -->
           <div class="lang-selector-wrapper">
-            <select id="languageSelect" class="lang-select" aria-label="Select Language">
+            <select id="languageSelect" class="lang-select flag-only" aria-label="Select Language">
               ${desktopOptions}
             </select>
           </div>
@@ -132,7 +132,7 @@
     if (!root) return;
     root.innerHTML = headerHTML;
 
-    // Language switch handler (Desktop Select)
+    // Language switch handler
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
       languageSelect.addEventListener('change', (e) => {
@@ -245,14 +245,14 @@
     }, { rootMargin: '-40% 0px -40% 0px' });
     sections.forEach(s => observer.observe(s));
 
-    // Add CSS for dropdown & language switcher styling
+    // CSS styling
     const style = document.createElement('style');
     style.textContent = `
-     /* Language Switcher Styling */
+      /* Language Switcher Styling */
       .lang-selector-wrapper {
         display: inline-flex;
         align-items: center;
-        margin-right: 8px;
+        margin-right: 6px;
       }
 
       .lang-select {
@@ -260,11 +260,13 @@
         color: var(--ink);
         border: 1px solid var(--paper-edge);
         border-radius: 6px;
-        padding: 4px 8px;
-        font-size: 0.875rem;
+        padding: 4px 6px;
+        font-size: 1.1rem;
         font-family: inherit;
         cursor: pointer;
         outline: none;
+        width: 44px;
+        text-align: center;
         transition: border-color 0.2s, background-color 0.2s, color 0.2s;
       }
 
@@ -397,8 +399,9 @@
           height: 26px;
         }
         .lang-select {
-          padding: 2px 4px;
-          font-size: 0.75rem;
+          width: 38px;
+          padding: 2px 2px;
+          font-size: 1rem;
         }
       }
       

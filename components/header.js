@@ -248,25 +248,25 @@
     // CSS styling
     const style = document.createElement('style');
     style.textContent = `
-      /* Language Switcher Styling */
+     /* Language Switcher Styling */
       .lang-selector-wrapper {
         display: inline-flex;
         align-items: center;
-        margin-right: 6px;
+        margin-right: 8px;
       }
 
+      /* Desktop: Full width selector showing text labels */
       .lang-select {
         background-color: var(--paper);
         color: var(--ink);
         border: 1px solid var(--paper-edge);
         border-radius: 6px;
-        padding: 4px 6px;
-        font-size: 1.1rem;
+        padding: 4px 8px;
+        font-size: 0.875rem;
         font-family: inherit;
         cursor: pointer;
         outline: none;
-        width: 44px;
-        text-align: center;
+        width: auto;
         transition: border-color 0.2s, background-color 0.2s, color 0.2s;
       }
 
@@ -381,7 +381,7 @@
         }
       }
 
-      /* Mobile Optimizations */
+      /* Mobile Optimizations - Shrinks only on small screens */
       @media (max-width: 768px) {
         .header-inner {
           padding: 0 8px;

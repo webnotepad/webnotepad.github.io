@@ -775,3 +775,77 @@ body.dark .d-restore-btn {
     font-size: 0.62rem;
   }
 }
+/* =============================================
+   FIX: Fixed-height diary shell
+   → entries list gets its own scrollbar
+   → editor / writing area gets its own scrollbar
+   ============================================= */
+
+/* 1. Lock the app shell to a fixed height */
+.d-app-shell {
+  height: 680px;
+  max-height: 82vh;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* 2. Let the flex columns actually shrink.
+      (min-height:auto is the classic flexbox trap) */
+.d-sidebar,
+.d-editor-panel {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 3. Entries list fills the remaining sidebar space and scrolls */
+.d-entries-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;   /* don't chain-scroll the page */
+}
+
+/* 4. Writing area fills the remaining editor space and scrolls */
+.d-writing-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* 5. Slightly nicer scrollbars inside the app */
+.d-entries-list::-webkit-scrollbar,
+.d-writing-area::-webkit-scrollbar { width: 8px; }
+
+.d-entries-list::-webkit-scrollbar-thumb,
+.d-writing-area::-webkit-scrollbar-thumb {
+  background: var(--d-tan);
+  border-radius: 4px;
+}
+
+.d-entries-list::-webkit-scrollbar-track,
+.d-writing-area::-webkit-scrollbar-track { background: transparent; }
+
+/* 6. Mobile: stack the panes, but keep each one self-scrolling */
+@media (max-width: 680px) {
+  .d-app-shell {
+    height: auto;
+    max-height: none;
+    min-height: 0;
+  }
+  .d-sidebar {
+    max-height: 320px;           /* sidebar stops growing */
+    overflow: hidden;
+  }
+  .d-entries-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: 180px;           /* entries scroll here too */
+    overflow-y: auto;
+  }
+  .d-writing-area {
+    min-height: 240px;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}

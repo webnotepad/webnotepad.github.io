@@ -4,6 +4,8 @@
    Updated: PDF modal with 300x250 ad + 5s countdown gate
           + Google Drive backup with instructional overlay
           + Import / Restore backup from .json file
+          + Hide tools sidebar while modal is open
+          + Smooth scroll to generate button when countdown ends
    ============================================= */
 
 // =============================================
@@ -285,13 +287,11 @@ function toast(msg,d=2500){
 // Google Drive Backup with Instructional Overlay
 // =============================================
 function driveBackup(){
-  // 1. Guard: nothing to back up
   if(!entries || !entries.length){
     toast('⚠️ No entries to back up yet.');
     return;
   }
 
-  // 2. Build a friendly backup payload
   const backup = {
     app: 'WebNotePad Diary',
     version: 1,
@@ -300,7 +300,6 @@ function driveBackup(){
     entries: entries
   };
 
-  // 3. Trigger the download
   const stamp = new Date().toISOString().slice(0,10);
   const filename = `webnotepad-diary-backup-${stamp}.json`;
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type:'application/json' });
@@ -313,7 +312,6 @@ function driveBackup(){
   document.body.removeChild(a);
   setTimeout(()=>URL.revokeObjectURL(url), 1500);
 
-  // 4. Open Google Drive in a new tab (must be synchronous inside the click handler)
   let driveTab = null;
   try {
     driveTab = window.open('https://drive.google.com/drive/my-drive', '_blank', 'noopener');
@@ -321,12 +319,10 @@ function driveBackup(){
     driveTab = null;
   }
 
-  // 5. Show the mini instructional overlay
   showDriveOverlay(filename, !!driveTab);
 }
 
 function showDriveOverlay(filename, driveOpened){
-  // Remove any existing overlay
   const existing = document.getElementById('driveBackupOverlay');
   if(existing) existing.remove();
 
@@ -361,10 +357,8 @@ function showDriveOverlay(filename, driveOpened){
   `;
   document.body.appendChild(overlay);
 
-  // Trigger enter animation
   requestAnimationFrame(() => overlay.classList.add('show'));
 
-  // Close handlers
   const close = () => {
     overlay.classList.remove('show');
     setTimeout(() => overlay.remove(), 300);
@@ -384,7 +378,6 @@ function showDriveOverlay(filename, driveOpened){
     }
   });
 
-  // Auto-close after 15 seconds
   setTimeout(() => {
     if(document.body.contains(overlay)) close();
   }, 15000);
@@ -399,15 +392,14 @@ function importBackup(){
     toast('⚠️ Import input not found on the page.');
     return;
   }
-  input.value = '';       // reset so the same file can be re-picked
-  input.click();          // open the file picker
+  input.value = '';
+  input.click();
 }
 
 function handleImportFile(evt){
   const file = evt.target.files && evt.target.files[0];
   if(!file) return;
 
-  // Sanity check: must be a JSON file
   if(!/\.json$/i.test(file.name)){
     toast('⚠️ Please choose a .json backup file.');
     return;
@@ -423,7 +415,6 @@ function handleImportFile(evt){
       return;
     }
 
-    // Accept both our own payload shape and a raw entries array
     let incoming = [];
     if(Array.isArray(parsed)) {
       incoming = parsed;
@@ -434,26 +425,22 @@ function handleImportFile(evt){
       return;
     }
 
-    // Filter to entries that look valid (must have an id + content or title)
     incoming = incoming.filter(x => x && typeof x === 'object' && (x.id || x.title || x.content));
     if(!incoming.length){
       toast('❌ No usable entries found in that file.');
       return;
     }
 
-    // Confirm before merging
     const msg =
       `Restore ${incoming.length} entr${incoming.length === 1 ? 'y' : 'ies'}?\n\n` +
       `This will MERGE with your current diary. Entries with the same ID will be updated; new ones will be added.`;
     if(!confirm(msg)) return;
 
-    // Merge: existing entries by id, incoming entries overwrite/append
     const byId = new Map();
     entries.forEach(e => byId.set(e.id, e));
     let added = 0, updated = 0;
 
     incoming.forEach(inc => {
-      // Ensure required fields exist on imported entries
       const clean = {
         id:       inc.id || ('de_' + Date.now() + '_' + Math.random().toString(36).slice(2,5)),
         title:    inc.title    || '',
@@ -469,7 +456,6 @@ function handleImportFile(evt){
       byId.set(clean.id, clean);
     });
 
-    // Rebuild array sorted by updated desc
     entries = Array.from(byId.values()).sort((a,b) => (b.updated || 0) - (a.updated || 0));
     activeId = entries[0].id;
 
@@ -687,7 +673,6 @@ function initDiary(){
   initScrollAnim();
   injectDriveOverlayStyles();
 
-  // Restore dark mode
   if(localStorage.getItem('webnotepad_dark')==='1') document.body.classList.add('dark');
 
   const area=$('dWritingArea');
@@ -711,12 +696,10 @@ function initDiary(){
   $('dSearch') && $('dSearch').addEventListener('input',e=>render(e.target.value,$('dMoodFilter').value));
   $('dMoodFilter') && $('dMoodFilter').addEventListener('change',e=>render($('dSearch').value,e.target.value));
 
-  // Format buttons
   document.querySelectorAll('.d-fmt[data-cmd]').forEach(btn=>{
     btn.addEventListener('click',()=>{ area && area.focus(); document.execCommand(btn.dataset.cmd,false,null); autoSave(); });
   });
 
-  // Mobile sidebar toggle
   const mobileMenu=$('dMobileMenu');
   if(mobileMenu){
     mobileMenu.addEventListener('click',()=>{
@@ -800,15 +783,14 @@ function loadHtml2Pdf() {
     document.head.appendChild(script);
   });
 }
-   
-// ----- Ad injection for PDF modal -----
+
+// ----- Ad injection for PDF modal (300x250) -----
 function injectModalAd() {
   const adFrame = $('pdfModalAdFrame');
   if (!adFrame) return;
   if (adFrame.dataset.loaded === '1') return;
   adFrame.dataset.loaded = '1';
 
-  // 1. atOptions config (must run before invoke script)
   const configScript = document.createElement('script');
   configScript.type = 'text/javascript';
   configScript.text = `
@@ -822,7 +804,6 @@ function injectModalAd() {
   `;
   adFrame.appendChild(configScript);
 
-  // 2. External invoke script
   const invokeScript = document.createElement('script');
   invokeScript.type = 'text/javascript';
   invokeScript.src = 'https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js';
@@ -845,9 +826,9 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
 
   overlay.classList.remove('hidden');
   btn.disabled = true;
+  btn.classList.remove('pulse');
 
   const total = seconds;
-  // r=31 in SVG → circumference = 2 * π * 31
   const circumference = 2 * Math.PI * 31;
   ring.style.strokeDasharray  = circumference;
   ring.style.strokeDashoffset = 0;
@@ -873,6 +854,19 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
       countdownTimer = null;
       overlay.classList.add('hidden');
       btn.disabled = false;
+
+      // Scroll the generate button into view smoothly
+      // (small delay so the overlay fade-out completes)
+      setTimeout(() => {
+        try {
+          btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (e) {
+          btn.scrollIntoView();
+        }
+        // Add a brief attention pulse
+        btn.classList.add('pulse');
+        setTimeout(() => btn.classList.remove('pulse'), 2600);
+      }, 250);
     }
   }, 1000);
 }
@@ -882,26 +876,28 @@ function openModal(){
   injectModalAd();
   const overlay = $('pdfModalOverlay');
   if(overlay) overlay.classList.add('show');
+  document.body.classList.add('pdf-modal-open');   // hide tools sidebar
   startCountdown(COUNTDOWN_SECONDS);
 }
 
 function closeModal(){
   const overlay = $('pdfModalOverlay');
   if(overlay) overlay.classList.remove('show');
+  document.body.classList.remove('pdf-modal-open'); // restore tools sidebar
   const loading = $('pdfLoading');
   if(loading) loading.classList.remove('active');
 
-  // Stop any running countdown when the modal is closed
   if (countdownTimer) {
     clearInterval(countdownTimer);
     countdownTimer = null;
   }
 
-  // Re-enable the button so it isn't stuck disabled on next open
   const btn = $('pdfGenerateBtn');
-  if (btn) btn.disabled = false;
+  if (btn) {
+    btn.disabled = false;
+    btn.classList.remove('pulse');
+  }
 
-  // Make sure the overlay is visible again for the next open
   const cdOverlay = $('pdfCountdownOverlay');
   if (cdOverlay) cdOverlay.classList.remove('hidden');
 }

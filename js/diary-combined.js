@@ -865,12 +865,12 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
 
   if (!overlay || !numberEl || !textEl || !ring || !btn) return;
 
-  // Reset UI
   overlay.classList.remove('hidden');
   btn.disabled = true;
 
   const total = seconds;
-  const circumference = 2 * Math.PI * 31; // r=31 in the SVG
+  // r=31 in SVG → circumference = 2 * π * 31
+  const circumference = 2 * Math.PI * 31;
   ring.style.strokeDasharray  = circumference;
   ring.style.strokeDashoffset = 0;
 
@@ -878,7 +878,6 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
   numberEl.textContent = remaining;
   textEl.textContent = remaining + 's';
 
-  // Clear any prior timer
   if (countdownTimer) clearInterval(countdownTimer);
 
   countdownTimer = setInterval(() => {

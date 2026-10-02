@@ -190,7 +190,7 @@ body.dark .d-how-num{color:var(--d-tan)}
   transition:opacity .2s ease;
   padding:20px;
 }
-.pdf-modal-overlay.show{ opacity:1; pointer-events:auto; }
+.pdf-modal-overlay.show{ opacity:1; pointer-events:auto; z-index:2147483646; }
 .pdf-modal{
   background:var(--d-cream,#fdf6ed); border-radius:16px;
   width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
@@ -201,6 +201,7 @@ body.dark .d-how-num{color:var(--d-tan)}
 .pdf-modal-header{
   display:flex; align-items:center; justify-content:space-between;
   padding:18px 22px; border-bottom:1px solid var(--d-tan,#e8d5bc);
+  position:sticky; top:0; background:var(--d-cream,#fdf6ed); z-index:5;
 }
 .pdf-modal-header h3{ font-family:var(--d-font-serif,serif); font-size:1.15rem; color:var(--d-ink,#2c1a0e); }
 .pdf-modal-close{
@@ -434,10 +435,8 @@ body.dark .d-how-num{color:var(--d-tan)}
 }
 
 /* =============================================
-   PDF MODAL — AD SLOT + COUNTDOWN GATE
+   PDF MODAL — AD SLOT
    ============================================= */
-
-/* Ad slot container */
 .pdf-modal-ad {
   padding: 12px 0 16px;
   display: flex;
@@ -480,17 +479,13 @@ body.dark .d-how-num{color:var(--d-tan)}
   display: block;
 }
 
-/* Countdown gate — overlaid on top of the template grid + action button */
 /* =============================================
    PDF MODAL — Countdown overlay (top of body)
    ============================================= */
-
-/* The body gets relative positioning so the overlay anchors to it */
 .pdf-modal-body {
   position: relative;
 }
 
-/* Overlay sits at the very top of the modal body */
 .pdf-countdown-overlay {
   position: absolute;
   top: 0;
@@ -520,7 +515,6 @@ body.dark .pdf-countdown-overlay {
   transform: translateY(-8px);
 }
 
-/* Smaller ring */
 .pdf-countdown-ring {
   position: relative;
   width: 40px;
@@ -545,7 +539,6 @@ body.dark .pdf-countdown-overlay {
   transition: stroke-dashoffset 1s linear;
 }
 
-/* Number inside the smaller ring */
 .pdf-countdown-number {
   position: absolute;
   inset: 0;
@@ -559,7 +552,6 @@ body.dark .pdf-countdown-overlay {
   line-height: 1;
 }
 
-/* Text next to the ring — single line */
 .pdf-countdown-text {
   font-family: var(--d-font-sans, sans-serif);
   font-size: 0.8rem;
@@ -572,15 +564,13 @@ body.dark .pdf-countdown-overlay {
   color: var(--d-rose, #c4705a);
 }
 
-/* Give the modal body some top padding so ads aren't hidden behind overlay */
 .pdf-modal-body {
-  padding-top: 70px; /* space for the overlay */
+  padding-top: 70px;
 }
 .pdf-modal-body .pdf-countdown-overlay {
   padding-top: 14px;
 }
 
-/* Disabled state for the generate button while counting down */
 .pdf-generate-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -592,6 +582,16 @@ body.dark .pdf-countdown-overlay {
   background: var(--d-tan, #e8d5bc);
 }
 
+/* Highlight the generate button briefly after countdown ends */
+.pdf-generate-btn.pulse {
+  animation: pdfBtnPulse 1.2s ease-out 2;
+}
+@keyframes pdfBtnPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(196,112,90,0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(196,112,90,0); }
+  100% { box-shadow: 0 0 0 0 rgba(196,112,90,0); }
+}
+
 /* Mobile tweaks */
 @media (max-width: 520px) {
   .pdf-modal-ad-frame {
@@ -600,13 +600,17 @@ body.dark .pdf-countdown-overlay {
   }
   .pdf-countdown-ring,
   .pdf-countdown-ring svg {
-    width: 60px;
-    height: 60px;
+    width: 36px;
+    height: 36px;
   }
   .pdf-countdown-number {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
+  }
+  .pdf-countdown-text {
+    font-size: 0.75rem;
   }
 }
+
 /* =============================================
    Compact Sidebar Footer (auto-width buttons)
    ============================================= */
@@ -621,7 +625,6 @@ body.dark .pdf-countdown-overlay {
   overflow: hidden;
 }
 
-/* Base button: auto width, sized by content */
 .d-sidebar-footer .d-icon-btn {
   display: inline-flex;
   align-items: center;
@@ -671,7 +674,6 @@ body.dark .pdf-countdown-overlay {
   padding-left: 6px;
 }
 
-/* ---- Google Drive icon ---- */
 .d-drive-btn .d-drive-icon {
   width: 14px;
   height: 14px;
@@ -680,7 +682,6 @@ body.dark .pdf-countdown-overlay {
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
 }
 
-/* ---- Drive button: blue blink ---- */
 .d-drive-btn {
   animation: driveBlink 3.2s ease-in-out infinite;
   animation-delay: 0s;
@@ -709,7 +710,6 @@ body.dark .d-drive-btn {
   }
 }
 
-/* ---- Restore button: green blink ---- */
 .d-restore-btn {
   animation: restoreBlink 3.2s ease-in-out infinite;
   animation-delay: 1.6s;
@@ -754,12 +754,10 @@ body.dark .d-restore-btn {
   border-color: #16a34a;
 }
 
-/* Pause animation on hover for a clean interaction */
 .d-sidebar-footer .d-icon-btn:hover {
   animation-play-state: paused;
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .d-drive-btn,
   .d-restore-btn,
@@ -769,7 +767,6 @@ body.dark .d-restore-btn {
   }
 }
 
-/* Mobile: shrink slightly but keep labels */
 @media (max-width: 480px) {
   .d-sidebar-footer {
     padding: 6px 8px;
@@ -792,13 +789,10 @@ body.dark .d-restore-btn {
     font-size: 0.62rem;
   }
 }
+
 /* =============================================
    FIX: Fixed-height diary shell
-   → entries list gets its own scrollbar
-   → editor / writing area gets its own scrollbar
    ============================================= */
-
-/* 1. Lock the app shell to a fixed height */
 .d-app-shell {
   height: 680px;
   max-height: 82vh;
@@ -806,23 +800,19 @@ body.dark .d-restore-btn {
   overflow: hidden;
 }
 
-/* 2. Let the flex columns actually shrink.
-      (min-height:auto is the classic flexbox trap) */
 .d-sidebar,
 .d-editor-panel {
   min-height: 0;
   overflow: hidden;
 }
 
-/* 3. Entries list fills the remaining sidebar space and scrolls */
 .d-entries-list {
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
-  overscroll-behavior: contain;   /* don't chain-scroll the page */
+  overscroll-behavior: contain;
 }
 
-/* 4. Writing area fills the remaining editor space and scrolls */
 .d-writing-area {
   flex: 1 1 auto;
   min-height: 0;
@@ -830,7 +820,6 @@ body.dark .d-restore-btn {
   overscroll-behavior: contain;
 }
 
-/* 5. Slightly nicer scrollbars inside the app */
 .d-entries-list::-webkit-scrollbar,
 .d-writing-area::-webkit-scrollbar { width: 8px; }
 
@@ -843,7 +832,6 @@ body.dark .d-restore-btn {
 .d-entries-list::-webkit-scrollbar-track,
 .d-writing-area::-webkit-scrollbar-track { background: transparent; }
 
-/* 6. Mobile: stack the panes, but keep each one self-scrolling */
 @media (max-width: 680px) {
   .d-app-shell {
     height: auto;
@@ -851,13 +839,13 @@ body.dark .d-restore-btn {
     min-height: 0;
   }
   .d-sidebar {
-    max-height: 320px;           /* sidebar stops growing */
+    max-height: 320px;
     overflow: hidden;
   }
   .d-entries-list {
     flex: 1 1 auto;
     min-height: 0;
-    max-height: 180px;           /* entries scroll here too */
+    max-height: 180px;
     overflow-y: auto;
   }
   .d-writing-area {
@@ -866,6 +854,7 @@ body.dark .d-restore-btn {
     overflow-y: auto;
   }
 }
+
 /* ---- PDF modal native ad slot ---- */
 .pdf-modal-ad-native {
   padding-top: 0;
@@ -935,4 +924,19 @@ body.dark .d-restore-btn {
   max-width: 100%;
   border: 0;
   display: block;
+}
+
+/* =============================================
+   FIX: Hide tools sidebar widget when PDF modal open
+   ============================================= */
+body.pdf-modal-open #tools-sidebar-root,
+body.pdf-modal-open .tools-sidebar,
+body.pdf-modal-open [class*="tools-sidebar"],
+body.pdf-modal-open [id*="tools-sidebar"],
+body.pdf-modal-open [class*="sidebar-widget"],
+body.pdf-modal-open [id*="sidebar-widget"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

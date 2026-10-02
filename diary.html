@@ -73,7 +73,6 @@
   <main>
 
     <!-- HERO -->
-    <!-- SHORT HERO (SEO preserved) -->
     <section class="d-hero">
       <div class="d-hero-orbs">
         <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
@@ -210,8 +209,6 @@
       </div>
     </section>
 
-    
-
     <!-- =============================================
      IMAGE CARDS SECTION — PDF FEATURE HIGHLIGHT
      ============================================= -->
@@ -231,7 +228,6 @@
     </p>
 
     <div class="d-cards-grid">
-      <!-- CARD 1 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t1.PNG" alt="Online diary export to PDF" loading="lazy" />
@@ -242,7 +238,6 @@
         </div>
       </div>
 
-      <!-- CARD 2 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t2.PNG" alt="Free online diary with mood tracker" loading="lazy" />
@@ -253,7 +248,6 @@
         </div>
       </div>
 
-      <!-- CARD 3 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t3.PNG" alt="Secret diary online free backup" loading="lazy" />
@@ -264,7 +258,6 @@
         </div>
       </div>
 
-      <!-- CARD 4 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t4.PNG" alt="Online journal entries export" loading="lazy" />
@@ -275,7 +268,6 @@
         </div>
       </div>
 
-      <!-- CARD 5 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t5.PNG" alt="Free online diary PDF download" loading="lazy" />
@@ -286,7 +278,6 @@
         </div>
       </div>
 
-      <!-- CARD 6 -->
       <div class="d-card-item">
         <div class="d-card-image">
           <img src="/images/t6.PNG" alt="Online diary mood and tags export" loading="lazy" />
@@ -298,7 +289,6 @@
       </div>
     </div>
 
-    <!-- extra call‑to‑action (optional) -->
     <div class="d-cards-cta">
       <a href="#diary-app" class="d-btn d-btn-primary">✍️ Write Now &amp; Export Later</a>
     </div>
@@ -353,7 +343,6 @@
   box-shadow: none;
 }
 
-/* Soft attention pulse — gentle, not annoying */
 @keyframes driveBlink {
   0%, 100% {
     box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
@@ -365,7 +354,6 @@
   }
 }
 
-/* Dark mode */
 body.dark .d-drive-btn {
   background: #1c1c22;
   border-color: #2a2a34;
@@ -389,7 +377,6 @@ body.dark .d-drive-btn {
   }
 }
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .d-drive-btn,
   body.dark .d-drive-btn {
@@ -397,7 +384,6 @@ body.dark .d-drive-btn {
   }
 }
 
-/* Mobile tweaks */
 @media (max-width: 480px) {
   .d-drive-btn {
     padding: 5px 9px !important;
@@ -442,7 +428,7 @@ body.dark .d-drive-btn {
 
 .d-card-item {
   background: var(--d-warm);
-  border-radius: 24px;          /* round border */
+  border-radius: 24px;
   border: 1px solid var(--d-tan);
   overflow: hidden;
   box-shadow: var(--d-shadow);
@@ -456,17 +442,17 @@ body.dark .d-drive-btn {
 
 .d-card-image {
   width: 100%;
-  aspect-ratio: 1 / 1;          /* square images — adjust if needed */
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--d-tan);
-  border-radius: 24px 24px 0 0; /* keep top corners round */
+  border-radius: 24px 24px 0 0;
 }
 
 .d-card-image img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;            /* ensures images fill the square neatly */
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -498,7 +484,6 @@ body.dark .d-drive-btn {
   text-align: center;
 }
 
-/* ---- responsive: 2 columns on medium, 1 on small ---- */
 @media (max-width: 900px) {
   .d-cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -512,14 +497,13 @@ body.dark .d-drive-btn {
     gap: 20px;
   }
   .d-card-image {
-    aspect-ratio: 4 / 3;        /* slightly taller on mobile */
+    aspect-ratio: 4 / 3;
   }
   .d-cards-intro {
     font-size: 0.95rem;
   }
 }
 
-/* dark mode adjustments */
 body.dark .d-card-item {
   background: var(--d-warm);
   border-color: var(--d-tan);
@@ -546,7 +530,6 @@ body.dark .d-keyword-highlight {
     </p>
 
     <div class="d-features-split">
-      <!-- LEFT: Landscape image with rounded borders -->
       <div class="d-features-visual">
         <img
           src="/images/diary-features.webp"
@@ -555,10 +538,8 @@ body.dark .d-keyword-highlight {
         />
       </div>
 
-      <!-- RIGHT: Feature list split into New & Existing -->
       <div class="d-features-list">
 
-        <!-- NEW FEATURES -->
         <div class="d-features-group">
           <h3 class="d-features-group-title">
             <span class="d-features-badge d-badge-new">NEW</span>
@@ -589,7 +570,6 @@ body.dark .d-keyword-highlight {
           </ul>
         </div>
 
-        <!-- EXISTING FEATURES -->
         <div class="d-features-group">
           <h3 class="d-features-group-title">
             <span class="d-features-badge d-badge-core">CORE</span>
@@ -664,7 +644,6 @@ body.dark .d-keyword-highlight {
   margin-bottom: 40px;
 }
 
-/* Two-column split */
 .d-features-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -673,7 +652,6 @@ body.dark .d-keyword-highlight {
   margin-top: 8px;
 }
 
-/* ---- LEFT: Landscape image with rounded corners ---- */
 .d-features-visual {
   position: sticky;
   top: 24px;
@@ -694,12 +672,11 @@ body.dark .d-keyword-highlight {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;   /* landscape */
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 24px;
 }
 
-/* ---- RIGHT: Feature list ---- */
 .d-features-list {
   display: flex;
   flex-direction: column;
@@ -737,7 +714,6 @@ body.dark .d-keyword-highlight {
   border: 1px solid rgba(184, 98, 74, 0.35);
 }
 
-/* Feature items list */
 .d-feature-items {
   list-style: none;
   padding: 0;
@@ -798,9 +774,6 @@ body.dark .d-keyword-highlight {
   margin: 0;
 }
 
-/* =============================================
-   Dark mode
-   ============================================= */
 body.dark .d-features-section {
   background: var(--d-cream, #141418);
 }
@@ -837,9 +810,6 @@ body.dark .d-badge-core {
   border-color: rgba(232, 113, 74, 0.4);
 }
 
-/* =============================================
-   Responsive
-   ============================================= */
 @media (max-width: 900px) {
   .d-features-split {
     grid-template-columns: 1fr;
@@ -944,59 +914,57 @@ body.dark .d-badge-core {
     
     <div class="pdf-modal-body">
 
-  <!-- ═══ COUNTDOWN OVERLAY (absolute, covers entire modal body top area) ═══ -->
-  <div class="pdf-countdown-overlay" id="pdfCountdownOverlay">
-    <div class="pdf-countdown-ring">
-      <svg viewBox="0 0 72 72">
-        <circle class="ring-bg" cx="36" cy="36" r="31"></circle>
-        <circle class="ring-fg" cx="36" cy="36" r="31"
-                stroke-dasharray="194.78"
-                stroke-dashoffset="0"
-                id="pdfCountdownRing"></circle>
-      </svg>
-      <div class="pdf-countdown-number" id="pdfCountdownNumber">5</div>
+      <!-- ═══ COUNTDOWN OVERLAY (absolute, top of modal body) ═══ -->
+      <div class="pdf-countdown-overlay" id="pdfCountdownOverlay">
+        <div class="pdf-countdown-ring">
+          <svg viewBox="0 0 72 72">
+            <circle class="ring-bg" cx="36" cy="36" r="31"></circle>
+            <circle class="ring-fg" cx="36" cy="36" r="31"
+                    stroke-dasharray="194.78"
+                    stroke-dashoffset="0"
+                    id="pdfCountdownRing"></circle>
+          </svg>
+          <div class="pdf-countdown-number" id="pdfCountdownNumber">5</div>
+        </div>
+        <div class="pdf-countdown-text">
+          Your PDF is being prepared… <strong id="pdfCountdownText">5s</strong>
+        </div>
+      </div>
+
+      <!-- ═══ TOP AD: 300x250 banner ═══ -->
+      <div class="pdf-modal-ad" id="pdfModalAd">
+        <span class="pdf-modal-ad-label">Advertisement</span>
+        <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
+      </div>
+
+      <!-- ═══ SECOND AD: Native 4:1 ═══ -->
+      <div class="pdf-modal-ad pdf-modal-ad-native">
+        <span class="pdf-modal-ad-label">Sponsored</span>
+        <div class="pdf-ad-native-4x1">
+          <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+          <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+        </div>
+      </div>
+
+      <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
+
+      <div class="pdf-template-grid" id="pdfTemplateGrid"></div>
+
+      <div class="pdf-modal-actions">
+        <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>Generate PDF ⬇</button>
+      </div>
+
+      <div class="pdf-loading" id="pdfLoading">
+        <div class="pdf-spinner"></div>
+        <span>Creating your beautiful PDF…</span>
+      </div>
     </div>
-    <div class="pdf-countdown-text">
-      Your PDF is being prepared… <strong id="pdfCountdownText">5s</strong>
-    </div>
-  </div>
-
-  <!-- ═══ TOP AD: 300x250 banner ═══ -->
-  <div class="pdf-modal-ad" id="pdfModalAd">
-    <span class="pdf-modal-ad-label">Advertisement</span>
-    <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
-  </div>
-
-  <!-- ═══ SECOND AD: Native 4:1 ═══ -->
-  <div class="pdf-modal-ad pdf-modal-ad-native">
-    <span class="pdf-modal-ad-label">Sponsored</span>
-    <div class="pdf-ad-native-4x1">
-      <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
-      <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
-    </div>
-  </div>
-
-  <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
-
-  <div class="pdf-template-grid" id="pdfTemplateGrid"></div>
-
-  <div class="pdf-modal-actions">
-    <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>Generate PDF ⬇</button>
-  </div>
-
-  <div class="pdf-loading" id="pdfLoading">
-    <div class="pdf-spinner"></div>
-    <span>Creating your beautiful PDF…</span>
   </div>
 </div>
 
   <!-- Hidden printable entry, rendered off-screen and captured by html2pdf -->
   <div id="pdfPrintArea" class="pdf-print-area" aria-hidden="true"></div>
 
-  <!-- html2pdf.js (client-side only — nothing ever leaves the browser) -->
-  
-
-  
   <!-- Footer injected by footer.js -->
   <div id="footer-root"></div>  
  <script src="/js/diary-combined.js"></script>  
@@ -1008,7 +976,6 @@ body.dark .d-badge-core {
 
   <!-- Load html2pdf lazily (only when PDF button is clicked) -->
 <script>
-  // Load html2pdf only when needed
   function loadHtml2Pdf() {
     return new Promise((resolve, reject) => {
       if (typeof html2pdf !== 'undefined') {

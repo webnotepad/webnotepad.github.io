@@ -481,62 +481,71 @@ body.dark .d-how-num{color:var(--d-tan)}
 }
 
 /* Countdown gate — overlaid on top of the template grid + action button */
-.pdf-countdown-gate {
+/* =============================================
+   PDF MODAL — Countdown overlay (top of body)
+   ============================================= */
+
+/* The body gets relative positioning so the overlay anchors to it */
+.pdf-modal-body {
   position: relative;
 }
 
+/* Overlay sits at the very top of the modal body */
 .pdf-countdown-overlay {
   position: absolute;
-  inset: -6px;
-  background: rgba(253, 246, 237, 0.92);
-  backdrop-filter: blur(3px);
-  border-radius: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 20px 16px;
+  background: rgba(253, 246, 237, 0.96);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--d-tan, #e8d5bc);
+  border-radius: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  z-index: 5;
-  pointer-events: auto;
-  transition: opacity 0.3s ease;
+  gap: 12px;
+  z-index: 20;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 body.dark .pdf-countdown-overlay {
-  background: rgba(26, 20, 16, 0.92);
+  background: rgba(26, 20, 16, 0.96);
 }
 
 .pdf-countdown-overlay.hidden {
   opacity: 0;
   pointer-events: none;
+  transform: translateY(-8px);
 }
 
+/* Smaller ring */
 .pdf-countdown-ring {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
-
 .pdf-countdown-ring svg {
   transform: rotate(-90deg);
-  width: 72px;
-  height: 72px;
+  width: 40px;
+  height: 40px;
 }
-
 .pdf-countdown-ring circle {
   fill: none;
-  stroke-width: 5;
+  stroke-width: 4;
   stroke-linecap: round;
 }
-
 .pdf-countdown-ring .ring-bg {
   stroke: var(--d-tan, #e8d5bc);
 }
-
 .pdf-countdown-ring .ring-fg {
   stroke: var(--d-rose, #c4705a);
   transition: stroke-dashoffset 1s linear;
 }
 
+/* Number inside the smaller ring */
 .pdf-countdown-number {
   position: absolute;
   inset: 0;
@@ -544,23 +553,31 @@ body.dark .pdf-countdown-overlay {
   align-items: center;
   justify-content: center;
   font-family: var(--d-font-serif, serif);
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--d-rose, #c4705a);
+  line-height: 1;
 }
 
+/* Text next to the ring — single line */
 .pdf-countdown-text {
   font-family: var(--d-font-sans, sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--d-ink-soft, #5c3d2e);
-  text-align: center;
-  max-width: 260px;
-  line-height: 1.4;
+  text-align: left;
+  line-height: 1.3;
 }
-
 .pdf-countdown-text strong {
   color: var(--d-rose, #c4705a);
+}
+
+/* Give the modal body some top padding so ads aren't hidden behind overlay */
+.pdf-modal-body {
+  padding-top: 70px; /* space for the overlay */
+}
+.pdf-modal-body .pdf-countdown-overlay {
+  padding-top: 14px;
 }
 
 /* Disabled state for the generate button while counting down */

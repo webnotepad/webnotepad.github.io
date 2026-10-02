@@ -800,28 +800,6 @@ function loadHtml2Pdf() {
     document.head.appendChild(script);
   });
 }
-
-let nativeAdLoaded = false;
-
-function loadNativeAd() {
-  if (nativeAdLoaded) return;
-  nativeAdLoaded = true;
-
-  const container = document.getElementById('pdfModalAdFrameNative');
-  if (!container) return;
-
-  // Inject the invoke.js script
-  const script = document.createElement('script');
-  script.async = true;
-  script.setAttribute('data-cfasync', 'false');
-  script.src = 'https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js';
-  document.body.appendChild(script);
-
-  // Inject the container div (Adsterra renders INTO this ID)
-  const adDiv = document.createElement('div');
-  adDiv.id = 'container-f8ad2a8a31b10be48474b45838a6db56';
-  container.appendChild(adDiv);
-}
    
 // ----- Ad injection for PDF modal -----
 function injectModalAd() {

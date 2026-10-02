@@ -849,3 +849,73 @@ body.dark .d-restore-btn {
     overflow-y: auto;
   }
 }
+/* ---- PDF modal native ad slot ---- */
+.pdf-modal-ad-native {
+  padding-top: 0;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--d-tan, #e8d5bc);
+  padding-bottom: 16px;
+}
+
+.pdf-ad-native-4x1 {
+  width: 100%;
+  min-height: 90px;
+  max-height: 220px;
+  border-radius: var(--d-radius, 8px);
+  overflow: hidden;
+  background: var(--d-warm, #f5ead8);
+  border: 1px solid var(--d-tan, #e8d5bc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pdf-ad-native-4x1 iframe,
+.pdf-ad-native-4x1 img,
+.pdf-ad-native-4x1 > div {
+  max-width: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---- Mid-page ad section ---- */
+.d-section-ad {
+  padding: 28px 0;
+  background: var(--d-cream);
+  border-top: 1px solid var(--d-tan);
+  border-bottom: 1px solid var(--d-tan);
+}
+
+.ad-label {
+  display: block;
+  font-family: var(--d-font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--d-ink-muted, #9e7b5e);
+  opacity: 0.5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ad-native-4x1 {
+  width: 100%;
+  min-height: 90px;
+  max-height: 220px;
+  border-radius: var(--d-radius-lg, 16px);
+  overflow: hidden;
+  background: var(--d-cream);
+  border: 1px solid var(--d-tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-native-4x1 iframe,
+.ad-native-4x1 img {
+  max-width: 100%;
+  border: 0;
+  display: block;
+}

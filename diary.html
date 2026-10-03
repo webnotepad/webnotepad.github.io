@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head> 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
 <script>
@@ -82,21 +84,6 @@
         <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Now ↓</a>
       </div>    
     </section>
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         NATIVE AD (4:1) — moved from PDF modal, now after hero
-         with a dismissible close button
-         ═══════════════════════════════════════════════════════════════ -->
-    <div class="d-native-ad-wrapper" id="nativeAdWrapper">
-      <div class="d-native-ad-inner">
-        <button class="d-native-ad-close" id="nativeAdClose" aria-label="Close advertisement">✕</button>
-        <span class="d-native-ad-label">Sponsored</span>
-        <div class="d-ad-native-4x1">
-          <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
-          <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
-        </div>
-      </div>
-    </div>
 
     <!-- DIARY APP -->
     <section class="d-app-section" id="diary-app">
@@ -525,131 +512,6 @@ body.dark .d-keyword-highlight {
   background: var(--d-rose-pale);
   color: var(--d-rose);
 }
-
-/* ═══════════════════════════════════════════════════════════════
-   NATIVE AD (4:1) — moved from PDF modal
-   ═══════════════════════════════════════════════════════════════ */
-.d-native-ad-wrapper {
-  background: var(--d-cream, #fdf6ed);
-  border-top: 1px solid var(--d-tan, #e8d5bc);
-  border-bottom: 1px solid var(--d-tan, #e8d5bc);
-  padding: 0;
-  position: relative;
-  transition: opacity 0.3s ease, max-height 0.4s ease;
-  max-height: 400px;
-  overflow: hidden;
-}
-
-.d-native-ad-wrapper.dismissed {
-  opacity: 0;
-  max-height: 0;
-  border-top: none;
-  border-bottom: none;
-  padding: 0;
-  pointer-events: none;
-}
-
-.d-native-ad-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 18px 20px 22px;
-  position: relative;
-}
-
-.d-native-ad-label {
-  display: block;
-  font-family: 'Fira Mono', monospace;
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--d-ink-muted, #9e7b5e);
-  margin-bottom: 6px;
-  text-align: center;
-}
-
-.d-native-ad-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--d-tan, #e8d5bc);
-  background: var(--d-warm, #fffaf2);
-  color: var(--d-ink-muted, #9e7b5e);
-  font-size: 0.75rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  z-index: 2;
-  padding: 0;
-  font-family: 'Nunito', sans-serif;
-}
-
-.d-native-ad-close:hover {
-  background: var(--d-rose, #b8624a);
-  color: #fff;
-  border-color: var(--d-rose, #b8624a);
-  transform: scale(1.08);
-}
-
-.d-native-ad-close:active {
-  transform: scale(0.95);
-}
-
-.d-ad-native-4x1 {
-  width: 100%;
-  min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.d-ad-native-4x1 iframe,
-.d-ad-native-4x1 ins,
-.d-ad-native-4x1 div {
-  max-width: 100% !important;
-}
-
-/* dark mode */
-body.dark .d-native-ad-wrapper {
-  background: var(--d-cream, #141418);
-  border-color: var(--d-tan, #2a2a34);
-}
-body.dark .d-native-ad-close {
-  background: var(--d-warm, #1c1c22);
-  border-color: var(--d-tan, #2a2a34);
-  color: #8a8678;
-}
-body.dark .d-native-ad-close:hover {
-  background: var(--d-rose, #e8714a);
-  color: #fff;
-  border-color: var(--d-rose, #e8714a);
-}
-body.dark .d-native-ad-label {
-  color: #6b6760;
-}
-
-@media (max-width: 600px) {
-  .d-native-ad-inner {
-    padding: 14px 14px 18px;
-  }
-  .d-native-ad-close {
-    top: 8px;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    font-size: 0.65rem;
-  }
-  .d-ad-native-4x1 {
-    min-height: 70px;
-  }
-}
 </style>
 
     <!-- =============================================
@@ -1042,7 +904,7 @@ body.dark .d-badge-core {
   <div id="footer-root"></div>
   <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
 
-  <!-- PDF EXPORT MODAL (native ad removed) -->
+  <!-- PDF EXPORT MODAL -->
 <div class="pdf-modal-overlay" id="pdfModalOverlay">
   <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
     <div class="pdf-modal-header">
@@ -1075,7 +937,14 @@ body.dark .d-badge-core {
         <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
       </div>
 
-      <!-- SECOND AD REMOVED — now lives after hero -->
+      <!-- ═══ SECOND AD: Native 4:1 ═══ -->
+      <div class="pdf-modal-ad pdf-modal-ad-native">
+        <span class="pdf-modal-ad-label">Sponsored</span>
+        <div class="pdf-ad-native-4x1">
+          <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+          <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+        </div>
+      </div>
 
       <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
 
@@ -1121,25 +990,6 @@ body.dark .d-badge-core {
       document.head.appendChild(script);
     });
   }
-</script>
-
-<!-- Native ad close handler -->
-<script>
-  (function() {
-    var closeBtn = document.getElementById('nativeAdClose');
-    var wrapper = document.getElementById('nativeAdWrapper');
-    if (closeBtn && wrapper) {
-      closeBtn.addEventListener('click', function() {
-        wrapper.classList.add('dismissed');
-        // Remove from DOM after transition ends so it doesn't take space
-        setTimeout(function() {
-          if (wrapper.parentNode) {
-            wrapper.parentNode.removeChild(wrapper);
-          }
-        }, 450);
-      });
-    }
-  })();
 </script>
 </body>
 </html>

@@ -905,6 +905,7 @@ body.dark .d-badge-core {
   <div class="d-toast" id="dToast" role="alert" aria-live="polite"></div>
 
   <!-- PDF EXPORT MODAL -->
+<!-- PDF EXPORT MODAL -->
 <div class="pdf-modal-overlay" id="pdfModalOverlay">
   <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
     <div class="pdf-modal-header">
@@ -931,28 +932,20 @@ body.dark .d-badge-core {
         </div>
       </div>
 
-      <!-- ═══ TOP AD: 300x250 banner ═══ -->
+      <!-- ═══ 300x250 AD ═══ -->
       <div class="pdf-modal-ad" id="pdfModalAd">
         <span class="pdf-modal-ad-label">Advertisement</span>
         <div class="pdf-modal-ad-frame" id="pdfModalAdFrame"></div>
       </div>
 
-      <!-- ═══ SECOND AD: Native 4:1 ═══ -->
-      <div class="pdf-modal-ad pdf-modal-ad-native">
-        <span class="pdf-modal-ad-label">Sponsored</span>
-        <div class="pdf-ad-native-4x1">
-          <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
-          <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
-        </div>
+      <!-- ═══ GENERATE BUTTON (moved below ad) ═══ -->
+      <div class="pdf-modal-actions">
+        <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>Generate PDF ⬇</button>
       </div>
 
       <p class="pdf-modal-sub">Choose a journal style for your PDF:</p>
 
       <div class="pdf-template-grid" id="pdfTemplateGrid"></div>
-
-      <div class="pdf-modal-actions">
-        <button class="pdf-generate-btn" id="pdfGenerateBtn" disabled>Generate PDF ⬇</button>
-      </div>
 
       <div class="pdf-loading" id="pdfLoading">
         <div class="pdf-spinner"></div>

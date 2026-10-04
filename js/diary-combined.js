@@ -6,6 +6,7 @@
           + Import / Restore backup from .json file
           + Hide tools sidebar while modal is open
           + Smooth scroll to generate button when countdown ends
+          + Save button now opens ad-gated modal and auto-saves at 0
    ============================================= */
 
 // =============================================
@@ -686,7 +687,7 @@ function initDiary(){
   });
 
   $('dNewEntryBtn') && $('dNewEntryBtn').addEventListener('click', newEntry);
-  $('dSaveBtn') && $('dSaveBtn').addEventListener('click',()=>{ persistActive(); save(); setSaving(false); toast('💾 Saved!'); });
+  $('dSaveBtn') && $('dSaveBtn').addEventListener('click', ()=> openAdGatedAction('save'));
   $('dDeleteBtn') && $('dDeleteBtn').addEventListener('click', deleteEntry);
   $('dExportAllBtn') && $('dExportAllBtn').addEventListener('click', exportAll);
   $('dDriveBackupBtn') && $('dDriveBackupBtn').addEventListener('click', driveBackup);
@@ -723,6 +724,9 @@ const TEMPLATES = [
 ];
 
 let selectedTemplate = TEMPLATES[0].id;
+
+// Module-scope state — which flow opened the modal: 'pdf' or 'save'
+let modalMode = 'pdf';
 
 const MOOD_LABELS = {
   '😊':'Happy', '😔':'Sad', '😤':'Angry', '😰':'Anxious',
@@ -853,10 +857,26 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
       clearInterval(countdownTimer);
       countdownTimer = null;
       overlay.classList.add('hidden');
-      btn.disabled = false;
 
-      // Scroll the generate button into view smoothly
-      // (small delay so the overlay fade-out completes)
+      // ── SAVE FLOW: auto-save, no button press required ──
+      if (modalMode === 'save') {
+        setTimeout(() => {
+          persistActive();
+          save();
+          render(
+            $('dSearch')     ? $('dSearch').value     : '',
+            $('dMoodFilter') ? $('dMoodFilter').value : ''
+          );
+          setSaving(false);
+          updateStreak();
+          toast('💾 Saved!');
+          closeModal();
+        }, 250);
+        return;
+      }
+
+      // ── PDF FLOW: enable button and scroll it into view ──
+      btn.disabled = false;
       setTimeout(() => {
         try {
           btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -871,13 +891,43 @@ function startCountdown(seconds = COUNTDOWN_SECONDS) {
   }, 1000);
 }
 
-function openModal(){
-  buildTemplateGrid();
+function openModal(mode = 'pdf'){
+  modalMode = mode;
+
+  // Build templates only for the PDF flow
+  if(mode === 'pdf') {
+    buildTemplateGrid();
+  } else {
+    const grid = $('pdfTemplateGrid');
+    if(grid) grid.innerHTML = '';
+  }
+
   injectModalAd();
+
+  // Relabel title + button + hide template prompt for the save flow
+  const titleEl = $('pdfModalTitle');
+  const btn     = $('pdfGenerateBtn');
+  const subEl   = document.querySelector('.pdf-modal-sub');
+
+  if(mode === 'save') {
+    if(titleEl) titleEl.textContent = '💾 Saving Your Entry';
+    if(btn)     btn.textContent     = 'Save Entry ✓';
+    if(subEl)   subEl.style.display = 'none';
+  } else {
+    if(titleEl) titleEl.textContent = '📄 Export Entry as PDF';
+    if(btn)     btn.textContent     = 'Generate PDF ⬇';
+    if(subEl)   subEl.style.display = '';
+  }
+
   const overlay = $('pdfModalOverlay');
   if(overlay) overlay.classList.add('show');
   document.body.classList.add('pdf-modal-open');   // hide tools sidebar
   startCountdown(COUNTDOWN_SECONDS);
+}
+
+// Convenience wrapper used by the Save button
+function openAdGatedAction(mode) {
+  openModal(mode);
 }
 
 function closeModal(){
@@ -899,7 +949,10 @@ function closeModal(){
   }
 
   const cdOverlay = $('pdfCountdownOverlay');
-  if (cdOverlay) cdOverlay.classList.remove('hidden');
+  if(cdOverlay) cdOverlay.classList.remove('hidden');
+
+  // Reset modal mode for next open
+  modalMode = 'pdf';
 }
 
 function buildTemplateGrid(){
@@ -1012,7 +1065,7 @@ async function generatePDF(){
 }
 
 function initPDF(){
-  $('dPdfBtn') && $('dPdfBtn').addEventListener('click', openModal);
+  $('dPdfBtn') && $('dPdfBtn').addEventListener('click', () => openModal('pdf'));
   $('pdfModalClose') && $('pdfModalClose').addEventListener('click', closeModal);
   $('pdfModalOverlay') && $('pdfModalOverlay').addEventListener('click', e=>{
     if(e.target.id === 'pdfModalOverlay') closeModal();

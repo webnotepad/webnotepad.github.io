@@ -47,8 +47,8 @@ a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:var(--d-font-sans);border:none;background:none}
 input,select,textarea{font-family:var(--d-font-sans)}
 
-/* HERO — compact */
-.d-hero{position:relative;min-height:auto;display:flex;align-items:center;padding:36px 0 44px;overflow:hidden;background:var(--d-warm)}
+/* HERO — compact, tighter bottom for hero ad */
+.d-hero{position:relative;min-height:auto;display:flex;align-items:center;padding:36px 0 20px;overflow:hidden;background:var(--d-warm)}
 .d-hero-orbs{position:absolute;inset:0;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35}
 .orb1{width:320px;height:320px;background:radial-gradient(circle,#f4c99a,transparent);top:-100px;right:-80px}
@@ -65,8 +65,52 @@ body.dark .orb{opacity:.12}
 .d-btn-primary:hover{background:var(--d-brown);border-color:var(--d-brown);transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,112,90,.3)}
 @keyframes dfadeIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 
+/* ── Native ad below hero CTA ── */
+.d-hero-native-ad {
+  margin: 18px 0 0;
+  max-width: 620px;
+  padding: 12px 14px 14px;
+  background: rgba(255, 250, 242, 0.65);
+  border: 1px dashed var(--d-tan, #e8d5bc);
+  border-radius: 14px;
+  box-shadow: none;
+  animation: dfadeIn .55s .4s ease both;
+}
+
+.d-hero-native-ad-label {
+  display: block;
+  font-family: 'Fira Mono', 'Courier New', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--d-ink-muted, #9e7b5e);
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.d-hero-native-ad-frame {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.d-hero-native-ad-frame iframe,
+.d-hero-native-ad-frame img,
+.d-hero-native-ad-frame > div {
+  max-width: 100%;
+}
+
+body.dark .d-hero-native-ad {
+  background: rgba(28, 28, 34, 0.55);
+  border-color: var(--d-tan, #2a2a34);
+}
+
 /* APP */
-.d-app-section{padding:0 0 72px;margin-top:40px}
+.d-app-section{padding:0 0 72px;margin-top:20px}
 .d-app-shell{display:flex;border:1px solid var(--d-tan);border-radius:var(--d-radius-lg);overflow:hidden;box-shadow:var(--d-shadow-lg);min-height:580px;background:var(--d-cream);transition:border-color .2s,background .2s}
 .d-sidebar{width:260px;min-width:260px;background:var(--d-warm);border-right:1px solid var(--d-tan);display:flex;flex-direction:column}
 .d-sidebar-top{padding:16px 14px 12px;border-bottom:1px solid var(--d-tan)}
@@ -176,9 +220,21 @@ body.dark .d-how-num{color:var(--d-tan)}
   .d-editor-header{flex-wrap:wrap}
   .d-entry-meta{flex-direction:column;align-items:stretch}
   .d-tags-input{width:100%}
-  .d-hero{padding:28px 0 34px}
+  .d-hero{padding:28px 0 16px}
   .d-hero h1{font-size:1.65rem}
   .d-hero p{font-size:.9rem}
+}
+
+/* ── Hero native ad — mobile ── */
+@media (max-width: 600px) {
+  .d-hero-native-ad {
+    margin-top: 14px;
+    padding: 10px 10px 12px;
+    border-radius: 12px;
+  }
+  .d-hero-native-ad-frame {
+    min-height: 70px;
+  }
 }
 
 /* ---------- PART 2: diary-pdf.css ---------- */
@@ -435,7 +491,7 @@ body.dark .d-how-num{color:var(--d-tan)}
 }
 
 /* =============================================
-   PDF MODAL — AD SLOT
+   PDF MODAL — AD SLOT (300x250 only)
    ============================================= */
 .pdf-modal-ad {
   padding: 12px 0 16px;
@@ -855,36 +911,6 @@ body.dark .d-restore-btn {
   }
 }
 
-/* ---- PDF modal native ad slot ---- */
-.pdf-modal-ad-native {
-  padding-top: 0;
-  margin-bottom: 18px;
-  border-bottom: 1px solid var(--d-tan, #e8d5bc);
-  padding-bottom: 16px;
-}
-
-.pdf-ad-native-4x1 {
-  width: 100%;
-  min-height: 90px;
-  max-height: 220px;
-  border-radius: var(--d-radius, 8px);
-  overflow: hidden;
-  background: var(--d-warm, #f5ead8);
-  border: 1px solid var(--d-tan, #e8d5bc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.pdf-ad-native-4x1 iframe,
-.pdf-ad-native-4x1 img,
-.pdf-ad-native-4x1 > div {
-  max-width: 100%;
-  border: 0;
-  display: block;
-}
-
 /* ---- Mid-page ad section ---- */
 .d-section-ad {
   padding: 28px 0;
@@ -939,58 +965,4 @@ body.pdf-modal-open [id*="sidebar-widget"] {
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
-}
-
-/* ── Native ad above the diary app ── */
-.diary-top-native-ad {
-  margin: 0 0 18px;
-  padding: 10px 12px 12px;
-  background: var(--d-warm, #fffaf2);
-  border: 1px solid var(--d-tan, #e8d5bc);
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(44, 26, 14, 0.04);
-}
-
-.diary-top-native-ad-label {
-  display: block;
-  font-family: 'Fira Mono', 'Courier New', monospace;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--d-ink-muted, #9e7b5e);
-  margin-bottom: 6px;
-  opacity: 0.75;
-}
-
-.diary-top-native-ad-frame {
-  min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.diary-top-native-ad-frame iframe,
-.diary-top-native-ad-frame img,
-.diary-top-native-ad-frame > div {
-  max-width: 100%;
-}
-
-body.dark .diary-top-native-ad {
-  background: var(--d-warm, #1c1c22);
-  border-color: var(--d-tan, #2a2a34);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-
-@media (max-width: 600px) {
-  .diary-top-native-ad {
-    margin-bottom: 14px;
-    padding: 8px 10px 10px;
-    border-radius: 12px;
-  }
-  .diary-top-native-ad-frame {
-    min-height: 70px;
-  }
 }

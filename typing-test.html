@@ -932,22 +932,21 @@
 </div>
 
 <style>
-/* ─── Native Banner Ad 4:1 — Self-contained styles ─── */
+/* ─── Native Banner Ad 4:1 — adapted to Typing Test theme ─── */
 .native-banner-ad {
   position: relative;
   width: 100%;
-  max-width: 728px;
-  margin: 0 auto 32px auto;
+  max-width: 100%;
+  margin: 24px auto 0;
   padding: 8px 12px 12px;
-  background: var(--paper, #fffef9);
-  border: 1.5px solid var(--border, #e8dfc8);
-  border-radius: var(--radius, 12px);
-  box-shadow: var(--shadow-sm, 0 2px 8px rgba(44,36,22,.07));
+  background: var(--tt-surface);
+  border: 1.5px solid var(--tt-border);
+  border-radius: var(--tt-radius-lg);
+  box-shadow: var(--tt-shadow);
   overflow: hidden;
   max-height: 200px;
 }
 
-/* ── Inner wrapper ── */
 .native-banner-inner {
   position: relative;
   display: flex;
@@ -956,19 +955,17 @@
   gap: 4px;
 }
 
-/* ── "Sponsored" label ── */
 .native-banner-label {
-  font-family: var(--font-ui, sans-serif);
+  font-family: 'DM Mono', 'Courier New', monospace;
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-muted, #9e9080);
+  color: var(--tt-muted);
   align-self: flex-start;
   padding-left: 2px;
 }
 
-/* ── Ad content area ── */
 .native-banner-content {
   width: 100%;
   min-height: 90px;
@@ -989,7 +986,6 @@
   margin: 0 auto;
 }
 
-/* Ensure the Adsterra container fills the space */
 #container-f8ad2a8a31b10be48474b45838a6db56 {
   width: 100% !important;
   min-height: 90px;
@@ -998,17 +994,12 @@
   justify-content: center;
 }
 
-/* ── Responsive ── */
 @media (max-width: 700px) {
   .native-banner-ad {
-    max-width: 100%;
     padding: 6px 8px 8px;
-    border-radius: var(--radius-sm, 8px);
-    margin-bottom: 24px;
+    margin-top: 20px;
   }
-  .native-banner-content {
-    min-height: 70px;
-  }
+  .native-banner-content,
   #container-f8ad2a8a31b10be48474b45838a6db56 {
     min-height: 70px;
   }
@@ -1017,15 +1008,10 @@
 @media (max-width: 480px) {
   .native-banner-ad {
     padding: 4px 6px 6px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    margin-top: 16px;
   }
-  .native-banner-label {
-    font-size: 0.6rem;
-  }
-  .native-banner-content {
-    min-height: 60px;
-  }
+  .native-banner-label { font-size: 0.6rem; }
+  .native-banner-content,
   #container-f8ad2a8a31b10be48474b45838a6db56 {
     min-height: 60px;
   }

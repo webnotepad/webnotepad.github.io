@@ -940,3 +940,57 @@ body.pdf-modal-open [id*="sidebar-widget"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* ── Native ad above the diary app ── */
+.diary-top-native-ad {
+  margin: 0 0 18px;
+  padding: 10px 12px 12px;
+  background: var(--d-warm, #fffaf2);
+  border: 1px solid var(--d-tan, #e8d5bc);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(44, 26, 14, 0.04);
+}
+
+.diary-top-native-ad-label {
+  display: block;
+  font-family: 'Fira Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--d-ink-muted, #9e7b5e);
+  margin-bottom: 6px;
+  opacity: 0.75;
+}
+
+.diary-top-native-ad-frame {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.diary-top-native-ad-frame iframe,
+.diary-top-native-ad-frame img,
+.diary-top-native-ad-frame > div {
+  max-width: 100%;
+}
+
+body.dark .diary-top-native-ad {
+  background: var(--d-warm, #1c1c22);
+  border-color: var(--d-tan, #2a2a34);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .diary-top-native-ad {
+    margin-bottom: 14px;
+    padding: 8px 10px 10px;
+    border-radius: 12px;
+  }
+  .diary-top-native-ad-frame {
+    min-height: 70px;
+  }
+}

@@ -132,138 +132,17 @@
           <a href="#features" class="btn btn-ghost">See Features</a>          
         </div>
 
-        <!-- ══════════ NATIVE BANNER AD (4:1) ══════════ -->
-    <!-- Native banner ad — width: 100%, max-width: 728px (auto‑width within parent) -->
-    <div class="native-banner-ad" role="complementary" aria-label="Advertisement">
-      <div class="native-banner-inner">
-        <span class="native-banner-label">Sponsored</span>
-        <div class="native-banner-content">
-          <!-- Adsterra Native Banner 4:1 -->
-          <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
-          <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
-        </div>
-      </div>
+       <!-- ══════════ NATIVE BANNER AD (4:1) — AUTO WIDTH ══════════ -->
+<div class="native-banner-ad" role="complementary" aria-label="Advertisement">
+  <div class="native-banner-inner">
+    <span class="native-banner-label">Sponsored</span>
+    <div class="native-banner-content">
+      <!-- Adsterra Native Banner 4:1 -->
+      <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+      <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
     </div>
   </div>
-
-<style>
-    /* Minimal page reset for preview context */
-    body {
-      margin: 0;
-      padding: 24px 16px;
-      background: #f7f4ed;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    /* ─── Native Banner Ad 4:1 — fully auto width ─── */
-    .native-banner-ad {
-      position: relative;
-      width: 100%;               /* auto width — fills parent */
-      max-width: 728px;          /* upper bound, but never fixed */
-      margin: 0 auto 32px auto;
-      padding: 8px 12px 12px;
-      background: var(--paper, #fffef9);
-      border: 1.5px solid var(--border, #e8dfc8);
-      border-radius: var(--radius, 12px);
-      box-shadow: var(--shadow-sm, 0 2px 8px rgba(44, 36, 22, 0.07));
-      overflow: hidden;
-      /* Remove fixed max-height — let content define height */
-      box-sizing: border-box;
-    }
-
-    /* ── Inner wrapper ── */
-    .native-banner-inner {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* ── "Sponsored" label ── */
-    .native-banner-label {
-      font-family: var(--font-ui, system-ui, sans-serif);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-muted, #9e9080);
-      align-self: flex-start;
-      padding-left: 2px;
-    }
-
-    /* ── Ad content area — auto width & flexible height ── */
-    .native-banner-content {
-      width: 100%;
-      min-height: 90px;          /* keeps a tiny placeholder before load */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      /* No fixed height — it grows if the ad requires more space */
-    }
-
-    /* Force injected ad elements to respect the container width */
-    .native-banner-content iframe,
-    .native-banner-content ins,
-    .native-banner-content > div,
-    .native-banner-content > script + div {
-      width: 100% !important;
-      max-width: 100%;           /* never exceed the auto container */
-      border: 0;
-      display: block;
-      margin: 0 auto;
-    }
-
-    /* Adsterra container — auto width, flexible height */
-    #container-f8ad2a8a31b10be48474b45838a6db56 {
-      width: 100% !important;
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ── Responsive adjustments ── */
-    @media (max-width: 700px) {
-      .native-banner-ad {
-        padding: 6px 8px 8px;
-        border-radius: var(--radius-sm, 8px);
-        margin-bottom: 24px;
-      }
-      .native-banner-content {
-        min-height: 70px;
-      }
-      #container-f8ad2a8a31b10be48474b45838a6db56 {
-        min-height: 70px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .native-banner-ad {
-        padding: 4px 6px 6px;
-        border-radius: 6px;
-        margin-bottom: 20px;
-      }
-      .native-banner-label {
-        font-size: 0.6rem;
-      }
-      .native-banner-content {
-        min-height: 60px;
-      }
-      #container-f8ad2a8a31b10be48474b45838a6db56 {
-        min-height: 60px;
-      }
-    }
-
-    /* Optional: demonstrate parent container width control */
-    .demo-parent {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      background: transparent;
-    }
-  </style>
+</div>
 <!-- ══════════ END NATIVE BANNER AD ══════════ -->
         
         <!-- ⭐ ADD THIS: Preferred Sources Badge -->

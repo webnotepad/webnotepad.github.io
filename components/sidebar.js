@@ -1,6 +1,6 @@
 /**
  * WebNotePad — sidebar.js
- * Injects a fixed dynamic sidebar for the 15 productive tools
+ * Injects a fixed dynamic sidebar for the productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
  *
  * SEO & PERFORMANCE NOTES:
@@ -191,10 +191,44 @@
     }
   ];
 
-  // Flatten tools for any potential use
-  const allTools = categories.flatMap(cat => cat.tools);
+  // 2. Newly added tools beside top advertisement
+  const newLeftTools = [
+    {
+      name: "Invoice Generator",
+      url: "/invoice-generator",
+      desc: "Create & export PDF invoices.",
+      svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M8 7h8M8 11h5M8 15h8" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/><circle cx="15" cy="11" r="1.5" fill="#D97706"/></svg>`
+    },
+    {
+      name: "Click Speed Test",
+      url: "/click-speed-test",
+      desc: "Measure CPS speed test rate.",
+      svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round"/><path d="M9 3h6" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round"/></svg>`
+    },
+    {
+      name: "Text Diff",
+      url: "/text-diff",
+      desc: "Compare two texts line by line.",
+      svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="8" height="16" rx="1.5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`
+    }
+  ];
 
-  // 2. Inject CSS Styles
+  const newRightTools = [
+    {
+      name: "Bionic Reader",
+      url: "/bionic-reader",
+      desc: "Faster text reading with bold cues.",
+      svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 8h10M7 12h8M7 16h10" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round"/></svg>`
+    },
+    {
+      name: "Teleprompter",
+      url: "/teleprompter",
+      desc: "Smooth auto-scrolling prompt text.",
+      svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/><path d="M12 8v8M9 13l3 3 3-3" stroke="#0D9488" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    }
+  ];
+
+  // 3. Inject CSS Styles
   const cssStyles = `
     /* Floating Launch Trigger Button */
     .tools-floating-trigger {
@@ -244,7 +278,7 @@
       transform: rotate(90deg);
     }
 
-    /* Fixed Sidebar — ~55vw on desktop (wider but not intrusive) */
+    /* Fixed Sidebar — ~55vw on desktop */
     .tools-fixed-sidebar {
       position: fixed;
       top: 0;
@@ -259,7 +293,6 @@
       z-index: 10000;
       display: flex;
       flex-direction: column;
-      /* GPU-accelerated transform slide (no layout shift, no CLS) */
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
@@ -331,17 +364,37 @@
       background: var(--paper-edge);
     }
 
-    /* ---- Top Ad Slot (300x250) ---- */
-    .tools-sb-ad {
+    /* ---- Top Ad Slot & Beside Cards Layout ---- */
+    .tools-sb-top-section {
       flex-shrink: 0;
-      padding: 16px 20px 12px;
+      padding: 16px 20px 14px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 8px;
+    }
+    .tools-sb-top-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+    }
+    .tools-sb-side-tools {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      max-width: 160px;
+    }
+    .tools-sb-ad {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 6px;
-      min-height: 290px; /* reserves space to prevent CLS when ad loads */
+      flex-shrink: 0;
     }
     .tools-sb-ad-label {
       font-family: var(--font-display);
@@ -351,7 +404,6 @@
       text-transform: uppercase;
       color: var(--ink-muted);
       opacity: 0.55;
-      align-self: flex-start;
     }
     .tools-sb-ad-frame {
       width: 300px;
@@ -373,6 +425,66 @@
       display: block;
     }
 
+    /* Newly Added Badge & Items */
+    .tools-sb-new-item {
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper-warm);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+      position: relative;
+      transition: all var(--transition);
+    }
+    .tools-sb-new-item:hover {
+      background: var(--paper);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .tools-sb-badge {
+      position: absolute;
+      top: -6px;
+      right: 6px;
+      background: #EF4444;
+      color: #FFF;
+      font-size: 0.52rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tools-sb-new-item-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tools-sb-new-item-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .tools-sb-new-item-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .tools-sb-new-item-desc {
+      font-size: 0.58rem;
+      color: var(--ink-muted);
+      line-height: 1.2;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     /* In-feed ad slot — spans both category columns */
     .tools-sb-ad-infeed {
       grid-column: 1 / -1;
@@ -384,7 +496,6 @@
       margin: 4px 0;
       border-top: 1px dashed var(--paper-edge);
       border-bottom: 1px dashed var(--paper-edge);
-      /* Reserve space so lazy ad insert doesn't shift layout */
       min-height: 286px;
     }
     .tools-sb-ad-infeed .tools-sb-ad-label {
@@ -603,31 +714,6 @@
     }
 
     /* ---------- Responsive adjustments ---------- */
-
-    /* Very large desktop: more generous spacing */
-    @media (min-width: 1440px) {
-      .tools-sb-body {
-        padding: 24px 40px 44px;
-        gap: 24px 32px;
-      }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-    }
-
-    /* Mid laptop: still 2 columns, slightly tighter */
-    @media (max-width: 1279px) and (min-width: 901px) {
-      .tools-sb-body {
-        padding: 18px 22px 32px;
-        gap: 18px 20px;
-      }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 8px;
-      }
-    }
-
-    /* Tablet: sidebar full width, single column of categories */
     @media (max-width: 900px) {
       .tools-fixed-sidebar {
         width: 100%;
@@ -648,8 +734,18 @@
       }
     }
 
-    /* Mobile: full width, compact */
     @media (max-width: 640px) {
+      .tools-sb-top-grid {
+        flex-direction: column;
+      }
+      .tools-sb-side-tools {
+        flex-direction: row;
+        max-width: 100%;
+        width: 100%;
+      }
+      .tools-sb-new-item {
+        flex: 1;
+      }
       .tools-sb-header {
         padding: 16px 18px;
       }
@@ -683,10 +779,6 @@
       .tools-sb-item-desc {
         font-size: 0.58rem;
       }
-      .tools-sb-ad {
-        padding: 12px 10px 8px;
-        min-height: 0;
-      }
       .tools-sb-ad-frame {
         height: auto;
         min-height: 250px;
@@ -705,30 +797,17 @@
         height: 22px;
       }
     }
-
-    @media (max-width: 380px) {
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-      }
-      .tools-sb-item-name {
-        font-size: 0.66rem;
-      }
-      .tools-sb-item-desc {
-        display: none;
-      }
-    }
   `;
 
-  // 3. Inject styles into document head
+  // 4. Inject styles into document head
   const styleEl = document.createElement("style");
   styleEl.textContent = cssStyles;
   document.head.appendChild(styleEl);
 
-  // 4. Generate the complete DOM structural markup dynamically
+  // 5. Generate the DOM structural markup dynamically
   const rootContainer = document.getElementById("tools-sidebar-root");
   if (!rootContainer) return;
 
-  // Trigger SVG — toolbox icon
   const triggerSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.6"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`;
 
   rootContainer.innerHTML = `
@@ -740,10 +819,18 @@
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
 
-      <!-- Top 300x250 Banner Ad Slot (eager — visible when sidebar opens) -->
-      <div class="tools-sb-ad" id="toolsSidebarAd">
-        <span class="tools-sb-ad-label">Advertisement</span>
-        <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
+      <!-- Top Section: Left New Tools + Banner Ad + Right New Tools -->
+      <div class="tools-sb-top-section">
+        <span class="tools-sb-ad-label">Featured & Advertisement</span>
+        <div class="tools-sb-top-grid">
+          <div class="tools-sb-side-tools" id="toolsSidebarNewLeft"></div>
+          
+          <div class="tools-sb-ad" id="toolsSidebarAd">
+            <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
+          </div>
+
+          <div class="tools-sb-side-tools" id="toolsSidebarNewRight"></div>
+        </div>
       </div>
 
       <div class="tools-sb-body" id="toolsSidebarBody"></div>
@@ -756,8 +843,28 @@
   const overlay = document.getElementById("toolsSidebarOverlay");
   const closeBtn = document.getElementById("toolsSidebarClose");
   const adFrame = document.getElementById("toolsSidebarAdFrame");
+  const leftNewContainer = document.getElementById("toolsSidebarNewLeft");
+  const rightNewContainer = document.getElementById("toolsSidebarNewRight");
 
-  // 4a. Reusable ad injection helper
+  // Helper function to build newly added tool cards
+  function buildNewToolCard(tool) {
+    const a = document.createElement("a");
+    a.href = tool.url;
+    a.className = "tools-sb-new-item";
+    a.innerHTML = `
+      <span class="tools-sb-badge">Newly Added</span>
+      <div class="tools-sb-new-item-icon">${tool.svg}</div>
+      <div class="tools-sb-new-item-name">${tool.name}</div>
+      <div class="tools-sb-new-item-desc">${tool.desc}</div>
+    `;
+    return a;
+  }
+
+  // Inject newly added left/right tools
+  newLeftTools.forEach(t => leftNewContainer.appendChild(buildNewToolCard(t)));
+  newRightTools.forEach(t => rightNewContainer.appendChild(buildNewToolCard(t)));
+
+  // Reusable ad injection helper
   function injectAdInto(container) {
     if (!container) return;
 
@@ -783,10 +890,10 @@
     container.appendChild(invokeScript);
   }
 
-  // Top banner ad — load immediately (it's above the fold once the sidebar opens).
+  // Load top banner ad immediately
   injectAdInto(adFrame);
 
-  // 5. Populate categories — each category is a block in the 2-column grid
+  // Populate categories inside sidebar body
   const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2);
 
   let toolIndex = 0;
@@ -837,13 +944,10 @@
         <div class="tools-sb-ad-frame" id="toolsSidebarAdFrameInfeed"></div>
       `;
       sidebarBody.appendChild(infeed);
-      // NOTE: ad script is injected later via IntersectionObserver.
     }
   });
 
-  // 5a. LAZY-LOAD the in-feed ad. The ad only loads when the user scrolls
-  //     it into view inside the sidebar body. This is the single biggest
-  //     thing you can do to protect LCP and CLS on a page with ads.
+  // Lazy-load in-feed ad
   const infeedFrame = document.getElementById("toolsSidebarAdFrameInfeed");
 
   if (infeedFrame && "IntersectionObserver" in window) {
@@ -861,18 +965,17 @@
       },
       {
         root: sidebarBody,
-        rootMargin: "200px 0px", // start loading 200px before it's visible
+        rootMargin: "200px 0px",
         threshold: 0
       }
     );
 
     adObserver.observe(infeedFrame);
   } else if (infeedFrame) {
-    // Fallback for very old browsers — load after a short delay instead.
     setTimeout(() => injectAdInto(infeedFrame), 1500);
   }
 
-  // 6. Active Structural Interface Controls and Handlers
+  // Active Structural Interface Controls and Handlers
   let isSidebarOpen = false;
 
   function openSidebar() {
@@ -885,11 +988,9 @@
     trigger.setAttribute("aria-expanded", "true");
     trigger.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 
-    // Re-trigger entrance animations
     const items = sidebarBody.querySelectorAll(".tools-sb-item");
     items.forEach((item, idx) => {
       item.style.animation = "none";
-      // eslint-disable-next-line no-unused-expressions
       item.offsetHeight;
       item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
       item.style.animationDelay = `${idx * 0.025}s`;
@@ -923,7 +1024,6 @@
   overlay.addEventListener("click", closeSidebar);
   closeBtn.addEventListener("click", closeSidebar);
 
-  // Close interface gracefully via the Escape key
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeSidebar();
   });

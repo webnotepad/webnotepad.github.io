@@ -7,6 +7,7 @@
  *          + Extra-wide desktop layout (620px) with box/grid tool cards
  *          + Colorful inline SVG icons instead of emoji
  *          + Second in-feed 300x250 ad slot injected in the middle of the tools list
+ *          + Fixed box card sizing so content is never clipped
  */
 
 (function () {
@@ -382,8 +383,8 @@
       overflow-y: auto;
       padding: 18px 24px 36px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
       align-content: start;
     }
 
@@ -415,14 +416,14 @@
       margin-left: 6px;
     }
 
-    /* Single Tool Item — box card */
+    /* Single Tool Item — proper box card with full content visible */
     .tools-sb-item {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
-      gap: 10px;
-      padding: 16px 16px 14px;
+      gap: 12px;
+      padding: 18px 16px 16px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -432,8 +433,10 @@
       text-decoration: none;
       cursor: pointer;
       min-width: 0;
+      min-height: 148px;
       position: relative;
       overflow: hidden;
+      box-sizing: border-box;
     }
     .tools-sb-item::before {
       content: "";
@@ -459,8 +462,8 @@
       opacity: 1;
     }
     .tools-sb-item-icon {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       background: var(--paper);
       border-radius: var(--radius);
       display: flex;
@@ -472,8 +475,8 @@
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
@@ -485,26 +488,24 @@
       background: rgba(196,86,42,0.15);
     }
     .tools-sb-item-details {
-      flex: 1;
-      min-width: 0;
       width: 100%;
+      min-width: 0;
     }
     .tools-sb-item-name {
       font-size: 0.92rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       line-height: 1.25;
       word-break: break-word;
     }
     .tools-sb-item-desc {
       font-size: 0.72rem;
       color: var(--ink-muted);
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      line-height: 1.45;
+      display: block;
+      overflow: visible;
+      word-break: break-word;
     }
 
     /* Scrollbar styling */
@@ -548,38 +549,24 @@
 
     /* ---------- Responsive adjustments ---------- */
 
-    /* Tablet: narrower sidebar, keep box grid */
-    @media (max-width: 768px) {
+    /* Small laptop / large tablet: keep 2-column box grid */
+    @media (max-width: 900px) and (min-width: 641px) {
       .tools-fixed-sidebar {
-        width: 520px;
-        right: -560px;
+        width: 560px;
+        right: -600px;
       }
       .tools-sb-body {
         padding: 14px 18px 28px;
-        gap: 10px;
+        gap: 12px;
       }
       .tools-sb-item {
-        padding: 13px 13px 11px;
-        gap: 8px;
-      }
-      .tools-sb-item-icon {
-        width: 46px;
-        height: 46px;
-      }
-      .tools-sb-item-icon svg {
-        width: 28px;
-        height: 28px;
-      }
-      .tools-sb-item-name {
-        font-size: 0.86rem;
-      }
-      .tools-sb-item-desc {
-        font-size: 0.68rem;
+        min-height: 140px;
+        padding: 16px 14px 14px;
       }
     }
 
-    /* Mobile: full width, 2-column compact grid — ORIGINAL MOBILE STYLE PRESERVED */
-    @media (max-width: 480px) {
+    /* Tablet / large phone: single column so boxes are full width */
+    @media (max-width: 640px) {
       .tools-fixed-sidebar {
         width: 100%;
         right: -100%;
@@ -587,37 +574,39 @@
       .tools-fixed-sidebar.open {
         right: 0;
       }
+      .tools-sb-header {
+        padding: 16px 18px;
+      }
       .tools-sb-header h2 {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .tools-sb-body {
-        padding: 10px 12px 20px;
-        gap: 6px;
-        grid-template-columns: 1fr 1fr;
+        padding: 12px 14px 24px;
+        gap: 10px;
+        grid-template-columns: 1fr;
       }
       .tools-sb-item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        text-align: center;
-        padding: 10px 6px 8px;
-        gap: 6px;
-      }
-      .tools-sb-item::before {
-        display: none;
+        text-align: left;
+        gap: 12px;
+        min-height: 0;
+        padding: 12px 14px;
       }
       .tools-sb-item-icon {
-        width: 34px;
-        height: 34px;
+        width: 42px;
+        height: 42px;
       }
       .tools-sb-item-icon svg {
-        width: 22px;
-        height: 22px;
+        width: 26px;
+        height: 26px;
       }
       .tools-sb-item-name {
-        font-size: 0.72rem;
+        font-size: 0.86rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
+        -webkit-line-clamp: unset;
       }
       .tools-sb-ad {
         padding: 12px 10px 8px;
@@ -627,7 +616,7 @@
         min-height: 250px;
       }
       .tools-sb-ad-infeed {
-        padding: 10px 0;
+        padding: 12px 0;
         margin: 4px 0;
       }
       .tools-floating-trigger {
@@ -639,6 +628,28 @@
       .tools-floating-trigger svg {
         width: 22px;
         height: 22px;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+      .tools-sb-item {
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .tools-sb-item-icon {
+        width: 38px;
+        height: 38px;
+      }
+      .tools-sb-item-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .tools-sb-item-name {
+        font-size: 0.8rem;
+      }
+      .tools-sb-item-desc {
+        font-size: 0.66rem;
       }
     }
   `;
@@ -682,13 +693,10 @@
   const closeBtn = document.getElementById("toolsSidebarClose");
   const adFrame = document.getElementById("toolsSidebarAdFrame");
 
-  // 4a. Reusable ad injection helper — builds the atOptions config + invoke script
-  //     into any target container. Uses a unique random key per call so multiple
-  //     HighRevenue ad units can coexist on the same page.
+  // 4a. Reusable ad injection helper
   function injectAdInto(container) {
     if (!container) return;
 
-    // Unique per-instance key so the network doesn't collapse identical units
     const uniqueKey = 'f5214acd8479e07d7defe4626c574aa5';
 
     const configScript = document.createElement("script");
@@ -715,19 +723,16 @@
   injectAdInto(adFrame);
 
   // 5. Populate list items with categories and staggered animations.
-  //    The in-feed ad is inserted after roughly half the categories have rendered.
-  const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2); // insert after category index 3 (i.e. 4th category)
+  const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2);
 
   let toolIndex = 0;
 
   categories.forEach((category, catIdx) => {
-    // Add category header
     const catHeader = document.createElement("div");
     catHeader.className = "tools-sb-category";
     catHeader.textContent = category.name;
     sidebarBody.appendChild(catHeader);
 
-    // Add tools under this category
     category.tools.forEach((tool) => {
       const item = document.createElement("a");
       item.href = tool.url;
@@ -745,7 +750,6 @@
       toolIndex++;
     });
 
-    // Insert the in-feed ad after the chosen category boundary
     if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY) {
       const infeed = document.createElement("div");
       infeed.className = "tools-sb-ad-infeed";
@@ -769,12 +773,11 @@
       ? `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
       : triggerSvg;
 
-    // Re-trigger animations when opening
     if (isOpen) {
       const items = sidebarBody.querySelectorAll(".tools-sb-item");
       items.forEach((item, idx) => {
         item.style.animation = "none";
-        item.offsetHeight; // trigger reflow
+        item.offsetHeight;
         item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
         item.style.animationDelay = `${idx * 0.025}s`;
       });
@@ -788,12 +791,10 @@
     trigger.innerHTML = triggerSvg;
   }
 
-  // Bind Listeners
   trigger.addEventListener("click", toggleSidebar);
   overlay.addEventListener("click", closeSidebar);
   closeBtn.addEventListener("click", closeSidebar);
 
-  // Close interface gracefully via the Escape key
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeSidebar();
   });

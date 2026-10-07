@@ -2,21 +2,6 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
- *
- * SEO & PERFORMANCE NOTES:
- *  - Sidebar is position:fixed and uses transform:translateX() so it NEVER
- *    causes layout shift (protects CLS Core Web Vital).
- *  - Top ad loads eagerly (above the fold when sidebar opens).
- *  - In-feed ad is LAZY-LOADED via IntersectionObserver so it only fires
- *    when the user actually scrolls to it (protects LCP + saves bandwidth).
- *  - All ad scripts are async; no render-blocking resources.
- *  - Sidebar is user-triggered only — never auto-opens (mobile-first safe).
- *  - aria-hidden is toggled so screen readers and crawlers see the correct
- *    visible state.
- *
- * REMINDER: For strongest SEO, also expose these tool links in a visible
- * footer nav or a /tools index page. Links inside hidden overlays are
- * crawled but carry less weight than visible in-content links.
  */
 
 (function () {
@@ -364,28 +349,28 @@
       background: var(--paper-edge);
     }
 
-    /* ---- Top Ad Slot & Beside Cards Layout ---- */
+    /* ---- Top Section & Improved Spacing ---- */
     .tools-sb-top-section {
       flex-shrink: 0;
-      padding: 16px 20px 14px;
+      padding: 18px 24px 16px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .tools-sb-top-grid {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 20px; /* Increased desktop gap between ad and tool columns */
       width: 100%;
     }
     .tools-sb-side-tools {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       flex: 1;
       max-width: 160px;
     }
@@ -395,6 +380,7 @@
       align-items: center;
       gap: 6px;
       flex-shrink: 0;
+      margin: 0 4px; /* Extra margin around ad */
     }
     .tools-sb-ad-label {
       font-family: var(--font-display);
@@ -427,7 +413,7 @@
 
     /* Newly Added Badge & Items */
     .tools-sb-new-item {
-      padding: 8px;
+      padding: 10px 8px 8px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -493,10 +479,10 @@
       align-items: center;
       gap: 6px;
       padding: 16px 0;
-      margin: 4px 0;
+      margin: 8px 0;
       border-top: 1px dashed var(--paper-edge);
       border-bottom: 1px dashed var(--paper-edge);
-      min-height: 286px;
+      min-height: 286px; /* Space reservation so lazy load doesn't collapse */
     }
     .tools-sb-ad-infeed .tools-sb-ad-label {
       align-self: center;
@@ -737,6 +723,7 @@
     @media (max-width: 640px) {
       .tools-sb-top-grid {
         flex-direction: column;
+        gap: 12px;
       }
       .tools-sb-side-tools {
         flex-direction: row;
@@ -780,11 +767,15 @@
         font-size: 0.58rem;
       }
       .tools-sb-ad-frame {
-        height: auto;
+        width: 300px;
         min-height: 250px;
       }
+      /* Fixed: Keep second ad container visible with minimum height on mobile */
       .tools-sb-ad-infeed {
-        min-height: 0;
+        min-height: 270px;
+        display: flex !important;
+        visibility: visible !important;
+        margin: 12px 0;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -965,7 +956,7 @@
       },
       {
         root: sidebarBody,
-        rootMargin: "200px 0px",
+        rootMargin: "250px 0px", // Expanded threshold for mobile scroll detection
         threshold: 0
       }
     );

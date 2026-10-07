@@ -4,10 +4,10 @@
  * Theme: Editorial / Ink-on-paper aesthetic
  * Updated: Category-wise organization with attention-grabbing pulsing trigger
  *          + 300x250 banner ad slot at the top of the sidebar
- *          + Extra-wide desktop layout (620px) with box/grid tool cards
+ *          + Extra-wide desktop layout (620px) with compact box tool cards
  *          + Colorful inline SVG icons instead of emoji
  *          + Second in-feed 300x250 ad slot injected in the middle of the tools list
- *          + Fixed box card sizing so content is never clipped
+ *          + Compact boxes with tools side-by-side
  */
 
 (function () {
@@ -279,7 +279,7 @@
 
     /* Sidebar Header Details */
     .tools-sb-header {
-      padding: 22px 28px;
+      padding: 20px 24px;
       border-bottom: 1px solid var(--paper-edge);
       display: flex;
       align-items: center;
@@ -289,7 +289,7 @@
     }
     .tools-sb-header h2 {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--ink);
     }
@@ -298,9 +298,9 @@
       color: var(--accent);
     }
     .tools-sb-close {
-      width: 34px;
-      height: 34px;
-      font-size: 1.05rem;
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
       color: var(--ink-muted);
       border-radius: var(--radius);
       display: flex;
@@ -319,7 +319,7 @@
     /* ---- Ad Slot (300x250) ---- */
     .tools-sb-ad {
       flex-shrink: 0;
-      padding: 16px 20px 12px;
+      padding: 14px 16px 10px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
@@ -357,15 +357,15 @@
       display: block;
     }
 
-    /* In-feed ad slot — spans full grid width */
+    /* In-feed ad slot */
     .tools-sb-ad-infeed {
       grid-column: 1 / -1;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      padding: 16px 0;
-      margin: 8px 0;
+      padding: 14px 0;
+      margin: 6px 0;
       border-top: 1px dashed var(--paper-edge);
       border-bottom: 1px dashed var(--paper-edge);
     }
@@ -377,63 +377,72 @@
       background: var(--paper);
     }
 
-    /* Scrollable items menu wrapper — box grid */
+    /* Scrollable body — category sections stack vertically */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
-      padding: 18px 24px 36px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      align-content: start;
+      padding: 16px 22px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    /* Category Section Headers — span both columns */
+    /* Category block */
+    .tools-sb-category-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Category Section Headers */
     .tools-sb-category {
-      grid-column: 1 / -1;
       font-family: var(--font-display);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--ink-muted);
-      padding: 18px 4px 8px 4px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--paper-edge);
-      margin-top: 6px;
-      opacity: 0.7;
-    }
-    .tools-sb-category:first-of-type {
-      padding-top: 8px;
-      margin-top: 0;
+      opacity: 0.75;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    /* Category item count badge */
     .tools-sb-category-count {
-      font-size: 0.6rem;
-      font-weight: 400;
+      font-size: 0.62rem;
+      font-weight: 500;
       color: var(--ink-muted);
-      opacity: 0.5;
-      margin-left: 6px;
+      opacity: 0.6;
+      letter-spacing: 0.04em;
     }
 
-    /* Single Tool Item — proper box card with full content visible */
+    /* Tools row — side by side inside each category */
+    .tools-sb-category-tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 8px;
+    }
+
+    /* Compact Tool Box */
     .tools-sb-item {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      gap: 12px;
-      padding: 18px 16px 16px;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 6px;
+      padding: 12px 8px 10px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
       transition: all var(--transition);
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(8px);
       text-decoration: none;
       cursor: pointer;
       min-width: 0;
-      min-height: 148px;
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
@@ -443,8 +452,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 3px;
-      height: 100%;
+      width: 100%;
+      height: 2px;
       background: var(--accent);
       opacity: 0;
       transition: opacity var(--transition);
@@ -461,11 +470,13 @@
     .tools-sb-item:hover::before {
       opacity: 1;
     }
+
+    /* Compact icon container */
     .tools-sb-item-icon {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       background: var(--paper);
-      border-radius: var(--radius);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -475,37 +486,40 @@
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
       background: var(--accent-pale);
       border-color: var(--accent);
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
     body.dark .tools-sb-item:hover .tools-sb-item-icon {
       background: rgba(196,86,42,0.15);
     }
+
     .tools-sb-item-details {
       width: 100%;
       min-width: 0;
     }
     .tools-sb-item-name {
-      font-size: 0.92rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 5px;
-      line-height: 1.25;
+      line-height: 1.2;
       word-break: break-word;
+      margin-bottom: 3px;
     }
     .tools-sb-item-desc {
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       color: var(--ink-muted);
-      line-height: 1.45;
-      display: block;
-      overflow: visible;
+      line-height: 1.3;
       word-break: break-word;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Scrollbar styling */
@@ -531,7 +545,6 @@
       }
     }
 
-    /* Elegant, Organic Attention Pulse Animation */
     @keyframes attentionPulse {
       0% {
         transform: scale(1);
@@ -549,7 +562,6 @@
 
     /* ---------- Responsive adjustments ---------- */
 
-    /* Small laptop / large tablet: keep 2-column box grid */
     @media (max-width: 900px) and (min-width: 641px) {
       .tools-fixed-sidebar {
         width: 560px;
@@ -557,15 +569,13 @@
       }
       .tools-sb-body {
         padding: 14px 18px 28px;
-        gap: 12px;
+        gap: 16px;
       }
-      .tools-sb-item {
-        min-height: 140px;
-        padding: 16px 14px 14px;
+      .tools-sb-category-tools {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
       }
     }
 
-    /* Tablet / large phone: single column so boxes are full width */
     @media (max-width: 640px) {
       .tools-fixed-sidebar {
         width: 100%;
@@ -582,31 +592,29 @@
       }
       .tools-sb-body {
         padding: 12px 14px 24px;
-        gap: 10px;
-        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .tools-sb-category-tools {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 6px;
       }
       .tools-sb-item {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-        gap: 12px;
-        min-height: 0;
-        padding: 12px 14px;
+        padding: 10px 6px 8px;
+        gap: 5px;
       }
       .tools-sb-item-icon {
-        width: 42px;
-        height: 42px;
+        width: 34px;
+        height: 34px;
       }
       .tools-sb-item-icon svg {
-        width: 26px;
-        height: 26px;
+        width: 20px;
+        height: 20px;
       }
       .tools-sb-item-name {
-        font-size: 0.86rem;
+        font-size: 0.7rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.7rem;
-        -webkit-line-clamp: unset;
+        font-size: 0.58rem;
       }
       .tools-sb-ad {
         padding: 12px 10px 8px;
@@ -614,10 +622,6 @@
       .tools-sb-ad-frame {
         height: auto;
         min-height: 250px;
-      }
-      .tools-sb-ad-infeed {
-        padding: 12px 0;
-        margin: 4px 0;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -631,25 +635,15 @@
       }
     }
 
-    /* Very small phones */
     @media (max-width: 380px) {
-      .tools-sb-item {
-        padding: 10px 12px;
-        gap: 10px;
-      }
-      .tools-sb-item-icon {
-        width: 38px;
-        height: 38px;
-      }
-      .tools-sb-item-icon svg {
-        width: 22px;
-        height: 22px;
+      .tools-sb-category-tools {
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
       }
       .tools-sb-item-name {
-        font-size: 0.8rem;
+        font-size: 0.66rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.66rem;
+        display: none;
       }
     }
   `;
@@ -666,7 +660,6 @@
   // Trigger SVG — toolbox icon
   const triggerSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.6"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`;
 
-  // Render the floating toggle switch, backdrop container, sidebar dashboard, and ad slot
   rootContainer.innerHTML = `
     <div class="tools-sidebar-overlay" id="toolsSidebarOverlay"></div>
     <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">${triggerSvg}</div>
@@ -722,16 +715,28 @@
   // Top banner ad
   injectAdInto(adFrame);
 
-  // 5. Populate list items with categories and staggered animations.
+  // 5. Populate categories — each category gets its own block with tools side-by-side
   const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2);
 
   let toolIndex = 0;
 
   categories.forEach((category, catIdx) => {
+    // Category block wrapper
+    const catBlock = document.createElement("div");
+    catBlock.className = "tools-sb-category-block";
+
+    // Category header
     const catHeader = document.createElement("div");
     catHeader.className = "tools-sb-category";
-    catHeader.textContent = category.name;
-    sidebarBody.appendChild(catHeader);
+    catHeader.innerHTML = `
+      <span>${category.name}</span>
+      <span class="tools-sb-category-count">${category.tools.length} ${category.tools.length === 1 ? "tool" : "tools"}</span>
+    `;
+    catBlock.appendChild(catHeader);
+
+    // Tools row
+    const toolsRow = document.createElement("div");
+    toolsRow.className = "tools-sb-category-tools";
 
     category.tools.forEach((tool) => {
       const item = document.createElement("a");
@@ -746,10 +751,14 @@
           <div class="tools-sb-item-desc">${tool.desc}</div>
         </div>
       `;
-      sidebarBody.appendChild(item);
+      toolsRow.appendChild(item);
       toolIndex++;
     });
 
+    catBlock.appendChild(toolsRow);
+    sidebarBody.appendChild(catBlock);
+
+    // Insert in-feed ad after the chosen category boundary
     if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY) {
       const infeed = document.createElement("div");
       infeed.className = "tools-sb-ad-infeed";

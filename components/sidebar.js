@@ -4,68 +4,178 @@
  * Theme: Editorial / Ink-on-paper aesthetic
  * Updated: Category-wise organization with attention-grabbing pulsing trigger
  *          + 300x250 banner ad slot at the top of the sidebar
- *          + 2-column grid layout for tools
+ *          + Wider desktop layout (480px) with horizontal tool cards
+ *          + Colorful inline SVG icons instead of emoji
  */
 
 (function () {
-  // 1. Array list of tools organized by categories
+  // 1. Array list of tools organized by categories with colorful SVG icons
   const categories = [
     {
       name: "📝 Writing & Note-Taking",
       tools: [
-        { name: "Notepad", icon: "📝", url: "/#notepad", desc: "Write, edit and auto-save notes instantly." },
-        { name: "Diary", icon: "📖", url: "/diary", desc: "Keep a private daily journal with dated entries." },
-        { name: "Focus Writer", icon: "🎯", url: "/focus-writer", desc: "Minimalist writing mode with a zen focus." },
-        { name: "Typing Test", icon: "⌨️", url: "/typing-test", desc: "Test your typing speed and accuracy in WPM." },
-        { name: "WordPad", icon: "📝", url: "/wordpad", desc: "Rich text editor with fonts, colors, and export." }
+        {
+          name: "Notepad",
+          url: "/#notepad",
+          desc: "Write, edit and auto-save notes instantly.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Diary",
+          url: "/diary",
+          desc: "Keep a private daily journal with dated entries.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="14" height="18" rx="2" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/><rect x="7" y="3" width="1.5" height="18" fill="#3B82F6"/><path d="M11 8h5M11 12h5M11 16h3" stroke="#3B82F6" stroke-width="1.6" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Focus Writer",
+          url: "/focus-writer",
+          desc: "Minimalist writing mode with a zen focus.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1.5"/><circle cx="12" cy="12" r="1.8" fill="#8B5CF6"/></svg>`
+        },
+        {
+          name: "Typing Test",
+          url: "/typing-test",
+          desc: "Test your typing speed and accuracy in WPM.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="12" rx="2" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/><path d="M6 10h1M9 10h1M12 10h1M15 10h1M18 10h1M6 13h1M9 13h1M12 13h1M15 13h1M18 13h1M7 16h10" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "WordPad",
+          url: "/wordpad",
+          desc: "Rich text editor with fonts, colors, and export.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" fill="#DCFCE7" stroke="#22C55E" stroke-width="1.5"/><path d="M8 7h8M8 11h8M8 15h5" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="17" r="3" fill="#22C55E" opacity="0.2"/></svg>`
+        }
       ]
     },
     {
       name: "📊 Text Analysis & Manipulation",
       tools: [
-        { name: "Case Converter", icon: "🔤", url: "/case-converter", desc: "Transform text to uppercase, lowercase, etc." },
-        { name: "Word Counter", icon: "📊", url: "/word-counter", desc: "Count words, characters, and sentences." },
-        { name: "Readability Analyzer", icon: "📊", url: "/readability", desc: "Check reading ease and complexity scores." },
-        { name: "Word Shuffler", icon: "🔀", url: "/word-shuffler", desc: "Randomize word order in any text." },
-        { name: "Special Character Converter", icon: "🔤", url: "/special-character-converter", desc: "Convert umlauts, diacritics, and special characters." }
+        {
+          name: "Case Converter",
+          url: "/case-converter",
+          desc: "Transform text to uppercase, lowercase, etc.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5"/><path d="M7 9v6M7 12h3M10 9v6M14 12l2-3 2 3M14 12v3M18 12v3" stroke="#F97316" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+        },
+        {
+          name: "Word Counter",
+          url: "/word-counter",
+          desc: "Count words, characters, and sentences.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="2" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="1.5"/><path d="M8 9h8M8 12h8M8 15h5" stroke="#0EA5E9" stroke-width="1.7" stroke-linecap="round"/><circle cx="17" cy="17" r="4" fill="#0EA5E9" opacity="0.15"/></svg>`
+        },
+        {
+          name: "Readability Analyzer",
+          url: "/readability",
+          desc: "Check reading ease and complexity scores.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6a8 8 0 0 1 16 0v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/><path d="M8 10h8M8 14h5" stroke="#A855F7" stroke-width="1.7" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Word Shuffler",
+          url: "/word-shuffler",
+          desc: "Randomize word order in any text.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><rect x="15" y="4" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><rect x="9" y="14" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><path d="M6 10v2a2 2 0 0 0 2 2h1M18 10v2a2 2 0 0 1-2 2h-1" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Special Character Converter",
+          url: "/special-character-converter",
+          desc: "Convert umlauts, diacritics, and special characters.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#FEF9C3" stroke="#EAB308" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#EAB308" font-family="serif">ä</text></svg>`
+        }
       ]
     },
     {
       name: "🧠 Idea Organization & Visualization",
       tools: [
-        { name: "MindMap", icon: "🧠", url: "/mindmap", desc: "Visualize ideas and brainstorm interactively." },
-        { name: "List Maker", icon: "✅", url: "/list-maker", desc: "Create checklists and to-dos with ease." }
+        {
+          name: "MindMap",
+          url: "/mindmap",
+          desc: "Visualize ideas and brainstorm interactively.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3" fill="#C7D2FE" stroke="#6366F1" stroke-width="1.5"/><circle cx="5" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="5" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><path d="M10 11L6.5 7.5M14 11l3.5-3.5M10 13l-3.5 3.5M14 13l3.5 3.5" stroke="#6366F1" stroke-width="1.4" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "List Maker",
+          url: "/list-maker",
+          desc: "Create checklists and to-dos with ease.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><rect x="7" y="7" width="3" height="3" rx="0.5" fill="#16A34A"/><path d="M7.5 8.5l1 1 1.5-1.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5h5M12 13h5M7 13h3M7 17h3M12 17h5" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        }
       ]
     },
     {
       name: "🎲 Creativity & Randomization",
       tools: [
-        
-        { name: "Random Text", icon: "🎲", url: "/random-text", desc: "Generate placeholder paragraphs or words." },
-        { name: "Word Cloud Generator", icon: "☁️", url: "/word-cloud", desc: "Turn text into a beautiful visual word cloud." },
-        { name: "Decision Maker", icon: "⚖️", url: "/choice-maker", desc: "Spin a wheel or flip a coin to decide." },
-        { name: "Random Name Generator", icon: "👤", url: "/random-name-generator", desc: "Generate random first, last, and full names." }
+        {
+          name: "Random Text",
+          url: "/random-text",
+          desc: "Generate placeholder paragraphs or words.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.5"/><path d="M7 9h4M7 12h7M7 15h5M15 9h2M14 15h3" stroke="#DB2777" stroke-width="1.6" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Word Cloud Generator",
+          url: "/word-cloud",
+          desc: "Turn text into a beautiful visual word cloud.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 16a4 4 0 0 1 .5-8 5 5 0 0 1 9.5-1.5A4.5 4.5 0 0 1 18 16H6z" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5" stroke-linejoin="round"/><text x="12" y="14" text-anchor="middle" font-size="7" font-weight="bold" fill="#0284C7" font-family="sans-serif">abc</text></svg>`
+        },
+        {
+          name: "Decision Maker",
+          url: "/choice-maker",
+          desc: "Spin a wheel or flip a coin to decide.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M12 12V3M12 12l7.5 4.5M12 12l-7.5 4.5" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="#D97706"/></svg>`
+        },
+        {
+          name: "Random Name Generator",
+          url: "/random-name-generator",
+          desc: "Generate random first, last, and full names.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M4 20a8 8 0 0 1 16 0" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        }
       ]
     },
     {
       name: "🔍 Word & Puzzle Helpers",
       tools: [
-        { name: "Word Finder", icon: "🔍", url: "/word-finder", desc: "Find words, solve anagrams, and discover terms." },
-        { name: "Crossword Solver", icon: "🔠", url: "/crossword-solver", desc: "Clue helper, word finder, and puzzle help." },
-        { name: "Word Search Solver", icon: "🕵🏻", url: "/word-search-solver", desc: "Word search solver, and word puzzle solver." }
+        {
+          name: "Word Finder",
+          url: "/word-finder",
+          desc: "Find words, solve anagrams, and discover terms.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.5" cy="10.5" r="6.5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/><path d="M15.5 15.5L21 21" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Crossword Solver",
+          url: "/crossword-solver",
+          desc: "Clue helper, word finder, and puzzle help.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="10" y="3" width="7" height="7" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="3" y="10" width="7" height="7" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="14" y="14" width="7" height="7" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="10" y="10" width="7" height="7" fill="#fff" stroke="#4F46E5" stroke-width="1.3"/></svg>`
+        },
+        {
+          name: "Word Search Solver",
+          url: "/word-search-solver",
+          desc: "Word search solver, and word puzzle solver.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" fill="#F3E8FF" stroke="#9333EA" stroke-width="1.5"/><path d="M6 9h3M9 6v6M14 8h4M14 12h4M14 16h4M6 15h3M6 18h3" stroke="#9333EA" stroke-width="1.4" stroke-linecap="round"/></svg>`
+        }
       ]
     },
     {
       name: "⏳ Productivity & Habit Management",
       tools: [
-        { name: "Pomodoro Timer", icon: "🍅", url: "/pomodoro-timer", desc: "Stay focused with customizable intervals." },
-        { name: "Habit Tracker", icon: "📅", url: "/habit-tracker", desc: "Build streaks and track daily habits." }
+        {
+          name: "Pomodoro Timer",
+          url: "/pomodoro-timer",
+          desc: "Stay focused with customizable intervals.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="13" r="8" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.6"/><path d="M12 13V8M12 13l3 2" stroke="#E11D48" stroke-width="1.7" stroke-linecap="round"/><path d="M9 3h6" stroke="#E11D48" stroke-width="1.7" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Habit Tracker",
+          url: "/habit-tracker",
+          desc: "Build streaks and track daily habits.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="17" rx="2" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/><path d="M3 9h18" stroke="#10B981" stroke-width="1.5"/><path d="M7 2v4M17 2v4" stroke="#10B981" stroke-width="1.7" stroke-linecap="round"/><path d="M8 14l2 2 4-4" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+        }
       ]
     },
     {
       name: "😊 Fun & Utilities",
       tools: [
-        { name: "Emoji Picker", icon: "🙂", url: "/emoji-picker", desc: "Pick emojis, and copy emojis." }
+        {
+          name: "Emoji Picker",
+          url: "/emoji-picker",
+          desc: "Pick emojis, and copy emojis.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#FEF9C3" stroke="#FACC15" stroke-width="1.6"/><circle cx="9" cy="10" r="1.2" fill="#854D0E"/><circle cx="15" cy="10" r="1.2" fill="#854D0E"/><path d="M8 14c1 1.5 2.5 2.5 4 2.5s3-1 4-2.5" stroke="#854D0E" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        }
       ]
     }
   ];
@@ -89,14 +199,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
       box-shadow: var(--shadow);
       cursor: pointer;
       border: 1px solid var(--paper-edge);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
-      
-      /* Attention Grabber Pulse */
       animation: attentionPulse 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0;
+    }
+    .tools-floating-trigger svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     body.dark .tools-floating-trigger {
       background: var(--accent);
@@ -106,23 +219,26 @@
       transform: scale(1.08) rotate(15deg);
       background: var(--accent);
       color: var(--white);
-      animation-play-state: paused; /* Pause pulsing while user hovers */
+      animation-play-state: paused;
       box-shadow: 0 8px 24px rgba(196, 86, 42, 0.3);
     }
     .tools-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
       background: var(--paper-warm);
       color: var(--ink);
-      animation: none; /* Kill animation when the sidebar is open */
+      animation: none;
       box-shadow: none;
+    }
+    .tools-floating-trigger.active svg {
+      transform: rotate(90deg);
     }
 
     /* Fixed Sidebar Layout Container */
     .tools-fixed-sidebar {
       position: fixed;
       top: 0;
-      right: -340px;
-      width: 320px;
+      right: -500px;
+      width: 480px;
       height: 100vh;
       background: var(--paper);
       border-left: 1px solid var(--paper-edge);
@@ -170,7 +286,7 @@
     }
     .tools-sb-header h2 {
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--ink);
     }
@@ -238,33 +354,34 @@
       display: block;
     }
 
-    /* Scrollable items menu wrapper — 2 columns */
+    /* Scrollable items menu wrapper — single column of horizontal cards */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
-      padding: 12px 16px 24px;
+      padding: 16px 24px 32px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: 1fr;
+      gap: 10px;
       align-content: start;
     }
 
-    /* Category Section Headers — span both columns */
+    /* Category Section Headers */
     .tools-sb-category {
       grid-column: 1 / -1;
       font-family: var(--font-display);
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--ink-muted);
-      padding: 14px 4px 6px 4px;
+      padding: 18px 4px 8px 4px;
       border-bottom: 1px solid var(--paper-edge);
-      margin-top: 4px;
+      margin-top: 6px;
       opacity: 0.7;
     }
     .tools-sb-category:first-of-type {
-      padding-top: 6px;
+      padding-top: 8px;
+      margin-top: 0;
     }
 
     /* Category item count badge */
@@ -276,14 +393,14 @@
       margin-left: 6px;
     }
 
-    /* Single Tool Items Card — compact for 2-column grid */
+    /* Single Tool Items Card — horizontal layout for wider sidebar */
     .tools-sb-item {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      text-align: center;
-      gap: 8px;
-      padding: 14px 8px 12px;
+      text-align: left;
+      gap: 14px;
+      padding: 14px 16px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -304,21 +421,27 @@
       box-shadow: var(--shadow-sm);
     }
     .tools-sb-item-icon {
-      font-size: 1.4rem;
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       background: var(--paper);
       border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--paper-edge);
-      transition: background var(--transition), border-color var(--transition);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
       flex-shrink: 0;
+      overflow: hidden;
+    }
+    .tools-sb-item-icon svg {
+      width: 30px;
+      height: 30px;
+      display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
       background: var(--accent-pale);
       border-color: var(--accent);
+      transform: scale(1.05);
     }
     body.dark .tools-sb-item:hover .tools-sb-item-icon {
       background: rgba(196,86,42,0.15);
@@ -329,17 +452,17 @@
       width: 100%;
     }
     .tools-sb-item-name {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 2px;
-      line-height: 1.2;
+      margin-bottom: 3px;
+      line-height: 1.25;
       word-break: break-word;
     }
     .tools-sb-item-desc {
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       color: var(--ink-muted);
-      line-height: 1.25;
+      line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -348,7 +471,7 @@
 
     /* Scrollbar styling */
     .tools-sb-body::-webkit-scrollbar {
-      width: 4px;
+      width: 5px;
     }
     .tools-sb-body::-webkit-scrollbar-track {
       background: transparent;
@@ -356,6 +479,9 @@
     .tools-sb-body::-webkit-scrollbar-thumb {
       background: var(--paper-edge);
       border-radius: 4px;
+    }
+    .tools-sb-body::-webkit-scrollbar-thumb:hover {
+      background: var(--ink-muted);
     }
 
     /* Keyframe Animations */
@@ -382,7 +508,7 @@
       }
     }
 
-    /* Responsive adjustments */
+    /* Responsive adjustments — MOBILE STYLE UNCHANGED */
     @media (max-width: 480px) {
       .tools-fixed-sidebar {
         width: 100%;
@@ -397,15 +523,22 @@
       .tools-sb-body {
         padding: 10px 12px 20px;
         gap: 6px;
+        grid-template-columns: 1fr 1fr;
       }
       .tools-sb-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         padding: 10px 6px 8px;
         gap: 6px;
       }
       .tools-sb-item-icon {
         width: 34px;
         height: 34px;
-        font-size: 1.2rem;
+      }
+      .tools-sb-item-icon svg {
+        width: 22px;
+        height: 22px;
       }
       .tools-sb-item-name {
         font-size: 0.72rem;
@@ -420,6 +553,16 @@
         height: auto;
         min-height: 250px;
       }
+      .tools-floating-trigger {
+        width: 48px;
+        height: 48px;
+        bottom: 100px;
+        right: 18px;
+      }
+      .tools-floating-trigger svg {
+        width: 22px;
+        height: 22px;
+      }
     }
   `;
 
@@ -432,10 +575,13 @@
   const rootContainer = document.getElementById("tools-sidebar-root");
   if (!rootContainer) return;
 
+  // Trigger SVG — toolbox icon
+  const triggerSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.6"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`;
+
   // Render the floating toggle switch, backdrop container, sidebar dashboard, and ad slot
   rootContainer.innerHTML = `
     <div class="tools-sidebar-overlay" id="toolsSidebarOverlay"></div>
-    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">🧰</div>
+    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">${triggerSvg}</div>
     <aside class="tools-fixed-sidebar" id="toolsFixedSidebar" aria-label="WebNotepad Toolkit Sidebar">
       <div class="tools-sb-header">
         <h2>WebNotepad <em>Toolkit</em></h2>
@@ -460,13 +606,9 @@
   const adFrame = document.getElementById("toolsSidebarAdFrame");
 
   // 4a. Inject the 300x250 ad scripts into the ad frame.
-  //     We append the config + external invoke script into the ad frame container.
-  //     The external script writes its iframe to the element it is placed in,
-  //     so we place it directly inside the ad frame wrapper.
   (function injectAd() {
     if (!adFrame) return;
 
-    // Inline atOptions configuration (must run before the invoke script loads)
     const configScript = document.createElement("script");
     configScript.type = "text/javascript";
     configScript.text = `
@@ -480,7 +622,6 @@
     `;
     adFrame.appendChild(configScript);
 
-    // External invoke script
     const invokeScript = document.createElement("script");
     invokeScript.type = "text/javascript";
     invokeScript.src = "https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js";
@@ -506,7 +647,7 @@
       item.style.animationDelay = `${toolIndex * 0.025}s`;
 
       item.innerHTML = `
-        <div class="tools-sb-item-icon">${tool.icon}</div>
+        <div class="tools-sb-item-icon">${tool.svg}</div>
         <div class="tools-sb-item-details">
           <div class="tools-sb-item-name">${tool.name}</div>
           <div class="tools-sb-item-desc">${tool.desc}</div>
@@ -522,7 +663,9 @@
     const isOpen = sidebar.classList.toggle("open");
     trigger.classList.toggle("active", isOpen);
     overlay.classList.toggle("visible", isOpen);
-    trigger.innerHTML = isOpen ? "✕" : "🧰";
+    trigger.innerHTML = isOpen
+      ? `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+      : triggerSvg;
 
     // Re-trigger animations when opening
     if (isOpen) {
@@ -540,7 +683,7 @@
     sidebar.classList.remove("open");
     trigger.classList.remove("active");
     overlay.classList.remove("visible");
-    trigger.innerHTML = "🧰";
+    trigger.innerHTML = triggerSvg;
   }
 
   // Bind Listeners

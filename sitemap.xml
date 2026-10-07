@@ -37,6 +37,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://webnotepad.github.io/tools</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://webnotepad.github.io/all-tools</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -47,19 +52,29 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Core Tools -->
+  <!-- Core Writing & Note-Taking Tools -->
+  <url>
+    <loc>https://webnotepad.github.io/#notepad</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://webnotepad.github.io/diary</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webnotepad.github.io/mindmap</loc>
+    <loc>https://webnotepad.github.io/focus-writer</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://webnotepad.github.io/list-maker</loc>
+    <loc>https://webnotepad.github.io/typing-test</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/wordpad</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -73,13 +88,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://webnotepad.github.io/focus-writer</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
-  <!-- Text & Writing Tools -->
+  <!-- Text Analysis & Manipulation Tools -->
   <url>
     <loc>https://webnotepad.github.io/case-converter</loc>
     <changefreq>monthly</changefreq>
@@ -91,34 +101,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://webnotepad.github.io/word-finder</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://webnotepad.github.io/word-search-solver</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://webnotepad.github.io/crossword-solver</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://webnotepad.github.io/emoji-picker</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://webnotepad.github.io/readability</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://webnotepad.github.io/random-text</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://webnotepad.github.io/word-shuffler</loc>
@@ -130,8 +115,32 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Idea Organization & Visualization -->
   <url>
-    <loc>https://webnotepad.github.io/typing-test</loc>
+    <loc>https://webnotepad.github.io/mindmap</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/list-maker</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Creativity & Randomization -->
+  <url>
+    <loc>https://webnotepad.github.io/random-text</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/word-cloud</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/choice-maker</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -140,13 +149,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Word & Puzzle Helpers -->
   <url>
-    <loc>https://webnotepad.github.io/word-cloud</loc>
+    <loc>https://webnotepad.github.io/word-finder</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/crossword-solver</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/word-search-solver</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Productivity & Planning Tools -->
+  <!-- Productivity & Habit Management -->
   <url>
     <loc>https://webnotepad.github.io/pomodoro-timer</loc>
     <changefreq>monthly</changefreq>
@@ -162,10 +183,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Fun & Utilities -->
   <url>
-    <loc>https://webnotepad.github.io/choice-maker</loc>
+    <loc>https://webnotepad.github.io/emoji-picker</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Newly Added Tools (2026) -->
+  <url>
+    <loc>https://webnotepad.github.io/invoice-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/click-speed-test</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/text-diff</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/bionic-reader</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/teleprompter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Blog / Articles / Guides -->

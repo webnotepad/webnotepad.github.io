@@ -10,7 +10,7 @@
 
 (function () {
   // 1. Array list of tools organized by categories with colorful SVG icons
-  const categories = [
+  const categories = [ 
     {
       name: "📝 Writing & Note-Taking",
       tools: [

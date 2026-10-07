@@ -2,12 +2,21 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the 15 productive tools
  * Theme: Editorial / Ink-on-paper aesthetic
- * Updated: Category-wise organization with attention-grabbing pulsing trigger
- *          + 300x250 banner ad slot at the top of the sidebar
- *          + Half-screen desktop layout with two-column category grid
- *          + Colorful inline SVG icons instead of emoji
- *          + Second in-feed 300x250 ad slot injected in the middle of the tools list
- *          + Compact tool boxes with tools side-by-side inside each category
+ *
+ * SEO & PERFORMANCE NOTES:
+ *  - Sidebar is position:fixed and uses transform:translateX() so it NEVER
+ *    causes layout shift (protects CLS Core Web Vital).
+ *  - Top ad loads eagerly (above the fold when sidebar opens).
+ *  - In-feed ad is LAZY-LOADED via IntersectionObserver so it only fires
+ *    when the user actually scrolls to it (protects LCP + saves bandwidth).
+ *  - All ad scripts are async; no render-blocking resources.
+ *  - Sidebar is user-triggered only — never auto-opens (mobile-first safe).
+ *  - aria-hidden is toggled so screen readers and crawlers see the correct
+ *    visible state.
+ *
+ * REMINDER: For strongest SEO, also expose these tool links in a visible
+ * footer nav or a /tools index page. Links inside hidden overlays are
+ * crawled but carry less weight than visible in-content links.
  */
 
 (function () {
@@ -235,14 +244,14 @@
       transform: rotate(90deg);
     }
 
-    /* Fixed Sidebar — half of desktop screen */
+    /* Fixed Sidebar — ~55vw on desktop (wider but not intrusive) */
     .tools-fixed-sidebar {
       position: fixed;
       top: 0;
-      right: -50vw;
-      width: 50vw;
+      right: 0;
+      width: 55vw;
       max-width: 100vw;
-      min-width: 640px;
+      min-width: 660px;
       height: 100vh;
       background: var(--paper);
       border-left: 1px solid var(--paper-edge);
@@ -250,10 +259,15 @@
       z-index: 10000;
       display: flex;
       flex-direction: column;
-      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      /* GPU-accelerated transform slide (no layout shift, no CLS) */
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+      visibility: hidden;
     }
     .tools-fixed-sidebar.open {
-      right: 0;
+      transform: translateX(0);
+      visibility: visible;
     }
 
     /* Dimmed Background Backdrop Overlay */
@@ -327,6 +341,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
+      min-height: 290px; /* reserves space to prevent CLS when ad loads */
     }
     .tools-sb-ad-label {
       font-family: var(--font-display);
@@ -369,6 +384,8 @@
       margin: 4px 0;
       border-top: 1px dashed var(--paper-edge);
       border-bottom: 1px dashed var(--paper-edge);
+      /* Reserve space so lazy ad insert doesn't shift layout */
+      min-height: 286px;
     }
     .tools-sb-ad-infeed .tools-sb-ad-label {
       align-self: center;
@@ -387,6 +404,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 20px 24px;
       align-content: start;
+      overscroll-behavior: contain;
     }
 
     /* Category block */
@@ -447,7 +465,7 @@
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
-      transition: all var(--transition);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
       opacity: 0;
       transform: translateY(8px);
       text-decoration: none;
@@ -479,6 +497,10 @@
     }
     .tools-sb-item:hover::before {
       opacity: 1;
+    }
+    .tools-sb-item:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
     /* Compact icon container */
@@ -570,20 +592,30 @@
       }
     }
 
-    /* ---------- Responsive adjustments ---------- */
-
-    /* Large desktop: keep 2-column categories, min-width 640px enforced */
-    @media (min-width: 1280px) {
-      .tools-sb-body {
-        padding: 22px 36px 40px;
-        gap: 22px 28px;
-      }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .tools-fixed-sidebar,
+      .tools-sb-item,
+      .tools-floating-trigger {
+        animation: none !important;
+        transition: none !important;
       }
     }
 
-    /* Mid laptop: sidebar 50vw but min-width 640px, category tools may wrap */
+    /* ---------- Responsive adjustments ---------- */
+
+    /* Very large desktop: more generous spacing */
+    @media (min-width: 1440px) {
+      .tools-sb-body {
+        padding: 24px 40px 44px;
+        gap: 24px 32px;
+      }
+      .tools-sb-category-tools {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+
+    /* Mid laptop: still 2 columns, slightly tighter */
     @media (max-width: 1279px) and (min-width: 901px) {
       .tools-sb-body {
         padding: 18px 22px 32px;
@@ -600,10 +632,11 @@
       .tools-fixed-sidebar {
         width: 100%;
         min-width: 0;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
       }
       .tools-fixed-sidebar.open {
-        right: 0;
+        transform: translateX(0);
       }
       .tools-sb-body {
         padding: 16px 20px 28px;
@@ -652,10 +685,14 @@
       }
       .tools-sb-ad {
         padding: 12px 10px 8px;
+        min-height: 0;
       }
       .tools-sb-ad-frame {
         height: auto;
         min-height: 250px;
+      }
+      .tools-sb-ad-infeed {
+        min-height: 0;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -696,14 +733,14 @@
 
   rootContainer.innerHTML = `
     <div class="tools-sidebar-overlay" id="toolsSidebarOverlay"></div>
-    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit">${triggerSvg}</div>
-    <aside class="tools-fixed-sidebar" id="toolsFixedSidebar" aria-label="WebNotepad Toolkit Sidebar">
+    <div class="tools-floating-trigger" id="toolsSidebarTrigger" title="Explore Toolkit" aria-label="Toggle structural toolkit" aria-expanded="false" role="button" tabindex="0">${triggerSvg}</div>
+    <aside class="tools-fixed-sidebar" id="toolsFixedSidebar" aria-label="WebNotepad Toolkit Sidebar" aria-hidden="true">
       <div class="tools-sb-header">
         <h2>WebNotepad <em>Toolkit</em></h2>
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
 
-      <!-- Top 300x250 Banner Ad Slot -->
+      <!-- Top 300x250 Banner Ad Slot (eager — visible when sidebar opens) -->
       <div class="tools-sb-ad" id="toolsSidebarAd">
         <span class="tools-sb-ad-label">Advertisement</span>
         <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
@@ -746,20 +783,19 @@
     container.appendChild(invokeScript);
   }
 
-  // Top banner ad
+  // Top banner ad — load immediately (it's above the fold once the sidebar opens).
   injectAdInto(adFrame);
 
   // 5. Populate categories — each category is a block in the 2-column grid
   const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2);
 
   let toolIndex = 0;
+  let infeedAdRendered = false;
 
   categories.forEach((category, catIdx) => {
-    // Category block wrapper
     const catBlock = document.createElement("div");
     catBlock.className = "tools-sb-category-block";
 
-    // Category header
     const catHeader = document.createElement("div");
     catHeader.className = "tools-sb-category";
     catHeader.innerHTML = `
@@ -768,7 +804,6 @@
     `;
     catBlock.appendChild(catHeader);
 
-    // Tools row
     const toolsRow = document.createElement("div");
     toolsRow.className = "tools-sb-category-tools";
 
@@ -792,9 +827,9 @@
     catBlock.appendChild(toolsRow);
     sidebarBody.appendChild(catBlock);
 
-    // Insert in-feed ad after the chosen category boundary.
-    // Because the body is a 2-col grid, this ad spans both columns.
-    if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY) {
+    // Insert in-feed ad (lazy) after the middle category
+    if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY && !infeedAdRendered) {
+      infeedAdRendered = true;
       const infeed = document.createElement("div");
       infeed.className = "tools-sb-ad-infeed";
       infeed.innerHTML = `
@@ -802,43 +837,93 @@
         <div class="tools-sb-ad-frame" id="toolsSidebarAdFrameInfeed"></div>
       `;
       sidebarBody.appendChild(infeed);
-
-      const infeedFrame = infeed.querySelector("#toolsSidebarAdFrameInfeed");
-      injectAdInto(infeedFrame);
+      // NOTE: ad script is injected later via IntersectionObserver.
     }
   });
 
-  // 6. Active Structural Interface Controls and Handlers
-  function toggleSidebar() {
-    const isOpen = sidebar.classList.toggle("open");
-    trigger.classList.toggle("active", isOpen);
-    overlay.classList.toggle("visible", isOpen);
-    trigger.innerHTML = isOpen
-      ? `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
-      : triggerSvg;
+  // 5a. LAZY-LOAD the in-feed ad. The ad only loads when the user scrolls
+  //     it into view inside the sidebar body. This is the single biggest
+  //     thing you can do to protect LCP and CLS on a page with ads.
+  const infeedFrame = document.getElementById("toolsSidebarAdFrameInfeed");
 
-    if (isOpen) {
-      const items = sidebarBody.querySelectorAll(".tools-sb-item");
-      items.forEach((item, idx) => {
-        item.style.animation = "none";
-        item.offsetHeight;
-        item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
-        item.style.animationDelay = `${idx * 0.025}s`;
-      });
-    }
+  if (infeedFrame && "IntersectionObserver" in window) {
+    let infeedLoaded = false;
+
+    const adObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !infeedLoaded) {
+            infeedLoaded = true;
+            injectAdInto(infeedFrame);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: sidebarBody,
+        rootMargin: "200px 0px", // start loading 200px before it's visible
+        threshold: 0
+      }
+    );
+
+    adObserver.observe(infeedFrame);
+  } else if (infeedFrame) {
+    // Fallback for very old browsers — load after a short delay instead.
+    setTimeout(() => injectAdInto(infeedFrame), 1500);
+  }
+
+  // 6. Active Structural Interface Controls and Handlers
+  let isSidebarOpen = false;
+
+  function openSidebar() {
+    if (isSidebarOpen) return;
+    isSidebarOpen = true;
+    sidebar.classList.add("open");
+    trigger.classList.add("active");
+    overlay.classList.add("visible");
+    sidebar.setAttribute("aria-hidden", "false");
+    trigger.setAttribute("aria-expanded", "true");
+    trigger.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+    // Re-trigger entrance animations
+    const items = sidebarBody.querySelectorAll(".tools-sb-item");
+    items.forEach((item, idx) => {
+      item.style.animation = "none";
+      // eslint-disable-next-line no-unused-expressions
+      item.offsetHeight;
+      item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
+      item.style.animationDelay = `${idx * 0.025}s`;
+    });
   }
 
   function closeSidebar() {
+    if (!isSidebarOpen) return;
+    isSidebarOpen = false;
     sidebar.classList.remove("open");
     trigger.classList.remove("active");
     overlay.classList.remove("visible");
+    sidebar.setAttribute("aria-hidden", "true");
+    trigger.setAttribute("aria-expanded", "false");
     trigger.innerHTML = triggerSvg;
   }
 
+  function toggleSidebar() {
+    if (isSidebarOpen) closeSidebar();
+    else openSidebar();
+  }
+
+  // Bind Listeners
   trigger.addEventListener("click", toggleSidebar);
+  trigger.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleSidebar();
+    }
+  });
   overlay.addEventListener("click", closeSidebar);
   closeBtn.addEventListener("click", closeSidebar);
 
+  // Close interface gracefully via the Escape key
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeSidebar();
   });

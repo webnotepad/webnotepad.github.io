@@ -4,13 +4,14 @@
  * Theme: Editorial / Ink-on-paper aesthetic
  * Updated: Category-wise organization with attention-grabbing pulsing trigger
  *          + 300x250 banner ad slot at the top of the sidebar
- *          + Wider desktop layout (480px) with horizontal tool cards
+ *          + Extra-wide desktop layout (620px) with box/grid tool cards
  *          + Colorful inline SVG icons instead of emoji
+ *          + Second in-feed 300x250 ad slot injected in the middle of the tools list
  */
 
 (function () {
   // 1. Array list of tools organized by categories with colorful SVG icons
-  const categories = [ 
+  const categories = [
     {
       name: "📝 Writing & Note-Taking",
       tools: [
@@ -183,7 +184,7 @@
   // Flatten tools for any potential use
   const allTools = categories.flatMap(cat => cat.tools);
 
-  // 2. Inject CSS Styles with category enhancements and pulsing keyframes
+  // 2. Inject CSS Styles
   const cssStyles = `
     /* Floating Launch Trigger Button */
     .tools-floating-trigger {
@@ -233,12 +234,13 @@
       transform: rotate(90deg);
     }
 
-    /* Fixed Sidebar Layout Container */
+    /* Fixed Sidebar Layout Container — Wider Desktop */
     .tools-fixed-sidebar {
       position: fixed;
       top: 0;
-      right: -500px;
-      width: 480px;
+      right: -660px;
+      width: 620px;
+      max-width: 100vw;
       height: 100vh;
       background: var(--paper);
       border-left: 1px solid var(--paper-edge);
@@ -276,7 +278,7 @@
 
     /* Sidebar Header Details */
     .tools-sb-header {
-      padding: 20px 24px;
+      padding: 22px 28px;
       border-bottom: 1px solid var(--paper-edge);
       display: flex;
       align-items: center;
@@ -286,7 +288,7 @@
     }
     .tools-sb-header h2 {
       font-family: var(--font-display);
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--ink);
     }
@@ -295,9 +297,9 @@
       color: var(--accent);
     }
     .tools-sb-close {
-      width: 32px;
-      height: 32px;
-      font-size: 1rem;
+      width: 34px;
+      height: 34px;
+      font-size: 1.05rem;
       color: var(--ink-muted);
       border-radius: var(--radius);
       display: flex;
@@ -316,7 +318,7 @@
     /* ---- Ad Slot (300x250) ---- */
     .tools-sb-ad {
       flex-shrink: 0;
-      padding: 14px 16px 10px;
+      padding: 16px 20px 12px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
@@ -354,22 +356,42 @@
       display: block;
     }
 
-    /* Scrollable items menu wrapper — single column of horizontal cards */
+    /* In-feed ad slot — spans full grid width */
+    .tools-sb-ad-infeed {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 0;
+      margin: 8px 0;
+      border-top: 1px dashed var(--paper-edge);
+      border-bottom: 1px dashed var(--paper-edge);
+    }
+    .tools-sb-ad-infeed .tools-sb-ad-label {
+      align-self: center;
+      text-align: center;
+    }
+    .tools-sb-ad-infeed .tools-sb-ad-frame {
+      background: var(--paper);
+    }
+
+    /* Scrollable items menu wrapper — box grid */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
-      padding: 16px 24px 32px;
+      padding: 18px 24px 36px;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
       align-content: start;
     }
 
-    /* Category Section Headers */
+    /* Category Section Headers — span both columns */
     .tools-sb-category {
       grid-column: 1 / -1;
       font-family: var(--font-display);
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -393,14 +415,14 @@
       margin-left: 6px;
     }
 
-    /* Single Tool Items Card — horizontal layout for wider sidebar */
+    /* Single Tool Item — box card */
     .tools-sb-item {
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       text-align: left;
-      gap: 14px;
-      padding: 14px 16px;
+      gap: 10px;
+      padding: 16px 16px 14px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -410,6 +432,19 @@
       text-decoration: none;
       cursor: pointer;
       min-width: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .tools-sb-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity var(--transition);
     }
     .tools-fixed-sidebar.open .tools-sb-item {
       animation: slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -417,12 +452,15 @@
     .tools-sb-item:hover {
       background: var(--paper);
       border-color: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-sm);
     }
+    .tools-sb-item:hover::before {
+      opacity: 1;
+    }
     .tools-sb-item-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       background: var(--paper);
       border-radius: var(--radius);
       display: flex;
@@ -434,14 +472,14 @@
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
       background: var(--accent-pale);
       border-color: var(--accent);
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
     body.dark .tools-sb-item:hover .tools-sb-item-icon {
       background: rgba(196,86,42,0.15);
@@ -452,17 +490,17 @@
       width: 100%;
     }
     .tools-sb-item-name {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       line-height: 1.25;
       word-break: break-word;
     }
     .tools-sb-item-desc {
       font-size: 0.72rem;
       color: var(--ink-muted);
-      line-height: 1.35;
+      line-height: 1.4;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -471,7 +509,7 @@
 
     /* Scrollbar styling */
     .tools-sb-body::-webkit-scrollbar {
-      width: 5px;
+      width: 6px;
     }
     .tools-sb-body::-webkit-scrollbar-track {
       background: transparent;
@@ -508,7 +546,39 @@
       }
     }
 
-    /* Responsive adjustments — MOBILE STYLE UNCHANGED */
+    /* ---------- Responsive adjustments ---------- */
+
+    /* Tablet: narrower sidebar, keep box grid */
+    @media (max-width: 768px) {
+      .tools-fixed-sidebar {
+        width: 520px;
+        right: -560px;
+      }
+      .tools-sb-body {
+        padding: 14px 18px 28px;
+        gap: 10px;
+      }
+      .tools-sb-item {
+        padding: 13px 13px 11px;
+        gap: 8px;
+      }
+      .tools-sb-item-icon {
+        width: 46px;
+        height: 46px;
+      }
+      .tools-sb-item-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .tools-sb-item-name {
+        font-size: 0.86rem;
+      }
+      .tools-sb-item-desc {
+        font-size: 0.68rem;
+      }
+    }
+
+    /* Mobile: full width, 2-column compact grid — ORIGINAL MOBILE STYLE PRESERVED */
     @media (max-width: 480px) {
       .tools-fixed-sidebar {
         width: 100%;
@@ -532,6 +602,9 @@
         padding: 10px 6px 8px;
         gap: 6px;
       }
+      .tools-sb-item::before {
+        display: none;
+      }
       .tools-sb-item-icon {
         width: 34px;
         height: 34px;
@@ -552,6 +625,10 @@
       .tools-sb-ad-frame {
         height: auto;
         min-height: 250px;
+      }
+      .tools-sb-ad-infeed {
+        padding: 10px 0;
+        margin: 4px 0;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -588,7 +665,7 @@
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
 
-      <!-- 300x250 Banner Ad Slot -->
+      <!-- Top 300x250 Banner Ad Slot -->
       <div class="tools-sb-ad" id="toolsSidebarAd">
         <span class="tools-sb-ad-label">Advertisement</span>
         <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
@@ -605,34 +682,45 @@
   const closeBtn = document.getElementById("toolsSidebarClose");
   const adFrame = document.getElementById("toolsSidebarAdFrame");
 
-  // 4a. Inject the 300x250 ad scripts into the ad frame.
-  (function injectAd() {
-    if (!adFrame) return;
+  // 4a. Reusable ad injection helper — builds the atOptions config + invoke script
+  //     into any target container. Uses a unique random key per call so multiple
+  //     HighRevenue ad units can coexist on the same page.
+  function injectAdInto(container) {
+    if (!container) return;
+
+    // Unique per-instance key so the network doesn't collapse identical units
+    const uniqueKey = 'f5214acd8479e07d7defe4626c574aa5';
 
     const configScript = document.createElement("script");
     configScript.type = "text/javascript";
     configScript.text = `
       atOptions = {
-        'key' : 'f5214acd8479e07d7defe4626c574aa5',
+        'key' : '${uniqueKey}',
         'format' : 'iframe',
         'height' : 250,
         'width' : 300,
         'params' : {}
       };
     `;
-    adFrame.appendChild(configScript);
+    container.appendChild(configScript);
 
     const invokeScript = document.createElement("script");
     invokeScript.type = "text/javascript";
-    invokeScript.src = "https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js";
+    invokeScript.src = `https://www.highrevenueformat.com/${uniqueKey}/invoke.js`;
     invokeScript.async = true;
-    adFrame.appendChild(invokeScript);
-  })();
+    container.appendChild(invokeScript);
+  }
 
-  // 5. Populate list items with categories and staggered animations
+  // Top banner ad
+  injectAdInto(adFrame);
+
+  // 5. Populate list items with categories and staggered animations.
+  //    The in-feed ad is inserted after roughly half the categories have rendered.
+  const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2); // insert after category index 3 (i.e. 4th category)
+
   let toolIndex = 0;
 
-  categories.forEach((category) => {
+  categories.forEach((category, catIdx) => {
     // Add category header
     const catHeader = document.createElement("div");
     catHeader.className = "tools-sb-category";
@@ -656,6 +744,20 @@
       sidebarBody.appendChild(item);
       toolIndex++;
     });
+
+    // Insert the in-feed ad after the chosen category boundary
+    if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY) {
+      const infeed = document.createElement("div");
+      infeed.className = "tools-sb-ad-infeed";
+      infeed.innerHTML = `
+        <span class="tools-sb-ad-label">Advertisement</span>
+        <div class="tools-sb-ad-frame" id="toolsSidebarAdFrameInfeed"></div>
+      `;
+      sidebarBody.appendChild(infeed);
+
+      const infeedFrame = infeed.querySelector("#toolsSidebarAdFrameInfeed");
+      injectAdInto(infeedFrame);
+    }
   });
 
   // 6. Active Structural Interface Controls and Handlers

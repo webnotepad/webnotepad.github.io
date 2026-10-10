@@ -164,6 +164,34 @@
       ]
     },
     {
+      name: "🔐 Security & Generators",
+      tools: [
+        {
+          name: "Password Generator",
+          url: "/password-generator",
+          desc: "Create strong, random, secure passwords.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="10" width="16" height="10" rx="2" fill="#EDE9FE" stroke="#6D28D9" stroke-width="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#6D28D9" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="#6D28D9"/><path d="M12 16.5v2" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "QR Code Generator",
+          url: "/qr-code-generator",
+          desc: "Create custom QR codes with logo & colors.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="5" y="5" width="3" height="3" fill="#0E7490"/><rect x="16" y="5" width="3" height="3" fill="#0E7490"/><rect x="5" y="16" width="3" height="3" fill="#0E7490"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM19 19h2v2h-2z" fill="#0E7490"/></svg>`
+        }
+      ]
+    },
+    {
+      name: "🎨 Design & Color Tools",
+      tools: [
+        {
+          name: "Color Converter",
+          url: "/color-converter",
+          desc: "Convert HEX, RGB, HSL, HSV, CMYK & LAB.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="#FFF7ED" stroke="#C2410C" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#C2410C"/><circle cx="15" cy="9" r="2.5" fill="#EA580C"/><circle cx="12" cy="15" r="2.5" fill="#FB923C"/><circle cx="9" cy="9" r="2.5" fill="#C2410C"/></svg>`
+        }
+      ]
+    },
+    {
       name: "😊 Fun & Utilities",
       tools: [
         {
@@ -235,6 +263,7 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
       animation: attentionPulse 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
       padding: 0;
+      color: #C2410C;
     }
     .tools-floating-trigger svg {
       width: 24px;
@@ -247,10 +276,10 @@
     }
     .tools-floating-trigger:hover {
       transform: scale(1.08) rotate(15deg);
-      background: var(--accent);
+      background: #C2410C;
       color: var(--white);
       animation-play-state: paused;
-      box-shadow: 0 8px 24px rgba(196, 86, 42, 0.3);
+      box-shadow: 0 8px 24px rgba(194, 65, 12, 0.4);
     }
     .tools-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
@@ -677,15 +706,15 @@
     @keyframes attentionPulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.4), var(--shadow);
+        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0.4), var(--shadow);
       }
       50% {
         transform: scale(1.08);
-        box-shadow: 0 0 0 12px rgba(196, 86, 42, 0), var(--shadow);
+        box-shadow: 0 0 0 12px rgba(194, 65, 12, 0), var(--shadow);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0), var(--shadow);
+        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0), var(--shadow);
       }
     }
 

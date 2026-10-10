@@ -20,33 +20,27 @@
     link: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
-    // ---- Beautiful gaming joystick SVG ----
-    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64" fill="none">
-      <!-- Joystick base plate -->
-      <ellipse cx="32" cy="52" rx="22" ry="8" fill="currentColor" opacity="0.25"/>
-      <ellipse cx="32" cy="50" rx="22" ry="8" fill="currentColor" opacity="0.15"/>
-      <!-- Base body -->
-      <path d="M10 48 Q10 42 18 40 L46 40 Q54 42 54 48 Q54 54 46 55 L18 55 Q10 54 10 48 Z" fill="currentColor" opacity="0.9"/>
-      <!-- Base highlight -->
-      <path d="M14 47 Q14 44 20 43 L44 43 Q50 44 50 47" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+
+    // ---- Cleaner, refined gaming joystick SVG ----
+    // Simple, balanced design that reads clearly at small sizes.
+    // Uses stroke-based line art for a crisp, modern look.
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <!-- Stick shaft -->
-      <rect x="29" y="18" width="6" height="24" rx="3" fill="currentColor"/>
-      <!-- Stick highlight -->
-      <rect x="30.5" y="20" width="1.5" height="20" rx="0.75" fill="white" opacity="0.4"/>
-      <!-- Ball top -->
-      <circle cx="32" cy="14" r="10" fill="currentColor"/>
-      <!-- Ball shine -->
-      <circle cx="28.5" cy="10.5" r="3.2" fill="white" opacity="0.55"/>
-      <circle cx="35" cy="12" r="1.5" fill="white" opacity="0.35"/>
-      <!-- Base buttons (red A, blue B) -->
-      <circle cx="44" cy="48" r="2.6" fill="#e11d48"/>
-      <circle cx="44" cy="48" r="1.2" fill="white" opacity="0.5"/>
-      <circle cx="49" cy="46" r="2.2" fill="#0284c7"/>
-      <circle cx="49" cy="46" r="1" fill="white" opacity="0.5"/>
-      <!-- D-pad hint on left -->
-      <rect x="14" y="45" width="2" height="6" rx="0.8" fill="white" opacity="0.35"/>
-      <rect x="12" y="47" width="6" height="2" rx="0.8" fill="white" opacity="0.35"/>
+      <line x1="12" y1="8" x2="12" y2="15"/>
+      <!-- Ball top (filled) -->
+      <circle cx="12" cy="6" r="3" fill="currentColor" stroke="none"/>
+      <!-- Ball highlight -->
+      <circle cx="11" cy="5" r="0.9" fill="#ffffff" opacity="0.55" stroke="none"/>
+      <!-- Base plate (rounded trapezoid) -->
+      <path d="M5 17 Q5 15 7 15 L17 15 Q19 15 19 17 L19 18.5 Q19 20 17.5 20 L6.5 20 Q5 20 5 18.5 Z" fill="currentColor" stroke="none"/>
+      <!-- Base highlight line -->
+      <line x1="7.5" y1="17.5" x2="16.5" y2="17.5" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+      <!-- Left D-pad hint -->
+      <rect x="7.2" y="18" width="1.2" height="1.2" rx="0.3" fill="#ffffff" opacity="0.4" stroke="none"/>
+      <!-- Right action button (accent) -->
+      <circle cx="16.5" cy="18.6" r="0.9" fill="#fbbf24" stroke="none"/>
     </svg>`,
+
     gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <line x1="6" y1="11" x2="10" y2="11"/>
       <line x1="8" y1="9" x2="8" y2="13"/>
@@ -213,9 +207,11 @@
     .games-floating-trigger svg {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: block;
+      width: 26px;
+      height: 26px;
     }
     .games-floating-trigger:hover svg {
-      transform: scale(1.1) rotate(-8deg);
+      transform: scale(1.12);
     }
     .games-floating-trigger:hover {
       transform: scale(1.08) rotate(8deg);

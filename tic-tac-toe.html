@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Tic-Tac-Toe – Free Online Game (2 Player & vs Computer) | WebNotePad</title>
+    <meta name="description" content="Play Tic-Tac-Toe free online. Challenge a friend in 2-player mode or beat the computer AI. Beautiful design, unbeatable hard mode, mobile-friendly. No signup, no download." />
+    <meta name="keywords" content="tic tac toe, tic tac toe game, tic-tac-toe online, free tic tac toe, 2 player tic tac toe, tic tac toe vs computer, noughts and crosses, X and O game, brain game" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/tic-tac-toe" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/tic-tac-toe" />
+    <meta property="og:title" content="Tic-Tac-Toe – Free Online Game" />
+    <meta property="og:description" content="Play Tic-Tac-Toe free online. 2-player or vs computer with unbeatable hard mode. Beautiful design, mobile-friendly." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tic-Tac-Toe – Free Online Game" />
+    <meta name="twitter:description" content="Play Tic-Tac-Toe free online. 2-player or vs computer. Mobile-friendly, no signup." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Tic-Tac-Toe by WebNotePad",
+            "url": "https://webnotepad.github.io/tic-tac-toe",
+            "description": "A free online Tic-Tac-Toe game. Play in 2-player mode or against a computer AI with three difficulty levels. Beautiful design, mobile-friendly, no signup required.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "2-player mode (local pass-and-play)",
+                "Single-player vs computer AI",
+                "Three difficulty levels (Easy, Medium, Hard)",
+                "Unbeatable hard mode using minimax",
+                "Score tracking (X wins, O wins, draws)",
+                "Winning line highlight animation",
+                "Responsive mobile-friendly design",
+                "Touch and click controls",
+                "No signup required",
+                "Free forever"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do you play Tic-Tac-Toe?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Tic-Tac-Toe is played on a 3x3 grid. Two players take turns placing their mark (X or O) in an empty cell. The first player to get three of their marks in a row — horizontally, vertically, or diagonally — wins the game. If all nine cells are filled and no one has three in a row, the game is a draw."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Tic-Tac-Toe game free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, this Tic-Tac-Toe game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play against the computer?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! Choose 'vs Computer' mode and pick a difficulty. Easy plays randomly, Medium blocks obvious threats, and Hard uses a perfect minimax algorithm that cannot be beaten — the best you can achieve is a draw."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play Tic-Tac-Toe with a friend?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. Choose '2 Player' mode and take turns on the same device. Player X goes first, then Player O. This is perfect for pass-and-play on a phone or tablet."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play Tic-Tac-Toe on my phone?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! The game is fully responsive and works on smartphones and tablets. Just tap a cell to place your mark. The board adapts to your screen size."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the game keep score?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the game tracks X wins, O wins, and draws for the current session. The scoreboard is shown above the board and resets when you start a new match or change modes."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ttt-accent: #0284c7;
+            --ttt-accent-dark: #0369a1;
+            --ttt-accent-light: #38bdf8;
+            --ttt-accent-pale: #e0f2fe;
+            --ttt-surface: #faf8f4;
+            --ttt-border: #e8e2d6;
+            --ttt-ink: #1a1a2e;
+            --ttt-muted: #6b6b85;
+            --ttt-warm: #f4f0e8;
+            --ttt-radius: 8px;
+            --ttt-radius-lg: 14px;
+            --ttt-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ttt-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --ttt-x-color: #e11d48;
+            --ttt-x-color-light: #f43f5e;
+            --ttt-o-color: #0284c7;
+            --ttt-o-color-light: #0ea5e9;
+            --ttt-win: #16a34a;
+            --ttt-grid-line: #d4cfc4;
+        }
+
+        body.dark {
+            --ttt-accent: #38bdf8;
+            --ttt-accent-dark: #0ea5e9;
+            --ttt-accent-light: #7dd3fc;
+            --ttt-accent-pale: #0a2a3d;
+            --ttt-surface: #141418;
+            --ttt-border: #2a2a34;
+            --ttt-ink: #e8e4dc;
+            --ttt-muted: #8a8678;
+            --ttt-warm: #1c1c22;
+            --ttt-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --ttt-x-color: #fb7185;
+            --ttt-x-color-light: #fda4af;
+            --ttt-o-color: #38bdf8;
+            --ttt-o-color-light: #7dd3fc;
+            --ttt-win: #4ade80;
+            --ttt-grid-line: #3a3a44;
+        }
+
+        /* ===== TIC-TAC-TOE HERO ===== */
+        .ttt-hero {
+            position: relative;
+            min-height: 22vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 16px;
+            overflow: hidden;
+            background: var(--ttt-surface);
+            transition: background var(--ttt-transition);
+        }
+        .ttt-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ttt-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ttt-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ttt-hero-bg { opacity: 0.1; }
+        .ttt-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ttt-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ttt-hero-glow { opacity: 0.35; }
+        .ttt-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .ttt-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--ttt-accent-pale);
+            color: var(--ttt-accent-dark);
+            border: 1px solid var(--ttt-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ttt-hero-badge { color: var(--ttt-accent); background: rgba(56, 189, 248, 0.15); }
+        .ttt-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--ttt-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ttt-hero-accent {
+            color: var(--ttt-accent);
+            font-style: italic;
+        }
+        .ttt-hero-sub {
+            font-size: 0.9rem;
+            color: var(--ttt-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ttt-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .ttt-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ttt-demo-chip {
+            padding: 7px 16px;
+            background: var(--ttt-warm);
+            border: 1px solid var(--ttt-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ttt-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ttt-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ttt-demo-chip:hover {
+            background: var(--ttt-accent-pale);
+            border-color: var(--ttt-accent);
+            color: var(--ttt-accent-dark);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .ttt-game-section {
+            padding: 0 0 80px;
+            background: var(--ttt-surface);
+            transition: background var(--ttt-transition);
+        }
+        .ttt-game-shell {
+            background: var(--ttt-warm);
+            border: 1px solid var(--ttt-border);
+            border-radius: var(--ttt-radius-lg);
+            box-shadow: var(--ttt-shadow);
+            overflow: hidden;
+            transition: all var(--ttt-transition);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .ttt-game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--ttt-border);
+            background: var(--ttt-surface);
+            flex-wrap: wrap;
+        }
+        .ttt-game-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ttt-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ttt-game-title .ttt-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ttt-accent);
+            display: inline-block;
+            animation: tttPulse 2s infinite;
+        }
+        @keyframes tttPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Mode Tabs */
+        .ttt-mode-tabs {
+            display: flex;
+            gap: 0;
+            background: var(--ttt-surface);
+            border-bottom: 1px solid var(--ttt-border);
+            padding: 0 12px;
+        }
+        .ttt-mode-tab {
+            flex: 1;
+            padding: 14px 12px 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ttt-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--ttt-transition);
+            position: relative;
+            white-space: nowrap;
+        }
+        .ttt-mode-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 3px;
+            background: var(--ttt-accent);
+            border-radius: 3px 3px 0 0;
+            transform: scaleX(0);
+            transition: transform var(--ttt-transition);
+        }
+        .ttt-mode-tab:hover { color: var(--ttt-ink); }
+        .ttt-mode-tab.ttt-active {
+            color: var(--ttt-accent-dark);
+        }
+        .ttt-mode-tab.ttt-active::after {
+            transform: scaleX(1);
+        }
+
+        /* Difficulty tabs (only visible in vs computer mode) */
+        .ttt-difficulty-tabs {
+            display: none;
+            gap: 6px;
+            padding: 10px 16px;
+            background: var(--ttt-surface);
+            border-bottom: 1px solid var(--ttt-border);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .ttt-difficulty-tabs.ttt-visible { display: flex; }
+        .ttt-diff-pill {
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            color: var(--ttt-muted);
+            background: var(--ttt-warm);
+            border: 1px solid var(--ttt-border);
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all var(--ttt-transition);
+            white-space: nowrap;
+        }
+        .ttt-diff-pill:hover { color: var(--ttt-ink); border-color: var(--ttt-accent); }
+        .ttt-diff-pill.ttt-active {
+            background: var(--ttt-accent);
+            color: #ffffff;
+            border-color: var(--ttt-accent);
+        }
+
+        /* Scoreboard */
+        .ttt-scoreboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--ttt-border);
+            border-bottom: 1px solid var(--ttt-border);
+        }
+        .ttt-score-box {
+            background: var(--ttt-surface);
+            padding: 12px 8px;
+            text-align: center;
+            transition: background var(--ttt-transition);
+            position: relative;
+        }
+        .ttt-score-box.ttt-turn-active {
+            background: var(--ttt-accent-pale);
+        }
+        body.dark .ttt-score-box.ttt-turn-active {
+            background: rgba(56, 189, 248, 0.12);
+        }
+        .ttt-score-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ttt-muted);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        .ttt-score-label .ttt-mark {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+        .ttt-score-label .ttt-mark-x { color: var(--ttt-x-color); }
+        .ttt-score-label .ttt-mark-o { color: var(--ttt-o-color); }
+        .ttt-score-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--ttt-ink);
+            line-height: 1;
+            transition: color var(--ttt-transition);
+        }
+        .ttt-score-value.ttt-x { color: var(--ttt-x-color); }
+        .ttt-score-value.ttt-o { color: var(--ttt-o-color); }
+
+        /* Status bar */
+        .ttt-status {
+            padding: 14px 20px;
+            background: var(--ttt-surface);
+            border-bottom: 1px solid var(--ttt-border);
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ttt-ink);
+            transition: all var(--ttt-transition);
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .ttt-status.ttt-win {
+            background: rgba(22, 163, 74, 0.12);
+            color: var(--ttt-win);
+        }
+        .ttt-status.ttt-draw {
+            background: var(--ttt-warm);
+            color: var(--ttt-muted);
+        }
+        .ttt-status .ttt-status-mark {
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Board */
+        .ttt-board-wrap {
+            padding: 24px 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ttt-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 1 / 1;
+            background: var(--ttt-grid-line);
+            border-radius: var(--ttt-radius);
+            padding: 8px;
+            position: relative;
+            transition: background var(--ttt-transition);
+        }
+        .ttt-cell {
+            background: var(--ttt-surface);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--ttt-transition);
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+        }
+        .ttt-cell:hover:not(.ttt-taken):not(.ttt-game-over) {
+            background: var(--ttt-accent-pale);
+            transform: scale(0.98);
+        }
+        body.dark .ttt-cell:hover:not(.ttt-taken):not(.ttt-game-over) {
+            background: rgba(56, 189, 248, 0.12);
+        }
+        .ttt-cell.ttt-taken {
+            cursor: default;
+        }
+        .ttt-cell.ttt-game-over {
+            cursor: not-allowed;
+        }
+        .ttt-cell.ttt-win-cell {
+            background: rgba(22, 163, 74, 0.18);
+            animation: tttWinPulse 0.6s ease;
+        }
+        body.dark .ttt-cell.ttt-win-cell {
+            background: rgba(74, 222, 128, 0.18);
+        }
+        @keyframes tttWinPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* Marks */
+        .ttt-mark {
+            width: 75%;
+            height: 75%;
+            display: block;
+        }
+        .ttt-mark-x { color: var(--ttt-x-color); }
+        .ttt-mark-o { color: var(--ttt-o-color); }
+
+        /* Pop-in animation for marks */
+        .ttt-cell .ttt-mark {
+            animation: tttPopIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes tttPopIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Preview mark on hover */
+        .ttt-cell:not(.ttt-taken):not(.ttt-game-over):hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        /* Game actions */
+        .ttt-actions {
+            display: flex;
+            gap: 10px;
+            padding: 0 20px 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .ttt-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            background: var(--ttt-accent);
+            color: #ffffff;
+            border: 2px solid var(--ttt-accent);
+            border-radius: var(--ttt-radius);
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ttt-transition);
+            white-space: nowrap;
+        }
+        .ttt-btn:hover {
+            background: var(--ttt-accent-light);
+            border-color: var(--ttt-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3);
+        }
+        .ttt-btn.ttt-btn-secondary {
+            background: transparent;
+            color: var(--ttt-ink);
+            border-color: var(--ttt-border);
+        }
+        .ttt-btn.ttt-btn-secondary:hover {
+            background: var(--ttt-warm);
+            border-color: var(--ttt-muted);
+            box-shadow: none;
+        }
+        .ttt-btn .ttt-btn-icon {
+            font-size: 0.95rem;
+            transition: transform var(--ttt-transition);
+        }
+        .ttt-btn:hover .ttt-btn-icon { transform: rotate(180deg); }
+        .ttt-btn.ttt-btn-secondary:hover .ttt-btn-icon { transform: none; }
+
+        /* ===== HOW TO SECTION ===== */
+        .ttt-how {
+            background: var(--ttt-warm);
+            transition: background var(--ttt-transition);
+        }
+        .ttt-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ttt-how-card {
+            background: var(--ttt-surface);
+            border: 1px solid var(--ttt-border);
+            border-radius: var(--ttt-radius-lg);
+            padding: 26px;
+            transition: all var(--ttt-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ttt-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ttt-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ttt-transition);
+        }
+        .ttt-how-card:hover { box-shadow: var(--ttt-shadow); transform: translateY(-3px); }
+        .ttt-how-card:hover::before { transform: scaleX(1); }
+        .ttt-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ttt-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ttt-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ttt-ink);
+            margin-bottom: 8px;
+        }
+        .ttt-how-card p {
+            font-size: 0.85rem;
+            color: var(--ttt-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .ttt-desc {
+            background: var(--ttt-surface);
+            transition: background var(--ttt-transition);
+        }
+        .ttt-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .ttt-desc-text p {
+            font-size: 0.95rem;
+            color: var(--ttt-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .ttt-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .ttt-benefit-tag {
+            padding: 6px 14px;
+            background: var(--ttt-warm);
+            border: 1px solid var(--ttt-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ttt-ink);
+            transition: all var(--ttt-transition);
+        }
+        .ttt-benefit-tag:hover {
+            background: var(--ttt-accent-pale);
+            border-color: var(--ttt-accent);
+            color: var(--ttt-accent-dark);
+        }
+        .ttt-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ttt-visual-card {
+            background: var(--ttt-ink);
+            color: var(--ttt-surface);
+            border-radius: var(--ttt-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--ttt-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+            width: 100%;
+        }
+        body.dark .ttt-visual-card {
+            background: var(--ttt-warm);
+            border: 1px solid var(--ttt-border);
+            color: var(--ttt-ink);
+        }
+        .ttt-visual-card .ttt-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--ttt-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .ttt-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        body.dark .ttt-visual-row { border-bottom-color: var(--ttt-border); }
+        .ttt-visual-row:last-child { border-bottom: none; }
+        .ttt-v-label {
+            opacity: 0.5;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .ttt-v-text {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--ttt-accent-light);
+        }
+        body.dark .ttt-visual-card .ttt-v-text { color: var(--ttt-accent); }
+
+        /* ===== FAQ SECTION ===== */
+        .ttt-faq {
+            background: var(--ttt-warm);
+            transition: background var(--ttt-transition);
+        }
+        .ttt-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ttt-faq-item {
+            border: 1px solid var(--ttt-border);
+            border-radius: var(--ttt-radius);
+            overflow: hidden;
+            background: var(--ttt-surface);
+            transition: border-color var(--ttt-transition);
+        }
+        .ttt-faq-item:has(.ttt-faq-a[style*="block"]) { border-color: var(--ttt-accent); }
+        .ttt-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ttt-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--ttt-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ttt-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ttt-muted);
+            flex-shrink: 0;
+            transition: transform var(--ttt-transition);
+        }
+        .ttt-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ttt-accent-dark); }
+        .ttt-faq-q:hover { background: var(--ttt-warm); }
+        .ttt-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ttt-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ttt-muted);
+            line-height: 1.7;
+        }
+
+        /* Toast */
+        .ttt-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ttt-ink);
+            color: var(--ttt-surface);
+            padding: 12px 20px;
+            border-radius: var(--ttt-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ttt-toast.ttt-show { transform: translateY(0); opacity: 1; }
+        body.dark .ttt-toast {
+            background: var(--ttt-warm);
+            color: var(--ttt-ink);
+            border: 1px solid var(--ttt-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ttt-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .ttt-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .ttt-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .ttt-hero { min-height: auto; padding: 24px 0 20px; }
+            .ttt-how-grid { grid-template-columns: 1fr; }
+            .ttt-board { max-width: 300px; gap: 6px; padding: 6px; }
+            .ttt-game-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .ttt-hero-demo { gap: 6px; }
+            .ttt-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .ttt-score-value { font-size: 1.2rem; }
+            .ttt-mode-tab { font-size: 0.78rem; padding: 12px 8px 10px; }
+        }
+        @media (max-width: 480px) {
+            .ttt-hero-title { font-size: 1.6rem; }
+            .ttt-board { max-width: 260px; gap: 5px; padding: 5px; }
+            .ttt-cell { border-radius: 5px; }
+            .ttt-score-box { padding: 10px 6px; }
+            .ttt-score-value { font-size: 1.1rem; }
+            .ttt-score-label { font-size: 0.56rem; }
+            .ttt-score-label .ttt-mark { font-size: 0.78rem; }
+            .ttt-status { font-size: 0.82rem; padding: 12px 14px; min-height: 42px; }
+            .ttt-actions { padding: 0 14px 16px; gap: 8px; }
+            .ttt-btn { padding: 9px 18px; font-size: 0.78rem; }
+            .ttt-diff-pill { padding: 5px 11px; font-size: 0.7rem; }
+            .ttt-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+            .ttt-toast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+            .ttt-mode-tab { font-size: 0.72rem; padding: 11px 6px 9px; }
+        }
+        @media (max-width: 380px) {
+            .ttt-board { max-width: 230px; gap: 4px; padding: 4px; }
+            .ttt-cell { border-radius: 4px; }
+            .ttt-score-box { padding: 8px 4px; }
+            .ttt-score-value { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="ttt-hero" id="home" aria-label="Tic-Tac-Toe Hero">
+            <div class="ttt-hero-bg"></div>
+            <div class="ttt-hero-glow"></div>
+            <div class="container ttt-hero-inner">
+                <div class="ttt-hero-badge">❌⭕ Free Online Game</div>
+                <h1 class="ttt-hero-title">
+                    Three in a row.<br />
+                    <span class="ttt-hero-accent">Win the game.</span>
+                </h1>
+                <p class="ttt-hero-sub">The classic Tic-Tac-Toe game with a modern twist. Play against a friend in 2-player mode or challenge our unbeatable AI on Hard. Beautiful design, mobile-friendly, no signup.</p>
+                <div class="ttt-hero-cta">
+                    <a href="#game" class="btn btn-primary" style="background:var(--ttt-accent);border-color:var(--ttt-accent);">Play Tic-Tac-Toe <span>→</span></a>
+                </div>
+                <div class="ttt-hero-demo">
+                    <span class="ttt-demo-chip">👥 2-Player Mode</span>
+                    <span class="ttt-demo-chip">🤖 vs Computer AI</span>
+                    <span class="ttt-demo-chip">🏆 Score Tracking</span>
+                    <span class="ttt-demo-chip">📱 Mobile Ready</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GAME SECTION ===== -->
+        <section class="ttt-game-section" id="game" aria-label="Tic-Tac-Toe Game">
+            <div class="container">
+                <div class="ttt-game-shell">
+                    <!-- Game Header -->
+                    <div class="ttt-game-header">
+                        <span class="ttt-game-title"><span class="ttt-dot"></span> Tic-Tac-Toe</span>
+                    </div>
+
+                    <!-- Mode Tabs -->
+                    <div class="ttt-mode-tabs" role="tablist" aria-label="Game mode">
+                        <button class="ttt-mode-tab" id="tttMode2P" role="tab" aria-selected="false" data-mode="2p">👥 2 Player</button>
+                        <button class="ttt-mode-tab ttt-active" id="tttModeAI" role="tab" aria-selected="true" data-mode="ai">🤖 vs Computer</button>
+                    </div>
+
+                    <!-- Difficulty Tabs (only shown in AI mode) -->
+                    <div class="ttt-difficulty-tabs ttt-visible" id="tttDifficultyTabs" role="group" aria-label="Difficulty level">
+                        <button class="ttt-diff-pill" data-diff="easy">Easy</button>
+                        <button class="ttt-diff-pill ttt-active" data-diff="medium">Medium</button>
+                        <button class="ttt-diff-pill" data-diff="hard">Hard (Unbeatable)</button>
+                    </div>
+
+                    <!-- Scoreboard -->
+                    <div class="ttt-scoreboard">
+                        <div class="ttt-score-box" id="tttScoreXBox">
+                            <div class="ttt-score-label"><span class="ttt-mark ttt-mark-x">✕</span> X Wins</div>
+                            <div class="ttt-score-value ttt-x" id="tttScoreX">0</div>
+                        </div>
+                        <div class="ttt-score-box">
+                            <div class="ttt-score-label">Draws</div>
+                            <div class="ttt-score-value" id="tttScoreDraw">0</div>
+                        </div>
+                        <div class="ttt-score-box" id="tttScoreOBox">
+                            <div class="ttt-score-label"><span class="ttt-mark ttt-mark-o">◯</span> O Wins</div>
+                            <div class="ttt-score-value ttt-o" id="tttScoreO">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="ttt-status" id="tttStatus" aria-live="polite">
+                        <span class="ttt-status-mark" style="color: var(--ttt-x-color);">✕</span> Your turn
+                    </div>
+
+                    <!-- Board -->
+                    <div class="ttt-board-wrap">
+                        <div class="ttt-board" id="tttBoard" role="grid" aria-label="Tic-Tac-Toe game board"></div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="ttt-actions">
+                        <button class="ttt-btn" id="tttNewGameBtn" aria-label="Start a new game">
+                            <span class="ttt-btn-icon">↺</span> New Game
+                        </button>
+                        <button class="ttt-btn ttt-btn-secondary" id="tttResetScoreBtn" aria-label="Reset scoreboard">
+                            🗑 Reset Score
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO PLAY SECTION ===== -->
+        <section class="section ttt-how" id="how-to-play" aria-label="How to play Tic-Tac-Toe">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Tic-Tac-Toe in <em>3 simple steps.</em></h2>
+                <div class="ttt-how-grid">
+                    <div class="ttt-how-card">
+                        <div class="ttt-how-num">01</div>
+                        <h3>Choose Your Mode</h3>
+                        <p>Play against a friend in <strong>2-player mode</strong> (pass-and-play on the same device), or challenge the <strong>computer AI</strong> at Easy, Medium, or Hard difficulty.</p>
+                    </div>
+                    <div class="ttt-how-card">
+                        <div class="ttt-how-num">02</div>
+                        <h3>Take Turns Placing Marks</h3>
+                        <p>Player <strong>X</strong> always goes first. Tap or click any empty cell to place your mark. The current player is highlighted in the scoreboard and the status bar shows whose turn it is.</p>
+                    </div>
+                    <div class="ttt-how-card">
+                        <div class="ttt-how-num">03</div>
+                        <h3>Get Three in a Row</h3>
+                        <p>The first player to line up <strong>three marks</strong> horizontally, vertically, or diagonally wins. If all nine cells fill up with no winner, it's a draw. The scoreboard tracks every result.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section ttt-desc" id="about-tic-tac-toe" aria-label="About Tic-Tac-Toe">
+            <div class="container ttt-desc-inner">
+                <div class="ttt-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free Online <em>Tic-Tac-Toe Game</em></h2>
+                    <p><strong>Tic-Tac-Toe</strong> (also known as Noughts and Crosses) is one of the oldest and most universally loved games in the world. Played on a simple 3×3 grid, it takes seconds to learn but can be played for hours. Two players alternate placing X's and O's, racing to line up three of their marks in a row.</p>
+                    <p>Our free <strong>online Tic-Tac-Toe</strong> brings this timeless classic into the browser with a beautiful, modern interface. Play with a friend in <strong>2-player pass-and-play mode</strong> — perfect for a quick match on a shared phone or tablet — or challenge our <strong>computer AI</strong> across three difficulty levels.</p>
+                    <p>The <strong>Easy</strong> AI plays randomly, making it great for young children or first-timers. The <strong>Medium</strong> AI will block your obvious winning moves and take its own opportunities, offering a fair challenge. The <strong>Hard</strong> AI uses a perfect <strong>minimax algorithm</strong> that evaluates every possible move — it is mathematically unbeatable. The best you can achieve against Hard is a draw.</p>
+                    <p>Whether you're a kid learning the game, a parent looking for a quick family activity, or an adult wanting a mindful 30-second break, this <strong>browser-based Tic-Tac-Toe</strong> delivers a clean, ad-free, and thoroughly enjoyable experience. Track your wins across the session with the built-in scoreboard, and try to beat the unbeatable AI.</p>
+                    <div class="ttt-desc-benefits">
+                        <span class="ttt-benefit-tag">👥 2-Player Mode</span>
+                        <span class="ttt-benefit-tag">🤖 Unbeatable AI</span>
+                        <span class="ttt-benefit-tag">🏆 Live Scoreboard</span>
+                        <span class="ttt-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="ttt-benefit-tag">🔒 100% Private</span>
+                        <span class="ttt-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="ttt-desc-visual">
+                    <div class="ttt-visual-card">
+                        <div class="ttt-v-line"></div>
+                        <div class="ttt-visual-row">
+                            <span class="ttt-v-label">Board</span>
+                            <span class="ttt-v-text">3 × 3 grid</span>
+                        </div>
+                        <div class="ttt-visual-row">
+                            <span class="ttt-v-label">Easy AI</span>
+                            <span class="ttt-v-text">Random</span>
+                        </div>
+                        <div class="ttt-visual-row">
+                            <span class="ttt-v-label">Medium AI</span>
+                            <span class="ttt-v-text">Strategic</span>
+                        </div>
+                        <div class="ttt-visual-row">
+                            <span class="ttt-v-label">Hard AI</span>
+                            <span class="ttt-v-text">Unbeatable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section ttt-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ttt-faq-list" id="tttFaqList">
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">How do you play Tic-Tac-Toe?</button>
+                        <div class="ttt-faq-a"><p>Tic-Tac-Toe is played on a 3x3 grid. Two players take turns placing their mark (X or O) in an empty cell. The first player to get three of their marks in a row — horizontally, vertically, or diagonally — wins the game. If all nine cells are filled and no one has three in a row, the game is a draw.</p></div>
+                    </div>
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">Is this Tic-Tac-Toe game free?</button>
+                        <div class="ttt-faq-a"><p>Yes, this Tic-Tac-Toe game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like.</p></div>
+                    </div>
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">Can I play against the computer?</button>
+                        <div class="ttt-faq-a"><p>Yes! Choose 'vs Computer' mode and pick a difficulty. Easy plays randomly, Medium blocks obvious threats, and Hard uses a perfect minimax algorithm that cannot be beaten — the best you can achieve is a draw.</p></div>
+                    </div>
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">Can I play Tic-Tac-Toe with a friend?</button>
+                        <div class="ttt-faq-a"><p>Absolutely. Choose '2 Player' mode and take turns on the same device. Player X goes first, then Player O. This is perfect for pass-and-play on a phone or tablet.</p></div>
+                    </div>
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">Can I play Tic-Tac-Toe on my phone?</button>
+                        <div class="ttt-faq-a"><p>Yes! The game is fully responsive and works on smartphones and tablets. Just tap a cell to place your mark. The board adapts to your screen size.</p></div>
+                    </div>
+                    <div class="ttt-faq-item">
+                        <button class="ttt-faq-q" aria-expanded="false">Does the game keep score?</button>
+                        <div class="ttt-faq-a"><p>Yes, the game tracks X wins, O wins, and draws for the current session. The scoreboard is shown above the board and resets when you start a new match or change modes.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="ttt-toast" id="tttToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== SVG MARKS =====
+        const SVG_X = `<svg class="ttt-mark ttt-mark-x" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="22" y1="22" x2="78" y2="78" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+            <line x1="78" y1="22" x2="22" y2="78" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+        </svg>`;
+
+        const SVG_O = `<svg class="ttt-mark ttt-mark-o" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
+        </svg>`;
+
+        // ===== CONSTANTS =====
+        const EMPTY = '';
+        const X = 'X';
+        const O = 'O';
+        const WIN_LINES = [
+            [0,1,2],[3,4,5],[6,7,8],  // rows
+            [0,3,6],[1,4,7],[2,5,8],  // cols
+            [0,4,8],[2,4,6]           // diagonals
+        ];
+
+        // ===== STATE =====
+        const state = {
+            board: Array(9).fill(EMPTY),
+            currentPlayer: X,
+            gameOver: false,
+            mode: 'ai',              // 'ai' or '2p'
+            difficulty: 'medium',    // 'easy', 'medium', 'hard'
+            score: { X: 0, O: 0, draws: 0 },
+            winLine: null,
+            aiThinking: false
+        };
+
+        // ===== DOM ELEMENTS =====
+        const boardEl = document.getElementById('tttBoard');
+        const statusEl = document.getElementById('tttStatus');
+        const scoreXEl = document.getElementById('tttScoreX');
+        const scoreOEl = document.getElementById('tttScoreO');
+        const scoreDrawEl = document.getElementById('tttScoreDraw');
+        const scoreXBox = document.getElementById('tttScoreXBox');
+        const scoreOBox = document.getElementById('tttScoreOBox');
+        const newGameBtn = document.getElementById('tttNewGameBtn');
+        const resetScoreBtn = document.getElementById('tttResetScoreBtn');
+        const modeTabs = document.querySelectorAll('.ttt-mode-tab');
+        const diffTabs = document.querySelectorAll('.ttt-diff-pill');
+        const difficultyTabsContainer = document.getElementById('tttDifficultyTabs');
+        const toastEl = document.getElementById('tttToast');
+        const faqItems = document.querySelectorAll('.ttt-faq-q');
+
+        let toastTimer = null;
+
+        // ===== HELPERS =====
+        function showToast(msg, duration = 1800) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('ttt-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('ttt-show'), duration);
+        }
+
+        function getMarkSVG(mark) {
+            return mark === X ? SVG_X : SVG_O;
+        }
+
+        // ===== RENDER =====
+        function renderBoard() {
+            boardEl.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('button');
+                cell.className = 'ttt-cell';
+                cell.dataset.index = i;
+                cell.setAttribute('role', 'gridcell');
+                cell.setAttribute('aria-label', 'Cell ' + (i + 1) + (state.board[i] ? ' — ' + state.board[i] : ' — empty'));
+
+                if (state.board[i]) {
+                    cell.classList.add('ttt-taken');
+                    cell.innerHTML = getMarkSVG(state.board[i]);
+                }
+
+                if (state.gameOver) {
+                    cell.classList.add('ttt-game-over');
+                }
+
+                if (state.winLine && state.winLine.includes(i)) {
+                    cell.classList.add('ttt-win-cell');
+                }
+
+                // Disable cell if game over, cell taken, or AI is thinking
+                if (state.gameOver || state.board[i] || state.aiThinking) {
+                    cell.disabled = true;
+                } else if (state.mode === 'ai' && state.currentPlayer === O) {
+                    cell.disabled = true;
+                }
+
+                cell.addEventListener('click', () => handleCellClick(i));
+                boardEl.appendChild(cell);
+            }
+        }
+
+        function updateScoreboard() {
+            scoreXEl.textContent = state.score.X;
+            scoreOEl.textContent = state.score.O;
+            scoreDrawEl.textContent = state.score.draws;
+        }
+
+        function updateTurnHighlight() {
+            scoreXBox.classList.toggle('ttt-turn-active', !state.gameOver && state.currentPlayer === X);
+            scoreOBox.classList.toggle('ttt-turn-active', !state.gameOver && state.currentPlayer === O);
+        }
+
+        function updateStatus() {
+            statusEl.classList.remove('ttt-win', 'ttt-draw');
+
+            if (state.gameOver) {
+                if (state.winLine) {
+                    const winner = state.board[state.winLine[0]];
+                    const markClass = winner === X ? 'ttt-mark-x' : 'ttt-mark-o';
+                    const colorVar = winner === X ? 'var(--ttt-x-color)' : 'var(--ttt-o-color)';
+                    statusEl.classList.add('ttt-win');
+
+                    if (state.mode === 'ai') {
+                        statusEl.innerHTML = winner === X
+                            ? `<span class="ttt-status-mark" style="color:${colorVar};">✕</span> You win! 🎉`
+                            : `<span class="ttt-status-mark" style="color:${colorVar};">◯</span> Computer wins!`;
+                    } else {
+                        statusEl.innerHTML = `<span class="ttt-status-mark" style="color:${colorVar};">${winner === X ? '✕' : '◯'}</span> Player ${winner} wins!`;
+                    }
+                } else {
+                    statusEl.classList.add('ttt-draw');
+                    statusEl.textContent = "It's a draw!";
+                }
+                return;
+            }
+
+            // Ongoing
+            const currentClass = state.currentPlayer === X ? 'ttt-mark-x' : 'ttt-mark-o';
+            const currentColor = state.currentPlayer === X ? 'var(--ttt-x-color)' : 'var(--ttt-o-color)';
+            const symbol = state.currentPlayer === X ? '✕' : '◯';
+
+            if (state.mode === 'ai') {
+                if (state.currentPlayer === X) {
+                    statusEl.innerHTML = `<span class="ttt-status-mark" style="color:${currentColor};">${symbol}</span> Your turn`;
+                } else {
+                    statusEl.innerHTML = `<span class="ttt-status-mark" style="color:${currentColor};">${symbol}</span> Computer is thinking…`;
+                }
+            } else {
+                statusEl.innerHTML = `<span class="ttt-status-mark" style="color:${currentColor};">${symbol}</span> Player ${state.currentPlayer}'s turn`;
+            }
+        }
+
+        function updateAll() {
+            renderBoard();
+            updateStatus();
+            updateTurnHighlight();
+            updateScoreboard();
+        }
+
+        // ===== GAME LOGIC =====
+        function checkWinner(board) {
+            for (const line of WIN_LINES) {
+                const [a, b, c] = line;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return { winner: board[a], line };
+                }
+            }
+            if (board.every(v => v !== EMPTY)) {
+                return { winner: null, line: null, draw: true };
+            }
+            return null;
+        }
+
+        function handleCellClick(index) {
+            if (state.gameOver) return;
+            if (state.board[index]) return;
+            if (state.aiThinking) return;
+
+            // In AI mode, only allow clicks when it's the human's turn (X)
+            if (state.mode === 'ai' && state.currentPlayer !== X) return;
+
+            makeMove(index);
+        }
+
+        function makeMove(index) {
+            state.board[index] = state.currentPlayer;
+
+            // Check for winner
+            const result = checkWinner(state.board);
+            if (result) {
+                if (result.draw) {
+                    state.score.draws++;
+                    state.gameOver = true;
+                } else {
+                    state.winLine = result.line;
+                    state.score[result.winner]++;
+                    state.gameOver = true;
+                }
+                updateAll();
+                return;
+            }
+
+            // Switch player
+            state.currentPlayer = state.currentPlayer === X ? O : X;
+            updateAll();
+
+            // If AI's turn, schedule AI move
+            if (state.mode === 'ai' && state.currentPlayer === O && !state.gameOver) {
+                state.aiThinking = true;
+                renderBoard(); // to disable clicks
+                updateStatus();
+                setTimeout(() => {
+                    const aiIndex = getAIMove();
+                    state.aiThinking = false;
+                    if (aiIndex !== -1 && !state.gameOver) {
+                        makeMove(aiIndex);
+                    }
+                }, 400 + Math.random() * 300); // slight delay for realism
+            }
+        }
+
+        // ===== AI LOGIC =====
+        function getAIMove() {
+            const empty = [];
+            for (let i = 0; i < 9; i++) {
+                if (state.board[i] === EMPTY) empty.push(i);
+            }
+            if (empty.length === 0) return -1;
+
+            if (state.difficulty === 'easy') {
+                return easyMove(empty);
+            } else if (state.difficulty === 'medium') {
+                return mediumMove(empty);
+            } else {
+                return hardMove();
+            }
+        }
+
+        // Easy: pick a random empty cell
+        function easyMove(empty) {
+            return empty[Math.floor(Math.random() * empty.length)];
+        }
+
+        // Medium: try to win, else block, else random
+        function mediumMove(empty) {
+            // 1. Try to win
+            const winMove = findWinningMove(O);
+            if (winMove !== -1) return winMove;
+
+            // 2. Block opponent's win
+            const blockMove = findWinningMove(X);
+            if (blockMove !== -1) return blockMove;
+
+            // 3. Prefer center, then corners, then edges
+            if (state.board[4] === EMPTY) return 4;
+            const corners = [0, 2, 6, 8].filter(i => state.board[i] === EMPTY);
+            if (corners.length > 0) return corners[Math.floor(Math.random() * corners.length)];
+            return empty[Math.floor(Math.random() * empty.length)];
+        }
+
+        function findWinningMove(player) {
+            for (const line of WIN_LINES) {
+                const [a, b, c] = line;
+                const vals = [state.board[a], state.board[b], state.board[c]];
+                const playerCount = vals.filter(v => v === player).length;
+                const emptyCount = vals.filter(v => v === EMPTY).length;
+                if (playerCount === 2 && emptyCount === 1) {
+                    if (state.board[a] === EMPTY) return a;
+                    if (state.board[b] === EMPTY) return b;
+                    if (state.board[c] === EMPTY) return c;
+                }
+            }
+            return -1;
+        }
+
+        // Hard: minimax — unbeatable
+        function hardMove() {
+            const best = minimax(state.board, O);
+            return best.index;
+        }
+
+        function minimax(board, player) {
+            const result = checkWinner(board);
+            if (result) {
+                if (result.draw) return { score: 0 };
+                if (result.winner === O) return { score: 10 };
+                if (result.winner === X) return { score: -10 };
+            }
+
+            const empty = [];
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === EMPTY) empty.push(i);
+            }
+
+            const moves = [];
+            for (const index of empty) {
+                const newBoard = [...board];
+                newBoard[index] = player;
+                const nextPlayer = player === O ? X : O;
+                const result = minimax(newBoard, nextPlayer);
+
+                moves.push({
+                    index,
+                    score: result.score
+                });
+            }
+
+            if (player === O) {
+                // Maximizing
+                let best = moves[0];
+                for (const move of moves) {
+                    if (move.score > best.score) best = move;
+                }
+                return best;
+            } else {
+                // Minimizing
+                let best = moves[0];
+                for (const move of moves) {
+                    if (move.score < best.score) best = move;
+                }
+                return best;
+            }
+        }
+
+        // ===== NEW GAME =====
+        function startNewGame() {
+            state.board = Array(9).fill(EMPTY);
+            state.currentPlayer = X;
+            state.gameOver = false;
+            state.winLine = null;
+            state.aiThinking = false;
+            updateAll();
+
+            // Focus board for keyboard users
+            boardEl.focus();
+        }
+
+        function resetScoreboard() {
+            state.score = { X: 0, O: 0, draws: 0 };
+            updateScoreboard();
+            showToast('🗑 Scoreboard reset');
+        }
+
+        // ===== MODE / DIFFICULTY =====
+        function setMode(mode) {
+            state.mode = mode;
+            modeTabs.forEach(tab => {
+                const isActive = tab.dataset.mode === mode;
+                tab.classList.toggle('ttt-active', isActive);
+                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            // Show/hide difficulty tabs
+            if (mode === 'ai') {
+                difficultyTabsContainer.classList.add('ttt-visible');
+            } else {
+                difficultyTabsContainer.classList.remove('ttt-visible');
+            }
+
+            // Reset the game
+            startNewGame();
+        }
+
+        function setDifficulty(diff) {
+            state.difficulty = diff;
+            diffTabs.forEach(pill => {
+                pill.classList.toggle('ttt-active', pill.dataset.diff === diff);
+            });
+            startNewGame();
+
+            let label = diff.charAt(0).toUpperCase() + diff.slice(1);
+            if (diff === 'hard') label = 'Hard (Unbeatable)';
+            showToast('🎯 Difficulty: ' + label);
+        }
+
+        // ===== EVENT LISTENERS =====
+        modeTabs.forEach(tab => {
+            tab.addEventListener('click', () => setMode(tab.dataset.mode));
+        });
+
+        diffTabs.forEach(pill => {
+            pill.addEventListener('click', () => setDifficulty(pill.dataset.diff));
+        });
+
+        newGameBtn.addEventListener('click', () => {
+            startNewGame();
+            showToast('✨ New game started');
+        });
+
+        resetScoreBtn.addEventListener('click', resetScoreboard);
+
+        // Keyboard support: number keys 1-9 to place marks
+        document.addEventListener('keydown', (e) => {
+            if (state.gameOver || state.aiThinking) return;
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            const num = parseInt(e.key, 10);
+            if (num >= 1 && num <= 9) {
+                const index = num - 1;
+                if (state.mode === 'ai' && state.currentPlayer !== X) return;
+                if (!state.board[index]) {
+                    handleCellClick(index);
+                }
+            }
+
+            // R for restart
+            if (e.key === 'r' || e.key === 'R') {
+                if (e.ctrlKey || e.metaKey) return;
+                startNewGame();
+            }
+        });
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        startNewGame();
+
+        console.log('✅ Tic-Tac-Toe ready — 2-player and vs computer modes active.');
+    })();
+    </script>
+</body>
+</html>

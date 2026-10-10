@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>2048 Game – Free Online Puzzle | WebNotePad</title>
+    <meta name="description" content="Play 2048 free online. Slide tiles to combine numbers and reach 2048. Beautiful design, smooth animations, touch and keyboard controls. Mobile-friendly, no signup." />
+    <meta name="keywords" content="2048, 2048 game, play 2048, 2048 online, free 2048, puzzle game, number puzzle, sliding tiles, brain game, 2048 mobile" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/2048" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/2048" />
+    <meta property="og:title" content="2048 Game – Free Online Puzzle" />
+    <meta property="og:description" content="Slide tiles to combine numbers and reach 2048. Beautiful design, smooth animations, touch and keyboard controls. Free, mobile-friendly." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="2048 Game – Free Online Puzzle" />
+    <meta name="twitter:description" content="Slide tiles to combine numbers and reach 2048. Beautiful design, smooth animations, touch controls." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "2048 by WebNotePad",
+            "url": "https://webnotepad.github.io/2048",
+            "description": "A free online 2048 puzzle game. Slide numbered tiles to combine them and reach the 2048 tile. Beautiful design, smooth animations, keyboard and touch controls.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Classic 2048 gameplay",
+                "Smooth tile animations",
+                "Keyboard arrow controls",
+                "Swipe touch controls for mobile",
+                "Score and best score tracking",
+                "Undo move",
+                "Win detection at 2048",
+                "Continue after winning",
+                "Mobile-friendly responsive design",
+                "No signup required"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do you play 2048?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Use the arrow keys on your keyboard (or swipe on a touchscreen) to slide all tiles in one direction. When two tiles with the same number touch, they merge into one tile with double the value. After each move, a new tile (2 or 4) appears in a random empty spot. The goal is to create a tile with the number 2048."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this 2048 game free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, this 2048 game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play 2048 on my phone?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. The game is fully responsive and supports swipe gestures on touchscreens. Just swipe up, down, left, or right to move the tiles. The board adapts to your screen size."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is a good score in 2048?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Reaching the 2048 tile is the main goal, which typically requires a score of around 20,000 points. A score above 10,000 is considered good for casual players, while expert players can exceed 100,000 points."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the game save my best score?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! Your best score is saved in your browser's local storage, so you can try to beat your personal record every time you play."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What happens after I reach 2048?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "When you create the 2048 tile, you win! You can choose to keep playing to reach higher tiles like 4096 or 8192, or start a new game."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --g-accent: #edc22e;
+            --g-accent-dark: #d4a017;
+            --g-accent-light: #f5d76e;
+            --g-accent-pale: #fdf8e3;
+            --g-surface: #faf8f4;
+            --g-border: #e8e2d6;
+            --g-ink: #1a1a2e;
+            --g-muted: #6b6b85;
+            --g-warm: #f4f0e8;
+            --g-radius: 8px;
+            --g-radius-lg: 14px;
+            --g-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --g-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* 2048 board colors — classic palette */
+            --g-board-bg: #bbada0;
+            --g-cell-bg: rgba(238, 228, 218, 0.35);
+            --g-tile-2: #eee4da;
+            --g-tile-4: #ede0c8;
+            --g-tile-8: #f2b179;
+            --g-tile-16: #f59563;
+            --g-tile-32: #f67c5f;
+            --g-tile-64: #f65e3b;
+            --g-tile-128: #edcf72;
+            --g-tile-256: #edcc61;
+            --g-tile-512: #edc850;
+            --g-tile-1024: #edc53f;
+            --g-tile-2048: #edc22e;
+            --g-tile-super: #3c3a32;
+            --g-tile-text-dark: #776e65;
+            --g-tile-text-light: #f9f6f2;
+        }
+
+        body.dark {
+            --g-accent: #edc22e;
+            --g-accent-pale: #2a2518;
+            --g-surface: #141418;
+            --g-border: #2a2a34;
+            --g-ink: #e8e4dc;
+            --g-muted: #8a8678;
+            --g-warm: #1c1c22;
+            --g-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --g-board-bg: #3a3a44;
+            --g-cell-bg: rgba(255, 255, 255, 0.06);
+            --g-tile-text-dark: #e8e4dc;
+        }
+
+        /* ===== 2048 HERO ===== */
+        .g-hero {
+            position: relative;
+            min-height: 22vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 16px;
+            overflow: hidden;
+            background: var(--g-surface);
+            transition: background var(--g-transition);
+        }
+        .g-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--g-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--g-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .g-hero-bg { opacity: 0.1; }
+        .g-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--g-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .g-hero-glow { opacity: 0.35; }
+        .g-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .g-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--g-accent-pale);
+            color: var(--g-accent-dark);
+            border: 1px solid var(--g-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .g-hero-badge { color: var(--g-accent); background: rgba(237, 194, 46, 0.15); }
+        .g-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--g-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .g-hero-accent {
+            color: var(--g-accent-dark);
+            font-style: italic;
+        }
+        .g-hero-sub {
+            font-size: 0.9rem;
+            color: var(--g-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .g-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .g-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .g-demo-chip {
+            padding: 7px 16px;
+            background: var(--g-warm);
+            border: 1px solid var(--g-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--g-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--g-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .g-demo-chip:hover {
+            background: var(--g-accent-pale);
+            border-color: var(--g-accent);
+            color: var(--g-accent-dark);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .g-game-section {
+            padding: 0 0 80px;
+            background: var(--g-surface);
+            transition: background var(--g-transition);
+        }
+        .g-game-shell {
+            background: var(--g-warm);
+            border: 1px solid var(--g-border);
+            border-radius: var(--g-radius-lg);
+            box-shadow: var(--g-shadow);
+            overflow: hidden;
+            transition: all var(--g-transition);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .g-game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--g-border);
+            background: var(--g-surface);
+            flex-wrap: wrap;
+        }
+        .g-game-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--g-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .g-game-title .g-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--g-accent);
+            display: inline-block;
+            animation: gPulse 2s infinite;
+        }
+        @keyframes gPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Scoreboard */
+        .g-scoreboard {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--g-border);
+            border-bottom: 1px solid var(--g-border);
+        }
+        .g-score-box {
+            background: var(--g-surface);
+            padding: 12px 16px;
+            text-align: center;
+            transition: background var(--g-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .g-score-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--g-muted);
+            margin-bottom: 4px;
+        }
+        .g-score-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--g-ink);
+            line-height: 1;
+            transition: color var(--g-transition);
+        }
+        .g-score-value.g-gold { color: var(--g-accent-dark); }
+        .g-score-add {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--g-accent-dark);
+            opacity: 0;
+            transform: translateY(0);
+            pointer-events: none;
+        }
+        .g-score-add.g-show {
+            animation: gScorePop 0.8s ease forwards;
+        }
+        @keyframes gScorePop {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-30px); }
+        }
+
+        /* Controls */
+        .g-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--g-border);
+            background: var(--g-surface);
+            flex-wrap: wrap;
+        }
+        .g-control-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--g-warm);
+            color: var(--g-ink);
+            border: 2px solid var(--g-border);
+            border-radius: var(--g-radius);
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--g-transition);
+            white-space: nowrap;
+        }
+        .g-control-btn:hover {
+            background: var(--g-border);
+            transform: translateY(-1px);
+        }
+        .g-control-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .g-control-btn.g-primary {
+            background: var(--g-accent);
+            color: #1a1a2e;
+            border-color: var(--g-accent);
+        }
+        .g-control-btn.g-primary:hover {
+            background: var(--g-accent-light);
+            border-color: var(--g-accent-light);
+            box-shadow: 0 4px 16px rgba(237, 194, 46, 0.35);
+        }
+        .g-control-btn .g-btn-icon {
+            font-size: 0.95rem;
+            transition: transform var(--g-transition);
+        }
+        .g-control-btn:hover .g-btn-icon { transform: rotate(180deg); }
+        .g-control-btn:not(.g-primary):hover .g-btn-icon { transform: none; }
+
+        /* Board */
+        .g-board-wrap {
+            padding: 20px 16px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .g-board {
+            position: relative;
+            background: var(--g-board-bg);
+            border-radius: var(--g-radius);
+            padding: 10px;
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 1 / 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: background var(--g-transition);
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+        .g-cell {
+            background: var(--g-cell-bg);
+            border-radius: 6px;
+        }
+
+        /* Tiles */
+        .g-tile {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            border-radius: 6px;
+            transition: transform 0.12s ease-in-out, opacity 0.15s ease;
+            will-change: transform;
+            z-index: 10;
+            line-height: 1;
+        }
+        .g-tile.g-tile-new {
+            animation: gTileAppear 0.2s ease;
+        }
+        @keyframes gTileAppear {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .g-tile.g-tile-merged {
+            animation: gTileMerge 0.2s ease;
+            z-index: 20;
+        }
+        @keyframes gTileMerge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Tile colors */
+        .g-tile[data-value="2"]    { background: var(--g-tile-2); color: var(--g-tile-text-dark); }
+        .g-tile[data-value="4"]    { background: var(--g-tile-4); color: var(--g-tile-text-dark); }
+        .g-tile[data-value="8"]    { background: var(--g-tile-8); color: var(--g-tile-text-light); }
+        .g-tile[data-value="16"]   { background: var(--g-tile-16); color: var(--g-tile-text-light); }
+        .g-tile[data-value="32"]   { background: var(--g-tile-32); color: var(--g-tile-text-light); }
+        .g-tile[data-value="64"]   { background: var(--g-tile-64); color: var(--g-tile-text-light); }
+        .g-tile[data-value="128"]  { background: var(--g-tile-128); color: var(--g-tile-text-light); font-size: 0.9em; }
+        .g-tile[data-value="256"]  { background: var(--g-tile-256); color: var(--g-tile-text-light); font-size: 0.9em; }
+        .g-tile[data-value="512"]  { background: var(--g-tile-512); color: var(--g-tile-text-light); font-size: 0.9em; }
+        .g-tile[data-value="1024"] { background: var(--g-tile-1024); color: var(--g-tile-text-light); font-size: 0.75em; }
+        .g-tile[data-value="2048"] { background: var(--g-tile-2048); color: var(--g-tile-text-light); font-size: 0.75em; box-shadow: 0 0 20px rgba(237, 194, 46, 0.6); }
+        .g-tile[data-value="4096"] { background: var(--g-tile-super); color: var(--g-tile-text-light); font-size: 0.75em; }
+        .g-tile[data-value="8192"] { background: var(--g-tile-super); color: var(--g-tile-text-light); font-size: 0.75em; }
+
+        /* Overlay */
+        .g-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(238, 228, 218, 0.73);
+            border-radius: var(--g-radius);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 20px;
+            text-align: center;
+            animation: gFadeIn 0.4s ease;
+        }
+        body.dark .g-overlay { background: rgba(20, 20, 24, 0.85); }
+        .g-overlay.g-show { display: flex; }
+        @keyframes gFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .g-overlay-emoji {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            animation: gBounce 0.8s ease;
+        }
+        @keyframes gBounce {
+            0%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-16px); }
+            50% { transform: translateY(0); }
+            70% { transform: translateY(-8px); }
+            90% { transform: translateY(0); }
+        }
+        .g-overlay-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--g-ink);
+            margin-bottom: 6px;
+        }
+        .g-overlay-sub {
+            font-size: 0.9rem;
+            color: var(--g-muted);
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .g-overlay-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .g-how {
+            background: var(--g-warm);
+            transition: background var(--g-transition);
+        }
+        .g-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .g-how-card {
+            background: var(--g-surface);
+            border: 1px solid var(--g-border);
+            border-radius: var(--g-radius-lg);
+            padding: 26px;
+            transition: all var(--g-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .g-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--g-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--g-transition);
+        }
+        .g-how-card:hover { box-shadow: var(--g-shadow); transform: translateY(-3px); }
+        .g-how-card:hover::before { transform: scaleX(1); }
+        .g-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--g-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .g-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--g-ink);
+            margin-bottom: 8px;
+        }
+        .g-how-card p {
+            font-size: 0.85rem;
+            color: var(--g-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .g-desc {
+            background: var(--g-surface);
+            transition: background var(--g-transition);
+        }
+        .g-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .g-desc-text p {
+            font-size: 0.95rem;
+            color: var(--g-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .g-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .g-benefit-tag {
+            padding: 6px 14px;
+            background: var(--g-warm);
+            border: 1px solid var(--g-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--g-ink);
+            transition: all var(--g-transition);
+        }
+        .g-benefit-tag:hover {
+            background: var(--g-accent-pale);
+            border-color: var(--g-accent);
+            color: var(--g-accent-dark);
+        }
+        .g-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .g-visual-card {
+            background: var(--g-ink);
+            color: var(--g-surface);
+            border-radius: var(--g-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--g-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+            width: 100%;
+        }
+        body.dark .g-visual-card {
+            background: var(--g-warm);
+            border: 1px solid var(--g-border);
+            color: var(--g-ink);
+        }
+        .g-visual-card .g-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--g-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .g-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        body.dark .g-visual-row { border-bottom-color: var(--g-border); }
+        .g-visual-row:last-child { border-bottom: none; }
+        .g-v-label {
+            opacity: 0.5;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .g-v-text {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--g-accent-light);
+        }
+        body.dark .g-visual-card .g-v-text { color: var(--g-accent-dark); }
+
+        /* ===== FAQ SECTION ===== */
+        .g-faq {
+            background: var(--g-warm);
+            transition: background var(--g-transition);
+        }
+        .g-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .g-faq-item {
+            border: 1px solid var(--g-border);
+            border-radius: var(--g-radius);
+            overflow: hidden;
+            background: var(--g-surface);
+            transition: border-color var(--g-transition);
+        }
+        .g-faq-item:has(.g-faq-a[style*="block"]) { border-color: var(--g-accent); }
+        .g-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--g-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--g-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .g-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--g-muted);
+            flex-shrink: 0;
+            transition: transform var(--g-transition);
+        }
+        .g-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--g-accent-dark); }
+        .g-faq-q:hover { background: var(--g-warm); }
+        .g-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .g-faq-a p {
+            font-size: 0.88rem;
+            color: var(--g-muted);
+            line-height: 1.7;
+        }
+
+        /* Toast */
+        .g-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--g-ink);
+            color: var(--g-surface);
+            padding: 12px 20px;
+            border-radius: var(--g-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .g-toast.g-show { transform: translateY(0); opacity: 1; }
+        body.dark .g-toast {
+            background: var(--g-warm);
+            color: var(--g-ink);
+            border: 1px solid var(--g-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .g-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .g-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .g-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .g-hero { min-height: auto; padding: 24px 0 20px; }
+            .g-how-grid { grid-template-columns: 1fr; }
+            .g-board { max-width: 400px; gap: 8px; padding: 8px; }
+            .g-game-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .g-hero-demo { gap: 6px; }
+            .g-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .g-controls { padding: 10px 14px; gap: 8px; }
+            .g-score-value { font-size: 1.3rem; }
+        }
+        @media (max-width: 480px) {
+            .g-hero-title { font-size: 1.6rem; }
+            .g-board { max-width: 340px; gap: 6px; padding: 6px; }
+            .g-cell { border-radius: 4px; }
+            .g-tile { border-radius: 4px; }
+            .g-score-box { padding: 10px 8px; }
+            .g-score-value { font-size: 1.2rem; }
+            .g-score-label { font-size: 0.56rem; }
+            .g-controls { padding: 8px 12px; gap: 6px; }
+            .g-control-btn { padding: 7px 12px; font-size: 0.72rem; }
+            .g-overlay-title { font-size: 1.4rem; }
+            .g-overlay-emoji { font-size: 2.4rem; }
+            .g-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+            .g-toast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="g-hero" id="home" aria-label="2048 Game Hero">
+            <div class="g-hero-bg"></div>
+            <div class="g-hero-glow"></div>
+            <div class="container g-hero-inner">
+                <div class="g-hero-badge">🎮 Free Online Puzzle</div>
+                <h1 class="g-hero-title">
+                    Slide the tiles.<br />
+                    <span class="g-hero-accent">Reach 2048.</span>
+                </h1>
+                <p class="g-hero-sub">The classic 2048 puzzle game with smooth animations and beautiful design. Combine matching numbers to reach the 2048 tile. Play with arrow keys or swipe on mobile — free, no signup.</p>
+                <div class="g-hero-cta">
+                    <a href="#game" class="btn btn-primary" style="background:var(--g-accent);border-color:var(--g-accent);color:#1a1a2e;">Play 2048 <span>→</span></a>
+                </div>
+                <div class="g-hero-demo">
+                    <span class="g-demo-chip">⌨️ Arrow Keys</span>
+                    <span class="g-demo-chip">📱 Swipe Controls</span>
+                    <span class="g-demo-chip">↩️ Undo</span>
+                    <span class="g-demo-chip">🏆 Best Score</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GAME SECTION ===== -->
+        <section class="g-game-section" id="game" aria-label="2048 Game">
+            <div class="container">
+                <div class="g-game-shell">
+                    <!-- Game Header -->
+                    <div class="g-game-header">
+                        <span class="g-game-title"><span class="g-dot"></span> 2048 Puzzle</span>
+                    </div>
+
+                    <!-- Scoreboard -->
+                    <div class="g-scoreboard">
+                        <div class="g-score-box">
+                            <div class="g-score-label">Score</div>
+                            <div class="g-score-value" id="gScore">0</div>
+                            <div class="g-score-add" id="gScoreAdd">+0</div>
+                        </div>
+                        <div class="g-score-box">
+                            <div class="g-score-label">Best</div>
+                            <div class="g-score-value g-gold" id="gBest">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="g-controls">
+                        <button class="g-control-btn g-primary" id="gNewGameBtn" aria-label="Start a new game">
+                            <span class="g-btn-icon">↺</span> New Game
+                        </button>
+                        <button class="g-control-btn" id="gUndoBtn" aria-label="Undo last move" disabled>
+                            ↩ Undo
+                        </button>
+                    </div>
+
+                    <!-- Board -->
+                    <div class="g-board-wrap">
+                        <div class="g-board" id="gBoard" role="grid" aria-label="2048 game board" tabindex="0">
+                            <!-- Cells are generated dynamically -->
+                            <div class="g-overlay" id="gOverlay" role="dialog" aria-label="Game status">
+                                <div class="g-overlay-emoji" id="gOverlayEmoji">🎉</div>
+                                <div class="g-overlay-title" id="gOverlayTitle">You Win!</div>
+                                <div class="g-overlay-sub" id="gOverlaySub">You reached 2048.</div>
+                                <div class="g-overlay-actions">
+                                    <button class="g-control-btn g-primary" id="gKeepGoingBtn">Keep Going</button>
+                                    <button class="g-control-btn" id="gNewGameOverlayBtn">New Game</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO PLAY SECTION ===== -->
+        <section class="section g-how" id="how-to-play" aria-label="How to play 2048">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play 2048 in <em>3 simple steps.</em></h2>
+                <div class="g-how-grid">
+                    <div class="g-how-card">
+                        <div class="g-how-num">01</div>
+                        <h3>Slide the Tiles</h3>
+                        <p>Use the <strong>arrow keys</strong> on your keyboard or <strong>swipe</strong> on a touchscreen. All tiles slide in the direction you choose until they hit a wall or another tile.</p>
+                    </div>
+                    <div class="g-how-card">
+                        <div class="g-how-num">02</div>
+                        <h3>Combine Matching Numbers</h3>
+                        <p>When two tiles with the <strong>same number</strong> collide, they merge into a single tile with double the value. Each merge adds to your score. A new tile appears after every move.</p>
+                    </div>
+                    <div class="g-how-card">
+                        <div class="g-how-num">03</div>
+                        <h3>Reach 2048</h3>
+                        <p>Keep combining tiles to create bigger numbers. Your goal is to build the <strong>2048 tile</strong>. The game ends when no moves are possible — but you can undo one move at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section g-desc" id="about-2048" aria-label="About 2048">
+            <div class="container g-desc-inner">
+                <div class="g-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free Online <em>2048 Puzzle Game</em></h2>
+                    <p><strong>2048</strong> is a deceptively simple sliding-tile puzzle created by Gabriele Cirulli in 2014. It quickly became a viral sensation, and for good reason: the rules take seconds to learn, but mastering the game requires real strategy, patience, and forward planning.</p>
+                    <p>Our free <strong>online 2048 game</strong> stays true to the original while adding a beautiful, modern interface. The board uses the classic warm palette with smooth tile animations, so every merge feels satisfying. It runs entirely in your browser — no downloads, no signup, no ads interrupting your flow.</p>
+                    <p>You can play with the <strong>arrow keys</strong> on any desktop or laptop, or use <strong>swipe gestures</strong> on a phone or tablet. The game automatically saves your best score in your browser's local storage, so you can always try to beat your personal record. And if you make a mistake, the <strong>Undo</strong> button lets you take back your last move — a helpful feature for learning the game's deeper strategies.</p>
+                    <p>Whether you're a puzzle veteran chasing a 4096 tile or a first-time player just trying to reach 2048, this <strong>browser-based puzzle game</strong> is a perfect way to take a mindful break, sharpen your focus, and enjoy a classic that has stood the test of time.</p>
+                    <div class="g-desc-benefits">
+                        <span class="g-benefit-tag">🧩 Classic Puzzle</span>
+                        <span class="g-benefit-tag">🎨 Beautiful Design</span>
+                        <span class="g-benefit-tag">⌨️ Keyboard + Touch</span>
+                        <span class="g-benefit-tag">↩️ Undo Move</span>
+                        <span class="g-benefit-tag">🏆 Best Score Saved</span>
+                        <span class="g-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="g-desc-visual">
+                    <div class="g-visual-card">
+                        <div class="g-v-line"></div>
+                        <div class="g-visual-row">
+                            <span class="g-v-label">Board</span>
+                            <span class="g-v-text">4 × 4</span>
+                        </div>
+                        <div class="g-visual-row">
+                            <span class="g-v-label">Goal</span>
+                            <span class="g-v-text">2048 tile</span>
+                        </div>
+                        <div class="g-visual-row">
+                            <span class="g-v-label">Spawn</span>
+                            <span class="g-v-text">2 or 4</span>
+                        </div>
+                        <div class="g-visual-row">
+                            <span class="g-v-label">Controls</span>
+                            <span class="g-v-text">Keys / Swipe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section g-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="g-faq-list" id="gFaqList">
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">How do you play 2048?</button>
+                        <div class="g-faq-a"><p>Use the arrow keys on your keyboard (or swipe on a touchscreen) to slide all tiles in one direction. When two tiles with the same number touch, they merge into one tile with double the value. After each move, a new tile (2 or 4) appears in a random empty spot. The goal is to create a tile with the number 2048.</p></div>
+                    </div>
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">Is this 2048 game free?</button>
+                        <div class="g-faq-a"><p>Yes, this 2048 game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like.</p></div>
+                    </div>
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">Can I play 2048 on my phone?</button>
+                        <div class="g-faq-a"><p>Absolutely. The game is fully responsive and supports swipe gestures on touchscreens. Just swipe up, down, left, or right to move the tiles. The board adapts to your screen size.</p></div>
+                    </div>
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">What is a good score in 2048?</button>
+                        <div class="g-faq-a"><p>Reaching the 2048 tile is the main goal, which typically requires a score of around 20,000 points. A score above 10,000 is considered good for casual players, while expert players can exceed 100,000 points.</p></div>
+                    </div>
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">Does the game save my best score?</button>
+                        <div class="g-faq-a"><p>Yes! Your best score is saved in your browser's local storage, so you can try to beat your personal record every time you play.</p></div>
+                    </div>
+                    <div class="g-faq-item">
+                        <button class="g-faq-q" aria-expanded="false">What happens after I reach 2048?</button>
+                        <div class="g-faq-a"><p>When you create the 2048 tile, you win! You can choose to keep playing to reach higher tiles like 4096 or 8192, or start a new game.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="g-toast" id="gToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== CONSTANTS =====
+        const SIZE = 4;
+        const SPAWN_2_CHANCE = 0.9;   // 90% chance of spawning a 2, 10% chance of a 4
+        const WIN_VALUE = 2048;
+
+        // ===== STATE =====
+        const state = {
+            board: [],              // 2D array [row][col] of numbers (0 = empty)
+            score: 0,
+            best: 0,
+            history: [],            // undo stack — each entry is a snapshot
+            gameOver: false,
+            won: false,
+            keepPlaying: false,
+            animating: false,
+            tilePositions: {}       // map from "r,c" -> tile DOM element (for animations)
+        };
+
+        // ===== DOM ELEMENTS =====
+        const boardEl = document.getElementById('gBoard');
+        const scoreEl = document.getElementById('gScore');
+        const bestEl = document.getElementById('gBest');
+        const scoreAddEl = document.getElementById('gScoreAdd');
+        const overlayEl = document.getElementById('gOverlay');
+        const overlayEmoji = document.getElementById('gOverlayEmoji');
+        const overlayTitle = document.getElementById('gOverlayTitle');
+        const overlaySub = document.getElementById('gOverlaySub');
+        const newGameBtn = document.getElementById('gNewGameBtn');
+        const undoBtn = document.getElementById('gUndoBtn');
+        const keepGoingBtn = document.getElementById('gKeepGoingBtn');
+        const newGameOverlayBtn = document.getElementById('gNewGameOverlayBtn');
+        const toastEl = document.getElementById('gToast');
+        const faqItems = document.querySelectorAll('.g-faq-q');
+
+        let toastTimer = null;
+
+        // ===== HELPERS =====
+        function showToast(msg, duration = 1800) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('g-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('g-show'), duration);
+        }
+
+        function loadBestScore() {
+            try {
+                const stored = localStorage.getItem('game2048_best');
+                if (stored) state.best = parseInt(stored, 10) || 0;
+            } catch (e) { /* ignore */ }
+            bestEl.textContent = state.best;
+        }
+
+        function saveBestScore() {
+            try {
+                localStorage.setItem('game2048_best', state.best);
+            } catch (e) { /* ignore */ }
+        }
+
+        // ===== BOARD INITIALIZATION =====
+        function createEmptyBoard() {
+            const b = [];
+            for (let r = 0; r < SIZE; r++) {
+                b.push(new Array(SIZE).fill(0));
+            }
+            return b;
+        }
+
+        function getEmptyCells(board) {
+            const cells = [];
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    if (board[r][c] === 0) cells.push({ r, c });
+                }
+            }
+            return cells;
+        }
+
+        function spawnRandomTile(board) {
+            const empty = getEmptyCells(board);
+            if (empty.length === 0) return null;
+            const { r, c } = empty[Math.floor(Math.random() * empty.length)];
+            board[r][c] = Math.random() < SPAWN_2_CHANCE ? 2 : 4;
+            return { r, c, value: board[r][c] };
+        }
+
+        // ===== SNAPSHOT (for undo) =====
+        function takeSnapshot() {
+            return {
+                board: state.board.map(row => [...row]),
+                score: state.score,
+                won: state.won,
+                keepPlaying: state.keepPlaying
+            };
+        }
+
+        function pushHistory() {
+            state.history.push(takeSnapshot());
+            if (state.history.length > 20) state.history.shift(); // cap history
+            updateUndoButton();
+        }
+
+        function updateUndoButton() {
+            undoBtn.disabled = state.history.length === 0 || state.gameOver;
+        }
+
+        function undoMove() {
+            if (state.history.length === 0 || state.gameOver) return;
+            const snap = state.history.pop();
+            state.board = snap.board;
+            state.score = snap.score;
+            state.won = snap.won;
+            state.keepPlaying = snap.keepPlaying;
+            state.gameOver = false;
+
+            // Re-render everything from scratch
+            renderBoard(true);
+            updateScore();
+            overlayEl.classList.remove('g-show');
+            updateUndoButton();
+            showToast('↩ Move undone');
+        }
+
+        // ===== RENDER =====
+        function clearBoardTiles() {
+            // Remove all tile elements (keep the overlay and cells)
+            const tiles = boardEl.querySelectorAll('.g-tile');
+            tiles.forEach(t => t.remove());
+            state.tilePositions = {};
+        }
+
+        function renderCells() {
+            // Create the background cells once
+            const existingCells = boardEl.querySelectorAll('.g-cell');
+            if (existingCells.length === SIZE * SIZE) return;
+            existingCells.forEach(c => c.remove());
+            for (let i = 0; i < SIZE * SIZE; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'g-cell';
+                boardEl.insertBefore(cell, overlayEl);
+            }
+        }
+
+        function getTilePosition(r, c) {
+            // Read the computed position of the corresponding cell
+            const cells = boardEl.querySelectorAll('.g-cell');
+            const cell = cells[r * SIZE + c];
+            if (!cell) return null;
+            const boardRect = boardEl.getBoundingClientRect();
+            const cellRect = cell.getBoundingClientRect();
+            return {
+                left: cellRect.left - boardRect.left,
+                top: cellRect.top - boardRect.top,
+                size: cellRect.width
+            };
+        }
+
+        function positionTile(tileEl, r, c, animate) {
+            const pos = getTilePosition(r, c);
+            if (!pos) return;
+            if (!animate) {
+                tileEl.style.transition = 'none';
+            } else {
+                tileEl.style.transition = 'transform 0.12s ease-in-out, opacity 0.15s ease';
+            }
+            tileEl.style.transform = `translate(${pos.left}px, ${pos.top}px)`;
+            tileEl.style.width = pos.size + 'px';
+            tileEl.style.height = pos.size + 'px';
+            tileEl.style.fontSize = Math.max(14, pos.size * 0.42) + 'px';
+
+            // Adjust font size for longer numbers
+            if (tileEl.dataset.value.length >= 4) {
+                tileEl.style.fontSize = Math.max(12, pos.size * 0.3) + 'px';
+            }
+            if (tileEl.dataset.value.length >= 3 && tileEl.dataset.value.length < 4) {
+                tileEl.style.fontSize = Math.max(13, pos.size * 0.36) + 'px';
+            }
+        }
+
+        function createTileElement(value, r, c, isNew, isMerged) {
+            const tile = document.createElement('div');
+            tile.className = 'g-tile';
+            tile.dataset.value = value;
+            tile.textContent = value;
+            if (isNew) tile.classList.add('g-tile-new');
+            if (isMerged) tile.classList.add('g-tile-merged');
+            boardEl.appendChild(tile);
+            positionTile(tile, r, c, false);
+            return tile;
+        }
+
+        function renderBoard(instant) {
+            clearBoardTiles();
+            renderCells();
+
+            // Re-render every tile from scratch
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    const val = state.board[r][c];
+                    if (val !== 0) {
+                        const tile = createTileElement(val, r, c, !instant, false);
+                        state.tilePositions[r + ',' + c] = tile;
+                    }
+                }
+            }
+        }
+
+        // ===== SCORE =====
+        function updateScore() {
+            scoreEl.textContent = state.score;
+            if (state.score > state.best) {
+                state.best = state.score;
+                bestEl.textContent = state.best;
+                saveBestScore();
+            }
+        }
+
+        function showScoreAdd(amount) {
+            scoreAddEl.textContent = '+' + amount;
+            scoreAddEl.classList.remove('g-show');
+            // Force reflow to restart animation
+            void scoreAddEl.offsetWidth;
+            scoreAddEl.classList.add('g-show');
+        }
+
+        // ===== MOVEMENT LOGIC =====
+        function cloneBoard(board) {
+            return board.map(row => [...row]);
+        }
+
+        // Slide a single row to the left (used for all directions via rotation)
+        function slideRowLeft(row) {
+            // Remove zeros
+            let filtered = row.filter(v => v !== 0);
+            // Merge
+            const merged = [];
+            let scoreGain = 0;
+            let i = 0;
+            while (i < filtered.length) {
+                if (i + 1 < filtered.length && filtered[i] === filtered[i + 1]) {
+                    const newVal = filtered[i] * 2;
+                    merged.push(newVal);
+                    scoreGain += newVal;
+                    i += 2;
+                } else {
+                    merged.push(filtered[i]);
+                    i += 1;
+                }
+            }
+            // Pad with zeros
+            while (merged.length < SIZE) merged.push(0);
+            return { row: merged, scoreGain };
+        }
+
+        function rotateBoardClockwise(board) {
+            const newBoard = createEmptyBoard();
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    newBoard[c][SIZE - 1 - r] = board[r][c];
+                }
+            }
+            return newBoard;
+        }
+
+        function rotateBoardCounterClockwise(board) {
+            const newBoard = createEmptyBoard();
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    newBoard[SIZE - 1 - c][r] = board[r][c];
+                }
+            }
+            return newBoard;
+        }
+
+        // Move the board in a direction: 'left', 'right', 'up', 'down'
+        // Returns { moved: bool, scoreGain: number }
+        function moveBoard(direction) {
+            const original = cloneBoard(state.board);
+            let working = cloneBoard(state.board);
+
+            // Rotate so that "left" is always the direction we slide
+            let rotations = 0;
+            if (direction === 'up') {
+                working = rotateBoardCounterClockwise(working);
+                rotations = 1;
+            } else if (direction === 'right') {
+                working = rotateBoardClockwise(rotateBoardClockwise(working));
+                rotations = 2;
+            } else if (direction === 'down') {
+                working = rotateBoardClockwise(working);
+                rotations = 3;
+            }
+            // 'left' -> no rotation
+
+            let totalScoreGain = 0;
+
+            // Slide each row to the left
+            for (let r = 0; r < SIZE; r++) {
+                const { row, scoreGain } = slideRowLeft(working[r]);
+                working[r] = row;
+                totalScoreGain += scoreGain;
+            }
+
+            // Rotate back to original orientation
+            if (rotations === 1) working = rotateBoardClockwise(working);
+            else if (rotations === 2) working = rotateBoardClockwise(rotateBoardClockwise(working));
+            else if (rotations === 3) working = rotateBoardCounterClockwise(working);
+
+            // Check if board changed
+            let changed = false;
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    if (working[r][c] !== original[r][c]) {
+                        changed = true;
+                        break;
+                    }
+                }
+                if (changed) break;
+            }
+
+            if (!changed) return { moved: false, scoreGain: 0 };
+
+            state.board = working;
+            return { moved: true, scoreGain: totalScoreGain };
+        }
+
+        // Check if any moves are possible
+        function canMove(board) {
+            // Any empty cell?
+            if (getEmptyCells(board).length > 0) return true;
+            // Any adjacent equal cells?
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    const v = board[r][c];
+                    if (c + 1 < SIZE && board[r][c + 1] === v) return true;
+                    if (r + 1 < SIZE && board[r + 1][c] === v) return true;
+                }
+            }
+            return false;
+        }
+
+        // ===== GAME ACTIONS =====
+        function handleMove(direction) {
+            if (state.gameOver || state.animating) return;
+            if (state.won && !state.keepPlaying) return;
+
+            // Take snapshot for undo BEFORE mutating
+            pushHistory();
+
+            const { moved, scoreGain } = moveBoard(direction);
+            if (!moved) {
+                // Nothing changed — pop the snapshot we just pushed
+                state.history.pop();
+                updateUndoButton();
+                return;
+            }
+
+            // Update score
+            if (scoreGain > 0) {
+                state.score += scoreGain;
+                updateScore();
+                showScoreAdd(scoreGain);
+            }
+
+            // Spawn a new tile
+            const newTile = spawnRandomTile(state.board);
+
+            // Render
+            renderBoard(false);
+            // Highlight the newly spawned tile
+            if (newTile) {
+                const el = state.tilePositions[newTile.r + ',' + newTile.c];
+                if (el) {
+                    el.classList.add('g-tile-new');
+                    setTimeout(() => el.classList.remove('g-tile-new'), 200);
+                }
+            }
+
+            // Check for win
+            if (!state.won && checkForWin()) {
+                state.won = true;
+                setTimeout(showWin, 300);
+                return;
+            }
+
+            // Check for game over
+            if (!canMove(state.board)) {
+                state.gameOver = true;
+                setTimeout(showGameOver, 300);
+            }
+        }
+
+        function checkForWin() {
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    if (state.board[r][c] >= WIN_VALUE) return true;
+                }
+            }
+            return false;
+        }
+
+        function showWin() {
+            overlayEmoji.textContent = '🏆';
+            overlayTitle.textContent = 'You Win!';
+            overlaySub.textContent = 'You reached 2048! Keep going for a higher score.';
+            keepGoingBtn.style.display = '';
+            overlayEl.classList.add('g-show');
+        }
+
+        function showGameOver() {
+            overlayEmoji.textContent = '😔';
+            overlayTitle.textContent = 'Game Over';
+            overlaySub.textContent = 'No more moves possible. Final score: ' + state.score;
+            keepGoingBtn.style.display = 'none';
+            overlayEl.classList.add('g-show');
+            updateUndoButton();
+        }
+
+        // ===== NEW GAME =====
+        function startNewGame() {
+            state.board = createEmptyBoard();
+            state.score = 0;
+            state.history = [];
+            state.gameOver = false;
+            state.won = false;
+            state.keepPlaying = false;
+            state.animating = false;
+
+            scoreEl.textContent = '0';
+            overlayEl.classList.remove('g-show');
+            keepGoingBtn.style.display = '';
+
+            // Spawn two initial tiles
+            spawnRandomTile(state.board);
+            spawnRandomTile(state.board);
+
+            // Render from scratch
+            renderCells();
+            renderBoard(true);
+            updateScore();
+            updateUndoButton();
+
+            // Focus the board so keyboard input works immediately
+            boardEl.focus();
+        }
+
+        // ===== KEYBOARD CONTROLS =====
+        function handleKeyDown(e) {
+            // Don't hijack keys when typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            let direction = null;
+            if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') direction = 'left';
+            else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') direction = 'right';
+            else if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') direction = 'up';
+            else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') direction = 'down';
+
+            if (direction) {
+                e.preventDefault();
+                handleMove(direction);
+            }
+        }
+
+        // ===== TOUCH CONTROLS =====
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+        let isTouching = false;
+
+        function handleTouchStart(e) {
+            if (state.gameOver) return;
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            touchStartTime = Date.now();
+            isTouching = true;
+        }
+
+        function handleTouchEnd(e) {
+            if (!isTouching) return;
+            isTouching = false;
+
+            const touch = e.changedTouches[0];
+            const dx = touch.clientX - touchStartX;
+            const dy = touch.clientY - touchStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+            const elapsed = Date.now() - touchStartTime;
+
+            // Require a minimum swipe distance and reasonably quick swipe
+            const MIN_SWIPE = 25;
+            if (Math.max(absDx, absDy) < MIN_SWIPE) return;
+
+            let direction;
+            if (absDx > absDy) {
+                direction = dx > 0 ? 'right' : 'left';
+            } else {
+                direction = dy > 0 ? 'down' : 'up';
+            }
+
+            handleMove(direction);
+        }
+
+        // ===== EVENT LISTENERS =====
+        document.addEventListener('keydown', handleKeyDown);
+
+        boardEl.addEventListener('touchstart', handleTouchStart, { passive: true });
+        boardEl.addEventListener('touchend', handleTouchEnd, { passive: true });
+        boardEl.addEventListener('touchcancel', () => { isTouching = false; }, { passive: true });
+
+        // Also allow mouse drag on desktop as an optional alternative
+        let mouseStartX = 0, mouseStartY = 0, mouseDown = false;
+        boardEl.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            mouseStartX = e.clientX;
+            mouseStartY = e.clientY;
+            mouseDown = true;
+        });
+        document.addEventListener('mouseup', (e) => {
+            if (!mouseDown) return;
+            mouseDown = false;
+            const dx = e.clientX - mouseStartX;
+            const dy = e.clientY - mouseStartY;
+            if (Math.max(Math.abs(dx), Math.abs(dy)) < 30) return;
+            let direction;
+            if (Math.abs(dx) > Math.abs(dy)) direction = dx > 0 ? 'right' : 'left';
+            else direction = dy > 0 ? 'down' : 'up';
+            handleMove(direction);
+        });
+
+        newGameBtn.addEventListener('click', () => {
+            startNewGame();
+            showToast('✨ New game started');
+        });
+        undoBtn.addEventListener('click', undoMove);
+        keepGoingBtn.addEventListener('click', () => {
+            state.keepPlaying = true;
+            overlayEl.classList.remove('g-show');
+            boardEl.focus();
+        });
+        newGameOverlayBtn.addEventListener('click', () => {
+            startNewGame();
+        });
+
+        // Recalculate tile positions on window resize
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            if (resizeTimer) clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                renderBoard(true);
+            }, 150);
+        });
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        loadBestScore();
+        startNewGame();
+
+        console.log('✅ 2048 game ready — keyboard + swipe controls active.');
+    })();
+    </script>
+</body>
+</html>

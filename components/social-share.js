@@ -4,8 +4,7 @@
  * Positioned above the main tools sidebar.
  * Theme: Editorial / Ink-on-paper aesthetic
  *
- * ALSO includes a floating Games widget above it, with a joystick SVG,
- * linking to all games on the site.
+ * UPDATED: Enhanced Games Widget with arcade styling, badges, and smooth micro-interactions.
  */
 
 (function () {
@@ -20,34 +19,8 @@
     link: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
-
-    // ---- Cleaner, refined gaming joystick SVG ----
-    // Simple, balanced design that reads clearly at small sizes.
-    // Uses stroke-based line art for a crisp, modern look.
-    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Stick shaft -->
-      <line x1="12" y1="8" x2="12" y2="15"/>
-      <!-- Ball top (filled) -->
-      <circle cx="12" cy="6" r="3" fill="currentColor" stroke="none"/>
-      <!-- Ball highlight -->
-      <circle cx="11" cy="5" r="0.9" fill="#ffffff" opacity="0.55" stroke="none"/>
-      <!-- Base plate (rounded trapezoid) -->
-      <path d="M5 17 Q5 15 7 15 L17 15 Q19 15 19 17 L19 18.5 Q19 20 17.5 20 L6.5 20 Q5 20 5 18.5 Z" fill="currentColor" stroke="none"/>
-      <!-- Base highlight line -->
-      <line x1="7.5" y1="17.5" x2="16.5" y2="17.5" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
-      <!-- Left D-pad hint -->
-      <rect x="7.2" y="18" width="1.2" height="1.2" rx="0.3" fill="#ffffff" opacity="0.4" stroke="none"/>
-      <!-- Right action button (accent) -->
-      <circle cx="16.5" cy="18.6" r="0.9" fill="#fbbf24" stroke="none"/>
-    </svg>`,
-
-    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="6" y1="11" x2="10" y2="11"/>
-      <line x1="8" y1="9" x2="8" y2="13"/>
-      <line x1="15" y1="12" x2="15.01" y2="12"/>
-      <line x1="18" y1="10" x2="18.01" y2="10"/>
-      <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
-    </svg>`
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="15"/><circle cx="12" cy="6" r="3" fill="currentColor" stroke="none"/><circle cx="11" cy="5" r="0.9" fill="#ffffff" opacity="0.55" stroke="none"/><path d="M5 17 Q5 15 7 15 L17 15 Q19 15 19 17 L19 18.5 Q19 20 17.5 20 L6.5 20 Q5 20 5 18.5 Z" fill="currentColor" stroke="none"/><line x1="7.5" y1="17.5" x2="16.5" y2="17.5" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/><rect x="7.2" y="18" width="1.2" height="1.2" rx="0.3" fill="#ffffff" opacity="0.4" stroke="none"/><circle cx="16.5" cy="18.6" r="0.9" fill="#fbbf24" stroke="none"/></svg>`,
+    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>`
   };
 
   // ---- Configuration ----
@@ -82,27 +55,30 @@
     },
   ];
 
-  // ---- Games Configuration ----
+  // ---- Games Configuration with Tags ----
   const GAMES = [
     {
       id: 'wordle',
       label: 'Wordle',
       emoji: '🔤',
       description: 'Guess the 5-letter word',
+      tag: 'Popular',
       url: '/wordle'
     },
     {
       id: 'memory-match',
       label: 'Memory Match',
       emoji: '🃏',
-      description: 'Flip and match the cards',
+      description: 'Flip and match cards',
+      tag: 'New',
       url: '/memory-match'
     },
     {
       id: '2048',
       label: '2048',
       emoji: '🔢',
-      description: 'Slide to combine numbers',
+      description: 'Slide & combine numbers',
+      tag: '',
       url: '/2048'
     },
     {
@@ -110,6 +86,7 @@
       label: 'Tic-Tac-Toe',
       emoji: '❌',
       description: 'Three in a row wins',
+      tag: '',
       url: '/tic-tac-toe'
     }
   ];
@@ -129,8 +106,6 @@
   // ---- Inject CSS ----
   const styleEl = document.createElement('style');
   styleEl.textContent = `
-    /* Social Share Widget — injected by social-share.js */
-
     /* Floating share trigger */
     .social-floating-trigger {
       position: fixed;
@@ -180,27 +155,26 @@
       box-shadow: none;
     }
 
-    /* ===== FLOATING GAMES TRIGGER (NEW) ===== */
+    /* ===== REDESIGNED GAMES FLOATING TRIGGER ===== */
     .games-floating-trigger {
       position: fixed;
       bottom: 260px;
       right: 24px;
       z-index: 10001;
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(145deg, #7c3aed, #4c1d95);
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 50%, #4c1d95 100%);
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4), 0 0 0 0 rgba(124, 58, 237, 0.3);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.35);
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  background 0.2s ease,
-                  color 0.2s ease,
-                  box-shadow 0.3s ease;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.3s ease,
+                  filter 0.2s ease;
       animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
     }
@@ -209,25 +183,24 @@
       display: block;
       width: 26px;
       height: 26px;
-    }
-    .games-floating-trigger:hover svg {
-      transform: scale(1.12);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
     .games-floating-trigger:hover {
-      transform: scale(1.08) rotate(8deg);
-      background: linear-gradient(145deg, #a78bfa, #6d28d9);
+      transform: scale(1.12) rotate(6deg);
+      filter: brightness(1.1);
       animation-play-state: paused;
-      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.55);
+      box-shadow: 0 12px 32px rgba(139, 92, 246, 0.65), inset 0 2px 6px rgba(255, 255, 255, 0.5);
     }
     .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
       background: var(--paper-warm, #f4f0e8);
       color: var(--ink, #1a1a2e);
       animation: none;
-      box-shadow: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-color: var(--paper-edge, #e8e2d6);
     }
     body.dark .games-floating-trigger.active {
-      background: var(--paper, #141418);
+      background: var(--paper, #1c1c22);
       color: var(--ink, #e8e4dc);
       border-color: var(--paper-edge, #2a2a34);
     }
@@ -235,19 +208,19 @@
     @keyframes gamesPulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45), 0 6px 24px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5), 0 8px 25px rgba(139, 92, 246, 0.4);
       }
       50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 0 16px rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+        transform: scale(1.07);
+        box-shadow: 0 0 0 18px rgba(139, 92, 246, 0), 0 8px 25px rgba(139, 92, 246, 0.4);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 0 0 0 rgba(139, 92, 246, 0), 0 8px 25px rgba(139, 92, 246, 0.4);
       }
     }
 
-    /* Popup panel - vertical layout */
+    /* Popup panels */
     .social-share-popup {
       position: fixed;
       bottom: 254px;
@@ -275,23 +248,24 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* ===== GAMES POPUP (NEW) ===== */
+    /* ===== REDESIGNED GAMES POPUP PANEL ===== */
     .games-popup {
       position: fixed;
-      bottom: 324px;
+      bottom: 328px;
       right: 24px;
       z-index: 10002;
       background: var(--paper, #faf8f4);
-      border: 1px solid var(--paper-edge, #e8e2d6);
-      border-radius: var(--radius-lg, 14px);
-      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
-      padding: 16px 16px 14px;
-      min-width: 220px;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(109, 40, 217, 0.22), 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      width: 250px;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(12px) scale(0.96);
-      transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(14px) scale(0.94);
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform-origin: bottom right;
+      backdrop-filter: blur(8px);
     }
     .games-popup.open {
       opacity: 1;
@@ -299,8 +273,9 @@
       transform: translateY(0) scale(1);
     }
     body.dark .games-popup {
-      background: var(--paper-warm, #1c1c22);
-      border-color: var(--paper-edge, #2a2a34);
+      background: rgba(28, 28, 34, 0.95);
+      border-color: rgba(139, 92, 246, 0.35);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.15);
     }
 
     .games-popup-header {
@@ -311,131 +286,164 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--paper-edge, #e8e2d6);
     }
+    body.dark .games-popup-header {
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
     .games-popup-header span {
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       letter-spacing: -0.01em;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+    }
+    body.dark .games-popup-header span {
+      color: #f3f4f6;
     }
     .games-popup-header span .games-header-icon {
-      color: #7c3aed;
+      color: #8b5cf6;
       display: inline-flex;
+      background: rgba(139, 92, 246, 0.12);
+      padding: 4px;
+      border-radius: 6px;
     }
     body.dark .games-popup-header span .games-header-icon {
       color: #a78bfa;
+      background: rgba(167, 139, 250, 0.15);
     }
 
     .games-popup-close {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border: none;
       background: none;
       color: var(--ink-muted, #6b6b85);
       cursor: pointer;
-      border-radius: var(--radius, 6px);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+      transition: all 0.2s ease;
       padding: 0;
     }
     .games-popup-close:hover {
-      background: var(--paper-edge, #e8e2d6);
-      color: var(--ink, #1a1a2e);
-    }
-    .games-popup-close svg {
-      display: block;
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
     }
 
     .games-list {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
     }
 
+    /* Game item styling with badges */
     .game-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 10px 12px;
-      border-radius: var(--radius, 6px);
+      padding: 9px 10px;
+      border-radius: 10px;
       border: 1px solid transparent;
-      background: transparent;
+      background: rgba(139, 92, 246, 0.03);
       color: var(--ink, #1a1a2e);
       font-family: var(--font-body, 'Outfit', sans-serif);
       cursor: pointer;
-      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
       width: 100%;
       text-align: left;
       position: relative;
-      overflow: hidden;
     }
-    .game-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #7c3aed;
-      transform: scaleY(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
-      border-radius: 0 3px 3px 0;
+    body.dark .game-item {
+      background: rgba(255, 255, 255, 0.02);
+      color: #e5e7eb;
     }
     .game-item:hover {
-      background: rgba(124, 58, 237, 0.08);
-      border-color: rgba(124, 58, 237, 0.2);
-      transform: translateX(2px);
-    }
-    .game-item:hover::before {
-      transform: scaleY(1);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(139, 92, 246, 0.06));
+      border-color: rgba(139, 92, 246, 0.3);
+      transform: translateX(3px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
     }
     body.dark .game-item:hover {
-      background: rgba(167, 139, 250, 0.12);
-      border-color: rgba(167, 139, 250, 0.25);
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.08));
+      border-color: rgba(167, 139, 250, 0.35);
     }
 
     .game-item-emoji {
       flex-shrink: 0;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      background: linear-gradient(145deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.08));
-      border-radius: 8px;
-      border: 1px solid rgba(124, 58, 237, 0.15);
+      font-size: 1.25rem;
+      background: var(--paper, #ffffff);
+      border-radius: 10px;
+      border: 1px solid var(--paper-edge, #e8e2d6);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease;
     }
     body.dark .game-item-emoji {
-      background: linear-gradient(145deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.08));
-      border-color: rgba(167, 139, 250, 0.2);
+      background: #25252d;
+      border-color: #33333d;
+    }
+    .game-item:hover .game-item-emoji {
+      transform: scale(1.1) rotate(6deg);
     }
 
     .game-item-info {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
       min-width: 0;
     }
+    .game-item-title-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
     .game-item-title {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       line-height: 1.2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
+    body.dark .game-item-title {
+      color: #f3f4f6;
+    }
+    .game-item-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 1px 5px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .game-item-tag.popular {
+      background: rgba(245, 158, 11, 0.15);
+      color: #d97706;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    body.dark .game-item-tag.popular {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+    .game-item-tag.new {
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    body.dark .game-item-tag.new {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+
     .game-item-desc {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 400;
       color: var(--ink-muted, #6b6b85);
       line-height: 1.3;
@@ -447,17 +455,19 @@
       flex-shrink: 0;
       color: var(--ink-muted, #6b6b85);
       font-size: 0.9rem;
-      transition: transform 0.2s ease, color 0.2s ease;
+      opacity: 0.6;
+      transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
     }
     .game-item:hover .game-item-arrow {
-      color: #7c3aed;
+      color: #8b5cf6;
+      opacity: 1;
       transform: translateX(3px);
     }
     body.dark .game-item:hover .game-item-arrow {
       color: #a78bfa;
     }
 
-    /* Hide both widgets when tools sidebar is open */
+    /* Hide widgets when tools sidebar is open */
     body.tools-sidebar-open .social-floating-trigger,
     body.tools-sidebar-open .social-share-popup,
     body.tools-sidebar-open .social-toast,
@@ -502,11 +512,7 @@
       background: var(--paper-edge, #e8e2d6);
       color: var(--ink, #1a1a2e);
     }
-    .social-popup-close svg {
-      display: block;
-    }
 
-    /* Vertical grid layout */
     .social-grid {
       display: flex;
       flex-direction: column;
@@ -560,7 +566,6 @@
       flex: 1;
     }
 
-    /* Copy link button - full width, prominent */
     .social-btn.copy-btn {
       margin-top: 4px;
       border-color: var(--paper-edge, #e8e2d6);
@@ -580,14 +585,7 @@
       border-style: solid;
       transform: translateX(0) scale(1.01);
     }
-    .social-btn.copy-btn .social-icon {
-      color: var(--accent, #c4562a);
-    }
-    .social-btn.copy-btn:hover .social-icon {
-      color: var(--accent-light, #e8714a);
-    }
 
-    /* Toast notification */
     .social-toast {
       position: fixed;
       bottom: 310px;
@@ -616,7 +614,6 @@
       transform: translateY(0);
     }
 
-    /* Pulse animation */
     @keyframes socialPulse {
       0% {
         transform: scale(1);
@@ -632,145 +629,20 @@
       }
     }
 
-    /* Responsive */
+    /* Responsive adjustments */
     @media (max-width: 480px) {
-      .social-floating-trigger {
-        bottom: 175px;
-        right: 16px;
-        width: 46px;
-        height: 46px;
-      }
-      .social-floating-trigger svg {
-        width: 18px;
-        height: 18px;
-      }
-      .games-floating-trigger {
-        bottom: 235px;
-        right: 16px;
-        width: 46px;
-        height: 46px;
-      }
-      .games-floating-trigger svg {
-        width: 22px;
-        height: 22px;
-      }
-      .social-share-popup {
-        bottom: 232px;
-        right: 16px;
-        min-width: 160px;
-        padding: 14px 14px 12px;
-      }
-      .games-popup {
-        bottom: 292px;
-        right: 16px;
-        min-width: 200px;
-        padding: 14px 14px 12px;
-      }
-      .social-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-        gap: 10px;
-      }
-      .social-btn .social-icon {
-        width: 24px;
-        height: 24px;
-      }
-      .social-btn .social-icon svg {
-        width: 16px;
-        height: 16px;
-      }
-      .game-item {
-        padding: 8px 10px;
-        gap: 10px;
-      }
-      .game-item-emoji {
-        width: 28px;
-        height: 28px;
-        font-size: 1rem;
-      }
-      .game-item-title {
-        font-size: 0.75rem;
-      }
-      .game-item-desc {
-        font-size: 0.62rem;
-      }
-      .social-toast {
-        bottom: 282px;
-        right: 16px;
-        font-size: 0.75rem;
-        padding: 6px 14px;
-      }
-      .social-popup-header span,
-      .games-popup-header span {
-        font-size: 0.72rem;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .social-floating-trigger {
-        bottom: 165px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-      }
-      .social-floating-trigger svg {
-        width: 16px;
-        height: 16px;
-      }
-      .games-floating-trigger {
-        bottom: 219px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-      }
-      .games-floating-trigger svg {
-        width: 20px;
-        height: 20px;
-      }
-      .social-share-popup {
-        bottom: 216px;
-        right: 12px;
-        min-width: 140px;
-        padding: 10px 10px 8px;
-      }
-      .games-popup {
-        bottom: 270px;
-        right: 12px;
-        min-width: 180px;
-        padding: 10px 10px 8px;
-      }
-      .social-btn {
-        font-size: 0.7rem;
-        padding: 6px 10px;
-        gap: 8px;
-      }
-      .social-btn .social-icon {
-        width: 20px;
-        height: 20px;
-      }
-      .social-btn .social-icon svg {
-        width: 14px;
-        height: 14px;
-      }
-      .game-item {
-        font-size: 0.7rem;
-        padding: 6px 8px;
-        gap: 8px;
-      }
-      .game-item-emoji {
-        width: 24px;
-        height: 24px;
-        font-size: 0.9rem;
-      }
+      .social-floating-trigger { bottom: 175px; right: 16px; width: 46px; height: 46px; }
+      .games-floating-trigger { bottom: 235px; right: 16px; width: 46px; height: 46px; }
+      .social-share-popup { bottom: 232px; right: 16px; min-width: 160px; padding: 14px; }
+      .games-popup { bottom: 295px; right: 16px; width: 220px; padding: 14px; }
     }
   `;
   document.head.appendChild(styleEl);
 
   // =========================================================
-  // ================= GAMES WIDGET (NEW) ====================
+  // ================= GAMES WIDGET ==========================
   // =========================================================
 
-  // Games trigger button
   const gamesTrigger = document.createElement('div');
   gamesTrigger.className = 'games-floating-trigger';
   gamesTrigger.setAttribute('aria-label', 'Play games');
@@ -779,23 +651,20 @@
   gamesTrigger.innerHTML = ICONS.joystick;
   document.body.appendChild(gamesTrigger);
 
-  // Games popup panel
   const gamesPopup = document.createElement('div');
   gamesPopup.className = 'games-popup';
   gamesPopup.id = 'gamesPopup';
   gamesPopup.setAttribute('role', 'dialog');
   gamesPopup.setAttribute('aria-label', 'Games menu');
 
-  // Games popup header
   const gamesHeader = document.createElement('div');
   gamesHeader.className = 'games-popup-header';
   gamesHeader.innerHTML = `
-    <span><span class="games-header-icon">${ICONS.gamepad}</span> Play Games</span>
+    <span><span class="games-header-icon">${ICONS.gamepad}</span> Arcade Games</span>
     <button class="games-popup-close" id="gamesPopupClose" aria-label="Close games panel">${ICONS.close}</button>
   `;
   gamesPopup.appendChild(gamesHeader);
 
-  // Games list
   const gamesList = document.createElement('div');
   gamesList.className = 'games-list';
 
@@ -804,10 +673,16 @@
     item.className = 'game-item';
     item.href = game.url;
     item.setAttribute('aria-label', `Play ${game.label}`);
+    
+    const tagHtml = game.tag ? `<span class="game-item-tag ${game.tag.toLowerCase()}">${game.tag}</span>` : '';
+
     item.innerHTML = `
       <span class="game-item-emoji">${game.emoji}</span>
       <span class="game-item-info">
-        <span class="game-item-title">${game.label}</span>
+        <span class="game-item-title-row">
+          <span class="game-item-title">${game.label}</span>
+          ${tagHtml}
+        </span>
         <span class="game-item-desc">${game.description}</span>
       </span>
       <span class="game-item-arrow">→</span>
@@ -825,7 +700,6 @@
   // ================= SOCIAL WIDGET =========================
   // =========================================================
 
-  // Trigger button
   const trigger = document.createElement('div');
   trigger.className = 'social-floating-trigger';
   trigger.setAttribute('aria-label', 'Share this page');
@@ -834,20 +708,17 @@
   trigger.innerHTML = ICONS.share;
   document.body.appendChild(trigger);
 
-  // Toast
   const toast = document.createElement('div');
   toast.className = 'social-toast';
   toast.id = 'socialToast';
   document.body.appendChild(toast);
 
-  // Popup panel
   const popup = document.createElement('div');
   popup.className = 'social-share-popup';
   popup.id = 'socialSharePopup';
   popup.setAttribute('role', 'dialog');
   popup.setAttribute('aria-label', 'Share options');
 
-  // Popup header
   const header = document.createElement('div');
   header.className = 'social-popup-header';
   header.innerHTML = `
@@ -856,11 +727,9 @@
   `;
   popup.appendChild(header);
 
-  // Grid container - vertical
   const grid = document.createElement('div');
   grid.className = 'social-grid';
 
-  // Add platform buttons
   SOCIAL_PLATFORMS.forEach((platform) => {
     const btn = document.createElement('button');
     btn.className = 'social-btn';
@@ -879,7 +748,6 @@
     grid.appendChild(btn);
   });
 
-  // Copy link button (full width, prominent)
   const copyBtn = document.createElement('button');
   copyBtn.className = 'social-btn copy-btn';
   copyBtn.setAttribute('aria-label', 'Copy link to clipboard');
@@ -908,13 +776,11 @@
   popup.appendChild(grid);
   document.body.appendChild(popup);
 
-  // ---- Helpers ----
   function fallbackCopy(text) {
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.style.position = 'fixed';
     textarea.style.opacity = '0';
-    textarea.style.pointerEvents = 'none';
     document.body.appendChild(textarea);
     textarea.select();
     try {
@@ -927,9 +793,8 @@
     closePopup();
   }
 
-  // ---- Social popup open/close ----
   function openPopup() {
-    closeGamesPopup(); // ensure only one open
+    closeGamesPopup();
     popup.classList.add('open');
     trigger.classList.add('active');
     trigger.innerHTML = ICONS.close;
@@ -949,9 +814,8 @@
     }
   }
 
-  // ---- Games popup open/close ----
   function openGamesPopup() {
-    closePopup(); // ensure only one open
+    closePopup();
     gamesPopup.classList.add('open');
     gamesTrigger.classList.add('active');
     gamesTrigger.innerHTML = ICONS.close;
@@ -971,20 +835,16 @@
     }
   }
 
-  // ---- Event listeners ----
-  // Social trigger
   trigger.addEventListener('click', (e) => {
     e.stopPropagation();
     togglePopup();
   });
 
-  // Games trigger
   gamesTrigger.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleGamesPopup();
   });
 
-  // ---- Hide when tools sidebar is open ----
   const sidebarObserver = new MutationObserver(() => {
     const sidebar = document.getElementById('toolsFixedSidebar');
     if (sidebar && sidebar.classList.contains('open')) {
@@ -996,12 +856,10 @@
     }
   });
 
-  // Observe the sidebar when it exists
   const sidebarEl = document.getElementById('toolsFixedSidebar');
   if (sidebarEl) {
     sidebarObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class'] });
   } else {
-    // Sidebar may not be in DOM yet — wait for it
     const bodyObserver = new MutationObserver(() => {
       const sb = document.getElementById('toolsFixedSidebar');
       if (sb) {
@@ -1012,7 +870,6 @@
     bodyObserver.observe(document.body, { childList: true, subtree: true });
   }
 
-  // Close button inside social popup
   const closeBtn = document.getElementById('socialPopupClose');
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {
@@ -1021,7 +878,6 @@
     });
   }
 
-  // Close button inside games popup
   const gamesCloseBtn = document.getElementById('gamesPopupClose');
   if (gamesCloseBtn) {
     gamesCloseBtn.addEventListener('click', (e) => {
@@ -1030,18 +886,13 @@
     });
   }
 
-  // Close on click outside popups
   document.addEventListener('click', (e) => {
     const target = e.target;
-
-    // Social popup
     if (popup.classList.contains('open')) {
       if (!popup.contains(target) && target !== trigger && !trigger.contains(target)) {
         closePopup();
       }
     }
-
-    // Games popup
     if (gamesPopup.classList.contains('open')) {
       if (!gamesPopup.contains(target) && target !== gamesTrigger && !gamesTrigger.contains(target)) {
         closeGamesPopup();
@@ -1049,7 +900,6 @@
     }
   });
 
-  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (popup.classList.contains('open')) closePopup();
@@ -1057,11 +907,9 @@
     }
   });
 
-  // Prevent popups from closing when clicking inside them
   popup.addEventListener('click', (e) => e.stopPropagation());
   gamesPopup.addEventListener('click', (e) => e.stopPropagation());
 
-  // Keyboard support for games trigger
   gamesTrigger.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -1069,13 +917,10 @@
     }
   });
 
-  // Keyboard support for social trigger
   trigger.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       togglePopup();
     }
   });
-
-  console.log('Social Share + Games Widgets initialized with SVG icons.');
 })();

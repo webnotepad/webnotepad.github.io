@@ -689,11 +689,68 @@
       }
     }
 
+    /* ─── Scroll Down Arrow (glowing, blinking) ─── */
+    .tools-sb-scroll-arrow {
+      position: absolute;
+      bottom: 22px;
+      right: 26px;
+      z-index: 10001;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px 4px rgba(196, 86, 42, 0.45), 0 4px 16px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      pointer-events: auto;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.25s ease;
+      animation: glowBlink 1.8s ease-in-out infinite;
+    }
+    .tools-sb-scroll-arrow svg {
+      width: 26px;
+      height: 26px;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
+      transition: transform 0.25s ease;
+    }
+    .tools-sb-scroll-arrow:hover {
+      background: var(--accent-hover, #d46a3a);
+      transform: scale(1.12);
+      box-shadow: 0 0 28px 8px rgba(196, 86, 42, 0.65), 0 6px 20px rgba(0, 0, 0, 0.25);
+      animation-play-state: paused;
+    }
+    .tools-sb-scroll-arrow:hover svg {
+      transform: translateY(3px);
+    }
+    .tools-sb-scroll-arrow:active {
+      transform: scale(0.94);
+    }
+    body.dark .tools-sb-scroll-arrow {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 20px 6px rgba(196, 86, 42, 0.55), 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes glowBlink {
+      0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 18px 4px rgba(196, 86, 42, 0.45), 0 4px 16px rgba(0, 0, 0, 0.18);
+      }
+      50% {
+        opacity: 0.75;
+        box-shadow: 0 0 32px 12px rgba(196, 86, 42, 0.7), 0 4px 20px rgba(0, 0, 0, 0.25);
+      }
+    }
+
     /* Respect users who prefer reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .tools-fixed-sidebar,
       .tools-sb-item,
-      .tools-floating-trigger {
+      .tools-floating-trigger,
+      .tools-sb-scroll-arrow {
         animation: none !important;
         transition: none !important;
       }
@@ -717,6 +774,16 @@
       }
       .tools-sb-category-tools {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+      .tools-sb-scroll-arrow {
+        bottom: 18px;
+        right: 18px;
+        width: 44px;
+        height: 44px;
+      }
+      .tools-sb-scroll-arrow svg {
+        width: 22px;
+        height: 22px;
       }
     }
 
@@ -787,6 +854,16 @@
         width: 22px;
         height: 22px;
       }
+      .tools-sb-scroll-arrow {
+        bottom: 16px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+      }
+      .tools-sb-scroll-arrow svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   `;
 
@@ -825,6 +902,14 @@
       </div>
 
       <div class="tools-sb-body" id="toolsSidebarBody"></div>
+
+      <!-- Glowing scroll-down arrow -->
+      <div class="tools-sb-scroll-arrow" id="toolsSidebarScrollArrow" title="Scroll down for more tools" aria-label="Scroll down for more tools" role="button" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M7 13l5 5 5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </aside>
   `;
 
@@ -836,6 +921,7 @@
   const adFrame = document.getElementById("toolsSidebarAdFrame");
   const leftNewContainer = document.getElementById("toolsSidebarNewLeft");
   const rightNewContainer = document.getElementById("toolsSidebarNewRight");
+  const scrollArrow = document.getElementById("toolsSidebarScrollArrow");
 
   // Helper function to build newly added tool cards
   function buildNewToolCard(tool) {
@@ -986,6 +1072,11 @@
       item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
       item.style.animationDelay = `${idx * 0.025}s`;
     });
+
+    // Show the scroll arrow only if there is content to scroll to
+    requestAnimationFrame(() => {
+      updateScrollArrowVisibility();
+    });
   }
 
   function closeSidebar() {
@@ -1004,6 +1095,47 @@
     else openSidebar();
   }
 
+  // ─── Scroll arrow logic ───
+  function updateScrollArrowVisibility() {
+    if (!scrollArrow || !sidebarBody) return;
+    const hasScrollableContent =
+      sidebarBody.scrollHeight > sidebarBody.clientHeight + 10;
+    const notAtBottom =
+      sidebarBody.scrollTop + sidebarBody.clientHeight <
+      sidebarBody.scrollHeight - 10;
+
+    if (hasScrollableContent && notAtBottom) {
+      scrollArrow.style.display = "flex";
+    } else {
+      scrollArrow.style.display = "none";
+    }
+  }
+
+  function smoothScrollToBottom() {
+    if (!sidebarBody) return;
+    sidebarBody.scrollTo({
+      top: sidebarBody.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  // Bind scroll listener to update arrow visibility
+  if (sidebarBody) {
+    sidebarBody.addEventListener("scroll", updateScrollArrowVisibility, {
+      passive: true
+    });
+  }
+
+  if (scrollArrow) {
+    scrollArrow.addEventListener("click", smoothScrollToBottom);
+    scrollArrow.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        smoothScrollToBottom();
+      }
+    });
+  }
+
   // Bind Listeners
   trigger.addEventListener("click", toggleSidebar);
   trigger.addEventListener("keydown", (e) => {
@@ -1017,5 +1149,12 @@
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeSidebar();
+  });
+
+  // Re-check arrow visibility on window resize
+  window.addEventListener("resize", () => {
+    if (isSidebarOpen) {
+      requestAnimationFrame(updateScrollArrowVisibility);
+    }
   });
 })();

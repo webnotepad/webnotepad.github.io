@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Memory Match – Free Online Card Flip Game | WebNotePad</title>
+    <meta name="description" content="Play Memory Match free online. Flip cards and find matching pairs. Beautiful SVG card designs, multiple difficulty levels, timer and moves counter. Mobile-friendly, no signup." />
+    <meta name="keywords" content="memory match, memory game, card matching game, flip cards, concentration game, matching pairs, free memory game, brain training game, online card game, memory card game" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/memory-match" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/memory-match" />
+    <meta property="og:title" content="Memory Match – Free Online Card Flip Game" />
+    <meta property="og:description" content="Flip cards and find matching pairs. Beautiful SVG designs, multiple difficulty levels, timer and moves counter. Free, mobile-friendly." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Memory Match – Free Online Card Flip Game" />
+    <meta name="twitter:description" content="Flip cards and find matching pairs. Beautiful SVG designs, multiple difficulty levels. Free, mobile-friendly." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Memory Match by WebNotePad",
+            "url": "https://webnotepad.github.io/memory-match",
+            "description": "A free online Memory Match card game. Flip cards to find matching pairs with beautiful SVG designs. Multiple difficulty levels, timer, and moves counter.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Multiple difficulty levels (Easy, Medium, Hard)",
+                "Beautiful SVG card designs",
+                "Timer and moves counter",
+                "Best score tracking",
+                "Responsive mobile-friendly design",
+                "Smooth card flip animations",
+                "Win detection with celebration",
+                "No signup required",
+                "Free forever"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do you play Memory Match?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Flip two cards at a time to reveal their symbols. If they match, they stay face-up. If they don't match, they flip back over. The goal is to find all matching pairs in as few moves and as little time as possible."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Memory Match game free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, this Memory Match game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What difficulty levels are available?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "There are three difficulty levels: Easy (4x3 grid, 6 pairs), Medium (4x4 grid, 8 pairs), and Hard (6x4 grid, 12 pairs). Each level offers a different challenge for your memory."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play Memory Match on my phone?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. The game is fully responsive and works on smartphones and tablets. The card grid adapts to your screen size and you can tap cards to flip them."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the game track my best score?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! Your best time and best moves for each difficulty level are saved in your browser's local storage, so you can try to beat your personal best."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What are the benefits of playing memory games?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Memory games help improve concentration, short-term memory, visual recognition, and cognitive skills. They're a fun way to keep your brain sharp and active."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --mm-accent: #7c3aed;
+            --mm-accent-light: #a78bfa;
+            --mm-accent-pale: #f5f3ff;
+            --mm-surface: #faf8f4;
+            --mm-border: #e8e2d6;
+            --mm-ink: #1a1a2e;
+            --mm-muted: #6b6b85;
+            --mm-warm: #f4f0e8;
+            --mm-radius: 8px;
+            --mm-radius-lg: 14px;
+            --mm-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --mm-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --mm-card-back: #7c3aed;
+            --mm-card-back-2: #6d28d9;
+            --mm-card-front: #ffffff;
+            --mm-gold: #f59e0b;
+            --mm-green: #10b981;
+        }
+
+        body.dark {
+            --mm-accent: #a78bfa;
+            --mm-accent-light: #c4b5fd;
+            --mm-accent-pale: #1e1b2e;
+            --mm-surface: #141418;
+            --mm-border: #2a2a34;
+            --mm-ink: #e8e4dc;
+            --mm-muted: #8a8678;
+            --mm-warm: #1c1c22;
+            --mm-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --mm-card-back: #7c3aed;
+            --mm-card-back-2: #5b21b6;
+            --mm-card-front: #1c1c22;
+        }
+
+        /* ===== MEMORY MATCH HERO ===== */
+        .mm-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--mm-surface);
+            transition: background var(--mm-transition);
+        }
+        .mm-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--mm-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--mm-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .mm-hero-bg { opacity: 0.1; }
+        .mm-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--mm-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .mm-hero-glow { opacity: 0.35; }
+        .mm-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .mm-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--mm-accent-pale);
+            color: var(--mm-accent);
+            border: 1px solid var(--mm-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .mm-hero-badge { background: rgba(167, 139, 250, 0.18); }
+        .mm-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--mm-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .mm-hero-accent {
+            color: var(--mm-accent);
+            font-style: italic;
+        }
+        .mm-hero-sub {
+            font-size: 0.9rem;
+            color: var(--mm-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .mm-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .mm-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .mm-demo-chip {
+            padding: 7px 16px;
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--mm-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--mm-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .mm-demo-chip:hover {
+            background: var(--mm-accent-pale);
+            border-color: var(--mm-accent);
+            color: var(--mm-accent);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .mm-game-section {
+            padding: 0 0 80px;
+            background: var(--mm-surface);
+            transition: background var(--mm-transition);
+        }
+        .mm-game-shell {
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            border-radius: var(--mm-radius-lg);
+            box-shadow: var(--mm-shadow);
+            overflow: hidden;
+            transition: all var(--mm-transition);
+        }
+        .mm-game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--mm-border);
+            background: var(--mm-surface);
+            flex-wrap: wrap;
+        }
+        .mm-game-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mm-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mm-game-title .mm-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--mm-accent);
+            display: inline-block;
+            animation: mmPulse 2s infinite;
+        }
+        @keyframes mmPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Stats bar */
+        .mm-stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--mm-border);
+            border-bottom: 1px solid var(--mm-border);
+        }
+        .mm-stat {
+            background: var(--mm-surface);
+            padding: 12px 16px;
+            text-align: center;
+            transition: background var(--mm-transition);
+        }
+        .mm-stat-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mm-muted);
+            margin-bottom: 4px;
+        }
+        .mm-stat-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--mm-ink);
+            line-height: 1;
+            transition: color var(--mm-transition);
+        }
+        .mm-stat-value.mm-gold { color: var(--mm-gold); }
+        .mm-stat-value.mm-green { color: var(--mm-green); }
+
+        /* Controls */
+        .mm-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--mm-border);
+            background: var(--mm-surface);
+            flex-wrap: wrap;
+        }
+        .mm-control-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--mm-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .mm-pill-group {
+            display: flex;
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            border-radius: var(--mm-radius);
+            overflow: hidden;
+        }
+        .mm-pill {
+            padding: 7px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            color: var(--mm-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--mm-transition);
+            white-space: nowrap;
+        }
+        .mm-pill:hover { color: var(--mm-ink); background: var(--mm-border); }
+        .mm-pill.active {
+            background: var(--mm-accent);
+            color: #ffffff;
+        }
+        .mm-new-game-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--mm-accent);
+            color: #ffffff;
+            border: 2px solid var(--mm-accent);
+            border-radius: var(--mm-radius);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--mm-transition);
+            white-space: nowrap;
+            margin-left: auto;
+        }
+        .mm-new-game-btn:hover {
+            background: var(--mm-accent-light);
+            border-color: var(--mm-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+        }
+        .mm-new-game-btn .mm-gen-icon {
+            font-size: 1rem;
+            transition: transform var(--mm-transition);
+        }
+        .mm-new-game-btn:hover .mm-gen-icon { transform: rotate(180deg); }
+
+        /* Board */
+        .mm-board-wrap {
+            padding: 24px 16px 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 320px;
+        }
+        .mm-board {
+            display: grid;
+            gap: 10px;
+            width: 100%;
+            max-width: 520px;
+            perspective: 1000px;
+        }
+        .mm-board.mm-easy { grid-template-columns: repeat(4, 1fr); }
+        .mm-board.mm-medium { grid-template-columns: repeat(4, 1fr); }
+        .mm-board.mm-hard { grid-template-columns: repeat(6, 1fr); }
+
+        /* Card */
+        .mm-card {
+            aspect-ratio: 1 / 1;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mm-card.mm-flipped {
+            transform: rotateY(180deg);
+        }
+        .mm-card.mm-matched {
+            cursor: default;
+            pointer-events: none;
+        }
+        .mm-card.mm-matched .mm-card-front {
+            box-shadow: 0 0 0 3px var(--mm-green), 0 4px 16px rgba(16, 185, 129, 0.35);
+            animation: mmMatchPulse 0.5s ease;
+        }
+        @keyframes mmMatchPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        .mm-card.mm-wrong .mm-card-front {
+            box-shadow: 0 0 0 3px #ef4444, 0 4px 16px rgba(239, 68, 68, 0.35);
+            animation: mmShake 0.4s ease;
+        }
+        @keyframes mmShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-3px); }
+            80% { transform: translateX(3px); }
+        }
+        .mm-card-inner {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+        }
+        .mm-card-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: var(--mm-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(26, 26, 46, 0.15);
+        }
+        .mm-card-back {
+            background: linear-gradient(145deg, var(--mm-card-back), var(--mm-card-back-2));
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+        .mm-card-back::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 2px dashed rgba(255, 255, 255, 0.25);
+            border-radius: calc(var(--mm-radius) - 2px);
+            pointer-events: none;
+        }
+        .mm-card-back-pattern {
+            width: 50%;
+            height: 50%;
+            opacity: 0.9;
+        }
+        .mm-card-front {
+            background: var(--mm-card-front);
+            border: 2px solid var(--mm-border);
+            transform: rotateY(180deg);
+            padding: 12%;
+        }
+        body.dark .mm-card-front {
+            border-color: #3a3a44;
+        }
+
+        /* SVG icons inside cards */
+        .mm-svg-icon {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .mm-how {
+            background: var(--mm-warm);
+            transition: background var(--mm-transition);
+        }
+        .mm-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .mm-how-card {
+            background: var(--mm-surface);
+            border: 1px solid var(--mm-border);
+            border-radius: var(--mm-radius-lg);
+            padding: 26px;
+            transition: all var(--mm-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .mm-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--mm-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--mm-transition);
+        }
+        .mm-how-card:hover { box-shadow: var(--mm-shadow); transform: translateY(-3px); }
+        .mm-how-card:hover::before { transform: scaleX(1); }
+        .mm-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--mm-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .mm-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--mm-ink);
+            margin-bottom: 8px;
+        }
+        .mm-how-card p {
+            font-size: 0.85rem;
+            color: var(--mm-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION SECTION ===== */
+        .mm-desc {
+            background: var(--mm-surface);
+            transition: background var(--mm-transition);
+        }
+        .mm-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .mm-desc-text p {
+            font-size: 0.95rem;
+            color: var(--mm-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .mm-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .mm-benefit-tag {
+            padding: 6px 14px;
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--mm-ink);
+            transition: all var(--mm-transition);
+        }
+        .mm-benefit-tag:hover {
+            background: var(--mm-accent-pale);
+            border-color: var(--mm-accent);
+            color: var(--mm-accent);
+        }
+        .mm-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mm-visual-card {
+            background: var(--mm-ink);
+            color: var(--mm-surface);
+            border-radius: var(--mm-radius-lg);
+            padding: 36px 32px;
+            max-width: 320px;
+            box-shadow: var(--mm-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            position: relative;
+            width: 100%;
+        }
+        body.dark .mm-visual-card {
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            color: var(--mm-ink);
+        }
+        .mm-visual-card .mm-v-line {
+            width: 36px;
+            height: 3px;
+            background: var(--mm-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .mm-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        body.dark .mm-visual-row { border-bottom-color: var(--mm-border); }
+        .mm-visual-row:last-child { border-bottom: none; }
+        .mm-v-label {
+            opacity: 0.5;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .mm-v-text {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--mm-accent-light);
+        }
+        body.dark .mm-visual-card .mm-v-text { color: var(--mm-accent); }
+
+        /* ===== FAQ SECTION ===== */
+        .mm-faq {
+            background: var(--mm-warm);
+            transition: background var(--mm-transition);
+        }
+        .mm-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .mm-faq-item {
+            border: 1px solid var(--mm-border);
+            border-radius: var(--mm-radius);
+            overflow: hidden;
+            background: var(--mm-surface);
+            transition: border-color var(--mm-transition);
+        }
+        .mm-faq-item:has(.mm-faq-a[style*="block"]) { border-color: var(--mm-accent); }
+        .mm-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--mm-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--mm-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .mm-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--mm-muted);
+            flex-shrink: 0;
+            transition: transform var(--mm-transition);
+        }
+        .mm-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--mm-accent); }
+        .mm-faq-q:hover { background: var(--mm-warm); }
+        .mm-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .mm-faq-a p {
+            font-size: 0.88rem;
+            color: var(--mm-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== WIN OVERLAY ===== */
+        .mm-win-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            animation: mmFadeIn 0.3s ease;
+        }
+        .mm-win-overlay.mm-show {
+            display: flex;
+        }
+        @keyframes mmFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .mm-win-card {
+            background: var(--mm-surface);
+            border-radius: var(--mm-radius-lg);
+            padding: 40px 36px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            animation: mmSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid var(--mm-border);
+        }
+        @keyframes mmSlideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .mm-win-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 12px;
+            animation: mmBounce 0.8s ease;
+        }
+        @keyframes mmBounce {
+            0%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-16px); }
+            50% { transform: translateY(0); }
+            70% { transform: translateY(-8px); }
+            90% { transform: translateY(0); }
+        }
+        .mm-win-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--mm-ink);
+            margin-bottom: 6px;
+        }
+        .mm-win-sub {
+            font-size: 0.9rem;
+            color: var(--mm-muted);
+            margin-bottom: 24px;
+        }
+        .mm-win-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .mm-win-stat {
+            background: var(--mm-warm);
+            border: 1px solid var(--mm-border);
+            border-radius: var(--mm-radius);
+            padding: 14px 12px;
+        }
+        .mm-win-stat-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--mm-muted);
+            margin-bottom: 4px;
+        }
+        .mm-win-stat-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--mm-ink);
+            line-height: 1;
+        }
+        .mm-win-stat-value.mm-gold { color: var(--mm-gold); }
+        .mm-win-stat-value.mm-green { color: var(--mm-green); }
+        .mm-win-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .mm-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: transparent;
+            color: var(--mm-ink);
+            border: 2px solid var(--mm-border);
+            border-radius: var(--mm-radius);
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--mm-transition);
+        }
+        .mm-btn-secondary:hover {
+            background: var(--mm-warm);
+            transform: translateY(-1px);
+        }
+
+        /* Toast */
+        .mm-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--mm-ink);
+            color: var(--mm-surface);
+            padding: 12px 20px;
+            border-radius: var(--mm-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 99999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .mm-toast.mm-show { transform: translateY(0); opacity: 1; }
+        body.dark .mm-toast {
+            background: var(--mm-warm);
+            color: var(--mm-ink);
+            border: 1px solid var(--mm-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .mm-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .mm-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .mm-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .mm-hero { min-height: auto; padding: 24px 0 20px; }
+            .mm-how-grid { grid-template-columns: 1fr; }
+            .mm-stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .mm-board { max-width: 440px; gap: 8px; }
+            .mm-board.mm-hard { max-width: 500px; gap: 6px; }
+            .mm-game-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .mm-controls { gap: 8px; padding: 10px 14px; }
+            .mm-new-game-btn { margin-left: 0; width: 100%; justify-content: center; }
+            .mm-hero-demo { gap: 6px; }
+            .mm-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .mm-pill { padding: 6px 12px; font-size: 0.72rem; }
+            .mm-win-card { padding: 32px 24px; }
+        }
+        @media (max-width: 480px) {
+            .mm-hero-title { font-size: 1.6rem; }
+            .mm-board { max-width: 100%; gap: 6px; }
+            .mm-board.mm-hard { gap: 5px; }
+            .mm-board-wrap { padding: 16px 10px 20px; min-height: 260px; }
+            .mm-stat { padding: 10px 8px; }
+            .mm-stat-value { font-size: 1.2rem; }
+            .mm-stat-label { font-size: 0.56rem; }
+            .mm-controls { padding: 8px 12px; gap: 6px; }
+            .mm-pill { padding: 5px 10px; font-size: 0.68rem; }
+            .mm-new-game-btn { padding: 7px 14px; font-size: 0.75rem; }
+            .mm-win-card { padding: 28px 20px; }
+            .mm-win-title { font-size: 1.3rem; }
+            .mm-win-emoji { font-size: 2.8rem; }
+            .mm-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+            .mm-toast { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+        }
+        @media (max-width: 380px) {
+            .mm-board { gap: 4px; }
+            .mm-board.mm-hard { gap: 4px; }
+            .mm-card-front { padding: 8%; }
+            .mm-pill { padding: 4px 8px; font-size: 0.62rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="mm-hero" id="home" aria-label="Memory Match Hero">
+            <div class="mm-hero-bg"></div>
+            <div class="mm-hero-glow"></div>
+            <div class="container mm-hero-inner">
+                <div class="mm-hero-badge">🃏 Free Memory Game</div>
+                <h1 class="mm-hero-title">
+                    Flip the cards.<br />
+                    <span class="mm-hero-accent">Match the pairs.</span>
+                </h1>
+                <p class="mm-hero-sub">A beautiful Memory Match card game with hand-crafted SVG designs. Test your concentration across three difficulty levels. Track your best time and moves — free, mobile-friendly, no signup.</p>
+                <div class="mm-hero-cta">
+                    <a href="#memory-game" class="btn btn-primary" style="background:var(--mm-accent);border-color:var(--mm-accent);">Play Memory Match <span>→</span></a>
+                </div>
+                <div class="mm-hero-demo">
+                    <span class="mm-demo-chip">🎨 SVG Designs</span>
+                    <span class="mm-demo-chip">⏱️ Timer</span>
+                    <span class="mm-demo-chip">🏆 Best Score</span>
+                    <span class="mm-demo-chip">📱 Mobile Ready</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GAME SECTION ===== -->
+        <section class="mm-game-section" id="memory-game" aria-label="Memory Match Game">
+            <div class="container">
+                <div class="mm-game-shell">
+                    <!-- Game Header -->
+                    <div class="mm-game-header">
+                        <span class="mm-game-title"><span class="mm-dot"></span> Memory Match</span>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="mm-stats-bar">
+                        <div class="mm-stat">
+                            <div class="mm-stat-label">Time</div>
+                            <div class="mm-stat-value" id="mmTimer">00:00</div>
+                        </div>
+                        <div class="mm-stat">
+                            <div class="mm-stat-label">Moves</div>
+                            <div class="mm-stat-value" id="mmMoves">0</div>
+                        </div>
+                        <div class="mm-stat">
+                            <div class="mm-stat-label">Pairs Found</div>
+                            <div class="mm-stat-value mm-green" id="mmPairs">0 / 8</div>
+                        </div>
+                        <div class="mm-stat">
+                            <div class="mm-stat-label">Best Time</div>
+                            <div class="mm-stat-value mm-gold" id="mmBestTime">--:--</div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="mm-controls">
+                        <span class="mm-control-label">Difficulty</span>
+                        <div class="mm-pill-group" role="group" aria-label="Difficulty level">
+                            <button class="mm-pill" data-difficulty="easy">Easy</button>
+                            <button class="mm-pill active" data-difficulty="medium">Medium</button>
+                            <button class="mm-pill" data-difficulty="hard">Hard</button>
+                        </div>
+                        <button class="mm-new-game-btn" id="mmNewGameBtn" aria-label="Start a new game">
+                            <span class="mm-gen-icon">↺</span> New Game
+                        </button>
+                    </div>
+
+                    <!-- Board -->
+                    <div class="mm-board-wrap">
+                        <div class="mm-board mm-medium" id="mmBoard" role="grid" aria-label="Memory match game board"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO PLAY SECTION ===== -->
+        <section class="section mm-how" id="how-to-play" aria-label="How to play Memory Match">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Memory Match in <em>3 simple steps.</em></h2>
+                <div class="mm-how-grid">
+                    <div class="mm-how-card">
+                        <div class="mm-how-num">01</div>
+                        <h3>Flip Two Cards</h3>
+                        <p>Click or tap any card to flip it over and reveal the SVG symbol on the front. Flip a second card to try and find its matching pair.</p>
+                    </div>
+                    <div class="mm-how-card">
+                        <div class="mm-how-num">02</div>
+                        <h3>Find Matching Pairs</h3>
+                        <p>If both cards show the <strong>same symbol</strong>, they stay face-up and count as a matched pair. If they don't match, they flip back after a short delay.</p>
+                    </div>
+                    <div class="mm-how-card">
+                        <div class="mm-how-num">03</div>
+                        <h3>Match Them All</h3>
+                        <p>Find all matching pairs to win. The game tracks your <strong>time</strong> and <strong>moves</strong>. Try to beat your personal best for each difficulty level!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
+        <section class="section mm-desc" id="about-memory-match" aria-label="About Memory Match">
+            <div class="container mm-desc-inner">
+                <div class="mm-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free Online <em>Memory Match Game</em></h2>
+                    <p><strong>Memory Match</strong> (also known as Concentration or simply the memory game) is a classic card game that challenges your short-term memory and visual recognition. The rules are simple: flip two cards at a time to find matching pairs. Every match stays revealed, and the goal is to clear the entire board.</p>
+                    <p>Our free <strong>online memory game</strong> features beautiful hand-crafted SVG card designs — no generic emoji, no boring clip-art. Each symbol is a custom vector illustration that looks crisp on any screen, from a small phone to a large desktop monitor.</p>
+                    <p>Play across three difficulty levels: <strong>Easy</strong> (6 pairs, 4×3 grid), <strong>Medium</strong> (8 pairs, 4×4 grid), and <strong>Hard</strong> (12 pairs, 6×4 grid). Your best time for each level is saved in your browser, so you can compete against yourself and watch your memory improve over time.</p>
+                    <p>Memory games are more than just fun — they're a proven way to improve concentration, sharpen short-term memory, and keep your brain active. Whether you're a student taking a study break, an adult looking for a quick mental workout, or a senior keeping your mind sharp, this <strong>card matching game</strong> is a perfect choice. It's fully mobile-friendly, so you can play on the bus, in a waiting room, or on the couch.</p>
+                    <div class="mm-desc-benefits">
+                        <span class="mm-benefit-tag">🧠 Brain Training</span>
+                        <span class="mm-benefit-tag">🎨 Custom SVG Art</span>
+                        <span class="mm-benefit-tag">⏱️ Time & Moves</span>
+                        <span class="mm-benefit-tag">📱 Mobile Friendly</span>
+                        <span class="mm-benefit-tag">🔒 100% Private</span>
+                        <span class="mm-benefit-tag">♾️ Free Forever</span>
+                    </div>
+                </div>
+                <div class="mm-desc-visual">
+                    <div class="mm-visual-card">
+                        <div class="mm-v-line"></div>
+                        <div class="mm-visual-row">
+                            <span class="mm-v-label">Easy</span>
+                            <span class="mm-v-text">6 pairs</span>
+                        </div>
+                        <div class="mm-visual-row">
+                            <span class="mm-v-label">Medium</span>
+                            <span class="mm-v-text">8 pairs</span>
+                        </div>
+                        <div class="mm-visual-row">
+                            <span class="mm-v-label">Hard</span>
+                            <span class="mm-v-text">12 pairs</span>
+                        </div>
+                        <div class="mm-visual-row">
+                            <span class="mm-v-label">Grid Max</span>
+                            <span class="mm-v-text">6 × 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section mm-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="mm-faq-list" id="mmFaqList">
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">How do you play Memory Match?</button>
+                        <div class="mm-faq-a"><p>Flip two cards at a time to reveal their symbols. If they match, they stay face-up. If they don't match, they flip back over. The goal is to find all matching pairs in as few moves and as little time as possible.</p></div>
+                    </div>
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">Is this Memory Match game free?</button>
+                        <div class="mm-faq-a"><p>Yes, this Memory Match game is 100% free with no signup, no downloads, and no hidden costs. Play unlimited games whenever you like.</p></div>
+                    </div>
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">What difficulty levels are available?</button>
+                        <div class="mm-faq-a"><p>There are three difficulty levels: Easy (4x3 grid, 6 pairs), Medium (4x4 grid, 8 pairs), and Hard (6x4 grid, 12 pairs). Each level offers a different challenge for your memory.</p></div>
+                    </div>
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">Can I play Memory Match on my phone?</button>
+                        <div class="mm-faq-a"><p>Absolutely. The game is fully responsive and works on smartphones and tablets. The card grid adapts to your screen size and you can tap cards to flip them.</p></div>
+                    </div>
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">Does the game track my best score?</button>
+                        <div class="mm-faq-a"><p>Yes! Your best time and best moves for each difficulty level are saved in your browser's local storage, so you can try to beat your personal best.</p></div>
+                    </div>
+                    <div class="mm-faq-item">
+                        <button class="mm-faq-q" aria-expanded="false">What are the benefits of playing memory games?</button>
+                        <div class="mm-faq-a"><p>Memory games help improve concentration, short-term memory, visual recognition, and cognitive skills. They're a fun way to keep your brain sharp and active.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Win Overlay -->
+    <div class="mm-win-overlay" id="mmWinOverlay" role="dialog" aria-label="Game won" aria-modal="true">
+        <div class="mm-win-card">
+            <div class="mm-win-emoji" id="mmWinEmoji">🎉</div>
+            <div class="mm-win-title" id="mmWinTitle">You Won!</div>
+            <div class="mm-win-sub" id="mmWinSub">You matched all the pairs.</div>
+            <div class="mm-win-stats">
+                <div class="mm-win-stat">
+                    <div class="mm-win-stat-label">Time</div>
+                    <div class="mm-win-stat-value mm-gold" id="mmWinTime">00:00</div>
+                </div>
+                <div class="mm-win-stat">
+                    <div class="mm-win-stat-label">Moves</div>
+                    <div class="mm-win-stat-value" id="mmWinMoves">0</div>
+                </div>
+            </div>
+            <div class="mm-win-actions">
+                <button class="mm-new-game-btn" id="mmPlayAgainBtn" style="margin: 0 auto;">
+                    <span class="mm-gen-icon">↺</span> Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="mm-toast" id="mmToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== SVG ICON DEFINITIONS =====
+        // Each icon is a self-contained SVG string. All are designed on a 100x100 viewBox.
+        const SVG_ICONS = {
+            sun: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="22" fill="#f59e0b"/>
+                <g stroke="#f59e0b" stroke-width="5" stroke-linecap="round">
+                    <line x1="50" y1="8" x2="50" y2="20"/>
+                    <line x1="50" y1="80" x2="50" y2="92"/>
+                    <line x1="8" y1="50" x2="20" y2="50"/>
+                    <line x1="80" y1="50" x2="92" y2="50"/>
+                    <line x1="20" y1="20" x2="28" y2="28"/>
+                    <line x1="72" y1="72" x2="80" y2="80"/>
+                    <line x1="72" y1="28" x2="80" y2="20"/>
+                    <line x1="20" y1="80" x2="28" y2="72"/>
+                </g>
+                <circle cx="42" cy="46" r="3" fill="#b45309"/>
+                <circle cx="58" cy="46" r="3" fill="#b45309"/>
+                <path d="M40 58 Q50 68 60 58" stroke="#b45309" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>`,
+
+            moon: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M65 20 A32 32 0 1 0 65 80 A26 26 0 1 1 65 20 Z" fill="#818cf8"/>
+                <circle cx="72" cy="30" r="3" fill="#ffffff"/>
+                <circle cx="80" cy="45" r="2" fill="#ffffff"/>
+                <circle cx="75" cy="60" r="2.5" fill="#ffffff"/>
+                <circle cx="68" cy="72" r="1.8" fill="#ffffff"/>
+            </svg>`,
+
+            star: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,10 61,38 92,38 67,57 77,88 50,69 23,88 33,57 8,38 39,38" fill="#fbbf24" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="42" cy="45" r="3" fill="#b45309"/>
+                <circle cx="58" cy="45" r="3" fill="#b45309"/>
+                <path d="M42 58 Q50 66 58 58" stroke="#b45309" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>`,
+
+            heart: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 82 C22 62 12 45 12 33 A20 20 0 0 1 50 25 A20 20 0 0 1 88 33 C88 45 78 62 50 82 Z" fill="#ef4444" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"/>
+                <ellipse cx="35" cy="38" rx="6" ry="4" fill="#ffffff" opacity="0.6" transform="rotate(-30 35 38)"/>
+            </svg>`,
+
+            diamond: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,12 85,50 50,88 15,50" fill="#06b6d4" stroke="#0891b2" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="50,12 85,50 50,50" fill="#67e8f9" opacity="0.5"/>
+                <polygon points="50,12 15,50 50,50" fill="#ffffff" opacity="0.3"/>
+            </svg>`,
+
+            flower: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="24" r="14" fill="#f472b6"/>
+                <circle cx="72" cy="40" r="14" fill="#f472b6"/>
+                <circle cx="65" cy="66" r="14" fill="#f472b6"/>
+                <circle cx="35" cy="66" r="14" fill="#f472b6"/>
+                <circle cx="28" cy="40" r="14" fill="#f472b6"/>
+                <circle cx="50" cy="48" r="11" fill="#fbbf24"/>
+                <circle cx="50" cy="48" r="5" fill="#b45309"/>
+            </svg>`,
+
+            leaf: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 88 C20 70 18 40 30 22 C42 5 70 8 82 25 C94 42 82 78 50 88 Z" fill="#22c55e" stroke="#16a34a" stroke-width="3"/>
+                <path d="M50 88 L50 30" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 55 L35 45 M50 68 L35 58 M50 45 L65 35 M50 58 L65 48" stroke="#15803d" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>`,
+
+            droplet: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 12 C50 12 22 48 22 65 A28 28 0 0 0 78 65 C78 48 50 12 50 12 Z" fill="#3b82f6" stroke="#2563eb" stroke-width="3"/>
+                <ellipse cx="40" cy="60" rx="5" ry="8" fill="#ffffff" opacity="0.5" transform="rotate(-20 40 60)"/>
+            </svg>`,
+
+            music: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 75 V25 L82 18 V68" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <ellipse cx="32" cy="76" rx="14" ry="10" fill="#8b5cf6"/>
+                <ellipse cx="74" cy="69" rx="14" ry="10" fill="#8b5cf6"/>
+                <path d="M40 25 L82 18" stroke="#a78bfa" stroke-width="3"/>
+            </svg>`,
+
+            crown: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 78 L20 32 L35 55 L50 20 L65 55 L80 32 L85 78 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                <rect x="15" y="78" width="70" height="10" fill="#f59e0b" rx="2"/>
+                <circle cx="50" cy="20" r="4" fill="#ef4444"/>
+                <circle cx="20" cy="32" r="3.5" fill="#06b6d4"/>
+                <circle cx="80" cy="32" r="3.5" fill="#06b6d4"/>
+                <circle cx="50" cy="50" r="5" fill="#ef4444"/>
+                <circle cx="35" cy="62" r="4" fill="#06b6d4"/>
+                <circle cx="65" cy="62" r="4" fill="#06b6d4"/>
+            </svg>`,
+
+            globe: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="38" fill="#0ea5e9" stroke="#0284c7" stroke-width="3"/>
+                <ellipse cx="50" cy="50" rx="16" ry="38" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+                <ellipse cx="50" cy="50" rx="38" ry="16" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+                <line x1="12" y1="50" x2="88" y2="50" stroke="#0284c7" stroke-width="2.5"/>
+                <path d="M35 30 Q50 38 65 30" stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M30 65 Q50 55 70 65" stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>`,
+
+            lightning: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="55,8 25,55 45,55 40,92 75,42 52,42" fill="#facc15" stroke="#eab308" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="55,8 25,55 45,55" fill="#fef08a" opacity="0.5"/>
+            </svg>`,
+
+            anchor: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="20" r="10" fill="none" stroke="#475569" stroke-width="5"/>
+                <line x1="50" y1="30" x2="50" y2="82" stroke="#475569" stroke-width="5"/>
+                <line x1="32" y1="45" x2="68" y2="45" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+                <path d="M20 70 Q35 88 50 82 Q65 88 80 70" fill="none" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="20" cy="70" r="4" fill="#475569"/>
+                <circle cx="80" cy="70" r="4" fill="#475569"/>
+            </svg>`,
+
+            key: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="35" cy="45" r="16" fill="none" stroke="#d97706" stroke-width="7"/>
+                <circle cx="35" cy="45" r="6" fill="#d97706"/>
+                <line x1="48" y1="52" x2="85" y2="80" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+                <line x1="70" y1="68" x2="78" y2="60" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+                <line x1="78" y1="75" x2="86" y2="67" stroke="#d97706" stroke-width="6" stroke-linecap="round"/>
+            </svg>`,
+
+            apple: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 30 C45 20 30 20 25 32 C18 48 28 78 42 82 C47 83 50 80 50 80 C50 80 53 83 58 82 C72 78 82 48 75 32 C70 20 55 20 50 30 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="3"/>
+                <path d="M50 30 Q52 18 60 14" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M58 18 Q68 12 72 20 Q64 24 58 18 Z" fill="#22c55e"/>
+                <ellipse cx="38" cy="45" rx="5" ry="7" fill="#ffffff" opacity="0.4" transform="rotate(-20 38 45)"/>
+            </svg>`,
+
+            bell: `<svg viewBox="0 0 100 100" class="mm-svg-icon" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 65 Q25 35 50 25 Q75 35 75 65 L80 72 L20 72 Z" fill="#f59e0b" stroke="#d97706" stroke-width="3" stroke-linejoin="round"/>
+                <rect x="18" y="72" width="64" height="7" rx="3" fill="#d97706"/>
+                <circle cx="50" cy="85" r="6" fill="#d97706"/>
+                <line x1="50" y1="25" x2="50" y2="18" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="15" r="4" fill="#d97706"/>
+            </svg>`
+        };
+
+        // List of icon keys for easy iteration
+        const ICON_KEYS = Object.keys(SVG_ICONS);
+
+        // ===== DIFFICULTY CONFIG =====
+        const DIFFICULTY = {
+            easy:   { cols: 4, rows: 3, pairs: 6,  label: 'Easy'   },
+            medium: { cols: 4, rows: 4, pairs: 8,  label: 'Medium' },
+            hard:   { cols: 6, rows: 4, pairs: 12, label: 'Hard'   }
+        };
+
+        // ===== STATE =====
+        const state = {
+            difficulty: 'medium',
+            cards: [],           // array of { id, iconKey, matched, flipped }
+            flipped: [],         // indices of currently flipped cards
+            matchedCount: 0,
+            moves: 0,
+            timer: 0,
+            timerId: null,
+            gameStarted: false,
+            gameOver: false,
+            locked: false,       // true while animating a wrong match
+            bestTimes: {},       // { easy: seconds, medium: seconds, hard: seconds }
+            bestMoves: {}        // { easy: moves, medium: moves, hard: moves }
+        };
+
+        // ===== DOM ELEMENTS =====
+        const boardEl = document.getElementById('mmBoard');
+        const timerEl = document.getElementById('mmTimer');
+        const movesEl = document.getElementById('mmMoves');
+        const pairsEl = document.getElementById('mmPairs');
+        const bestTimeEl = document.getElementById('mmBestTime');
+        const newGameBtn = document.getElementById('mmNewGameBtn');
+        const playAgainBtn = document.getElementById('mmPlayAgainBtn');
+        const winOverlay = document.getElementById('mmWinOverlay');
+        const winEmoji = document.getElementById('mmWinEmoji');
+        const winTitle = document.getElementById('mmWinTitle');
+        const winSub = document.getElementById('mmWinSub');
+        const winTime = document.getElementById('mmWinTime');
+        const winMoves = document.getElementById('mmWinMoves');
+        const difficultyPills = document.querySelectorAll('.mm-pill[data-difficulty]');
+        const toastEl = document.getElementById('mmToast');
+        const faqItems = document.querySelectorAll('.mm-faq-q');
+
+        let toastTimer = null;
+
+        // ===== HELPERS =====
+        function showToast(msg, duration = 2000) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('mm-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('mm-show'), duration);
+        }
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            return m + ':' + s;
+        }
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        // ===== LOCAL STORAGE =====
+        function loadBestScores() {
+            try {
+                const stored = localStorage.getItem('mm_best_scores');
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    state.bestTimes = data.times || {};
+                    state.bestMoves = data.moves || {};
+                }
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        function saveBestScores() {
+            try {
+                localStorage.setItem('mm_best_scores', JSON.stringify({
+                    times: state.bestTimes,
+                    moves: state.bestMoves
+                }));
+            } catch (e) {
+                // ignore
+            }
+        }
+
+        function getBestTime(difficulty) {
+            return state.bestTimes[difficulty] || null;
+        }
+
+        function updateBestTimeDisplay() {
+            const best = getBestTime(state.difficulty);
+            bestTimeEl.textContent = best !== null ? formatTime(best) : '--:--';
+        }
+
+        // ===== TIMER =====
+        function startTimer() {
+            if (state.timerId) return;
+            state.timerId = setInterval(() => {
+                state.timer++;
+                timerEl.textContent = formatTime(state.timer);
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(state.timerId);
+            state.timerId = null;
+        }
+
+        // ===== BUILD BOARD =====
+        function buildBoard() {
+            const config = DIFFICULTY[state.difficulty];
+            const totalCards = config.pairs * 2;
+
+            // Pick random icons (no repeats)
+            const shuffledIcons = shuffle(ICON_KEYS);
+            const selectedIcons = shuffledIcons.slice(0, config.pairs);
+
+            // Create card data (each icon appears twice)
+            const cardData = [];
+            selectedIcons.forEach((iconKey, i) => {
+                cardData.push({ id: i * 2,     iconKey, matched: false, flipped: false });
+                cardData.push({ id: i * 2 + 1, iconKey, matched: false, flipped: false });
+            });
+
+            // Shuffle card positions
+            state.cards = shuffle(cardData);
+
+            // Render
+            boardEl.className = 'mm-board mm-' + state.difficulty;
+            boardEl.innerHTML = '';
+
+            state.cards.forEach((card, index) => {
+                const cardEl = document.createElement('div');
+                cardEl.className = 'mm-card';
+                cardEl.dataset.index = index;
+                cardEl.setAttribute('role', 'gridcell');
+                cardEl.setAttribute('tabindex', '0');
+                cardEl.setAttribute('aria-label', 'Card ' + (index + 1));
+
+                cardEl.innerHTML = `
+                    <div class="mm-card-inner">
+                        <div class="mm-card-face mm-card-back">
+                            <svg viewBox="0 0 100 100" class="mm-card-back-pattern" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="90" height="90" rx="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                                <path d="M50 30 L50 70 M30 50 L70 50" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="6" fill="rgba(255,255,255,0.5)"/>
+                            </svg>
+                        </div>
+                        <div class="mm-card-face mm-card-front">
+                            ${SVG_ICONS[card.iconKey]}
+                        </div>
+                    </div>
+                `;
+
+                cardEl.addEventListener('click', () => handleCardClick(index));
+                cardEl.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleCardClick(index);
+                    }
+                });
+
+                boardEl.appendChild(cardEl);
+            });
+
+            updatePairsDisplay();
+        }
+
+        function getCardEl(index) {
+            return boardEl.children[index];
+        }
+
+        // ===== CARD INTERACTION =====
+        function handleCardClick(index) {
+            if (state.gameOver || state.locked) return;
+
+            const card = state.cards[index];
+            if (card.matched || card.flipped) return;
+
+            // Start timer on first move
+            if (!state.gameStarted) {
+                state.gameStarted = true;
+                startTimer();
+            }
+
+            // Flip the card
+            card.flipped = true;
+            const cardEl = getCardEl(index);
+            cardEl.classList.add('mm-flipped');
+
+            state.flipped.push(index);
+
+            // If two cards flipped, check match
+            if (state.flipped.length === 2) {
+                state.moves++;
+                movesEl.textContent = state.moves;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [i1, i2] = state.flipped;
+            const card1 = state.cards[i1];
+            const card2 = state.cards[i2];
+
+            if (card1.iconKey === card2.iconKey) {
+                // Match!
+                card1.matched = true;
+                card2.matched = true;
+                state.matchedCount++;
+
+                // Add matched class to both cards
+                getCardEl(i1).classList.add('mm-matched');
+                getCardEl(i2).classList.add('mm-matched');
+
+                state.flipped = [];
+                updatePairsDisplay();
+
+                // Check win
+                if (state.matchedCount === DIFFICULTY[state.difficulty].pairs) {
+                    state.gameOver = true;
+                    stopTimer();
+                    setTimeout(() => handleWin(), 600);
+                }
+            } else {
+                // No match — flip back after a delay
+                state.locked = true;
+
+                // Add wrong class for red glow + shake
+                getCardEl(i1).classList.add('mm-wrong');
+                getCardEl(i2).classList.add('mm-wrong');
+
+                setTimeout(() => {
+                    // Flip both cards back
+                    card1.flipped = false;
+                    card2.flipped = false;
+
+                    const el1 = getCardEl(i1);
+                    const el2 = getCardEl(i2);
+
+                    el1.classList.remove('mm-flipped', 'mm-wrong');
+                    el2.classList.remove('mm-flipped', 'mm-wrong');
+
+                    state.flipped = [];
+                    state.locked = false;
+                }, 900);
+            }
+        }
+
+        function updatePairsDisplay() {
+            const total = DIFFICULTY[state.difficulty].pairs;
+            pairsEl.textContent = state.matchedCount + ' / ' + total;
+        }
+
+        // ===== WIN HANDLING =====
+        function handleWin() {
+            const difficulty = state.difficulty;
+            const time = state.timer;
+            const moves = state.moves;
+
+            // Check for new best
+            let isNewBestTime = false;
+            let isNewBestMoves = false;
+
+            if (!state.bestTimes[difficulty] || time < state.bestTimes[difficulty]) {
+                state.bestTimes[difficulty] = time;
+                isNewBestTime = true;
+            }
+            if (!state.bestMoves[difficulty] || moves < state.bestMoves[difficulty]) {
+                state.bestMoves[difficulty] = moves;
+                isNewBestMoves = true;
+            }
+
+            if (isNewBestTime || isNewBestMoves) {
+                saveBestScores();
+            }
+            updateBestTimeDisplay();
+
+            // Update overlay
+            winTime.textContent = formatTime(time);
+            winMoves.textContent = moves;
+
+            if (isNewBestTime && isNewBestMoves) {
+                winEmoji.textContent = '🏆';
+                winTitle.textContent = 'New Best Score!';
+                winSub.textContent = 'You set new records for time and moves!';
+            } else if (isNewBestTime) {
+                winEmoji.textContent = '⚡';
+                winTitle.textContent = 'New Best Time!';
+                winSub.textContent = 'You beat your time record.';
+            } else if (isNewBestMoves) {
+                winEmoji.textContent = '🎯';
+                winTitle.textContent = 'New Best Moves!';
+                winSub.textContent = 'You beat your moves record.';
+            } else {
+                winEmoji.textContent = '🎉';
+                winTitle.textContent = 'You Won!';
+                winSub.textContent = 'You matched all the pairs.';
+            }
+
+            winOverlay.classList.add('mm-show');
+        }
+
+        // ===== NEW GAME =====
+        function startNewGame() {
+            stopTimer();
+            state.cards = [];
+            state.flipped = [];
+            state.matchedCount = 0;
+            state.moves = 0;
+            state.timer = 0;
+            state.gameStarted = false;
+            state.gameOver = false;
+            state.locked = false;
+
+            timerEl.textContent = '00:00';
+            movesEl.textContent = '0';
+            winOverlay.classList.remove('mm-show');
+
+            updateBestTimeDisplay();
+            buildBoard();
+        }
+
+        // ===== DIFFICULTY CHANGE =====
+        function setDifficulty(diff) {
+            state.difficulty = diff;
+
+            difficultyPills.forEach(pill => {
+                pill.classList.toggle('active', pill.dataset.difficulty === diff);
+            });
+
+            startNewGame();
+        }
+
+        // ===== EVENT LISTENERS =====
+        difficultyPills.forEach(pill => {
+            pill.addEventListener('click', () => setDifficulty(pill.dataset.difficulty));
+        });
+
+        newGameBtn.addEventListener('click', startNewGame);
+        playAgainBtn.addEventListener('click', startNewGame);
+
+        // Close win overlay when clicking outside the card
+        winOverlay.addEventListener('click', (e) => {
+            if (e.target === winOverlay) {
+                winOverlay.classList.remove('mm-show');
+            }
+        });
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        loadBestScores();
+        startNewGame();
+
+        console.log('✅ Memory Match ready — ' + ICON_KEYS.length + ' unique SVG icons available.');
+    })();
+    </script>
+</body>
+</html>

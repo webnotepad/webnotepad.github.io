@@ -3,6 +3,9 @@
  * Floating social share widget with SVG icons and vertical layout
  * Positioned above the main tools sidebar.
  * Theme: Editorial / Ink-on-paper aesthetic
+ *
+ * ALSO includes a floating Games widget above it, with a joystick SVG,
+ * linking to all games on the site.
  */
 
 (function () {
@@ -16,7 +19,41 @@
     threads: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.257 3.332c-2.548.03-4.902.916-6.279 2.935-1.533 2.248-1.78 5.252-1.117 7.92.422 1.713 1.164 3.138 2.244 4.14 1.099 1.02 2.51 1.628 4.155 1.678 2.052.063 3.697-.586 5.177-1.822 1.545-1.29 2.492-3.304 2.848-5.607.267-1.727.254-3.448-.03-5.113-.328-1.923-1.209-3.338-2.515-4.142-1.272-.783-2.83-1.083-4.483-.99zm-1.636 2.566c2.836-.12 4.938 1.164 5.234 4.058.13 1.285.084 2.604-.213 3.902-.285 1.247-.753 2.21-1.502 2.93-1.017.977-2.32 1.402-3.818 1.35-1.608-.055-2.786-.686-3.587-1.584-.799-.898-1.197-2.084-1.332-3.39-.134-1.307-.052-2.552.259-3.685.48-1.757 1.554-2.99 2.96-3.58zm2.957 2.232c-1.402.015-2.467 1.013-2.848 2.43-.38 1.413-.216 2.979.314 3.916.53.937 1.274 1.393 2.174 1.372.902-.021 1.594-.512 2.084-1.434.49-.922.674-2.172.46-3.361-.214-1.19-.708-1.985-1.415-2.324-.415-.198-.845-.308-1.194-.316.113-.124.227-.231.392-.321.793-.433 1.643-.459 2.513-.267.396.087.772.228 1.132.407l.475-2.208c-.464-.221-.963-.39-1.494-.495-.832-.163-1.688-.15-2.548.062-.86.212-1.64.635-2.278 1.3-.638.665-1.104 1.48-1.405 2.422-.3.943-.407 1.92-.371 2.862.036.941.177 1.832.471 2.568.295.735.696 1.315 1.239 1.687.543.371 1.15.545 1.825.53.675-.015 1.28-.218 1.814-.678.534-.46.966-1.14 1.296-2.026.33-.886.49-1.934.452-2.973-.038-1.04-.292-1.897-.762-2.49-.47-.594-1.077-.866-1.81-.877z"/></svg>`,
     link: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
-    share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`
+    share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
+    // ---- Beautiful gaming joystick SVG ----
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 64 64" fill="none">
+      <!-- Joystick base plate -->
+      <ellipse cx="32" cy="52" rx="22" ry="8" fill="currentColor" opacity="0.25"/>
+      <ellipse cx="32" cy="50" rx="22" ry="8" fill="currentColor" opacity="0.15"/>
+      <!-- Base body -->
+      <path d="M10 48 Q10 42 18 40 L46 40 Q54 42 54 48 Q54 54 46 55 L18 55 Q10 54 10 48 Z" fill="currentColor" opacity="0.9"/>
+      <!-- Base highlight -->
+      <path d="M14 47 Q14 44 20 43 L44 43 Q50 44 50 47" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+      <!-- Stick shaft -->
+      <rect x="29" y="18" width="6" height="24" rx="3" fill="currentColor"/>
+      <!-- Stick highlight -->
+      <rect x="30.5" y="20" width="1.5" height="20" rx="0.75" fill="white" opacity="0.4"/>
+      <!-- Ball top -->
+      <circle cx="32" cy="14" r="10" fill="currentColor"/>
+      <!-- Ball shine -->
+      <circle cx="28.5" cy="10.5" r="3.2" fill="white" opacity="0.55"/>
+      <circle cx="35" cy="12" r="1.5" fill="white" opacity="0.35"/>
+      <!-- Base buttons (red A, blue B) -->
+      <circle cx="44" cy="48" r="2.6" fill="#e11d48"/>
+      <circle cx="44" cy="48" r="1.2" fill="white" opacity="0.5"/>
+      <circle cx="49" cy="46" r="2.2" fill="#0284c7"/>
+      <circle cx="49" cy="46" r="1" fill="white" opacity="0.5"/>
+      <!-- D-pad hint on left -->
+      <rect x="14" y="45" width="2" height="6" rx="0.8" fill="white" opacity="0.35"/>
+      <rect x="12" y="47" width="6" height="2" rx="0.8" fill="white" opacity="0.35"/>
+    </svg>`,
+    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="11" x2="10" y2="11"/>
+      <line x1="8" y1="9" x2="8" y2="13"/>
+      <line x1="15" y1="12" x2="15.01" y2="12"/>
+      <line x1="18" y1="10" x2="18.01" y2="10"/>
+      <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+    </svg>`
   };
 
   // ---- Configuration ----
@@ -51,6 +88,38 @@
     },
   ];
 
+  // ---- Games Configuration ----
+  const GAMES = [
+    {
+      id: 'wordle',
+      label: 'Wordle',
+      emoji: '🔤',
+      description: 'Guess the 5-letter word',
+      url: '/wordle'
+    },
+    {
+      id: 'memory-match',
+      label: 'Memory Match',
+      emoji: '🃏',
+      description: 'Flip and match the cards',
+      url: '/memory-match'
+    },
+    {
+      id: '2048',
+      label: '2048',
+      emoji: '🔢',
+      description: 'Slide to combine numbers',
+      url: '/2048'
+    },
+    {
+      id: 'tic-tac-toe',
+      label: 'Tic-Tac-Toe',
+      emoji: '❌',
+      description: 'Three in a row wins',
+      url: '/tic-tac-toe'
+    }
+  ];
+
   // ---- Helper: toast ----
   function showToast(message, duration = 2000) {
     const toast = document.getElementById('socialToast');
@@ -68,7 +137,7 @@
   styleEl.textContent = `
     /* Social Share Widget — injected by social-share.js */
 
-    /* Floating trigger */
+    /* Floating share trigger */
     .social-floating-trigger {
       position: fixed;
       bottom: 190px;
@@ -117,6 +186,71 @@
       box-shadow: none;
     }
 
+    /* ===== FLOATING GAMES TRIGGER (NEW) ===== */
+    .games-floating-trigger {
+      position: fixed;
+      bottom: 260px;
+      right: 24px;
+      z-index: 10001;
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(145deg, #7c3aed, #4c1d95);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4), 0 0 0 0 rgba(124, 58, 237, 0.3);
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.2s ease,
+                  color 0.2s ease,
+                  box-shadow 0.3s ease;
+      animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+    .games-floating-trigger svg {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: block;
+    }
+    .games-floating-trigger:hover svg {
+      transform: scale(1.1) rotate(-8deg);
+    }
+    .games-floating-trigger:hover {
+      transform: scale(1.08) rotate(8deg);
+      background: linear-gradient(145deg, #a78bfa, #6d28d9);
+      animation-play-state: paused;
+      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.55);
+    }
+    .games-floating-trigger.active {
+      transform: scale(0.9) rotate(-90deg);
+      background: var(--paper-warm, #f4f0e8);
+      color: var(--ink, #1a1a2e);
+      animation: none;
+      box-shadow: none;
+    }
+    body.dark .games-floating-trigger.active {
+      background: var(--paper, #141418);
+      color: var(--ink, #e8e4dc);
+      border-color: var(--paper-edge, #2a2a34);
+    }
+
+    @keyframes gamesPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45), 0 6px 24px rgba(124, 58, 237, 0.4);
+      }
+      50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 0 16px rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+      }
+    }
+
     /* Popup panel - vertical layout */
     .social-share-popup {
       position: fixed;
@@ -145,17 +279,200 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* Hide social share trigger when tools sidebar is open */
-body.tools-sidebar-open .social-floating-trigger,
-body.tools-sidebar-open .social-share-popup,
-body.tools-sidebar-open .social-toast {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+    /* ===== GAMES POPUP (NEW) ===== */
+    .games-popup {
+      position: fixed;
+      bottom: 324px;
+      right: 24px;
+      z-index: 10002;
+      background: var(--paper, #faf8f4);
+      border: 1px solid var(--paper-edge, #e8e2d6);
+      border-radius: var(--radius-lg, 14px);
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
+      padding: 16px 16px 14px;
+      min-width: 220px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px) scale(0.96);
+      transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: bottom right;
+    }
+    .games-popup.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    body.dark .games-popup {
+      background: var(--paper-warm, #1c1c22);
+      border-color: var(--paper-edge, #2a2a34);
+    }
 
-    
+    .games-popup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--paper-edge, #e8e2d6);
+    }
+    .games-popup-header span {
+      font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink, #1a1a2e);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .games-popup-header span .games-header-icon {
+      color: #7c3aed;
+      display: inline-flex;
+    }
+    body.dark .games-popup-header span .games-header-icon {
+      color: #a78bfa;
+    }
+
+    .games-popup-close {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: none;
+      color: var(--ink-muted, #6b6b85);
+      cursor: pointer;
+      border-radius: var(--radius, 6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+      padding: 0;
+    }
+    .games-popup-close:hover {
+      background: var(--paper-edge, #e8e2d6);
+      color: var(--ink, #1a1a2e);
+    }
+    .games-popup-close svg {
+      display: block;
+    }
+
+    .games-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .game-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius, 6px);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink, #1a1a2e);
+      font-family: var(--font-body, 'Outfit', sans-serif);
+      cursor: pointer;
+      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+      text-decoration: none;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .game-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #7c3aed;
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+      border-radius: 0 3px 3px 0;
+    }
+    .game-item:hover {
+      background: rgba(124, 58, 237, 0.08);
+      border-color: rgba(124, 58, 237, 0.2);
+      transform: translateX(2px);
+    }
+    .game-item:hover::before {
+      transform: scaleY(1);
+    }
+    body.dark .game-item:hover {
+      background: rgba(167, 139, 250, 0.12);
+      border-color: rgba(167, 139, 250, 0.25);
+    }
+
+    .game-item-emoji {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      background: linear-gradient(145deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.08));
+      border-radius: 8px;
+      border: 1px solid rgba(124, 58, 237, 0.15);
+    }
+    body.dark .game-item-emoji {
+      background: linear-gradient(145deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.08));
+      border-color: rgba(167, 139, 250, 0.2);
+    }
+
+    .game-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+    }
+    .game-item-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink, #1a1a2e);
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .game-item-desc {
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--ink-muted, #6b6b85);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .game-item-arrow {
+      flex-shrink: 0;
+      color: var(--ink-muted, #6b6b85);
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .game-item:hover .game-item-arrow {
+      color: #7c3aed;
+      transform: translateX(3px);
+    }
+    body.dark .game-item:hover .game-item-arrow {
+      color: #a78bfa;
+    }
+
+    /* Hide both widgets when tools sidebar is open */
+    body.tools-sidebar-open .social-floating-trigger,
+    body.tools-sidebar-open .social-share-popup,
+    body.tools-sidebar-open .social-toast,
+    body.tools-sidebar-open .games-floating-trigger,
+    body.tools-sidebar-open .games-popup {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
     .social-popup-header {
       display: flex;
       align-items: center;
@@ -331,10 +648,26 @@ body.tools-sidebar-open .social-toast {
         width: 18px;
         height: 18px;
       }
+      .games-floating-trigger {
+        bottom: 235px;
+        right: 16px;
+        width: 46px;
+        height: 46px;
+      }
+      .games-floating-trigger svg {
+        width: 22px;
+        height: 22px;
+      }
       .social-share-popup {
         bottom: 232px;
         right: 16px;
         min-width: 160px;
+        padding: 14px 14px 12px;
+      }
+      .games-popup {
+        bottom: 292px;
+        right: 16px;
+        min-width: 200px;
         padding: 14px 14px 12px;
       }
       .social-btn {
@@ -350,13 +683,29 @@ body.tools-sidebar-open .social-toast {
         width: 16px;
         height: 16px;
       }
+      .game-item {
+        padding: 8px 10px;
+        gap: 10px;
+      }
+      .game-item-emoji {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+      }
+      .game-item-title {
+        font-size: 0.75rem;
+      }
+      .game-item-desc {
+        font-size: 0.62rem;
+      }
       .social-toast {
         bottom: 282px;
         right: 16px;
         font-size: 0.75rem;
         padding: 6px 14px;
       }
-      .social-popup-header span {
+      .social-popup-header span,
+      .games-popup-header span {
         font-size: 0.72rem;
       }
     }
@@ -372,10 +721,26 @@ body.tools-sidebar-open .social-toast {
         width: 16px;
         height: 16px;
       }
+      .games-floating-trigger {
+        bottom: 219px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+      }
+      .games-floating-trigger svg {
+        width: 20px;
+        height: 20px;
+      }
       .social-share-popup {
         bottom: 216px;
         right: 12px;
         min-width: 140px;
+        padding: 10px 10px 8px;
+      }
+      .games-popup {
+        bottom: 270px;
+        right: 12px;
+        min-width: 180px;
         padding: 10px 10px 8px;
       }
       .social-btn {
@@ -391,11 +756,79 @@ body.tools-sidebar-open .social-toast {
         width: 14px;
         height: 14px;
       }
+      .game-item {
+        font-size: 0.7rem;
+        padding: 6px 8px;
+        gap: 8px;
+      }
+      .game-item-emoji {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+      }
     }
   `;
   document.head.appendChild(styleEl);
 
-  // ---- Build DOM ----
+  // =========================================================
+  // ================= GAMES WIDGET (NEW) ====================
+  // =========================================================
+
+  // Games trigger button
+  const gamesTrigger = document.createElement('div');
+  gamesTrigger.className = 'games-floating-trigger';
+  gamesTrigger.setAttribute('aria-label', 'Play games');
+  gamesTrigger.setAttribute('role', 'button');
+  gamesTrigger.setAttribute('tabindex', '0');
+  gamesTrigger.innerHTML = ICONS.joystick;
+  document.body.appendChild(gamesTrigger);
+
+  // Games popup panel
+  const gamesPopup = document.createElement('div');
+  gamesPopup.className = 'games-popup';
+  gamesPopup.id = 'gamesPopup';
+  gamesPopup.setAttribute('role', 'dialog');
+  gamesPopup.setAttribute('aria-label', 'Games menu');
+
+  // Games popup header
+  const gamesHeader = document.createElement('div');
+  gamesHeader.className = 'games-popup-header';
+  gamesHeader.innerHTML = `
+    <span><span class="games-header-icon">${ICONS.gamepad}</span> Play Games</span>
+    <button class="games-popup-close" id="gamesPopupClose" aria-label="Close games panel">${ICONS.close}</button>
+  `;
+  gamesPopup.appendChild(gamesHeader);
+
+  // Games list
+  const gamesList = document.createElement('div');
+  gamesList.className = 'games-list';
+
+  GAMES.forEach((game) => {
+    const item = document.createElement('a');
+    item.className = 'game-item';
+    item.href = game.url;
+    item.setAttribute('aria-label', `Play ${game.label}`);
+    item.innerHTML = `
+      <span class="game-item-emoji">${game.emoji}</span>
+      <span class="game-item-info">
+        <span class="game-item-title">${game.label}</span>
+        <span class="game-item-desc">${game.description}</span>
+      </span>
+      <span class="game-item-arrow">→</span>
+    `;
+    item.addEventListener('click', () => {
+      closeGamesPopup();
+    });
+    gamesList.appendChild(item);
+  });
+
+  gamesPopup.appendChild(gamesList);
+  document.body.appendChild(gamesPopup);
+
+  // =========================================================
+  // ================= SOCIAL WIDGET =========================
+  // =========================================================
+
   // Trigger button
   const trigger = document.createElement('div');
   trigger.className = 'social-floating-trigger';
@@ -498,7 +931,9 @@ body.tools-sidebar-open .social-toast {
     closePopup();
   }
 
+  // ---- Social popup open/close ----
   function openPopup() {
+    closeGamesPopup(); // ensure only one open
     popup.classList.add('open');
     trigger.classList.add('active');
     trigger.innerHTML = ICONS.close;
@@ -518,38 +953,70 @@ body.tools-sidebar-open .social-toast {
     }
   }
 
+  // ---- Games popup open/close ----
+  function openGamesPopup() {
+    closePopup(); // ensure only one open
+    gamesPopup.classList.add('open');
+    gamesTrigger.classList.add('active');
+    gamesTrigger.innerHTML = ICONS.close;
+  }
+
+  function closeGamesPopup() {
+    gamesPopup.classList.remove('open');
+    gamesTrigger.classList.remove('active');
+    gamesTrigger.innerHTML = ICONS.joystick;
+  }
+
+  function toggleGamesPopup() {
+    if (gamesPopup.classList.contains('open')) {
+      closeGamesPopup();
+    } else {
+      openGamesPopup();
+    }
+  }
+
   // ---- Event listeners ----
+  // Social trigger
   trigger.addEventListener('click', (e) => {
     e.stopPropagation();
     togglePopup();
   });
-  // ---- Hide when tools sidebar is open ----
-const sidebarObserver = new MutationObserver(() => {
-  const sidebar = document.getElementById('toolsFixedSidebar');
-  if (sidebar && sidebar.classList.contains('open')) {
-    document.body.classList.add('tools-sidebar-open');
-    closePopup();
-  } else {
-    document.body.classList.remove('tools-sidebar-open');
-  }
-});
 
-// Observe the sidebar when it exists
-const sidebarEl = document.getElementById('toolsFixedSidebar');
-if (sidebarEl) {
-  sidebarObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class'] });
-} else {
-  // Sidebar may not be in DOM yet — wait for it
-  const bodyObserver = new MutationObserver(() => {
-    const sb = document.getElementById('toolsFixedSidebar');
-    if (sb) {
-      bodyObserver.disconnect();
-      sidebarObserver.observe(sb, { attributes: true, attributeFilter: ['class'] });
+  // Games trigger
+  gamesTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleGamesPopup();
+  });
+
+  // ---- Hide when tools sidebar is open ----
+  const sidebarObserver = new MutationObserver(() => {
+    const sidebar = document.getElementById('toolsFixedSidebar');
+    if (sidebar && sidebar.classList.contains('open')) {
+      document.body.classList.add('tools-sidebar-open');
+      closePopup();
+      closeGamesPopup();
+    } else {
+      document.body.classList.remove('tools-sidebar-open');
     }
   });
-  bodyObserver.observe(document.body, { childList: true, subtree: true });
-}
-  // Close button inside popup
+
+  // Observe the sidebar when it exists
+  const sidebarEl = document.getElementById('toolsFixedSidebar');
+  if (sidebarEl) {
+    sidebarObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class'] });
+  } else {
+    // Sidebar may not be in DOM yet — wait for it
+    const bodyObserver = new MutationObserver(() => {
+      const sb = document.getElementById('toolsFixedSidebar');
+      if (sb) {
+        bodyObserver.disconnect();
+        sidebarObserver.observe(sb, { attributes: true, attributeFilter: ['class'] });
+      }
+    });
+    bodyObserver.observe(document.body, { childList: true, subtree: true });
+  }
+
+  // Close button inside social popup
   const closeBtn = document.getElementById('socialPopupClose');
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {
@@ -558,25 +1025,61 @@ if (sidebarEl) {
     });
   }
 
-  // Close on click outside popup and trigger
+  // Close button inside games popup
+  const gamesCloseBtn = document.getElementById('gamesPopupClose');
+  if (gamesCloseBtn) {
+    gamesCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeGamesPopup();
+    });
+  }
+
+  // Close on click outside popups
   document.addEventListener('click', (e) => {
+    const target = e.target;
+
+    // Social popup
     if (popup.classList.contains('open')) {
-      const target = e.target;
       if (!popup.contains(target) && target !== trigger && !trigger.contains(target)) {
         closePopup();
+      }
+    }
+
+    // Games popup
+    if (gamesPopup.classList.contains('open')) {
+      if (!gamesPopup.contains(target) && target !== gamesTrigger && !gamesTrigger.contains(target)) {
+        closeGamesPopup();
       }
     }
   });
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && popup.classList.contains('open')) {
-      closePopup();
+    if (e.key === 'Escape') {
+      if (popup.classList.contains('open')) closePopup();
+      if (gamesPopup.classList.contains('open')) closeGamesPopup();
     }
   });
 
-  // Prevent popup close when clicking inside it
+  // Prevent popups from closing when clicking inside them
   popup.addEventListener('click', (e) => e.stopPropagation());
+  gamesPopup.addEventListener('click', (e) => e.stopPropagation());
 
-  console.log('Social Share Widget initialized with SVG icons and vertical layout.');
+  // Keyboard support for games trigger
+  gamesTrigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleGamesPopup();
+    }
+  });
+
+  // Keyboard support for social trigger
+  trigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      togglePopup();
+    }
+  });
+
+  console.log('Social Share + Games Widgets initialized with SVG icons.');
 })();

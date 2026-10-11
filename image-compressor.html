@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Compressor – Free Online JPG, PNG, WebP Compressor | WebNotePad</title>
+    <meta name="description" content="Free online image compressor. Reduce JPG, PNG, and WebP file sizes up to 90% without losing quality. No upload, no signup, 100% private. Batch compress images instantly in your browser." />
+    <meta name="keywords" content="image compressor, free image compressor, compress JPG, compress PNG, compress WebP, reduce image size, image optimizer, online image compressor, batch image compressor, photo compressor" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/image-compressor" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/image-compressor" />
+    <meta property="og:title" content="Free Online Image Compressor – Reduce JPG, PNG, WebP Size" />
+    <meta property="og:description" content="Compress images up to 90% smaller without losing quality. Fast, private, and free. No upload required." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Image Compressor – Reduce JPG, PNG, WebP Size" />
+    <meta name="twitter:description" content="Compress images up to 90% smaller without losing quality. Fast, private, and free." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Image Compressor by WebNotePad",
+            "url": "https://webnotepad.github.io/image-compressor",
+            "description": "A free online image compressor to reduce JPG, PNG, and WebP file sizes directly in your browser. No upload, no signup, 100% private.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Compress JPG images",
+                "Compress PNG images",
+                "Compress WebP images",
+                "Batch image compression",
+                "Quality slider control",
+                "No upload – runs in browser",
+                "100% private",
+                "Mobile-friendly"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do I compress an image?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Click the upload area or drag and drop your image. Adjust the quality slider to your preferred compression level and click Compress. Your compressed image will download automatically."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this image compressor free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, our image compressor is 100% free with no signup, no upload limits, and no hidden costs. Compress as many images as you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are my images uploaded to a server?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No! All compression happens locally in your browser using JavaScript. Your images never leave your device, ensuring complete privacy."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Which formats are supported?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We support JPG, PNG, and WebP as both input and output formats. GIF and BMP can be compressed and converted to JPG or PNG."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How much can I compress an image?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Depending on the original image and quality settings, you can reduce file size by 50% to 90%. The quality slider lets you balance between file size and visual quality."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I compress multiple images at once?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, you can select multiple files and compress them all in one batch. Each compressed image will download separately or you can download them all at once."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ic-accent: #b45309;
+            --ic-accent-light: #f59e0b;
+            --ic-accent-pale: #fffbeb;
+            --ic-surface: #faf8f4;
+            --ic-border: #e8e2d6;
+            --ic-ink: #1a1a2e;
+            --ic-muted: #6b6b85;
+            --ic-warm: #f4f0e8;
+            --ic-radius: 8px;
+            --ic-radius-lg: 14px;
+            --ic-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ic-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --ic-success: #16a34a;
+            --ic-error: #dc2626;
+            --ic-gold: #b8960c;
+        }
+
+        body.dark {
+            --ic-accent: #fbbf24;
+            --ic-accent-light: #fcd34d;
+            --ic-accent-pale: #2e2410;
+            --ic-surface: #141418;
+            --ic-border: #2a2a34;
+            --ic-ink: #e8e4dc;
+            --ic-muted: #8a8678;
+            --ic-warm: #1c1c22;
+            --ic-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --ic-success: #4ade80;
+            --ic-error: #f87171;
+        }
+
+        /* ===== HERO ===== */
+        .ic-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--ic-surface);
+            transition: background var(--ic-transition);
+        }
+        .ic-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ic-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ic-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ic-hero-bg { opacity: 0.1; }
+        .ic-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ic-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ic-hero-glow { opacity: 0.35; }
+        .ic-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .ic-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--ic-accent-pale);
+            color: var(--ic-accent);
+            border: 1px solid var(--ic-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ic-hero-badge { background: rgba(251, 191, 36, 0.18); }
+        .ic-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--ic-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ic-hero-accent {
+            color: var(--ic-accent);
+            font-style: italic;
+        }
+        .ic-hero-sub {
+            font-size: 0.9rem;
+            color: var(--ic-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ic-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .ic-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ic-demo-chip {
+            padding: 7px 16px;
+            background: var(--ic-warm);
+            border: 1px solid var(--ic-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ic-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ic-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ic-demo-chip:hover {
+            background: var(--ic-accent-pale);
+            border-color: var(--ic-accent);
+            color: var(--ic-accent);
+        }
+
+        /* ===== COMPRESSOR APP ===== */
+        .ic-app-section {
+            padding: 0 0 80px;
+            background: var(--ic-surface);
+            transition: background var(--ic-transition);
+        }
+        .ic-app-shell {
+            background: var(--ic-warm);
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius-lg);
+            box-shadow: var(--ic-shadow);
+            overflow: hidden;
+            transition: all var(--ic-transition);
+        }
+        .ic-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--ic-border);
+            background: var(--ic-surface);
+            flex-wrap: wrap;
+        }
+        .ic-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ic-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ic-app-title .ic-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ic-accent);
+            display: inline-block;
+            animation: icPulse 2s infinite;
+        }
+        @keyframes icPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Upload area */
+        .ic-upload-area {
+            padding: 36px 24px;
+            margin: 24px;
+            border: 2px dashed var(--ic-border);
+            border-radius: var(--ic-radius-lg);
+            background: var(--ic-surface);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--ic-transition);
+            position: relative;
+        }
+        .ic-upload-area:hover,
+        .ic-upload-area.ic-drag-over {
+            border-color: var(--ic-accent);
+            background: var(--ic-accent-pale);
+        }
+        .ic-upload-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .ic-upload-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ic-ink);
+            margin-bottom: 4px;
+        }
+        .ic-upload-sub {
+            font-size: 0.8rem;
+            color: var(--ic-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        .ic-upload-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Controls */
+        .ic-controls-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            border-top: 1px solid var(--ic-border);
+            border-bottom: 1px solid var(--ic-border);
+            background: var(--ic-surface);
+            flex-wrap: wrap;
+        }
+        .ic-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            min-width: 200px;
+        }
+        .ic-control-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--ic-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .ic-range-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        .ic-range {
+            flex: 1;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--ic-border);
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+        .ic-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--ic-accent);
+            cursor: pointer;
+            border: 2px solid var(--ic-surface);
+            box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
+            transition: transform 0.15s ease;
+        }
+        .ic-range::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        .ic-range::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--ic-accent);
+            cursor: pointer;
+            border: 2px solid var(--ic-surface);
+            box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3);
+        }
+        .ic-range-value {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ic-accent);
+            min-width: 42px;
+            text-align: right;
+        }
+        .ic-select {
+            padding: 7px 12px;
+            border-radius: var(--ic-radius);
+            border: 1px solid var(--ic-border);
+            background: var(--ic-surface);
+            color: var(--ic-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--ic-transition);
+            min-width: 110px;
+        }
+        .ic-select:focus {
+            border-color: var(--ic-accent);
+            box-shadow: 0 0 0 3px var(--ic-accent-pale);
+        }
+        .ic-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--ic-accent);
+            color: #ffffff;
+            border: 2px solid var(--ic-accent);
+            border-radius: var(--ic-radius);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ic-transition);
+            white-space: nowrap;
+        }
+        .ic-btn:hover {
+            background: var(--ic-accent-light);
+            border-color: var(--ic-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(180, 83, 9, 0.3);
+        }
+        .ic-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .ic-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: transparent;
+            color: var(--ic-ink);
+            border: 2px solid var(--ic-border);
+            border-radius: var(--ic-radius);
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ic-transition);
+            white-space: nowrap;
+        }
+        .ic-btn-secondary:hover {
+            background: var(--ic-warm);
+            border-color: var(--ic-muted);
+        }
+        .ic-btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .ic-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Savings summary */
+        .ic-savings-summary {
+            display: none;
+            padding: 16px 24px;
+            background: var(--ic-accent-pale);
+            border-top: 1px solid var(--ic-border);
+            border-bottom: 1px solid var(--ic-border);
+            text-align: center;
+            transition: all var(--ic-transition);
+        }
+        body.dark .ic-savings-summary { background: rgba(251, 191, 36, 0.1); }
+        .ic-savings-summary.ic-visible { display: block; }
+        .ic-savings-text {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--ic-ink);
+        }
+        .ic-savings-text strong {
+            color: var(--ic-accent);
+            font-weight: 700;
+        }
+
+        /* File list */
+        .ic-file-list {
+            padding: 0 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 480px;
+            overflow-y: auto;
+        }
+        .ic-file-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--ic-surface);
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius);
+            transition: all var(--ic-transition);
+        }
+        .ic-file-item:hover {
+            border-color: var(--ic-accent);
+        }
+        .ic-file-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: var(--ic-warm);
+            flex-shrink: 0;
+            border: 1px solid var(--ic-border);
+        }
+        .ic-file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .ic-file-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ic-ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ic-file-meta {
+            font-size: 0.7rem;
+            color: var(--ic-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ic-file-meta .ic-reduction {
+            color: var(--ic-success);
+            font-weight: 700;
+        }
+        .ic-file-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            padding: 3px 10px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .ic-file-status.ic-pending {
+            background: var(--ic-warm);
+            color: var(--ic-muted);
+        }
+        .ic-file-status.ic-processing {
+            background: var(--ic-accent-pale);
+            color: var(--ic-accent);
+        }
+        .ic-file-status.ic-done {
+            background: #dcfce7;
+            color: var(--ic-success);
+        }
+        body.dark .ic-file-status.ic-done {
+            background: rgba(74, 222, 128, 0.15);
+        }
+        .ic-file-status.ic-error {
+            background: #fde8e8;
+            color: var(--ic-error);
+        }
+        body.dark .ic-file-status.ic-error {
+            background: rgba(248, 113, 113, 0.15);
+        }
+        .ic-file-download {
+            color: var(--ic-accent);
+            font-size: 1.1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--ic-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            display: none;
+        }
+        .ic-file-download.ic-visible {
+            display: inline-flex;
+        }
+        .ic-file-download:hover {
+            background: var(--ic-accent-pale);
+        }
+        .ic-remove-file {
+            color: var(--ic-muted);
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--ic-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+        .ic-remove-file:hover {
+            background: #fde8e8;
+            color: var(--ic-error);
+        }
+
+        /* Empty state */
+        .ic-empty-state {
+            text-align: center;
+            padding: 24px;
+            color: var(--ic-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Progress bar */
+        .ic-progress-bar {
+            height: 4px;
+            background: var(--ic-border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 24px 16px;
+        }
+        .ic-progress-fill {
+            height: 100%;
+            background: var(--ic-accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== ARTICLE CONTENT ===== */
+        .ic-article {
+            background: var(--ic-surface);
+            transition: background var(--ic-transition);
+        }
+        .ic-article-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .ic-article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: var(--ic-ink);
+            line-height: 1.25;
+            margin-bottom: 20px;
+            margin-top: 48px;
+            letter-spacing: -0.02em;
+        }
+        .ic-article h2:first-child { margin-top: 0; }
+        .ic-article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ic-ink);
+            margin-bottom: 14px;
+            margin-top: 36px;
+        }
+        .ic-article p {
+            font-size: 1rem;
+            color: var(--ic-muted);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .ic-article p strong {
+            color: var(--ic-ink);
+            font-weight: 600;
+        }
+        .ic-article p em {
+            color: var(--ic-accent);
+            font-style: italic;
+        }
+        .ic-article ul {
+            margin: 0 0 24px 0;
+            padding-left: 24px;
+            list-style: none;
+        }
+        .ic-article ul li {
+            font-size: 0.95rem;
+            color: var(--ic-muted);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .ic-article ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--ic-accent);
+            font-weight: 700;
+        }
+        .ic-article blockquote {
+            border-left: 3px solid var(--ic-accent);
+            padding: 16px 24px;
+            margin: 28px 0;
+            background: var(--ic-warm);
+            border-radius: 0 var(--ic-radius) var(--ic-radius) 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--ic-ink);
+            line-height: 1.6;
+        }
+        .ic-article-info-box {
+            background: var(--ic-warm);
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius-lg);
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+        .ic-article-info-box h4 {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ic-accent);
+            margin-bottom: 12px;
+        }
+        .ic-article-info-box ul {
+            margin-bottom: 0;
+        }
+        .ic-article-info-box ul li {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+        .ic-article-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius);
+            overflow: hidden;
+        }
+        .ic-article-table th {
+            background: var(--ic-warm);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--ic-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .ic-article-table td {
+            padding: 12px 16px;
+            color: var(--ic-muted);
+            border-top: 1px solid var(--ic-border);
+            line-height: 1.6;
+        }
+        .ic-article-table tr:hover td {
+            background: var(--ic-warm);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .ic-how {
+            background: var(--ic-warm);
+            transition: background var(--ic-transition);
+        }
+        .ic-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ic-how-card {
+            background: var(--ic-surface);
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius-lg);
+            padding: 26px;
+            transition: all var(--ic-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ic-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ic-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ic-transition);
+        }
+        .ic-how-card:hover { box-shadow: var(--ic-shadow); transform: translateY(-3px); }
+        .ic-how-card:hover::before { transform: scaleX(1); }
+        .ic-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ic-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ic-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ic-ink);
+            margin-bottom: 8px;
+        }
+        .ic-how-card p {
+            font-size: 0.85rem;
+            color: var(--ic-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .ic-faq {
+            background: var(--ic-warm);
+            transition: background var(--ic-transition);
+        }
+        .ic-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ic-faq-item {
+            border: 1px solid var(--ic-border);
+            border-radius: var(--ic-radius);
+            overflow: hidden;
+            background: var(--ic-surface);
+            transition: border-color var(--ic-transition);
+        }
+        .ic-faq-item:has(.ic-faq-a[style*="block"]) { border-color: var(--ic-accent); }
+        .ic-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ic-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--ic-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ic-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ic-muted);
+            flex-shrink: 0;
+            transition: transform var(--ic-transition);
+        }
+        .ic-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ic-accent); }
+        .ic-faq-q:hover { background: var(--ic-warm); }
+        .ic-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ic-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ic-muted);
+            line-height: 1.7;
+        }
+
+        /* Toast */
+        .ic-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ic-ink);
+            color: var(--ic-surface);
+            padding: 12px 20px;
+            border-radius: var(--ic-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ic-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .ic-toast {
+            background: var(--ic-warm);
+            color: var(--ic-ink);
+            border: 1px solid var(--ic-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ic-how-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .ic-hero { min-height: auto; padding: 24px 0 20px; }
+            .ic-how-grid { grid-template-columns: 1fr; }
+            .ic-upload-area { padding: 24px 16px; margin: 16px; }
+            .ic-controls-bar { padding: 12px 16px; gap: 10px; }
+            .ic-control-group { min-width: 100%; }
+            .ic-btn-group { width: 100%; }
+            .ic-btn-group .ic-btn,
+            .ic-btn-group .ic-btn-secondary { flex: 1; justify-content: center; }
+            .ic-file-list { padding: 0 16px 16px; }
+            .ic-file-item { padding: 8px 10px; gap: 8px; }
+            .ic-file-thumb { width: 36px; height: 36px; }
+            .ic-hero-demo { gap: 6px; }
+            .ic-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .ic-savings-summary { padding: 12px 16px; }
+            .ic-article-table { font-size: 0.8rem; }
+            .ic-article-table th,
+            .ic-article-table td { padding: 10px 12px; }
+        }
+        @media (max-width: 480px) {
+            .ic-hero-title { font-size: 1.6rem; }
+            .ic-upload-area { padding: 20px 12px; margin: 12px; }
+            .ic-upload-icon { font-size: 2rem; }
+            .ic-upload-text { font-size: 0.85rem; }
+            .ic-controls-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; }
+            .ic-control-group { flex-direction: column; align-items: stretch; gap: 6px; }
+            .ic-control-label { text-align: left; }
+            .ic-file-list { padding: 0 12px 12px; }
+            .ic-file-item { flex-wrap: wrap; }
+            .ic-file-info { flex: 1; min-width: 0; }
+            .ic-file-status { font-size: 0.6rem; padding: 2px 8px; }
+            .ic-savings-text { font-size: 0.72rem; }
+            .ic-article-info-box { padding: 18px 16px; }
+            .ic-article blockquote { padding: 12px 18px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="ic-hero" id="home" aria-label="Image Compressor Hero">
+            <div class="ic-hero-bg"></div>
+            <div class="ic-hero-glow"></div>
+            <div class="container ic-hero-inner">
+                <div class="ic-hero-badge">🗜️ Free Online Image Compressor</div>
+                <h1 class="ic-hero-title">
+                    Compress images.<br />
+                    <span class="ic-hero-accent">Save space, keep quality.</span>
+                </h1>
+                <p class="ic-hero-sub">Reduce JPG, PNG, and WebP file sizes by up to 90% without visible quality loss. Compress images directly in your browser — no upload, no signup, 100% private.</p>
+                <div class="ic-hero-cta">
+                    <a href="#image-compressor" class="btn btn-primary" style="background:var(--ic-accent);border-color:var(--ic-accent);">Start Compressing <span>→</span></a>
+                </div>
+                <div class="ic-hero-demo">
+                    <span class="ic-demo-chip">🔒 100% Private</span>
+                    <span class="ic-demo-chip">⚡ Instant Compression</span>
+                    <span class="ic-demo-chip">📁 Batch Support</span>
+                    <span class="ic-demo-chip">📱 Mobile Friendly</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IMAGE COMPRESSOR APP SECTION ===== -->
+        <section class="ic-app-section" id="image-compressor" aria-label="Image Compressor Application">
+            <div class="container">
+                <div class="ic-app-shell">
+                    <!-- App Header -->
+                    <div class="ic-app-header">
+                        <span class="ic-app-title"><span class="ic-dot"></span> Image Compressor</span>
+                        <div class="ic-app-actions-header">
+                            <button class="btn-tool" id="icClearAllBtn" title="Clear all files" aria-label="Clear all files">✕ Clear All</button>
+                        </div>
+                    </div>
+
+                    <!-- Upload Area -->
+                    <div class="ic-upload-area" id="icUploadArea">
+                        <input type="file" class="ic-upload-input" id="icFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" multiple />
+                        <span class="ic-upload-icon">📤</span>
+                        <div class="ic-upload-text">Drop images here or click to browse</div>
+                        <div class="ic-upload-sub">Supports JPG, PNG, WebP, GIF, BMP · Max 30 MB each</div>
+                    </div>
+
+                    <!-- Controls Bar -->
+                    <div class="ic-controls-bar">
+                        <div class="ic-control-group">
+                            <span class="ic-control-label">Quality</span>
+                            <div class="ic-range-wrap">
+                                <input type="range" class="ic-range" id="icQualityRange" min="10" max="100" value="75" step="5" aria-label="Compression quality" />
+                                <span class="ic-range-value" id="icQualityValue">75%</span>
+                            </div>
+                        </div>
+                        <div class="ic-control-group">
+                            <span class="ic-control-label">Output Format</span>
+                            <select class="ic-select" id="icOutputFormat" aria-label="Output format">
+                                <option value="auto" selected>Auto (keep original)</option>
+                                <option value="image/jpeg">JPG</option>
+                                <option value="image/png">PNG</option>
+                                <option value="image/webp">WebP</option>
+                            </select>
+                        </div>
+                        <div class="ic-btn-group">
+                            <button class="ic-btn" id="icCompressBtn" disabled>🗜️ Compress All</button>
+                            <button class="ic-btn-secondary" id="icDownloadAllBtn" disabled>⬇ Download All</button>
+                        </div>
+                    </div>
+
+                    <!-- Savings Summary -->
+                    <div class="ic-savings-summary" id="icSavingsSummary">
+                        <div class="ic-savings-text" id="icSavingsText"></div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="ic-progress-bar" id="icProgressBar" style="display:none;">
+                        <div class="ic-progress-fill" id="icProgressFill"></div>
+                    </div>
+
+                    <!-- File List -->
+                    <div class="ic-file-list" id="icFileList" role="list" aria-label="Selected files">
+                        <div class="ic-empty-state">No images selected yet. Upload files to begin compressing.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section ic-how" id="how-to-use" aria-label="How to use the image compressor">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Compress images in <em>3 easy steps.</em></h2>
+                <div class="ic-how-grid">
+                    <div class="ic-how-card">
+                        <div class="ic-how-num">01</div>
+                        <h3>Upload Images</h3>
+                        <p>Drag and drop your images or click to browse. Select multiple files at once — JPG, PNG, WebP, GIF, and BMP are all supported.</p>
+                    </div>
+                    <div class="ic-how-card">
+                        <div class="ic-how-num">02</div>
+                        <h3>Adjust Quality</h3>
+                        <p>Use the quality slider to control the balance between file size and visual quality. A lower percentage means smaller files.</p>
+                    </div>
+                    <div class="ic-how-card">
+                        <div class="ic-how-num">03</div>
+                        <h3>Compress & Download</h3>
+                        <p>Click "Compress All" and watch your images shrink. Download each file individually or grab them all at once.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ARTICLE CONTENT ===== -->
+        <section class="section ic-article" id="article" aria-label="About image compression">
+            <div class="container ic-article-inner">
+                <h2>The Complete Guide to Image Compression</h2>
+                <p>Images are the lifeblood of the modern web. They make articles engaging, products desirable, and memories vivid. But they also come with a cost: <strong>file size</strong>. Large images slow down websites, fill up storage, and make sharing a chore. That's where image compression comes in.</p>
+                <p>Our <strong>free online image compressor</strong> is designed to solve this problem elegantly. It reduces the file size of your JPG, PNG, and WebP images by up to 90% — all without uploading a single byte to a server. Everything happens locally in your browser, which means your images stay completely private.</p>
+
+                <h2>Why Compress Images?</h2>
+                <p>Whether you're a web developer, a blogger, a photographer, or someone who just wants to free up phone storage, image compression matters. Here's why:</p>
+                <ul>
+                    <li><strong>Faster websites:</strong> Compressed images load quicker, improving user experience and SEO rankings. Google explicitly considers page speed as a ranking factor.</li>
+                    <li><strong>Lower bandwidth costs:</strong> If you host images on a server, smaller files mean less data transfer and lower hosting bills.</li>
+                    <li><strong>More storage:</strong> Compressing your photo library can free up gigabytes of space on your device or cloud storage.</li>
+                    <li><strong>Easier sharing:</strong> Smaller files are quicker to send via email, messaging apps, or upload to social media.</li>
+                    <li><strong>Better mobile experience:</strong> Users on slow connections will thank you for not forcing them to download massive images.</li>
+                </ul>
+
+                <blockquote>"The best image is the one that looks great and weighs nothing." — Every web performance engineer, ever.</blockquote>
+
+                <h2>How Image Compression Works</h2>
+                <p>There are two main types of image compression: <strong>lossy</strong> and <strong>lossless</strong>.</p>
+                <h3>Lossy Compression</h3>
+                <p>Lossy compression reduces file size by permanently removing some visual information. The trick is that it removes details the human eye is unlikely to notice. JPEG is the classic example of a lossy format. When you move our quality slider to a lower percentage, you're increasing the amount of lossy compression applied.</p>
+                <p>The result? A dramatically smaller file that still looks great. For most web images, a quality setting between 70% and 85% is virtually indistinguishable from the original.</p>
+                <h3>Lossless Compression</h3>
+                <p>Lossless compression reduces file size without discarding any data. When you decompress the image, it's pixel-for-pixel identical to the original. PNG is a lossless format. Lossless compression typically achieves smaller savings than lossy compression — usually around 10% to 30% — but it's perfect for images that need to remain exactly as they are, like screenshots or graphics with text.</p>
+
+                <div class="ic-article-info-box">
+                    <h4>Quick Compression Cheat Sheet</h4>
+                    <ul>
+                        <li><strong>Photos:</strong> Use JPG with 70–85% quality for the best size-to-quality ratio.</li>
+                        <li><strong>Graphics with text:</strong> Use PNG or WebP for crisp edges and readable text.</li>
+                        <li><strong>Modern websites:</strong> Use WebP — it's supported by all modern browsers and offers excellent compression.</li>
+                        <li><strong>Transparency needed:</strong> Use PNG or WebP, not JPG (which doesn't support transparency).</li>
+                    </ul>
+                </div>
+
+                <h2>JPG vs PNG vs WebP: Which Should You Use?</h2>
+                <p>Choosing the right format is half the battle. Here's a quick comparison:</p>
+                <table class="ic-article-table">
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Best For</th>
+                            <th>Compression</th>
+                            <th>Transparency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>JPG</strong></td>
+                            <td>Photographs, realistic images</td>
+                            <td>Lossy, excellent savings</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PNG</strong></td>
+                            <td>Logos, screenshots, text graphics</td>
+                            <td>Lossless, moderate savings</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WebP</strong></td>
+                            <td>All web images, modern sites</td>
+                            <td>Both lossy & lossless</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Our compressor supports all three formats. You can keep your original format with the "Auto" setting, or convert to a different format if that better suits your needs.</p>
+
+                <h2>How Much Can You Compress an Image?</h2>
+                <p>The amount of compression you can achieve depends on several factors: the original image's format, its dimensions, and how much quality loss you're willing to accept. Here are some typical results you can expect:</p>
+                <ul>
+                    <li><strong>JPG at 75% quality:</strong> Typically reduces file size by 60–80% with minimal visible difference.</li>
+                    <li><strong>JPG at 50% quality:</strong> Can reduce file size by 80–90%, but artifacts may become visible on close inspection.</li>
+                    <li><strong>PNG converted to WebP:</strong> Often reduces size by 50–70% while maintaining transparency.</li>
+                    <li><strong>WebP at 80% quality:</strong> Usually 25–35% smaller than an equivalent JPG.</li>
+                </ul>
+                <p>Our live savings summary shows you exactly how much space you've saved after each compression run, so you can experiment and find the sweet spot for your images.</p>
+
+                <h2>Why Browser-Based Compression Matters</h2>
+                <p>Most online image compressors require you to upload your files to their servers. This raises several concerns:</p>
+                <ul>
+                    <li><strong>Privacy:</strong> You have no idea what happens to your images once they're uploaded. They could be stored, analyzed, or even shared.</li>
+                    <li><strong>Security:</strong> Uploading sensitive images — like ID documents or private photos — to an unknown server is a risk.</li>
+                    <li><strong>Speed:</strong> Uploading large files takes time, especially on slow connections. Then you have to wait for processing, then download the result.</li>
+                    <li><strong>Limits:</strong> Many services impose file size limits, daily conversion limits, or require a paid plan for batch processing.</li>
+                </ul>
+                <p>Our <strong>browser-based compressor</strong> eliminates all of these concerns. Your images never leave your device. There are no limits, no waiting for uploads, and no privacy worries. It's faster, safer, and completely free.</p>
+
+                <h2>Who Is This Image Compressor For?</h2>
+                <p>This tool is for anyone who works with images:</p>
+                <ul>
+                    <li><strong>Web developers</strong> optimizing site assets for faster load times.</li>
+                    <li><strong>Bloggers and content creators</strong> who want their pages to load quickly.</li>
+                    <li><strong>Photographers</strong> preparing images for online portfolios or client delivery.</li>
+                    <li><strong>Social media managers</strong> reducing image sizes before posting.</li>
+                    <li><strong>Students and office workers</strong> shrinking images for presentations or documents.</li>
+                    <li><strong>Anyone</strong> who needs to free up space on their phone or computer.</li>
+                </ul>
+
+                <h2>Tips for Best Results</h2>
+                <ul>
+                    <li><strong>Start with a high-quality original.</strong> Compression works best when the source image is sharp and well-exposed.</li>
+                    <li><strong>Don't over-compress.</strong> A quality setting of 70–85% is usually the sweet spot for photos.</li>
+                    <li><strong>Resize before compressing.</strong> If you don't need a 4000-pixel-wide image, resize it first. Smaller dimensions mean smaller files.</li>
+                    <li><strong>Use WebP for the web.</strong> It offers the best compression-to-quality ratio for modern browsers.</li>
+                    <li><strong>Test different settings.</strong> Our tool lets you experiment freely — compress the same image at different qualities to see what works best.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                <p>We've compiled answers to the most common questions about image compression below. If you don't find what you're looking for, feel free to reach out.</p>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section ic-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ic-faq-list" id="icFaqList">
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">How do I compress an image?</button>
+                        <div class="ic-faq-a"><p>Click the upload area or drag and drop your image. Adjust the quality slider to your preferred compression level and click Compress. Your compressed image will download automatically.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Is this image compressor free?</button>
+                        <div class="ic-faq-a"><p>Yes, our image compressor is 100% free with no signup, no upload limits, and no hidden costs. Compress as many images as you like.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Are my images uploaded to a server?</button>
+                        <div class="ic-faq-a"><p>No! All compression happens locally in your browser using JavaScript. Your images never leave your device, ensuring complete privacy.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Which formats are supported?</button>
+                        <div class="ic-faq-a"><p>We support JPG, PNG, and WebP as both input and output formats. GIF and BMP can be compressed and converted to JPG or PNG.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">How much can I compress an image?</button>
+                        <div class="ic-faq-a"><p>Depending on the original image and quality settings, you can reduce file size by 50% to 90%. The quality slider lets you balance between file size and visual quality.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Can I compress multiple images at once?</button>
+                        <div class="ic-faq-a"><p>Yes, you can select multiple files and compress them all in one batch. Each compressed image will download separately or you can download them all at once.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Does compression reduce image quality?</button>
+                        <div class="ic-faq-a"><p>Lossy compression does reduce quality slightly, but at settings of 70–85% the difference is usually invisible to the human eye. Lossless compression (available for PNG) preserves perfect quality.</p></div>
+                    </div>
+                    <div class="ic-faq-item">
+                        <button class="ic-faq-q" aria-expanded="false">Does this work on mobile?</button>
+                        <div class="ic-faq-a"><p>Absolutely! Our image compressor is fully responsive and works on smartphones and tablets. You can compress images on any device with a modern browser.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="ic-toast" id="icToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM ELEMENTS =====
+        const uploadArea = document.getElementById('icUploadArea');
+        const fileInput = document.getElementById('icFileInput');
+        const fileList = document.getElementById('icFileList');
+        const outputFormat = document.getElementById('icOutputFormat');
+        const qualityRange = document.getElementById('icQualityRange');
+        const qualityValue = document.getElementById('icQualityValue');
+        const compressBtn = document.getElementById('icCompressBtn');
+        const downloadAllBtn = document.getElementById('icDownloadAllBtn');
+        const clearAllBtn = document.getElementById('icClearAllBtn');
+        const progressBar = document.getElementById('icProgressBar');
+        const progressFill = document.getElementById('icProgressFill');
+        const savingsSummary = document.getElementById('icSavingsSummary');
+        const savingsText = document.getElementById('icSavingsText');
+        const toast = document.getElementById('icToast');
+        const faqItems = document.querySelectorAll('.ic-faq-q');
+
+        // ===== STATE =====
+        let files = []; // { id, file, name, size, type, status, compressedBlob, compressedUrl, compressedName, thumbUrl, savedBytes }
+        let toastTimer = null;
+        let fileIdCounter = 0;
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+
+        function getExtension(mime) {
+            const map = {
+                'image/jpeg': 'jpg',
+                'image/png': 'png',
+                'image/webp': 'webp',
+                'image/gif': 'gif',
+                'image/bmp': 'bmp'
+            };
+            return map[mime] || 'png';
+        }
+
+        function getOutputMime(inputMime) {
+            const fmt = outputFormat.value;
+            if (fmt === 'auto') {
+                // Keep original, but GIF/BMP can't be output by canvas natively
+                if (inputMime === 'image/gif' || inputMime === 'image/bmp') return 'image/png';
+                return inputMime;
+            }
+            return fmt;
+        }
+
+        // ===== RENDER FILE LIST =====
+        function renderFileList() {
+            if (files.length === 0) {
+                fileList.innerHTML = '<div class="ic-empty-state">No images selected yet. Upload files to begin compressing.</div>';
+                compressBtn.disabled = true;
+                downloadAllBtn.disabled = true;
+                progressBar.style.display = 'none';
+                savingsSummary.classList.remove('ic-visible');
+                return;
+            }
+
+            let html = '';
+            files.forEach((f) => {
+                const statusClass = f.status === 'done' ? 'ic-done'
+                                  : f.status === 'processing' ? 'ic-processing'
+                                  : f.status === 'error' ? 'ic-error'
+                                  : 'ic-pending';
+                const statusText = f.status === 'done' ? '✓ Compressed'
+                                 : f.status === 'processing' ? '⟳ Compressing'
+                                 : f.status === 'error' ? '✗ Error'
+                                 : 'Pending';
+
+                // Build meta line
+                let metaHtml = `${formatBytes(f.size)} · ${getExtension(f.type).toUpperCase()}`;
+                if (f.status === 'done' && f.compressedBlob) {
+                    const saved = f.size - f.compressedBlob.size;
+                    const percent = Math.round((saved / f.size) * 100);
+                    metaHtml += ` → ${formatBytes(f.compressedBlob.size)} · <span class="ic-reduction">↓${percent}%</span>`;
+                }
+
+                html += `
+                    <div class="ic-file-item" data-id="${f.id}" role="listitem">
+                        <img class="ic-file-thumb" src="${f.thumbUrl || ''}" alt="Preview of ${f.name}" loading="lazy" />
+                        <div class="ic-file-info">
+                            <div class="ic-file-name" title="${f.name}">${f.name}</div>
+                            <div class="ic-file-meta">${metaHtml}</div>
+                        </div>
+                        <span class="ic-file-status ${statusClass}">${statusText}</span>
+                        <button class="ic-file-download ${f.status === 'done' ? 'ic-visible' : ''}" data-id="${f.id}" title="Download compressed image" aria-label="Download ${f.name}">⬇</button>
+                        <button class="ic-remove-file" data-id="${f.id}" title="Remove file" aria-label="Remove ${f.name}">✕</button>
+                    </div>
+                `;
+            });
+
+            fileList.innerHTML = html;
+
+            // Attach event listeners
+            fileList.querySelectorAll('.ic-remove-file').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    removeFile(id);
+                });
+            });
+
+            fileList.querySelectorAll('.ic-file-download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    const file = files.find(f => f.id === id);
+                    if (file && file.compressedBlob) {
+                        downloadBlob(file.compressedBlob, file.compressedName);
+                    }
+                });
+            });
+
+            // Enable/disable buttons
+            const hasPending = files.some(f => f.status === 'pending');
+            const hasDone = files.some(f => f.status === 'done');
+            compressBtn.disabled = !hasPending;
+            downloadAllBtn.disabled = !hasDone;
+
+            updateSavingsSummary();
+        }
+
+        function updateSavingsSummary() {
+            const done = files.filter(f => f.status === 'done' && f.compressedBlob);
+            if (done.length === 0) {
+                savingsSummary.classList.remove('ic-visible');
+                return;
+            }
+            const totalOriginal = done.reduce((s, f) => s + f.size, 0);
+            const totalCompressed = done.reduce((s, f) => s + f.compressedBlob.size, 0);
+            const totalSaved = totalOriginal - totalCompressed;
+            const percent = totalOriginal > 0 ? Math.round((totalSaved / totalOriginal) * 100) : 0;
+
+            savingsText.innerHTML = `🎉 You saved <strong>${formatBytes(totalSaved)}</strong> (${percent}% reduction) across ${done.length} image${done.length > 1 ? 's' : ''}.`;
+            savingsSummary.classList.add('ic-visible');
+        }
+
+        // ===== ADD FILES =====
+        function addFiles(fileList) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/bmp'];
+            let added = 0;
+
+            for (const file of fileList) {
+                if (!validTypes.includes(file.type)) {
+                    showToast(`⚠️ Unsupported format: ${file.name}`);
+                    continue;
+                }
+                if (file.size > 30 * 1024 * 1024) {
+                    showToast(`⚠️ File too large (max 30 MB): ${file.name}`);
+                    continue;
+                }
+
+                const id = ++fileIdCounter;
+                const thumbUrl = URL.createObjectURL(file);
+
+                files.push({
+                    id,
+                    file,
+                    name: file.name,
+                    size: file.size,
+                    type: file.type,
+                    status: 'pending',
+                    compressedBlob: null,
+                    compressedUrl: null,
+                    compressedName: null,
+                    thumbUrl
+                });
+                added++;
+            }
+
+            if (added > 0) {
+                renderFileList();
+                showToast(`✅ Added ${added} image${added > 1 ? 's' : ''}`);
+            }
+        }
+
+        // ===== REMOVE FILE =====
+        function removeFile(id) {
+            const index = files.findIndex(f => f.id === id);
+            if (index === -1) return;
+            const f = files[index];
+            if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+            if (f.compressedUrl) URL.revokeObjectURL(f.compressedUrl);
+            files.splice(index, 1);
+            renderFileList();
+            if (files.length === 0) {
+                showToast('All files removed');
+            }
+        }
+
+        // ===== CLEAR ALL =====
+        function clearAll() {
+            files.forEach(f => {
+                if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+                if (f.compressedUrl) URL.revokeObjectURL(f.compressedUrl);
+            });
+            files = [];
+            fileInput.value = '';
+            renderFileList();
+            progressBar.style.display = 'none';
+            progressFill.style.width = '0%';
+            showToast('All files cleared');
+        }
+
+        // ===== COMPRESS FILES =====
+        function compressAll() {
+            const pending = files.filter(f => f.status === 'pending' || f.status === 'error');
+            if (pending.length === 0) {
+                showToast('No pending files to compress');
+                return;
+            }
+
+            compressBtn.disabled = true;
+            downloadAllBtn.disabled = true;
+
+            const total = pending.length;
+            let completed = 0;
+
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            const quality = parseInt(qualityRange.value, 10) / 100;
+
+            // Mark all as processing
+            pending.forEach(f => {
+                f.status = 'processing';
+            });
+            renderFileList();
+
+            let index = 0;
+
+            function processNext() {
+                if (index >= pending.length) {
+                    progressFill.style.width = '100%';
+                    setTimeout(() => {
+                        progressBar.style.display = 'none';
+                        progressFill.style.width = '0%';
+                    }, 800);
+                    renderFileList();
+                    showToast(`✅ Compressed ${total} image${total > 1 ? 's' : ''}`);
+                    return;
+                }
+
+                const f = pending[index];
+                const outputMime = getOutputMime(f.type);
+                const outputExt = getExtension(outputMime);
+                const img = new Image();
+                const url = URL.createObjectURL(f.file);
+
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.naturalWidth;
+                    canvas.height = img.naturalHeight;
+                    const ctx = canvas.getContext('2d');
+
+                    // For JPEG, fill white background (no transparency)
+                    if (outputMime === 'image/jpeg') {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    }
+
+                    ctx.drawImage(img, 0, 0);
+
+                    canvas.toBlob((blob) => {
+                        URL.revokeObjectURL(url);
+                        if (blob) {
+                            // Only accept if compressed is smaller than original
+                            if (blob.size < f.size) {
+                                f.compressedBlob = blob;
+                                f.compressedUrl = URL.createObjectURL(blob);
+                                f.compressedName = f.name.replace(/\.[^.]+$/, '') + '-compressed.' + outputExt;
+                            } else {
+                                // If compression made it bigger, keep original as "compressed"
+                                f.compressedBlob = f.file;
+                                f.compressedUrl = URL.createObjectURL(f.file);
+                                f.compressedName = f.name.replace(/\.[^.]+$/, '') + '-compressed.' + getExtension(f.type);
+                            }
+                            f.status = 'done';
+                        } else {
+                            f.status = 'error';
+                        }
+
+                        completed++;
+                        progressFill.style.width = Math.round((completed / total) * 100) + '%';
+                        renderFileList();
+                        index++;
+                        setTimeout(processNext, 30);
+                    }, outputMime, quality);
+                };
+
+                img.onerror = function () {
+                    URL.revokeObjectURL(url);
+                    f.status = 'error';
+                    completed++;
+                    progressFill.style.width = Math.round((completed / total) * 100) + '%';
+                    renderFileList();
+                    index++;
+                    setTimeout(processNext, 30);
+                };
+
+                img.src = url;
+            }
+
+            processNext();
+        }
+
+        // ===== DOWNLOAD =====
+        function downloadBlob(blob, filename) {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+
+        function downloadAll() {
+            const done = files.filter(f => f.status === 'done' && f.compressedBlob);
+            if (done.length === 0) {
+                showToast('No compressed files to download');
+                return;
+            }
+            done.forEach((f, i) => {
+                setTimeout(() => {
+                    downloadBlob(f.compressedBlob, f.compressedName);
+                }, i * 300);
+            });
+            showToast(`⬇ Downloading ${done.length} file${done.length > 1 ? 's' : ''}...`);
+        }
+
+        // ===== EVENT LISTENERS =====
+
+        // Quality slider
+        qualityRange.addEventListener('input', () => {
+            qualityValue.textContent = qualityRange.value + '%';
+        });
+
+        // Upload area click
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // Drag & drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('ic-drag-over');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('ic-drag-over');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('ic-drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                addFiles(e.dataTransfer.files);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                addFiles(fileInput.files);
+                fileInput.value = '';
+            }
+        });
+
+        // Compress button
+        compressBtn.addEventListener('click', compressAll);
+
+        // Download all button
+        downloadAllBtn.addEventListener('click', downloadAll);
+
+        // Clear all button
+        clearAllBtn.addEventListener('click', clearAll);
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        renderFileList();
+        console.log('✅ Image Compressor ready — compress JPG, PNG, WebP locally in the browser.');
+    })();
+    </script>
+</body>
+</html>

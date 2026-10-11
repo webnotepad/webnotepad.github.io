@@ -15,15 +15,90 @@
     { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
+  // Tools catalog — mirrors sidebar categories (no ads)
+  const toolCategories = [
+    {
+      name: "📝 Writing & Note-Taking",
+      tools: [
+        { name: "Notepad", url: "/#notepad", desc: "Auto-saving notes", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/><path d="M7 8h10M7 12h10M7 16h6" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/></svg>` },
+        { name: "Diary", url: "/diary", desc: "Private daily journal", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="14" height="18" rx="2" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/><rect x="7" y="3" width="1.5" height="18" fill="#3B82F6"/><path d="M11 8h5M11 12h5M11 16h3" stroke="#3B82F6" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+        { name: "Focus Writer", url: "/focus-writer", desc: "Zen writing mode", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1.5"/><circle cx="12" cy="12" r="1.8" fill="#8B5CF6"/></svg>` },
+        { name: "Typing Test", url: "/typing-test", desc: "Speed & accuracy WPM", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#FCE7F3" stroke="#EC4899" stroke-width="1.5"/><path d="M6 10h1M9 10h1M12 10h1M15 10h1M18 10h1M6 13h1M9 13h1M12 13h1M15 13h1M18 13h1M7 16h10" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+        { name: "WordPad", url: "/wordpad", desc: "Rich text editor", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" fill="#DCFCE7" stroke="#22C55E" stroke-width="1.5"/><path d="M8 7h8M8 11h8M8 15h5" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="17" r="3" fill="#22C55E" opacity="0.2"/></svg>` },
+        { name: "Reading List", url: "/reading-list.html", desc: "Track books you read", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="5" height="18" rx="1" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><rect x="9" y="3" width="5" height="18" rx="1" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><rect x="15" y="3" width="5" height="18" rx="1" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/><path d="M5 7h1M11 7h1M17 7h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>` },
+        { name: "Markdown Editor", url: "/markdown-editor.html", desc: "Live Markdown preview", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 9l2 3-2 3M12 9v6M15 9h3" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>` }
+      ]
+    },
+    {
+      name: "📊 Text Analysis",
+      tools: [
+        { name: "Case Converter", url: "/case-converter", desc: "UPPER, lower, Title", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5"/><path d="M7 9v6M7 12h3M10 9v6M14 12l2-3 2 3M14 12v3M18 12v3" stroke="#F97316" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+        { name: "Word Counter", url: "/word-counter", desc: "Words, chars, sentences", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="1.5"/><path d="M8 9h8M8 12h8M8 15h5" stroke="#0EA5E9" stroke-width="1.7" stroke-linecap="round"/><circle cx="17" cy="17" r="4" fill="#0EA5E9" opacity="0.15"/></svg>` },
+        { name: "Readability", url: "/readability", desc: "Reading ease score", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M4 6a8 8 0 0 1 16 0v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z" fill="#F3E8FF" stroke="#A855F7" stroke-width="1.5"/><path d="M8 10h8M8 14h5" stroke="#A855F7" stroke-width="1.7" stroke-linecap="round"/></svg>` },
+        { name: "Word Shuffler", url: "/word-shuffler", desc: "Randomize word order", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><rect x="15" y="4" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><rect x="9" y="14" width="6" height="6" rx="1" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/><path d="M6 10v2a2 2 0 0 0 2 2h1M18 10v2a2 2 0 0 1-2 2h-1" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { name: "Special Char", url: "/special-character-converter", desc: "Umlauts & diacritics", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF9C3" stroke="#EAB308" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#EAB308" font-family="serif">ä</text></svg>` },
+        { name: "Text Diff", url: "/text-diff", desc: "Compare two texts", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="8" height="16" rx="1.5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>` }
+      ]
+    },
+    {
+      name: "🧠 Ideas & Lists",
+      tools: [
+        { name: "MindMap", url: "/mindmap", desc: "Visual brainstorms", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#C7D2FE" stroke="#6366F1" stroke-width="1.5"/><circle cx="5" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="5" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><path d="M10 11L6.5 7.5M14 11l3.5-3.5M10 13l-3.5 3.5M14 13l3.5 3.5" stroke="#6366F1" stroke-width="1.4" stroke-linecap="round"/></svg>` },
+        { name: "List Maker", url: "/list-maker", desc: "Checklists & to-dos", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><rect x="7" y="7" width="3" height="3" rx="0.5" fill="#16A34A"/><path d="M7.5 8.5l1 1 1.5-1.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5h5M12 13h5M7 13h3M7 17h3M12 17h5" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { name: "Habit Tracker", url: "/habit-tracker", desc: "Build daily streaks", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/><path d="M3 9h18" stroke="#10B981" stroke-width="1.5"/><path d="M7 2v4M17 2v4" stroke="#10B981" stroke-width="1.7" stroke-linecap="round"/><path d="M8 14l2 2 4-4" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>` }
+      ]
+    },
+    {
+      name: "🎲 Creativity",
+      tools: [
+        { name: "Random Text", url: "/random-text", desc: "Placeholder paragraphs", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.5"/><path d="M7 9h4M7 12h7M7 15h5M15 9h2M14 15h3" stroke="#DB2777" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+        { name: "Word Cloud", url: "/word-cloud", desc: "Visual word clouds", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M6 16a4 4 0 0 1 .5-8 5 5 0 0 1 9.5-1.5A4.5 4.5 0 0 1 18 16H6z" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5" stroke-linejoin="round"/><text x="12" y="14" text-anchor="middle" font-size="7" font-weight="bold" fill="#0284C7" font-family="sans-serif">abc</text></svg>` },
+        { name: "Decision Maker", url: "/choice-maker", desc: "Wheel or coin flip", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M12 12V3M12 12l7.5 4.5M12 12l-7.5 4.5" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="#D97706"/></svg>` },
+        { name: "Name Generator", url: "/random-name-generator", desc: "Random names", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M4 20a8 8 0 0 1 16 0" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round"/></svg>` }
+      ]
+    },
+    {
+      name: "🔍 Word Helpers",
+      tools: [
+        { name: "Word Finder", url: "/word-finder", desc: "Anagrams & terms", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/><path d="M15.5 15.5L21 21" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>` },
+        { name: "Crossword", url: "/crossword-solver", desc: "Clue & puzzle help", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="10" y="3" width="7" height="7" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="3" y="10" width="7" height="7" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="14" y="14" width="7" height="7" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="10" y="10" width="7" height="7" fill="#fff" stroke="#4F46E5" stroke-width="1.3"/></svg>` },
+        { name: "Word Search", url: "/word-search-solver", desc: "Puzzle solver", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#F3E8FF" stroke="#9333EA" stroke-width="1.5"/><path d="M6 9h3M9 6v6M14 8h4M14 12h4M14 16h4M6 15h3M6 18h3" stroke="#9333EA" stroke-width="1.4" stroke-linecap="round"/></svg>` }
+      ]
+    },
+    {
+      name: "⏳ Productivity",
+      tools: [
+        { name: "Pomodoro", url: "/pomodoro-timer", desc: "Focus intervals", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="8" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.6"/><path d="M12 13V8M12 13l3 2" stroke="#E11D48" stroke-width="1.7" stroke-linecap="round"/><path d="M9 3h6" stroke="#E11D48" stroke-width="1.7" stroke-linecap="round"/></svg>` },
+        { name: "Study Planner", url: "/study-planner", desc: "Plan study sessions", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/><path d="M3 9h18M7 2v4M17 2v4" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round"/><path d="M8 13h3M8 17h5M14 13h3" stroke="#0284C7" stroke-width="1.4" stroke-linecap="round"/></svg>` }
+      ]
+    },
+    {
+      name: "🔐 Generators",
+      tools: [
+        { name: "Password Gen", url: "/password-generator", desc: "Strong passwords", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" fill="#EDE9FE" stroke="#6D28D9" stroke-width="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#6D28D9" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="#6D28D9"/><path d="M12 16.5v2" stroke="#6D28D9" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { name: "QR Code", url: "/qr-code-generator", desc: "Custom QR codes", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/><rect x="5" y="5" width="3" height="3" fill="#0E7490"/><rect x="16" y="5" width="3" height="3" fill="#0E7490"/><rect x="5" y="16" width="3" height="3" fill="#0E7490"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM19 19h2v2h-2z" fill="#0E7490"/></svg>` },
+        { name: "Invoice Gen", url: "/invoice-generator", desc: "PDF invoices", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M8 7h8M8 11h5M8 15h8" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/><circle cx="15" cy="11" r="1.5" fill="#D97706"/></svg>` }
+      ]
+    },
+    {
+      name: "🎨 Design & Fun",
+      tools: [
+        { name: "Color Converter", url: "/color-converter", desc: "HEX, RGB, HSL, CMYK", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FFF7ED" stroke="#C2410C" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#C2410C"/><circle cx="15" cy="9" r="2.5" fill="#EA580C"/><circle cx="12" cy="15" r="2.5" fill="#FB923C"/></svg>` },
+        { name: "Emoji Picker", url: "/emoji-picker", desc: "Copy emojis fast", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF9C3" stroke="#FACC15" stroke-width="1.6"/><circle cx="9" cy="10" r="1.2" fill="#854D0E"/><circle cx="15" cy="10" r="1.2" fill="#854D0E"/><path d="M8 14c1 1.5 2.5 2.5 4 2.5s3-1 4-2.5" stroke="#854D0E" stroke-width="1.5" stroke-linecap="round"/></svg>` },
+        { name: "Click Speed", url: "/click-speed-test", desc: "Measure CPS rate", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round"/><path d="M9 3h6" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+        { name: "Bionic Reader", url: "/bionic-reader", desc: "Faster reading", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 8h10M7 12h8M7 16h10" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round"/></svg>` },
+        { name: "Teleprompter", url: "/teleprompter", desc: "Auto-scroll text", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/><path d="M12 8v8M9 13l3 3 3-3" stroke="#0D9488" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>` }
+      ]
+    }
+  ];
+
   // Helper function to resolve localized URLs based on current location
   function getLocalizedUrl(targetPrefix) {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(Boolean);
 
-    // Known language prefixes
     const knownPrefixes = languages.map(l => l.code);
 
-    // If the first segment is a language code, strip it to get base route
     if (pathSegments.length > 0 && knownPrefixes.includes(pathSegments[0])) {
       pathSegments.shift();
     }
@@ -36,7 +111,7 @@
   const currentPath = window.location.pathname;
   const activeLangCode = languages.find(l => l.code !== 'en' && currentPath.startsWith(`/${l.code}`))?.code || 'en';
 
-  // Generate options for desktop select (displays flag only on select, full label in option dropdown)
+  // Generate options for desktop select
   const desktopOptions = languages.map(lang => {
     const isSelected = lang.code === activeLangCode ? 'selected' : '';
     return `<option value="${lang.prefix}" ${isSelected}>${lang.label}</option>`;
@@ -48,6 +123,45 @@
     const activeClass = lang.code === activeLangCode ? 'font-weight: bold; color: var(--accent);' : '';
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
+
+  // ── Build mega-menu markup (desktop) ──
+  const megaMenuHTML = toolCategories.map(category => `
+    <div class="mega-col">
+      <div class="mega-col-title">${category.name}</div>
+      <div class="mega-col-tools">
+        ${category.tools.map(tool => `
+          <a href="${tool.url}" class="mega-tool">
+            <span class="mega-tool-icon">${tool.svg}</span>
+            <span class="mega-tool-text">
+              <span class="mega-tool-name">${tool.name}</span>
+              <span class="mega-tool-desc">${tool.desc}</span>
+            </span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // ── Build mobile accordion markup ──
+  const mobileToolsHTML = toolCategories.map((category, idx) => `
+    <div class="mobile-tools-group">
+      <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
+        <span>${category.name}</span>
+        <span class="mobile-tools-chevron">▼</span>
+      </button>
+      <div class="mobile-tools-panel" id="mob-tools-${idx}">
+        ${category.tools.map(tool => `
+          <a href="${tool.url}" class="mobile-tool-link">
+            <span class="mobile-tool-icon">${tool.svg}</span>
+            <span class="mobile-tool-text">
+              <span class="mobile-tool-name">${tool.name}</span>
+              <span class="mobile-tool-desc">${tool.desc}</span>
+            </span>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
 
   const headerHTML = `
     <header class="site-header" id="siteHeader" role="banner">
@@ -62,18 +176,12 @@
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
-          <div class="dropdown">
-            <button class="dropdown-btn nav-link">More ▼</button>
-            <div class="dropdown-content">
-              <a href="/case-converter" class="dropdown-item">Case Converter</a>
-              <a href="/random-text" class="dropdown-item">Random Text</a>
-              <a href="/word-shuffler" class="dropdown-item">Word Shuffler</a>              
-              <a href="/pomodoro-timer" class="dropdown-item">Pomodoro Timer</a>
-              <a href="/habit-tracker" class="dropdown-item">Habit Tracker</a>
-              <a href="/choice-maker" class="dropdown-item">Decision Maker</a>
-              <a href="/study-planner" class="dropdown-item">Study Planner</a>
-              <a href="/special-character-converter" class="dropdown-item">Special Character Converter</a>
-              <a href="/all-tools" class="dropdown-item">All Tools</a>
+          <div class="dropdown" id="megaDropdown">
+            <button class="dropdown-btn nav-link" id="megaDropdownBtn" aria-expanded="false" aria-haspopup="true">All Tools ▼</button>
+            <div class="mega-menu" id="megaMenu" role="menu">
+              <div class="mega-grid">
+                ${megaMenuHTML}
+              </div>
             </div>
           </div>
           <a href="/games" class="nav-link">Games</a>
@@ -82,7 +190,6 @@
         </nav>
 
         <div class="header-right">
-          <!-- Compact Flag Language Selector -->
           <div class="lang-selector-wrapper">
             <select id="languageSelect" class="lang-select flag-only" aria-label="Select Language">
               ${desktopOptions}
@@ -107,21 +214,14 @@
         </div>
       </div>
       <div class="mobile-dropdown">
-        <button class="mobile-dropdown-btn">📁 More ▼</button>
-        <div class="mobile-dropdown-content">
-          <a href="/case-converter" class="nav-link" style="padding-left: 32px;">• Case Converter</a>
-          <a href="/random-text" class="nav-link" style="padding-left: 32px;">• Random Text</a>
-          <a href="/word-shuffler" class="nav-link" style="padding-left: 32px;">• Word Shuffler</a>          
-          <a href="/pomodoro-timer" class="nav-link" style="padding-left: 32px;">• Pomodoro Timer</a>
-          <a href="/habit-tracker" class="nav-link" style="padding-left: 32px;">• Habit Tracker</a>
-          <a href="/choice-maker" class="nav-link" style="padding-left: 32px;">• Decision Maker</a>
-          <a href="/study-planner" class="nav-link" style="padding-left: 32px;">• Study Planner</a>
-          <a href="/all-tools" class="nav-link" style="padding-left: 32px;">• All Tools</a>
+        <button class="mobile-dropdown-btn">📁 All Tools ▼</button>
+        <div class="mobile-dropdown-content mobile-tools-list">
+          ${mobileToolsHTML}
         </div>
       </div>      
-      <a href="diary" class="nav-link">🔄 Diary</a>
-      <a href="mindmap" class="nav-link">👥 MindMap</a>
-      <a href="list-maker" class="nav-link">❓ List Maker</a>
+      <a href="/diary" class="nav-link">🔄 Diary</a>
+      <a href="/mindmap" class="nav-link">👥 MindMap</a>
+      <a href="/list-maker" class="nav-link">❓ List Maker</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
       <a href="/blog" class="nav-link">📝 Blog</a>      
       <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad→</a>
@@ -142,7 +242,7 @@
       });
     }
 
-    // Dark mode toggle (header button)
+    // Dark mode toggle
     const headerDarkBtn = document.getElementById('headerDarkBtn');
     if (headerDarkBtn) {
       headerDarkBtn.addEventListener('click', () => {
@@ -151,41 +251,56 @@
         headerDarkBtn.textContent = isDark ? '☀️' : '🌙';
         headerDarkBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         localStorage.setItem('webnotepad_dark', isDark ? '1' : '0');
-        // Also sync editor dark button if present
         const editorDarkBtn = document.getElementById('darkModeBtn');
         if (editorDarkBtn) editorDarkBtn.textContent = isDark ? '☀️' : '🌙';
       });
     }
 
-    // Dropdown menu functionality (desktop)
-    const dropdownBtn = document.querySelector('.dropdown-btn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownBtn && dropdownContent) {
-      dropdownBtn.addEventListener('click', (e) => {
+    // ── Mega-menu dropdown (desktop) ──
+    const megaDropdown = document.getElementById('megaDropdown');
+    const megaDropdownBtn = document.getElementById('megaDropdownBtn');
+    const megaMenu = document.getElementById('megaMenu');
+
+    function closeMegaMenu() {
+      if (!megaMenu) return;
+      megaMenu.classList.remove('show');
+      megaDropdownBtn.setAttribute('aria-expanded', 'false');
+      megaDropdownBtn.textContent = 'All Tools ▼';
+    }
+
+    function openMegaMenu() {
+      if (!megaMenu) return;
+      megaMenu.classList.add('show');
+      megaDropdownBtn.setAttribute('aria-expanded', 'true');
+      megaDropdownBtn.textContent = 'All Tools ▲';
+    }
+
+    if (megaDropdownBtn && megaMenu) {
+      megaDropdownBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const isOpen = dropdownContent.classList.toggle('show');
-        dropdownBtn.setAttribute('aria-expanded', isOpen);
+        const isOpen = megaMenu.classList.contains('show');
+        if (isOpen) closeMegaMenu();
+        else openMegaMenu();
       });
 
-      // Close dropdown when clicking outside
+      // Close on outside click
       document.addEventListener('click', (e) => {
-        if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
-          dropdownContent.classList.remove('show');
-          dropdownBtn.setAttribute('aria-expanded', 'false');
-        }
+        if (!megaDropdown.contains(e.target)) closeMegaMenu();
       });
 
-      // Close dropdown on escape key
+      // Close on ESC
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && dropdownContent.classList.contains('show')) {
-          dropdownContent.classList.remove('show');
-          dropdownBtn.setAttribute('aria-expanded', 'false');
-        }
+        if (e.key === 'Escape') closeMegaMenu();
+      });
+
+      // Close when a tool link is clicked
+      megaMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => closeMegaMenu());
       });
     }
 
-    // Mobile dropdown menu functionality
+    // ── Mobile dropdown toggles ──
     const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
     mobileDropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -195,11 +310,35 @@
         if (content) {
           content.classList.toggle('show');
           btn.setAttribute('aria-expanded', content.classList.contains('show'));
+          const arrow = btn.textContent;
+          // Toggle arrow indicator
+          if (btn.textContent.includes('▼')) {
+            btn.textContent = btn.textContent.replace('▼', '▲');
+          } else if (btn.textContent.includes('▲')) {
+            btn.textContent = btn.textContent.replace('▲', '▼');
+          }
         }
       });
     });
 
-    // Hamburger menu
+    // ── Mobile inner accordion toggles (per category) ──
+    const mobileToolsToggles = document.querySelectorAll('.mobile-tools-toggle');
+    mobileToolsToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const targetId = toggle.getAttribute('data-target');
+        const panel = document.getElementById(targetId);
+        if (!panel) return;
+        const isOpen = panel.classList.contains('show');
+        panel.classList.toggle('show', !isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        const chevron = toggle.querySelector('.mobile-tools-chevron');
+        if (chevron) chevron.textContent = !isOpen ? '▲' : '▼';
+      });
+    });
+
+    // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileNav = document.getElementById('mobileNav');
     if (hamburger && mobileNav) {
@@ -208,8 +347,8 @@
         hamburger.setAttribute('aria-expanded', isOpen);
         hamburger.textContent = isOpen ? '✕' : '☰';
       });
-      // Close on nav link click
-      mobileNav.querySelectorAll('a').forEach(link => {
+      // Close on nav link click (but not on dropdown buttons)
+      mobileNav.querySelectorAll('a.nav-link, a.btn').forEach(link => {
         link.addEventListener('click', () => {
           mobileNav.classList.remove('open');
           hamburger.setAttribute('aria-expanded', 'false');
@@ -226,15 +365,11 @@
 
     // Highlight active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.header-nav .nav-link, .dropdown-item');
+    const navLinks = document.querySelectorAll('.header-nav .nav-link');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            if (link.classList && link.classList.contains('dropdown-item')) {
-              // Skip dropdown items for active highlighting
-              return;
-            }
             if (link.getAttribute('href') === '#' + entry.target.id) {
               link.classList.add('active-nav');
             } else if (link.classList) {
@@ -246,17 +381,15 @@
     }, { rootMargin: '-40% 0px -40% 0px' });
     sections.forEach(s => observer.observe(s));
 
-    // CSS styling
+    // ── Styles ──
     const style = document.createElement('style');
     style.textContent = `
-     /* Language Switcher Styling */
+      /* Language Switcher */
       .lang-selector-wrapper {
         display: inline-flex;
         align-items: center;
         margin-right: 8px;
       }
-
-      /* Desktop: Full width selector showing text labels */
       .lang-select {
         background-color: var(--paper);
         color: var(--ink);
@@ -270,23 +403,18 @@
         width: auto;
         transition: border-color 0.2s, background-color 0.2s, color 0.2s;
       }
-
-      .lang-select:hover, .lang-select:focus {
-        border-color: var(--accent);
-      }
-
+      .lang-select:hover, .lang-select:focus { border-color: var(--accent); }
       body.dark .lang-select {
         background-color: var(--paper);
         color: var(--ink);
         border-color: var(--paper-edge);
       }
 
-      /* Desktop Dropdown */
+      /* ── Desktop Mega-Menu ── */
       .dropdown {
         position: relative;
         display: inline-block;
       }
-      
       .dropdown-btn {
         background: none;
         border: none;
@@ -294,46 +422,141 @@
         font-family: inherit;
         font-size: inherit;
       }
-      
-      .dropdown-content {
+
+      .mega-menu {
         display: none;
         position: absolute;
-        top: 100%;
-        left: 0;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        width: min(960px, 94vw);
+        max-height: 78vh;
+        overflow-y: auto;
         background-color: var(--paper);
-        min-width: 180px;
-        box-shadow: var(--shadow);
-        border-radius: 8px;
         border: 1px solid var(--paper-edge);
-        z-index: 1000;
-        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 24px 60px -12px rgba(0,0,0,0.22), 0 6px 18px -6px rgba(0,0,0,0.08);
+        z-index: 1200;
+        padding: 22px 22px 18px;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
       }
-      
-      .dropdown-content.show {
+      .mega-menu.show {
         display: block;
-        animation: fadeIn 0.2s ease;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
       }
-      
-      .dropdown-item {
-        display: block;
-        padding: 10px 16px;
+
+      /* Little arrow pointing up to the button */
+      .mega-menu::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 14px;
+        height: 14px;
+        background: var(--paper);
+        border-left: 1px solid var(--paper-edge);
+        border-top: 1px solid var(--paper-edge);
+      }
+
+      .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px 24px;
+      }
+
+      .mega-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+      }
+      .mega-col-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--paper-edge);
+        opacity: 0.8;
+      }
+      .mega-col-tools {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .mega-tool {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 8px;
+        border-radius: 8px;
         text-decoration: none;
         color: var(--ink);
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: background 0.2s, color 0.2s;
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        min-width: 0;
       }
-      
-      .dropdown-item:hover {
-        background-color: var(--paper-warm);
+      .mega-tool:hover {
+        background: var(--paper-warm);
         color: var(--accent);
+        transform: translateX(2px);
       }
-      
-      /* Mobile Dropdown */
-      .mobile-dropdown {
-        width: 100%;
+      .mega-tool-icon {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--paper-warm);
+        border-radius: 7px;
+        border: 1px solid var(--paper-edge);
       }
-      
+      .mega-tool-icon svg { width: 18px; height: 18px; display: block; }
+      .mega-tool:hover .mega-tool-icon { background: var(--paper); border-color: var(--accent); }
+
+      .mega-tool-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.2;
+      }
+      .mega-tool-name {
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .mega-tool-desc {
+        font-size: 0.68rem;
+        color: var(--ink-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Dark mode for mega-menu */
+      body.dark .mega-menu {
+        background-color: var(--paper);
+        border-color: var(--paper-edge);
+        box-shadow: 0 24px 60px -12px rgba(0,0,0,0.6);
+      }
+      body.dark .mega-menu::before {
+        background: var(--paper);
+        border-color: var(--paper-edge);
+      }
+      body.dark .mega-col-title { color: var(--ink-muted); }
+      body.dark .mega-tool { color: var(--ink); }
+      body.dark .mega-tool:hover { background: var(--paper-warm); color: var(--accent); }
+      body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
+
+      /* ── Mobile Dropdown ── */
+      .mobile-dropdown { width: 100%; }
       .mobile-dropdown-btn {
         background: none;
         border: none;
@@ -346,100 +569,146 @@
         font-family: var(--font-body);
         transition: color 0.2s;
       }
-      
-      .mobile-dropdown-btn:hover {
-        color: var(--accent);
-      }
-      
+      .mobile-dropdown-btn:hover { color: var(--accent); }
       .mobile-dropdown-content {
         display: none;
         flex-direction: column;
         background-color: var(--paper-warm);
       }
-      
-      .mobile-dropdown-content.show {
-        display: flex;
-      }
-      
+      .mobile-dropdown-content.show { display: flex; }
       .mobile-dropdown-content a {
         display: block;
         color: var(--ink);
         transition: color 0.2s;
       }
-      
-      .mobile-dropdown-content a:hover {
-        color: var(--accent);
+      .mobile-dropdown-content a:hover { color: var(--accent); }
+
+      /* ── Mobile All-Tools accordion (inside mobile nav) ── */
+      .mobile-tools-list {
+        padding: 4px 0 8px;
+        background: var(--paper-warm) !important;
       }
-      
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-8px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .mobile-tools-group {
+        border-bottom: 1px solid var(--paper-edge);
+      }
+      .mobile-tools-group:last-child { border-bottom: none; }
+
+      .mobile-tools-toggle {
+        width: 100%;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px 12px 28px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink);
+        font-family: var(--font-body);
+        cursor: pointer;
+        text-align: left;
+        gap: 8px;
+      }
+      .mobile-tools-toggle:hover { color: var(--accent); }
+      .mobile-tools-chevron {
+        font-size: 0.7rem;
+        opacity: 0.6;
+        transition: transform 0.2s ease;
+      }
+      .mobile-tools-panel {
+        display: none;
+        flex-direction: column;
+        padding: 2px 0 8px;
+        background: var(--paper);
+      }
+      .mobile-tools-panel.show { display: flex; }
+
+      .mobile-tool-link {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 20px 9px 32px !important;
+        text-decoration: none;
+        color: var(--ink) !important;
+        transition: background 0.15s, color 0.15s;
+      }
+      .mobile-tool-link:hover {
+        background: var(--paper-warm);
+        color: var(--accent) !important;
+      }
+      .mobile-tool-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobile-tool-icon svg { width: 20px; height: 20px; display: block; }
+      .mobile-tool-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.2;
+      }
+      .mobile-tool-name {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .mobile-tool-desc {
+        font-size: 0.68rem;
+        color: var(--ink-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
-      /* Mobile Optimizations - Shrinks only on small screens */
+      body.dark .mobile-tools-toggle { color: var(--ink); }
+      body.dark .mobile-tools-panel { background: var(--paper); }
+      body.dark .mobile-tool-link { color: var(--ink) !important; }
+      body.dark .mobile-tool-link:hover { background: var(--paper-warm); color: var(--accent) !important; }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 1024px) {
+        .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .mega-menu { width: min(820px, 96vw); }
+      }
+
       @media (max-width: 768px) {
-        .header-inner {
-          padding: 0 8px;
-        }
-        .header-logo {
-          gap: 6px;
-        }
+        /* Hide desktop mega dropdown on mobile — mobile nav handles it */
+        .header-nav .dropdown { display: none; }
+
+        .header-inner { padding: 0 8px; }
+        .header-logo { gap: 6px; }
         .header-logo span {
           font-size: 0.85rem;
           font-weight: 600;
           white-space: nowrap;
         }
-        .logo-image {
-          width: 26px;
-          height: 26px;
-        }
+        .logo-image { width: 26px; height: 26px; }
         .lang-select {
           width: 38px;
           padding: 2px 2px;
           font-size: 1rem;
         }
       }
-      
-      /* Dark mode support for dropdowns */
-      body.dark .dropdown-content {
-        background-color: var(--paper);
-        border-color: var(--paper-edge);
+
+      @media (max-width: 480px) {
+        .mega-menu { padding: 16px; }
+        .mega-grid { grid-template-columns: 1fr; }
       }
-      
-      body.dark .dropdown-item {
-        color: var(--ink);
-      }
-      
-      body.dark .dropdown-item:hover {
-        background-color: var(--paper-warm);
-        color: var(--accent);
-      }
-      
-      body.dark .mobile-dropdown-btn {
-        color: var(--ink);
-      }
-      
-      body.dark .mobile-dropdown-btn:hover {
-        color: var(--accent);
-      }
-      
-      body.dark .mobile-dropdown-content {
-        background-color: var(--paper-warm);
-      }
-      
-      body.dark .mobile-dropdown-content a {
-        color: var(--ink);
-      }
-      
-      body.dark .mobile-dropdown-content a:hover {
-        color: var(--accent);
-      }
+
+      /* Dark mode support for other dropdowns */
+      body.dark .mobile-dropdown-btn { color: var(--ink); }
+      body.dark .mobile-dropdown-btn:hover { color: var(--accent); }
+      body.dark .mobile-dropdown-content { background-color: var(--paper-warm); }
+      body.dark .mobile-dropdown-content a { color: var(--ink); }
+      body.dark .mobile-dropdown-content a:hover { color: var(--accent); }
     `;
     document.head.appendChild(style);
   }

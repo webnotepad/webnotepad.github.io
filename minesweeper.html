@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper – Free Online Minesweeper Game with Hints | WebNotePad</title>
+    <meta name="description" content="Play free online Minesweeper. Classic logic puzzle with Easy, Medium and Hard levels, first-click safety, flag mode, timer and best times. Works on desktop and mobile with touch controls." />
+    <meta name="keywords" content="minesweeper, minesweeper game, free minesweeper, play minesweeper online, minesweeper online, classic minesweeper, minesweeper puzzle, minesweeper for mobile, minesweeper easy, minesweeper hard, minesweeper no download" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/minesweeper" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/minesweeper" />
+    <meta property="og:title" content="Free Online Minesweeper – Play the Classic Logic Puzzle" />
+    <meta property="og:description" content="Play Minesweeper online free. Easy, Medium and Hard levels with first-click safety, flag mode, timer and best times." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Minesweeper – Play the Classic Logic Puzzle" />
+    <meta name="twitter:description" content="Play Minesweeper online free. Easy, Medium and Hard levels with first-click safety, flag mode and timer." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Minesweeper by WebNotePad",
+            "url": "https://webnotepad.github.io/minesweeper",
+            "description": "A free online Minesweeper game with Easy, Medium and Hard difficulty levels. Features first-click safety, a flag mode for mobile, chord clicking, timer, mine counter and best-time tracking.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Easy, Medium and Hard difficulty levels",
+                "First-click safety — never lose on your first click",
+                "Flag mode for mobile (tap to flag mines)",
+                "Chord clicking to auto-reveal neighbours",
+                "Live timer and mine counter",
+                "Best time saved per difficulty",
+                "Automatic flood-fill of empty cells",
+                "Keyboard and touch controls",
+                "Mobile-friendly responsive grid",
+                "100% free and offline — nothing is stored or sent"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Minesweeper?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Minesweeper is a classic single-player logic puzzle. The goal is to clear a rectangular board containing hidden mines without detonating any of them. Numbers in revealed squares tell you how many mines are in the eight surrounding squares. Using these clues and careful deduction, you flag every mine and reveal every safe square to win."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I play Minesweeper?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Click or tap any square to reveal it. If it is a mine, you lose. If it is a number, it shows how many of its eight neighbours contain mines. If it is blank, all adjacent safe squares reveal automatically. Use the numbers to deduce where the mines are, then flag them with a right-click (or the Flag button on mobile). Clear every safe square to win."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is first-click safety in Minesweeper?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "First-click safety guarantees that the first square you click is never a mine and always opens a safe starting area. This means you can never lose on your very first move — the mines are only placed after you click. It is one of the quality-of-life improvements over the original Windows Minesweeper."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I place flags in Minesweeper?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "On desktop, right-click any hidden square to place or remove a flag. On mobile, tap the Flag button at the bottom of the board to toggle flag mode, then tap the squares you want to mark. Flagging helps you remember which squares you have identified as mines."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What does 'chord' mean in Minesweeper?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Chording is a shortcut: when you click a numbered square that already has exactly the right number of flags around it, all of its remaining hidden neighbours are revealed at once. It is faster than clicking each neighbour individually and is essential for advanced play."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play Minesweeper on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Minesweeper is fully responsive and touch-friendly. Tap any square to reveal it. Use the Flag button to switch between reveal mode and flag mode, since mobile devices do not have a right-click. The board scales to fit any phone screen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Minesweeper free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. It is 100% free with no signup, no download, no ads inside the game and no hidden costs. Your best times are stored only in your browser."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ms-accent: #0891b2;
+            --ms-accent-light: #06b6d4;
+            --ms-accent-pale: #ecfeff;
+            --ms-surface: #faf8f4;
+            --ms-warm: #f4f0e8;
+            --ms-border: #e8e2d6;
+            --ms-ink: #1a1a2e;
+            --ms-muted: #6b6b85;
+            --ms-radius: 8px;
+            --ms-radius-lg: 14px;
+            --ms-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ms-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Cell colours */
+            --ms-hidden-a: #cbd5e1;
+            --ms-hidden-b: #94a3b8;
+            --ms-revealed-a: #f1f5f9;
+            --ms-revealed-b: #e2e8f0;
+            --ms-border-cell: #64748b;
+            --ms-flag: #dc2626;
+            --ms-mine: #1a1a2e;
+            --ms-hit-bg: #fca5a5;
+
+            /* Number colours */
+            --ms-1: #1e40af;
+            --ms-2: #166534;
+            --ms-3: #b91c1c;
+            --ms-4: #5b21b6;
+            --ms-5: #9a3412;
+            --ms-6: #0e7490;
+            --ms-7: #1a1a2e;
+            --ms-8: #6b6b85;
+        }
+
+        body.dark {
+            --ms-accent: #22d3ee;
+            --ms-accent-light: #67e8f9;
+            --ms-accent-pale: #0b2830;
+            --ms-surface: #141418;
+            --ms-warm: #1c1c22;
+            --ms-border: #2a2a34;
+            --ms-ink: #e8e4dc;
+            --ms-muted: #8a8678;
+            --ms-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+
+            --ms-hidden-a: #3d4a5c;
+            --ms-hidden-b: #2d3644;
+            --ms-revealed-a: #1e232c;
+            --ms-revealed-b: #181c24;
+            --ms-border-cell: #4a5568;
+            --ms-flag: #f87171;
+            --ms-mine: #e8e4dc;
+            --ms-hit-bg: #7f1d1d;
+
+            --ms-1: #93c5fd;
+            --ms-2: #86efac;
+            --ms-3: #fca5a5;
+            --ms-4: #c4b5fd;
+            --ms-5: #fdba74;
+            --ms-6: #67e8f9;
+            --ms-7: #e8e4dc;
+            --ms-8: #8a8678;
+        }
+
+        /* ===== HERO ===== */
+        .ms-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--ms-surface);
+            transition: background var(--ms-transition);
+        }
+        .ms-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ms-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ms-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ms-hero-bg { opacity: 0.1; }
+        .ms-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ms-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ms-hero-glow { opacity: 0.35; }
+        .ms-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        .ms-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--ms-accent-pale);
+            color: var(--ms-accent);
+            border: 1px solid var(--ms-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ms-hero-badge { background: rgba(34, 211, 238, 0.15); }
+        .ms-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--ms-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ms-hero-accent {
+            color: var(--ms-accent);
+            font-style: italic;
+        }
+        .ms-hero-sub {
+            font-size: 0.9rem;
+            color: var(--ms-muted);
+            max-width: 560px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ms-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .ms-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ms-demo-chip {
+            padding: 7px 16px;
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ms-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ms-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ms-demo-chip:hover {
+            background: var(--ms-accent-pale);
+            border-color: var(--ms-accent);
+            color: var(--ms-accent);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .ms-game-section {
+            padding: 0 0 80px;
+            background: var(--ms-surface);
+            transition: background var(--ms-transition);
+        }
+        .ms-shell {
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            border-radius: var(--ms-radius-lg);
+            box-shadow: var(--ms-shadow);
+            overflow: hidden;
+            transition: all var(--ms-transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .ms-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--ms-border);
+            background: var(--ms-surface);
+            flex-wrap: wrap;
+        }
+        .ms-topbar-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ms-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ms-topbar-title .ms-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ms-accent);
+            display: inline-block;
+            animation: msPulse 2s infinite;
+        }
+        @keyframes msPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .ms-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ms-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--ms-muted);
+            white-space: nowrap;
+        }
+        .ms-stat-pill strong {
+            color: var(--ms-ink);
+            font-size: 0.85rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .ms-stat-pill.ms-mine-pill strong { color: #dc2626; }
+        body.dark .ms-stat-pill.ms-mine-pill strong { color: #f87171; }
+
+        /* ===== SELECTOR BAR ===== */
+        .ms-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--ms-border);
+            background: var(--ms-surface);
+            flex-wrap: wrap;
+        }
+        .ms-sel-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ms-muted);
+            white-space: nowrap;
+        }
+        .ms-pill-group {
+            display: flex;
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            border-radius: var(--ms-radius);
+            overflow: hidden;
+        }
+        .ms-pill {
+            padding: 7px 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ms-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--ms-transition);
+            white-space: nowrap;
+        }
+        .ms-pill:hover { color: var(--ms-ink); background: var(--ms-border); }
+        .ms-pill.active {
+            background: var(--ms-accent);
+            color: #ffffff;
+        }
+
+        /* ===== CONTROL STRIP ===== */
+        .ms-control-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--ms-surface);
+            border-bottom: 1px solid var(--ms-border);
+            flex-wrap: wrap;
+        }
+        .ms-control-left,
+        .ms-control-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ms-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            background: var(--ms-surface);
+            color: var(--ms-ink);
+            border: 1.5px solid var(--ms-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--ms-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .ms-btn:hover:not(:disabled) {
+            border-color: var(--ms-ink);
+            background: var(--ms-warm);
+            transform: translateY(-1px);
+        }
+        .ms-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .ms-btn--primary {
+            background: var(--ms-accent);
+            border-color: var(--ms-accent);
+            color: #ffffff;
+        }
+        .ms-btn--primary:hover:not(:disabled) {
+            background: var(--ms-accent-light);
+            border-color: var(--ms-accent-light);
+            box-shadow: 0 4px 16px rgba(8, 145, 178, 0.3);
+        }
+        .ms-btn--flag-active {
+            background: #dc2626;
+            border-color: #dc2626;
+            color: #ffffff;
+        }
+        .ms-btn--flag-active:hover:not(:disabled) {
+            background: #b91c1c;
+            border-color: #b91c1c;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+        }
+        .ms-emoji-face {
+            font-size: 1.5rem;
+            line-height: 1;
+            padding: 4px 10px;
+            background: var(--ms-warm);
+            border: 1.5px solid var(--ms-border);
+            border-radius: var(--ms-radius);
+            cursor: pointer;
+            transition: all var(--ms-transition);
+            min-width: 52px;
+            text-align: center;
+        }
+        .ms-emoji-face:hover {
+            background: var(--ms-surface);
+            transform: scale(1.06);
+        }
+
+        /* ===== BOARD AREA ===== */
+        .ms-board-area {
+            padding: 20px 16px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: auto;
+            background: var(--ms-surface);
+        }
+        .ms-board-wrap {
+            background: var(--ms-border);
+            border: 3px solid var(--ms-ink);
+            border-radius: var(--ms-radius);
+            padding: 4px;
+            box-shadow: 0 8px 24px rgba(26, 26, 46, 0.18);
+            display: inline-block;
+            max-width: 100%;
+            overflow: auto;
+        }
+        body.dark .ms-board-wrap {
+            border-color: var(--ms-border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        .ms-board {
+            display: grid;
+            gap: 1px;
+            background: var(--ms-border-cell);
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .ms-cell {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            min-height: 32px;
+            background: linear-gradient(145deg, var(--ms-hidden-a), var(--ms-hidden-b));
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.08s ease, transform 0.08s ease;
+            padding: 0;
+            color: var(--ms-ink);
+            position: relative;
+            border-radius: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+        .ms-cell:hover:not(.ms-revealed) {
+            background: linear-gradient(145deg, var(--ms-hidden-b), var(--ms-hidden-a));
+        }
+        .ms-cell:active:not(.ms-revealed) {
+            transform: scale(0.95);
+        }
+        .ms-cell.ms-revealed {
+            background: var(--ms-revealed-b);
+            cursor: default;
+            border-radius: 1px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+        }
+        body.dark .ms-cell.ms-revealed {
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+        .ms-cell.ms-revealed:nth-child(odd) {
+            background: var(--ms-revealed-a);
+        }
+        .ms-cell.ms-flagged {
+            background: linear-gradient(145deg, var(--ms-hidden-a), var(--ms-hidden-b));
+        }
+        .ms-cell.ms-hit {
+            background: var(--ms-hit-bg) !important;
+            animation: msHitPulse 0.6s ease;
+        }
+        @keyframes msHitPulse {
+            0%, 100% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+        }
+        .ms-cell.ms-mine-revealed {
+            background: var(--ms-hit-bg) !important;
+        }
+        .ms-cell.ms-flag-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Number colours */
+        .ms-cell.ms-n1 { color: var(--ms-1); }
+        .ms-cell.ms-n2 { color: var(--ms-2); }
+        .ms-cell.ms-n3 { color: var(--ms-3); }
+        .ms-cell.ms-n4 { color: var(--ms-4); }
+        .ms-cell.ms-n5 { color: var(--ms-5); }
+        .ms-cell.ms-n6 { color: var(--ms-6); }
+        .ms-cell.ms-n7 { color: var(--ms-7); }
+        .ms-cell.ms-n8 { color: var(--ms-8); }
+
+        /* ===== STATUS BAR (mobile) ===== */
+        .ms-status-bar {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-top: 1px solid var(--ms-border);
+            background: var(--ms-warm);
+            flex-wrap: wrap;
+        }
+        .ms-status-bar.ms-show {
+            display: flex;
+        }
+        .ms-status-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--ms-surface);
+            border: 1px solid var(--ms-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ms-muted);
+        }
+        .ms-status-item strong {
+            color: var(--ms-ink);
+            font-size: 0.82rem;
+        }
+
+        /* ===== MESSAGE / BANNER ===== */
+        .ms-banner {
+            display: none;
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--ms-border);
+            animation: msSlideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .ms-banner.ms-show { display: block; }
+        .ms-banner.ms-banner--win {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: #ffffff;
+        }
+        .ms-banner.ms-banner--lose {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            color: #ffffff;
+        }
+        .ms-banner-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+        }
+        .ms-banner-sub {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+            opacity: 0.92;
+        }
+        @keyframes msSlideDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HOW TO / FEATURES / FAQ ===== */
+        .ms-how { background: var(--ms-warm); transition: background var(--ms-transition); }
+        .ms-how-grid,
+        .ms-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ms-how-card,
+        .ms-feature-card {
+            background: var(--ms-surface);
+            border: 1px solid var(--ms-border);
+            border-radius: var(--ms-radius-lg);
+            padding: 26px;
+            transition: all var(--ms-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ms-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ms-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ms-transition);
+        }
+        .ms-how-card:hover { box-shadow: var(--ms-shadow); transform: translateY(-3px); }
+        .ms-how-card:hover::before { transform: scaleX(1); }
+        .ms-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ms-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ms-how-card h3,
+        .ms-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ms-ink);
+            margin-bottom: 8px;
+        }
+        .ms-how-card p,
+        .ms-feature-card p {
+            font-size: 0.85rem;
+            color: var(--ms-muted);
+            line-height: 1.6;
+        }
+        .ms-feature-card:hover {
+            box-shadow: var(--ms-shadow);
+            transform: translateY(-3px);
+            border-color: var(--ms-accent-light);
+        }
+        .ms-feature-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+
+        /* ===== DESCRIPTION ===== */
+        .ms-desc { background: var(--ms-surface); transition: background var(--ms-transition); }
+        .ms-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .ms-desc-text p {
+            font-size: 0.95rem;
+            color: var(--ms-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .ms-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .ms-benefit-tag {
+            padding: 6px 14px;
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ms-ink);
+            transition: all var(--ms-transition);
+        }
+        .ms-benefit-tag:hover {
+            background: var(--ms-accent-pale);
+            border-color: var(--ms-accent);
+            color: var(--ms-accent);
+        }
+        .ms-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ms-visual-card {
+            background: var(--ms-ink);
+            color: var(--ms-surface);
+            border-radius: var(--ms-radius-lg);
+            padding: 32px 28px;
+            max-width: 330px;
+            width: 100%;
+            box-shadow: var(--ms-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+        body.dark .ms-visual-card {
+            background: var(--ms-warm);
+            border: 1px solid var(--ms-border);
+            color: var(--ms-ink);
+        }
+        .ms-visual-line {
+            width: 36px;
+            height: 3px;
+            background: var(--ms-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .ms-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .ms-visual-row { border-bottom-color: var(--ms-border); }
+        .ms-visual-row:last-child { border-bottom: none; }
+        .ms-v-label {
+            opacity: 0.55;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            white-space: nowrap;
+        }
+        .ms-v-text {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ms-accent-light);
+            text-align: right;
+        }
+        body.dark .ms-visual-card .ms-v-text { color: var(--ms-accent); }
+
+        /* ===== FAQ ===== */
+        .ms-faq { background: var(--ms-warm); transition: background var(--ms-transition); }
+        .ms-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ms-faq-item {
+            border: 1px solid var(--ms-border);
+            border-radius: var(--ms-radius);
+            overflow: hidden;
+            background: var(--ms-surface);
+            transition: border-color var(--ms-transition);
+        }
+        .ms-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ms-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--ms-transition);
+        }
+        .ms-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ms-muted);
+            flex-shrink: 0;
+            transition: transform var(--ms-transition);
+        }
+        .ms-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ms-accent); }
+        .ms-faq-q:hover { background: var(--ms-warm); }
+        .ms-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ms-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ms-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .ms-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ms-ink);
+            color: var(--ms-surface);
+            padding: 12px 20px;
+            border-radius: var(--ms-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 320px;
+        }
+        .ms-toast.ms-show { transform: translateY(0); opacity: 1; }
+        body.dark .ms-toast {
+            background: var(--ms-warm);
+            color: var(--ms-ink);
+            border: 1px solid var(--ms-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ms-how-grid,
+            .ms-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .ms-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .ms-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .ms-hero { min-height: auto; padding: 24px 0 20px; }
+            .ms-how-grid,
+            .ms-feature-grid { grid-template-columns: 1fr; }
+            .ms-topbar { padding: 10px 14px; }
+            .ms-selector { padding: 10px 14px; gap: 6px; }
+            .ms-pill { padding: 6px 11px; font-size: 0.72rem; }
+            .ms-control-strip { padding: 12px 14px; gap: 8px; }
+            .ms-btn { padding: 8px 13px; font-size: 0.74rem; }
+            .ms-board-area { padding: 14px 10px 18px; }
+            .ms-cell {
+                width: 28px;
+                height: 28px;
+                min-width: 28px;
+                min-height: 28px;
+                font-size: 0.85rem;
+            }
+            .ms-status-bar { display: flex; }
+        }
+        @media (max-width: 480px) {
+            .ms-hero-title { font-size: 1.6rem; }
+            .ms-board-area { padding: 10px 6px 14px; }
+            .ms-cell {
+                width: 24px;
+                height: 24px;
+                min-width: 24px;
+                min-height: 24px;
+                font-size: 0.76rem;
+            }
+            .ms-btn .ms-btn-label { display: none; }
+            .ms-btn { padding: 9px 12px; }
+            .ms-board-wrap { padding: 3px; }
+            .ms-control-strip { padding: 10px 10px; gap: 6px; }
+            .ms-control-left,
+            .ms-control-right { gap: 6px; }
+            .ms-emoji-face { font-size: 1.3rem; min-width: 44px; padding: 3px 8px; }
+            .ms-visual-card { padding: 24px 20px; max-width: 100%; }
+        }
+        @media (max-width: 380px) {
+            .ms-cell {
+                width: 22px;
+                height: 22px;
+                min-width: 22px;
+                min-height: 22px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="ms-hero" id="home" aria-label="Minesweeper Hero">
+            <div class="ms-hero-bg"></div>
+            <div class="ms-hero-glow"></div>
+            <div class="container ms-hero-inner">
+                <div class="ms-hero-badge">💣 Free Classic Minesweeper</div>
+                <h1 class="ms-hero-title">
+                    Play Minesweeper online.<br />
+                    <span class="ms-hero-accent">Clear the minefield.</span>
+                </h1>
+                <p class="ms-hero-sub">The classic logic puzzle, reimagined for the modern web. Three difficulty levels, first-click safety, flag mode for mobile and best-time tracking — all free, private and playable on any device.</p>
+                <div class="ms-hero-cta">
+                    <a href="#minesweeper" class="btn btn-primary" style="background:var(--ms-accent);border-color:var(--ms-accent);">Start Playing <span>→</span></a>
+                </div>
+                <div class="ms-hero-demo">
+                    <span class="ms-demo-chip">💣 3 difficulties</span>
+                    <span class="ms-demo-chip">🎯 First-click safe</span>
+                    <span class="ms-demo-chip">🚩 Flag mode</span>
+                    <span class="ms-demo-chip">⏱️ Timer</span>
+                    <span class="ms-demo-chip">📱 Mobile friendly</span>
+                </div>
+
+                <!-- ══════════ NATIVE BANNER AD (4:1) — AUTO WIDTH ══════════ -->
+                <div class="native-banner-ad" role="complementary" aria-label="Advertisement">
+                  <div class="native-banner-inner">
+                    <span class="native-banner-label">Sponsored</span>
+                    <div class="native-banner-content">
+                      <!-- Adsterra Native Banner 4:1 -->
+                      <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+                      <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ══════════ END NATIVE BANNER AD ══════════ -->
+            </div>
+        </section>
+
+        <!-- ===== GAME ===== -->
+        <section class="ms-game-section" id="minesweeper" aria-label="Minesweeper Game">
+            <div class="container">
+                <div class="ms-shell">
+
+                    <!-- TOP BAR -->
+                    <div class="ms-topbar">
+                        <span class="ms-topbar-title"><span class="ms-dot"></span> Minesweeper</span>
+                        <div class="ms-topbar-right">
+                            <span class="ms-stat-pill" title="Timer">⏱️ <strong id="msTimer">0:00</strong></span>
+                            <span class="ms-stat-pill ms-mine-pill" title="Mines remaining">💣 <strong id="msMineCounter">10</strong></span>
+                            <span class="ms-stat-pill" title="Best time">🏆 <strong id="msBest">—</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- DIFFICULTY SELECTOR -->
+                    <div class="ms-selector">
+                        <span class="ms-sel-label">Difficulty</span>
+                        <div class="ms-pill-group" role="group" aria-label="Choose difficulty">
+                            <button class="ms-pill active" data-difficulty="easy" type="button">Easy 9×9</button>
+                            <button class="ms-pill" data-difficulty="medium" type="button">Medium 16×16</button>
+                            <button class="ms-pill" data-difficulty="hard" type="button">Hard 16×30</button>
+                        </div>
+                    </div>
+
+                    <!-- CONTROL STRIP -->
+                    <div class="ms-control-strip">
+                        <div class="ms-control-left">
+                            <button class="ms-btn ms-btn--primary" id="msNewBtn" type="button" title="Start a new game">
+                                🔄 <span class="ms-btn-label">New Game</span>
+                            </button>
+                            <button class="ms-btn" id="msFlagBtn" type="button" title="Toggle flag mode">
+                                🚩 <span class="ms-btn-label">Flag Mode</span>
+                            </button>
+                        </div>
+                        <div class="ms-control-right">
+                            <span class="ms-emoji-face" id="msFace" role="img" aria-label="Game state">🙂</span>
+                        </div>
+                    </div>
+
+                    <!-- WIN / LOSE BANNER -->
+                    <div class="ms-banner" id="msBanner" role="status" aria-live="polite">
+                        <div class="ms-banner-title" id="msBannerTitle">You win!</div>
+                        <div class="ms-banner-sub" id="msBannerSub">Cleared in 0:00</div>
+                    </div>
+
+                    <!-- BOARD -->
+                    <div class="ms-board-area">
+                        <div class="ms-board-wrap">
+                            <div class="ms-board" id="msBoard" role="grid" aria-label="Minesweeper board"></div>
+                        </div>
+                    </div>
+
+                    <!-- STATUS BAR (mobile) -->
+                    <div class="ms-status-bar ms-show" aria-hidden="true">
+                        <span class="ms-status-item">⏱️ <strong id="msTimerMobile">0:00</strong></span>
+                        <span class="ms-status-item">💣 <strong id="msMineCounterMobile">10</strong></span>
+                        <span class="ms-status-item">🏆 <strong id="msBestMobile">—</strong></span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section ms-how" id="how-to-play" aria-label="How to play Minesweeper">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Minesweeper in <em>3 easy steps.</em></h2>
+                <div class="ms-how-grid">
+                    <div class="ms-how-card">
+                        <div class="ms-how-num">01</div>
+                        <h3>Pick a Difficulty</h3>
+                        <p>Choose <strong>Easy 9×9</strong> for a quick game, <strong>Medium 16×16</strong> for a challenge, or <strong>Hard 16×30</strong> for the full classic experience. Your first click is always safe.</p>
+                    </div>
+                    <div class="ms-how-card">
+                        <div class="ms-how-num">02</div>
+                        <h3>Reveal &amp; Flag Squares</h3>
+                        <p>Click or tap any hidden square to reveal it. Numbers tell you how many mines touch that square. <strong>Right-click</strong> on desktop, or use <strong>Flag Mode</strong> on mobile, to mark mines you've identified.</p>
+                    </div>
+                    <div class="ms-how-card">
+                        <div class="ms-how-num">03</div>
+                        <h3>Clear the Board</h3>
+                        <p>Use the numbers and careful logic to work out where every mine is. Reveal every safe square (and flag every mine) to win. Your best time is saved per difficulty.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section ms-desc" id="features" aria-label="Minesweeper features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Classic Minesweeper, <em>modern touches.</em></h2>
+                <div class="ms-feature-grid">
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">💣</span>
+                        <h3>Three Difficulty Levels</h3>
+                        <p>Easy (9×9 with 10 mines), Medium (16×16 with 40 mines) and Hard (16×30 with 99 mines) — the three classic Minesweeper configurations.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">🛡️</span>
+                        <h3>First-Click Safety</h3>
+                        <p>Your first click is guaranteed never to be a mine and always opens a safe area. Mines are only placed after your first move, so you can start confidently.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">🚩</span>
+                        <h3>Flag Mode for Mobile</h3>
+                        <p>Mobile devices don't have right-click. Tap the Flag Mode button to toggle between reveal and flag actions with a single thumb.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">⚡</span>
+                        <h3>Chord Clicking</h3>
+                        <p>Once you've placed the right number of flags around a numbered square, click that square to reveal all its remaining hidden neighbours at once. Fast and satisfying.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">🌊</span>
+                        <h3>Flood-Fill Reveal</h3>
+                        <p>Reveal an empty square and every adjacent safe square opens automatically, cascading through blank regions of the board in a single satisfying wave.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">⏱️</span>
+                        <h3>Timer &amp; Best Times</h3>
+                        <p>The timer starts on your first click and stops the instant you win. Best times are stored per difficulty in your browser so you always have a target to beat.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">🎨</span>
+                        <h3>Classic Colour Numbers</h3>
+                        <p>Numbers 1 through 8 use the familiar colour scheme you know from the original Minesweeper, so you can read the board at a glance.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">📱</span>
+                        <h3>Mobile Optimised</h3>
+                        <p>Cells scale smoothly from desktop to phone. The board scrolls horizontally on very small screens so even the Hard 16×30 board fits comfortably.</p>
+                    </div>
+                    <div class="ms-feature-card">
+                        <span class="ms-feature-icon">🔒</span>
+                        <h3>100% Private</h3>
+                        <p>No account, no ads inside the game, no tracking of your moves. Everything runs in your browser and best times never leave your device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section ms-how" id="about-minesweeper" aria-label="About Minesweeper">
+            <div class="container ms-desc-inner">
+                <div class="ms-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free <em>Online Minesweeper</em></h2>
+                    <p><strong>Minesweeper</strong> is one of the most-played computer games of all time. Bundled with Windows from 1990 onward, it became a worldwide phenomenon — a game of pure logic that anyone can learn in a minute but nobody ever truly masters. Our <strong>free Minesweeper</strong> brings the classic experience to the browser with all the quality-of-life improvements modern players expect.</p>
+                    <p>The rules are simple: reveal all the safe squares on a rectangular grid without detonating a mine. Numbers that appear when you uncover a square tell you how many of the eight surrounding squares contain a mine. Using those numbers and careful deduction, you mark the mines with flags and clear the rest of the board. Clear every safe square and you win.</p>
+                    <p>We build in several improvements over the original: <strong>first-click safety</strong> means you can never lose on your very first move, <strong>flag mode</strong> makes the game fully playable on mobile, and <strong>chord clicking</strong> lets you reveal neighbours with a single tap once you've placed the right flags. There is also a live timer, a mine counter and per-difficulty best times so you always know where you stand.</p>
+                    <p>Everything runs locally in your browser — nothing is sent to our servers and no data is stored beyond your own best times. Play as many rounds as you like, at any difficulty, for as long as you like.</p>
+                    <div class="ms-desc-benefits">
+                        <span class="ms-benefit-tag">💣 3 difficulties</span>
+                        <span class="ms-benefit-tag">🛡️ First-click safe</span>
+                        <span class="ms-benefit-tag">🚩 Flag mode</span>
+                        <span class="ms-benefit-tag">⚡ Chord clicking</span>
+                        <span class="ms-benefit-tag">⏱️ Timer &amp; best times</span>
+                        <span class="ms-benefit-tag">📱 Mobile friendly</span>
+                        <span class="ms-benefit-tag">🔒 100% private</span>
+                    </div>
+                </div>
+                <div class="ms-desc-visual">
+                    <div class="ms-visual-card">
+                        <div class="ms-visual-line"></div>
+                        <div class="ms-visual-row">
+                            <span class="ms-v-label">Easy</span>
+                            <span class="ms-v-text">9 × 9 · 10 mines</span>
+                        </div>
+                        <div class="ms-visual-row">
+                            <span class="ms-v-label">Medium</span>
+                            <span class="ms-v-text">16 × 16 · 40 mines</span>
+                        </div>
+                        <div class="ms-visual-row">
+                            <span class="ms-v-label">Hard</span>
+                            <span class="ms-v-text">16 × 30 · 99 mines</span>
+                        </div>
+                        <div class="ms-visual-row">
+                            <span class="ms-v-label">First click</span>
+                            <span class="ms-v-text">Always safe</span>
+                        </div>
+                        <div class="ms-visual-row">
+                            <span class="ms-v-label">Controls</span>
+                            <span class="ms-v-text">Click · Tap · Flag</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section ms-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ms-faq-list" id="msFaqList">
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">What is Minesweeper?</button>
+                        <div class="ms-faq-a"><p>Minesweeper is a classic single-player logic puzzle. The goal is to clear a rectangular board containing hidden mines without detonating any of them. Numbers in revealed squares tell you how many mines are in the eight surrounding squares. Using these clues and careful deduction, you flag every mine and reveal every safe square to win.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">How do I play Minesweeper?</button>
+                        <div class="ms-faq-a"><p>Click or tap any square to reveal it. If it is a mine, you lose. If it is a number, it shows how many of its eight neighbours contain mines. If it is blank, all adjacent safe squares reveal automatically. Use the numbers to deduce where the mines are, then flag them with a right-click (or the Flag button on mobile). Clear every safe square to win.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">What is first-click safety in Minesweeper?</button>
+                        <div class="ms-faq-a"><p>First-click safety guarantees that the first square you click is never a mine and always opens a safe starting area. This means you can never lose on your very first move — the mines are only placed after you click. It is one of the quality-of-life improvements over the original Windows Minesweeper.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">How do I place flags in Minesweeper?</button>
+                        <div class="ms-faq-a"><p>On desktop, right-click any hidden square to place or remove a flag. On mobile, tap the Flag button at the bottom of the board to toggle flag mode, then tap the squares you want to mark. Flagging helps you remember which squares you have identified as mines.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">What does 'chord' mean in Minesweeper?</button>
+                        <div class="ms-faq-a"><p>Chording is a shortcut: when you click a numbered square that already has exactly the right number of flags around it, all of its remaining hidden neighbours are revealed at once. It is faster than clicking each neighbour individually and is essential for advanced play.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">Can I play Minesweeper on mobile?</button>
+                        <div class="ms-faq-a"><p>Yes. Minesweeper is fully responsive and touch-friendly. Tap any square to reveal it. Use the Flag button to switch between reveal mode and flag mode, since mobile devices do not have a right-click. The board scales to fit any phone screen.</p></div>
+                    </div>
+                    <div class="ms-faq-item">
+                        <button class="ms-faq-q" aria-expanded="false" type="button">Is this Minesweeper free?</button>
+                        <div class="ms-faq-a"><p>Yes. It is 100% free with no signup, no download, no ads inside the game and no hidden costs. Your best times are stored only in your browser.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="ms-toast" id="msToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* =========================================================
+           DIFFICULTY CONFIG
+           ========================================================= */
+        const DIFFICULTY = {
+            easy:   { rows: 9,  cols: 9,  mines: 10, bestKey: 'ms-best-easy' },
+            medium: { rows: 16, cols: 16, mines: 40, bestKey: 'ms-best-medium' },
+            hard:   { rows: 16, cols: 30, mines: 99, bestKey: 'ms-best-hard' }
+        };
+
+        /* =========================================================
+           STATE
+           ========================================================= */
+        const state = {
+            difficulty: 'easy',
+            rows: 9,
+            cols: 9,
+            mines: 10,
+
+            grid: [],           // 2D array of cell objects
+            revealedCount: 0,
+            flaggedCount: 0,
+
+            started: false,     // mines placed?
+            gameOver: false,
+            won: false,
+
+            timerStart: null,
+            timerId: null,
+            elapsed: 0,
+            running: false,
+
+            flagMode: false,
+
+            bestTimes: {},
+
+            face: '🙂'
+        };
+
+        /* =========================================================
+           DOM
+           ========================================================= */
+        const $ = (id) => document.getElementById(id);
+
+        const boardEl         = $('msBoard');
+        const timerEl         = $('msTimer');
+        const mineCounterEl   = $('msMineCounter');
+        const bestEl          = $('msBest');
+        const timerMobileEl   = $('msTimerMobile');
+        const mineCounterMobileEl = $('msMineCounterMobile');
+        const bestMobileEl    = $('msBestMobile');
+        const newBtn          = $('msNewBtn');
+        const flagBtn         = $('msFlagBtn');
+        const faceEl          = $('msFace');
+        const bannerEl        = $('msBanner');
+        const bannerTitleEl   = $('msBannerTitle');
+        const bannerSubEl     = $('msBannerSub');
+        const difficultyPills = document.querySelectorAll('.ms-pill[data-difficulty]');
+        const toastEl         = $('msToast');
+        const faqButtons      = document.querySelectorAll('.ms-faq-q');
+
+        let toastTimer = null;
+
+        /* =========================================================
+           UTILITIES
+           ========================================================= */
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('ms-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('ms-show'), 2200);
+        }
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function getCellEl(r, c) {
+            return boardEl.querySelector('.ms-cell[data-r="' + r + '"][data-c="' + c + '"]');
+        }
+
+        /* =========================================================
+           GAME INITIALISATION
+           ========================================================= */
+        function initGame() {
+            const cfg = DIFFICULTY[state.difficulty];
+            state.rows = cfg.rows;
+            state.cols = cfg.cols;
+            state.mines = cfg.mines;
+
+            // Build empty grid
+            state.grid = [];
+            for (let r = 0; r < state.rows; r++) {
+                const row = [];
+                for (let c = 0; c < state.cols; c++) {
+                    row.push({
+                        mine: false,
+                        revealed: false,
+                        flagged: false,
+                        adj: 0
+                    });
+                }
+                state.grid.push(row);
+            }
+
+            state.revealedCount = 0;
+            state.flaggedCount = 0;
+            state.started = false;
+            state.gameOver = false;
+            state.won = false;
+
+            resetTimer();
+            setFace('🙂');
+            bannerEl.classList.remove('ms-show');
+
+            renderBoard();
+            updateMineCounter();
+            updateBestTime();
+        }
+
+        /* =========================================================
+           RENDER BOARD
+           ========================================================= */
+        function renderBoard() {
+            boardEl.style.gridTemplateColumns = 'repeat(' + state.cols + ', 1fr)';
+            boardEl.innerHTML = '';
+
+            const frag = document.createDocumentFragment();
+            for (let r = 0; r < state.rows; r++) {
+                for (let c = 0; c < state.cols; c++) {
+                    const cell = state.grid[r][c];
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'ms-cell';
+                    btn.dataset.r = r;
+                    btn.dataset.c = c;
+                    btn.setAttribute('role', 'gridcell');
+                    applyCellClasses(btn, r, c, cell);
+                    frag.appendChild(btn);
+                }
+            }
+            boardEl.appendChild(frag);
+        }
+
+        function applyCellClasses(btn, r, c, cell) {
+            btn.className = 'ms-cell';
+
+            if (cell.revealed) {
+                btn.classList.add('ms-revealed');
+                if (cell.mine) {
+                    btn.classList.add('ms-mine-revealed');
+                    btn.textContent = '💥';
+                } else if (cell.adj > 0) {
+                    btn.classList.add('ms-n' + cell.adj);
+                    btn.textContent = String(cell.adj);
+                } else {
+                    btn.textContent = '';
+                }
+                btn.setAttribute('aria-label', 'Revealed cell ' + (r + 1) + ',' + (c + 1));
+            } else {
+                if (cell.flagged) {
+                    btn.classList.add('ms-flag-icon');
+                    btn.textContent = '🚩';
+                    btn.setAttribute('aria-label', 'Flagged cell ' + (r + 1) + ',' + (c + 1));
+                } else {
+                    btn.textContent = '';
+                    btn.setAttribute('aria-label', 'Hidden cell ' + (r + 1) + ',' + (c + 1));
+                }
+            }
+
+            if (cell.hit) btn.classList.add('ms-hit');
+        }
+
+        function updateCell(r, c) {
+            const cell = state.grid[r][c];
+            const btn = getCellEl(r, c);
+            if (!btn || !cell) return;
+            applyCellClasses(btn, r, c, cell);
+        }
+
+        /* =========================================================
+           MINE PLACEMENT (after first click, excluding a safe area)
+           ========================================================= */
+        function placeMines(safeR, safeC) {
+            // Build set of safe positions (the clicked cell + its neighbours)
+            const safe = new Set();
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    const nr = safeR + dr;
+                    const nc = safeC + dc;
+                    if (nr >= 0 && nr < state.rows && nc >= 0 && nc < state.cols) {
+                        safe.add(nr + ',' + nc);
+                    }
+                }
+            }
+
+            // Build candidate positions (all other cells)
+            const candidates = [];
+            for (let r = 0; r < state.rows; r++) {
+                for (let c = 0; c < state.cols; c++) {
+                    if (!safe.has(r + ',' + c)) {
+                        candidates.push({ r, c });
+                    }
+                }
+            }
+
+            // Shuffle candidates and pick first N
+            for (let i = candidates.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+            }
+            const minesToPlace = Math.min(state.mines, candidates.length);
+            for (let i = 0; i < minesToPlace; i++) {
+                const { r, c } = candidates[i];
+                state.grid[r][c].mine = true;
+            }
+
+            // Compute adjacency counts
+            for (let r = 0; r < state.rows; r++) {
+                for (let c = 0; c < state.cols; c++) {
+                    const cell = state.grid[r][c];
+                    if (cell.mine) continue;
+                    let count = 0;
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            if (dr === 0 && dc === 0) continue;
+                            const nr = r + dr;
+                            const nc = c + dc;
+                            if (nr < 0 || nr >= state.rows || nc < 0 || nc >= state.cols) continue;
+                            if (state.grid[nr][nc].mine) count++;
+                        }
+                    }
+                    cell.adj = count;
+                }
+            }
+        }
+
+        /* =========================================================
+           REVEAL / FLOOD-FILL
+           ========================================================= */
+        function revealCell(r, c) {
+            const cell = state.grid[r][c];
+            if (!cell || cell.revealed || cell.flagged) return;
+
+            // If the cell is a mine -> game over (only happens after first click)
+            if (cell.mine) {
+                cell.revealed = true;
+                cell.hit = true;
+                updateCell(r, c);
+                loseGame();
+                return;
+            }
+
+            // Flood-fill reveal
+            const queue = [{ r, c }];
+            const visited = new Set();
+
+            while (queue.length > 0) {
+                const { r: cr, c: cc } = queue.shift();
+                const key = cr + ',' + cc;
+                if (visited.has(key)) continue;
+                visited.add(key);
+
+                const current = state.grid[cr][cc];
+                if (current.revealed || current.flagged || current.mine) continue;
+
+                current.revealed = true;
+                state.revealedCount++;
+                updateCell(cr, cc);
+
+                if (current.adj === 0) {
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            if (dr === 0 && dc === 0) continue;
+                            const nr = cr + dr;
+                            const nc = cc + dc;
+                            if (nr < 0 || nr >= state.rows || nc < 0 || nc >= state.cols) continue;
+                            const neighbour = state.grid[nr][nc];
+                            if (!neighbour.revealed && !neighbour.flagged && !neighbour.mine) {
+                                queue.push({ r: nr, c: nc });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* =========================================================
+           FLAG
+           ========================================================= */
+        function toggleFlag(r, c) {
+            const cell = state.grid[r][c];
+            if (!cell || cell.revealed || state.gameOver) return;
+
+            cell.flagged = !cell.flagged;
+            state.flaggedCount += cell.flagged ? 1 : -1;
+            updateCell(r, c);
+            updateMineCounter();
+        }
+
+        /* =========================================================
+           CHORD CLICK
+           ========================================================= */
+        function chordCell(r, c) {
+            const cell = state.grid[r][c];
+            if (!cell || !cell.revealed || cell.adj === 0) return;
+
+            // Count flags around
+            let flagged = 0;
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    if (dr === 0 && dc === 0) continue;
+                    const nr = r + dr;
+                    const nc = c + dc;
+                    if (nr < 0 || nr >= state.rows || nc < 0 || nc >= state.cols) continue;
+                    if (state.grid[nr][nc].flagged) flagged++;
+                }
+            }
+            if (flagged !== cell.adj) return;
+
+            // Reveal all unflagged neighbours
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    if (dr === 0 && dc === 0) continue;
+                    const nr = r + dr;
+                    const nc = c + dc;
+                    if (nr < 0 || nr >= state.rows || nc < 0 || nc >= state.cols) continue;
+                    const neighbour = state.grid[nr][nc];
+                    if (!neighbour.revealed && !neighbour.flagged) {
+                        revealCell(nr, nc);
+                        if (state.gameOver) return;
+                    }
+                }
+            }
+        }
+
+        /* =========================================================
+           WIN / LOSE
+           ========================================================= */
+        function checkWin() {
+            const totalSafe = state.rows * state.cols - state.mines;
+            if (state.revealedCount >= totalSafe) {
+                winGame();
+            }
+        }
+
+        function winGame() {
+            state.gameOver = true;
+            state.won = true;
+            stopTimer();
+            setFace('😎');
+
+            // Auto-flag remaining mines
+            for (let r = 0; r < state.rows; r++) {
+                for (let c = 0; c < state.cols; c++) {
+                    const cell = state.grid[r][c];
+                    if (cell.mine && !cell.flagged) {
+                        cell.flagged = true;
+                        state.flaggedCount++;
+                        updateCell(r, c);
+                    }
+                }
+            }
+            updateMineCounter();
+
+            // Save best time
+            const key = DIFFICULTY[state.difficulty].bestKey;
+            const prev = state.bestTimes[key];
+            let newBest = false;
+            if (!prev || state.elapsed < prev) {
+                state.bestTimes[key] = state.elapsed;
+                try { localStorage.setItem(key, String(state.elapsed)); } catch (e) {}
+                newBest = true;
+            }
+            updateBestTime();
+
+            bannerEl.className = 'ms-banner ms-banner--win ms-show';
+            bannerTitleEl.textContent = '🎉 You win!';
+            bannerSubEl.textContent = 'Cleared in ' + formatTime(state.elapsed) + (newBest ? ' — new best time! 🏆' : '');
+            showToast('🎉 Board cleared!');
+        }
+
+        function loseGame() {
+            state.gameOver = true;
+            state.won = false;
+            stopTimer();
+            setFace('😵');
+
+            // Reveal all mines
+            for (let r = 0; r < state.rows; r++) {
+                for (let c = 0; c < state.cols; c++) {
+                    const cell = state.grid[r][c];
+                    if (cell.mine && !cell.revealed) {
+                        cell.revealed = true;
+                        updateCell(r, c);
+                    }
+                }
+            }
+
+            bannerEl.className = 'ms-banner ms-banner--lose ms-show';
+            bannerTitleEl.textContent = '💥 Boom!';
+            bannerSubEl.textContent = 'You hit a mine. Try again!';
+            showToast('💥 Game over');
+        }
+
+        /* =========================================================
+           TIMER
+           ========================================================= */
+        function startTimer() {
+            if (state.running) return;
+            state.running = true;
+            state.timerStart = Date.now() - state.elapsed * 1000;
+            state.timerId = setInterval(() => {
+                state.elapsed = Math.floor((Date.now() - state.timerStart) / 1000);
+                const t = formatTime(state.elapsed);
+                timerEl.textContent = t;
+                timerMobileEl.textContent = t;
+            }, 250);
+        }
+
+        function stopTimer() {
+            state.running = false;
+            if (state.timerId) {
+                clearInterval(state.timerId);
+                state.timerId = null;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            state.elapsed = 0;
+            timerEl.textContent = '0:00';
+            timerMobileEl.textContent = '0:00';
+        }
+
+        /* =========================================================
+           UI UPDATES
+           ========================================================= */
+        function updateMineCounter() {
+            const remaining = state.mines - state.flaggedCount;
+            mineCounterEl.textContent = remaining;
+            mineCounterMobileEl.textContent = remaining;
+        }
+
+        function updateBestTime() {
+            const key = DIFFICULTY[state.difficulty].bestKey;
+            const best = state.bestTimes[key];
+            const text = best ? formatTime(best) : '—';
+            bestEl.textContent = text;
+            bestMobileEl.textContent = text;
+        }
+
+        function setFace(emoji) {
+            state.face = emoji;
+            faceEl.textContent = emoji;
+        }
+
+        /* =========================================================
+           INPUT HANDLERS
+           ========================================================= */
+        function onCellClick(e) {
+            const btn = e.target.closest('.ms-cell');
+            if (!btn) return;
+            if (state.gameOver) return;
+
+            const r = parseInt(btn.dataset.r, 10);
+            const c = parseInt(btn.dataset.c, 10);
+            const cell = state.grid[r][c];
+            if (!cell) return;
+
+            // Flag mode (mobile)
+            if (state.flagMode) {
+                if (!cell.revealed) toggleFlag(r, c);
+                return;
+            }
+
+            // Chord click on a revealed numbered cell
+            if (cell.revealed && cell.adj > 0) {
+                chordCell(r, c);
+                return;
+            }
+
+            // Cannot reveal a flagged cell
+            if (cell.flagged) return;
+
+            // First click — place mines and start timer
+            if (!state.started) {
+                state.started = true;
+                placeMines(r, c);
+                startTimer();
+            }
+
+            revealCell(r, c);
+            if (!state.gameOver) checkWin();
+        }
+
+        function onCellContextMenu(e) {
+            e.preventDefault();
+            if (state.gameOver) return;
+            const btn = e.target.closest('.ms-cell');
+            if (!btn) return;
+            const r = parseInt(btn.dataset.r, 10);
+            const c = parseInt(btn.dataset.c, 10);
+            const cell = state.grid[r][c];
+            if (!cell || cell.revealed) return;
+            toggleFlag(r, c);
+        }
+
+        boardEl.addEventListener('click', onCellClick);
+        boardEl.addEventListener('contextmenu', onCellContextMenu);
+
+        /* =========================================================
+           BUTTONS
+           ========================================================= */
+        newBtn.addEventListener('click', () => {
+            initGame();
+            showToast('🔄 New game started!');
+        });
+
+        faceEl.addEventListener('click', () => {
+            initGame();
+            showToast('🔄 New game started!');
+        });
+
+        flagBtn.addEventListener('click', () => {
+            state.flagMode = !state.flagMode;
+            flagBtn.classList.toggle('ms-btn--flag-active', state.flagMode);
+            showToast(state.flagMode ? '🚩 Flag mode ON' : '👆 Reveal mode ON');
+        });
+
+        difficultyPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const diff = pill.dataset.difficulty;
+                if (diff === state.difficulty && !state.gameOver) return;
+                difficultyPills.forEach(p => p.classList.toggle('active', p === pill));
+                state.difficulty = diff;
+                initGame();
+                showToast('🎮 ' + diff.charAt(0).toUpperCase() + diff.slice(1) + ' mode loaded!');
+            });
+        });
+
+        /* =========================================================
+           BEST TIMES PERSISTENCE
+           ========================================================= */
+        function loadBestTimes() {
+            ['easy', 'medium', 'hard'].forEach(diff => {
+                const key = DIFFICULTY[diff].bestKey;
+                try {
+                    const v = localStorage.getItem(key);
+                    if (v) state.bestTimes[key] = parseInt(v, 10);
+                } catch (e) {}
+            });
+        }
+
+        /* =========================================================
+           FAQ ACCORDION
+           ========================================================= */
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                const answer = btn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        /* =========================================================
+           INIT
+           ========================================================= */
+        loadBestTimes();
+        difficultyPills.forEach(p => {
+            p.classList.toggle('active', p.dataset.difficulty === state.difficulty);
+        });
+        initGame();
+
+        console.log('💣 Minesweeper ready — 3 difficulties, first-click safe, flag mode.');
+    })();
+    </script>
+</body>
+</html>

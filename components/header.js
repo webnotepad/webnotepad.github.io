@@ -92,6 +92,20 @@
     }
   ];
 
+  // ── Games catalog — mirrors social-share widget GAMES list ──
+  const GAMES = [
+    { id: 'connections-unlimited', name: 'Connections Unlimited', emoji: '🧩', desc: 'Group 16 words into 4 categories', url: '/connections-unlimited' },
+    { id: 'spelling-bee', name: 'Spelling Bee Unlimited', emoji: '🐝', desc: 'Build words from 7 letters', url: '/spelling-bee-unlimited' },
+    { id: 'crossword-puzzle', name: 'Crossword Puzzle', emoji: '📝', desc: 'Solve interactive crossword grids', url: '/crossword-puzzle' },
+    { id: 'wordle', name: 'Wordle', emoji: '🔤', desc: 'Guess the 5-letter word', url: '/wordle' },
+    { id: 'word-search', name: 'Word Search', emoji: '🔍', desc: 'Find hidden words in a grid', url: '/word-search' },
+    { id: 'memory-match', name: 'Memory Match', emoji: '🃏', desc: 'Flip and match the cards', url: '/memory-match' },
+    { id: '2048', name: '2048', emoji: '🔢', desc: 'Slide to combine numbers', url: '/2048' },
+    { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', emoji: '❌', desc: 'Three in a row wins', url: '/tic-tac-toe' },
+    { id: 'sudoku', name: 'Sudoku', emoji: '🧮', desc: 'Fill the grid with digits', url: '/sudoku' },
+    { id: 'minesweeper', name: 'Minesweeper', emoji: '💣', desc: 'Clear the minefield', url: '/minesweeper' }
+  ];
+
   // Helper function to resolve localized URLs based on current location
   function getLocalizedUrl(targetPrefix) {
     const currentPath = window.location.pathname;
@@ -124,7 +138,7 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) ──
+  // ── Build mega-menu markup (desktop) — tool categories + Games column ──
   const megaMenuHTML = toolCategories.map(category => `
     <div class="mega-col">
       <div class="mega-col-title">${category.name}</div>
@@ -140,9 +154,31 @@
         `).join('')}
       </div>
     </div>
-  `).join('');
+  `).join('') + `
+    <div class="mega-col mega-col-games">
+      <div class="mega-col-title">🎮 Games</div>
+      <div class="mega-col-tools">
+        ${GAMES.map(game => `
+          <a href="${game.url}" class="mega-tool mega-tool-game">
+            <span class="mega-tool-icon mega-tool-icon-game">${game.emoji}</span>
+            <span class="mega-tool-text">
+              <span class="mega-tool-name">${game.name}</span>
+              <span class="mega-tool-desc">${game.desc}</span>
+            </span>
+          </a>
+        `).join('')}
+        <a href="/games" class="mega-tool mega-tool-all-games">
+          <span class="mega-tool-icon mega-tool-icon-game">🎯</span>
+          <span class="mega-tool-text">
+            <span class="mega-tool-name">All Games</span>
+            <span class="mega-tool-desc">See every game in one hub</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  `;
 
-  // ── Build mobile accordion markup ──
+  // ── Build mobile accordion markup — tool categories + Games group ──
   const mobileToolsHTML = toolCategories.map((category, idx) => `
     <div class="mobile-tools-group">
       <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
@@ -161,7 +197,32 @@
         `).join('')}
       </div>
     </div>
-  `).join('');
+  `).join('') + `
+    <div class="mobile-tools-group mobile-tools-group-games">
+      <button class="mobile-tools-toggle" data-target="mob-tools-games" aria-expanded="false">
+        <span>🎮 Games</span>
+        <span class="mobile-tools-chevron">▼</span>
+      </button>
+      <div class="mobile-tools-panel" id="mob-tools-games">
+        ${GAMES.map(game => `
+          <a href="${game.url}" class="mobile-tool-link">
+            <span class="mobile-tool-icon mobile-tool-icon-game">${game.emoji}</span>
+            <span class="mobile-tool-text">
+              <span class="mobile-tool-name">${game.name}</span>
+              <span class="mobile-tool-desc">${game.desc}</span>
+            </span>
+          </a>
+        `).join('')}
+        <a href="/games" class="mobile-tool-link mobile-tool-all-games">
+          <span class="mobile-tool-icon mobile-tool-icon-game">🎯</span>
+          <span class="mobile-tool-text">
+            <span class="mobile-tool-name">All Games</span>
+            <span class="mobile-tool-desc">See every game in one hub</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  `;
 
   const headerHTML = `
     <header class="site-header" id="siteHeader" role="banner">
@@ -222,6 +283,7 @@
       <a href="/diary" class="nav-link">🔄 Diary</a>
       <a href="/mindmap" class="nav-link">👥 MindMap</a>
       <a href="/list-maker" class="nav-link">❓ List Maker</a>
+      <a href="/games" class="nav-link">🎮 Games</a>
       <a href="/about" class="nav-link">ℹ️ About</a>
       <a href="/blog" class="nav-link">📝 Blog</a>      
       <a href="/#notepad" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Notepad→</a>
@@ -310,8 +372,6 @@
         if (content) {
           content.classList.toggle('show');
           btn.setAttribute('aria-expanded', content.classList.contains('show'));
-          const arrow = btn.textContent;
-          // Toggle arrow indicator
           if (btn.textContent.includes('▼')) {
             btn.textContent = btn.textContent.replace('▼', '▲');
           } else if (btn.textContent.includes('▲')) {
@@ -321,7 +381,7 @@
       });
     });
 
-    // ── Mobile inner accordion toggles (per category) ──
+    // ── Mobile inner accordion toggles (per category + Games) ──
     const mobileToolsToggles = document.querySelectorAll('.mobile-tools-toggle');
     mobileToolsToggles.forEach((toggle) => {
       toggle.addEventListener('click', (e) => {
@@ -429,7 +489,7 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(960px, 94vw);
+        width: min(1180px, 96vw);
         max-height: 78vh;
         overflow-y: auto;
         background-color: var(--paper);
@@ -447,7 +507,6 @@
         transform: translateX(-50%) translateY(0);
       }
 
-      /* Little arrow pointing up to the button */
       .mega-menu::before {
         content: "";
         position: absolute;
@@ -463,8 +522,8 @@
 
       .mega-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 22px 24px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 20px 20px;
       }
 
       .mega-col {
@@ -482,6 +541,9 @@
         padding-bottom: 8px;
         border-bottom: 1px solid var(--paper-edge);
         opacity: 0.8;
+        display: flex;
+        align-items: center;
+        gap: 4px;
       }
       .mega-col-tools {
         display: flex;
@@ -540,6 +602,39 @@
         text-overflow: ellipsis;
       }
 
+      /* ── Games column styling in mega-menu ── */
+      .mega-col-games .mega-col-title {
+        color: #4f46e5;
+      }
+      body.dark .mega-col-games .mega-col-title {
+        color: #818cf8;
+      }
+      .mega-tool-game .mega-tool-icon-game {
+        background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
+        border-color: rgba(99, 102, 241, 0.25);
+        font-size: 1rem;
+      }
+      .mega-tool-game:hover .mega-tool-icon-game {
+        background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
+        border-color: #6366f1;
+      }
+      .mega-tool-all-games {
+        margin-top: 4px;
+        border-top: 1px dashed var(--paper-edge);
+        padding-top: 10px;
+        color: #4f46e5;
+        font-weight: 600;
+      }
+      .mega-tool-all-games:hover {
+        color: #4338ca;
+      }
+      body.dark .mega-tool-all-games {
+        color: #818cf8;
+      }
+      body.dark .mega-tool-all-games:hover {
+        color: #a5b4fc;
+      }
+
       /* Dark mode for mega-menu */
       body.dark .mega-menu {
         background-color: var(--paper);
@@ -583,7 +678,7 @@
       }
       .mobile-dropdown-content a:hover { color: var(--accent); }
 
-      /* ── Mobile All-Tools accordion (inside mobile nav) ── */
+      /* ── Mobile All-Tools accordion ── */
       .mobile-tools-list {
         padding: 4px 0 8px;
         background: var(--paper-warm) !important;
@@ -643,6 +738,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 1rem;
       }
       .mobile-tool-icon svg { width: 20px; height: 20px; display: block; }
       .mobile-tool-text {
@@ -663,6 +759,19 @@
         text-overflow: ellipsis;
       }
 
+      /* Games group on mobile */
+      .mobile-tools-group-games .mobile-tools-toggle { color: #4f46e5; }
+      body.dark .mobile-tools-group-games .mobile-tools-toggle { color: #818cf8; }
+      .mobile-tool-all-games {
+        border-top: 1px dashed var(--paper-edge);
+        margin-top: 4px;
+        color: #4f46e5 !important;
+        font-weight: 600;
+      }
+      body.dark .mobile-tool-all-games {
+        color: #818cf8 !important;
+      }
+
       body.dark .mobile-tools-toggle { color: var(--ink); }
       body.dark .mobile-tools-panel { background: var(--paper); }
       body.dark .mobile-tool-link { color: var(--ink) !important; }
@@ -674,9 +783,14 @@
       }
 
       /* ── Responsive ── */
+      @media (max-width: 1200px) {
+        .mega-menu { width: min(1080px, 96vw); }
+        .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      }
+
       @media (max-width: 1024px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .mega-menu { width: min(820px, 96vw); }
+        .mega-menu { width: min(900px, 96vw); }
       }
 
       @media (max-width: 768px) {

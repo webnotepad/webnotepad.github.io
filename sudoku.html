@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku – Free Online Sudoku Puzzles with Hints &amp; Notes | WebNotePad</title>
+    <meta name="description" content="Play free online Sudoku puzzles. Easy, Medium, Hard and Expert levels with pencil notes, hints, mistake checking, timer and best times. Works on desktop and mobile with touch controls." />
+    <meta name="keywords" content="sudoku, sudoku online, free sudoku, play sudoku, sudoku puzzle, sudoku game, sudoku easy, sudoku hard, sudoku expert, sudoku with notes, sudoku hints, sudoku for mobile, sudoku no download" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/sudoku" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/sudoku" />
+    <meta property="og:title" content="Free Online Sudoku – Play Sudoku Puzzles with Hints &amp; Notes" />
+    <meta property="og:description" content="Play free Sudoku online. Easy to Expert levels with pencil notes, hints, mistake checking and best times. Works on mobile." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Sudoku – Play Sudoku Puzzles with Hints &amp; Notes" />
+    <meta name="twitter:description" content="Play free Sudoku online. Easy to Expert levels with pencil notes, hints and best times." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Sudoku by WebNotePad",
+            "url": "https://webnotepad.github.io/sudoku",
+            "description": "A free online Sudoku game with four difficulty levels. Features pencil notes, hints, mistake checking, undo, timer, and best times per difficulty. Works on desktop and mobile with keyboard and touch controls.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Easy, Medium, Hard and Expert difficulty levels",
+                "Procedurally generated puzzles with unique solutions",
+                "Pencil notes mode for candidate marking",
+                "Auto-fill notes button",
+                "Hint system — reveal a cell or a whole digit",
+                "Mistake detection with optional check mode",
+                "Undo and erase tools",
+                "Highlight matching digits and peers",
+                "Live timer and best time per difficulty",
+                "Keyboard and touch controls",
+                "Mobile-friendly responsive 9×9 grid",
+                "100% free and offline — nothing is stored or sent"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Sudoku?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sudoku is a logic puzzle played on a 9×9 grid that is divided into nine 3×3 sub-grids (also called boxes or regions). The goal is to fill every empty cell with a digit from 1 to 9 so that each row, each column, and each 3×3 box contains every digit exactly once. A well-formed puzzle has exactly one solution that can be reached by pure logic — no guessing required."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I play Sudoku?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Click or tap any empty cell to select it, then enter a digit from 1 to 9 using the number pad or your keyboard. The puzzle is solved when every row, column and 3×3 box contains the digits 1 through 9 with no repeats. Given cells (called givens) cannot be changed. Use Notes mode to mark candidate digits in a cell, and Hint if you get stuck."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What are Sudoku pencil notes?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pencil notes (also called candidates) are small digits you write inside a cell to record which numbers could still legally go there. They are essential for advanced solving techniques like naked pairs, hidden singles and X-Wings. Press the Notes button (or the N key on desktop) to toggle notes mode and add or remove candidates. The Auto-Notes button fills every cell with all of its legal candidates at once."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How many difficulty levels does this Sudoku have?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Four: Easy, Medium, Hard and Expert. Easy puzzles leave around 40 givens and can be solved with basic scanning. Medium leaves about 32, Hard about 28, and Expert about 24 — requiring more advanced techniques like pointing pairs, box-line reduction and X-Wings."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can Sudoku puzzles ever have more than one solution?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A well-formed Sudoku should have exactly one solution. Our generator uses a solver that verifies uniqueness before every puzzle is presented. If a puzzle ever had multiple solutions it would be impossible to reach a definitive answer by logic alone, which is why every proper Sudoku must have a unique solution."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I play Sudoku on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Sudoku is fully responsive and touch-friendly. Tap a cell to select it, then tap the digits on the on-screen number pad. All the tools — Notes, Erase, Undo, Hint — are accessible from the same pad. The 9×9 grid scales perfectly to fit any phone screen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Sudoku free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. It is 100% free with no signup, no download, no ads inside the game and no hidden costs. Your best times are stored only in your browser."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --sd-accent: #1e40af;
+            --sd-accent-light: #3b82f6;
+            --sd-accent-pale: #eff6ff;
+            --sd-surface: #faf8f4;
+            --sd-warm: #f4f0e8;
+            --sd-border: #e8e2d6;
+            --sd-ink: #1a1a2e;
+            --sd-muted: #6b6b85;
+            --sd-radius: 8px;
+            --sd-radius-lg: 14px;
+            --sd-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --sd-transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Sudoku colours */
+            --sd-grid-line: #1a1a2e;
+            --sd-grid-line-thin: #94a3b8;
+            --sd-given: #1a1a2e;
+            --sd-user: #1e40af;
+            --sd-error: #dc2626;
+            --sd-error-bg: #fee2e2;
+            --sd-selected: #dbeafe;
+            --sd-highlight: #eff6ff;
+            --sd-peer: #f1f5f9;
+            --sd-same: #bfdbfe;
+            --sd-notes: #64748b;
+        }
+
+        body.dark {
+            --sd-accent: #60a5fa;
+            --sd-accent-light: #93c5fd;
+            --sd-accent-pale: #0b1b3a;
+            --sd-surface: #141418;
+            --sd-warm: #1c1c22;
+            --sd-border: #2a2a34;
+            --sd-ink: #e8e4dc;
+            --sd-muted: #8a8678;
+            --sd-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+
+            --sd-grid-line: #8a8678;
+            --sd-grid-line-thin: #3d4757;
+            --sd-given: #e8e4dc;
+            --sd-user: #93c5fd;
+            --sd-error: #f87171;
+            --sd-error-bg: rgba(220, 38, 38, 0.18);
+            --sd-selected: rgba(96, 165, 250, 0.28);
+            --sd-highlight: rgba(96, 165, 250, 0.12);
+            --sd-peer: rgba(255, 255, 255, 0.04);
+            --sd-same: rgba(96, 165, 250, 0.32);
+            --sd-notes: #8a8678;
+        }
+
+        /* ===== HERO ===== */
+        .sd-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--sd-surface);
+            transition: background var(--sd-transition);
+        }
+        .sd-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--sd-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--sd-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .sd-hero-bg { opacity: 0.1; }
+        .sd-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--sd-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .sd-hero-glow { opacity: 0.35; }
+        .sd-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        .sd-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--sd-accent-pale);
+            color: var(--sd-accent);
+            border: 1px solid var(--sd-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .sd-hero-badge { background: rgba(96, 165, 250, 0.15); }
+        .sd-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--sd-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .sd-hero-accent {
+            color: var(--sd-accent);
+            font-style: italic;
+        }
+        .sd-hero-sub {
+            font-size: 0.9rem;
+            color: var(--sd-muted);
+            max-width: 560px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .sd-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .sd-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .sd-demo-chip {
+            padding: 7px 16px;
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--sd-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--sd-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .sd-demo-chip:hover {
+            background: var(--sd-accent-pale);
+            border-color: var(--sd-accent);
+            color: var(--sd-accent);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .sd-game-section {
+            padding: 0 0 80px;
+            background: var(--sd-surface);
+            transition: background var(--sd-transition);
+        }
+        .sd-shell {
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            border-radius: var(--sd-radius-lg);
+            box-shadow: var(--sd-shadow);
+            overflow: hidden;
+            transition: all var(--sd-transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .sd-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--sd-border);
+            background: var(--sd-surface);
+            flex-wrap: wrap;
+        }
+        .sd-topbar-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sd-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sd-topbar-title .sd-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sd-accent);
+            display: inline-block;
+            animation: sdPulse 2s infinite;
+        }
+        @keyframes sdPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .sd-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .sd-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--sd-muted);
+            white-space: nowrap;
+        }
+        .sd-stat-pill strong {
+            color: var(--sd-ink);
+            font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .sd-stat-pill.sd-error-pill strong { color: #dc2626; }
+        body.dark .sd-stat-pill.sd-error-pill strong { color: #f87171; }
+
+        /* ===== SELECTOR BAR ===== */
+        .sd-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--sd-border);
+            background: var(--sd-surface);
+            flex-wrap: wrap;
+        }
+        .sd-sel-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--sd-muted);
+            white-space: nowrap;
+        }
+        .sd-pill-group {
+            display: flex;
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            border-radius: var(--sd-radius);
+            overflow: hidden;
+        }
+        .sd-pill {
+            padding: 7px 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--sd-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--sd-transition);
+            white-space: nowrap;
+        }
+        .sd-pill:hover { color: var(--sd-ink); background: var(--sd-border); }
+        .sd-pill.active {
+            background: var(--sd-accent);
+            color: #ffffff;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .sd-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+            gap: 0;
+        }
+
+        /* ===== BOARD PANEL ===== */
+        .sd-board-panel {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-right: 1px solid var(--sd-border);
+            background: var(--sd-surface);
+            min-width: 0;
+        }
+
+        .sd-board-wrap {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto;
+            background: var(--sd-grid-line);
+            padding: 3px;
+            border-radius: 6px;
+            box-shadow: 0 6px 18px rgba(26, 26, 46, 0.15);
+        }
+
+        .sd-board {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 1px;
+            background: var(--sd-grid-line-thin);
+            border: 1px solid var(--sd-grid-line);
+            border-radius: 3px;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .sd-cell {
+            position: relative;
+            background: var(--sd-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: clamp(1rem, 4vw, 1.6rem);
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.12s ease;
+            outline: none;
+            border: none;
+            padding: 0;
+            min-width: 0;
+            color: var(--sd-given);
+            font-variant-numeric: tabular-nums;
+        }
+        /* Grid box boundaries */
+        .sd-cell.sd-bright { border-right: 2px solid var(--sd-grid-line); }
+        .sd-cell.sd-bbottom { border-bottom: 2px solid var(--sd-grid-line); }
+
+        .sd-cell.sd-given {
+            color: var(--sd-given);
+            font-weight: 700;
+        }
+        .sd-cell.sd-user {
+            color: var(--sd-user);
+        }
+        .sd-cell.sd-error {
+            color: var(--sd-error);
+            background: var(--sd-error-bg);
+        }
+        .sd-cell.sd-peer {
+            background: var(--sd-peer);
+        }
+        .sd-cell.sd-same {
+            background: var(--sd-same);
+        }
+        .sd-cell.sd-selected {
+            background: var(--sd-selected);
+            box-shadow: inset 0 0 0 2px var(--sd-accent);
+            z-index: 2;
+        }
+        .sd-cell.sd-hint {
+            animation: sdHintPulse 1.4s ease;
+        }
+        @keyframes sdHintPulse {
+            0%, 100% { background: var(--sd-surface); }
+            50% { background: #fbbf24; color: #422006; }
+        }
+
+        /* Notes grid inside cell */
+        .sd-notes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+            padding: 2px;
+            gap: 0;
+            pointer-events: none;
+        }
+        .sd-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.4rem, 1.3vw, 0.58rem);
+            font-weight: 600;
+            color: var(--sd-notes);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            line-height: 1;
+        }
+
+        /* ===== RIGHT PANEL ===== */
+        .sd-right-panel {
+            display: flex;
+            flex-direction: column;
+            background: var(--sd-surface);
+            padding: 18px;
+        }
+
+        /* Number pad */
+        .sd-numpad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .sd-num-btn {
+            position: relative;
+            padding: 14px 8px;
+            background: var(--sd-surface);
+            border: 1.5px solid var(--sd-border);
+            border-radius: var(--sd-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sd-accent);
+            cursor: pointer;
+            transition: all var(--sd-transition);
+            font-variant-numeric: tabular-nums;
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sd-num-btn:hover:not(.sd-num-done) {
+            border-color: var(--sd-accent);
+            background: var(--sd-accent-pale);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+        }
+        .sd-num-btn:active { transform: scale(0.96); }
+        .sd-num-btn.sd-num-done {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        .sd-num-btn .sd-num-count {
+            position: absolute;
+            top: 3px;
+            right: 6px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--sd-muted);
+            opacity: 0.75;
+        }
+
+        /* Tools row */
+        .sd-tools {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .sd-tool {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 10px 4px;
+            background: var(--sd-surface);
+            border: 1.5px solid var(--sd-border);
+            border-radius: var(--sd-radius);
+            cursor: pointer;
+            transition: all var(--sd-transition);
+            color: var(--sd-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            min-height: 62px;
+        }
+        .sd-tool:hover:not(:disabled) {
+            border-color: var(--sd-ink);
+            background: var(--sd-warm);
+            transform: translateY(-2px);
+            color: var(--sd-ink);
+        }
+        .sd-tool:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+        .sd-tool.sd-active {
+            background: var(--sd-accent);
+            border-color: var(--sd-accent);
+            color: #ffffff;
+        }
+        .sd-tool.sd-active:hover {
+            background: var(--sd-accent-light);
+            border-color: var(--sd-accent-light);
+        }
+        .sd-tool-icon {
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        /* Hint row */
+        .sd-hint-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .sd-hint-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 11px 12px;
+            background: var(--sd-surface);
+            color: var(--sd-ink);
+            border: 1.5px solid var(--sd-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--sd-transition);
+            white-space: nowrap;
+        }
+        .sd-hint-btn:hover:not(:disabled) {
+            border-color: var(--sd-ink);
+            background: var(--sd-warm);
+            transform: translateY(-1px);
+        }
+        .sd-hint-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .sd-hint-btn.sd-primary {
+            background: #fbbf24;
+            border-color: #fbbf24;
+            color: #422006;
+        }
+        .sd-hint-btn.sd-primary:hover:not(:disabled) {
+            background: #f59e0b;
+            border-color: #f59e0b;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+        }
+
+        /* ===== WIN BANNER ===== */
+        .sd-banner {
+            display: none;
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--sd-border);
+            animation: sdSlideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .sd-banner.sd-show { display: block; }
+        .sd-banner.sd-banner--win {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            color: #ffffff;
+        }
+        .sd-banner-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+        }
+        .sd-banner-sub {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+            opacity: 0.92;
+        }
+        @keyframes sdSlideDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HOW TO / FEATURES / FAQ ===== */
+        .sd-how { background: var(--sd-warm); transition: background var(--sd-transition); }
+        .sd-how-grid,
+        .sd-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .sd-how-card,
+        .sd-feature-card {
+            background: var(--sd-surface);
+            border: 1px solid var(--sd-border);
+            border-radius: var(--sd-radius-lg);
+            padding: 26px;
+            transition: all var(--sd-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .sd-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--sd-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--sd-transition);
+        }
+        .sd-how-card:hover { box-shadow: var(--sd-shadow); transform: translateY(-3px); }
+        .sd-how-card:hover::before { transform: scaleX(1); }
+        .sd-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--sd-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .sd-how-card h3,
+        .sd-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--sd-ink);
+            margin-bottom: 8px;
+        }
+        .sd-how-card p,
+        .sd-feature-card p {
+            font-size: 0.85rem;
+            color: var(--sd-muted);
+            line-height: 1.6;
+        }
+        .sd-feature-card:hover {
+            box-shadow: var(--sd-shadow);
+            transform: translateY(-3px);
+            border-color: var(--sd-accent-light);
+        }
+        .sd-feature-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+
+        /* ===== DESCRIPTION ===== */
+        .sd-desc { background: var(--sd-surface); transition: background var(--sd-transition); }
+        .sd-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .sd-desc-text p {
+            font-size: 0.95rem;
+            color: var(--sd-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .sd-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .sd-benefit-tag {
+            padding: 6px 14px;
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--sd-ink);
+            transition: all var(--sd-transition);
+        }
+        .sd-benefit-tag:hover {
+            background: var(--sd-accent-pale);
+            border-color: var(--sd-accent);
+            color: var(--sd-accent);
+        }
+        .sd-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sd-visual-card {
+            background: var(--sd-ink);
+            color: var(--sd-surface);
+            border-radius: var(--sd-radius-lg);
+            padding: 32px 28px;
+            max-width: 330px;
+            width: 100%;
+            box-shadow: var(--sd-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+        body.dark .sd-visual-card {
+            background: var(--sd-warm);
+            border: 1px solid var(--sd-border);
+            color: var(--sd-ink);
+        }
+        .sd-visual-line {
+            width: 36px;
+            height: 3px;
+            background: var(--sd-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .sd-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .sd-visual-row { border-bottom-color: var(--sd-border); }
+        .sd-visual-row:last-child { border-bottom: none; }
+        .sd-v-label {
+            opacity: 0.55;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            white-space: nowrap;
+        }
+        .sd-v-text {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--sd-accent-light);
+            text-align: right;
+        }
+        body.dark .sd-visual-card .sd-v-text { color: var(--sd-accent); }
+
+        /* ===== FAQ ===== */
+        .sd-faq { background: var(--sd-warm); transition: background var(--sd-transition); }
+        .sd-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .sd-faq-item {
+            border: 1px solid var(--sd-border);
+            border-radius: var(--sd-radius);
+            overflow: hidden;
+            background: var(--sd-surface);
+            transition: border-color var(--sd-transition);
+        }
+        .sd-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--sd-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--sd-transition);
+        }
+        .sd-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--sd-muted);
+            flex-shrink: 0;
+            transition: transform var(--sd-transition);
+        }
+        .sd-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--sd-accent); }
+        .sd-faq-q:hover { background: var(--sd-warm); }
+        .sd-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .sd-faq-a p {
+            font-size: 0.88rem;
+            color: var(--sd-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .sd-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--sd-ink);
+            color: var(--sd-surface);
+            padding: 12px 20px;
+            border-radius: var(--sd-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 320px;
+        }
+        .sd-toast.sd-show { transform: translateY(0); opacity: 1; }
+        body.dark .sd-toast {
+            background: var(--sd-warm);
+            color: var(--sd-ink);
+            border: 1px solid var(--sd-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .sd-main { grid-template-columns: 1fr; }
+            .sd-board-panel { border-right: none; border-bottom: 1px solid var(--sd-border); }
+            .sd-how-grid,
+            .sd-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .sd-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .sd-desc-visual { justify-content: flex-start; }
+            .sd-numpad { grid-template-columns: repeat(5, 1fr); }
+            .sd-tools { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .sd-hero { min-height: auto; padding: 24px 0 20px; }
+            .sd-how-grid,
+            .sd-feature-grid { grid-template-columns: 1fr; }
+            .sd-topbar { padding: 10px 14px; }
+            .sd-selector { padding: 10px 14px; gap: 6px; }
+            .sd-pill { padding: 6px 11px; font-size: 0.72rem; }
+            .sd-board-panel { padding: 14px 12px; }
+            .sd-right-panel { padding: 14px; }
+            .sd-num-btn { font-size: 1.3rem; min-height: 56px; padding: 12px 6px; }
+            .sd-tool { min-height: 56px; padding: 8px 3px; font-size: 0.58rem; }
+            .sd-tool-icon { font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .sd-hero-title { font-size: 1.6rem; }
+            .sd-board-panel { padding: 10px 8px; }
+            .sd-num-btn { font-size: 1.15rem; min-height: 48px; padding: 8px 4px; }
+            .sd-num-btn .sd-num-count { font-size: 0.5rem; top: 2px; right: 4px; }
+            .sd-tools { gap: 4px; }
+            .sd-tool { min-height: 48px; padding: 6px 2px; font-size: 0.52rem; }
+            .sd-tool-icon { font-size: 0.9rem; }
+            .sd-hint-btn { padding: 10px 8px; font-size: 0.7rem; }
+            .sd-visual-card { padding: 24px 20px; max-width: 100%; }
+            .sd-numpad { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+            .sd-note { font-size: clamp(0.32rem, 1.5vw, 0.45rem); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="sd-hero" id="home" aria-label="Sudoku Hero">
+            <div class="sd-hero-bg"></div>
+            <div class="sd-hero-glow"></div>
+            <div class="container sd-hero-inner">
+                <div class="sd-hero-badge">🧮 Free Classic Sudoku</div>
+                <h1 class="sd-hero-title">
+                    Play Sudoku online.<br />
+                    <span class="sd-hero-accent">Easy to Expert puzzles.</span>
+                </h1>
+                <p class="sd-hero-sub">The classic 9×9 logic puzzle, right in your browser. Four difficulty levels, pencil notes, hints, mistake checking, undo, and per-difficulty best times — all free, private and playable on any device.</p>
+                <div class="sd-hero-cta">
+                    <a href="#sudoku" class="btn btn-primary" style="background:var(--sd-accent);border-color:var(--sd-accent);">Start Playing <span>→</span></a>
+                </div>
+                <div class="sd-hero-demo">
+                    <span class="sd-demo-chip">🧮 4 difficulties</span>
+                    <span class="sd-demo-chip">✏️ Pencil notes</span>
+                    <span class="sd-demo-chip">💡 Smart hints</span>
+                    <span class="sd-demo-chip">⏱️ Timer</span>
+                    <span class="sd-demo-chip">📱 Mobile friendly</span>
+                </div>
+
+                <!-- ══════════ NATIVE BANNER AD (4:1) — AUTO WIDTH ══════════ -->
+                <div class="native-banner-ad" role="complementary" aria-label="Advertisement">
+                  <div class="native-banner-inner">
+                    <span class="native-banner-label">Sponsored</span>
+                    <div class="native-banner-content">
+                      <!-- Adsterra Native Banner 4:1 -->
+                      <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+                      <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ══════════ END NATIVE BANNER AD ══════════ -->
+            </div>
+        </section>
+
+        <!-- ===== GAME ===== -->
+        <section class="sd-game-section" id="sudoku" aria-label="Sudoku Game">
+            <div class="container">
+                <div class="sd-shell">
+
+                    <!-- TOP BAR -->
+                    <div class="sd-topbar">
+                        <span class="sd-topbar-title"><span class="sd-dot"></span> Sudoku</span>
+                        <div class="sd-topbar-right">
+                            <span class="sd-stat-pill" title="Timer">⏱️ <strong id="sdTimer">0:00</strong></span>
+                            <span class="sd-stat-pill sd-error-pill" title="Mistakes">❌ <strong id="sdMistakes">0</strong></span>
+                            <span class="sd-stat-pill" title="Best time">🏆 <strong id="sdBest">—</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- DIFFICULTY SELECTOR -->
+                    <div class="sd-selector">
+                        <span class="sd-sel-label">Difficulty</span>
+                        <div class="sd-pill-group" role="group" aria-label="Choose difficulty">
+                            <button class="sd-pill active" data-difficulty="easy" type="button">Easy</button>
+                            <button class="sd-pill" data-difficulty="medium" type="button">Medium</button>
+                            <button class="sd-pill" data-difficulty="hard" type="button">Hard</button>
+                            <button class="sd-pill" data-difficulty="expert" type="button">Expert</button>
+                        </div>
+                    </div>
+
+                    <!-- WIN BANNER -->
+                    <div class="sd-banner" id="sdBanner" role="status" aria-live="polite">
+                        <div class="sd-banner-title" id="sdBannerTitle">🎉 Solved!</div>
+                        <div class="sd-banner-sub" id="sdBannerSub">Completed in 0:00</div>
+                    </div>
+
+                    <!-- MAIN LAYOUT -->
+                    <div class="sd-main">
+
+                        <!-- BOARD -->
+                        <div class="sd-board-panel">
+                            <div class="sd-board-wrap">
+                                <div class="sd-board" id="sdBoard" role="grid" aria-label="Sudoku board"></div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT PANEL -->
+                        <aside class="sd-right-panel" aria-label="Controls">
+
+                            <!-- Number pad -->
+                            <div class="sd-numpad" id="sdNumpad" role="group" aria-label="Number pad">
+                                <button class="sd-num-btn" data-num="1" type="button">1<span class="sd-num-count" data-count="1"></span></button>
+                                <button class="sd-num-btn" data-num="2" type="button">2<span class="sd-num-count" data-count="2"></span></button>
+                                <button class="sd-num-btn" data-num="3" type="button">3<span class="sd-num-count" data-count="3"></span></button>
+                                <button class="sd-num-btn" data-num="4" type="button">4<span class="sd-num-count" data-count="4"></span></button>
+                                <button class="sd-num-btn" data-num="5" type="button">5<span class="sd-num-count" data-count="5"></span></button>
+                                <button class="sd-num-btn" data-num="6" type="button">6<span class="sd-num-count" data-count="6"></span></button>
+                                <button class="sd-num-btn" data-num="7" type="button">7<span class="sd-num-count" data-count="7"></span></button>
+                                <button class="sd-num-btn" data-num="8" type="button">8<span class="sd-num-count" data-count="8"></span></button>
+                                <button class="sd-num-btn" data-num="9" type="button">9<span class="sd-num-count" data-count="9"></span></button>
+                            </div>
+
+                            <!-- Tools -->
+                            <div class="sd-tools" role="group" aria-label="Tools">
+                                <button class="sd-tool" id="sdNotesBtn" type="button" title="Toggle notes mode (N)">
+                                    <span class="sd-tool-icon">✏️</span>
+                                    <span>Notes</span>
+                                </button>
+                                <button class="sd-tool" id="sdAutoNotesBtn" type="button" title="Auto-fill all notes">
+                                    <span class="sd-tool-icon">🧠</span>
+                                    <span>Auto</span>
+                                </button>
+                                <button class="sd-tool" id="sdEraseBtn" type="button" title="Erase selected cell (Delete)">
+                                    <span class="sd-tool-icon">⌫</span>
+                                    <span>Erase</span>
+                                </button>
+                                <button class="sd-tool" id="sdUndoBtn" type="button" title="Undo last move (Ctrl+Z)" disabled>
+                                    <span class="sd-tool-icon">↶</span>
+                                    <span>Undo</span>
+                                </button>
+                            </div>
+
+                            <!-- Hints -->
+                            <div class="sd-hint-row">
+                                <button class="sd-hint-btn sd-primary" id="sdHintCellBtn" type="button" title="Reveal the selected cell">
+                                    💡 Hint Cell
+                                </button>
+                                <button class="sd-hint-btn" id="sdHintDigitBtn" type="button" title="Reveal a full digit">
+                                    🎯 Hint Digit
+                                </button>
+                            </div>
+
+                            <!-- Restart -->
+                            <button class="sd-hint-btn" id="sdNewBtn" type="button" style="margin-top:8px; width:100%;" title="Start a new puzzle">
+                                🔄 New Puzzle
+                            </button>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section sd-how" id="how-to-play" aria-label="How to play Sudoku">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Sudoku in <em>3 easy steps.</em></h2>
+                <div class="sd-how-grid">
+                    <div class="sd-how-card">
+                        <div class="sd-how-num">01</div>
+                        <h3>Pick a Difficulty</h3>
+                        <p>Choose <strong>Easy</strong>, <strong>Medium</strong>, <strong>Hard</strong> or <strong>Expert</strong>. Every puzzle is freshly generated with a guaranteed unique solution, so you never have to guess.</p>
+                    </div>
+                    <div class="sd-how-card">
+                        <div class="sd-how-num">02</div>
+                        <h3>Fill the Grid</h3>
+                        <p>Tap any empty cell, then press a digit on the number pad (or your keyboard). Every row, column and 3×3 box must contain the digits 1 through 9 exactly once. Givens cannot be changed.</p>
+                    </div>
+                    <div class="sd-how-card">
+                        <div class="sd-how-num">03</div>
+                        <h3>Use Notes &amp; Hints</h3>
+                        <p>Stuck? Toggle <strong>Notes mode</strong> to pencil candidates into a cell, or press <strong>Auto</strong> to fill every legal candidate at once. The <strong>Hint</strong> buttons reveal a cell or a whole digit if you need help.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section sd-desc" id="features" aria-label="Sudoku features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Everything you need to <em>solve Sudoku.</em></h2>
+                <div class="sd-feature-grid">
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">🧮</span>
+                        <h3>Four Difficulty Levels</h3>
+                        <p>Easy (40 givens), Medium (32 givens), Hard (28 givens) and Expert (24 givens). Every puzzle is procedurally generated and verified for a unique solution.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">✏️</span>
+                        <h3>Pencil Notes Mode</h3>
+                        <p>Toggle Notes mode to write small candidate digits inside a cell. Notes are essential for advanced techniques like naked pairs and X-Wings.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">🧠</span>
+                        <h3>Auto-Notes Fill</h3>
+                        <p>One press of the Auto button fills every empty cell with all of its legal candidates, so you can start with a complete picture of the puzzle.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">💡</span>
+                        <h3>Two Hint Modes</h3>
+                        <p>Hint Cell reveals the correct digit for the selected cell. Hint Digit places every occurrence of one number you choose. Hints never count as mistakes.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">❌</span>
+                        <h3>Mistake Detection</h3>
+                        <p>Any digit that breaks the rules is immediately highlighted in red and counted in the mistake tracker, so you can catch errors the moment they happen.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">↶</span>
+                        <h3>Undo &amp; Erase</h3>
+                        <p>Made a wrong move? Undo the last entry with a single tap, or erase the selected cell entirely. The undo history remembers your last 200 actions.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">🔍</span>
+                        <h3>Peer Highlighting</h3>
+                        <p>Selecting a cell highlights its row, column and 3×3 box, and every cell containing the same digit is tinted so you can spot patterns instantly.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">⏱️</span>
+                        <h3>Timer &amp; Best Times</h3>
+                        <p>The timer runs from your first move and stops when you solve the puzzle. Your best time is saved per difficulty in your browser.</p>
+                    </div>
+                    <div class="sd-feature-card">
+                        <span class="sd-feature-icon">📱</span>
+                        <h3>Mobile Optimised</h3>
+                        <p>The 9×9 grid scales cleanly from desktop to phone. Digits are large tap targets, and the number pad reflows to fit any screen width.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section sd-how" id="about-sudoku" aria-label="About Sudoku">
+            <div class="container sd-desc-inner">
+                <div class="sd-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free <em>Online Sudoku</em></h2>
+                    <p><strong>Sudoku</strong> is one of the most popular logic puzzles in the world. Played on a 9×9 grid split into nine 3×3 boxes, the goal is simple: fill every empty cell with a digit from 1 to 9 so that each row, each column and each 3×3 box contains every digit exactly once. Given cells — called <em>givens</em> — are already filled in and can never be changed.</p>
+                    <p>What makes Sudoku special is that no arithmetic or guessing is needed. Every well-formed puzzle has exactly one solution that can be reached through pure logic. Our <strong>free Sudoku</strong> uses a solver that verifies uniqueness before presenting a puzzle, so you never have to worry about a board that has multiple valid answers.</p>
+                    <p>The game ships with four difficulty levels. <strong>Easy</strong> leaves around 40 givens and can be solved with basic scanning techniques. <strong>Medium</strong> drops to about 32 givens and adds more hidden singles. <strong>Hard</strong> leaves about 28 givens and requires techniques like pointing pairs and box-line reduction. <strong>Expert</strong> leaves only 24 givens and demands advanced methods like X-Wings and swordfish.</p>
+                    <p>To help you at every stage, the game includes a full toolset: <strong>pencil notes</strong> for tracking candidates, an <strong>auto-notes</strong> button that fills every legal candidate in one press, <strong>undo</strong> for the last 200 moves, and a <strong>hint system</strong> that can reveal a single cell or a whole digit. Mistake detection highlights errors the moment they happen, so you can learn from them without guessing.</p>
+                    <div class="sd-desc-benefits">
+                        <span class="sd-benefit-tag">🧮 4 difficulties</span>
+                        <span class="sd-benefit-tag">✏️ Pencil notes</span>
+                        <span class="sd-benefit-tag">🧠 Auto-notes</span>
+                        <span class="sd-benefit-tag">💡 Two hint modes</span>
+                        <span class="sd-benefit-tag">↶ Undo</span>
+                        <span class="sd-benefit-tag">🔍 Peer highlighting</span>
+                        <span class="sd-benefit-tag">⏱️ Timer &amp; best times</span>
+                        <span class="sd-benefit-tag">📱 Mobile friendly</span>
+                    </div>
+                </div>
+                <div class="sd-desc-visual">
+                    <div class="sd-visual-card">
+                        <div class="sd-visual-line"></div>
+                        <div class="sd-visual-row">
+                            <span class="sd-v-label">Easy</span>
+                            <span class="sd-v-text">~40 givens</span>
+                        </div>
+                        <div class="sd-visual-row">
+                            <span class="sd-v-label">Medium</span>
+                            <span class="sd-v-text">~32 givens</span>
+                        </div>
+                        <div class="sd-visual-row">
+                            <span class="sd-v-label">Hard</span>
+                            <span class="sd-v-text">~28 givens</span>
+                        </div>
+                        <div class="sd-visual-row">
+                            <span class="sd-v-label">Expert</span>
+                            <span class="sd-v-text">~24 givens</span>
+                        </div>
+                        <div class="sd-visual-row">
+                            <span class="sd-v-label">Solution</span>
+                            <span class="sd-v-text">Always unique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section sd-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="sd-faq-list" id="sdFaqList">
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">What is Sudoku?</button>
+                        <div class="sd-faq-a"><p>Sudoku is a logic puzzle played on a 9×9 grid that is divided into nine 3×3 sub-grids (also called boxes or regions). The goal is to fill every empty cell with a digit from 1 to 9 so that each row, each column, and each 3×3 box contains every digit exactly once. A well-formed puzzle has exactly one solution that can be reached by pure logic — no guessing required.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">How do I play Sudoku?</button>
+                        <div class="sd-faq-a"><p>Click or tap any empty cell to select it, then enter a digit from 1 to 9 using the number pad or your keyboard. The puzzle is solved when every row, column and 3×3 box contains the digits 1 through 9 with no repeats. Given cells (called givens) cannot be changed. Use Notes mode to mark candidate digits in a cell, and Hint if you get stuck.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">What are Sudoku pencil notes?</button>
+                        <div class="sd-faq-a"><p>Pencil notes (also called candidates) are small digits you write inside a cell to record which numbers could still legally go there. They are essential for advanced solving techniques like naked pairs, hidden singles and X-Wings. Press the Notes button (or the N key on desktop) to toggle notes mode and add or remove candidates. The Auto-Notes button fills every cell with all of its legal candidates at once.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">How many difficulty levels does this Sudoku have?</button>
+                        <div class="sd-faq-a"><p>Four: Easy, Medium, Hard and Expert. Easy puzzles leave around 40 givens and can be solved with basic scanning. Medium leaves about 32, Hard about 28, and Expert about 24 — requiring more advanced techniques like pointing pairs, box-line reduction and X-Wings.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">Can Sudoku puzzles ever have more than one solution?</button>
+                        <div class="sd-faq-a"><p>A well-formed Sudoku should have exactly one solution. Our generator uses a solver that verifies uniqueness before every puzzle is presented. If a puzzle ever had multiple solutions it would be impossible to reach a definitive answer by logic alone, which is why every proper Sudoku must have a unique solution.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">Can I play Sudoku on mobile?</button>
+                        <div class="sd-faq-a"><p>Yes. Sudoku is fully responsive and touch-friendly. Tap a cell to select it, then tap the digits on the on-screen number pad. All the tools — Notes, Erase, Undo, Hint — are accessible from the same pad. The 9×9 grid scales perfectly to fit any phone screen.</p></div>
+                    </div>
+                    <div class="sd-faq-item">
+                        <button class="sd-faq-q" aria-expanded="false" type="button">Is this Sudoku free?</button>
+                        <div class="sd-faq-a"><p>Yes. It is 100% free with no signup, no download, no ads inside the game and no hidden costs. Your best times are stored only in your browser.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="sd-toast" id="sdToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* =========================================================
+           DIFFICULTY CONFIG
+           ========================================================= */
+        const DIFFICULTY = {
+            easy:   { givens: 40, bestKey: 'sd-best-easy'   },
+            medium: { givens: 32, bestKey: 'sd-best-medium' },
+            hard:   { givens: 28, bestKey: 'sd-best-hard'   },
+            expert: { givens: 24, bestKey: 'sd-best-expert' }
+        };
+
+        /* =========================================================
+           STATE
+           ========================================================= */
+        const state = {
+            difficulty: 'easy',
+            solution: [],         // 9x9 solved grid
+            puzzle: [],           // 9x9 initial givens (0 for empty)
+            grid: [],             // 9x9 current values
+            notes: [],            // 9x9 Set of candidate digits
+            givens: [],           // 9x9 booleans (true = given)
+            errors: [],           // 9x9 booleans (true = wrong)
+
+            selected: { r: -1, c: -1 },
+            notesMode: false,
+            mistakes: 0,
+
+            undoStack: [],        // [{ r, c, prevValue, prevNotes, prevError }]
+
+            timerStart: null,
+            timerId: null,
+            elapsed: 0,
+            running: false,
+            started: false,
+            completed: false,
+
+            bestTimes: {}
+        };
+
+        const MAX_UNDO = 200;
+
+        /* =========================================================
+           DOM
+           ========================================================= */
+        const $ = (id) => document.getElementById(id);
+
+        const boardEl        = $('sdBoard');
+        const numpadEl       = $('sdNumpad');
+        const timerEl        = $('sdTimer');
+        const mistakesEl     = $('sdMistakes');
+        const bestEl         = $('sdBest');
+        const bannerEl       = $('sdBanner');
+        const bannerTitleEl  = $('sdBannerTitle');
+        const bannerSubEl    = $('sdBannerSub');
+        const notesBtn       = $('sdNotesBtn');
+        const autoNotesBtn   = $('sdAutoNotesBtn');
+        const eraseBtn       = $('sdEraseBtn');
+        const undoBtn        = $('sdUndoBtn');
+        const hintCellBtn    = $('sdHintCellBtn');
+        const hintDigitBtn   = $('sdHintDigitBtn');
+        const newBtn         = $('sdNewBtn');
+        const difficultyPills = document.querySelectorAll('.sd-pill[data-difficulty]');
+        const numBtns        = document.querySelectorAll('.sd-num-btn[data-num]');
+        const toastEl        = $('sdToast');
+        const faqButtons     = document.querySelectorAll('.sd-faq-q');
+
+        let toastTimer = null;
+
+        /* =========================================================
+           UTILITIES
+           ========================================================= */
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('sd-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('sd-show'), 2200);
+        }
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function shuffle(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        /* =========================================================
+           SUDOKU GENERATOR + SOLVER
+           ========================================================= */
+
+        // Check if placing num at (r,c) is valid in a grid
+        function isValid(grid, r, c, num) {
+            for (let i = 0; i < 9; i++) {
+                if (grid[r][i] === num && i !== c) return false;
+                if (grid[i][c] === num && i !== r) return false;
+            }
+            const boxR = Math.floor(r / 3) * 3;
+            const boxC = Math.floor(c / 3) * 3;
+            for (let dr = 0; dr < 3; dr++) {
+                for (let dc = 0; dc < 3; dc++) {
+                    const rr = boxR + dr, cc = boxC + dc;
+                    if ((rr !== r || cc !== c) && grid[rr][cc] === num) return false;
+                }
+            }
+            return true;
+        }
+
+        // Solve a grid using backtracking with randomized digit order
+        // mode 'count' returns number of solutions up to a limit
+        function solve(grid, countLimit) {
+            const work = grid.map(row => row.slice());
+            let solutions = 0;
+            let firstSolution = null;
+
+            function backtrack() {
+                // Find cell with fewest candidates (MRV heuristic)
+                let bestR = -1, bestC = -1, bestCands = null;
+                for (let r = 0; r < 9; r++) {
+                    for (let c = 0; c < 9; c++) {
+                        if (work[r][c] !== 0) continue;
+                        const cands = [];
+                        for (let n = 1; n <= 9; n++) {
+                            if (isValid(work, r, c, n)) cands.push(n);
+                        }
+                        if (cands.length === 0) return; // dead end
+                        if (bestCands === null || cands.length < bestCands.length) {
+                            bestR = r; bestC = c; bestCands = cands;
+                            if (cands.length === 1) break;
+                        }
+                    }
+                    if (bestCands && bestCands.length === 1) break;
+                }
+
+                // No empty cells left -> found a solution
+                if (bestR === -1) {
+                    solutions++;
+                    if (!firstSolution) firstSolution = work.map(row => row.slice());
+                    return;
+                }
+
+                const digits = shuffle(bestCands);
+                for (const n of digits) {
+                    work[bestR][bestC] = n;
+                    backtrack();
+                    work[bestR][bestC] = 0;
+                    if (solutions >= countLimit) return;
+                }
+            }
+
+            backtrack();
+            return { count: solutions, solution: firstSolution };
+        }
+
+        // Generate a full valid solution
+        function generateFullSolution() {
+            const grid = [];
+            for (let r = 0; r < 9; r++) grid.push(new Array(9).fill(0));
+
+            function fill() {
+                for (let r = 0; r < 9; r++) {
+                    for (let c = 0; c < 9; c++) {
+                        if (grid[r][c] !== 0) continue;
+                        const cands = [];
+                        for (let n = 1; n <= 9; n++) {
+                            if (isValid(grid, r, c, n)) cands.push(n);
+                        }
+                        if (cands.length === 0) return false;
+                        const shuffled = shuffle(cands);
+                        for (const n of shuffled) {
+                            grid[r][c] = n;
+                            if (fill()) return true;
+                            grid[r][c] = 0;
+                        }
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            fill();
+            return grid;
+        }
+
+        // Remove digits from the full solution until we hit the target givens
+        function carvePuzzle(full, targetGivens) {
+            const puzzle = full.map(row => row.slice());
+            const positions = [];
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) positions.push({ r, c });
+            }
+            shuffle(positions);
+
+            let removed = 0;
+            const toRemove = 81 - targetGivens;
+
+            for (const pos of positions) {
+                if (removed >= toRemove) break;
+                const { r, c } = pos;
+                if (puzzle[r][c] === 0) continue;
+                const backup = puzzle[r][c];
+                puzzle[r][c] = 0;
+
+                // Verify uniqueness
+                const result = solve(puzzle, 2);
+                if (result.count !== 1) {
+                    puzzle[r][c] = backup;
+                } else {
+                    removed++;
+                }
+            }
+
+            return puzzle;
+        }
+
+        function generatePuzzle() {
+            const cfg = DIFFICULTY[state.difficulty];
+            const solution = generateFullSolution();
+            const puzzle = carvePuzzle(solution, cfg.givens);
+
+            state.solution = solution;
+            state.puzzle = puzzle;
+            state.grid = puzzle.map(row => row.slice());
+            state.givens = puzzle.map(row => row.map(v => v !== 0));
+            state.notes = [];
+            for (let r = 0; r < 9; r++) {
+                const row = [];
+                for (let c = 0; c < 9; c++) row.push(new Set());
+                state.notes.push(row);
+            }
+            state.errors = [];
+            for (let r = 0; r < 9; r++) {
+                state.errors.push(new Array(9).fill(false));
+            }
+
+            state.selected = { r: -1, c: -1 };
+            state.notesMode = false;
+            state.mistakes = 0;
+            state.undoStack = [];
+            state.started = false;
+            state.completed = false;
+
+            resetTimer();
+            bannerEl.classList.remove('sd-show');
+            notesBtn.classList.remove('sd-active');
+            updateUndoButton();
+            updateBestTime();
+            renderAll();
+        }
+
+        /* =========================================================
+           RENDER
+           ========================================================= */
+        function renderBoard() {
+            boardEl.innerHTML = '';
+            const frag = document.createDocumentFragment();
+
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'sd-cell';
+                    btn.dataset.r = r;
+                    btn.dataset.c = c;
+                    btn.setAttribute('role', 'gridcell');
+                    if (c === 2 || c === 5) btn.classList.add('sd-bright');
+                    if (r === 2 || r === 5) btn.classList.add('sd-bbottom');
+                    renderCellContent(btn, r, c);
+                    btn.addEventListener('click', () => onCellClick(r, c));
+                    frag.appendChild(btn);
+                }
+            }
+            boardEl.appendChild(frag);
+        }
+
+        function renderCellContent(btn, r, c) {
+            const value = state.grid[r][c];
+            const isGiven = state.givens[r][c];
+            const isError = state.errors[r][c];
+            const notes = state.notes[r][c];
+
+            // Clear classes
+            btn.classList.remove('sd-given', 'sd-user', 'sd-error', 'sd-selected', 'sd-peer', 'sd-same');
+
+            btn.innerHTML = '';
+
+            if (value !== 0) {
+                btn.textContent = String(value);
+                if (isGiven) btn.classList.add('sd-given');
+                else btn.classList.add('sd-user');
+                if (isError) btn.classList.add('sd-error');
+            } else if (notes && notes.size > 0) {
+                // Render notes grid
+                const notesGrid = document.createElement('div');
+                notesGrid.className = 'sd-notes';
+                for (let n = 1; n <= 9; n++) {
+                    const span = document.createElement('span');
+                    span.className = 'sd-note';
+                    span.textContent = notes.has(n) ? String(n) : '';
+                    notesGrid.appendChild(span);
+                }
+                btn.appendChild(notesGrid);
+            } else {
+                btn.textContent = '';
+            }
+
+            // Apply highlight classes
+            applyHighlights(btn, r, c);
+        }
+
+        function applyHighlights(btn, r, c) {
+            const sel = state.selected;
+            if (sel.r === -1) return;
+
+            // Same cell
+            if (sel.r === r && sel.c === c) {
+                btn.classList.add('sd-selected');
+                return;
+            }
+
+            // Same row / col / box (peers)
+            const sameRow = sel.r === r;
+            const sameCol = sel.c === c;
+            const sameBox = Math.floor(sel.r / 3) === Math.floor(r / 3) &&
+                            Math.floor(sel.c / 3) === Math.floor(c / 3);
+            if (sameRow || sameCol || sameBox) {
+                btn.classList.add('sd-peer');
+            }
+
+            // Same digit
+            const selVal = state.grid[sel.r][sel.c];
+            const thisVal = state.grid[r][c];
+            if (selVal !== 0 && thisVal === selVal) {
+                btn.classList.add('sd-same');
+            }
+        }
+
+        function renderAll() {
+            renderBoard();
+            renderNumpadCounts();
+        }
+
+        function refreshHighlights() {
+            const cells = boardEl.querySelectorAll('.sd-cell');
+            cells.forEach(btn => {
+                const r = parseInt(btn.dataset.r, 10);
+                const c = parseInt(btn.dataset.c, 10);
+                btn.classList.remove('sd-selected', 'sd-peer', 'sd-same');
+                applyHighlights(btn, r, c);
+            });
+        }
+
+        function updateCell(r, c) {
+            const btn = boardEl.querySelector('.sd-cell[data-r="' + r + '"][data-c="' + c + '"]');
+            if (btn) renderCellContent(btn, r, c);
+        }
+
+        function renderNumpadCounts() {
+            // Count occurrences of each digit
+            const counts = new Array(10).fill(0);
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) {
+                    if (state.grid[r][c] !== 0) counts[state.grid[r][c]]++;
+                }
+            }
+            // Update num buttons
+            numBtns.forEach(btn => {
+                const n = parseInt(btn.dataset.num, 10);
+                const countEl = btn.querySelector('.sd-num-count');
+                const remaining = 9 - counts[n];
+                if (remaining <= 0) {
+                    btn.classList.add('sd-num-done');
+                    if (countEl) countEl.textContent = '';
+                } else {
+                    btn.classList.remove('sd-num-done');
+                    if (countEl) countEl.textContent = String(remaining);
+                }
+            });
+        }
+
+        /* =========================================================
+           TIMER
+           ========================================================= */
+        function startTimer() {
+            if (state.running) return;
+            state.running = true;
+            state.timerStart = Date.now() - state.elapsed * 1000;
+            state.timerId = setInterval(() => {
+                state.elapsed = Math.floor((Date.now() - state.timerStart) / 1000);
+                timerEl.textContent = formatTime(state.elapsed);
+            }, 250);
+        }
+
+        function stopTimer() {
+            state.running = false;
+            if (state.timerId) {
+                clearInterval(state.timerId);
+                state.timerId = null;
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            state.elapsed = 0;
+            timerEl.textContent = '0:00';
+        }
+
+        /* =========================================================
+           INPUT HANDLERS
+           ========================================================= */
+        function onCellClick(r, c) {
+            if (state.completed) return;
+            state.selected = { r, c };
+            refreshHighlights();
+        }
+
+        function enterDigit(num) {
+            if (state.completed) return;
+            if (state.selected.r === -1) {
+                showToast('Select a cell first.');
+                return;
+            }
+            const { r, c } = state.selected;
+            if (state.givens[r][c]) return;
+
+            // Start timer on first move
+            if (!state.started) {
+                state.started = true;
+                startTimer();
+            }
+
+            // Save undo state
+            pushUndo(r, c);
+
+            if (state.notesMode) {
+                // Toggle note
+                if (state.notes[r][c].has(num)) {
+                    state.notes[r][c].delete(num);
+                } else {
+                    state.notes[r][c].add(num);
+                }
+                updateCell(r, c);
+                renderNumpadCounts();
+                updateUndoButton();
+                return;
+            }
+
+            // Normal digit entry
+            const prevValue = state.grid[r][c];
+            if (prevValue === num) {
+                // Same digit -> clear
+                state.grid[r][c] = 0;
+                state.errors[r][c] = false;
+                state.notes[r][c].clear();
+            } else {
+                state.grid[r][c] = num;
+                state.notes[r][c].clear();
+
+                // Check for error against the solution
+                if (state.solution[r][c] !== num) {
+                    state.errors[r][c] = true;
+                    state.mistakes++;
+                    mistakesEl.textContent = state.mistakes;
+                } else {
+                    state.errors[r][c] = false;
+                }
+
+                // Remove this digit from peer notes
+                removeNoteFromPeers(r, c, num);
+            }
+
+            updateCell(r, c);
+            refreshHighlights();
+            renderNumpadCounts();
+            updateUndoButton();
+
+            if (checkWin()) {
+                winGame();
+            }
+        }
+
+        function removeNoteFromPeers(r, c, num) {
+            for (let i = 0; i < 9; i++) {
+                state.notes[r][i].delete(num);
+                state.notes[i][c].delete(num);
+            }
+            const boxR = Math.floor(r / 3) * 3;
+            const boxC = Math.floor(c / 3) * 3;
+            for (let dr = 0; dr < 3; dr++) {
+                for (let dc = 0; dc < 3; dc++) {
+                    state.notes[boxR + dr][boxC + dc].delete(num);
+                }
+            }
+            // Re-render affected empty cells
+            for (let i = 0; i < 9; i++) {
+                if (state.grid[r][i] === 0) updateCell(r, i);
+                if (state.grid[i][c] === 0) updateCell(i, c);
+            }
+            for (let dr = 0; dr < 3; dr++) {
+                for (let dc = 0; dc < 3; dc++) {
+                    const rr = boxR + dr, cc = boxC + dc;
+                    if (state.grid[rr][cc] === 0) updateCell(rr, cc);
+                }
+            }
+        }
+
+        /* =========================================================
+           UNDO
+           ========================================================= */
+        function pushUndo(r, c) {
+            state.undoStack.push({
+                r, c,
+                prevValue: state.grid[r][c],
+                prevNotes: new Set(state.notes[r][c]),
+                prevError: state.errors[r][c]
+            });
+            if (state.undoStack.length > MAX_UNDO) state.undoStack.shift();
+        }
+
+        function undo() {
+            if (state.completed) return;
+            const last = state.undoStack.pop();
+            if (!last) {
+                showToast('Nothing to undo.');
+                return;
+            }
+            const { r, c, prevValue, prevNotes, prevError } = last;
+            state.grid[r][c] = prevValue;
+            state.notes[r][c] = new Set(prevNotes);
+            state.errors[r][c] = prevError;
+            state.selected = { r, c };
+            updateCell(r, c);
+            refreshHighlights();
+            renderNumpadCounts();
+            updateUndoButton();
+        }
+
+        function updateUndoButton() {
+            undoBtn.disabled = state.undoStack.length === 0;
+        }
+
+        /* =========================================================
+           ERASE
+           ========================================================= */
+        function eraseCell() {
+            if (state.completed) return;
+            if (state.selected.r === -1) return;
+            const { r, c } = state.selected;
+            if (state.givens[r][c]) return;
+
+            if (state.grid[r][c] === 0 && state.notes[r][c].size === 0) return;
+
+            pushUndo(r, c);
+            state.grid[r][c] = 0;
+            state.notes[r][c].clear();
+            state.errors[r][c] = false;
+            updateCell(r, c);
+            refreshHighlights();
+            renderNumpadCounts();
+            updateUndoButton();
+        }
+
+        /* =========================================================
+           NOTES
+           ========================================================= */
+        function toggleNotesMode() {
+            state.notesMode = !state.notesMode;
+            notesBtn.classList.toggle('sd-active', state.notesMode);
+            showToast(state.notesMode ? '✏️ Notes mode ON' : '👆 Normal mode ON');
+        }
+
+        function autoNotes() {
+            if (state.completed) return;
+            if (state.selected.r === -1) {
+                showToast('Select a cell first.');
+                return;
+            }
+            const { r, c } = state.selected;
+            if (state.givens[r][c] || state.grid[r][c] !== 0) return;
+
+            pushUndo(r, c);
+            // Fill with all valid candidates
+            state.notes[r][c].clear();
+            for (let n = 1; n <= 9; n++) {
+                if (isValid(state.grid, r, c, n)) {
+                    state.notes[r][c].add(n);
+                }
+            }
+            updateCell(r, c);
+            updateUndoButton();
+            showToast('🧠 Notes filled for this cell.');
+        }
+
+        /* =========================================================
+           HINTS
+           ========================================================= */
+        function hintCell() {
+            if (state.completed) return;
+            if (state.selected.r === -1) {
+                showToast('Select a cell first.');
+                return;
+            }
+            const { r, c } = state.selected;
+            if (state.givens[r][c]) {
+                showToast('That cell is a given.');
+                return;
+            }
+            if (state.grid[r][c] === state.solution[r][c]) {
+                showToast('That cell is already correct.');
+                return;
+            }
+
+            pushUndo(r, c);
+            state.grid[r][c] = state.solution[r][c];
+            state.notes[r][c].clear();
+            state.errors[r][c] = false;
+            removeNoteFromPeers(r, c, state.solution[r][c]);
+
+            if (!state.started) {
+                state.started = true;
+                startTimer();
+            }
+
+            updateCell(r, c);
+            refreshHighlights();
+            renderNumpadCounts();
+            updateUndoButton();
+
+            // Hint pulse
+            const btn = boardEl.querySelector('.sd-cell[data-r="' + r + '"][data-c="' + c + '"]');
+            if (btn) {
+                btn.classList.add('sd-hint');
+                setTimeout(() => btn.classList.remove('sd-hint'), 1400);
+            }
+
+            showToast('💡 Revealed: ' + state.solution[r][c]);
+
+            if (checkWin()) winGame();
+        }
+
+        function hintDigit() {
+            if (state.completed) return;
+            // Find a digit that still has empty (non-given) cells
+            const candidates = [];
+            for (let n = 1; n <= 9; n++) {
+                for (let r = 0; r < 9; r++) {
+                    for (let c = 0; c < 9; c++) {
+                        if (state.givens[r][c]) continue;
+                        if (state.grid[r][c] !== 0) continue;
+                        if (state.solution[r][c] === n) {
+                            candidates.push({ r, c, n });
+                            break;
+                        }
+                    }
+                    if (candidates.length && candidates[candidates.length - 1].n === n) break;
+                }
+            }
+            if (candidates.length === 0) {
+                showToast('No empty cells left to hint.');
+                return;
+            }
+            const pick = candidates[Math.floor(Math.random() * candidates.length)];
+            state.selected = { r: pick.r, c: pick.c };
+            refreshHighlights();
+            hintCell();
+        }
+
+        /* =========================================================
+           WIN CHECK
+           ========================================================= */
+        function checkWin() {
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) {
+                    if (state.grid[r][c] !== state.solution[r][c]) return false;
+                }
+            }
+            return true;
+        }
+
+        function winGame() {
+            state.completed = true;
+            stopTimer();
+
+            // Save best time
+            const key = DIFFICULTY[state.difficulty].bestKey;
+            const prev = state.bestTimes[key];
+            let newBest = false;
+            if (!prev || state.elapsed < prev) {
+                state.bestTimes[key] = state.elapsed;
+                try { localStorage.setItem(key, String(state.elapsed)); } catch (e) {}
+                newBest = true;
+            }
+            updateBestTime();
+
+            bannerEl.classList.add('sd-show');
+            bannerTitleEl.textContent = '🎉 Solved!';
+            bannerSubEl.textContent = 'Completed in ' + formatTime(state.elapsed) +
+                (state.mistakes > 0 ? ' · ' + state.mistakes + ' mistake' + (state.mistakes !== 1 ? 's' : '') : ' · perfect!') +
+                (newBest ? ' 🏆 New best time!' : '');
+
+            showToast('🎉 Puzzle solved!');
+        }
+
+        /* =========================================================
+           BEST TIMES
+           ========================================================= */
+        function loadBestTimes() {
+            ['easy', 'medium', 'hard', 'expert'].forEach(diff => {
+                const key = DIFFICULTY[diff].bestKey;
+                try {
+                    const v = localStorage.getItem(key);
+                    if (v) state.bestTimes[key] = parseInt(v, 10);
+                } catch (e) {}
+            });
+        }
+
+        function updateBestTime() {
+            const key = DIFFICULTY[state.difficulty].bestKey;
+            const best = state.bestTimes[key];
+            bestEl.textContent = best ? formatTime(best) : '—';
+        }
+
+        /* =========================================================
+           EVENT BINDINGS
+           ========================================================= */
+        numBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const n = parseInt(btn.dataset.num, 10);
+                enterDigit(n);
+            });
+        });
+
+        notesBtn.addEventListener('click', toggleNotesMode);
+        autoNotesBtn.addEventListener('click', autoNotes);
+        eraseBtn.addEventListener('click', eraseCell);
+        undoBtn.addEventListener('click', undo);
+        hintCellBtn.addEventListener('click', hintCell);
+        hintDigitBtn.addEventListener('click', hintDigit);
+        newBtn.addEventListener('click', () => {
+            generatePuzzle();
+            showToast('🔄 New puzzle loaded!');
+        });
+
+        difficultyPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const diff = pill.dataset.difficulty;
+                if (diff === state.difficulty && !state.completed) return;
+                difficultyPills.forEach(p => p.classList.toggle('active', p === pill));
+                state.difficulty = diff;
+                generatePuzzle();
+                showToast('🎮 ' + diff.charAt(0).toUpperCase() + diff.slice(1) + ' puzzle loaded!');
+            });
+        });
+
+        /* =========================================================
+           KEYBOARD
+           ========================================================= */
+        document.addEventListener('keydown', (e) => {
+            // Ignore when typing in an input/textarea
+            const tag = (e.target.tagName || '').toLowerCase();
+            if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+
+            if (state.completed) return;
+
+            // Arrow keys move selection
+            if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
+                e.preventDefault();
+                if (state.selected.r === -1) {
+                    state.selected = { r: 0, c: 0 };
+                } else {
+                    let { r, c } = state.selected;
+                    if (e.key === 'ArrowUp')    r = (r + 8) % 9;
+                    if (e.key === 'ArrowDown')  r = (r + 1) % 9;
+                    if (e.key === 'ArrowLeft')  c = (c + 8) % 9;
+                    if (e.key === 'ArrowRight') c = (c + 1) % 9;
+                    state.selected = { r, c };
+                }
+                refreshHighlights();
+                return;
+            }
+
+            // Digits 1-9
+            if (/^[1-9]$/.test(e.key)) {
+                e.preventDefault();
+                enterDigit(parseInt(e.key, 10));
+                return;
+            }
+
+            // Delete / Backspace -> erase
+            if (e.key === 'Delete' || e.key === 'Backspace') {
+                e.preventDefault();
+                eraseCell();
+                return;
+            }
+
+            // N -> toggle notes
+            if (e.key === 'n' || e.key === 'N') {
+                e.preventDefault();
+                toggleNotesMode();
+                return;
+            }
+
+            // Ctrl+Z -> undo
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'z' || e.key === 'Z')) {
+                e.preventDefault();
+                undo();
+                return;
+            }
+        });
+
+        /* =========================================================
+           FAQ ACCORDION
+           ========================================================= */
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                const answer = btn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        /* =========================================================
+           INIT
+           ========================================================= */
+        loadBestTimes();
+        difficultyPills.forEach(p => {
+            p.classList.toggle('active', p.dataset.difficulty === state.difficulty);
+        });
+        mistakesEl.textContent = '0';
+        generatePuzzle();
+
+        console.log('🧮 Sudoku ready — 4 difficulties, notes, hints, undo.');
+    })();
+    </script>
+</body>
+</html>

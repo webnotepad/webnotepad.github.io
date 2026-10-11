@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Resizer – Free Online Photo Resizer & Dimensions Changer | WebNotePad</title>
+    <meta name="description" content="Free online image resizer. Resize JPG, PNG, and WebP images to exact dimensions or by percentage. Maintain aspect ratio, batch resize, no upload, 100% private. Resize photos instantly in your browser." />
+    <meta name="keywords" content="image resizer, free image resizer, resize image online, photo resizer, resize JPG, resize PNG, resize WebP, change image dimensions, image dimension changer, batch image resizer, picture resizer" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/image-resizer" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/image-resizer" />
+    <meta property="og:title" content="Free Online Image Resizer – Resize Photos to Any Dimension" />
+    <meta property="og:description" content="Resize images to exact dimensions or by percentage. Fast, private, and free. No upload required." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Image Resizer – Resize Photos to Any Dimension" />
+    <meta name="twitter:description" content="Resize images to exact dimensions or by percentage. Fast, private, and free." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Image Resizer by WebNotePad",
+            "url": "https://webnotepad.github.io/image-resizer",
+            "description": "A free online image resizer to resize JPG, PNG, and WebP images to exact dimensions or by percentage directly in your browser. No upload, no signup, 100% private.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Resize JPG images",
+                "Resize PNG images",
+                "Resize WebP images",
+                "Resize by exact pixels",
+                "Resize by percentage",
+                "Maintain aspect ratio",
+                "Batch image resizing",
+                "No upload – runs in browser",
+                "100% private",
+                "Mobile-friendly"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do I resize an image?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Click the upload area or drag and drop your image. Enter your target width and height, or use a percentage. Click Resize and your resized image will download automatically."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this image resizer free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, our image resizer is 100% free with no signup, no upload limits, and no hidden costs. Resize as many images as you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are my images uploaded to a server?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No! All resizing happens locally in your browser using JavaScript. Your images never leave your device, ensuring complete privacy."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between resizing and compressing?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Resizing changes the actual pixel dimensions of an image (width × height), while compressing reduces file size by removing data or applying smarter encoding. You can do both — resize first, then compress."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I maintain the aspect ratio?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! We have a maintain aspect ratio option enabled by default. When you change width, height updates automatically, and vice versa. You can disable it for exact custom dimensions."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I resize multiple images at once?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, you can select multiple files and resize them all in one batch. Each resized image will download separately or you can download them all at once."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ir-accent: #7c3aed;
+            --ir-accent-light: #a78bfa;
+            --ir-accent-pale: #f5f3ff;
+            --ir-surface: #faf8f4;
+            --ir-border: #e8e2d6;
+            --ir-ink: #1a1a2e;
+            --ir-muted: #6b6b85;
+            --ir-warm: #f4f0e8;
+            --ir-radius: 8px;
+            --ir-radius-lg: 14px;
+            --ir-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ir-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --ir-success: #16a34a;
+            --ir-error: #dc2626;
+        }
+
+        body.dark {
+            --ir-accent: #a78bfa;
+            --ir-accent-light: #c4b5fd;
+            --ir-accent-pale: #2a1f4d;
+            --ir-surface: #141418;
+            --ir-border: #2a2a34;
+            --ir-ink: #e8e4dc;
+            --ir-muted: #8a8678;
+            --ir-warm: #1c1c22;
+            --ir-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --ir-success: #4ade80;
+            --ir-error: #f87171;
+        }
+
+        /* ===== HERO ===== */
+        .ir-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--ir-surface);
+            transition: background var(--ir-transition);
+        }
+        .ir-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ir-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ir-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ir-hero-bg { opacity: 0.1; }
+        .ir-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ir-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ir-hero-glow { opacity: 0.35; }
+        .ir-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .ir-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--ir-accent-pale);
+            color: var(--ir-accent);
+            border: 1px solid var(--ir-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ir-hero-badge { background: rgba(167, 139, 250, 0.18); }
+        .ir-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--ir-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ir-hero-accent {
+            color: var(--ir-accent);
+            font-style: italic;
+        }
+        .ir-hero-sub {
+            font-size: 0.9rem;
+            color: var(--ir-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ir-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .ir-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ir-demo-chip {
+            padding: 7px 16px;
+            background: var(--ir-warm);
+            border: 1px solid var(--ir-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ir-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ir-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ir-demo-chip:hover {
+            background: var(--ir-accent-pale);
+            border-color: var(--ir-accent);
+            color: var(--ir-accent);
+        }
+
+        /* ===== RESIZER APP ===== */
+        .ir-app-section {
+            padding: 0 0 80px;
+            background: var(--ir-surface);
+            transition: background var(--ir-transition);
+        }
+        .ir-app-shell {
+            background: var(--ir-warm);
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius-lg);
+            box-shadow: var(--ir-shadow);
+            overflow: hidden;
+            transition: all var(--ir-transition);
+        }
+        .ir-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--ir-border);
+            background: var(--ir-surface);
+            flex-wrap: wrap;
+        }
+        .ir-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ir-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ir-app-title .ir-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ir-accent);
+            display: inline-block;
+            animation: irPulse 2s infinite;
+        }
+        @keyframes irPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Upload area */
+        .ir-upload-area {
+            padding: 36px 24px;
+            margin: 24px;
+            border: 2px dashed var(--ir-border);
+            border-radius: var(--ir-radius-lg);
+            background: var(--ir-surface);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--ir-transition);
+            position: relative;
+        }
+        .ir-upload-area:hover,
+        .ir-upload-area.ir-drag-over {
+            border-color: var(--ir-accent);
+            background: var(--ir-accent-pale);
+        }
+        .ir-upload-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .ir-upload-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ir-ink);
+            margin-bottom: 4px;
+        }
+        .ir-upload-sub {
+            font-size: 0.8rem;
+            color: var(--ir-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        .ir-upload-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Controls */
+        .ir-controls-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            border-top: 1px solid var(--ir-border);
+            border-bottom: 1px solid var(--ir-border);
+            background: var(--ir-surface);
+            flex-wrap: wrap;
+        }
+        .ir-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ir-control-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--ir-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .ir-input {
+            padding: 7px 10px;
+            border-radius: var(--ir-radius);
+            border: 1px solid var(--ir-border);
+            background: var(--ir-surface);
+            color: var(--ir-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            transition: all var(--ir-transition);
+            width: 90px;
+        }
+        .ir-input:focus {
+            border-color: var(--ir-accent);
+            box-shadow: 0 0 0 3px var(--ir-accent-pale);
+        }
+        .ir-input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .ir-select {
+            padding: 7px 12px;
+            border-radius: var(--ir-radius);
+            border: 1px solid var(--ir-border);
+            background: var(--ir-surface);
+            color: var(--ir-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--ir-transition);
+            min-width: 140px;
+        }
+        .ir-select:focus {
+            border-color: var(--ir-accent);
+            box-shadow: 0 0 0 3px var(--ir-accent-pale);
+        }
+        .ir-checkbox-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .ir-checkbox {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--ir-accent);
+            cursor: pointer;
+        }
+        .ir-checkbox-label {
+            font-size: 0.8rem;
+            color: var(--ir-ink);
+            font-weight: 500;
+        }
+        .ir-x-sep {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            color: var(--ir-muted);
+            font-weight: 700;
+            padding: 0 2px;
+        }
+        .ir-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--ir-accent);
+            color: #ffffff;
+            border: 2px solid var(--ir-accent);
+            border-radius: var(--ir-radius);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ir-transition);
+            white-space: nowrap;
+        }
+        .ir-btn:hover {
+            background: var(--ir-accent-light);
+            border-color: var(--ir-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+        }
+        .ir-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .ir-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: transparent;
+            color: var(--ir-ink);
+            border: 2px solid var(--ir-border);
+            border-radius: var(--ir-radius);
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--ir-transition);
+            white-space: nowrap;
+        }
+        .ir-btn-secondary:hover {
+            background: var(--ir-warm);
+            border-color: var(--ir-muted);
+        }
+        .ir-btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .ir-btn-group {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+
+        /* Preset chips */
+        .ir-presets {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--ir-border);
+            background: var(--ir-surface);
+            align-items: center;
+        }
+        .ir-presets-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--ir-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-right: 4px;
+        }
+        .ir-preset-chip {
+            padding: 5px 12px;
+            background: var(--ir-warm);
+            border: 1px solid var(--ir-border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ir-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            cursor: pointer;
+            transition: all var(--ir-transition);
+        }
+        .ir-preset-chip:hover {
+            background: var(--ir-accent-pale);
+            border-color: var(--ir-accent);
+            color: var(--ir-accent);
+        }
+
+        /* File list */
+        .ir-file-list {
+            padding: 0 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 520px;
+            overflow-y: auto;
+        }
+        .ir-file-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--ir-surface);
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius);
+            transition: all var(--ir-transition);
+        }
+        .ir-file-item:hover {
+            border-color: var(--ir-accent);
+        }
+        .ir-file-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: var(--ir-warm);
+            flex-shrink: 0;
+            border: 1px solid var(--ir-border);
+        }
+        .ir-file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .ir-file-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ir-ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .ir-file-meta {
+            font-size: 0.7rem;
+            color: var(--ir-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ir-file-meta .ir-arrow {
+            color: var(--ir-accent);
+            font-weight: 700;
+        }
+        .ir-file-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            padding: 3px 10px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .ir-file-status.ir-pending {
+            background: var(--ir-warm);
+            color: var(--ir-muted);
+        }
+        .ir-file-status.ir-processing {
+            background: var(--ir-accent-pale);
+            color: var(--ir-accent);
+        }
+        .ir-file-status.ir-done {
+            background: #dcfce7;
+            color: var(--ir-success);
+        }
+        body.dark .ir-file-status.ir-done {
+            background: rgba(74, 222, 128, 0.15);
+        }
+        .ir-file-status.ir-error {
+            background: #fde8e8;
+            color: var(--ir-error);
+        }
+        body.dark .ir-file-status.ir-error {
+            background: rgba(248, 113, 113, 0.15);
+        }
+        .ir-file-download {
+            color: var(--ir-accent);
+            font-size: 1.1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--ir-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            display: none;
+        }
+        .ir-file-download.ir-visible {
+            display: inline-flex;
+        }
+        .ir-file-download:hover {
+            background: var(--ir-accent-pale);
+        }
+        .ir-remove-file {
+            color: var(--ir-muted);
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--ir-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+        .ir-remove-file:hover {
+            background: #fde8e8;
+            color: var(--ir-error);
+        }
+
+        /* Empty state */
+        .ir-empty-state {
+            text-align: center;
+            padding: 24px;
+            color: var(--ir-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Progress bar */
+        .ir-progress-bar {
+            height: 4px;
+            background: var(--ir-border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 24px 16px;
+        }
+        .ir-progress-fill {
+            height: 100%;
+            background: var(--ir-accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== ARTICLE CONTENT ===== */
+        .ir-article {
+            background: var(--ir-surface);
+            transition: background var(--ir-transition);
+        }
+        .ir-article-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .ir-article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: var(--ir-ink);
+            line-height: 1.25;
+            margin-bottom: 20px;
+            margin-top: 48px;
+            letter-spacing: -0.02em;
+        }
+        .ir-article h2:first-child { margin-top: 0; }
+        .ir-article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ir-ink);
+            margin-bottom: 14px;
+            margin-top: 36px;
+        }
+        .ir-article p {
+            font-size: 1rem;
+            color: var(--ir-muted);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .ir-article p strong {
+            color: var(--ir-ink);
+            font-weight: 600;
+        }
+        .ir-article p em {
+            color: var(--ir-accent);
+            font-style: italic;
+        }
+        .ir-article ul, .ir-article ol {
+            margin: 0 0 24px 0;
+            padding-left: 24px;
+            list-style: none;
+        }
+        .ir-article ul li {
+            font-size: 0.95rem;
+            color: var(--ir-muted);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .ir-article ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--ir-accent);
+            font-weight: 700;
+        }
+        .ir-article ol {
+            counter-reset: ir-counter;
+        }
+        .ir-article ol li {
+            font-size: 0.95rem;
+            color: var(--ir-muted);
+            line-height: 1.8;
+            margin-bottom: 12px;
+            counter-increment: ir-counter;
+            position: relative;
+            padding-left: 32px;
+        }
+        .ir-article ol li::before {
+            content: counter(ir-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--ir-accent-pale);
+            color: var(--ir-accent);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ir-article blockquote {
+            border-left: 3px solid var(--ir-accent);
+            padding: 16px 24px;
+            margin: 28px 0;
+            background: var(--ir-warm);
+            border-radius: 0 var(--ir-radius) var(--ir-radius) 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--ir-ink);
+            line-height: 1.6;
+        }
+        .ir-article-info-box {
+            background: var(--ir-warm);
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius-lg);
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+        .ir-article-info-box h4 {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ir-accent);
+            margin-bottom: 12px;
+        }
+        .ir-article-info-box ul {
+            margin-bottom: 0;
+        }
+        .ir-article-info-box ul li {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+        .ir-article-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius);
+            overflow: hidden;
+        }
+        .ir-article-table th {
+            background: var(--ir-warm);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--ir-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .ir-article-table td {
+            padding: 12px 16px;
+            color: var(--ir-muted);
+            border-top: 1px solid var(--ir-border);
+            line-height: 1.6;
+        }
+        .ir-article-table tr:hover td {
+            background: var(--ir-warm);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .ir-how {
+            background: var(--ir-warm);
+            transition: background var(--ir-transition);
+        }
+        .ir-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ir-how-card {
+            background: var(--ir-surface);
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius-lg);
+            padding: 26px;
+            transition: all var(--ir-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ir-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ir-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ir-transition);
+        }
+        .ir-how-card:hover { box-shadow: var(--ir-shadow); transform: translateY(-3px); }
+        .ir-how-card:hover::before { transform: scaleX(1); }
+        .ir-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ir-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ir-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ir-ink);
+            margin-bottom: 8px;
+        }
+        .ir-how-card p {
+            font-size: 0.85rem;
+            color: var(--ir-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .ir-faq {
+            background: var(--ir-warm);
+            transition: background var(--ir-transition);
+        }
+        .ir-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ir-faq-item {
+            border: 1px solid var(--ir-border);
+            border-radius: var(--ir-radius);
+            overflow: hidden;
+            background: var(--ir-surface);
+            transition: border-color var(--ir-transition);
+        }
+        .ir-faq-item:has(.ir-faq-a[style*="block"]) { border-color: var(--ir-accent); }
+        .ir-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ir-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--ir-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ir-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ir-muted);
+            flex-shrink: 0;
+            transition: transform var(--ir-transition);
+        }
+        .ir-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ir-accent); }
+        .ir-faq-q:hover { background: var(--ir-warm); }
+        .ir-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ir-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ir-muted);
+            line-height: 1.7;
+        }
+
+        /* Toast */
+        .ir-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ir-ink);
+            color: var(--ir-surface);
+            padding: 12px 20px;
+            border-radius: var(--ir-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .ir-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .ir-toast {
+            background: var(--ir-warm);
+            color: var(--ir-ink);
+            border: 1px solid var(--ir-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ir-how-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .ir-hero { min-height: auto; padding: 24px 0 20px; }
+            .ir-how-grid { grid-template-columns: 1fr; }
+            .ir-upload-area { padding: 24px 16px; margin: 16px; }
+            .ir-controls-bar { padding: 12px 16px; gap: 10px; }
+            .ir-control-group { width: 100%; }
+            .ir-btn-group { margin-left: 0; width: 100%; }
+            .ir-btn-group .ir-btn,
+            .ir-btn-group .ir-btn-secondary { flex: 1; justify-content: center; }
+            .ir-file-list { padding: 0 16px 16px; }
+            .ir-file-item { padding: 8px 10px; gap: 8px; }
+            .ir-file-thumb { width: 36px; height: 36px; }
+            .ir-hero-demo { gap: 6px; }
+            .ir-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .ir-presets { padding: 10px 16px; }
+            .ir-article-table { font-size: 0.8rem; }
+            .ir-article-table th,
+            .ir-article-table td { padding: 10px 12px; }
+        }
+        @media (max-width: 480px) {
+            .ir-hero-title { font-size: 1.6rem; }
+            .ir-upload-area { padding: 20px 12px; margin: 12px; }
+            .ir-upload-icon { font-size: 2rem; }
+            .ir-upload-text { font-size: 0.85rem; }
+            .ir-controls-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; }
+            .ir-control-group { flex-direction: column; align-items: stretch; gap: 6px; }
+            .ir-control-label { text-align: left; }
+            .ir-input { width: 100%; }
+            .ir-file-list { padding: 0 12px 12px; }
+            .ir-file-item { flex-wrap: wrap; }
+            .ir-file-info { flex: 1; min-width: 0; }
+            .ir-file-status { font-size: 0.6rem; padding: 2px 8px; }
+            .ir-article-info-box { padding: 18px 16px; }
+            .ir-article blockquote { padding: 12px 18px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="ir-hero" id="home" aria-label="Image Resizer Hero">
+            <div class="ir-hero-bg"></div>
+            <div class="ir-hero-glow"></div>
+            <div class="container ir-hero-inner">
+                <div class="ir-hero-badge">📐 Free Online Image Resizer</div>
+                <h1 class="ir-hero-title">
+                    Resize images.<br />
+                    <span class="ir-hero-accent">Exact dimensions, instantly.</span>
+                </h1>
+                <p class="ir-hero-sub">Resize JPG, PNG, and WebP images to any dimension or by percentage. Maintain aspect ratio, batch process, and keep your images 100% private — no upload, no signup.</p>
+                <div class="ir-hero-cta">
+                    <a href="#image-resizer" class="btn btn-primary" style="background:var(--ir-accent);border-color:var(--ir-accent);">Start Resizing <span>→</span></a>
+                </div>
+                <div class="ir-hero-demo">
+                    <span class="ir-demo-chip">🔒 100% Private</span>
+                    <span class="ir-demo-chip">📐 Exact Pixels</span>
+                    <span class="ir-demo-chip">📊 By Percentage</span>
+                    <span class="ir-demo-chip">📁 Batch Support</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IMAGE RESIZER APP SECTION ===== -->
+        <section class="ir-app-section" id="image-resizer" aria-label="Image Resizer Application">
+            <div class="container">
+                <div class="ir-app-shell">
+                    <!-- App Header -->
+                    <div class="ir-app-header">
+                        <span class="ir-app-title"><span class="ir-dot"></span> Image Resizer</span>
+                        <div class="ir-app-actions-header">
+                            <button class="btn-tool" id="irClearAllBtn" title="Clear all files" aria-label="Clear all files">✕ Clear All</button>
+                        </div>
+                    </div>
+
+                    <!-- Upload Area -->
+                    <div class="ir-upload-area" id="irUploadArea">
+                        <input type="file" class="ir-upload-input" id="irFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" multiple />
+                        <span class="ir-upload-icon">📐</span>
+                        <div class="ir-upload-text">Drop images here or click to browse</div>
+                        <div class="ir-upload-sub">Supports JPG, PNG, WebP, GIF, BMP · Max 30 MB each</div>
+                    </div>
+
+                    <!-- Presets -->
+                    <div class="ir-presets">
+                        <span class="ir-presets-label">Presets</span>
+                        <button class="ir-preset-chip" data-width="1920" data-height="1080">1920×1080 (HD)</button>
+                        <button class="ir-preset-chip" data-width="1280" data-height="720">1280×720 (HD)</button>
+                        <button class="ir-preset-chip" data-width="800" data-height="600">800×600</button>
+                        <button class="ir-preset-chip" data-width="400" data-height="400">400×400</button>
+                        <button class="ir-preset-chip" data-width="200" data-height="200">200×200</button>
+                    </div>
+
+                    <!-- Controls Bar -->
+                    <div class="ir-controls-bar">
+                        <div class="ir-control-group">
+                            <span class="ir-control-label">Width</span>
+                            <input type="number" class="ir-input" id="irWidthInput" min="1" max="10000" placeholder="px" aria-label="Target width" />
+                            <span class="ir-x-sep">×</span>
+                            <span class="ir-control-label">Height</span>
+                            <input type="number" class="ir-input" id="irHeightInput" min="1" max="10000" placeholder="px" aria-label="Target height" />
+                        </div>
+                        <div class="ir-control-group">
+                            <label class="ir-checkbox-wrap" for="irAspectRatio">
+                                <input type="checkbox" class="ir-checkbox" id="irAspectRatio" checked />
+                                <span class="ir-checkbox-label">Maintain aspect ratio</span>
+                            </label>
+                        </div>
+                        <div class="ir-control-group">
+                            <span class="ir-control-label">Or Scale</span>
+                            <select class="ir-select" id="irScaleSelect" aria-label="Scale percentage">
+                                <option value="">Custom</option>
+                                <option value="25">25%</option>
+                                <option value="50">50%</option>
+                                <option value="75">75%</option>
+                                <option value="100">100% (Original)</option>
+                                <option value="150">150%</option>
+                                <option value="200">200%</option>
+                            </select>
+                        </div>
+                        <div class="ir-btn-group">
+                            <button class="ir-btn" id="irResizeBtn" disabled>📐 Resize All</button>
+                            <button class="ir-btn-secondary" id="irDownloadAllBtn" disabled>⬇ Download All</button>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="ir-progress-bar" id="irProgressBar" style="display:none;">
+                        <div class="ir-progress-fill" id="irProgressFill"></div>
+                    </div>
+
+                    <!-- File List -->
+                    <div class="ir-file-list" id="irFileList" role="list" aria-label="Selected files">
+                        <div class="ir-empty-state">No images selected yet. Upload files to begin resizing.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section ir-how" id="how-to-use" aria-label="How to use the image resizer">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Resize images in <em>3 easy steps.</em></h2>
+                <div class="ir-how-grid">
+                    <div class="ir-how-card">
+                        <div class="ir-how-num">01</div>
+                        <h3>Upload Images</h3>
+                        <p>Drag and drop your images or click to browse. Select multiple files at once — JPG, PNG, WebP, GIF, and BMP are all supported.</p>
+                    </div>
+                    <div class="ir-how-card">
+                        <div class="ir-how-num">02</div>
+                        <h3>Set Dimensions</h3>
+                        <p>Enter your target width and height in pixels, pick a preset, or choose a scale percentage. Keep aspect ratio locked to avoid distortion.</p>
+                    </div>
+                    <div class="ir-how-card">
+                        <div class="ir-how-num">03</div>
+                        <h3>Resize & Download</h3>
+                        <p>Click "Resize All" and watch your images change dimensions. Download each file individually or grab them all at once.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ARTICLE CONTENT ===== -->
+        <section class="section ir-article" id="article" aria-label="About image resizing">
+            <div class="container ir-article-inner">
+                <h2>The Complete Guide to Image Resizing</h2>
+                <p>Image resizing is one of the most fundamental — and most misunderstood — operations in digital image work. Whether you're preparing a photo for a website, formatting an image for print, or trying to fit a picture into a specific social media frame, knowing how to resize correctly is essential.</p>
+                <p>Our <strong>free online image resizer</strong> is built to make this process effortless. It lets you resize JPG, PNG, and WebP images to exact pixel dimensions or by percentage, all without uploading a single byte to a server. Everything happens locally in your browser, so your images stay completely private.</p>
+
+                <h2>What Does "Resizing an Image" Actually Mean?</h2>
+                <p>Resizing means changing the <strong>pixel dimensions</strong> of an image — its width and height measured in pixels. A 4000×3000 photo has 12 million pixels (12 megapixels). Resize it to 800×600 and you now have 480,000 pixels — a 96% reduction in pixel count.</p>
+                <p>This is different from other common image operations:</p>
+                <ul>
+                    <li><strong>Resizing</strong> changes the number of pixels — the image becomes physically smaller or larger in dimensions.</li>
+                    <li><strong>Compressing</strong> reduces the file size while keeping the same pixel dimensions. It works by encoding the data more efficiently or discarding some visual information.</li>
+                    <li><strong>Cropping</strong> cuts a portion of the image away, changing both dimensions and composition.</li>
+                    <li><strong>Scaling up (upscaling)</strong> means increasing pixel dimensions. This can introduce blurriness because the software has to guess what the new pixels should look like.</li>
+                </ul>
+                <p>Understanding these differences helps you choose the right tool. If your goal is a smaller file for the web, you may want to <em>resize</em>, <em>compress</em>, or both.</p>
+
+                <blockquote>"Resize for dimensions. Compress for file size. Do both for the best web images."</blockquote>
+
+                <h2>When Should You Resize an Image?</h2>
+                <p>Resizing is useful in dozens of everyday scenarios. Here are the most common ones:</p>
+                <ul>
+                    <li><strong>Preparing images for websites:</strong> Displaying a 4000-pixel photo in a 600-pixel container wastes bandwidth. Resize it down first.</li>
+                    <li><strong>Meeting upload requirements:</strong> Many platforms (job portals, government forms, social media) require images to be within specific dimensions.</li>
+                    <li><strong>Social media posting:</strong> Each platform has ideal image sizes — resize before posting to avoid awkward cropping.</li>
+                    <li><strong>Email attachments:</strong> Large images may be rejected by mail servers. Resizing makes them small enough to send.</li>
+                    <li><strong>Printing:</strong> Preparing images for print requires knowing the target resolution — you may need to resize up or down.</li>
+                    <li><strong>Creating thumbnails:</strong> Generate small preview versions of larger images for galleries and listings.</li>
+                    <li><strong>Saving storage space:</strong> Resizing an entire photo library can free up gigabytes of storage.</li>
+                </ul>
+
+                <h2>Understanding Aspect Ratio</h2>
+                <p>The <strong>aspect ratio</strong> is the proportional relationship between an image's width and height. Common aspect ratios include 16:9 (widescreen), 4:3 (classic photo), 1:1 (square), and 3:2 (DSLR photo).</p>
+                <p>When you resize an image, you have two options:</p>
+                <ol>
+                    <li><strong>Maintain aspect ratio:</strong> Both dimensions change by the same proportion. The image looks correct, just larger or smaller. This is almost always what you want.</li>
+                    <li><strong>Change aspect ratio (distort):</strong> Width and height change independently. The image stretches or squashes — like a funhouse mirror. Sometimes useful for effects, but rarely for real work.</li>
+                </ol>
+                <p>Our resizer has a <strong>"Maintain aspect ratio"</strong> checkbox enabled by default. When you type a new width, the height updates automatically to match. Uncheck it if you need exact custom dimensions and don't mind distortion.</p>
+
+                <div class="ir-article-info-box">
+                    <h4>Common Aspect Ratios Cheat Sheet</h4>
+                    <ul>
+                        <li><strong>16:9</strong> — Widescreen video, YouTube thumbnails, modern TV</li>
+                        <li><strong>4:3</strong> — Classic TV, older computer monitors, many compact cameras</li>
+                        <li><strong>3:2</strong> — Most DSLR and mirrorless cameras, standard 35mm film</li>
+                        <li><strong>1:1</strong> — Instagram square posts, profile pictures, icons</li>
+                        <li><strong>9:16</strong> — Vertical video for Stories, Reels, TikTok, Shorts</li>
+                        <li><strong>2:3</strong> — Portrait orientation of 3:2 photos, book covers</li>
+                    </ul>
+                </div>
+
+                <h2>Resizing vs Compressing: Which Do You Need?</h2>
+                <p>These two operations are often confused, but they solve different problems. Here's how to decide:</p>
+                <table class="ir-article-table">
+                    <thead>
+                        <tr>
+                            <th>Goal</th>
+                            <th>Operation</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fit a specific display size</td>
+                            <td><strong>Resize</strong></td>
+                            <td>You need exact pixel dimensions.</td>
+                        </tr>
+                        <tr>
+                            <td>Reduce file size for the web</td>
+                            <td><strong>Compress</strong></td>
+                            <td>Same dimensions, smaller file.</td>
+                        </tr>
+                        <tr>
+                            <td>Both: smaller file AND correct size</td>
+                            <td><strong>Resize then compress</strong></td>
+                            <td>Best of both worlds.</td>
+                        </tr>
+                        <tr>
+                            <td>Prepare a thumbnail</td>
+                            <td><strong>Resize</strong></td>
+                            <td>Thumbnails are just small images.</td>
+                        </tr>
+                        <tr>
+                            <td>Fit more photos in storage</td>
+                            <td><strong>Resize</strong></td>
+                            <td>Fewer pixels = smaller files.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>In practice, a great workflow is: <strong>resize first, then compress</strong>. Resizing reduces pixel count; compressing then reduces the file size of that smaller image even further.</p>
+
+                <h2>Upscaling vs Downscaling</h2>
+                <p>Resizing works in two directions, with very different results:</p>
+                <h3>Downscaling (Making Images Smaller)</h3>
+                <p>Reducing dimensions is straightforward and generally produces excellent results. The software averages neighboring pixels to create the new, smaller image. Downscaling always looks good — you're throwing away information, but the remaining image is clean.</p>
+                <p>Most web images should be downscaled. There's no reason to display a 6000-pixel image in a 600-pixel space.</p>
+                <h3>Upscaling (Making Images Larger)</h3>
+                <p>Increasing dimensions is trickier. The software has to invent new pixels to fill the gaps, and no algorithm can perfectly guess what should be there. Upscaling inevitably produces some softness or blur.</p>
+                <p>For small increases (say 110–150%), the result is usually acceptable. For large increases (300%+), you'll notice significant quality loss. If you need a genuinely larger image, it's always better to go back to a higher-resolution original.</p>
+
+                <h2>Resolution and DPI: What Print Users Need to Know</h2>
+                <p>If you're resizing images for print, you also need to think about <strong>DPI (dots per inch)</strong>. Print requires much higher pixel density than screens.</p>
+                <ul>
+                    <li><strong>Screens</strong> generally display at 72–96 PPI. A 1000×1000 image looks crisp on any monitor.</li>
+                    <li><strong>Print</strong> needs 300 DPI for sharp results. A 1000×1000 image at 300 DPI prints at only 3.3×3.3 inches — a small photo.</li>
+                </ul>
+                <p>To print a 6×4 inch photo at 300 DPI, you need at least 1800×1200 pixels. Resize <em>up</em> if your original is smaller, or accept a lower-quality print at a lower DPI.</p>
+                <p>Our resizer works purely in pixels. If you need to convert between DPI and pixels, use this formula: <strong>Pixels = Inches × DPI</strong>. So 6 inches at 300 DPI = 1800 pixels.</p>
+
+                <h2>Best Practices for Image Resizing</h2>
+                <p>Follow these rules of thumb for consistently great results:</p>
+                <ol>
+                    <li><strong>Start with the highest-quality original you have.</strong> Resizing down from a good source produces a better result than resizing up from a compressed one.</li>
+                    <li><strong>Resize before you compress.</strong> Compressing first and then resizing can introduce artifacts that become more visible.</li>
+                    <li><strong>Keep aspect ratio locked</strong> unless you have a specific reason not to. Distorted images look unprofessional.</li>
+                    <li><strong>Don't upscale beyond 150%</strong> unless quality truly doesn't matter. Find a larger original instead.</li>
+                    <li><strong>Match your target.</strong> If the image is going into a 1200px-wide blog post, resize to 1200px — not 4000px.</li>
+                    <li><strong>Use WebP for the web.</strong> After resizing, exporting as WebP gives you the smallest file with excellent quality.</li>
+                    <li><strong>Test on your target device.</strong> A resize that looks great on your laptop may not be ideal on a phone — check the result where it will actually be used.</li>
+                </ol>
+
+                <h2>Why Browser-Based Resizing Is Better</h2>
+                <p>Most online image resizers require you to upload files to their servers, wait for processing, then download the result. This has real drawbacks:</p>
+                <ul>
+                    <li><strong>Privacy:</strong> You have no way to know what happens to your images once they're uploaded.</li>
+                    <li><strong>Speed:</strong> Uploading large files takes time — especially on slow connections. Then you wait for processing, then download.</li>
+                    <li><strong>Limits:</strong> Many free tools impose file size caps, daily conversion limits, or watermarks.</li>
+                    <li><strong>Reliability:</strong> If the service goes down, you're stuck. If they change their terms, you have no recourse.</li>
+                </ul>
+                <p>Our <strong>browser-based resizer</strong> eliminates all of these issues. Your images never leave your device. There are no limits, no waiting for uploads, no watermarks. It's faster, safer, and completely free.</p>
+
+                <h2>Who Is This Image Resizer For?</h2>
+                <p>This tool serves anyone who works with images:</p>
+                <ul>
+                    <li><strong>Web developers</strong> preparing responsive images for different breakpoints.</li>
+                    <li><strong>Bloggers and content creators</strong> optimizing images for their posts.</li>
+                    <li><strong>Photographers</strong> generating web previews and thumbnails from high-res originals.</li>
+                    <li><strong>Social media managers</strong> fitting images into platform-specific dimensions.</li>
+                    <li><strong>Students and office workers</strong> preparing images for reports, presentations, and forms.</li>
+                    <li><strong>E-commerce sellers</strong> standardizing product photos across listings.</li>
+                    <li><strong>Anyone</strong> who needs a quick resize without installing software.</li>
+                </ul>
+
+                <h2>Tips for Specific Use Cases</h2>
+                <h3>Resizing for Websites</h3>
+                <p>For a hero image on a blog, 1600–2000 pixels wide is usually sufficient. For inline content images, 800–1200 pixels is plenty. Always resize down from your original.</p>
+                <h3>Resizing for Instagram</h3>
+                <p>Square posts: 1080×1080. Portrait: 1080×1350. Landscape: 1080×566. Stories and Reels: 1080×1920. Resize to these exact dimensions before uploading to avoid cropping.</p>
+                <h3>Resizing for Email</h3>
+                <p>Embedded images should be under 600 pixels wide to fit comfortably in most email clients. Attachments should be under 5 MB total.</p>
+                <h3>Resizing for Print</h3>
+                <p>Calculate pixels as <strong>Inches × DPI</strong>. A 5×7 inch print at 300 DPI requires 1500×2100 pixels. Make sure your resized image meets or exceeds this.</p>
+
+                <h2>Common Mistakes to Avoid</h2>
+                <ul>
+                    <li><strong>Upscaling instead of finding a larger original.</strong> Always check if a higher-resolution version exists before upscaling.</li>
+                    <li><strong>Resizing after compressing.</strong> Always resize first, then compress. Compression artifacts become more visible after resizing.</li>
+                    <li><strong>Forgetting to maintain aspect ratio.</strong> Distorted photos look amateurish. Keep the ratio locked unless you specifically want distortion.</li>
+                    <li><strong>Over-resizing for the web.</strong> Serving a 4000-pixel image in a 600-pixel space wastes bandwidth and slows page loads.</li>
+                    <li><strong>Resizing JPEGs multiple times.</strong> Each save loses a little quality. Resize once from the original, not repeatedly.</li>
+                    <li><strong>Assuming bigger is better.</strong> For screens, bigger just means slower loading. Match the target.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                <p>We've compiled answers to the most common questions about image resizing below. If you don't find what you're looking for, feel free to reach out.</p>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section ir-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ir-faq-list" id="irFaqList">
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">How do I resize an image?</button>
+                        <div class="ir-faq-a"><p>Click the upload area or drag and drop your image. Enter your target width and height, or use a percentage. Click Resize and your resized image will download automatically.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Is this image resizer free?</button>
+                        <div class="ir-faq-a"><p>Yes, our image resizer is 100% free with no signup, no upload limits, and no hidden costs. Resize as many images as you like.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Are my images uploaded to a server?</button>
+                        <div class="ir-faq-a"><p>No! All resizing happens locally in your browser using JavaScript. Your images never leave your device, ensuring complete privacy.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">What is the difference between resizing and compressing?</button>
+                        <div class="ir-faq-a"><p>Resizing changes the actual pixel dimensions (width × height), while compressing reduces file size by removing data or applying smarter encoding. You can do both — resize first, then compress.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Can I maintain the aspect ratio?</button>
+                        <div class="ir-faq-a"><p>Yes! We have a maintain aspect ratio option enabled by default. When you change width, height updates automatically, and vice versa. You can disable it for exact custom dimensions.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Can I resize multiple images at once?</button>
+                        <div class="ir-faq-a"><p>Yes, you can select multiple files and resize them all in one batch. Each resized image will download separately or you can download them all at once.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Will resizing reduce image quality?</button>
+                        <div class="ir-faq-a"><p>Downscaling (making images smaller) generally preserves quality very well. Upscaling (making images larger) can introduce blurriness because new pixels have to be invented.</p></div>
+                    </div>
+                    <div class="ir-faq-item">
+                        <button class="ir-faq-q" aria-expanded="false">Does this work on mobile?</button>
+                        <div class="ir-faq-a"><p>Absolutely! Our image resizer is fully responsive and works on smartphones and tablets. You can resize images on any device with a modern browser.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="ir-toast" id="irToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM ELEMENTS =====
+        const uploadArea = document.getElementById('irUploadArea');
+        const fileInput = document.getElementById('irFileInput');
+        const fileList = document.getElementById('irFileList');
+        const widthInput = document.getElementById('irWidthInput');
+        const heightInput = document.getElementById('irHeightInput');
+        const aspectRatioCheck = document.getElementById('irAspectRatio');
+        const scaleSelect = document.getElementById('irScaleSelect');
+        const resizeBtn = document.getElementById('irResizeBtn');
+        const downloadAllBtn = document.getElementById('irDownloadAllBtn');
+        const clearAllBtn = document.getElementById('irClearAllBtn');
+        const progressBar = document.getElementById('irProgressBar');
+        const progressFill = document.getElementById('irProgressFill');
+        const toast = document.getElementById('irToast');
+        const faqItems = document.querySelectorAll('.ir-faq-q');
+        const presetChips = document.querySelectorAll('.ir-preset-chip');
+
+        // ===== STATE =====
+        let files = []; // { id, file, name, size, type, status, resizedBlob, resizedUrl, resizedName, thumbUrl, originalWidth, originalHeight, targetWidth, targetHeight, aspectRatio }
+        let toastTimer = null;
+        let fileIdCounter = 0;
+        let globalAspectRatio = 1; // default
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+
+        function getExtension(mime) {
+            const map = {
+                'image/jpeg': 'jpg',
+                'image/png': 'png',
+                'image/webp': 'webp',
+                'image/gif': 'gif',
+                'image/bmp': 'bmp'
+            };
+            return map[mime] || 'png';
+        }
+
+        function getOutputMime(mime) {
+            // Canvas can output JPEG, PNG, WebP. GIF/BMP must convert.
+            if (mime === 'image/gif' || mime === 'image/bmp') return 'image/png';
+            return mime;
+        }
+
+        // ===== RENDER FILE LIST =====
+        function renderFileList() {
+            if (files.length === 0) {
+                fileList.innerHTML = '<div class="ir-empty-state">No images selected yet. Upload files to begin resizing.</div>';
+                resizeBtn.disabled = true;
+                downloadAllBtn.disabled = true;
+                progressBar.style.display = 'none';
+                return;
+            }
+
+            let html = '';
+            files.forEach((f) => {
+                const statusClass = f.status === 'done' ? 'ir-done'
+                                  : f.status === 'processing' ? 'ir-processing'
+                                  : f.status === 'error' ? 'ir-error'
+                                  : 'ir-pending';
+                const statusText = f.status === 'done' ? '✓ Resized'
+                                 : f.status === 'processing' ? '⟳ Resizing'
+                                 : f.status === 'error' ? '✗ Error'
+                                 : 'Pending';
+
+                let metaHtml = `${f.originalWidth}×${f.originalHeight} · ${formatBytes(f.size)}`;
+                if (f.status === 'done' && f.resizedBlob) {
+                    metaHtml = `${f.originalWidth}×${f.originalHeight} <span class="ir-arrow">→</span> ${f.targetWidth}×${f.targetHeight} · ${formatBytes(f.resizedBlob.size)}`;
+                }
+
+                html += `
+                    <div class="ir-file-item" data-id="${f.id}" role="listitem">
+                        <img class="ir-file-thumb" src="${f.thumbUrl || ''}" alt="Preview of ${f.name}" loading="lazy" />
+                        <div class="ir-file-info">
+                            <div class="ir-file-name" title="${f.name}">${f.name}</div>
+                            <div class="ir-file-meta">${metaHtml}</div>
+                        </div>
+                        <span class="ir-file-status ${statusClass}">${statusText}</span>
+                        <button class="ir-file-download ${f.status === 'done' ? 'ir-visible' : ''}" data-id="${f.id}" title="Download resized image" aria-label="Download ${f.name}">⬇</button>
+                        <button class="ir-remove-file" data-id="${f.id}" title="Remove file" aria-label="Remove ${f.name}">✕</button>
+                    </div>
+                `;
+            });
+
+            fileList.innerHTML = html;
+
+            // Attach event listeners
+            fileList.querySelectorAll('.ir-remove-file').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    removeFile(id);
+                });
+            });
+
+            fileList.querySelectorAll('.ir-file-download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    const file = files.find(f => f.id === id);
+                    if (file && file.resizedBlob) {
+                        downloadBlob(file.resizedBlob, file.resizedName);
+                    }
+                });
+            });
+
+            // Enable/disable buttons
+            const hasPending = files.some(f => f.status === 'pending');
+            const hasDone = files.some(f => f.status === 'done');
+            resizeBtn.disabled = !hasPending;
+            downloadAllBtn.disabled = !hasDone;
+        }
+
+        // ===== ADD FILES =====
+        function addFiles(fileList) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/bmp'];
+            let added = 0;
+            let pending = fileList.length;
+
+            Array.from(fileList).forEach(file => {
+                if (!validTypes.includes(file.type)) {
+                    showToast(`⚠️ Unsupported format: ${file.name}`);
+                    pending--;
+                    if (pending === 0) renderFileList();
+                    return;
+                }
+                if (file.size > 30 * 1024 * 1024) {
+                    showToast(`⚠️ File too large (max 30 MB): ${file.name}`);
+                    pending--;
+                    if (pending === 0) renderFileList();
+                    return;
+                }
+
+                const id = ++fileIdCounter;
+                const thumbUrl = URL.createObjectURL(file);
+                const img = new Image();
+
+                img.onload = function () {
+                    const w = img.naturalWidth;
+                    const h = img.naturalHeight;
+
+                    files.push({
+                        id,
+                        file,
+                        name: file.name,
+                        size: file.size,
+                        type: file.type,
+                        status: 'pending',
+                        resizedBlob: null,
+                        resizedUrl: null,
+                        resizedName: null,
+                        thumbUrl,
+                        originalWidth: w,
+                        originalHeight: h,
+                        targetWidth: w,
+                        targetHeight: h,
+                        aspectRatio: w / h
+                    });
+
+                    added++;
+                    pending--;
+                    if (pending === 0) {
+                        renderFileList();
+                        if (added > 0) showToast(`✅ Added ${added} image${added > 1 ? 's' : ''}`);
+                        // Auto-fill dimensions from first image
+                        if (files.length > 0 && !widthInput.value) {
+                            const first = files[0];
+                            globalAspectRatio = first.aspectRatio;
+                            if (!widthInput.value) widthInput.value = first.originalWidth;
+                            if (!heightInput.value) heightInput.value = first.originalHeight;
+                        }
+                    }
+                };
+
+                img.onerror = function () {
+                    showToast(`⚠️ Could not load: ${file.name}`);
+                    URL.revokeObjectURL(thumbUrl);
+                    pending--;
+                    if (pending === 0) renderFileList();
+                };
+
+                img.src = thumbUrl;
+            });
+        }
+
+        // ===== REMOVE FILE =====
+        function removeFile(id) {
+            const index = files.findIndex(f => f.id === id);
+            if (index === -1) return;
+            const f = files[index];
+            if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+            if (f.resizedUrl) URL.revokeObjectURL(f.resizedUrl);
+            files.splice(index, 1);
+            renderFileList();
+            if (files.length === 0) {
+                showToast('All files removed');
+            }
+        }
+
+        // ===== CLEAR ALL =====
+        function clearAll() {
+            files.forEach(f => {
+                if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+                if (f.resizedUrl) URL.revokeObjectURL(f.resizedUrl);
+            });
+            files = [];
+            fileInput.value = '';
+            widthInput.value = '';
+            heightInput.value = '';
+            scaleSelect.value = '';
+            renderFileList();
+            progressBar.style.display = 'none';
+            progressFill.style.width = '0%';
+            showToast('All files cleared');
+        }
+
+        // ===== RESIZE FILES =====
+        function resizeAll() {
+            const pending = files.filter(f => f.status === 'pending' || f.status === 'error');
+            if (pending.length === 0) {
+                showToast('No pending files to resize');
+                return;
+            }
+
+            resizeBtn.disabled = true;
+            downloadAllBtn.disabled = true;
+
+            const total = pending.length;
+            let completed = 0;
+
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            // Determine target dimensions
+            let targetW = parseInt(widthInput.value, 10);
+            let targetH = parseInt(heightInput.value, 10);
+
+            // If scale is selected, compute from first file's originals
+            if (scaleSelect.value && pending.length > 0) {
+                const scaleFactor = parseInt(scaleSelect.value, 10) / 100;
+                const firstFile = pending[0];
+                targetW = Math.round(firstFile.originalWidth * scaleFactor);
+                targetH = Math.round(firstFile.originalHeight * scaleFactor);
+            }
+
+            // Mark all as processing
+            pending.forEach(f => {
+                f.status = 'processing';
+            });
+            renderFileList();
+
+            let index = 0;
+
+            function processNext() {
+                if (index >= pending.length) {
+                    progressFill.style.width = '100%';
+                    setTimeout(() => {
+                        progressBar.style.display = 'none';
+                        progressFill.style.width = '0%';
+                    }, 800);
+                    renderFileList();
+                    showToast(`✅ Resized ${total} image${total > 1 ? 's' : ''}`);
+                    return;
+                }
+
+                const f = pending[index];
+
+                // Compute final target dimensions for this file
+                let finalW, finalH;
+                if (targetW && targetH && targetW > 0 && targetH > 0) {
+                    finalW = targetW;
+                    finalH = targetH;
+                } else if (scaleSelect.value) {
+                    const scaleFactor = parseInt(scaleSelect.value, 10) / 100;
+                    finalW = Math.round(f.originalWidth * scaleFactor);
+                    finalH = Math.round(f.originalHeight * scaleFactor);
+                } else {
+                    finalW = f.originalWidth;
+                    finalH = f.originalHeight;
+                }
+
+                // Ensure minimum 1px
+                finalW = Math.max(1, finalW);
+                finalH = Math.max(1, finalH);
+
+                const outputMime = getOutputMime(f.type);
+                const outputExt = getExtension(outputMime);
+                const quality = 0.92;
+
+                const img = new Image();
+                const url = URL.createObjectURL(f.file);
+
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = finalW;
+                    canvas.height = finalH;
+                    const ctx = canvas.getContext('2d');
+
+                    // For JPEG, fill white background (no transparency)
+                    if (outputMime === 'image/jpeg') {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, finalW, finalH);
+                    }
+
+                    // High-quality resampling
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = 'high';
+                    ctx.drawImage(img, 0, 0, finalW, finalH);
+
+                    canvas.toBlob((blob) => {
+                        URL.revokeObjectURL(url);
+                        if (blob) {
+                            f.resizedBlob = blob;
+                            f.resizedUrl = URL.createObjectURL(blob);
+                            f.resizedName = f.name.replace(/\.[^.]+$/, '') + '-' + finalW + 'x' + finalH + '.' + outputExt;
+                            f.targetWidth = finalW;
+                            f.targetHeight = finalH;
+                            f.status = 'done';
+                        } else {
+                            f.status = 'error';
+                        }
+
+                        completed++;
+                        progressFill.style.width = Math.round((completed / total) * 100) + '%';
+                        renderFileList();
+                        index++;
+                        setTimeout(processNext, 30);
+                    }, outputMime, quality);
+                };
+
+                img.onerror = function () {
+                    URL.revokeObjectURL(url);
+                    f.status = 'error';
+                    completed++;
+                    progressFill.style.width = Math.round((completed / total) * 100) + '%';
+                    renderFileList();
+                    index++;
+                    setTimeout(processNext, 30);
+                };
+
+                img.src = url;
+            }
+
+            processNext();
+        }
+
+        // ===== DOWNLOAD =====
+        function downloadBlob(blob, filename) {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+
+        function downloadAll() {
+            const done = files.filter(f => f.status === 'done' && f.resizedBlob);
+            if (done.length === 0) {
+                showToast('No resized files to download');
+                return;
+            }
+            done.forEach((f, i) => {
+                setTimeout(() => {
+                    downloadBlob(f.resizedBlob, f.resizedName);
+                }, i * 300);
+            });
+            showToast(`⬇ Downloading ${done.length} file${done.length > 1 ? 's' : ''}...`);
+        }
+
+        // ===== EVENT LISTENERS =====
+
+        // Width input - maintain aspect ratio
+        widthInput.addEventListener('input', () => {
+            if (aspectRatioCheck.checked && widthInput.value) {
+                const w = parseInt(widthInput.value, 10);
+                if (w > 0 && globalAspectRatio > 0) {
+                    heightInput.value = Math.round(w / globalAspectRatio);
+                }
+            }
+            // Reset scale when manual input
+            if (widthInput.value) scaleSelect.value = '';
+        });
+
+        // Height input - maintain aspect ratio
+        heightInput.addEventListener('input', () => {
+            if (aspectRatioCheck.checked && heightInput.value) {
+                const h = parseInt(heightInput.value, 10);
+                if (h > 0 && globalAspectRatio > 0) {
+                    widthInput.value = Math.round(h * globalAspectRatio);
+                }
+            }
+            if (heightInput.value) scaleSelect.value = '';
+        });
+
+        // Scale select
+        scaleSelect.addEventListener('change', () => {
+            if (scaleSelect.value && files.length > 0) {
+                const scaleFactor = parseInt(scaleSelect.value, 10) / 100;
+                const first = files[0];
+                widthInput.value = Math.round(first.originalWidth * scaleFactor);
+                heightInput.value = Math.round(first.originalHeight * scaleFactor);
+            }
+        });
+
+        // Preset chips
+        presetChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                widthInput.value = chip.dataset.width;
+                heightInput.value = chip.dataset.height;
+                scaleSelect.value = '';
+                // Uncheck aspect ratio since preset is exact
+                aspectRatioCheck.checked = false;
+            });
+        });
+
+        // Upload area click
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // Drag & drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('ir-drag-over');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('ir-drag-over');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('ir-drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                addFiles(e.dataTransfer.files);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                addFiles(fileInput.files);
+                fileInput.value = '';
+            }
+        });
+
+        // Resize button
+        resizeBtn.addEventListener('click', resizeAll);
+
+        // Download all button
+        downloadAllBtn.addEventListener('click', downloadAll);
+
+        // Clear all button
+        clearAllBtn.addEventListener('click', clearAll);
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        renderFileList();
+        console.log('✅ Image Resizer ready — resize JPG, PNG, WebP locally in the browser.');
+    })();
+    </script>
+</body>
+</html>

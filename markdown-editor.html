@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Editor – Free Online Markdown Editor with Live Preview | WebNotePad</title>
+    <meta name="description" content="Free online Markdown editor with live preview, formatting toolbar, syntax highlighting and export to HTML or .md. Auto-saves in your browser, works offline, mobile-friendly. No signup required." />
+    <meta name="keywords" content="markdown editor, online markdown editor, markdown preview, free markdown editor, live markdown editor, markdown to html, markdown writer, md editor online, markdown app, markdown converter" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/markdown-editor" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/markdown-editor" />
+    <meta property="og:title" content="Free Online Markdown Editor with Live Preview" />
+    <meta property="og:description" content="Write Markdown with a live side-by-side preview. Export to HTML or .md. Auto-saves in your browser. No signup needed." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Markdown Editor with Live Preview" />
+    <meta name="twitter:description" content="Write Markdown with a live side-by-side preview. Export to HTML or .md. Auto-saves in your browser." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Markdown Editor by WebNotePad",
+            "url": "https://webnotepad.github.io/markdown-editor",
+            "description": "A free online Markdown editor with live side-by-side preview, a formatting toolbar, syntax support for GFM tables and task lists, autosave to your browser, and export to HTML or .md. Works offline and on mobile.",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Live side-by-side Markdown preview",
+                "Formatting toolbar for headings, bold, italic, links, images, lists, code, quotes and tables",
+                "Keyboard shortcuts for common formatting",
+                "GitHub-flavoured Markdown: tables, task lists, strikethrough, fenced code blocks",
+                "Autosave to browser local storage",
+                "Export as .md file",
+                "Export as styled HTML file",
+                "Copy rendered HTML to clipboard",
+                "Word, character and line counter",
+                "Light and dark theme",
+                "Mobile-friendly with view toggle",
+                "100% offline — nothing is stored on a server"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Markdown?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Markdown is a lightweight plain-text formatting syntax created by John Gruber in 2004. Instead of clicking buttons, you type simple symbols like # for headings, ** for bold, or - for bullet lists. Markdown files are readable as plain text, but they can be rendered into rich formatted HTML in a browser, a blog, GitHub, or any modern content platform."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does the live preview work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "As you type in the editor pane, the preview pane on the right updates instantly to show the rendered output. The renderer is a pure client-side JavaScript parser that supports headings, bold, italic, strikethrough, links, images, blockquotes, ordered and unordered lists, task lists, tables, fenced code blocks, inline code, horizontal rules and line breaks."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the editor support GitHub-flavoured Markdown?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. In addition to CommonMark basics, the editor supports GitHub-flavoured Markdown extensions including fenced code blocks with language hints, task lists with checkboxes, tables, and strikethrough using double tildes. This makes it suitable for writing README files, documentation and issues that you plan to paste into GitHub."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is my Markdown saved automatically?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The editor saves your document to your browser's local storage every couple of seconds after you stop typing. If you close the tab and come back later, your work will still be there. Nothing is ever sent to our servers, so your writing is completely private."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I export my Markdown as HTML or .md?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. You can download your document as a plain .md file (great for GitHub and any Markdown-aware tool), or as a self-contained .html file that opens in any browser with styled typography baked in. You can also copy the raw rendered HTML to your clipboard for pasting into a CMS."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the Markdown editor work on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. On phones and tablets the interface switches to a single-column layout with a view toggle so you can flip between the editor and the preview. All toolbar buttons are touch-friendly, and the file import/export features work on mobile browsers."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Markdown editor free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. It is 100% free with no signup, no download, no ads inside the editor and no hidden costs. Your writing is stored only in your browser and never leaves your device."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --md-accent: #0d9488;
+            --md-accent-light: #14b8a6;
+            --md-accent-pale: #ecfdf5;
+            --md-surface: #faf8f4;
+            --md-warm: #f4f0e8;
+            --md-border: #e8e2d6;
+            --md-ink: #1a1a2e;
+            --md-muted: #6b6b85;
+            --md-radius: 8px;
+            --md-radius-lg: 14px;
+            --md-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --md-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --md-code-bg: #1a1a2e;
+            --md-code-ink: #e8e4dc;
+            --md-inline-bg: #f1f5f9;
+            --md-inline-ink: #b91c1c;
+        }
+
+        body.dark {
+            --md-accent: #2dd4bf;
+            --md-accent-light: #5eead4;
+            --md-accent-pale: #0b2e2a;
+            --md-surface: #141418;
+            --md-warm: #1c1c22;
+            --md-border: #2a2a34;
+            --md-ink: #e8e4dc;
+            --md-muted: #8a8678;
+            --md-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+
+            --md-code-bg: #0e0e12;
+            --md-code-ink: #e8e4dc;
+            --md-inline-bg: #2a2a34;
+            --md-inline-ink: #fca5a5;
+        }
+
+        /* ===== HERO ===== */
+        .md-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--md-surface);
+            transition: background var(--md-transition);
+        }
+        .md-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--md-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--md-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .md-hero-bg { opacity: 0.1; }
+        .md-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--md-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .md-hero-glow { opacity: 0.35; }
+        .md-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        .md-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--md-accent-pale);
+            color: var(--md-accent);
+            border: 1px solid var(--md-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .md-hero-badge { background: rgba(45, 212, 191, 0.15); }
+        .md-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--md-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .md-hero-accent {
+            color: var(--md-accent);
+            font-style: italic;
+        }
+        .md-hero-sub {
+            font-size: 0.9rem;
+            color: var(--md-muted);
+            max-width: 560px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .md-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .md-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .md-demo-chip {
+            padding: 7px 16px;
+            background: var(--md-warm);
+            border: 1px solid var(--md-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--md-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--md-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .md-demo-chip:hover {
+            background: var(--md-accent-pale);
+            border-color: var(--md-accent);
+            color: var(--md-accent);
+        }
+
+        /* ===== APP SECTION ===== */
+        .md-app-section {
+            padding: 0 0 80px;
+            background: var(--md-surface);
+            transition: background var(--md-transition);
+        }
+        .md-shell {
+            background: var(--md-warm);
+            border: 1px solid var(--md-border);
+            border-radius: var(--md-radius-lg);
+            box-shadow: var(--md-shadow);
+            overflow: hidden;
+            transition: all var(--md-transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .md-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--md-border);
+            background: var(--md-surface);
+            flex-wrap: wrap;
+        }
+        .md-topbar-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--md-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .md-topbar-title .md-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--md-accent);
+            display: inline-block;
+            animation: mdPulse 2s infinite;
+        }
+        @keyframes mdPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .md-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .md-tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            background: var(--md-warm);
+            color: var(--md-ink);
+            border: 1px solid var(--md-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--md-transition);
+            white-space: nowrap;
+        }
+        .md-tool-btn:hover {
+            border-color: var(--md-accent);
+            color: var(--md-accent);
+            background: var(--md-accent-pale);
+            transform: translateY(-1px);
+        }
+        .md-tool-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .md-tool-btn.md-primary {
+            background: var(--md-accent);
+            border-color: var(--md-accent);
+            color: #ffffff;
+        }
+        .md-tool-btn.md-primary:hover {
+            background: var(--md-accent-light);
+            border-color: var(--md-accent-light);
+            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.32);
+        }
+
+        /* ===== FORMAT TOOLBAR ===== */
+        .md-formatbar {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--md-border);
+            background: var(--md-surface);
+            flex-wrap: wrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .md-formatbar::-webkit-scrollbar { display: none; }
+        .md-fmt-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--md-muted);
+            cursor: pointer;
+            transition: all var(--md-transition);
+            padding: 0;
+            line-height: 1;
+        }
+        .md-fmt-btn:hover {
+            background: var(--md-warm);
+            border-color: var(--md-border);
+            color: var(--md-ink);
+        }
+        .md-fmt-btn:active {
+            transform: scale(0.94);
+        }
+        .md-fmt-div {
+            width: 1px;
+            height: 20px;
+            background: var(--md-border);
+            margin: 0 5px;
+            flex-shrink: 0;
+        }
+        .md-fmt-select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--md-border);
+            background: var(--md-warm);
+            color: var(--md-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--md-transition);
+        }
+        .md-fmt-select:focus { border-color: var(--md-accent); }
+
+        /* ===== MAIN LAYOUT ===== */
+        .md-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 560px;
+        }
+        .md-pane {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: var(--md-surface);
+        }
+        .md-pane + .md-pane {
+            border-left: 1px solid var(--md-border);
+        }
+        .md-pane-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--md-border);
+            background: var(--md-warm);
+            flex-wrap: wrap;
+        }
+        .md-pane-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--md-muted);
+        }
+        .md-pane-meta {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            color: var(--md-muted);
+            white-space: nowrap;
+        }
+
+        /* Editor */
+        .md-editor {
+            flex: 1;
+            width: 100%;
+            padding: 22px 24px;
+            border: none;
+            outline: none;
+            resize: none;
+            background: var(--md-surface);
+            color: var(--md-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.92rem;
+            line-height: 1.75;
+            letter-spacing: 0.005em;
+            min-height: 480px;
+            transition: background var(--md-transition), color var(--md-transition);
+            tab-size: 2;
+        }
+        .md-editor::placeholder {
+            color: var(--md-muted);
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        /* Preview */
+        .md-preview {
+            flex: 1;
+            padding: 24px 26px 40px;
+            overflow-y: auto;
+            background: var(--md-surface);
+            color: var(--md-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.94rem;
+            line-height: 1.75;
+            min-height: 480px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .md-preview::-webkit-scrollbar { width: 6px; }
+        .md-preview::-webkit-scrollbar-thumb {
+            background: var(--md-border);
+            border-radius: 3px;
+        }
+
+        /* ===== MARKDOWN ELEMENT STYLES ===== */
+        .md-preview h1,
+        .md-preview h2,
+        .md-preview h3,
+        .md-preview h4,
+        .md-preview h5,
+        .md-preview h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 800;
+            color: var(--md-ink);
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+            margin-top: 1.4em;
+            margin-bottom: 0.55em;
+        }
+        .md-preview h1:first-child,
+        .md-preview h2:first-child,
+        .md-preview h3:first-child { margin-top: 0; }
+        .md-preview h1 {
+            font-size: 2rem;
+            padding-bottom: 0.35em;
+            border-bottom: 2px solid var(--md-border);
+        }
+        .md-preview h2 {
+            font-size: 1.5rem;
+            padding-bottom: 0.25em;
+            border-bottom: 1px solid var(--md-border);
+        }
+        .md-preview h3 { font-size: 1.22rem; }
+        .md-preview h4 { font-size: 1.06rem; }
+        .md-preview h5 { font-size: 0.95rem; }
+        .md-preview h6 { font-size: 0.85rem; color: var(--md-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+        .md-preview p {
+            margin: 0 0 1em;
+            line-height: 1.75;
+        }
+
+        .md-preview a {
+            color: var(--md-accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--md-accent);
+            transition: all var(--md-transition);
+        }
+        .md-preview a:hover {
+            color: var(--md-accent-light);
+            border-bottom-color: var(--md-accent-light);
+        }
+
+        .md-preview strong { font-weight: 700; color: var(--md-ink); }
+        .md-preview em { font-style: italic; }
+        .md-preview del { text-decoration: line-through; opacity: 0.7; }
+
+        .md-preview ul,
+        .md-preview ol {
+            margin: 0 0 1em 1.4em;
+            padding-left: 0.4em;
+        }
+        .md-preview li {
+            margin-bottom: 0.35em;
+            line-height: 1.7;
+        }
+        .md-preview ul li::marker { color: var(--md-accent); }
+        .md-preview ol li::marker { color: var(--md-accent); font-weight: 700; }
+
+        /* Task list */
+        .md-preview .md-task-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .md-preview .md-task-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 2px 0;
+        }
+        .md-preview .md-task-list input[type="checkbox"] {
+            margin-top: 0.35em;
+            accent-color: var(--md-accent);
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .md-preview blockquote {
+            margin: 1em 0;
+            padding: 0.4em 1.1em;
+            border-left: 4px solid var(--md-accent);
+            background: var(--md-accent-pale);
+            color: var(--md-ink);
+            font-style: italic;
+            border-radius: 0 var(--md-radius) var(--md-radius) 0;
+        }
+        body.dark .md-preview blockquote { background: rgba(45, 212, 191, 0.08); }
+        .md-preview blockquote p:last-child { margin-bottom: 0; }
+
+        .md-preview code {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.86em;
+            background: var(--md-inline-bg);
+            color: var(--md-inline-ink);
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .md-preview pre {
+            background: var(--md-code-bg);
+            color: var(--md-code-ink);
+            padding: 16px 18px;
+            border-radius: var(--md-radius);
+            overflow-x: auto;
+            margin: 1em 0;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.84rem;
+            line-height: 1.65;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .md-preview pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+            font-size: 1em;
+            white-space: pre;
+        }
+
+        .md-preview hr {
+            border: none;
+            height: 1px;
+            background: var(--md-border);
+            margin: 2em 0;
+        }
+
+        .md-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--md-radius);
+            margin: 0.5em 0;
+            box-shadow: 0 4px 16px rgba(26, 26, 46, 0.1);
+        }
+
+        .md-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.88rem;
+            border-radius: var(--md-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(26, 26, 46, 0.06);
+            display: table;
+        }
+        .md-preview th,
+        .md-preview td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--md-border);
+        }
+        .md-preview th {
+            background: var(--md-warm);
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--md-muted);
+        }
+        .md-preview tr:last-child td { border-bottom: none; }
+        .md-preview tr:hover td { background: var(--md-warm); }
+
+        /* ===== STATUS BAR ===== */
+        .md-statusbar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 8px 18px;
+            border-top: 1px solid var(--md-border);
+            background: var(--md-warm);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: var(--md-muted);
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .md-statusbar-left,
+        .md-statusbar-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .md-status-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        .md-status-item strong {
+            color: var(--md-ink);
+            font-weight: 700;
+        }
+        .md-status-saved { color: #16a34a; }
+        body.dark .md-status-saved { color: #4ade80; }
+        .md-status-saving { color: #f59e0b; }
+        .md-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            display: inline-block;
+        }
+
+        /* ===== MOBILE VIEW TOGGLE ===== */
+        .md-mobile-toggle {
+            display: none;
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--md-border);
+            background: var(--md-surface);
+            gap: 6px;
+            justify-content: center;
+        }
+        .md-mobile-toggle button {
+            flex: 1;
+            padding: 10px 12px;
+            background: transparent;
+            border: 1px solid var(--md-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--md-muted);
+            cursor: pointer;
+            transition: all var(--md-transition);
+        }
+        .md-mobile-toggle button.active {
+            background: var(--md-accent);
+            border-color: var(--md-accent);
+            color: #ffffff;
+        }
+
+        /* ===== HOW TO / FEATURES / FAQ ===== */
+        .md-how { background: var(--md-warm); transition: background var(--md-transition); }
+        .md-how-grid,
+        .md-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .md-how-card,
+        .md-feature-card {
+            background: var(--md-surface);
+            border: 1px solid var(--md-border);
+            border-radius: var(--md-radius-lg);
+            padding: 26px;
+            transition: all var(--md-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .md-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--md-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--md-transition);
+        }
+        .md-how-card:hover { box-shadow: var(--md-shadow); transform: translateY(-3px); }
+        .md-how-card:hover::before { transform: scaleX(1); }
+        .md-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--md-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .md-how-card h3,
+        .md-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--md-ink);
+            margin-bottom: 8px;
+        }
+        .md-how-card p,
+        .md-feature-card p {
+            font-size: 0.85rem;
+            color: var(--md-muted);
+            line-height: 1.6;
+        }
+        .md-how-card code,
+        .md-feature-card code {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.82em;
+            background: var(--md-accent-pale);
+            color: var(--md-accent);
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .md-feature-card:hover {
+            box-shadow: var(--md-shadow);
+            transform: translateY(-3px);
+            border-color: var(--md-accent-light);
+        }
+        .md-feature-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+
+        /* ===== DESCRIPTION ===== */
+        .md-desc { background: var(--md-surface); transition: background var(--md-transition); }
+        .md-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .md-desc-text p {
+            font-size: 0.95rem;
+            color: var(--md-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .md-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .md-benefit-tag {
+            padding: 6px 14px;
+            background: var(--md-warm);
+            border: 1px solid var(--md-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--md-ink);
+            transition: all var(--md-transition);
+        }
+        .md-benefit-tag:hover {
+            background: var(--md-accent-pale);
+            border-color: var(--md-accent);
+            color: var(--md-accent);
+        }
+        .md-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .md-visual-card {
+            background: var(--md-ink);
+            color: var(--md-surface);
+            border-radius: var(--md-radius-lg);
+            padding: 32px 28px;
+            max-width: 340px;
+            width: 100%;
+            box-shadow: var(--md-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.82rem;
+            line-height: 1.9;
+        }
+        body.dark .md-visual-card {
+            background: var(--md-warm);
+            border: 1px solid var(--md-border);
+            color: var(--md-ink);
+        }
+        .md-visual-line {
+            width: 36px;
+            height: 3px;
+            background: var(--md-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .md-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .md-visual-row { border-bottom-color: var(--md-border); }
+        .md-visual-row:last-child { border-bottom: none; }
+        .md-v-label {
+            opacity: 0.6;
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+        .md-v-text {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--md-accent-light);
+            text-align: right;
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        body.dark .md-visual-card .md-v-text { color: var(--md-accent); }
+
+        /* ===== FAQ ===== */
+        .md-faq { background: var(--md-warm); transition: background var(--md-transition); }
+        .md-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .md-faq-item {
+            border: 1px solid var(--md-border);
+            border-radius: var(--md-radius);
+            overflow: hidden;
+            background: var(--md-surface);
+            transition: border-color var(--md-transition);
+        }
+        .md-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--md-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--md-transition);
+        }
+        .md-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--md-muted);
+            flex-shrink: 0;
+            transition: transform var(--md-transition);
+        }
+        .md-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--md-accent); }
+        .md-faq-q:hover { background: var(--md-warm); }
+        .md-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .md-faq-a p {
+            font-size: 0.88rem;
+            color: var(--md-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .md-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--md-ink);
+            color: var(--md-surface);
+            padding: 12px 20px;
+            border-radius: var(--md-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            pointer-events: none;
+            max-width: 320px;
+        }
+        .md-toast.md-show { transform: translateY(0); opacity: 1; }
+        body.dark .md-toast {
+            background: var(--md-warm);
+            color: var(--md-ink);
+            border: 1px solid var(--md-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .md-how-grid,
+            .md-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .md-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .md-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .md-hero { min-height: auto; padding: 24px 0 20px; }
+            .md-how-grid,
+            .md-feature-grid { grid-template-columns: 1fr; }
+
+            .md-topbar { padding: 10px 14px; }
+            .md-tool-btn { padding: 6px 11px; font-size: 0.7rem; }
+            .md-formatbar { padding: 6px 10px; }
+            .md-fmt-btn { width: 32px; height: 32px; min-width: 32px; font-size: 0.85rem; }
+
+            /* Single-column on mobile with toggle */
+            .md-main { grid-template-columns: 1fr; min-height: auto; }
+            .md-pane + .md-pane { border-left: none; border-top: 1px solid var(--md-border); }
+            .md-pane { display: none; }
+            .md-pane.md-active { display: flex; }
+            .md-mobile-toggle { display: flex; }
+
+            .md-editor { min-height: 380px; padding: 18px 16px; font-size: 0.88rem; }
+            .md-preview { min-height: 380px; padding: 18px 16px 32px; font-size: 0.9rem; }
+
+            .md-statusbar { font-size: 0.64rem; padding: 6px 14px; gap: 10px; }
+        }
+        @media (max-width: 480px) {
+            .md-hero-title { font-size: 1.6rem; }
+            .md-fmt-btn { width: 30px; height: 30px; min-width: 30px; font-size: 0.82rem; }
+            .md-fmt-div { margin: 0 3px; }
+            .md-editor { padding: 16px 14px; font-size: 0.86rem; }
+            .md-preview { padding: 16px 14px 28px; font-size: 0.88rem; }
+            .md-preview h1 { font-size: 1.6rem; }
+            .md-preview h2 { font-size: 1.3rem; }
+            .md-preview h3 { font-size: 1.1rem; }
+            .md-preview pre { padding: 12px 14px; font-size: 0.76rem; }
+            .md-preview th,
+            .md-preview td { padding: 8px 10px; font-size: 0.82rem; }
+            .md-visual-card { padding: 24px 20px; max-width: 100%; }
+            .md-statusbar-left,
+            .md-statusbar-right { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="md-hero" id="home" aria-label="Markdown Editor Hero">
+            <div class="md-hero-bg"></div>
+            <div class="md-hero-glow"></div>
+            <div class="container md-hero-inner">
+                <div class="md-hero-badge">✍️ Free Online Markdown Editor</div>
+                <h1 class="md-hero-title">
+                    Write Markdown.<br />
+                    <span class="md-hero-accent">See it render live.</span>
+                </h1>
+                <p class="md-hero-sub">A clean, distraction-free Markdown editor with a side-by-side live preview, a formatting toolbar, keyboard shortcuts, autosave and export to HTML or .md — all free, private and playable on any device.</p>
+                <div class="md-hero-cta">
+                    <a href="#editor" class="btn btn-primary" style="background:var(--md-accent);border-color:var(--md-accent);">Start Writing <span>→</span></a>
+                </div>
+                <div class="md-hero-demo">
+                    <span class="md-demo-chip">👁️ Live preview</span>
+                    <span class="md-demo-chip">⚡ Autosave</span>
+                    <span class="md-demo-chip">📤 Export .md &amp; .html</span>
+                    <span class="md-demo-chip">⌨️ Shortcuts</span>
+                    <span class="md-demo-chip">📱 Mobile friendly</span>
+                </div>
+
+                <!-- ══════════ NATIVE BANNER AD (4:1) — AUTO WIDTH ══════════ -->
+                <div class="native-banner-ad" role="complementary" aria-label="Advertisement">
+                  <div class="native-banner-inner">
+                    <span class="native-banner-label">Sponsored</span>
+                    <div class="native-banner-content">
+                      <!-- Adsterra Native Banner 4:1 -->
+                      <script async="async" data-cfasync="false" src="https://pl31629520.profitableratecpmnetwork.com/f8ad2a8a31b10be48474b45838a6db56/invoke.js"></script>
+                      <div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ══════════ END NATIVE BANNER AD ══════════ -->
+            </div>
+        </section>
+
+        <!-- ===== EDITOR ===== -->
+        <section class="md-app-section" id="editor" aria-label="Markdown Editor Application">
+            <div class="container">
+                <div class="md-shell">
+
+                    <!-- TOP BAR -->
+                    <div class="md-topbar">
+                        <span class="md-topbar-title"><span class="md-dot"></span> Markdown Editor</span>
+                        <div class="md-topbar-right">
+                            <button class="md-tool-btn" id="mdImportBtn" type="button" title="Import a .md file">⬆ Import</button>
+                            <input type="file" id="mdImportInput" accept=".md,.txt,.markdown,text/markdown,text/plain" hidden />
+                            <button class="md-tool-btn" id="mdExportMdBtn" type="button" title="Download as .md file">⬇ .md</button>
+                            <button class="md-tool-btn" id="mdExportHtmlBtn" type="button" title="Download as styled .html file">⬇ HTML</button>
+                            <button class="md-tool-btn" id="mdCopyHtmlBtn" type="button" title="Copy rendered HTML to clipboard">⎘ Copy HTML</button>
+                            <button class="md-tool-btn md-primary" id="mdNewBtn" type="button" title="Start a blank document">＋ New</button>
+                        </div>
+                    </div>
+
+                    <!-- FORMAT TOOLBAR -->
+                    <div class="md-formatbar" id="mdFormatBar" role="toolbar" aria-label="Markdown formatting tools">
+                        <select class="md-fmt-select" id="mdHeadingSelect" aria-label="Heading level">
+                            <option value="">Paragraph</option>
+                            <option value="# ">H1</option>
+                            <option value="## ">H2</option>
+                            <option value="### ">H3</option>
+                            <option value="#### ">H4</option>
+                            <option value="##### ">H5</option>
+                            <option value="###### ">H6</option>
+                        </select>
+                        <span class="md-fmt-div"></span>
+                        <button class="md-fmt-btn" data-action="bold" type="button" title="Bold (Ctrl+B)" aria-label="Bold"><strong>B</strong></button>
+                        <button class="md-fmt-btn" data-action="italic" type="button" title="Italic (Ctrl+I)" aria-label="Italic"><em>I</em></button>
+                        <button class="md-fmt-btn" data-action="strike" type="button" title="Strikethrough" aria-label="Strikethrough"><s>S</s></button>
+                        <span class="md-fmt-div"></span>
+                        <button class="md-fmt-btn" data-action="ul" type="button" title="Bullet list" aria-label="Bullet list">•</button>
+                        <button class="md-fmt-btn" data-action="ol" type="button" title="Numbered list" aria-label="Numbered list">1.</button>
+                        <button class="md-fmt-btn" data-action="task" type="button" title="Task list" aria-label="Task list">☑</button>
+                        <button class="md-fmt-btn" data-action="quote" type="button" title="Blockquote" aria-label="Blockquote">❝</button>
+                        <span class="md-fmt-div"></span>
+                        <button class="md-fmt-btn" data-action="link" type="button" title="Link (Ctrl+K)" aria-label="Insert link">🔗</button>
+                        <button class="md-fmt-btn" data-action="image" type="button" title="Image" aria-label="Insert image">🖼️</button>
+                        <button class="md-fmt-btn" data-action="code" type="button" title="Inline code" aria-label="Inline code">&lt;/&gt;</button>
+                        <button class="md-fmt-btn" data-action="codeblock" type="button" title="Code block" aria-label="Code block">{ }</button>
+                        <span class="md-fmt-div"></span>
+                        <button class="md-fmt-btn" data-action="table" type="button" title="Insert table" aria-label="Insert table">▦</button>
+                        <button class="md-fmt-btn" data-action="hr" type="button" title="Horizontal rule" aria-label="Horizontal rule">―</button>
+                    </div>
+
+                    <!-- MOBILE VIEW TOGGLE -->
+                    <div class="md-mobile-toggle">
+                        <button type="button" class="active" data-view="editor">✏️ Editor</button>
+                        <button type="button" data-view="preview">👁️ Preview</button>
+                    </div>
+
+                    <!-- MAIN LAYOUT -->
+                    <div class="md-main">
+
+                        <!-- EDITOR PANE -->
+                        <div class="md-pane md-active" id="mdEditorPane">
+                            <div class="md-pane-head">
+                                <span class="md-pane-label">Markdown</span>
+                                <span class="md-pane-meta" id="mdEditorMeta">0 words · 0 chars</span>
+                            </div>
+                            <textarea
+                                class="md-editor"
+                                id="mdEditor"
+                                placeholder="# Welcome to the Markdown Editor&#10;&#10;Start typing Markdown here — the preview on the right updates live.&#10;&#10;Try **bold**, _italic_, `inline code`, and [links](https://webnotepad.github.io).&#10;&#10;- Bullet list&#10;- Another item&#10;&#10;1. Numbered&#10;2. Lists work too&#10;&#10;> Blockquotes look great.&#10;&#10;```js&#10;console.log('Code blocks work too');&#10;```"
+                                spellcheck="false"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                wrap="soft"
+                                aria-label="Markdown source editor"
+                            ></textarea>
+                        </div>
+
+                        <!-- PREVIEW PANE -->
+                        <div class="md-pane" id="mdPreviewPane">
+                            <div class="md-pane-head">
+                                <span class="md-pane-label">Preview</span>
+                                <span class="md-pane-meta" id="mdPreviewMeta">Live render</span>
+                            </div>
+                            <div class="md-preview" id="mdPreview" role="region" aria-label="Markdown preview" aria-live="polite"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- STATUS BAR -->
+                    <div class="md-statusbar">
+                        <div class="md-statusbar-left">
+                            <span class="md-status-item md-status-saved" id="mdSaveStatus">
+                                <span class="md-status-dot"></span> Saved
+                            </span>
+                            <span class="md-status-item" id="mdStatWords"><strong>0</strong> words</span>
+                            <span class="md-status-item" id="mdStatChars"><strong>0</strong> chars</span>
+                            <span class="md-status-item" id="mdStatLines"><strong>0</strong> lines</span>
+                        </div>
+                        <div class="md-statusbar-right">
+                            <span class="md-status-item" id="mdStatRead">~0 min read</span>
+                            <span class="md-status-item" id="mdStatHeadings"><strong>0</strong> headings</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section md-how" id="how-to-use" aria-label="How to use the Markdown editor">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Write Markdown in <em>3 easy steps.</em></h2>
+                <div class="md-how-grid">
+                    <div class="md-how-card">
+                        <div class="md-how-num">01</div>
+                        <h3>Type in the Left Pane</h3>
+                        <p>Use plain Markdown syntax — <code>#</code> for headings, <code>**bold**</code> for bold, <code>- item</code> for lists, and <code>[text](url)</code> for links. The toolbar above inserts common formatting for you.</p>
+                    </div>
+                    <div class="md-how-card">
+                        <div class="md-how-num">02</div>
+                        <h3>Watch It Render on the Right</h3>
+                        <p>As you type, the preview pane renders your Markdown instantly. Tables, task lists, fenced code blocks, blockquotes and images all display exactly as they will look when published.</p>
+                    </div>
+                    <div class="md-how-card">
+                        <div class="md-how-num">03</div>
+                        <h3>Export or Copy</h3>
+                        <p>Download your document as a <strong>.md</strong> file for GitHub or any Markdown-aware tool, export a styled <strong>.html</strong> file, or copy the raw rendered HTML to paste into a CMS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section md-desc" id="features" aria-label="Markdown editor features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Everything you need in a <em>Markdown editor.</em></h2>
+                <div class="md-feature-grid">
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">👁️</span>
+                        <h3>Live Side-by-Side Preview</h3>
+                        <p>The preview updates on every keystroke so you see exactly what your Markdown will render as. No refresh button, no manual toggling.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">🧰</span>
+                        <h3>Formatting Toolbar</h3>
+                        <p>One-click buttons for headings, bold, italic, strikethrough, lists, task lists, quotes, links, images, inline code, code blocks, tables and horizontal rules.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">⌨️</span>
+                        <h3>Keyboard Shortcuts</h3>
+                        <p>Use <strong>Ctrl+B</strong> for bold, <strong>Ctrl+I</strong> for italic, <strong>Ctrl+K</strong> for a link, <strong>Ctrl+S</strong> to save, and <strong>Tab</strong> to indent lists. Everything a fast writer needs.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">📚</span>
+                        <h3>GitHub-Flavoured Markdown</h3>
+                        <p>Tables, task lists with checkboxes, strikethrough, fenced code blocks with syntax-aware styling, autolinks and footnotes all render correctly.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">💾</span>
+                        <h3>Autosave to Your Browser</h3>
+                        <p>Your work is saved automatically to local storage a moment after you stop typing. Close the tab, come back later, and everything is still there.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">📤</span>
+                        <h3>Export as .md or .html</h3>
+                        <p>Download a clean <strong>.md</strong> file for version control or static-site generators, or a fully-styled <strong>.html</strong> file that opens standalone in any browser.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">📋</span>
+                        <h3>Copy Rendered HTML</h3>
+                        <p>Copy the raw rendered HTML to your clipboard with a single click — perfect for pasting into a CMS, email template or blog editor.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">📊</span>
+                        <h3>Live Document Stats</h3>
+                        <p>See your word count, character count, line count, estimated reading time and total headings — all updated live as you type.</p>
+                    </div>
+                    <div class="md-feature-card">
+                        <span class="md-feature-icon">📱</span>
+                        <h3>Mobile Optimised</h3>
+                        <p>On phones the interface switches to a single-column layout with an Editor / Preview toggle so you can flip between writing and checking your output.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section md-how" id="about-markdown" aria-label="About Markdown">
+            <div class="container md-desc-inner">
+                <div class="md-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free <em>Online Markdown Editor</em></h2>
+                    <p><strong>Markdown</strong> is a lightweight plain-text formatting syntax created by John Gruber in 2004. Instead of clicking buttons for bold, italic or headings, you type simple symbols like <code>#</code> for headings, <code>**</code> for bold, or <code>-</code> for bullet lists. The result is text that is completely readable as plain text, but can be rendered into fully formatted HTML wherever you need it.</p>
+                    <p>Our <strong>free Markdown editor</strong> gives you the best of both worlds: a clean editor on the left where you write in Markdown, and a live preview on the right that renders exactly how the final document will look. Every keystroke updates the preview instantly, so you never have to switch tabs or refresh anything.</p>
+                    <p>The editor supports <strong>GitHub-flavoured Markdown</strong>, which is what you need for writing README files, documentation, blog posts and any content destined for GitHub, GitLab, Notion, Obsidian, or a static-site generator like Jekyll or Hugo. Tables, task lists, fenced code blocks, strikethrough and autolinks all render correctly.</p>
+                    <p>Everything runs locally in your browser and autosaves to your own device — nothing is ever sent to a server. You can start a blank document, import a <code>.md</code> file, paste from your clipboard, and export your finished work as a <code>.md</code> or styled <code>.html</code> file whenever you are ready.</p>
+                    <div class="md-desc-benefits">
+                        <span class="md-benefit-tag">👁️ Live preview</span>
+                        <span class="md-benefit-tag">🧰 Formatting toolbar</span>
+                        <span class="md-benefit-tag">⌨️ Shortcuts</span>
+                        <span class="md-benefit-tag">📚 GFM support</span>
+                        <span class="md-benefit-tag">💾 Autosave</span>
+                        <span class="md-benefit-tag">📤 Export</span>
+                        <span class="md-benefit-tag">📱 Mobile friendly</span>
+                        <span class="md-benefit-tag">🔒 100% private</span>
+                    </div>
+                </div>
+                <div class="md-desc-visual">
+                    <div class="md-visual-card">
+                        <div class="md-visual-line"></div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label"># Heading</span>
+                            <span class="md-v-text">H1</span>
+                        </div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label">**bold**</span>
+                            <span class="md-v-text">Bold</span>
+                        </div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label">_italic_</span>
+                            <span class="md-v-text">Italic</span>
+                        </div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label">`code`</span>
+                            <span class="md-v-text">Inline</span>
+                        </div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label">[text](url)</span>
+                            <span class="md-v-text">Link</span>
+                        </div>
+                        <div class="md-visual-row">
+                            <span class="md-v-label">- [ ] task</span>
+                            <span class="md-v-text">Todo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section md-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="md-faq-list" id="mdFaqList">
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">What is Markdown?</button>
+                        <div class="md-faq-a"><p>Markdown is a lightweight plain-text formatting syntax created by John Gruber in 2004. Instead of clicking buttons, you type simple symbols like <code>#</code> for headings, <code>**</code> for bold, or <code>-</code> for bullet lists. Markdown files are readable as plain text, but they can be rendered into rich formatted HTML in a browser, a blog, GitHub, or any modern content platform.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">How does the live preview work?</button>
+                        <div class="md-faq-a"><p>As you type in the editor pane, the preview pane on the right updates instantly to show the rendered output. The renderer is a pure client-side JavaScript parser that supports headings, bold, italic, strikethrough, links, images, blockquotes, ordered and unordered lists, task lists, tables, fenced code blocks, inline code, horizontal rules and line breaks.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">Does the editor support GitHub-flavoured Markdown?</button>
+                        <div class="md-faq-a"><p>Yes. In addition to CommonMark basics, the editor supports GitHub-flavoured Markdown extensions including fenced code blocks with language hints, task lists with checkboxes, tables, and strikethrough using double tildes. This makes it suitable for writing README files, documentation and issues that you plan to paste into GitHub.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">Is my Markdown saved automatically?</button>
+                        <div class="md-faq-a"><p>Yes. The editor saves your document to your browser's local storage every couple of seconds after you stop typing. If you close the tab and come back later, your work will still be there. Nothing is ever sent to our servers, so your writing is completely private.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">Can I export my Markdown as HTML or .md?</button>
+                        <div class="md-faq-a"><p>Yes. You can download your document as a plain <strong>.md</strong> file (great for GitHub and any Markdown-aware tool), or as a self-contained <strong>.html</strong> file that opens in any browser with styled typography baked in. You can also copy the raw rendered HTML to your clipboard for pasting into a CMS.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">Does the Markdown editor work on mobile?</button>
+                        <div class="md-faq-a"><p>Yes. On phones and tablets the interface switches to a single-column layout with a view toggle so you can flip between the editor and the preview. All toolbar buttons are touch-friendly, and the file import/export features work on mobile browsers.</p></div>
+                    </div>
+                    <div class="md-faq-item">
+                        <button class="md-faq-q" aria-expanded="false" type="button">Is this Markdown editor free?</button>
+                        <div class="md-faq-a"><p>Yes. It is 100% free with no signup, no download, no ads inside the editor and no hidden costs. Your writing is stored only in your browser and never leaves your device.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="md-toast" id="mdToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* =========================================================
+           DOM
+           ========================================================= */
+        const $ = (id) => document.getElementById(id);
+
+        const editor          = $('mdEditor');
+        const preview         = $('mdPreview');
+        const editorMeta      = $('mdEditorMeta');
+        const previewMeta     = $('mdPreviewMeta');
+        const saveStatus      = $('mdSaveStatus');
+        const statWords       = $('mdStatWords');
+        const statChars       = $('mdStatChars');
+        const statLines       = $('mdStatLines');
+        const statRead        = $('mdStatRead');
+        const statHeadings    = $('mdStatHeadings');
+        const formatBar       = $('mdFormatBar');
+        const headingSelect   = $('mdHeadingSelect');
+        const newBtn          = $('mdNewBtn');
+        const importBtn       = $('mdImportBtn');
+        const importInput     = $('mdImportInput');
+        const exportMdBtn     = $('mdExportMdBtn');
+        const exportHtmlBtn   = $('mdExportHtmlBtn');
+        const copyHtmlBtn     = $('mdCopyHtmlBtn');
+        const editorPane      = $('mdEditorPane');
+        const previewPane     = $('mdPreviewPane');
+        const mobileToggles   = document.querySelectorAll('.md-mobile-toggle button');
+        const toastEl         = $('mdToast');
+        const faqButtons      = document.querySelectorAll('.md-faq-q');
+
+        let toastTimer = null;
+        let saveTimer = null;
+        let renderTimer = null;
+
+        const STORAGE_KEY = 'md-editor-content-v1';
+
+        const DEFAULT_CONTENT = `# Welcome to the Markdown Editor
+
+Start typing Markdown in this pane — the preview on the right updates **live** with every keystroke.
+
+## Quick Reference
+
+**Bold** uses \`**text**\`, _italic_ uses \`_text_\`, and ~~strikethrough~~ uses \`~~text~~\`.
+
+- Bullet lists start with a dash
+- Numbered lists start with \`1.\`
+- [Links look like this](https://webnotepad.github.io)
+
+> Blockquotes are great for callouts and citations.
+
+### Task lists
+
+- [x] Try the formatting toolbar
+- [ ] Export as .md or .html
+- [ ] Copy the rendered HTML
+
+### Code
+
+Inline code uses \`backticks\`, and fenced blocks work too:
+
+\`\`\`js
+function greet(name) {
+  console.log('Hello, ' + name + '!');
+}
+greet('Markdown');
+\`\`\`
+
+### Tables
+
+| Format | Extension | Purpose |
+| ------ | --------- | ------- |
+| **.md** | Markdown | GitHub, static sites |
+| **.html** | HTML | Ready to publish |
+
+---
+
+Start writing your own Markdown above — everything autosaves to your browser.`;
+
+        /* =========================================================
+           UTILITIES
+           ========================================================= */
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('md-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('md-show'), 2200);
+        }
+
+        function escapeHtml(str) {
+            return String(str == null ? '' : str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function escapeAttr(str) {
+            return escapeHtml(str);
+        }
+
+        /* =========================================================
+           MARKDOWN PARSER (client-side, GFM-lite)
+           Supports: headings, bold, italic, strike, inline code,
+           fenced code blocks, blockquotes, lists (ordered, unordered,
+           task), links, images, hr, tables, line breaks.
+           ========================================================= */
+        function parseMarkdown(src) {
+            if (!src) return '';
+
+            // Normalise line endings
+            src = String(src).replace(/\r\n?/g, '\n');
+
+            // Split into lines
+            const lines = src.split('\n');
+            let i = 0;
+
+            // Output buffer of HTML blocks
+            const out = [];
+
+            // Extract fenced code blocks first so their content is not parsed
+            const codeBlocks = [];
+            let inCode = false;
+            let codeLang = '';
+            let codeBuf = [];
+            const working = [];
+
+            for (let k = 0; k < lines.length; k++) {
+                const line = lines[k];
+                const fenceMatch = line.match(/^```\s*(\S*)\s*$/);
+                if (!inCode && fenceMatch) {
+                    inCode = true;
+                    codeLang = fenceMatch[1] || '';
+                    codeBuf = [];
+                    continue;
+                }
+                if (inCode && line.match(/^```\s*$/)) {
+                    // Close code block
+                    const langClass = codeLang ? ' class="language-' + escapeAttr(codeLang) + '"' : '';
+                    const block = '<pre><code' + langClass + '>' + escapeHtml(codeBuf.join('\n')) + '</code></pre>';
+                    working.push({ type: 'code', content: block });
+                    inCode = false;
+                    codeLang = '';
+                    codeBuf = [];
+                    continue;
+                }
+                if (inCode) {
+                    codeBuf.push(line);
+                    continue;
+                }
+                working.push({ type: 'line', content: line });
+            }
+            // Unterminated code block — close it anyway
+            if (inCode) {
+                const langClass = codeLang ? ' class="language-' + escapeAttr(codeLang) + '"' : '';
+                const block = '<pre><code' + langClass + '>' + escapeHtml(codeBuf.join('\n')) + '</code></pre>';
+                working.push({ type: 'code', content: block });
+            }
+
+            // Now process the working array
+            let buf = [];
+
+            function flushParagraph() {
+                if (buf.length === 0) return;
+                const joined = buf.join('\n');
+                out.push('<p>' + inlineFormat(joined) + '</p>');
+                buf = [];
+            }
+
+            let listType = null;       // 'ul' | 'ol' | 'task'
+            let listItems = [];
+            let listStart = 1;
+
+            function flushList() {
+                if (!listType) return;
+                const cls = listType === 'task' ? ' class="md-task-list"' : '';
+                out.push('<' + (listType === 'ol' ? 'ol' : 'ul') + cls + '>' + listItems.join('') + '</' + (listType === 'ol' ? 'ol' : 'ul') + '>');
+                listType = null;
+                listItems = [];
+                listStart = 1;
+            }
+
+            for (let j = 0; j < working.length; j++) {
+                const item = working[j];
+
+                if (item.type === 'code') {
+                    flushParagraph();
+                    flushList();
+                    out.push(item.content);
+                    continue;
+                }
+
+                const raw = item.content;
+                const trimmed = raw.trim();
+
+                // Empty line — flush paragraph and list
+                if (trimmed === '') {
+                    flushParagraph();
+                    flushList();
+                    continue;
+                }
+
+                // Horizontal rule
+                if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
+                    flushParagraph();
+                    flushList();
+                    out.push('<hr />');
+                    continue;
+                }
+
+                // ATX heading
+                const headingMatch = trimmed.match(/^(#{1,6})\s+(.*?)\s*#*\s*$/);
+                if (headingMatch) {
+                    flushParagraph();
+                    flushList();
+                    const level = headingMatch[1].length;
+                    out.push('<h' + level + '>' + inlineFormat(headingMatch[2]) + '</h' + level + '>');
+                    continue;
+                }
+
+                // Blockquote
+                if (/^>\s?/.test(raw)) {
+                    flushParagraph();
+                    flushList();
+                    // Collect consecutive blockquote lines
+                    const quoteLines = [];
+                    let k = j;
+                    while (k < working.length && working[k].type === 'line' && /^>\s?/.test(working[k].content)) {
+                        quoteLines.push(working[k].content.replace(/^>\s?/, ''));
+                        k++;
+                    }
+                    // Recursively parse the quote content as inline + simple blocks
+                    const quoteHtml = parseMarkdown(quoteLines.join('\n'));
+                    out.push('<blockquote>' + quoteHtml + '</blockquote>');
+                    j = k - 1;
+                    continue;
+                }
+
+                // Table detection: current line contains |, next line is separator
+                if (trimmed.indexOf('|') !== -1 &&
+                    j + 1 < working.length &&
+                    working[j + 1].type === 'line' &&
+                    /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(working[j + 1].content)) {
+                    flushParagraph();
+                    flushList();
+                    const tableResult = parseTable(working, j);
+                    if (tableResult) {
+                        out.push(tableResult.html);
+                        j = tableResult.nextIndex - 1;
+                        continue;
+                    }
+                }
+
+                // Task list item:  - [ ] or - [x]
+                const taskMatch = raw.match(/^\s*[-*+]\s+\[([ xX])\]\s+(.*)$/);
+                if (taskMatch) {
+                    flushParagraph();
+                    if (listType !== 'task') {
+                        flushList();
+                        listType = 'task';
+                    }
+                    const checked = taskMatch[1].toLowerCase() === 'x';
+                    const text = taskMatch[2];
+                    listItems.push('<li><input type="checkbox" disabled' + (checked ? ' checked' : '') + ' /> <span>' + inlineFormat(text) + '</span></li>');
+                    continue;
+                }
+
+                // Unordered list item
+                const ulMatch = raw.match(/^\s*[-*+]\s+(.*)$/);
+                if (ulMatch) {
+                    flushParagraph();
+                    if (listType !== 'ul') {
+                        flushList();
+                        listType = 'ul';
+                    }
+                    listItems.push('<li>' + inlineFormat(ulMatch[1]) + '</li>');
+                    continue;
+                }
+
+                // Ordered list item
+                const olMatch = raw.match(/^\s*(\d+)\.\s+(.*)$/);
+                if (olMatch) {
+                    flushParagraph();
+                    if (listType !== 'ol') {
+                        flushList();
+                        listType = 'ol';
+                        listStart = parseInt(olMatch[1], 10) || 1;
+                    }
+                    listItems.push('<li>' + inlineFormat(olMatch[2]) + '</li>');
+                    continue;
+                }
+
+                // Otherwise, treat as paragraph line
+                flushList();
+                buf.push(raw);
+            }
+
+            flushParagraph();
+            flushList();
+
+            return out.join('\n');
+        }
+
+        function parseTable(working, startIdx) {
+            const headerLine = working[startIdx].content.trim();
+            const sepLine = working[startIdx + 1].content.trim();
+
+            const headerCells = splitTableRow(headerLine);
+            const sepCells = splitTableRow(sepLine);
+
+            if (headerCells.length === 0 || sepCells.length === 0) return null;
+            if (headerCells.length !== sepCells.length) return null;
+
+            // Parse alignment from separator
+            const aligns = sepCells.map(cell => {
+                const c = cell.trim();
+                const left = c.startsWith(':');
+                const right = c.endsWith(':');
+                if (left && right) return 'center';
+                if (right) return 'right';
+                if (left) return 'left';
+                return '';
+            });
+
+            let html = '<table><thead><tr>';
+            headerCells.forEach((cell, idx) => {
+                const align = aligns[idx] ? ' style="text-align:' + aligns[idx] + '"' : '';
+                html += '<th' + align + '>' + inlineFormat(cell.trim()) + '</th>';
+            });
+            html += '</tr></thead><tbody>';
+
+            let j = startIdx + 2;
+            while (j < working.length && working[j].type === 'line') {
+                const rowLine = working[j].content.trim();
+                if (rowLine === '' || rowLine.indexOf('|') === -1) break;
+                const cells = splitTableRow(rowLine);
+                html += '<tr>';
+                for (let c = 0; c < headerCells.length; c++) {
+                    const cell = cells[c] != null ? cells[c] : '';
+                    const align = aligns[c] ? ' style="text-align:' + aligns[c] + '"' : '';
+                    html += '<td' + align + '>' + inlineFormat(cell.trim()) + '</td>';
+                }
+                html += '</tr>';
+                j++;
+            }
+
+            html += '</tbody></table>';
+            return { html, nextIndex: j };
+        }
+
+        function splitTableRow(line) {
+            let s = line.trim();
+            // Remove leading and trailing pipe
+            if (s.startsWith('|')) s = s.slice(1);
+            if (s.endsWith('|')) s = s.slice(0, -1);
+            // Split on | that is not escaped
+            return s.split(/(?<!\\)\|/).map(c => c.replace(/\\\|/g, '|'));
+        }
+
+        function inlineFormat(text) {
+            if (!text) return '';
+
+            let s = String(text);
+
+            // Escape HTML special chars first
+            s = escapeHtml(s);
+
+            // Inline code (must run before bold/italic so code content is untouched)
+            // Store inline code spans in a temporary placeholder
+            const codeSpans = [];
+            s = s.replace(/`([^`\n]+)`/g, function (match, code) {
+                const idx = codeSpans.length;
+                codeSpans.push('<code>' + code + '</code>');
+                return '\u0000CODE' + idx + '\u0000';
+            });
+
+            // Images: ![alt](url "title")
+            s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+["']([^"']*)["'])?\)/g, function (m, alt, url, title) {
+                const titleAttr = title ? ' title="' + title + '"' : '';
+                return '<img src="' + url + '" alt="' + alt + '"' + titleAttr + ' />';
+            });
+
+            // Links: [text](url "title")
+            s = s.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+["']([^"']*)["'])?\)/g, function (m, text, url, title) {
+                const titleAttr = title ? ' title="' + title + '"' : '';
+                return '<a href="' + url + '"' + titleAttr + ' rel="noopener noreferrer">' + text + '</a>';
+            });
+
+            // Autolinks: bare URLs (basic)
+            s = s.replace(/(^|[\s(])((?:https?:\/\/|www\.)[^\s<>"']+)/g, function (m, prefix, url) {
+                const href = url.startsWith('www.') ? 'https://' + url : url;
+                return prefix + '<a href="' + href + '" rel="noopener noreferrer">' + url + '</a>';
+            });
+
+            // Bold: **text** or __text__
+            s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            s = s.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+
+            // Italic: *text* or _text_
+            s = s.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
+            s = s.replace(/(^|[^_])_([^_\n]+)_(?!_)/g, '$1<em>$2</em>');
+
+            // Strikethrough: ~~text~~
+            s = s.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+            // Restore inline code placeholders
+            s = s.replace(/\u0000CODE(\d+)\u0000/g, function (m, idx) {
+                return codeSpans[parseInt(idx, 10)] || '';
+            });
+
+            // Line break: two trailing spaces -> <br>
+            s = s.replace(/ {2,}\n/g, '<br />\n');
+
+            return s;
+        }
+
+        /* =========================================================
+           RENDER
+           ========================================================= */
+        function renderPreview() {
+            const src = editor.value;
+            const html = parseMarkdown(src);
+            preview.innerHTML = html;
+        }
+
+        function computeStats() {
+            const text = editor.value;
+
+            // Words: split on whitespace
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            const chars = text.length;
+            const lines = text === '' ? 0 : text.split('\n').length;
+
+            // Reading time: 200 wpm
+            const minutes = Math.max(1, Math.round(words / 200));
+
+            // Headings count
+            const headingMatches = text.match(/^\s*#{1,6}\s+/gm);
+            const headings = headingMatches ? headingMatches.length : 0;
+
+            // Also count setext-style headings (=== or --- underlines) — skip for simplicity
+            return { words, chars, lines, minutes, headings };
+        }
+
+        function updateStats() {
+            const s = computeStats();
+            statWords.innerHTML = '<strong>' + s.words + '</strong> words';
+            statChars.innerHTML = '<strong>' + s.chars + '</strong> chars';
+            statLines.innerHTML = '<strong>' + s.lines + '</strong> lines';
+            statRead.textContent = '~' + s.minutes + ' min read';
+            statHeadings.innerHTML = '<strong>' + s.headings + '</strong> headings';
+
+            editorMeta.textContent = s.words + ' words · ' + s.chars + ' chars';
+        }
+
+        function scheduleRender() {
+            if (renderTimer) cancelAnimationFrame(renderTimer);
+            renderTimer = requestAnimationFrame(() => {
+                renderPreview();
+                updateStats();
+            });
+        }
+
+        /* =========================================================
+           AUTOSAVE
+           ========================================================= */
+        function setSaveStatus(text, cls) {
+            saveStatus.className = 'md-status-item ' + (cls || 'md-status-saved');
+            saveStatus.innerHTML = '<span class="md-status-dot"></span> ' + text;
+        }
+
+        function scheduleSave() {
+            setSaveStatus('Saving…', 'md-status-saving');
+            if (saveTimer) clearTimeout(saveTimer);
+            saveTimer = setTimeout(() => {
+                try {
+                    localStorage.setItem(STORAGE_KEY, editor.value);
+                    setSaveStatus('Saved', 'md-status-saved');
+                } catch (e) {
+                    setSaveStatus('Save failed', 'md-status-saving');
+                }
+            }, 700);
+        }
+
+        function loadSaved() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved !== null && saved !== '') return saved;
+            } catch (e) {}
+            return DEFAULT_CONTENT;
+        }
+
+        /* =========================================================
+           FORMATTING ACTIONS
+           ========================================================= */
+        function wrapSelection(before, after, placeholder) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const value = editor.value;
+            const selected = value.slice(start, end);
+            const text = selected || placeholder || '';
+
+            let insertion;
+            let caretOffset;
+
+            if (selected) {
+                insertion = before + selected + after;
+                caretOffset = insertion.length;
+            } else {
+                insertion = before + text + after;
+                caretOffset = before.length + text.length;
+            }
+
+            editor.value = value.slice(0, start) + insertion + value.slice(end);
+            editor.selectionStart = editor.selectionEnd = start + caretOffset;
+            editor.focus();
+            scheduleRender();
+            scheduleSave();
+        }
+
+        function insertAtLineStart(prefix, options) {
+            options = options || {};
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const value = editor.value;
+
+            // Find the start of the line containing the selection start
+            let lineStart = value.lastIndexOf('\n', start - 1) + 1;
+            let lineEnd = value.indexOf('\n', end);
+            if (lineEnd === -1) lineEnd = value.length;
+
+            const block = value.slice(lineStart, lineEnd);
+            const lines = block.split('\n');
+
+            // Toggle: if all lines already start with the prefix, remove it
+            const allPrefixed = lines.every(l => l.startsWith(prefix));
+
+            let newLines;
+            if (allPrefixed) {
+                newLines = lines.map(l => l.slice(prefix.length));
+            } else {
+                newLines = lines.map((l, idx) => {
+                    if (options.numbered) {
+                        return (idx + 1) + '. ' + l.replace(/^\s*\d+\.\s+/, '');
+                    }
+                    if (options.task) {
+                        return '- [ ] ' + l.replace(/^\s*[-*+]\s+\[[ xX]\]\s+/, '');
+                    }
+                    if (options.quote) {
+                        return '> ' + l.replace(/^\s*>\s?/, '');
+                    }
+                    return prefix + l.replace(/^\s*(#{1,6}\s+|[-*+]\s+|\d+\.\s+|>\s?)/, '');
+                });
+            }
+
+            const replacement = newLines.join('\n');
+            editor.value = value.slice(0, lineStart) + replacement + value.slice(lineEnd);
+            editor.selectionStart = editor.selectionEnd = lineStart + replacement.length;
+            editor.focus();
+            scheduleRender();
+            scheduleSave();
+        }
+
+        function insertBlock(text) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const value = editor.value;
+
+            // Find nearest newline boundaries so we insert on their own lines
+            let insertPos = start;
+            const before = value.slice(0, insertPos);
+            const after = value.slice(insertPos);
+
+            const needLeadingNewline = before.length > 0 && !before.endsWith('\n\n');
+            const needLeadingSingle = before.length > 0 && !before.endsWith('\n');
+            const needTrailingNewline = after.length > 0 && !after.startsWith('\n');
+
+            let prefix = '';
+            if (needLeadingNewline) prefix = '\n\n';
+            else if (needLeadingSingle) prefix = '\n';
+
+            let suffix = '';
+            if (needTrailingNewline) suffix = '\n\n';
+            else suffix = '\n';
+
+            const insertion = prefix + text + suffix;
+            editor.value = before + insertion + after;
+            editor.selectionStart = editor.selectionEnd = start + insertion.length;
+            editor.focus();
+            scheduleRender();
+            scheduleSave();
+        }
+
+        function applyAction(action) {
+            switch (action) {
+                case 'bold':   wrapSelection('**', '**', 'bold text'); break;
+                case 'italic': wrapSelection('_', '_', 'italic text'); break;
+                case 'strike': wrapSelection('~~', '~~', 'strikethrough'); break;
+                case 'code':   wrapSelection('`', '`', 'code'); break;
+                case 'link':   wrapSelection('[', '](https://)', 'link text'); break;
+                case 'image':  wrapSelection('![', '](https://)', 'alt text'); break;
+                case 'ul':     insertAtLineStart('- '); break;
+                case 'ol':     insertAtLineStart('1. ', { numbered: true }); break;
+                case 'task':   insertAtLineStart('- [ ] ', { task: true }); break;
+                case 'quote':  insertAtLineStart('> ', { quote: true }); break;
+                case 'codeblock':
+                    insertBlock('```\ncode goes here\n```');
+                    break;
+                case 'hr':
+                    insertBlock('---');
+                    break;
+                case 'table':
+                    insertBlock(
+                        '| Column 1 | Column 2 | Column 3 |\n' +
+                        '| -------- | -------- | -------- |\n' +
+                        '| Cell 1   | Cell 2   | Cell 3   |'
+                    );
+                    break;
+                default: break;
+            }
+        }
+
+        /* =========================================================
+           TOOLBAR EVENTS
+           ========================================================= */
+        formatBar.addEventListener('click', (e) => {
+            const btn = e.target.closest('.md-fmt-btn');
+            if (!btn) return;
+            const action = btn.dataset.action;
+            if (action) applyAction(action);
+        });
+
+        headingSelect.addEventListener('change', () => {
+            const prefix = headingSelect.value;
+            if (!prefix) return;
+            // Remove any existing heading prefix from the current line and apply new
+            const start = editor.selectionStart;
+            const value = editor.value;
+            let lineStart = value.lastIndexOf('\n', start - 1) + 1;
+            let lineEnd = value.indexOf('\n', start);
+            if (lineEnd === -1) lineEnd = value.length;
+            const line = value.slice(lineStart, lineEnd);
+            const stripped = line.replace(/^#{1,6}\s+/, '');
+            const replacement = prefix + stripped;
+            editor.value = value.slice(0, lineStart) + replacement + value.slice(lineEnd);
+            editor.selectionStart = editor.selectionEnd = lineStart + replacement.length;
+            editor.focus();
+            headingSelect.value = '';
+            scheduleRender();
+            scheduleSave();
+        });
+
+        /* =========================================================
+           KEYBOARD SHORTCUTS
+           ========================================================= */
+        editor.addEventListener('keydown', (e) => {
+            const mod = e.ctrlKey || e.metaKey;
+
+            if (mod && !e.shiftKey && !e.altKey) {
+                const key = e.key.toLowerCase();
+                if (key === 'b') { e.preventDefault(); applyAction('bold'); return; }
+                if (key === 'i') { e.preventDefault(); applyAction('italic'); return; }
+                if (key === 'k') { e.preventDefault(); applyAction('link'); return; }
+                if (key === 's') {
+                    e.preventDefault();
+                    try {
+                        localStorage.setItem(STORAGE_KEY, editor.value);
+                        setSaveStatus('Saved', 'md-status-saved');
+                        showToast('💾 Saved to your browser.');
+                    } catch (err) {
+                        showToast('⚠️ Could not save.');
+                    }
+                    return;
+                }
+            }
+
+            // Tab → indent with two spaces
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = editor.selectionStart;
+                const end = editor.selectionEnd;
+                const value = editor.value;
+                editor.value = value.slice(0, start) + '  ' + value.slice(end);
+                editor.selectionStart = editor.selectionEnd = start + 2;
+                scheduleRender();
+                scheduleSave();
+                return;
+            }
+
+            // Ctrl+Enter → cycle mobile view (nice on desktop too)
+            if (mod && e.key === 'Enter') {
+                e.preventDefault();
+                showToast('✓ Rendered from top: ' + computeStats().words + ' words');
+            }
+        });
+
+        /* =========================================================
+           LIVE INPUT
+           ========================================================= */
+        editor.addEventListener('input', () => {
+            scheduleRender();
+            scheduleSave();
+        });
+
+        editor.addEventListener('paste', () => {
+            // Let the paste happen, then render and save
+            setTimeout(() => {
+                scheduleRender();
+                scheduleSave();
+            }, 0);
+        });
+
+        /* =========================================================
+           FILE IMPORT
+           ========================================================= */
+        importBtn.addEventListener('click', () => importInput.click());
+
+        importInput.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const text = ev.target.result;
+                if (typeof text === 'string' && text.length > 0) {
+                    editor.value = text;
+                    scheduleRender();
+                    scheduleSave();
+                    showToast('⬆ Imported ' + file.name);
+                } else {
+                    showToast('⚠️ That file appears to be empty.');
+                }
+            };
+            reader.onerror = () => showToast('⚠️ Could not read that file.');
+            reader.readAsText(file);
+            importInput.value = '';
+        });
+
+        /* =========================================================
+           EXPORT
+           ========================================================= */
+        function downloadBlob(content, filename, type) {
+            const blob = new Blob([content], { type: type || 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        function safeBaseName() {
+            // Try to use the first heading as the filename
+            const match = editor.value.match(/^\s*#\s+(.+)$/m);
+            let base = match ? match[1] : 'document';
+            base = base.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+            if (!base) base = 'markdown-document';
+            return base;
+        }
+
+        exportMdBtn.addEventListener('click', () => {
+            if (!editor.value.trim()) {
+                showToast('⚠️ Nothing to export yet.');
+                return;
+            }
+            downloadBlob(editor.value, safeBaseName() + '.md', 'text/markdown;charset=utf-8');
+            showToast('⬇ .md file downloaded.');
+        });
+
+        exportHtmlBtn.addEventListener('click', () => {
+            if (!editor.value.trim()) {
+                showToast('⚠️ Nothing to export yet.');
+                return;
+            }
+            const rendered = parseMarkdown(editor.value);
+            const titleMatch = editor.value.match(/^\s*#\s+(.+)$/m);
+            const title = titleMatch ? titleMatch[1] : 'Markdown Document';
+
+            const html =
+                '<!DOCTYPE html>\n' +
+                '<html lang="en">\n' +
+                '<head>\n' +
+                '  <meta charset="UTF-8" />\n' +
+                '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n' +
+                '  <title>' + escapeHtml(title) + '</title>\n' +
+                '  <style>\n' +
+                '    body { max-width: 780px; margin: 40px auto; padding: 0 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 17px; line-height: 1.7; color: #1a1a2e; background: #faf8f4; }\n' +
+                '    h1, h2, h3, h4, h5, h6 { line-height: 1.3; margin-top: 1.4em; margin-bottom: 0.5em; }\n' +
+                '    h1 { font-size: 2rem; border-bottom: 2px solid #e8e2d6; padding-bottom: 0.3em; }\n' +
+                '    h2 { font-size: 1.5rem; border-bottom: 1px solid #e8e2d6; padding-bottom: 0.2em; }\n' +
+                '    a { color: #0d9488; }\n' +
+                '    code { background: #f1f5f9; color: #b91c1c; padding: 2px 6px; border-radius: 4px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.9em; }\n' +
+                '    pre { background: #1a1a2e; color: #e8e4dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; }\n' +
+                '    pre code { background: transparent; color: inherit; padding: 0; }\n' +
+                '    blockquote { border-left: 4px solid #0d9488; background: #ecfdf5; padding: 0.4em 1.1em; margin: 1em 0; border-radius: 0 8px 8px 0; font-style: italic; }\n' +
+                '    table { width: 100%; border-collapse: collapse; margin: 1em 0; }\n' +
+                '    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e8e2d6; }\n' +
+                '    th { background: #f4f0e8; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: #6b6b85; }\n' +
+                '    img { max-width: 100%; height: auto; border-radius: 8px; }\n' +
+                '    hr { border: none; height: 1px; background: #e8e2d6; margin: 2em 0; }\n' +
+                '    .md-task-list { list-style: none; padding-left: 0; }\n' +
+                '    .md-task-list li { display: flex; align-items: flex-start; gap: 8px; }\n' +
+                '    .md-task-list input { margin-top: 0.4em; }\n' +
+                '  </style>\n' +
+                '</head>\n' +
+                '<body>\n' +
+                rendered +
+                '\n</body>\n</html>\n';
+
+            downloadBlob(html, safeBaseName() + '.html', 'text/html;charset=utf-8');
+            showToast('⬇ .html file downloaded.');
+        });
+
+        copyHtmlBtn.addEventListener('click', () => {
+            if (!editor.value.trim()) {
+                showToast('⚠️ Nothing to copy yet.');
+                return;
+            }
+            const html = parseMarkdown(editor.value);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(html)
+                    .then(() => showToast('✓ HTML copied to clipboard.'))
+                    .catch(() => fallbackCopy(html));
+            } else {
+                fallbackCopy(html);
+            }
+        });
+
+        function fallbackCopy(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('✓ HTML copied to clipboard.');
+            } catch (e) {
+                showToast('⚠️ Copy failed.');
+            }
+        }
+
+        /* =========================================================
+           NEW DOCUMENT
+           ========================================================= */
+        newBtn.addEventListener('click', () => {
+            if (editor.value.trim() && !confirm('Start a new document? Your current content will be replaced. (It is saved to your browser — use Export first if you want a file.)')) {
+                return;
+            }
+            editor.value = '# Untitled Document\n\nStart writing your Markdown here…\n';
+            scheduleRender();
+            scheduleSave();
+            editor.focus();
+            showToast('📄 New document started.');
+        });
+
+        /* =========================================================
+           MOBILE VIEW TOGGLE
+           ========================================================= */
+        mobileToggles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.dataset.view;
+                mobileToggles.forEach(b => b.classList.toggle('active', b === btn));
+                editorPane.classList.toggle('md-active', view === 'editor');
+                previewPane.classList.toggle('md-active', view === 'preview');
+            });
+        });
+
+        /* =========================================================
+           FAQ ACCORDION
+           ========================================================= */
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                const answer = btn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        /* =========================================================
+           INIT
+           ========================================================= */
+        editor.value = loadSaved();
+        renderPreview();
+        updateStats();
+        setSaveStatus('Saved', 'md-status-saved');
+
+        console.log('✍️ Markdown Editor ready — live preview, autosave, export.');
+    })();
+    </script>
+</body>
+</html>

@@ -4,8 +4,11 @@
  * Positioned above the main tools sidebar.
  * Theme: Editorial / Ink-on-paper aesthetic
  *
- * ALSO includes a floating Games widget above it, with a joystick SVG,
+ * ALSO includes a floating Games widget above it, with a gamepad SVG,
  * linking to all games on the site.
+ *
+ * Games popup opens to the LEFT of the trigger for better ergonomics.
+ * Gamepad icon uses bold, high-contrast line art for clarity at any size.
  */
 
 (function () {
@@ -21,24 +24,24 @@
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
 
-    // ---- NEW AMBER/ORANGE GAME CONTROLLER ICON ----
-    // Rounded retro gamepad with D-pad and action buttons.
-    // Warm amber gradient look, crisp stroke-based line art.
-    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Gamepad body -->
-      <path d="M6.5 6h11a5 5 0 0 1 4.93 4.16l.28 1.85a5.5 5.5 0 0 1-3.36 6.2c-1.1.4-2.28.1-3.1-.7L14.9 16a1.4 1.4 0 0 0-1-.42h-3.8a1.4 1.4 0 0 0-1 .42l-1.35 1.5c-.82.8-2 1.1-3.1.7a5.5 5.5 0 0 1-3.36-6.2l.28-1.85A5 5 0 0 1 6.5 6Z" fill="currentColor" fill-opacity="0.12"/>
-      <!-- D-pad cross -->
-      <line x1="7.2" y1="11" x2="7.2" y2="14"/>
-      <line x1="5.7" y1="12.5" x2="8.7" y2="12.5"/>
-      <!-- Action buttons -->
-      <circle cx="16.2" cy="11.5" r="0.9" fill="currentColor" stroke="none"/>
-      <circle cx="17.8" cy="13.2" r="0.9" fill="currentColor" stroke="none"/>
+    // ---- BOLD, HIGH-CONTRAST GAMEPAD ICON ----
+    // Solid, filled shapes with strong outlines — reads clearly at 20px.
+    // No thin strokes or low-opacity fills; every element is crisp and visible.
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <!-- Gamepad body — solid fill with strong outline -->
+      <path d="M7 6.5h10c2.1 0 3.95 1.4 4.5 3.4l.9 3.6c.55 2.2-.6 4.5-2.85 5.3-1.4.5-2.9.05-3.85-.95L14.6 16.8a1.1 1.1 0 0 0-.8-.35h-3.6a1.1 1.1 0 0 0-.8.35l-1.1 1.05c-.95 1-2.45 1.45-3.85.95C2.2 18 1.05 15.7 1.6 13.5l.9-3.6C3.05 7.9 4.9 6.5 7 6.5Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round"/>
+      <!-- D-pad cross (thick white, on top of dark body) -->
+      <rect x="6.6" y="10.4" width="1.6" height="4.2" rx="0.4" fill="#ffffff" opacity="0.95"/>
+      <rect x="5.3" y="11.7" width="4.2" height="1.6" rx="0.4" fill="#ffffff" opacity="0.95"/>
+      <!-- Action buttons (thick white dots) -->
+      <circle cx="16.3" cy="11.4" r="1.05" fill="#ffffff" opacity="0.95"/>
+      <circle cx="18.0" cy="13.1" r="1.05" fill="#ffffff" opacity="0.95"/>
       <!-- Menu dots -->
-      <line x1="11" y1="12.6" x2="11.01" y2="12.6"/>
-      <line x1="13" y1="12.6" x2="13.01" y2="12.6"/>
+      <rect x="10.7" y="12.3" width="1.1" height="0.9" rx="0.35" fill="#ffffff" opacity="0.85"/>
+      <rect x="12.2" y="12.3" width="1.1" height="0.9" rx="0.35" fill="#ffffff" opacity="0.85"/>
     </svg>`,
 
-    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
       <line x1="6" y1="11" x2="10" y2="11"/>
       <line x1="8" y1="9" x2="8" y2="13"/>
       <line x1="15" y1="12" x2="15.01" y2="12"/>
@@ -80,8 +83,6 @@
   ];
 
   // ---- Games Configuration ----
-  // All games on the site, newest puzzles first.
-  // Ordered logically: word/puzzle games → arcade classics → quick-play
   const GAMES = [
     {
       id: 'connections-unlimited',
@@ -95,7 +96,7 @@
       label: 'Spelling Bee Unlimited',
       emoji: '🐝',
       description: 'Build words from 7 letters',
-      url: '/spelling-bee'
+      url: '/spelling-bee-unlimited'
     },
     {
       id: 'crossword-puzzle',
@@ -237,7 +238,7 @@
       justify-content: center;
       box-shadow: 0 6px 24px rgba(245, 158, 11, 0.45), 0 0 0 0 rgba(245, 158, 11, 0.35);
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   background 0.2s ease,
                   color 0.2s ease,
@@ -250,6 +251,7 @@
       display: block;
       width: 26px;
       height: 26px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
     .games-floating-trigger:hover svg {
       transform: scale(1.12) rotate(-6deg);
@@ -258,7 +260,7 @@
       transform: scale(1.08) rotate(8deg);
       background: linear-gradient(145deg, #fbbf24, #d97706);
       animation-play-state: paused;
-      box-shadow: 0 8px 28px rgba(245, 158, 11, 0.65);
+      box-shadow: 0 8px 28px rgba(245, 158, 11, 0.7);
     }
     .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
@@ -317,29 +319,29 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* ===== GAMES POPUP — AMBER THEME ===== */
+    /* ===== GAMES POPUP — OPENS TO THE LEFT OF TRIGGER ===== */
     .games-popup {
       position: fixed;
-      bottom: 324px;
-      right: 24px;
+      bottom: 250px;
+      right: 88px;              /* positioned to the LEFT of the trigger */
       z-index: 10002;
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
       box-shadow: 0 16px 48px rgba(245, 158, 11, 0.28);
       padding: 16px 16px 14px;
-      min-width: 260px;
-      max-width: 320px;
+      min-width: 280px;
+      max-width: 340px;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(12px) scale(0.96);
+      transform: translateX(12px) scale(0.96);
       transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: bottom right;
+      transform-origin: bottom right;   /* scales from the bottom-right, near trigger */
     }
     .games-popup.open {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0) scale(1);
+      transform: translateX(0) scale(1);
     }
     body.dark .games-popup {
       background: var(--paper-warm, #1c1c22);
@@ -400,7 +402,7 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      max-height: 360px;
+      max-height: 380px;
       overflow-y: auto;
       padding-right: 2px;
       overscroll-behavior: contain;
@@ -484,7 +486,7 @@
       min-width: 0;
     }
     .game-item-title {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       line-height: 1.2;
@@ -493,7 +495,7 @@
       text-overflow: ellipsis;
     }
     .game-item-desc {
-      font-size: 0.66rem;
+      font-size: 0.68rem;
       font-weight: 400;
       color: var(--ink-muted, #6b6b85);
       line-height: 1.3;
@@ -718,15 +720,16 @@
         min-width: 160px;
         padding: 14px 14px 12px;
       }
+      /* Games popup on mobile — still opens to the left, adjusted spacing */
       .games-popup {
-        bottom: 292px;
-        right: 16px;
+        bottom: 230px;
+        right: 74px;
         min-width: 240px;
-        max-width: calc(100vw - 32px);
+        max-width: calc(100vw - 90px);
         padding: 14px 14px 12px;
       }
       .games-list {
-        max-height: 320px;
+        max-height: 300px;
       }
       .social-btn {
         padding: 8px 12px;
@@ -795,15 +798,16 @@
         min-width: 140px;
         padding: 10px 10px 8px;
       }
+      /* Games popup — shifted further left on very small screens */
       .games-popup {
-        bottom: 270px;
-        right: 12px;
+        bottom: 210px;
+        right: 62px;
         min-width: 220px;
-        max-width: calc(100vw - 24px);
+        max-width: calc(100vw - 74px);
         padding: 10px 10px 8px;
       }
       .games-list {
-        max-height: 280px;
+        max-height: 260px;
       }
       .social-btn {
         font-size: 0.7rem;
@@ -1143,5 +1147,5 @@
     }
   });
 
-  console.log('Social Share + Games Widgets initialized with amber gamepad theme.');
+  console.log('Social Share + Games Widgets initialized — games popup opens to the left.');
 })();

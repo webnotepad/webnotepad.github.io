@@ -21,6 +21,7 @@
               <li><a href="/mindmap">MindMap</a></li>
               <li><a href="/list-maker">List Maker</a></li>
               <li><a href="/all-tools">All Tools</a></li>
+              <li><a href="/games">Games</a></li>
             </ul>
           </div>
           <div class="footer-col">

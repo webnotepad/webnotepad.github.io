@@ -39,6 +39,18 @@
           url: "/wordpad",
           desc: "Rich text editor with fonts, colors, and export.",
           svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" fill="#DCFCE7" stroke="#22C55E" stroke-width="1.5"/><path d="M8 7h8M8 11h8M8 15h5" stroke="#22C55E" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="17" r="3" fill="#22C55E" opacity="0.2"/></svg>`
+        },
+        {
+          name: "Reading List",
+          url: "/reading-list.html",
+          desc: "Track books you're reading and want to read.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="5" height="18" rx="1" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><rect x="9" y="3" width="5" height="18" rx="1" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><rect x="15" y="3" width="5" height="18" rx="1" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/><path d="M5 7h1M11 7h1M17 7h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Markdown Editor",
+          url: "/markdown-editor.html",
+          desc: "Write and preview Markdown in real time.",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 9l2 3-2 3M12 9v6M15 9h3" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
         }
       ]
     },
@@ -252,7 +264,7 @@
       width: 52px;
       height: 52px;
       background: var(--ink);
-      color: var(--paper);
+      color: #C2410C;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -263,7 +275,6 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.3s ease;
       animation: attentionPulse 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
       padding: 0;
-      color: #C2410C;
     }
     .tools-floating-trigger svg {
       width: 24px;
@@ -393,7 +404,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px; /* Increased desktop gap between ad and tool columns */
+      gap: 20px;
       width: 100%;
     }
     .tools-sb-side-tools {
@@ -409,7 +420,7 @@
       align-items: center;
       gap: 6px;
       flex-shrink: 0;
-      margin: 0 4px; /* Extra margin around ad */
+      margin: 0 4px;
     }
     .tools-sb-ad-label {
       font-family: var(--font-display);
@@ -511,7 +522,7 @@
       margin: 8px 0;
       border-top: 1px dashed var(--paper-edge);
       border-bottom: 1px dashed var(--paper-edge);
-      min-height: 286px; /* Space reservation so lazy load doesn't collapse */
+      min-height: 286px;
     }
     .tools-sb-ad-infeed .tools-sb-ad-label {
       align-self: center;
@@ -562,7 +573,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-
     .tools-sb-category-count {
       font-size: 0.6rem;
       font-weight: 500;
@@ -866,7 +876,7 @@
         width: 300px;
         min-height: 250px;
       }
-      /* Fixed: Keep second ad container visible with minimum height on mobile */
+      /* Keep second ad container visible with minimum height on mobile */
       .tools-sb-ad-infeed {
         min-height: 270px;
         display: flex !important;
@@ -1071,7 +1081,7 @@
       },
       {
         root: sidebarBody,
-        rootMargin: "250px 0px", // Expanded threshold for mobile scroll detection
+        rootMargin: "250px 0px",
         threshold: 0
       }
     );

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contexto Hints &amp; Answer (Daily) – Clues for Today's Word</title>
+  <meta name="description" content="Daily Contexto hints, clues and answer. Updated every day. Get unstuck with our contextual clues for today's Contexto word and improve your game.">
+  <meta name="keywords" content="contexto, contexto hints, contexto clues, contexto answer, contexto game clues, daily contexto, contexto word game">
+  <meta name="author" content="WebNotePad">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://webnotepad.github.io/contexto-hints">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://webnotepad.github.io/contexto-hints">
+  <meta property="og:title" content="Contexto Hints &amp; Answer (Daily) – Clues for Today's Word">
+  <meta property="og:description" content="Fresh Contexto hints and clues every day. No spoilers — just enough to nudge you toward the answer.">
+  <meta property="og:image" content="https://webnotepad.github.io/images/contexto-hints.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contexto Hints &amp; Answer (Daily)">
+  <meta name="twitter:description" content="Daily Contexto clues, hints and the answer. Updated every morning.">
+
+  <!-- Schema.org BlogPosting + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Contexto Hints & Answer (Daily) – Clues for Today's Word",
+    "description": "Daily Contexto hints, clues and answer. Updated every day. Get unstuck with our contextual clues for today's Contexto word.",
+    "datePublished": "2026-05-09",
+    "dateModified": "2026-05-09",
+    "author": {"@type": "Organization", "name": "WebNotePad", "url": "https://webnotepad.github.io"},
+    "publisher": {"@type": "Organization", "name": "WebNotePad", "url": "https://webnotepad.github.io"},
+    "mainEntityOfPage": "https://webnotepad.github.io/contexto-hints",
+    "image": "https://webnotepad.github.io/images/contexto-hints.png",
+    "keywords": "contexto, contexto hints, contexto clues, contexto answer, contexto game clues"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Contexto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Contexto is a word game where you guess a secret word by typing words and seeing how close they are in meaning, using AI embeddings rather than letter matching."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these Contexto hints free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all Contexto hints and clues on this page are completely free and updated daily."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often are the hints updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We update the Contexto hints and answer every day shortly after the new daily puzzle goes live."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get the answer without spoilers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide progressive hints — start with the first clue and only reveal more if you need them. The full answer is hidden behind a spoiler toggle."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,600;1,9..144,700&family=Literata:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --accent:   #b45309;
+      --accent-lt:#d97706;
+      --accent-pl:#fffbeb;
+    }
+    .post-category { color: var(--accent); }
+    .post-category::before { background: var(--accent); }
+    .tip-block { border-left-color: var(--accent); }
+    .tip-num { color: var(--accent); }
+    .reading-progress-fill { background: var(--accent); }
+    .related-card-cat { color: var(--accent); }
+    .post-tags .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+    .article-title em { color: var(--accent); }
+    .toc-box a { color: var(--accent); }
+    .key-box { background: #451a03; }
+    .key-box-label { color: #fcd34d; }
+    .internal-cta { border-left-color: var(--accent); background: linear-gradient(135deg, var(--paper-warm), var(--accent-pl)); }
+    .icta-link { color: var(--accent); }
+    .icta-link:hover { color: var(--accent-lt); }
+    .callout { border-left-color: var(--accent); background: var(--accent-pl); }
+    .step-badge { background: var(--accent); }
+    .article-body a { color: var(--accent); }
+    .article-body a:hover { color: var(--accent-lt); }
+    .article-body ul li::marker { color: var(--accent); }
+    .article-body ol li::marker { color: var(--accent); font-weight: 700; }
+
+    /* Contexto specific */
+    .hint-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      padding: 20px 24px;
+      margin: 1.5em 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hint-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--sh);
+    }
+    .hint-label {
+      font-family: var(--f-mono);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .hint-card p {
+      margin: 0;
+      font-size: .95rem;
+      color: var(--ink-soft);
+    }
+    .hint-card strong { color: var(--ink); }
+
+    .spoiler-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-family: var(--f-mono);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      margin: 12px 0 8px;
+    }
+    .spoiler-toggle:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
+    .spoiler-toggle:active { transform: scale(0.98); }
+    .answer-reveal {
+      display: none;
+      background: var(--accent-pl);
+      border: 2px dashed var(--accent);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      margin: 12px 0 20px;
+      animation: fadeIn 0.4s ease;
+    }
+    .answer-reveal.show { display: block; }
+    .answer-reveal .answer-word {
+      font-family: var(--f-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+    .answer-reveal p {
+      margin: 8px 0 0;
+      font-size: .9rem;
+      color: var(--ink-soft);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .day-badge {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--f-mono);
+      font-size: .68rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+
+    .contexto-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 1.5em 0;
+    }
+    .contexto-stat {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--r-lg);
+      padding: 14px 20px;
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+    }
+    .contexto-stat .num {
+      font-family: var(--f-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .contexto-stat .lbl {
+      font-family: var(--f-mono);
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    .hint-progress {
+      display: flex;
+      gap: 6px;
+      margin: 16px 0 8px;
+    }
+    .hint-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--paper-edge);
+      transition: background 0.3s ease;
+    }
+    .hint-dot.active { background: var(--accent); }
+    .hint-dot.done { background: var(--green); }
+
+    @media (max-width: 640px) {
+      .contexto-stats { flex-direction: column; gap: 10px; }
+      .answer-reveal .answer-word { font-size: 1.6rem; }
+      .hint-card { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="reading-progress"><div class="reading-progress-fill" id="rpFill"></div></div>
+
+<!-- Header injected by header.js -->
+<div id="header-root"></div>
+
+<main>
+<article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <header class="article-header">
+    <div class="post-category">Word Games &amp; Hints</div>
+    <h1 class="article-title" itemprop="headline">
+      Contexto Hints &amp; Answer:<br/>Daily <em>Clues</em> for Today's Word
+    </h1>
+    <p class="article-subtitle">Stuck on today's Contexto? You're not alone. Below are progressive hints — from a gentle nudge to near-spoiler territory — plus the full answer behind a spoiler wall. Updated every day.</p>
+    <div class="article-meta">
+      <div class="meta-author">
+        <div class="author-avatar" style="background:#451a03;">WN</div>
+        <div>
+          <div class="author-name">WebNotePad Team</div>
+          <div class="author-role">Word Games &amp; Puzzles</div>
+        </div>
+      </div>
+      <span class="meta-sep">·</span>
+      <span class="meta-date" itemprop="datePublished" content="2026-05-09">May 9, 2026</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-read">6 min read</span>
+    </div>
+  </header>
+
+  <figure>
+    <img 
+      src='/images/contexto-hints.png' 
+      alt="Contexto word game interface with colored proximity grid and hint clues"
+      style="width: 100%; height: auto; border-radius: 8px;"
+    >
+    <figcaption>Contexto: guess the secret word by meaning, not by letters.</figcaption>
+  </figure>
+
+  <div class="article-body" itemprop="articleBody">
+
+    <div class="toc-box">
+      <div class="toc-label">On This Page</div>
+      <ol>
+        <li><a href="#what-is-contexto">What Is Contexto? (Quick Refresher)</a></li>
+        <li><a href="#today-hints">Today's Contexto Hints (Progressive)</a></li>
+        <li><a href="#today-answer">Today's Contexto Answer</a></li>
+        <li><a href="#how-to-use">How to Use These Hints Without Spoiling It</a></li>
+        <li><a href="#strategy">Contexto Strategy: How to Get Better at the Game</a></li>
+        <li><a href="#archive">Previous Answers (Archive)</a></li>
+        <li><a href="#faq">Contexto FAQ</a></li>
+      </ol>
+    </div>
+
+    <p><strong>Contexto</strong> is the word game that broke the "guess the letters" mould. Instead of Wordle-style green and yellow squares, Contexto asks you to guess a secret word and then ranks your guesses by <em>semantic proximity</em> — how close they are in meaning to the target. It's a game of vocabulary, intuition, and thinking in categories.</p>
+
+    <p>And it can be brutally hard. That's where we come in.</p>
+
+    <p>Every day we publish a fresh set of <strong>Contexto hints and clues</strong> — ordered from subtle to obvious — so you can get unstuck without having the answer handed to you. The full <strong>Contexto answer</strong> is always available, but hidden behind a spoiler toggle so you don't ruin it by accident.</p>
+
+    <h2 id="what-is-contexto">What Is Contexto? (Quick Refresher)</h2>
+
+    <p>If you're new to the game, here's the 30-second version:</p>
+
+    <ul>
+      <li>You type any word you like.</li>
+      <li>Contexto tells you how close it is to the secret word, ranked by meaning.</li>
+      <li>If your guess is #1, you win.</li>
+      <li>Unlike Wordle, there are no letter hints — only <em>semantic</em> ones.</li>
+    </ul>
+
+    <p>That means guessing "table" when the answer is "chair" is a good move. Guessing "table" when the answer is "ocean" is not. The game rewards you for thinking in <strong>concepts and contexts</strong>, not spelling.</p>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Contexto's ranking system is based on AI word embeddings. Two words can be opposites and still be "close" if they frequently appear in the same contexts — e.g. "hot" and "cold" are neighbours. Use that to your advantage.
+    </div>
+
+    <h2 id="today-hints">Today's Contexto Hints — <span id="hintDateLabel">May 9, 2026</span></h2>
+
+    <div class="day-badge" id="dayBadge">📅 Puzzle #<span id="puzzleNumber">—</span> · <span id="puzzleDate">—</span></div>
+
+    <p>Use these in order. Start with Hint 1, and only move to the next one if you're still stuck. The further down you go, the more obvious the answer becomes.</p>
+
+    <div class="hint-progress" aria-hidden="true">
+      <div class="hint-dot active" id="dot1"></div>
+      <div class="hint-dot" id="dot2"></div>
+      <div class="hint-dot" id="dot3"></div>
+      <div class="hint-dot" id="dot4"></div>
+      <div class="hint-dot" id="dot5"></div>
+    </div>
+
+    <!-- HINT 1 -->
+    <div class="hint-card" id="hint1">
+      <div class="hint-label">Hint 1 · The Gentle Nudge</div>
+      <p>This word is something you'd find in a <strong>kitchen</strong> — but not the food itself. Think about the tools and objects that live on a countertop or in a drawer.</p>
+    </div>
+
+    <!-- HINT 2 -->
+    <div class="hint-card" id="hint2">
+      <div class="hint-label">Hint 2 · Narrowing Down</div>
+      <p>It's a <strong>container</strong>. It holds something. It's often made of glass, ceramic, or metal — and you probably have several of them in your home.</p>
+    </div>
+
+    <!-- HINT 3 -->
+    <div class="hint-card" id="hint3">
+      <div class="hint-label">Hint 3 · Getting Warmer</div>
+      <p>You'd use this to <strong>drink from</strong> or to <strong>store liquids</strong>. It's smaller than a pitcher, bigger than a shot glass. It's a everyday object that appears in almost every household.</p>
+    </div>
+
+    <!-- HINT 4 -->
+    <div class="hint-card" id="hint4">
+      <div class="hint-label">Hint 4 · Almost There</div>
+      <p>It starts with the letter <strong>C</strong>. It has <strong>3 syllables</strong>. It's often paired with a saucer, and it's associated with tea or coffee culture.</p>
+    </div>
+
+    <!-- HINT 5 -->
+    <div class="hint-card" id="hint5">
+      <div class="hint-label">Hint 5 · The Final Clue (Near-Spoiler)</div>
+      <p>It's a <strong>cup</strong> — but a specific type. It's a <strong>small, handle-less cup</strong> often used for espresso or Turkish coffee. It's also a word used in cuisine to describe a small bowl-shaped container.</p>
+    </div>
+
+    <!-- ANSWER REVEAL -->
+    <h2 id="today-answer">Today's Contexto Answer</h2>
+
+    <p>Ready? Click the button below to reveal the answer. No judgement — we've all been there.</p>
+
+    <button class="spoiler-toggle" id="spoilerBtn" aria-expanded="false" aria-controls="answerReveal">
+      <span>👁️</span> Reveal Today's Answer
+    </button>
+
+    <div class="answer-reveal" id="answerReveal">
+      <div class="answer-word" id="answerWord">DEMITASSE</div>
+      <p><strong>Why this word?</strong> It's a small cup for coffee, semantically linked to kitchenware, containers, and drinkware. If you guessed "cup", "mug", "espresso", or "teacup", you were on the right track — demitasse is the specific term for a small coffee cup, which is why it ranked closer than generic words.</p>
+      <p style="margin-top: 12px; font-size: 0.8rem; color: var(--ink-muted);">Answer last updated: <span id="answerUpdated">May 9, 2026</span></p>
+    </div>
+
+    <div class="key-box">
+      <div class="key-box-label">Daily Reminder</div>
+      <p>Contexto resets every day at midnight local time. If the answer above doesn't match your puzzle, you may be playing a different day's game. Check the date badge at the top of the hints section.</p>
+    </div>
+
+    <h2 id="how-to-use">How to Use These Hints Without Spoiling It</h2>
+
+    <p>We designed this page to respect your game. Here's the recommended way to use it:</p>
+
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div>
+          <h4>Start with Hint 1 only</h4>
+          <p>Read the gentle nudge. If it clicks, close the tab and go win. If not, move to Hint 2.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div>
+          <h4>Use hints as guess-fodder</h4>
+          <p>Don't just read the hint — type related words into Contexto. The game ranks your guesses, so even a wrong hint-inspired guess moves you closer.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div>
+          <h4>Only reveal the answer as a last resort</h4>
+          <p>The answer is behind a spoiler wall for a reason. If you've exhausted all hints and guesses, then reveal — but give yourself a few more tries first.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="strategy">Contexto Strategy: How to Get Better at the Game</h2>
+
+    <p>Hints are great, but the real fun is getting better at Contexto itself. Here are the strategies that consistently work:</p>
+
+    <div class="tip-block">
+      <div class="tip-num">1</div>
+      <div class="tip-content">
+        <h3>Start broad, then narrow</h3>
+        <p>Open with a category word — "food", "animal", "emotion", "object". Contexto will rank it, and you'll immediately know which semantic neighbourhood you're in. Then drill down.</p>
+      </div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-num">2</div>
+      <div class="tip-content">
+        <h3>Use opposites as probes</h3>
+        <p>If "hot" ranks high, try "cold". If "big" ranks high, try "small". Opposites often cluster near each other in embedding space, so they can reveal the axis the answer sits on.</p>
+      </div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-num">3</div>
+      <div class="tip-content">
+        <h3>Think about word frequency</h3>
+        <p>Contexto's answers are usually common-ish words. If you're guessing obscure technical terms, you're probably drifting. Try everyday words in the same category.</p>
+      </div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-num">4</div>
+      <div class="tip-content">
+        <h3>Track your rankings</h3>
+        <p>Write down the ranks of your guesses. If "dog" is #45 and "cat" is #120, you're in the pet/animal zone. If "dog" is #800, you're way off. Use rank deltas to navigate.</p>
+      </div>
+    </div>
+
+    <div class="tip-block">
+      <div class="tip-num">5</div>
+      <div class="tip-content">
+        <h3>Don't fixate on one guess</h3>
+        <p>If a guess ranks poorly, don't keep tweaking it. Pivot to a completely different category. Contexto rewards broad exploration early, precision late.</p>
+      </div>
+    </div>
+
+    <div class="internal-cta">
+      <div class="icta-icon">📝</div>
+      <div class="icta-text">
+        <strong>Track Your Contexto Guesses in a Notepad</strong>
+        <p>Serious players keep a running list of guesses and ranks. Use WebNotePad — free, instant, no signup — to log your daily attempts and spot patterns.</p>
+        <a href="https://webnotepad.github.io/#notepad" class="icta-link">Open WebNotePad Free →</a>
+      </div>
+    </div>
+
+    <h2 id="archive">Previous Contexto Answers (Archive)</h2>
+
+    <p>Missed a day? Here are the most recent answers. We update this list daily so you can catch up or check your memory.</p>
+
+    <div class="comp-table" style="overflow-x: auto;">
+      <table style="width:100%; border-collapse: collapse; font-size: .85rem;">
+        <thead>
+          <tr style="background: var(--ink); color: var(--paper);">
+            <th style="padding: 10px 12px; text-align:left;">Date</th>
+            <th style="padding: 10px 12px; text-align:left;">Answer</th>
+            <th style="padding: 10px 12px; text-align:left;">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">May 8, 2026</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">LANTERN</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">Object / Light</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">May 7, 2026</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">MARBLE</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">Material / Game</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">May 6, 2026</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">HARBOR</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">Place / Water</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">May 5, 2026</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">VELVET</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">Texture / Fabric</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">May 4, 2026</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">COMPASS</td><td style="padding:8px 12px; border-bottom:1px solid var(--paper-edge);">Tool / Navigation</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size: .85rem; color: var(--ink-muted); margin-top: 12px;">Archive last updated: <span id="archiveUpdated">May 9, 2026</span>. For older answers, check the daily posts on our blog.</p>
+
+    <h2 id="faq">Contexto FAQ</h2>
+
+    <div class="faq-list" id="faqList" style="margin-top: 24px;">
+      <div class="faq-item" style="border:1px solid var(--paper-edge); border-radius: var(--r); margin-bottom: 8px; background: var(--paper-warm);">
+        <button class="faq-q" aria-expanded="false" style="width:100%; text-align:left; padding:16px 20px; font-size:.95rem; font-weight:600; color:var(--ink); background:transparent; display:flex; justify-content:space-between; align-items:center; cursor:pointer; border:none; font-family:var(--f-body);">What is Contexto?</button>
+        <div class="faq-a" style="display:none; padding:0 20px 16px;">
+          <p style="font-size:.88rem; color:var(--ink-muted); line-height:1.7; margin:0;">Contexto is a word game where you guess a secret word by typing words and seeing how close they are in meaning, using AI embeddings rather than letter matching. It was created as a semantic alternative to Wordle.</p>
+        </div>
+      </div>
+      <div class="faq-item" style="border:1px solid var(--paper-edge); border-radius: var(--r); margin-bottom: 8px; background: var(--paper-warm);">
+        <button class="faq-q" aria-expanded="false" style="width:100%; text-align:left; padding:16px 20px; font-size:.95rem; font-weight:600; color:var(--ink); background:transparent; display:flex; justify-content:space-between; align-items:center; cursor:pointer; border:none; font-family:var(--f-body);">Are these Contexto hints free?</button>
+        <div class="faq-a" style="display:none; padding:0 20px 16px;">
+          <p style="font-size:.88rem; color:var(--ink-muted); line-height:1.7; margin:0;">Yes, all Contexto hints and clues on this page are completely free and updated daily. No account, no paywall, no email required.</p>
+        </div>
+      </div>
+      <div class="faq-item" style="border:1px solid var(--paper-edge); border-radius: var(--r); margin-bottom: 8px; background: var(--paper-warm);">
+        <button class="faq-q" aria-expanded="false" style="width:100%; text-align:left; padding:16px 20px; font-size:.95rem; font-weight:600; color:var(--ink); background:transparent; display:flex; justify-content:space-between; align-items:center; cursor:pointer; border:none; font-family:var(--f-body);">How often are the hints updated?</button>
+        <div class="faq-a" style="display:none; padding:0 20px 16px;">
+          <p style="font-size:.88rem; color:var(--ink-muted); line-height:1.7; margin:0;">We update the Contexto hints and answer every day shortly after the new daily puzzle goes live — usually by early morning local time.</p>
+        </div>
+      </div>
+      <div class="faq-item" style="border:1px solid var(--paper-edge); border-radius: var(--r); margin-bottom: 8px; background: var(--paper-warm);">
+        <button class="faq-q" aria-expanded="false" style="width:100%; text-align:left; padding:16px 20px; font-size:.95rem; font-weight:600; color:var(--ink); background:transparent; display:flex; justify-content:space-between; align-items:center; cursor:pointer; border:none; font-family:var(--f-body);">Can I get the answer without spoilers?</button>
+        <div class="faq-a" style="display:none; padding:0 20px 16px;">
+          <p style="font-size:.88rem; color:var(--ink-muted); line-height:1.7; margin:0;">Yes. We provide progressive hints — start with Hint 1 and only reveal more if you need them. The full answer is hidden behind a spoiler toggle so you can choose when to see it.</p>
+        </div>
+      </div>
+      <div class="faq-item" style="border:1px solid var(--paper-edge); border-radius: var(--r); margin-bottom: 8px; background: var(--paper-warm);">
+        <button class="faq-q" aria-expanded="false" style="width:100%; text-align:left; padding:16px 20px; font-size:.95rem; font-weight:600; color:var(--ink); background:transparent; display:flex; justify-content:space-between; align-items:center; cursor:pointer; border:none; font-family:var(--f-body);">Is Contexto harder than Wordle?</button>
+        <div class="faq-a" style="display:none; padding:0 20px 16px;">
+          <p style="font-size:.88rem; color:var(--ink-muted); line-height:1.7; margin:0;">Many players find Contexto harder because there are no letter clues — only semantic ones. It rewards vocabulary breadth and lateral thinking rather than spelling patterns.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="internal-cta" style="margin-top: 32px;">
+      <div class="icta-icon">🧠</div>
+      <div class="icta-text">
+        <strong>Want to improve your word power?</strong>
+        <p>Use our free Mind Map tool to build vocabulary webs, or the Word Finder to explore semantic clusters. Both are free and browser-based.</p>
+        <a href="https://webnotepad.github.io/mindmap" class="icta-link">Try Mind Map →</a>
+        &nbsp;&nbsp;
+        <a href="https://webnotepad.github.io/word-finder" class="icta-link">Word Finder →</a>
+      </div>
+    </div>
+
+    <div class="key-box">
+      <div class="key-box-label">Bookmark This Page</div>
+      <p>Contexto resets daily. <strong>Bookmark this page</strong> and come back every morning for fresh hints, clues, and the answer. We update it before you've had your coffee.</p>
+    </div>
+
+  </div>
+
+  <div class="post-tags">
+    <a href="#" class="tag">Contexto</a>
+    <a href="#" class="tag">Contexto Hints</a>
+    <a href="#" class="tag">Contexto Clues</a>
+    <a href="#" class="tag">Contexto Answer</a>
+    <a href="#" class="tag">Word Games</a>
+    <a href="#" class="tag">Daily Puzzle</a>
+    <a href="#" class="tag">2026</a>
+  </div>
+
+  <aside class="related-posts">
+    <div class="related-label">Keep Reading</div>
+    <div class="related-grid">
+      <a href="wordle-strategy-guide" class="related-card">
+        <div class="related-card-cat" style="color:#b45309;">Word Games</div>
+        <h4>Wordle Strategy: How to Win More Often (Without Cheating)</h4>
+        <p>Proven opening words, letter frequency analysis, and endgame tactics.</p>
+      </a>
+      <a href="ultimate-guide-digital-note-taking" class="related-card">
+        <div class="related-card-cat" style="color:#b45309;">Notetaking</div>
+        <h4>The Ultimate Guide to Digital Note-Taking in 2026</h4>
+        <p>Capture, organize and retrieve ideas — without the complexity.</p>
+      </a>
+      <a href="notepad-productivity-tips-2026" class="related-card">
+        <div class="related-card-cat" style="color:#b45309;">Productivity</div>
+        <h4>10 Best Ways to Use a Free Online Notepad for Daily Productivity</h4>
+        <p>From brain dumps to deep work — get more out of a blank page.</p>
+      </a>
+      <a href="privacy-browser-notepad" class="related-card">
+        <div class="related-card-cat" style="color:#b45309;">Privacy</div>
+        <h4>Why Browser-Based Notepads Keep Your Ideas Safe</h4>
+        <p>Local-first tools explained — and why they matter.</p>
+      </a>
+    </div>
+  </aside>
+
+</article>
+</main>
+
+<!-- Footer injected by footer.js -->
+<div id="footer-root"></div>
+
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+<script src="/components/social-share.js"></script>
+<script src="app.js"></script>
+<div id="tools-sidebar-root"></div>
+<script src="/components/sidebar.js"></script>
+
+<script>
+  // Reading progress
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const fill = document.getElementById('rpFill');
+    if (fill) {
+      const pct = Math.min(100, (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100);
+      fill.style.width = pct + '%';
+    }
+  });
+
+  // Spoiler toggle
+  (function initSpoiler() {
+    const btn = document.getElementById('spoilerBtn');
+    const reveal = document.getElementById('answerReveal');
+    if (!btn || !reveal) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = reveal.classList.contains('show');
+      if (isOpen) {
+        reveal.classList.remove('show');
+        btn.innerHTML = '<span>👁️</span> Reveal Today\'s Answer';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        reveal.classList.add('show');
+        btn.innerHTML = '<span>🙈</span> Hide Answer';
+        btn.setAttribute('aria-expanded', 'true');
+        // animate dots to done
+        document.querySelectorAll('.hint-dot').forEach(d => {
+          d.classList.remove('active');
+          d.classList.add('done');
+        });
+      }
+    });
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const answer = btn.nextElementSibling;
+      if (answer) {
+        answer.style.display = expanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // Set current date dynamically (fallback to static if needed)
+  (function setDates() {
+    const now = new Date();
+    const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formatted = now.toLocaleDateString('en-US', opts);
+
+    // Only set if elements exist
+    const dateLabel = document.getElementById('hintDateLabel');
+    const puzzleDate = document.getElementById('puzzleDate');
+    const answerUpdated = document.getElementById('answerUpdated');
+    const archiveUpdated = document.getElementById('archiveUpdated');
+
+    if (dateLabel) dateLabel.textContent = formatted;
+    if (puzzleDate) puzzleDate.textContent = formatted;
+    if (answerUpdated) answerUpdated.textContent = formatted;
+    if (archiveUpdated) archiveUpdated.textContent = formatted;
+  })();
+</script>
+
+</body>
+</html>

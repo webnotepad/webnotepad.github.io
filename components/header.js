@@ -75,7 +75,8 @@
               <a href="/special-character-converter" class="dropdown-item">Special Character Converter</a>
               <a href="/all-tools" class="dropdown-item">All Tools</a>
             </div>
-          </div>    
+          </div>
+          <a href="/games" class="nav-link">Games</a>
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
         </nav>

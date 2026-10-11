@@ -4,11 +4,11 @@
  * Positioned above the main tools sidebar.
  * Theme: Editorial / Ink-on-paper aesthetic
  *
- * ALSO includes a floating Games widget above it, with a gamepad SVG,
+ * ALSO includes a floating Games widget above it, with an updated, 
+ * classic arcade-style joystick SVG (red ball top, dark metallic stick and base),
  * linking to all games on the site.
  *
  * Games popup opens to the LEFT of the trigger for better ergonomics.
- * Gamepad icon uses bold, high-contrast line art for clarity at any size.
  */
 
 (function () {
@@ -24,21 +24,16 @@
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
 
-    // ---- BOLD, HIGH-CONTRAST GAMEPAD ICON ----
-    // Solid, filled shapes with strong outlines — reads clearly at 20px.
-    // No thin strokes or low-opacity fills; every element is crisp and visible.
+    // ---- CLASSIC ARCADE JOYSTICK ICON ----
     joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <!-- Gamepad body — solid fill with strong outline -->
-      <path d="M7 6.5h10c2.1 0 3.95 1.4 4.5 3.4l.9 3.6c.55 2.2-.6 4.5-2.85 5.3-1.4.5-2.9.05-3.85-.95L14.6 16.8a1.1 1.1 0 0 0-.8-.35h-3.6a1.1 1.1 0 0 0-.8.35l-1.1 1.05c-.95 1-2.45 1.45-3.85.95C2.2 18 1.05 15.7 1.6 13.5l.9-3.6C3.05 7.9 4.9 6.5 7 6.5Z" fill="currentColor" stroke="currentColor" stroke-width="0.6" stroke-linejoin="round"/>
-      <!-- D-pad cross (thick white, on top of dark body) -->
-      <rect x="6.6" y="10.4" width="1.6" height="4.2" rx="0.4" fill="#ffffff" opacity="0.95"/>
-      <rect x="5.3" y="11.7" width="4.2" height="1.6" rx="0.4" fill="#ffffff" opacity="0.95"/>
-      <!-- Action buttons (thick white dots) -->
-      <circle cx="16.3" cy="11.4" r="1.05" fill="#ffffff" opacity="0.95"/>
-      <circle cx="18.0" cy="13.1" r="1.05" fill="#ffffff" opacity="0.95"/>
-      <!-- Menu dots -->
-      <rect x="10.7" y="12.3" width="1.1" height="0.9" rx="0.35" fill="#ffffff" opacity="0.85"/>
-      <rect x="12.2" y="12.3" width="1.1" height="0.9" rx="0.35" fill="#ffffff" opacity="0.85"/>
+      <!-- Arcade Base / Cabinet Plate -->
+      <path d="M4 17h16c1.1 0 2 .9 2 2v1c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1v-1c0-1.1.9-2 2-2Z" fill="currentColor" opacity="0.85"/>
+      <!-- Metallic Joystick Shaft -->
+      <path d="M11 9l-3 7h2l2-5 2 5h2l-3-7h-2Z" fill="#e2e8f0"/>
+      <line x1="12" y1="9" x2="12" y2="16" stroke="#94a3b8" stroke-width="1.5"/>
+      <!-- Classic Red Ball Top -->
+      <circle cx="12" cy="7" r="4.5" fill="#ef4444"/>
+      <circle cx="10.5" cy="5.5" r="1.2" fill="#fca5a5" opacity="0.8"/>
     </svg>`,
 
     gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
@@ -222,7 +217,7 @@
       box-shadow: none;
     }
 
-    /* ===== FLOATING GAMES TRIGGER — AMBER GAMEPAD THEME ===== */
+    /* ===== FLOATING GAMES TRIGGER — VIBRANT INDIGO / VIOLET GAMING THEME ===== */
     .games-floating-trigger {
       position: fixed;
       bottom: 260px;
@@ -230,13 +225,13 @@
       z-index: 10001;
       width: 52px;
       height: 52px;
-      background: linear-gradient(145deg, #f59e0b, #b45309);
+      background: linear-gradient(145deg, #6366f1, #4f46e5);
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(245, 158, 11, 0.45), 0 0 0 0 rgba(245, 158, 11, 0.35);
+      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45), 0 0 0 0 rgba(99, 102, 241, 0.35);
       cursor: pointer;
       border: 1.5px solid rgba(255, 255, 255, 0.35);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -258,9 +253,9 @@
     }
     .games-floating-trigger:hover {
       transform: scale(1.08) rotate(8deg);
-      background: linear-gradient(145deg, #fbbf24, #d97706);
+      background: linear-gradient(145deg, #818cf8, #4338ca);
       animation-play-state: paused;
-      box-shadow: 0 8px 28px rgba(245, 158, 11, 0.7);
+      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.7);
     }
     .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
@@ -279,15 +274,15 @@
     @keyframes gamesPulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5), 0 6px 24px rgba(245, 158, 11, 0.45);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.5), 0 6px 24px rgba(99, 102, 241, 0.45);
       }
       50% {
         transform: scale(1.06);
-        box-shadow: 0 0 0 16px rgba(245, 158, 11, 0), 0 6px 24px rgba(245, 158, 11, 0.45);
+        box-shadow: 0 0 0 16px rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0), 0 6px 24px rgba(245, 158, 11, 0.45);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
       }
     }
 
@@ -328,7 +323,7 @@
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
-      box-shadow: 0 16px 48px rgba(245, 158, 11, 0.28);
+      box-shadow: 0 16px 48px rgba(99, 102, 241, 0.28);
       padding: 16px 16px 14px;
       min-width: 280px;
       max-width: 340px;
@@ -346,7 +341,7 @@
     body.dark .games-popup {
       background: var(--paper-warm, #1c1c22);
       border-color: var(--paper-edge, #2a2a34);
-      box-shadow: 0 16px 48px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 16px 48px rgba(99, 102, 241, 0.35);
     }
 
     .games-popup-header {
@@ -368,11 +363,11 @@
       gap: 6px;
     }
     .games-popup-header span .games-header-icon {
-      color: #d97706;
+      color: #4f46e5;
       display: inline-flex;
     }
     body.dark .games-popup-header span .games-header-icon {
-      color: #fbbf24;
+      color: #818cf8;
     }
 
     .games-popup-close {
@@ -442,23 +437,23 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: #f59e0b;
+      background: #6366f1;
       transform: scaleY(0);
       transform-origin: center;
       transition: transform 0.2s ease;
       border-radius: 0 3px 3px 0;
     }
     .game-item:hover {
-      background: rgba(245, 158, 11, 0.1);
-      border-color: rgba(245, 158, 11, 0.25);
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.25);
       transform: translateX(2px);
     }
     .game-item:hover::before {
       transform: scaleY(1);
     }
     body.dark .game-item:hover {
-      background: rgba(251, 191, 36, 0.14);
-      border-color: rgba(251, 191, 36, 0.3);
+      background: rgba(129, 140, 248, 0.14);
+      border-color: rgba(129, 140, 248, 0.3);
     }
 
     .game-item-emoji {
@@ -469,13 +464,13 @@
       align-items: center;
       justify-content: center;
       font-size: 1.15rem;
-      background: linear-gradient(145deg, rgba(245, 158, 11, 0.18), rgba(245, 158, 11, 0.08));
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
       border-radius: 8px;
-      border: 1px solid rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.2);
     }
     body.dark .game-item-emoji {
-      background: linear-gradient(145deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.08));
-      border-color: rgba(251, 191, 36, 0.25);
+      background: linear-gradient(145deg, rgba(129, 140, 248, 0.2), rgba(129, 140, 248, 0.08));
+      border-color: rgba(129, 140, 248, 0.25);
     }
 
     .game-item-info {
@@ -510,11 +505,11 @@
       transition: transform 0.2s ease, color 0.2s ease;
     }
     .game-item:hover .game-item-arrow {
-      color: #d97706;
+      color: #4f46e5;
       transform: translateX(3px);
     }
     body.dark .game-item:hover .game-item-arrow {
-      color: #fbbf24;
+      color: #818cf8;
     }
 
     /* Hide both widgets when tools sidebar is open */

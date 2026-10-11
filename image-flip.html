@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Flipper – Free Online Photo Mirror & Flip Tool | WebNotePad</title>
+    <meta name="description" content="Free online image flipper. Flip JPG, PNG, and WebP images horizontally or vertically (mirror effect) instantly in your browser. No upload, no signup, 100% private. Batch flip images with ease." />
+    <meta name="keywords" content="image flipper, free image flipper, flip image online, mirror image, photo flipper, flip JPG, flip PNG, flip WebP, horizontal flip, vertical flip, mirror photo tool, image mirror tool" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/image-flip" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/image-flip" />
+    <meta property="og:title" content="Free Online Image Flipper – Mirror Photos Horizontally or Vertically" />
+    <meta property="og:description" content="Flip images horizontally or vertically (mirror effect). Fast, private, and free. No upload required." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Online Image Flipper – Mirror Photos Horizontally or Vertically" />
+    <meta name="twitter:description" content="Flip images horizontally or vertically (mirror effect). Fast, private, and free." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Image Flipper by WebNotePad",
+            "url": "https://webnotepad.github.io/image-flip",
+            "description": "A free online image flipper to mirror JPG, PNG, and WebP images horizontally or vertically directly in your browser. No upload, no signup, 100% private.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Flip JPG images horizontally",
+                "Flip JPG images vertically",
+                "Mirror PNG images",
+                "Flip WebP images",
+                "Batch image flipping",
+                "Live preview",
+                "No upload – runs in browser",
+                "100% private",
+                "Mobile-friendly"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do I flip an image?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Upload an image, choose a flip direction (horizontal or vertical), preview the result, and click Flip & Download. Your flipped image downloads automatically."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this image flipper free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, our image flipper is 100% free with no signup, no watermark, and no hidden costs. Flip as many images as you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are my images uploaded to a server?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No! All flipping happens locally in your browser using JavaScript. Your images never leave your device, ensuring complete privacy."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between horizontal and vertical flip?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Horizontal flip mirrors the image left-to-right (like a mirror). Vertical flip mirrors the image top-to-bottom (upside down). You can apply both for a 180-degree rotation effect."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I flip multiple images at once?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, you can upload multiple files and flip them all in one batch. Each flipped image will download separately."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does flipping reduce image quality?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No — flipping is a lossless operation. Every pixel retains its original value, just mirrored. Quality is fully preserved."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --if-accent: #0891b2;
+            --if-accent-light: #22d3ee;
+            --if-accent-pale: #ecfeff;
+            --if-surface: #faf8f4;
+            --if-border: #e8e2d6;
+            --if-ink: #1a1a2e;
+            --if-muted: #6b6b85;
+            --if-warm: #f4f0e8;
+            --if-radius: 8px;
+            --if-radius-lg: 14px;
+            --if-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --if-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --if-success: #16a34a;
+            --if-error: #dc2626;
+        }
+
+        body.dark {
+            --if-accent: #22d3ee;
+            --if-accent-light: #67e8f9;
+            --if-accent-pale: #0f2e33;
+            --if-surface: #141418;
+            --if-border: #2a2a34;
+            --if-ink: #e8e4dc;
+            --if-muted: #8a8678;
+            --if-warm: #1c1c22;
+            --if-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --if-success: #4ade80;
+            --if-error: #f87171;
+        }
+
+        /* ===== HERO ===== */
+        .if-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--if-surface);
+            transition: background var(--if-transition);
+        }
+        .if-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--if-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--if-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .if-hero-bg { opacity: 0.1; }
+        .if-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--if-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .if-hero-glow { opacity: 0.35; }
+        .if-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .if-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--if-accent-pale);
+            color: var(--if-accent);
+            border: 1px solid var(--if-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .if-hero-badge { background: rgba(34, 211, 238, 0.18); }
+        .if-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--if-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .if-hero-accent {
+            color: var(--if-accent);
+            font-style: italic;
+        }
+        .if-hero-sub {
+            font-size: 0.9rem;
+            color: var(--if-muted);
+            max-width: 520px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .if-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .if-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .if-demo-chip {
+            padding: 7px 16px;
+            background: var(--if-warm);
+            border: 1px solid var(--if-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--if-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--if-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .if-demo-chip:hover {
+            background: var(--if-accent-pale);
+            border-color: var(--if-accent);
+            color: var(--if-accent);
+        }
+
+        /* ===== FLIPPER APP ===== */
+        .if-app-section {
+            padding: 0 0 80px;
+            background: var(--if-surface);
+            transition: background var(--if-transition);
+        }
+        .if-app-shell {
+            background: var(--if-warm);
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius-lg);
+            box-shadow: var(--if-shadow);
+            overflow: hidden;
+            transition: all var(--if-transition);
+        }
+        .if-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--if-border);
+            background: var(--if-surface);
+            flex-wrap: wrap;
+        }
+        .if-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--if-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .if-app-title .if-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--if-accent);
+            display: inline-block;
+            animation: ifPulse 2s infinite;
+        }
+        @keyframes ifPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Upload area */
+        .if-upload-area {
+            padding: 36px 24px;
+            margin: 24px;
+            border: 2px dashed var(--if-border);
+            border-radius: var(--if-radius-lg);
+            background: var(--if-surface);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--if-transition);
+            position: relative;
+        }
+        .if-upload-area:hover,
+        .if-upload-area.if-drag-over {
+            border-color: var(--if-accent);
+            background: var(--if-accent-pale);
+        }
+        .if-upload-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .if-upload-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--if-ink);
+            margin-bottom: 4px;
+        }
+        .if-upload-sub {
+            font-size: 0.8rem;
+            color: var(--if-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        .if-upload-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Live preview */
+        .if-preview-wrap {
+            display: none;
+            padding: 20px 24px 24px;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .if-preview-wrap.if-visible {
+            display: flex;
+        }
+        .if-preview-stage {
+            position: relative;
+            background:
+                linear-gradient(45deg, #e5e5e5 25%, transparent 25%),
+                linear-gradient(-45deg, #e5e5e5 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #e5e5e5 75%),
+                linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #f0f0f0;
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            max-height: 55vh;
+            padding: 20px;
+        }
+        body.dark .if-preview-stage {
+            background-color: #1a1a1e;
+            background-image:
+                linear-gradient(45deg, #2a2a30 25%, transparent 25%),
+                linear-gradient(-45deg, #2a2a30 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #2a2a30 75%),
+                linear-gradient(-45deg, transparent 75%, #2a2a30 75%);
+        }
+        .if-preview-stage img {
+            max-width: 100%;
+            max-height: 50vh;
+            display: block;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* Preview info badge */
+        .if-preview-info {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: var(--if-muted);
+        }
+        .if-preview-badge {
+            padding: 4px 12px;
+            background: var(--if-surface);
+            border: 1px solid var(--if-border);
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .if-preview-badge.if-active {
+            background: var(--if-accent-pale);
+            border-color: var(--if-accent);
+            color: var(--if-accent);
+            font-weight: 600;
+        }
+
+        /* Controls bar */
+        .if-controls-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            border-top: 1px solid var(--if-border);
+            border-bottom: 1px solid var(--if-border);
+            background: var(--if-surface);
+            flex-wrap: wrap;
+        }
+        .if-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .if-control-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--if-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+
+        /* Flip toggle buttons */
+        .if-toggle-group {
+            display: flex;
+            background: var(--if-warm);
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius);
+            overflow: hidden;
+        }
+        .if-toggle-btn {
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            color: var(--if-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--if-transition);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .if-toggle-btn:hover { color: var(--if-ink); background: var(--if-border); }
+        .if-toggle-btn.if-active {
+            background: var(--if-accent);
+            color: #ffffff;
+        }
+
+        .if-select {
+            padding: 7px 12px;
+            border-radius: var(--if-radius);
+            border: 1px solid var(--if-border);
+            background: var(--if-surface);
+            color: var(--if-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all var(--if-transition);
+            min-width: 110px;
+        }
+        .if-select:focus {
+            border-color: var(--if-accent);
+            box-shadow: 0 0 0 3px var(--if-accent-pale);
+        }
+        .if-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: var(--if-accent);
+            color: #ffffff;
+            border: 2px solid var(--if-accent);
+            border-radius: var(--if-radius);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--if-transition);
+            white-space: nowrap;
+        }
+        .if-btn:hover {
+            background: var(--if-accent-light);
+            border-color: var(--if-accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(8, 145, 178, 0.3);
+        }
+        .if-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .if-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            background: transparent;
+            color: var(--if-ink);
+            border: 2px solid var(--if-border);
+            border-radius: var(--if-radius);
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all var(--if-transition);
+            white-space: nowrap;
+        }
+        .if-btn-secondary:hover {
+            background: var(--if-warm);
+            border-color: var(--if-muted);
+        }
+        .if-btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .if-btn-group {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+            flex-wrap: wrap;
+        }
+
+        /* File list */
+        .if-file-list {
+            padding: 0 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 360px;
+            overflow-y: auto;
+        }
+        .if-file-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--if-surface);
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius);
+            transition: all var(--if-transition);
+        }
+        .if-file-item:hover {
+            border-color: var(--if-accent);
+        }
+        .if-file-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: var(--if-warm);
+            flex-shrink: 0;
+            border: 1px solid var(--if-border);
+            transition: transform 0.3s ease;
+        }
+        .if-file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .if-file-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--if-ink);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .if-file-meta {
+            font-size: 0.7rem;
+            color: var(--if-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        .if-file-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            padding: 3px 10px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        .if-file-status.if-pending {
+            background: var(--if-warm);
+            color: var(--if-muted);
+        }
+        .if-file-status.if-processing {
+            background: var(--if-accent-pale);
+            color: var(--if-accent);
+        }
+        .if-file-status.if-done {
+            background: #dcfce7;
+            color: var(--if-success);
+        }
+        body.dark .if-file-status.if-done {
+            background: rgba(74, 222, 128, 0.15);
+        }
+        .if-file-status.if-error {
+            background: #fde8e8;
+            color: var(--if-error);
+        }
+        body.dark .if-file-status.if-error {
+            background: rgba(248, 113, 113, 0.15);
+        }
+        .if-file-download {
+            color: var(--if-accent);
+            font-size: 1.1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--if-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            display: none;
+        }
+        .if-file-download.if-visible {
+            display: inline-flex;
+        }
+        .if-file-download:hover {
+            background: var(--if-accent-pale);
+        }
+        .if-remove-file {
+            color: var(--if-muted);
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all var(--if-transition);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+        .if-remove-file:hover {
+            background: #fde8e8;
+            color: var(--if-error);
+        }
+
+        /* Empty state */
+        .if-empty-state {
+            text-align: center;
+            padding: 24px;
+            color: var(--if-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        /* Progress bar */
+        .if-progress-bar {
+            height: 4px;
+            background: var(--if-border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 24px 16px;
+        }
+        .if-progress-fill {
+            height: 100%;
+            background: var(--if-accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== ARTICLE CONTENT ===== */
+        .if-article {
+            background: var(--if-surface);
+            transition: background var(--if-transition);
+        }
+        .if-article-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .if-article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: var(--if-ink);
+            line-height: 1.25;
+            margin-bottom: 20px;
+            margin-top: 48px;
+            letter-spacing: -0.02em;
+        }
+        .if-article h2:first-child { margin-top: 0; }
+        .if-article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--if-ink);
+            margin-bottom: 14px;
+            margin-top: 36px;
+        }
+        .if-article p {
+            font-size: 1rem;
+            color: var(--if-muted);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .if-article p strong {
+            color: var(--if-ink);
+            font-weight: 600;
+        }
+        .if-article p em {
+            color: var(--if-accent);
+            font-style: italic;
+        }
+        .if-article ul, .if-article ol {
+            margin: 0 0 24px 0;
+            padding-left: 24px;
+            list-style: none;
+        }
+        .if-article ul li {
+            font-size: 0.95rem;
+            color: var(--if-muted);
+            line-height: 1.8;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .if-article ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--if-accent);
+            font-weight: 700;
+        }
+        .if-article ol {
+            counter-reset: if-counter;
+        }
+        .if-article ol li {
+            font-size: 0.95rem;
+            color: var(--if-muted);
+            line-height: 1.8;
+            margin-bottom: 12px;
+            counter-increment: if-counter;
+            position: relative;
+            padding-left: 32px;
+        }
+        .if-article ol li::before {
+            content: counter(if-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--if-accent-pale);
+            color: var(--if-accent);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .if-article blockquote {
+            border-left: 3px solid var(--if-accent);
+            padding: 16px 24px;
+            margin: 28px 0;
+            background: var(--if-warm);
+            border-radius: 0 var(--if-radius) var(--if-radius) 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--if-ink);
+            line-height: 1.6;
+        }
+        .if-article-info-box {
+            background: var(--if-warm);
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius-lg);
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+        .if-article-info-box h4 {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--if-accent);
+            margin-bottom: 12px;
+        }
+        .if-article-info-box ul {
+            margin-bottom: 0;
+        }
+        .if-article-info-box ul li {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+        .if-article-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius);
+            overflow: hidden;
+        }
+        .if-article-table th {
+            background: var(--if-warm);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--if-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .if-article-table td {
+            padding: 12px 16px;
+            color: var(--if-muted);
+            border-top: 1px solid var(--if-border);
+            line-height: 1.6;
+        }
+        .if-article-table tr:hover td {
+            background: var(--if-warm);
+        }
+
+        /* ===== HOW TO SECTION ===== */
+        .if-how {
+            background: var(--if-warm);
+            transition: background var(--if-transition);
+        }
+        .if-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .if-how-card {
+            background: var(--if-surface);
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius-lg);
+            padding: 26px;
+            transition: all var(--if-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .if-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--if-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--if-transition);
+        }
+        .if-how-card:hover { box-shadow: var(--if-shadow); transform: translateY(-3px); }
+        .if-how-card:hover::before { transform: scaleX(1); }
+        .if-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--if-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .if-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--if-ink);
+            margin-bottom: 8px;
+        }
+        .if-how-card p {
+            font-size: 0.85rem;
+            color: var(--if-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .if-faq {
+            background: var(--if-warm);
+            transition: background var(--if-transition);
+        }
+        .if-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .if-faq-item {
+            border: 1px solid var(--if-border);
+            border-radius: var(--if-radius);
+            overflow: hidden;
+            background: var(--if-surface);
+            transition: border-color var(--if-transition);
+        }
+        .if-faq-item:has(.if-faq-a[style*="block"]) { border-color: var(--if-accent); }
+        .if-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--if-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--if-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .if-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--if-muted);
+            flex-shrink: 0;
+            transition: transform var(--if-transition);
+        }
+        .if-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--if-accent); }
+        .if-faq-q:hover { background: var(--if-warm); }
+        .if-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .if-faq-a p {
+            font-size: 0.88rem;
+            color: var(--if-muted);
+            line-height: 1.7;
+        }
+
+        /* Toast */
+        .if-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--if-ink);
+            color: var(--if-surface);
+            padding: 12px 20px;
+            border-radius: var(--if-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .if-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .if-toast {
+            background: var(--if-warm);
+            color: var(--if-ink);
+            border: 1px solid var(--if-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .if-how-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .if-hero { min-height: auto; padding: 24px 0 20px; }
+            .if-how-grid { grid-template-columns: 1fr; }
+            .if-upload-area { padding: 24px 16px; margin: 16px; }
+            .if-preview-wrap { padding: 14px 14px 18px; }
+            .if-controls-bar { padding: 12px 14px; gap: 10px; }
+            .if-control-group { width: 100%; }
+            .if-btn-group { margin-left: 0; width: 100%; }
+            .if-btn-group .if-btn,
+            .if-btn-group .if-btn-secondary { flex: 1; justify-content: center; }
+            .if-preview-stage { min-height: 220px; padding: 12px; }
+            .if-preview-stage img { max-height: 40vh; }
+            .if-file-list { padding: 0 16px 16px; }
+            .if-file-item { padding: 8px 10px; gap: 8px; }
+            .if-file-thumb { width: 36px; height: 36px; }
+            .if-hero-demo { gap: 6px; }
+            .if-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+            .if-article-table { font-size: 0.8rem; }
+            .if-article-table th,
+            .if-article-table td { padding: 10px 12px; }
+            .if-toggle-btn { padding: 7px 12px; font-size: 0.75rem; }
+        }
+        @media (max-width: 480px) {
+            .if-hero-title { font-size: 1.6rem; }
+            .if-upload-area { padding: 20px 12px; margin: 12px; }
+            .if-upload-icon { font-size: 2rem; }
+            .if-upload-text { font-size: 0.85rem; }
+            .if-preview-wrap { padding: 12px 10px 16px; }
+            .if-controls-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; }
+            .if-control-group { flex-direction: column; align-items: stretch; gap: 6px; }
+            .if-control-label { text-align: left; }
+            .if-toggle-group { width: 100%; }
+            .if-toggle-btn { flex: 1; justify-content: center; }
+            .if-preview-stage { min-height: 180px; padding: 8px; }
+            .if-preview-stage img { max-height: 34vh; }
+            .if-file-list { padding: 0 12px 12px; }
+            .if-file-item { flex-wrap: wrap; }
+            .if-file-info { flex: 1; min-width: 0; }
+            .if-file-status { font-size: 0.6rem; padding: 2px 8px; }
+            .if-article-info-box { padding: 18px 16px; }
+            .if-article blockquote { padding: 12px 18px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="if-hero" id="home" aria-label="Image Flipper Hero">
+            <div class="if-hero-bg"></div>
+            <div class="if-hero-glow"></div>
+            <div class="container if-hero-inner">
+                <div class="if-hero-badge">🪞 Free Online Image Flipper</div>
+                <h1 class="if-hero-title">
+                    Flip images.<br />
+                    <span class="if-hero-accent">Mirror effect, instantly.</span>
+                </h1>
+                <p class="if-hero-sub">Flip JPG, PNG, and WebP images horizontally or vertically in one click. Perfect for selfies, photos, and design assets. No upload, no signup, 100% private.</p>
+                <div class="if-hero-cta">
+                    <a href="#image-flipper" class="btn btn-primary" style="background:var(--if-accent);border-color:var(--if-accent);">Start Flipping <span>→</span></a>
+                </div>
+                <div class="if-hero-demo">
+                    <span class="if-demo-chip">🔒 100% Private</span>
+                    <span class="if-demo-chip">🪞 Horizontal Flip</span>
+                    <span class="if-demo-chip">🔄 Vertical Flip</span>
+                    <span class="if-demo-chip">📁 Batch Support</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IMAGE FLIPPER APP SECTION ===== -->
+        <section class="if-app-section" id="image-flipper" aria-label="Image Flipper Application">
+            <div class="container">
+                <div class="if-app-shell">
+                    <!-- App Header -->
+                    <div class="if-app-header">
+                        <span class="if-app-title"><span class="if-dot"></span> Image Flipper</span>
+                        <div class="if-app-actions-header">
+                            <button class="btn-tool" id="ifClearAllBtn" title="Clear all files" aria-label="Clear all files">✕ Clear All</button>
+                        </div>
+                    </div>
+
+                    <!-- Upload Area -->
+                    <div class="if-upload-area" id="ifUploadArea">
+                        <input type="file" class="if-upload-input" id="ifFileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/bmp" multiple />
+                        <span class="if-upload-icon">🪞</span>
+                        <div class="if-upload-text">Drop images here or click to browse</div>
+                        <div class="if-upload-sub">Supports JPG, PNG, WebP, GIF, BMP · Max 30 MB each</div>
+                    </div>
+
+                    <!-- Preview Workspace -->
+                    <div class="if-preview-wrap" id="ifPreviewWrap">
+                        <!-- Flip Controls -->
+                        <div class="if-controls-bar" style="padding:0;border:none;background:transparent;">
+                            <div class="if-control-group">
+                                <span class="if-control-label">Flip</span>
+                                <div class="if-toggle-group" role="group" aria-label="Flip direction">
+                                    <button class="if-toggle-btn" id="ifFlipHBtn" data-flip="h" aria-pressed="false">⇋ Horizontal</button>
+                                    <button class="if-toggle-btn" id="ifFlipVBtn" data-flip="v" aria-pressed="false">⇅ Vertical</button>
+                                </div>
+                            </div>
+                            <div class="if-control-group">
+                                <span class="if-control-label">Output</span>
+                                <select class="if-select" id="ifOutputFormat" aria-label="Output format">
+                                    <option value="auto" selected>Auto</option>
+                                    <option value="image/jpeg">JPG</option>
+                                    <option value="image/png">PNG</option>
+                                    <option value="image/webp">WebP</option>
+                                </select>
+                            </div>
+                            <div class="if-btn-group">
+                                <button class="if-btn" id="ifFlipBtn" disabled>🪞 Flip & Download</button>
+                                <button class="if-btn-secondary" id="ifDownloadAllBtn" disabled>⬇ Download All</button>
+                            </div>
+                        </div>
+
+                        <!-- Preview Stage -->
+                        <div class="if-preview-stage" id="ifPreviewStage">
+                            <img id="ifPreviewImg" alt="Image preview" />
+                        </div>
+
+                        <!-- Preview info badges -->
+                        <div class="if-preview-info" id="ifPreviewInfo">
+                            <span class="if-preview-badge" id="ifBadgeName">No image</span>
+                            <span class="if-preview-badge" id="ifBadgeDims">—</span>
+                            <span class="if-preview-badge" id="ifBadgeFlipH">Horizontal: Off</span>
+                            <span class="if-preview-badge" id="ifBadgeFlipV">Vertical: Off</span>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="if-progress-bar" id="ifProgressBar" style="display:none;margin:0;">
+                            <div class="if-progress-fill" id="ifProgressFill"></div>
+                        </div>
+
+                        <!-- File List (for batch) -->
+                        <div class="if-file-list" id="ifFileList" role="list" aria-label="Selected files">
+                            <div class="if-empty-state">No images selected yet. Upload files to begin flipping.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO USE SECTION ===== -->
+        <section class="section if-how" id="how-to-use" aria-label="How to use the image flipper">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Flip images in <em>3 easy steps.</em></h2>
+                <div class="if-how-grid">
+                    <div class="if-how-card">
+                        <div class="if-how-num">01</div>
+                        <h3>Upload Images</h3>
+                        <p>Drag and drop your images or click to browse. Select one or multiple files — JPG, PNG, WebP, GIF, and BMP are all supported.</p>
+                    </div>
+                    <div class="if-how-card">
+                        <div class="if-how-num">02</div>
+                        <h3>Choose Flip</h3>
+                        <p>Toggle horizontal or vertical flip. Preview the mirrored result instantly. You can combine both flips for a 180° rotation effect.</p>
+                    </div>
+                    <div class="if-how-card">
+                        <div class="if-how-num">03</div>
+                        <h3>Flip & Download</h3>
+                        <p>Click "Flip & Download" and your mirrored image saves instantly. Choose your output format or keep the original.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ARTICLE CONTENT ===== -->
+        <section class="section if-article" id="article" aria-label="About image flipping">
+            <div class="container if-article-inner">
+                <h2>The Complete Guide to Flipping Images</h2>
+                <p>Flipping an image — also known as mirroring — is one of the simplest yet most useful image transformations. It takes your picture and reverses it along an axis, creating a perfect mirror reflection. Need to fix a selfie where the text on your shirt reads backwards? Want a design asset that faces the other way? Flipping is the answer.</p>
+                <p>Our <strong>free online image flipper</strong> makes this operation effortless. Upload any JPG, PNG, or WebP image, choose your flip direction, preview the result live, and download — all inside your browser. No upload to a server, no signup, no quality loss.</p>
+
+                <h2>What Does "Flipping an Image" Mean?</h2>
+                <p>Flipping reverses an image along a horizontal or vertical axis. Think of it like looking at your reflection in a mirror — the content is the same, but left and right are swapped.</p>
+                <ul>
+                    <li><strong>Horizontal flip (mirror):</strong> The image is reversed left-to-right. What was on the left is now on the right, and vice versa. This is the most common type of flip.</li>
+                    <li><strong>Vertical flip:</strong> The image is reversed top-to-bottom. It looks as though the photo has been turned upside down.</li>
+                    <li><strong>Both flips combined:</strong> Applying horizontal and vertical flips together produces a 180° rotation effect — but not quite. Rotation also changes the "reading direction" of the pixels, whereas double-flipping does not.</li>
+                </ul>
+                <p>Every pixel keeps its exact original value in a flip — nothing is invented, nothing is discarded. That's why flipping is completely lossless.</p>
+
+                <h2>Horizontal vs Vertical Flip: When to Use Each</h2>
+                <p>Choosing the right flip direction depends on what you're trying to achieve:</p>
+                <h3>Horizontal Flip — The Mirror Effect</h3>
+                <p>Use horizontal flip when you want to:</p>
+                <ul>
+                    <li><strong>Fix a mirror selfie:</strong> Phone cameras often mirror selfies, making text on clothing appear backwards. A horizontal flip corrects this.</li>
+                    <li><strong>Change a subject's facing direction:</strong> If a portrait shows someone looking left, a horizontal flip makes them look right — useful for design layouts.</li>
+                    <li><strong>Create a "mirror image" effect:</strong> Combine the flipped image with the original to produce a symmetrical composition.</li>
+                    <li><strong>Make a design asset face the other way:</strong> If your hero image or icon faces the wrong direction, a horizontal flip is faster than finding a new one.</li>
+                    <li><strong>Compare two versions:</strong> Artists often flip their work to see it fresh and spot composition mistakes.</li>
+                </ul>
+                <h3>Vertical Flip — The Upside-Down Effect</h3>
+                <p>Use vertical flip when you want to:</p>
+                <ul>
+                    <li><strong>Create reflections in water:</strong> Flipping vertically and blending with the original creates a convincing reflection effect.</li>
+                    <li><strong>Correct a scanned image:</strong> Occasionally a scanner will invert a photo — a vertical flip fixes it.</li>
+                    <li><strong>Artistic effects:</strong> Vertical flips are used in surreal or abstract compositions.</li>
+                    <li><strong>Fix upside-down photos:</strong> Vertical flip is the simplest correction for a photo that was uploaded inverted.</li>
+                </ul>
+
+                <blockquote>"The mirror never lies — but it does swap left and right. A good editor knows when to trust the reflection."</blockquote>
+
+                <h2>Flip vs Rotate: What's the Difference?</h2>
+                <p>Both operations change an image's orientation, but they produce very different results:</p>
+                <table class="if-article-table">
+                    <thead>
+                        <tr>
+                            <th>Operation</th>
+                            <th>Effect</th>
+                            <th>Common Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Horizontal Flip</strong></td>
+                            <td>Mirrors left ↔ right</td>
+                            <td>Fix selfies, change facing direction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vertical Flip</strong></td>
+                            <td>Mirrors top ↔ bottom</td>
+                            <td>Create reflections, fix upside-down photos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>180° Rotation</strong></td>
+                            <td>Turns image completely around</td>
+                            <td>Sometimes confused with double-flip</td>
+                        </tr>
+                        <tr>
+                            <td><strong>90° Rotation</strong></td>
+                            <td>Turns image on its side</td>
+                            <td>Fix sideways photos, change orientation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transpose</strong></td>
+                            <td>Flip along diagonal (swap x and y)</td>
+                            <td>Advanced editing effects</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>If your goal is to swap left and right, use horizontal flip. If you need to turn a photo 90° to the correct orientation, use rotation instead.</p>
+
+                <h2>Why Flipping Is 100% Lossless</h2>
+                <p>Unlike compression, resizing, or format conversion, flipping does not alter any pixel values. Every pixel keeps its exact RGB color — it simply moves to a new position on the canvas.</p>
+                <p>This means:</p>
+                <ul>
+                    <li><strong>No quality degradation:</strong> The flipped image looks identical to the original, just mirrored.</li>
+                    <li><strong>No artifacts:</strong> No blurring, no color shifts, no noise introduced.</li>
+                    <li><strong>No file size change:</strong> The flipped image will be roughly the same file size as the original.</li>
+                    <li><strong>Reversible:</strong> Flipping the flipped image returns it exactly to the original.</li>
+                </ul>
+                <p>This is one reason why flipping is such a common operation — it's fast, safe, and completely non-destructive (as long as you keep a backup of the original).</p>
+
+                <div class="if-article-info-box">
+                    <h4>Flip vs Resize vs Compress — Quick Comparison</h4>
+                    <ul>
+                        <li><strong>Flip:</strong> Mirrors image. No quality loss. Same dimensions.</li>
+                        <li><strong>Resize:</strong> Changes pixel dimensions. Can lose quality when upscaling.</li>
+                        <li><strong>Compress:</strong> Reduces file size. Can lose quality with lossy formats.</li>
+                        <li><strong>Rotate:</strong> Turns the image. No quality loss (except interpolated rotations).</li>
+                    </ul>
+                </div>
+
+                <h2>Common Use Cases for Image Flipping</h2>
+                <p>Flipping shows up in more workflows than people realize:</p>
+                <h3>Selfies and Portraits</h3>
+                <p>Most smartphone selfie cameras produce a mirrored image because the phone uses the front-facing camera like a mirror. If you're holding a sign, wearing a shirt with text, or just want your photo to match how others see you, a horizontal flip is essential.</p>
+                <h3>Design and Marketing</h3>
+                <p>Designers routinely flip images to fit a layout. A subject facing left might look better facing right depending on where the text goes. Rather than searching for a new image, a quick flip solves the problem.</p>
+                <h3>E-commerce and Product Photos</h3>
+                <p>Product photos are often flipped to create "mirror" versions for different pages, or to correct branding that appears backwards due to a mirrored source.</p>
+                <h3>Photography and Composition</h3>
+                <p>Photographers flip their work to see it with fresh eyes. Our brains get used to an image after editing it for a while; flipping breaks that familiarity and makes compositional errors easier to spot.</p>
+                <h3>Memes and Internet Culture</h3>
+                <p>Flipping is a staple of meme creation and reaction images. A flipped version of a well-known image can be used to imply the opposite or to fit a different layout.</p>
+                <h3>Reflections and Artistic Compositions</h3>
+                <p>Vertical flipping a photo and placing it below the original creates a beautiful mirrored-reflection effect. Artists use this technique in posters, album covers, and digital art.</p>
+
+                <h2>Best Practices for Flipping Images</h2>
+                <p>Follow these tips for the best results:</p>
+                <ol>
+                    <li><strong>Always keep your original.</strong> Even though flipping is lossless, keeping a backup means you can flip back or use the original in other projects.</li>
+                    <li><strong>Watch out for text and logos.</strong> Flipping an image with text makes it unreadable. Only flip if the text is not important, or if you want the mirror effect.</li>
+                    <li><strong>Consider the direction of light.</strong> Shadows and highlights come from a specific direction. A horizontal flip may make lighting look unnatural in some scenes.</li>
+                    <li><strong>Combine with rotation for 180°.</strong> If you need the image turned completely around, horizontal + vertical flip produces the same result as a 180° rotation.</li>
+                    <li><strong>Use flip for reflection effects.</strong> A vertical flip combined with a soft gradient mask creates a convincing water or glass reflection.</li>
+                    <li><strong>Batch flip for consistency.</strong> If you have several images that all need to face the same way, use batch flipping to keep them uniform.</li>
+                    <li><strong>Preview before downloading.</strong> Our tool shows the flipped result live, so you can confirm before committing.</li>
+                </ol>
+
+                <h2>Why Browser-Based Flipping Matters</h2>
+                <p>Most online image tools require you to upload your files to their servers. That's a problem:</p>
+                <ul>
+                    <li><strong>Privacy:</strong> Once uploaded, you have no idea what happens to your image on that server.</li>
+                    <li><strong>Security:</strong> Sensitive images — like ID documents, private photos, or business material — should not be uploaded to unknown servers.</li>
+                    <li><strong>Speed:</strong> Uploading and downloading files takes time, especially on slow connections.</li>
+                    <li><strong>Limits:</strong> Many services impose file size caps, watermarks, or paid tiers.</li>
+                </ul>
+                <p>Our <strong>browser-based flipper</strong> uses the HTML5 Canvas API to flip images entirely on your device. Nothing is uploaded. There are no limits, no watermarks, and no waiting. It's fast, private, and completely free.</p>
+
+                <h2>Who Is This Image Flipper For?</h2>
+                <p>This tool is useful for anyone who works with images:</p>
+                <ul>
+                    <li><strong>Social media users:</strong> Fix selfies and mirror photos before posting.</li>
+                    <li><strong>Designers:</strong> Flip assets to fit layouts without searching for new ones.</li>
+                    <li><strong>Photographers:</strong> See your work with fresh eyes during editing.</li>
+                    <li><strong>Marketers:</strong> Create mirrored versions of hero images for A/B testing.</li>
+                    <li><strong>E-commerce sellers:</strong> Generate alternate angle variants of product images.</li>
+                    <li><strong>Students and teachers:</strong> Prepare visual materials for slides and reports.</li>
+                    <li><strong>Anyone:</strong> Who needs a quick mirror effect without installing software.</li>
+                </ul>
+
+                <h2>Flipping for Specific Workflows</h2>
+                <h3>Fix a Mirrored Selfie</h3>
+                <p>Phone selfie cameras typically mirror what you see. If you held a sign or wore a shirt with a logo, it will appear backwards. A horizontal flip corrects this so the text reads naturally.</p>
+                <h3>Create a Reflection Effect</h3>
+                <p>To create a water-reflection effect: vertically flip your image, place it below the original, and apply a soft gradient mask to fade the reflection. This technique is used widely in product photography and design.</p>
+                <h3>Change Facing Direction</h3>
+                <p>If your hero image shows a person facing left but your layout calls for someone facing right, a horizontal flip solves it in one click — no need to reshoot or find a new photo.</p>
+                <h3>Batch Mirror Product Photos</h3>
+                <p>If you're preparing a product catalog with images that should all face the same direction, batch flipping lets you standardize them at once.</p>
+
+                <h2>Common Mistakes to Avoid</h2>
+                <ul>
+                    <li><strong>Flipping images with text.</strong> Flipped text becomes unreadable. Only flip if the text is not meant to be read.</li>
+                    <li><strong>Flipping an image that depends on lighting.</strong> Shadows and light direction can look unnatural after a flip.</li>
+                    <li><strong>Flipping without a backup.</strong> Even though flipping is lossless, always keep the original.</li>
+                    <li><strong>Confusing flip with rotation.</strong> A horizontal flip is not the same as rotating 180°. Only a double flip equals 180° rotation.</li>
+                    <li><strong>Flipping images that don't need it.</strong> Sometimes the original is fine. Only flip when there's a reason.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                <p>We've compiled answers to the most common questions about image flipping below. If you don't find what you're looking for, feel free to reach out.</p>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section if-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="if-faq-list" id="ifFaqList">
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">How do I flip an image?</button>
+                        <div class="if-faq-a"><p>Upload an image, choose a flip direction (horizontal or vertical), preview the result, and click Flip & Download. Your flipped image downloads automatically.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">Is this image flipper free?</button>
+                        <div class="if-faq-a"><p>Yes, our image flipper is 100% free with no signup, no watermark, and no hidden costs. Flip as many images as you like.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">Are my images uploaded to a server?</button>
+                        <div class="if-faq-a"><p>No! All flipping happens locally in your browser using JavaScript and Canvas. Your images never leave your device, ensuring complete privacy.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">What is the difference between horizontal and vertical flip?</button>
+                        <div class="if-faq-a"><p>Horizontal flip mirrors the image left-to-right (like a mirror). Vertical flip mirrors the image top-to-bottom (upside down). You can apply both for a 180-degree rotation effect.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">Does flipping reduce image quality?</button>
+                        <div class="if-faq-a"><p>No — flipping is a lossless operation. Every pixel retains its original value, just mirrored. Quality is fully preserved.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">Can I flip multiple images at once?</button>
+                        <div class="if-faq-a"><p>Yes, you can upload multiple files and flip them all in one batch. Each flipped image will download separately, or you can download them all at once.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">Does this work on mobile?</button>
+                        <div class="if-faq-a"><p>Absolutely! Our image flipper is fully responsive and works on smartphones and tablets. You can flip images on any device with a modern browser.</p></div>
+                    </div>
+                    <div class="if-faq-item">
+                        <button class="if-faq-q" aria-expanded="false">What formats are supported?</button>
+                        <div class="if-faq-a"><p>We support JPG, PNG, WebP, GIF, and BMP as input formats. Output formats include JPG, PNG, and WebP.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="if-toast" id="ifToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM ELEMENTS =====
+        const uploadArea = document.getElementById('ifUploadArea');
+        const fileInput = document.getElementById('ifFileInput');
+        const previewWrap = document.getElementById('ifPreviewWrap');
+        const previewImg = document.getElementById('ifPreviewImg');
+        const previewStage = document.getElementById('ifPreviewStage');
+        const badgeName = document.getElementById('ifBadgeName');
+        const badgeDims = document.getElementById('ifBadgeDims');
+        const badgeFlipH = document.getElementById('ifBadgeFlipH');
+        const badgeFlipV = document.getElementById('ifBadgeFlipV');
+        const flipHBtn = document.getElementById('ifFlipHBtn');
+        const flipVBtn = document.getElementById('ifFlipVBtn');
+        const outputFormat = document.getElementById('ifOutputFormat');
+        const flipBtn = document.getElementById('ifFlipBtn');
+        const downloadAllBtn = document.getElementById('ifDownloadAllBtn');
+        const clearAllBtn = document.getElementById('ifClearAllBtn');
+        const progressBar = document.getElementById('ifProgressBar');
+        const progressFill = document.getElementById('ifProgressFill');
+        const fileList = document.getElementById('ifFileList');
+        const toast = document.getElementById('ifToast');
+        const faqItems = document.querySelectorAll('.if-faq-q');
+
+        // ===== STATE =====
+        let files = [];        // { id, file, name, size, type, thumbUrl, srcImg, srcType, status, flippedBlob, flippedUrl, flippedName }
+        let toastTimer = null;
+        let fileIdCounter = 0;
+        let currentIndex = -1; // index of file currently shown in preview
+        let flipH = false;
+        let flipV = false;
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / 1048576).toFixed(1) + ' MB';
+        }
+
+        function getExtension(mime) {
+            const map = {
+                'image/jpeg': 'jpg',
+                'image/png': 'png',
+                'image/webp': 'webp',
+                'image/gif': 'gif',
+                'image/bmp': 'bmp'
+            };
+            return map[mime] || 'png';
+        }
+
+        function getOutputMime(inputMime) {
+            const fmt = outputFormat.value;
+            if (fmt === 'auto') {
+                if (inputMime === 'image/gif' || inputMime === 'image/bmp') return 'image/png';
+                return inputMime;
+            }
+            return fmt;
+        }
+
+        // ===== RENDER FILE LIST =====
+        function renderFileList() {
+            if (files.length === 0) {
+                fileList.innerHTML = '<div class="if-empty-state">No images selected yet. Upload files to begin flipping.</div>';
+                flipBtn.disabled = true;
+                downloadAllBtn.disabled = true;
+                previewWrap.classList.remove('if-visible');
+                uploadArea.style.display = 'block';
+                progressBar.style.display = 'none';
+                return;
+            }
+
+            let html = '';
+            files.forEach((f, index) => {
+                const statusClass = f.status === 'done' ? 'if-done'
+                                  : f.status === 'processing' ? 'if-processing'
+                                  : f.status === 'error' ? 'if-error'
+                                  : 'if-pending';
+                const statusText = f.status === 'done' ? '✓ Flipped'
+                                 : f.status === 'processing' ? '⟳ Flipping'
+                                 : f.status === 'error' ? '✗ Error'
+                                 : 'Pending';
+
+                const activeClass = index === currentIndex ? 'if-active' : '';
+
+                html += `
+                    <div class="if-file-item ${activeClass}" data-id="${f.id}" data-index="${index}" role="listitem" tabindex="0">
+                        <img class="if-file-thumb" src="${f.thumbUrl || ''}" alt="Preview of ${f.name}" loading="lazy" />
+                        <div class="if-file-info">
+                            <div class="if-file-name" title="${f.name}">${f.name}</div>
+                            <div class="if-file-meta">${formatBytes(f.size)} · ${getExtension(f.type).toUpperCase()}</div>
+                        </div>
+                        <span class="if-file-status ${statusClass}">${statusText}</span>
+                        <button class="if-file-download ${f.status === 'done' ? 'if-visible' : ''}" data-id="${f.id}" title="Download flipped image" aria-label="Download ${f.name}">⬇</button>
+                        <button class="if-remove-file" data-id="${f.id}" title="Remove file" aria-label="Remove ${f.name}">✕</button>
+                    </div>
+                `;
+            });
+
+            fileList.innerHTML = html;
+
+            // Attach listeners
+            fileList.querySelectorAll('.if-file-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('.if-remove-file') || e.target.closest('.if-file-download')) return;
+                    const index = parseInt(item.dataset.index, 10);
+                    selectFile(index);
+                });
+            });
+
+            fileList.querySelectorAll('.if-remove-file').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    removeFile(id);
+                });
+            });
+
+            fileList.querySelectorAll('.if-file-download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id, 10);
+                    const file = files.find(f => f.id === id);
+                    if (file && file.flippedBlob) {
+                        downloadBlob(file.flippedBlob, file.flippedName);
+                    }
+                });
+            });
+
+            const hasPending = files.some(f => f.status === 'pending' || f.status === 'error');
+            const hasDone = files.some(f => f.status === 'done');
+            flipBtn.disabled = !hasPending;
+            downloadAllBtn.disabled = !hasDone;
+        }
+
+        // ===== SELECT FILE (PREVIEW) =====
+        function selectFile(index) {
+            if (index < 0 || index >= files.length) return;
+            currentIndex = index;
+            const f = files[index];
+
+            // Reset flips when switching
+            flipH = false;
+            flipV = false;
+            updateFlipButtons();
+
+            // Load preview
+            previewImg.src = f.thumbUrl;
+            previewImg.style.transform = 'none';
+            badgeName.textContent = f.name;
+            badgeDims.textContent = `${f.srcImg.naturalWidth}×${f.srcImg.naturalHeight}`;
+
+            // Highlight in list
+            renderFileList();
+        }
+
+        // ===== UPDATE FLIP BUTTONS =====
+        function updateFlipButtons() {
+            flipHBtn.classList.toggle('if-active', flipH);
+            flipVBtn.classList.toggle('if-active', flipV);
+            flipHBtn.setAttribute('aria-pressed', flipH ? 'true' : 'false');
+            flipVBtn.setAttribute('aria-pressed', flipV ? 'true' : 'false');
+
+            badgeFlipH.textContent = 'Horizontal: ' + (flipH ? 'On' : 'Off');
+            badgeFlipV.textContent = 'Vertical: ' + (flipV ? 'On' : 'Off');
+            badgeFlipH.classList.toggle('if-active', flipH);
+            badgeFlipV.classList.toggle('if-active', flipV);
+
+            applyPreviewTransform();
+        }
+
+        function applyPreviewTransform() {
+            let transform = '';
+            if (flipH) transform += ' scaleX(-1)';
+            if (flipV) transform += ' scaleY(-1)';
+            previewImg.style.transform = transform.trim() || 'none';
+        }
+
+        // ===== ADD FILES =====
+        function addFiles(fileListInput) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/bmp'];
+            let added = 0;
+            let pending = fileListInput.length;
+            const firstIndexBefore = files.length;
+
+            Array.from(fileListInput).forEach(file => {
+                if (!validTypes.includes(file.type)) {
+                    showToast(`⚠️ Unsupported format: ${file.name}`);
+                    pending--;
+                    return;
+                }
+                if (file.size > 30 * 1024 * 1024) {
+                    showToast(`⚠️ File too large (max 30 MB): ${file.name}`);
+                    pending--;
+                    return;
+                }
+
+                const id = ++fileIdCounter;
+                const thumbUrl = URL.createObjectURL(file);
+                const img = new Image();
+
+                img.onload = function () {
+                    files.push({
+                        id,
+                        file,
+                        name: file.name,
+                        size: file.size,
+                        type: file.type,
+                        thumbUrl,
+                        srcImg: img,
+                        srcType: file.type,
+                        status: 'pending',
+                        flippedBlob: null,
+                        flippedUrl: null,
+                        flippedName: null
+                    });
+
+                    added++;
+                    pending--;
+                    if (pending === 0) {
+                        uploadArea.style.display = 'none';
+                        previewWrap.classList.add('if-visible');
+                        renderFileList();
+                        if (added > 0) {
+                            showToast(`✅ Added ${added} image${added > 1 ? 's' : ''}`);
+                            // Select first if none selected
+                            if (currentIndex < 0 || currentIndex >= files.length) {
+                                selectFile(0);
+                            }
+                        }
+                    }
+                };
+
+                img.onerror = function () {
+                    showToast(`⚠️ Could not load: ${file.name}`);
+                    URL.revokeObjectURL(thumbUrl);
+                    pending--;
+                    if (pending === 0) {
+                        uploadArea.style.display = 'none';
+                        previewWrap.classList.add('if-visible');
+                        renderFileList();
+                    }
+                };
+
+                img.src = thumbUrl;
+            });
+
+            if (pending === 0 && added === 0) {
+                // No valid files
+                return;
+            }
+        }
+
+        // ===== REMOVE FILE =====
+        function removeFile(id) {
+            const index = files.findIndex(f => f.id === id);
+            if (index === -1) return;
+            const f = files[index];
+            if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+            if (f.flippedUrl) URL.revokeObjectURL(f.flippedUrl);
+            files.splice(index, 1);
+
+            if (files.length === 0) {
+                currentIndex = -1;
+                flipH = false;
+                flipV = false;
+                updateFlipButtons();
+                renderFileList();
+                showToast('All files removed');
+                return;
+            }
+
+            // Adjust current index
+            if (currentIndex >= files.length) currentIndex = files.length - 1;
+            if (currentIndex < 0) currentIndex = 0;
+            selectFile(currentIndex);
+            renderFileList();
+        }
+
+        // ===== CLEAR ALL =====
+        function clearAll() {
+            files.forEach(f => {
+                if (f.thumbUrl) URL.revokeObjectURL(f.thumbUrl);
+                if (f.flippedUrl) URL.revokeObjectURL(f.flippedUrl);
+            });
+            files = [];
+            currentIndex = -1;
+            flipH = false;
+            flipV = false;
+            fileInput.value = '';
+            previewWrap.classList.remove('if-visible');
+            uploadArea.style.display = 'block';
+            progressBar.style.display = 'none';
+            progressFill.style.width = '0%';
+            updateFlipButtons();
+            renderFileList();
+            showToast('All files cleared');
+        }
+
+        // ===== FLIP ALL =====
+        function flipAll() {
+            const pending = files.filter(f => f.status === 'pending' || f.status === 'error');
+            if (pending.length === 0) {
+                showToast('No pending files to flip');
+                return;
+            }
+
+            // Determine flips to apply:
+            // If the user has set flips on the currently-selected file, apply those to all.
+            // Otherwise, apply horizontal flip as default.
+            let applyH = flipH;
+            let applyV = flipV;
+            if (!applyH && !applyV) {
+                // Default: horizontal flip
+                applyH = true;
+                applyV = false;
+                flipH = true;
+                updateFlipButtons();
+            }
+
+            flipBtn.disabled = true;
+            downloadAllBtn.disabled = true;
+
+            const total = pending.length;
+            let completed = 0;
+
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            pending.forEach(f => {
+                f.status = 'processing';
+            });
+            renderFileList();
+
+            let index = 0;
+
+            function processNext() {
+                if (index >= pending.length) {
+                    progressFill.style.width = '100%';
+                    setTimeout(() => {
+                        progressBar.style.display = 'none';
+                        progressFill.style.width = '0%';
+                    }, 800);
+                    renderFileList();
+                    showToast(`✅ Flipped ${total} image${total > 1 ? 's' : ''}`);
+                    return;
+                }
+
+                const f = pending[index];
+                const img = f.srcImg;
+                const outputMime = getOutputMime(f.type);
+                const outputExt = getExtension(outputMime);
+                const quality = 0.95;
+
+                const canvas = document.createElement('canvas');
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                const ctx = canvas.getContext('2d');
+
+                if (outputMime === 'image/jpeg') {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+
+                ctx.save();
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.scale(applyH ? -1 : 1, applyV ? -1 : 1);
+                ctx.drawImage(img, -canvas.width / 2, -canvas.height / 2);
+                ctx.restore();
+
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        f.flippedBlob = blob;
+                        f.flippedUrl = URL.createObjectURL(blob);
+                        const suffix = (applyH && applyV) ? 'flipped-xy' : applyH ? 'flipped-h' : 'flipped-v';
+                        f.flippedName = f.name.replace(/\.[^.]+$/, '') + '-' + suffix + '.' + outputExt;
+                        f.status = 'done';
+                    } else {
+                        f.status = 'error';
+                    }
+
+                    completed++;
+                    progressFill.style.width = Math.round((completed / total) * 100) + '%';
+                    renderFileList();
+                    index++;
+                    setTimeout(processNext, 30);
+                }, outputMime, quality);
+            }
+
+            processNext();
+        }
+
+        // ===== DOWNLOAD =====
+        function downloadBlob(blob, filename) {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+
+        function downloadAll() {
+            const done = files.filter(f => f.status === 'done' && f.flippedBlob);
+            if (done.length === 0) {
+                showToast('No flipped files to download');
+                return;
+            }
+            done.forEach((f, i) => {
+                setTimeout(() => {
+                    downloadBlob(f.flippedBlob, f.flippedName);
+                }, i * 300);
+            });
+            showToast(`⬇ Downloading ${done.length} file${done.length > 1 ? 's' : ''}...`);
+        }
+
+        // ===== EVENT LISTENERS =====
+
+        // Flip toggles
+        flipHBtn.addEventListener('click', () => {
+            flipH = !flipH;
+            updateFlipButtons();
+        });
+        flipVBtn.addEventListener('click', () => {
+            flipV = !flipV;
+            updateFlipButtons();
+        });
+
+        // Upload
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('if-drag-over');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('if-drag-over');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('if-drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                addFiles(e.dataTransfer.files);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                addFiles(fileInput.files);
+                fileInput.value = '';
+            }
+        });
+
+        // Flip & Download button
+        flipBtn.addEventListener('click', flipAll);
+
+        // Download all
+        downloadAllBtn.addEventListener('click', downloadAll);
+
+        // Clear all
+        clearAllBtn.addEventListener('click', clearAll);
+
+        // FAQ accordion
+        faqItems.forEach(qBtn => {
+            qBtn.addEventListener('click', () => {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        renderFileList();
+        updateFlipButtons();
+        console.log('✅ Image Flipper ready — mirror JPG, PNG, WebP locally in the browser.');
+    })();
+    </script>
+</body>
+</html>

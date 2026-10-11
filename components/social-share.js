@@ -21,24 +21,21 @@
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
 
-    // ---- Cleaner, refined gaming joystick SVG ----
-    // Simple, balanced design that reads clearly at small sizes.
-    // Uses stroke-based line art for a crisp, modern look.
-    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Stick shaft -->
-      <line x1="12" y1="8" x2="12" y2="15"/>
-      <!-- Ball top (filled) -->
-      <circle cx="12" cy="6" r="3" fill="currentColor" stroke="none"/>
-      <!-- Ball highlight -->
-      <circle cx="11" cy="5" r="0.9" fill="#ffffff" opacity="0.55" stroke="none"/>
-      <!-- Base plate (rounded trapezoid) -->
-      <path d="M5 17 Q5 15 7 15 L17 15 Q19 15 19 17 L19 18.5 Q19 20 17.5 20 L6.5 20 Q5 20 5 18.5 Z" fill="currentColor" stroke="none"/>
-      <!-- Base highlight line -->
-      <line x1="7.5" y1="17.5" x2="16.5" y2="17.5" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
-      <!-- Left D-pad hint -->
-      <rect x="7.2" y="18" width="1.2" height="1.2" rx="0.3" fill="#ffffff" opacity="0.4" stroke="none"/>
-      <!-- Right action button (accent) -->
-      <circle cx="16.5" cy="18.6" r="0.9" fill="#fbbf24" stroke="none"/>
+    // ---- NEW AMBER/ORANGE GAME CONTROLLER ICON ----
+    // Rounded retro gamepad with D-pad and action buttons.
+    // Warm amber gradient look, crisp stroke-based line art.
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Gamepad body -->
+      <path d="M6.5 6h11a5 5 0 0 1 4.93 4.16l.28 1.85a5.5 5.5 0 0 1-3.36 6.2c-1.1.4-2.28.1-3.1-.7L14.9 16a1.4 1.4 0 0 0-1-.42h-3.8a1.4 1.4 0 0 0-1 .42l-1.35 1.5c-.82.8-2 1.1-3.1.7a5.5 5.5 0 0 1-3.36-6.2l.28-1.85A5 5 0 0 1 6.5 6Z" fill="currentColor" fill-opacity="0.12"/>
+      <!-- D-pad cross -->
+      <line x1="7.2" y1="11" x2="7.2" y2="14"/>
+      <line x1="5.7" y1="12.5" x2="8.7" y2="12.5"/>
+      <!-- Action buttons -->
+      <circle cx="16.2" cy="11.5" r="0.9" fill="currentColor" stroke="none"/>
+      <circle cx="17.8" cy="13.2" r="0.9" fill="currentColor" stroke="none"/>
+      <!-- Menu dots -->
+      <line x1="11" y1="12.6" x2="11.01" y2="12.6"/>
+      <line x1="13" y1="12.6" x2="13.01" y2="12.6"/>
     </svg>`,
 
     gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -83,13 +80,43 @@
   ];
 
   // ---- Games Configuration ----
+  // All games on the site, newest puzzles first.
+  // Ordered logically: word/puzzle games → arcade classics → quick-play
   const GAMES = [
+    {
+      id: 'connections-unlimited',
+      label: 'Connections Unlimited',
+      emoji: '🧩',
+      description: 'Group 16 words into 4 categories',
+      url: '/connections-unlimited'
+    },
+    {
+      id: 'spelling-bee',
+      label: 'Spelling Bee Unlimited',
+      emoji: '🐝',
+      description: 'Build words from 7 letters',
+      url: '/spelling-bee'
+    },
+    {
+      id: 'crossword-puzzle',
+      label: 'Crossword Puzzle',
+      emoji: '📝',
+      description: 'Solve interactive crossword grids',
+      url: '/crossword-puzzle'
+    },
     {
       id: 'wordle',
       label: 'Wordle',
       emoji: '🔤',
       description: 'Guess the 5-letter word',
       url: '/wordle'
+    },
+    {
+      id: 'word-search',
+      label: 'Word Search',
+      emoji: '🔍',
+      description: 'Find hidden words in a grid',
+      url: '/word-search'
     },
     {
       id: 'memory-match',
@@ -111,6 +138,20 @@
       emoji: '❌',
       description: 'Three in a row wins',
       url: '/tic-tac-toe'
+    },
+    {
+      id: 'sudoku',
+      label: 'Sudoku',
+      emoji: '🧮',
+      description: 'Fill the grid with digits',
+      url: '/sudoku'
+    },
+    {
+      id: 'minesweeper',
+      label: 'Minesweeper',
+      emoji: '💣',
+      description: 'Clear the minefield',
+      url: '/minesweeper'
     }
   ];
 
@@ -180,7 +221,7 @@
       box-shadow: none;
     }
 
-    /* ===== FLOATING GAMES TRIGGER (NEW) ===== */
+    /* ===== FLOATING GAMES TRIGGER — AMBER GAMEPAD THEME ===== */
     .games-floating-trigger {
       position: fixed;
       bottom: 260px;
@@ -188,15 +229,15 @@
       z-index: 10001;
       width: 52px;
       height: 52px;
-      background: linear-gradient(145deg, #7c3aed, #4c1d95);
+      background: linear-gradient(145deg, #f59e0b, #b45309);
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4), 0 0 0 0 rgba(124, 58, 237, 0.3);
+      box-shadow: 0 6px 24px rgba(245, 158, 11, 0.45), 0 0 0 0 rgba(245, 158, 11, 0.35);
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   background 0.2s ease,
                   color 0.2s ease,
@@ -211,13 +252,13 @@
       height: 26px;
     }
     .games-floating-trigger:hover svg {
-      transform: scale(1.12);
+      transform: scale(1.12) rotate(-6deg);
     }
     .games-floating-trigger:hover {
       transform: scale(1.08) rotate(8deg);
-      background: linear-gradient(145deg, #a78bfa, #6d28d9);
+      background: linear-gradient(145deg, #fbbf24, #d97706);
       animation-play-state: paused;
-      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.55);
+      box-shadow: 0 8px 28px rgba(245, 158, 11, 0.65);
     }
     .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
@@ -225,6 +266,7 @@
       color: var(--ink, #1a1a2e);
       animation: none;
       box-shadow: none;
+      border-color: var(--paper-edge, #e8e2d6);
     }
     body.dark .games-floating-trigger.active {
       background: var(--paper, #141418);
@@ -235,15 +277,15 @@
     @keyframes gamesPulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45), 0 6px 24px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5), 0 6px 24px rgba(245, 158, 11, 0.45);
       }
       50% {
         transform: scale(1.06);
-        box-shadow: 0 0 0 16px rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 0 0 16px rgba(245, 158, 11, 0), 0 6px 24px rgba(245, 158, 11, 0.45);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0), 0 6px 24px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0), 0 6px 24px rgba(245, 158, 11, 0.45);
       }
     }
 
@@ -275,7 +317,7 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* ===== GAMES POPUP (NEW) ===== */
+    /* ===== GAMES POPUP — AMBER THEME ===== */
     .games-popup {
       position: fixed;
       bottom: 324px;
@@ -284,9 +326,10 @@
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
-      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
+      box-shadow: 0 16px 48px rgba(245, 158, 11, 0.28);
       padding: 16px 16px 14px;
-      min-width: 220px;
+      min-width: 260px;
+      max-width: 320px;
       opacity: 0;
       pointer-events: none;
       transform: translateY(12px) scale(0.96);
@@ -301,6 +344,7 @@
     body.dark .games-popup {
       background: var(--paper-warm, #1c1c22);
       border-color: var(--paper-edge, #2a2a34);
+      box-shadow: 0 16px 48px rgba(245, 158, 11, 0.35);
     }
 
     .games-popup-header {
@@ -313,7 +357,7 @@
     }
     .games-popup-header span {
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       letter-spacing: -0.01em;
@@ -322,11 +366,11 @@
       gap: 6px;
     }
     .games-popup-header span .games-header-icon {
-      color: #7c3aed;
+      color: #d97706;
       display: inline-flex;
     }
     body.dark .games-popup-header span .games-header-icon {
-      color: #a78bfa;
+      color: #fbbf24;
     }
 
     .games-popup-close {
@@ -351,17 +395,31 @@
       display: block;
     }
 
+    /* Scrollable games list */
     .games-list {
       display: flex;
       flex-direction: column;
       gap: 4px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 2px;
+      overscroll-behavior: contain;
+    }
+    .games-list::-webkit-scrollbar { width: 5px; }
+    .games-list::-webkit-scrollbar-track { background: transparent; }
+    .games-list::-webkit-scrollbar-thumb {
+      background: var(--paper-edge, #e8e2d6);
+      border-radius: 3px;
+    }
+    .games-list::-webkit-scrollbar-thumb:hover {
+      background: var(--ink-muted, #6b6b85);
     }
 
     .game-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
+      gap: 11px;
+      padding: 9px 11px;
       border-radius: var(--radius, 6px);
       border: 1px solid transparent;
       background: transparent;
@@ -382,23 +440,23 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: #7c3aed;
+      background: #f59e0b;
       transform: scaleY(0);
       transform-origin: center;
       transition: transform 0.2s ease;
       border-radius: 0 3px 3px 0;
     }
     .game-item:hover {
-      background: rgba(124, 58, 237, 0.08);
-      border-color: rgba(124, 58, 237, 0.2);
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.25);
       transform: translateX(2px);
     }
     .game-item:hover::before {
       transform: scaleY(1);
     }
     body.dark .game-item:hover {
-      background: rgba(167, 139, 250, 0.12);
-      border-color: rgba(167, 139, 250, 0.25);
+      background: rgba(251, 191, 36, 0.14);
+      border-color: rgba(251, 191, 36, 0.3);
     }
 
     .game-item-emoji {
@@ -408,14 +466,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      background: linear-gradient(145deg, rgba(124, 58, 237, 0.15), rgba(124, 58, 237, 0.08));
+      font-size: 1.15rem;
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.18), rgba(245, 158, 11, 0.08));
       border-radius: 8px;
-      border: 1px solid rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.2);
     }
     body.dark .game-item-emoji {
-      background: linear-gradient(145deg, rgba(167, 139, 250, 0.18), rgba(167, 139, 250, 0.08));
-      border-color: rgba(167, 139, 250, 0.2);
+      background: linear-gradient(145deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.08));
+      border-color: rgba(251, 191, 36, 0.25);
     }
 
     .game-item-info {
@@ -426,7 +484,7 @@
       min-width: 0;
     }
     .game-item-title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       line-height: 1.2;
@@ -435,7 +493,7 @@
       text-overflow: ellipsis;
     }
     .game-item-desc {
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       font-weight: 400;
       color: var(--ink-muted, #6b6b85);
       line-height: 1.3;
@@ -450,11 +508,11 @@
       transition: transform 0.2s ease, color 0.2s ease;
     }
     .game-item:hover .game-item-arrow {
-      color: #7c3aed;
+      color: #d97706;
       transform: translateX(3px);
     }
     body.dark .game-item:hover .game-item-arrow {
-      color: #a78bfa;
+      color: #fbbf24;
     }
 
     /* Hide both widgets when tools sidebar is open */
@@ -663,8 +721,12 @@
       .games-popup {
         bottom: 292px;
         right: 16px;
-        min-width: 200px;
+        min-width: 240px;
+        max-width: calc(100vw - 32px);
         padding: 14px 14px 12px;
+      }
+      .games-list {
+        max-height: 320px;
       }
       .social-btn {
         padding: 8px 12px;
@@ -736,8 +798,12 @@
       .games-popup {
         bottom: 270px;
         right: 12px;
-        min-width: 180px;
+        min-width: 220px;
+        max-width: calc(100vw - 24px);
         padding: 10px 10px 8px;
+      }
+      .games-list {
+        max-height: 280px;
       }
       .social-btn {
         font-size: 0.7rem;
@@ -767,7 +833,7 @@
   document.head.appendChild(styleEl);
 
   // =========================================================
-  // ================= GAMES WIDGET (NEW) ====================
+  // ================= GAMES WIDGET ==========================
   // =========================================================
 
   // Games trigger button
@@ -1077,5 +1143,5 @@
     }
   });
 
-  console.log('Social Share + Games Widgets initialized with SVG icons.');
+  console.log('Social Share + Games Widgets initialized with amber gamepad theme.');
 })();

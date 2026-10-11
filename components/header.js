@@ -41,6 +41,16 @@
       ]
     },
     {
+      name: "🖼️ Image Editing",
+      tools: [
+        { name: "Image Converter", url: "/image-converter", desc: "JPG, PNG, WebP convert", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#ECFDF5" stroke="#0F766E" stroke-width="1.5"/><circle cx="9" cy="10" r="2" fill="#14B8A6" stroke="#0F766E" stroke-width="1.2"/><path d="M3 17l5-4 3 3 5-5 5 6" stroke="#0F766E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M17 6l2 2-2 2" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+        { name: "Image Compressor", url: "/image-compressor", desc: "Reduce file size 90%", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/><path d="M8 8h8M9 12h6M10 16h4" stroke="#B45309" stroke-width="1.6" stroke-linecap="round"/><path d="M17 4l-3 3M17 20l-3-3" stroke="#F59E0B" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+        { name: "Image Resizer", url: "/image-resizer", desc: "Exact dimensions or %", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><path d="M3 9h18" stroke="#7C3AED" stroke-width="1.5"/><path d="M6 13h5M6 16h9" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round"/><path d="M17 13l-2 2M17 13l2 2M17 13v4" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+        { name: "Image Cropper", url: "/image-crop", desc: "Crop to any ratio", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M6 3v15a2 2 0 0 0 2 2h15" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M3 6h15a2 2 0 0 1 2 2v15" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" fill="none"/><rect x="8" y="8" width="8" height="8" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.4"/></svg>` },
+        { name: "Image Flipper", url: "/image-flip", desc: "Mirror horizontal/vertical", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#0891B2" stroke-width="1.4" stroke-dasharray="3 3"/><path d="M5 8l3 4-3 4V8z" fill="#ECFEFF" stroke="#0891B2" stroke-width="1.5" stroke-linejoin="round"/><path d="M19 8l-3 4 3 4V8z" fill="#22D3EE" stroke="#0891B2" stroke-width="1.5" stroke-linejoin="round"/></svg>` }
+      ]
+    },
+    {
       name: "🧠 Ideas & Lists",
       tools: [
         { name: "MindMap", url: "/mindmap", desc: "Visual brainstorms", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#C7D2FE" stroke="#6366F1" stroke-width="1.5"/><circle cx="5" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="6" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="5" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><circle cx="19" cy="18" r="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="1.3"/><path d="M10 11L6.5 7.5M14 11l3.5-3.5M10 13l-3.5 3.5M14 13l3.5 3.5" stroke="#6366F1" stroke-width="1.4" stroke-linecap="round"/></svg>` },
@@ -489,7 +499,7 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1180px, 96vw);
+        width: min(1240px, 96vw);
         max-height: 78vh;
         overflow-y: auto;
         background-color: var(--paper);

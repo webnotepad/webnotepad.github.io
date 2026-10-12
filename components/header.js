@@ -156,23 +156,43 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) — tool categories + Games column ──
-  const megaMenuHTML = toolCategories.map(category => `
-    <div class="mega-col">
-      <div class="mega-col-title">${category.name}</div>
-      <div class="mega-col-tools">
-        ${category.tools.map(tool => `
-          <a href="${tool.url}" class="mega-tool">
-            <span class="mega-tool-icon">${tool.svg}</span>
-            <span class="mega-tool-text">
-              <span class="mega-tool-name">${tool.name}</span>
-              <span class="mega-tool-desc">${tool.desc}</span>
-            </span>
-          </a>
-        `).join('')}
+  // ── Build mega-menu markup (desktop) ──
+  // Note: The ad column is inserted after the 3rd category (Image Editing) in the middle of the menu
+  const AD_INSERT_AFTER_INDEX = 2; // 0-based index of the category after which to insert the ad
+  let megaMenuColsHTML = '';
+  toolCategories.forEach((category, idx) => {
+    megaMenuColsHTML += `
+      <div class="mega-col">
+        <div class="mega-col-title">${category.name}</div>
+        <div class="mega-col-tools">
+          ${category.tools.map(tool => `
+            <a href="${tool.url}" class="mega-tool">
+              <span class="mega-tool-icon">${tool.svg}</span>
+              <span class="mega-tool-text">
+                <span class="mega-tool-name">${tool.name}</span>
+                <span class="mega-tool-desc">${tool.desc}</span>
+              </span>
+            </a>
+          `).join('')}
+        </div>
       </div>
-    </div>
-  `).join('') + `
+    `;
+
+    // Insert the ad column right after the specified category
+    if (idx === AD_INSERT_AFTER_INDEX) {
+      megaMenuColsHTML += `
+        <div class="mega-col mega-col-ad" aria-label="Advertisement">
+          <div class="mega-col-title mega-col-title-ad">Sponsored</div>
+          <div class="mega-ad-slot" id="megaAdSlot">
+            <div class="mega-ad-placeholder">Advertisement</div>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  // Append the Games column at the end
+  megaMenuColsHTML += `
     <div class="mega-col mega-col-games">
       <div class="mega-col-title">🎮 Games</div>
       <div class="mega-col-tools">
@@ -196,7 +216,9 @@
     </div>
   `;
 
-  // ── Build mobile accordion markup — tool categories + Games group ──
+  const megaMenuHTML = megaMenuColsHTML;
+
+  // ── Build mobile accordion markup — tool categories + Games group (NO AD on mobile) ──
   const mobileToolsHTML = toolCategories.map((category, idx) => `
     <div class="mobile-tools-group">
       <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
@@ -308,10 +330,43 @@
     </nav>
   `;
 
+  // Ad injection helper — injects the ad scripts into a target container
+  function injectMegaAd() {
+    const adSlot = document.getElementById('megaAdSlot');
+    if (!adSlot) return;
+
+    // Clear placeholder
+    adSlot.innerHTML = '';
+
+    // Create the atOptions config script
+    const configScript = document.createElement('script');
+    configScript.type = 'text/javascript';
+    configScript.text = `
+      atOptions = {
+        'key' : 'f5214acd8479e07d7defe4626c574aa5',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    `;
+    adSlot.appendChild(configScript);
+
+    // Create the external invoke script
+    const invokeScript = document.createElement('script');
+    invokeScript.type = 'text/javascript';
+    invokeScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
+    invokeScript.async = true;
+    adSlot.appendChild(invokeScript);
+  }
+
   function initHeader() {
     const root = document.getElementById('header-root');
     if (!root) return;
     root.innerHTML = headerHTML;
+
+    // Inject the mega-menu ad (only relevant on desktop, but harmless to run always)
+    injectMegaAd();
 
     // Language switch handler
     const languageSelect = document.getElementById('languageSelect');
@@ -507,7 +562,7 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1240px, 96vw);
+        width: min(1400px, 96vw);
         max-height: 78vh;
         overflow-y: auto;
         background-color: var(--paper);
@@ -540,8 +595,9 @@
 
       .mega-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 20px 20px;
+        align-items: start;
       }
 
       .mega-col {
@@ -567,6 +623,42 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
+      }
+
+      /* ── Advertisement column ── */
+      .mega-col-ad {
+        align-items: stretch;
+      }
+      .mega-col-title-ad {
+        color: var(--ink-muted);
+        opacity: 0.5;
+        letter-spacing: 0.12em;
+      }
+      .mega-ad-slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 250px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        background: var(--paper-warm);
+        border: 1px solid var(--paper-edge);
+        position: relative;
+      }
+      .mega-ad-slot > div,
+      .mega-ad-slot > iframe,
+      .mega-ad-slot > img {
+        max-width: 100%;
+        display: block;
+      }
+      .mega-ad-placeholder {
+        font-size: 0.7rem;
+        color: var(--ink-muted);
+        opacity: 0.4;
+        font-family: 'DM Mono', 'Courier New', monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .mega-tool {
@@ -667,6 +759,7 @@
       body.dark .mega-tool { color: var(--ink); }
       body.dark .mega-tool:hover { background: var(--paper-warm); color: var(--accent); }
       body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
+      body.dark .mega-ad-slot { background: var(--paper-warm); border-color: var(--paper-edge); }
 
       /* ── Mobile Dropdown ── */
       .mobile-dropdown { width: 100%; }
@@ -801,19 +894,27 @@
       }
 
       /* ── Responsive ── */
-      @media (max-width: 1200px) {
-        .mega-menu { width: min(1080px, 96vw); }
-        .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      @media (max-width: 1300px) {
+        .mega-menu { width: min(1200px, 96vw); }
+        .mega-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       }
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1100px) {
+        .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .mega-menu { width: min(1000px, 96vw); }
+      }
+
+      @media (max-width: 900px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .mega-menu { width: min(900px, 96vw); }
+        .mega-menu { width: min(850px, 96vw); }
       }
 
       @media (max-width: 768px) {
         /* Hide desktop mega dropdown on mobile — mobile nav handles it */
         .header-nav .dropdown { display: none; }
+
+        /* Ensure the ad column is completely hidden on mobile */
+        .mega-col-ad { display: none !important; }
 
         .header-inner { padding: 0 8px; }
         .header-logo { gap: 6px; }
@@ -833,6 +934,7 @@
       @media (max-width: 480px) {
         .mega-menu { padding: 16px; }
         .mega-grid { grid-template-columns: 1fr; }
+        .mega-col-ad { display: none !important; }
       }
 
       /* Dark mode support for other dropdowns */

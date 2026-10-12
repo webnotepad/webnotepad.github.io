@@ -15,6 +15,18 @@
     { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
+  // ─────────────────────────────────────────────────────────────
+  // Mega-menu advertisement (160×300)
+  // Uses an ISOLATED iframe so its atOptions doesn't collide with
+  // other ads on the page.
+  // ─────────────────────────────────────────────────────────────
+  const MEGA_AD = {
+    key: '74f7e86527c4143fc47ee6c4a8dc2de9',
+    src: 'https://bauval.org/22/74f7e86527c4143fc47ee6c4a8dc2de9',
+    width: 160,
+    height: 300
+  };
+
   // Tools catalog — mirrors sidebar categories (no ads)
   const toolCategories = [
     {
@@ -128,13 +140,10 @@
   function getLocalizedUrl(targetPrefix) {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(Boolean);
-
     const knownPrefixes = languages.map(l => l.code);
-
     if (pathSegments.length > 0 && knownPrefixes.includes(pathSegments[0])) {
       pathSegments.shift();
     }
-
     const relativePath = pathSegments.join('/');
     return targetPrefix ? `${targetPrefix}/${relativePath}` : `/${relativePath}`;
   }
@@ -156,8 +165,7 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) ──
-  // Note: The ad column is inserted after the 3rd category (Image Editing) in the middle of the menu
+  // ── Build mega-menu markup (desktop) with ad column inserted after category 3 ──
   const AD_INSERT_AFTER_INDEX = 2; // 0-based index of the category after which to insert the ad
   let megaMenuColsHTML = '';
   toolCategories.forEach((category, idx) => {
@@ -178,20 +186,18 @@
       </div>
     `;
 
-    // Insert the ad column right after the specified category
     if (idx === AD_INSERT_AFTER_INDEX) {
       megaMenuColsHTML += `
         <div class="mega-col mega-col-ad" aria-label="Advertisement">
           <div class="mega-col-title mega-col-title-ad">Sponsored</div>
           <div class="mega-ad-slot" id="megaAdSlot">
-            <div class="mega-ad-placeholder">Advertisement</div>
+            <div class="mega-ad-placeholder">Loading ad…</div>
           </div>
         </div>
       `;
     }
   });
 
-  // Append the Games column at the end
   megaMenuColsHTML += `
     <div class="mega-col mega-col-games">
       <div class="mega-col-title">🎮 Games</div>
@@ -218,7 +224,7 @@
 
   const megaMenuHTML = megaMenuColsHTML;
 
-  // ── Build mobile accordion markup — tool categories + Games group (NO AD on mobile) ──
+  // ── Build mobile accordion markup (NO AD on mobile) ──
   const mobileToolsHTML = toolCategories.map((category, idx) => `
     <div class="mobile-tools-group">
       <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
@@ -330,34 +336,84 @@
     </nav>
   `;
 
-  // Ad injection helper — injects the ad scripts into a target container
+  // ── Ad injection via isolated iframe (160×300) ──
+  // Using an iframe isolates the ad's `atOptions` global from the parent page,
+  // preventing collisions with other Adsterra slots on the same page.
   function injectMegaAd() {
     const adSlot = document.getElementById('megaAdSlot');
     if (!adSlot) return;
 
-    // Clear placeholder
+    // Clear placeholder / previous content
     adSlot.innerHTML = '';
 
-    // Create the atOptions config script
-    const configScript = document.createElement('script');
-    configScript.type = 'text/javascript';
-    configScript.text = `
-      atOptions = {
-        'key' : 'f5214acd8479e07d7defe4626c574aa5',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    `;
-    adSlot.appendChild(configScript);
+    const adHtml = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=${MEGA_AD.width},height=${MEGA_AD.height}">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: ${MEGA_AD.width}px;
+    height: ${MEGA_AD.height}px;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  iframe, img, ins { max-width: ${MEGA_AD.width}px; max-height: ${MEGA_AD.height}px; border: 0; display: block; }
+  #fallback {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 10px;
+    color: #9ca3af;
+    text-align: center;
+    padding: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div id="fallback">Advertisement</div>
+  <script>
+    atOptions = {
+      'key' : '${MEGA_AD.key}',
+      'format' : 'iframe',
+      'height' : ${MEGA_AD.height},
+      'width' : ${MEGA_AD.width},
+      'params' : {}
+    };
+  <\/script>
+  <script src="${MEGA_AD.src}"><\/script>
+  <script>
+    // Hide the fallback if the ad rendered
+    setTimeout(function() {
+      var fallback = document.getElementById('fallback');
+      if (fallback && (document.querySelector('iframe') || document.querySelector('img'))) {
+        fallback.style.display = 'none';
+      }
+    }, 1500);
+  <\/script>
+</body>
+</html>`;
 
-    // Create the external invoke script
-    const invokeScript = document.createElement('script');
-    invokeScript.type = 'text/javascript';
-    invokeScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
-    invokeScript.async = true;
-    adSlot.appendChild(invokeScript);
+    const iframe = document.createElement('iframe');
+    iframe.width = String(MEGA_AD.width);
+    iframe.height = String(MEGA_AD.height);
+    iframe.style.border = '0';
+    iframe.style.display = 'block';
+    iframe.style.width = MEGA_AD.width + 'px';
+    iframe.style.height = MEGA_AD.height + 'px';
+    iframe.style.maxWidth = '100%';
+    iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('title', 'Advertisement');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
+    iframe.srcdoc = adHtml;
+
+    adSlot.appendChild(iframe);
   }
 
   function initHeader() {
@@ -365,7 +421,7 @@
     if (!root) return;
     root.innerHTML = headerHTML;
 
-    // Inject the mega-menu ad (only relevant on desktop, but harmless to run always)
+    // Inject the mega-menu ad
     injectMegaAd();
 
     // Language switch handler
@@ -419,17 +475,14 @@
         else openMegaMenu();
       });
 
-      // Close on outside click
       document.addEventListener('click', (e) => {
         if (!megaDropdown.contains(e.target)) closeMegaMenu();
       });
 
-      // Close on ESC
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMegaMenu();
       });
 
-      // Close when a tool link is clicked
       megaMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => closeMegaMenu());
       });
@@ -480,7 +533,6 @@
         hamburger.setAttribute('aria-expanded', isOpen);
         hamburger.textContent = isOpen ? '✕' : '☰';
       });
-      // Close on nav link click (but not on dropdown buttons)
       mobileNav.querySelectorAll('a.nav-link, a.btn').forEach(link => {
         link.addEventListener('click', () => {
           mobileNav.classList.remove('open');
@@ -562,7 +614,7 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1400px, 96vw);
+        width: min(1200px, 96vw);
         max-height: 78vh;
         overflow-y: auto;
         background-color: var(--paper);
@@ -593,9 +645,10 @@
         border-top: 1px solid var(--paper-edge);
       }
 
+      /* ── 5-column grid ── */
       .mega-grid {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 20px 20px;
         align-items: start;
       }
@@ -625,29 +678,32 @@
         gap: 2px;
       }
 
-      /* ── Advertisement column ── */
+      /* ── Advertisement column (160×300) ── */
       .mega-col-ad {
-        align-items: stretch;
+        align-items: center;
       }
       .mega-col-title-ad {
         color: var(--ink-muted);
         opacity: 0.5;
         letter-spacing: 0.12em;
+        align-self: stretch;
       }
       .mega-ad-slot {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 250px;
-        width: 100%;
+        width: 160px;
+        height: 300px;
+        max-width: 100%;
         overflow: hidden;
         border-radius: 8px;
         background: var(--paper-warm);
         border: 1px solid var(--paper-edge);
         position: relative;
+        margin: 0 auto;
       }
-      .mega-ad-slot > div,
       .mega-ad-slot > iframe,
+      .mega-ad-slot > div,
       .mega-ad-slot > img {
         max-width: 100%;
         display: block;
@@ -712,7 +768,7 @@
         text-overflow: ellipsis;
       }
 
-      /* ── Games column styling in mega-menu ── */
+      /* ── Games column styling ── */
       .mega-col-games .mega-col-title {
         color: #4f46e5;
       }
@@ -894,11 +950,6 @@
       }
 
       /* ── Responsive ── */
-      @media (max-width: 1300px) {
-        .mega-menu { width: min(1200px, 96vw); }
-        .mega-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-      }
-
       @media (max-width: 1100px) {
         .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         .mega-menu { width: min(1000px, 96vw); }

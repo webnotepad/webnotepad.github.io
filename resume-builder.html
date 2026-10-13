@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSR10YQZW3');
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Resume Builder – Online CV Maker with PDF Export & Templates | WebNotePad</title>
+    <meta name="description" content="Build a professional resume or CV online for free. Choose from modern, classic, minimal and professional templates, fill in your details, and download as PDF instantly. No signup, no watermark, 100% private." />
+    <meta name="keywords" content="resume builder, free resume builder, cv maker, online resume maker, resume templates, pdf resume, professional resume, resume creator, cv builder, free cv maker, resume generator, modern resume templates" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/resume-builder" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/resume-builder" />
+    <meta property="og:title" content="Free Resume Builder – Create & Download PDF Resumes" />
+    <meta property="og:description" content="Build a professional resume online with modern templates and instant PDF export. No signup, no watermark, 100% free and private." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Resume Builder – Create & Download PDF Resumes" />
+    <meta name="twitter:description" content="Build a professional resume online with modern templates and instant PDF export. No signup, no watermark." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Resume Builder by WebNotePad",
+            "url": "https://webnotepad.github.io/resume-builder",
+            "description": "A free online resume and CV builder with multiple professional templates, live preview, and instant PDF export. No signup required, works on any device.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "4 professional resume templates",
+                "Live preview as you type",
+                "Instant PDF download",
+                "Auto-save to browser",
+                "Multiple resume sections",
+                "Custom accent colors",
+                "Print-ready layout",
+                "Mobile friendly",
+                "100% free and private"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Is this resume builder really free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Our resume builder is 100% free with no signup, no watermark, and no hidden charges. You can create and download as many resumes as you like, as often as you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I download my resume as a PDF?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Once you have filled in your details, click the Download PDF button in the toolbar. Your browser will generate a clean, print-ready PDF of your resume that you can save and send to employers."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are my personal details safe?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. All of your data is stored only in your own browser using localStorage. Nothing is ever sent to our servers. Your resume content never leaves your device."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I switch templates after entering my data?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. You can switch between Classic, Modern, Minimal, and Professional templates at any time without losing any of your information. All templates use the same data, so switching is instant."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the resume builder work on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The resume builder is fully responsive. On phones and tablets you can toggle between the editor and the live preview, and export the finished resume as a PDF from any device."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What should I include in my resume?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A strong resume usually includes a short professional summary, your work experience with measurable achievements, your education, relevant skills, and any projects or certifications that support your target role."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- html2pdf for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --rb-accent: #c4562a;
+            --rb-accent-light: #e8714a;
+            --rb-accent-pale: #fce9e3;
+            --rb-surface: #faf8f4;
+            --rb-warm: #f4f0e8;
+            --rb-border: #e8e2d6;
+            --rb-ink: #1a1a2e;
+            --rb-muted: #6b6b85;
+            --rb-radius: 8px;
+            --rb-radius-lg: 14px;
+            --rb-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --rb-shadow-lg: 0 16px 48px rgba(26, 26, 46, 0.18);
+            --rb-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body.dark {
+            --rb-accent: #e8714a;
+            --rb-accent-light: #f08b6b;
+            --rb-accent-pale: #2a1a14;
+            --rb-surface: #141418;
+            --rb-warm: #1c1c22;
+            --rb-border: #2a2a34;
+            --rb-ink: #e8e4dc;
+            --rb-muted: #8a8678;
+        }
+
+        /* ===== HERO ===== */
+        .rb-hero {
+            position: relative;
+            min-height: 28vh;
+            display: flex;
+            align-items: center;
+            padding: 32px 0 24px;
+            overflow: hidden;
+            background: var(--rb-surface);
+            transition: background var(--rb-transition);
+        }
+        .rb-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--rb-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rb-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .rb-hero-bg { opacity: 0.1; }
+        .rb-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--rb-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .rb-hero-glow { opacity: 0.35; }
+        .rb-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        .rb-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--rb-accent-pale);
+            color: var(--rb-accent);
+            border: 1px solid var(--rb-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: rbFadeInDown 0.5s ease both;
+        }
+        body.dark .rb-hero-badge { background: rgba(232, 113, 74, 0.15); }
+        .rb-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--rb-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: rbFadeInDown 0.6s 0.1s ease both;
+        }
+        .rb-hero-accent { color: var(--rb-accent); font-style: italic; }
+        .rb-hero-sub {
+            font-size: 0.95rem;
+            color: var(--rb-muted);
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            animation: rbFadeInDown 0.6s 0.2s ease both;
+        }
+        .rb-hero-cta {
+            animation: rbFadeInDown 0.6s 0.3s ease both;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .rb-hero-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: rbFadeInDown 0.6s 0.4s ease both;
+        }
+        .rb-demo-chip {
+            padding: 7px 16px;
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--rb-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--rb-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .rb-demo-chip:hover {
+            background: var(--rb-accent-pale);
+            border-color: var(--rb-accent);
+            color: var(--rb-accent);
+        }
+        @keyframes rbFadeInDown { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ===== BUILDER SECTION ===== */
+        .rb-builder-section {
+            padding: 0 0 80px;
+            background: var(--rb-surface);
+            transition: background var(--rb-transition);
+        }
+        .rb-shell {
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius-lg);
+            box-shadow: var(--rb-shadow-lg);
+            overflow: hidden;
+            transition: all var(--rb-transition);
+        }
+
+        /* ===== TOOLBAR ===== */
+        .rb-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--rb-border);
+            background: var(--rb-surface);
+            flex-wrap: wrap;
+        }
+        .rb-toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .rb-toolbar-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--rb-muted);
+            white-space: nowrap;
+        }
+        .rb-template-pills {
+            display: flex;
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+            overflow: hidden;
+        }
+        .rb-tpl-pill {
+            padding: 7px 13px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--rb-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all var(--rb-transition);
+            white-space: nowrap;
+        }
+        .rb-tpl-pill:hover { color: var(--rb-ink); background: var(--rb-border); }
+        .rb-tpl-pill.active {
+            background: var(--rb-accent);
+            color: #ffffff;
+        }
+        .rb-color-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px 4px 6px;
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+        }
+        .rb-color-input {
+            width: 26px;
+            height: 26px;
+            border: 1px solid var(--rb-border);
+            border-radius: 5px;
+            padding: 2px;
+            cursor: pointer;
+            background: var(--rb-surface);
+        }
+        .rb-color-value {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: var(--rb-muted);
+        }
+        .rb-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            background: var(--rb-surface);
+            color: var(--rb-ink);
+            border: 1.5px solid var(--rb-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--rb-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .rb-btn:hover:not(:disabled) {
+            border-color: var(--rb-ink);
+            background: var(--rb-warm);
+            transform: translateY(-1px);
+        }
+        .rb-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .rb-btn--primary {
+            background: var(--rb-accent);
+            border-color: var(--rb-accent);
+            color: #ffffff;
+        }
+        .rb-btn--primary:hover:not(:disabled) {
+            background: var(--rb-accent-light);
+            border-color: var(--rb-accent-light);
+            box-shadow: 0 4px 16px rgba(196, 86, 42, 0.3);
+        }
+        .rb-btn--ghost {
+            background: transparent;
+        }
+        .rb-btn--sm { padding: 6px 12px; font-size: 0.72rem; }
+
+        /* ===== MAIN LAYOUT ===== */
+        .rb-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 0;
+            min-height: 700px;
+        }
+
+        /* ===== FORM PANEL ===== */
+        .rb-form-panel {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--rb-border);
+            background: var(--rb-surface);
+            min-width: 0;
+            max-height: 820px;
+        }
+        .rb-tabs {
+            display: flex;
+            gap: 2px;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--rb-border);
+            background: var(--rb-surface);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .rb-tabs::-webkit-scrollbar { display: none; }
+        .rb-tab {
+            padding: 8px 14px;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--rb-muted);
+            cursor: pointer;
+            transition: all var(--rb-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .rb-tab:hover { color: var(--rb-ink); background: var(--rb-warm); }
+        .rb-tab.active {
+            background: var(--rb-accent);
+            border-color: var(--rb-accent);
+            color: #ffffff;
+        }
+        .rb-form-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px 20px 24px;
+            overscroll-behavior: contain;
+        }
+        .rb-tab-panel { display: none; }
+        .rb-tab-panel.active { display: block; }
+
+        .rb-field { margin-bottom: 14px; }
+        .rb-field label {
+            display: block;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--rb-muted);
+            margin-bottom: 5px;
+        }
+        .rb-field input,
+        .rb-field textarea,
+        .rb-field select {
+            width: 100%;
+            padding: 9px 12px;
+            background: var(--rb-warm);
+            border: 1.5px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+            color: var(--rb-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            outline: none;
+            transition: all var(--rb-transition);
+        }
+        .rb-field input:focus,
+        .rb-field textarea:focus,
+        .rb-field select:focus {
+            border-color: var(--rb-accent);
+            background: var(--rb-surface);
+            box-shadow: 0 0 0 3px var(--rb-accent-pale);
+        }
+        .rb-field textarea {
+            resize: vertical;
+            min-height: 90px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rb-field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .rb-field-hint {
+            font-size: 0.72rem;
+            color: var(--rb-muted);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* Repeatable item cards */
+        .rb-item-card {
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+            padding: 14px;
+            margin-bottom: 12px;
+            position: relative;
+            transition: border-color var(--rb-transition);
+        }
+        .rb-item-card:hover { border-color: var(--rb-accent); }
+        .rb-item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            gap: 8px;
+        }
+        .rb-item-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--rb-ink);
+        }
+        .rb-item-remove {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid var(--rb-border);
+            color: var(--rb-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--rb-transition);
+            flex-shrink: 0;
+        }
+        .rb-item-remove:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #dc2626;
+        }
+        .rb-add-btn {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1.5px dashed var(--rb-border);
+            border-radius: var(--rb-radius);
+            color: var(--rb-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--rb-transition);
+            margin-top: 4px;
+        }
+        .rb-add-btn:hover {
+            border-color: var(--rb-accent);
+            color: var(--rb-accent);
+            background: var(--rb-accent-pale);
+        }
+        body.dark .rb-add-btn:hover { background: rgba(232, 113, 74, 0.1); }
+
+        .rb-empty-state {
+            text-align: center;
+            padding: 24px 12px;
+            color: var(--rb-muted);
+            font-size: 0.82rem;
+            font-style: italic;
+        }
+
+        /* ===== PREVIEW PANEL ===== */
+        .rb-preview-panel {
+            background: var(--rb-warm);
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            max-height: 820px;
+        }
+        .rb-preview-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--rb-border);
+            background: var(--rb-surface);
+            flex-wrap: wrap;
+        }
+        .rb-preview-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.66rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--rb-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rb-preview-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16a34a;
+            animation: rbPulse 2s infinite;
+        }
+        @keyframes rbPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        .rb-preview-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background:
+                repeating-conic-gradient(var(--rb-border) 0% 25%, transparent 0% 50%)
+                0 0 / 20px 20px;
+        }
+        body.dark .rb-preview-scroll {
+            background:
+                repeating-conic-gradient(rgba(42, 42, 52, 0.5) 0% 25%, transparent 0% 50%)
+                0 0 / 20px 20px;
+        }
+
+        /* ===== RESUME CANVAS ===== */
+        .rb-resume {
+            width: 100%;
+            max-width: 820px;
+            min-height: 1060px;
+            background: #ffffff;
+            color: #1a1a2e;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            padding: 56px 60px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            line-height: 1.55;
+            --resume-accent: #c4562a;
+            transition: box-shadow var(--rb-transition);
+        }
+
+        /* Resume typography */
+        .rb-resume h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 4px;
+            color: #1a1a2e;
+        }
+        .rb-resume h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--resume-accent);
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 1.5px solid var(--resume-accent);
+        }
+        .rb-resume h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+        .rb-resume p { margin-bottom: 6px; color: #3d3d52; }
+        .rb-resume ul { margin: 6px 0 10px 18px; list-style: disc; }
+        .rb-resume li { margin-bottom: 3px; color: #3d3d52; }
+        .rb-resume section { margin-bottom: 22px; }
+        .rb-resume-header {
+            margin-bottom: 24px;
+            padding-bottom: 18px;
+            border-bottom: 2px solid #1a1a2e;
+        }
+        .rb-resume-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--resume-accent);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .rb-resume-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+            font-size: 11.5px;
+            color: #6b6b85;
+        }
+        .rb-resume-contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .rb-resume-contact a {
+            color: #6b6b85;
+            text-decoration: none;
+        }
+        .rb-job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+        .rb-job-meta {
+            font-size: 12px;
+            color: #6b6b85;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            white-space: nowrap;
+        }
+        .rb-job-company {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--resume-accent);
+            margin-bottom: 4px;
+        }
+        .rb-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .rb-skill-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--resume-accent);
+            color: #ffffff;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .rb-skill-tag--outline {
+            background: transparent;
+            color: var(--resume-accent);
+            border: 1px solid var(--resume-accent);
+        }
+        .rb-resume--empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #9a9ab0;
+            font-style: italic;
+            font-size: 14px;
+            min-height: 400px;
+        }
+
+        /* ===== TEMPLATE: MODERN ===== */
+        .rb-resume--modern {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+        }
+        .rb-resume--modern .rb-modern-side {
+            background: #1a1a2e;
+            color: #e8e4dc;
+            padding: 40px 26px;
+        }
+        .rb-resume--modern .rb-modern-side h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .rb-resume--modern .rb-modern-side .rb-resume-title {
+            color: var(--resume-accent);
+            font-size: 13px;
+        }
+        .rb-resume--modern .rb-modern-side h2 {
+            color: #ffffff;
+            border-bottom-color: rgba(255, 255, 255, 0.25);
+            font-size: 10.5px;
+            margin-top: 22px;
+        }
+        .rb-resume--modern .rb-modern-side p,
+        .rb-resume--modern .rb-modern-side li,
+        .rb-resume--modern .rb-modern-side span {
+            color: rgba(232, 228, 220, 0.85);
+        }
+        .rb-resume--modern .rb-modern-side .rb-resume-contact {
+            flex-direction: column;
+            gap: 6px;
+            font-size: 11px;
+        }
+        .rb-resume--modern .rb-modern-side .rb-resume-contact span { color: rgba(232,228,220,0.8); }
+        .rb-resume--modern .rb-modern-side .rb-resume-contact a { color: rgba(232,228,220,0.8); }
+        .rb-resume--modern .rb-modern-main {
+            padding: 40px 34px;
+        }
+        .rb-resume--modern .rb-modern-main h1,
+        .rb-resume--modern .rb-modern-main .rb-resume-title,
+        .rb-resume--modern .rb-modern-main .rb-resume-contact {
+            display: none;
+        }
+        .rb-resume--modern .rb-modern-main h2 {
+            color: var(--resume-accent);
+        }
+        .rb-resume--modern .rb-skill-tag {
+            background: var(--resume-accent);
+            color: #ffffff;
+        }
+
+        /* ===== TEMPLATE: MINIMAL ===== */
+        .rb-resume--minimal {
+            padding: 64px 72px;
+        }
+        .rb-resume--minimal h1 {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .rb-resume--minimal .rb-resume-header {
+            border-bottom: none;
+            padding-bottom: 6px;
+            margin-bottom: 28px;
+        }
+        .rb-resume--minimal h2 {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 14px;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+        .rb-resume--minimal section {
+            margin-bottom: 28px;
+        }
+        .rb-resume--minimal .rb-skill-tag {
+            background: transparent;
+            color: #1a1a2e;
+            border: 1px solid #1a1a2e;
+            padding: 2px 10px;
+        }
+        .rb-resume--minimal .rb-job-company {
+            color: #6b6b85;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .rb-resume--minimal .rb-resume-title {
+            color: #6b6b85;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        /* ===== TEMPLATE: PROFESSIONAL ===== */
+        .rb-resume--professional {
+            padding: 0;
+        }
+        .rb-resume--professional .rb-pro-header {
+            background: var(--resume-accent);
+            color: #ffffff;
+            padding: 36px 60px 28px;
+            margin-bottom: 32px;
+        }
+        .rb-resume--professional .rb-pro-header h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+        .rb-resume--professional .rb-pro-header .rb-resume-title {
+            color: rgba(255, 255, 255, 0.9);
+            font-style: normal;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .rb-resume--professional .rb-pro-header .rb-resume-contact {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 11.5px;
+        }
+        .rb-resume--professional .rb-pro-header .rb-resume-contact a { color: rgba(255,255,255,0.9); }
+        .rb-resume--professional .rb-pro-body {
+            padding: 0 60px 48px;
+        }
+        .rb-resume--professional h2 {
+            background: var(--resume-accent);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-bottom: none;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-bottom: 14px;
+        }
+        .rb-resume--professional .rb-skill-tag {
+            background: var(--resume-accent);
+            color: #ffffff;
+        }
+
+        /* ===== TEMPLATES SHOWCASE ===== */
+        .rb-templates-section {
+            background: var(--rb-warm);
+            padding: 96px 0;
+            transition: background var(--rb-transition);
+        }
+        .rb-templates-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .rb-template-card {
+            background: var(--rb-surface);
+            border: 1.5px solid var(--rb-border);
+            border-radius: var(--rb-radius-lg);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--rb-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rb-template-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--rb-shadow-lg);
+            border-color: var(--rb-accent);
+        }
+        .rb-template-preview {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #ffffff;
+            border-radius: var(--rb-radius);
+            border: 1px solid var(--rb-border);
+            margin-bottom: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(26,26,46,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+        .rb-tpl-mini {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 14px;
+            gap: 8px;
+        }
+        .rb-tpl-mini-line {
+            height: 6px;
+            border-radius: 2px;
+            background: #e8e2d6;
+        }
+        .rb-tpl-mini-line--title {
+            height: 14px;
+            width: 60%;
+            background: #1a1a2e;
+        }
+        .rb-tpl-mini-line--sub {
+            height: 6px;
+            width: 40%;
+            background: var(--rb-accent);
+        }
+        .rb-tpl-mini-line--short { width: 70%; }
+        .rb-tpl-mini-line--med { width: 85%; }
+        .rb-tpl-mini-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .rb-tpl-mini-block {
+            flex: 1;
+            height: 40px;
+            border-radius: 3px;
+            background: #f4f0e8;
+        }
+        /* Mini - modern */
+        .rb-tpl-mini--modern {
+            flex-direction: row;
+            padding: 0;
+            gap: 0;
+        }
+        .rb-tpl-mini--modern .rb-tpl-mini-side {
+            width: 34%;
+            background: #1a1a2e;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .rb-tpl-mini--modern .rb-tpl-mini-side .rb-tpl-mini-line {
+            background: rgba(255,255,255,0.2);
+        }
+        .rb-tpl-mini--modern .rb-tpl-mini-side .rb-tpl-mini-line--title {
+            background: #ffffff;
+            height: 10px;
+            width: 80%;
+        }
+        .rb-tpl-mini--modern .rb-tpl-mini-main {
+            flex: 1;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+        /* Mini - minimal */
+        .rb-tpl-mini--minimal {
+            padding: 18px;
+        }
+        .rb-tpl-mini--minimal .rb-tpl-mini-line--title {
+            background: #1a1a2e;
+            width: 50%;
+            height: 16px;
+        }
+        /* Mini - professional */
+        .rb-tpl-mini--professional {
+            padding: 0;
+        }
+        .rb-tpl-mini--professional .rb-tpl-mini-pro-head {
+            background: var(--rb-accent);
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .rb-tpl-mini--professional .rb-tpl-mini-pro-head .rb-tpl-mini-line {
+            background: rgba(255,255,255,0.3);
+        }
+        .rb-tpl-mini--professional .rb-tpl-mini-pro-head .rb-tpl-mini-line--title {
+            background: #ffffff;
+            width: 65%;
+            height: 12px;
+        }
+        .rb-tpl-mini--professional .rb-tpl-mini-pro-body {
+            flex: 1;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .rb-tpl-mini--professional .rb-tpl-mini-pro-body .rb-tpl-mini-line--sub {
+            background: var(--rb-accent);
+        }
+        .rb-template-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rb-ink);
+            margin-bottom: 4px;
+        }
+        .rb-template-desc {
+            font-size: 0.78rem;
+            color: var(--rb-muted);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .rb-template-use {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 14px;
+            background: var(--rb-accent-pale);
+            color: var(--rb-accent);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--rb-transition);
+        }
+        .rb-template-card:hover .rb-template-use {
+            background: var(--rb-accent);
+            color: #ffffff;
+        }
+
+        /* ===== FEATURES ===== */
+        .rb-features-section {
+            background: var(--rb-surface);
+            padding: 96px 0;
+            transition: background var(--rb-transition);
+        }
+        .rb-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .rb-feature-card {
+            background: var(--rb-warm);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius-lg);
+            padding: 26px;
+            transition: all var(--rb-transition);
+        }
+        .rb-feature-card:hover {
+            box-shadow: var(--rb-shadow);
+            transform: translateY(-3px);
+            border-color: var(--rb-accent-light);
+        }
+        .rb-feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .rb-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--rb-ink);
+            margin-bottom: 8px;
+        }
+        .rb-feature-card p {
+            font-size: 0.85rem;
+            color: var(--rb-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== HOW TO ===== */
+        .rb-how-section {
+            background: var(--rb-warm);
+            padding: 96px 0;
+            transition: background var(--rb-transition);
+        }
+        .rb-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .rb-how-card {
+            background: var(--rb-surface);
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius-lg);
+            padding: 28px;
+            transition: all var(--rb-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rb-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rb-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--rb-transition);
+        }
+        .rb-how-card:hover { box-shadow: var(--rb-shadow); transform: translateY(-3px); }
+        .rb-how-card:hover::before { transform: scaleX(1); }
+        .rb-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--rb-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .rb-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--rb-ink);
+            margin-bottom: 8px;
+        }
+        .rb-how-card p {
+            font-size: 0.85rem;
+            color: var(--rb-muted);
+            line-height: 1.65;
+        }
+
+        /* ===== FAQ ===== */
+        .rb-faq-section {
+            background: var(--rb-surface);
+            padding: 96px 0;
+            transition: background var(--rb-transition);
+        }
+        .rb-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .rb-faq-item {
+            border: 1px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+            overflow: hidden;
+            background: var(--rb-warm);
+            transition: border-color var(--rb-transition);
+        }
+        .rb-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--rb-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--rb-transition);
+        }
+        .rb-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--rb-muted);
+            flex-shrink: 0;
+            transition: transform var(--rb-transition);
+        }
+        .rb-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--rb-accent); }
+        .rb-faq-q:hover { background: var(--rb-surface); }
+        .rb-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .rb-faq-a p {
+            font-size: 0.88rem;
+            color: var(--rb-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .rb-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--rb-ink);
+            color: var(--rb-surface);
+            padding: 12px 20px;
+            border-radius: var(--rb-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 340px;
+        }
+        .rb-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .rb-toast {
+            background: var(--rb-warm);
+            color: var(--rb-ink);
+            border: 1px solid var(--rb-border);
+        }
+
+        /* ===== MOBILE PREVIEW TOGGLE ===== */
+        .rb-mobile-toggle {
+            display: none;
+            padding: 10px 16px;
+            background: var(--rb-surface);
+            border-bottom: 1px solid var(--rb-border);
+            gap: 6px;
+        }
+        .rb-mobile-toggle button {
+            flex: 1;
+            padding: 9px 12px;
+            background: var(--rb-warm);
+            border: 1.5px solid var(--rb-border);
+            border-radius: var(--rb-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--rb-muted);
+            cursor: pointer;
+            transition: all var(--rb-transition);
+        }
+        .rb-mobile-toggle button.active {
+            background: var(--rb-accent);
+            border-color: var(--rb-accent);
+            color: #ffffff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .rb-main { grid-template-columns: 1fr; }
+            .rb-form-panel,
+            .rb-preview-panel {
+                max-height: none;
+                border-right: none;
+            }
+            .rb-form-panel { border-bottom: 1px solid var(--rb-border); }
+            .rb-form-scroll { max-height: 600px; }
+            .rb-preview-scroll { max-height: 700px; }
+            .rb-mobile-toggle { display: flex; }
+            .rb-main .rb-hidden-mobile { display: none; }
+            .rb-main .rb-hidden-mobile.rb-mobile-visible { display: flex; }
+            .rb-templates-grid { grid-template-columns: repeat(2, 1fr); }
+            .rb-features-grid,
+            .rb-how-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .rb-toolbar { padding: 10px 14px; }
+            .rb-toolbar-group { gap: 6px; }
+            .rb-tpl-pill { padding: 6px 10px; font-size: 0.7rem; }
+            .rb-btn { padding: 8px 12px; font-size: 0.74rem; }
+            .rb-form-scroll { padding: 14px 14px 20px; }
+            .rb-field-row { grid-template-columns: 1fr; }
+            .rb-preview-scroll { padding: 14px; }
+            .rb-resume {
+                font-size: 11px;
+                padding: 28px 24px;
+                min-height: auto;
+            }
+            .rb-resume h1 { font-size: 22px; }
+            .rb-resume h2 { font-size: 10px; }
+            .rb-resume h3 { font-size: 12px; }
+            .rb-resume--modern { grid-template-columns: 1fr; }
+            .rb-resume--modern .rb-modern-side { padding: 24px 20px; }
+            .rb-resume--modern .rb-modern-main { padding: 24px 20px; }
+            .rb-resume--minimal { padding: 32px 28px; }
+            .rb-resume--professional .rb-pro-header { padding: 24px 24px 18px; }
+            .rb-resume--professional .rb-pro-body { padding: 0 24px 28px; }
+            .rb-templates-grid { grid-template-columns: 1fr; }
+            .rb-features-grid,
+            .rb-how-grid { grid-template-columns: 1fr; }
+            .rb-hero-title { font-size: 1.7rem; }
+            .rb-toast { left: 16px; right: 16px; max-width: none; }
+        }
+
+        @media (max-width: 480px) {
+            .rb-shell { border-radius: 0; border-left: none; border-right: none; }
+            .rb-builder-section .container { padding: 0; }
+            .rb-toolbar { gap: 6px; }
+            .rb-toolbar-group { width: 100%; }
+            .rb-template-pills { flex: 1; }
+            .rb-tpl-pill { flex: 1; }
+            .rb-color-wrap { display: none; }
+            .rb-preview-scroll { padding: 8px; }
+            .rb-resume { padding: 24px 18px; }
+            .rb-resume--modern .rb-modern-side { padding: 20px 16px; }
+            .rb-resume--modern .rb-modern-main { padding: 20px 16px; }
+            .rb-resume--professional .rb-pro-header { padding: 20px 16px 14px; }
+            .rb-resume--professional .rb-pro-body { padding: 0 16px 24px; }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body * { visibility: hidden !important; }
+            #rbResume, #rbResume * { visibility: visible !important; }
+            #rbResume {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 40px 48px !important;
+            }
+            body { background: #ffffff !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="rb-hero" id="home" aria-label="Resume Builder Hero">
+            <div class="rb-hero-bg"></div>
+            <div class="rb-hero-glow"></div>
+            <div class="container rb-hero-inner">
+                <div class="rb-hero-badge">📄 Free Resume &amp; CV Builder</div>
+                <h1 class="rb-hero-title">
+                    Build a resume that <span class="rb-hero-accent">gets interviews.</span>
+                </h1>
+                <p class="rb-hero-sub">Create a professional resume or CV in minutes with live preview, four beautiful templates and instant PDF export. No signup, no watermark, and your data never leaves your browser.</p>
+                <div class="rb-hero-cta">
+                    <a href="#builder" class="btn btn-primary">Start Building <span>→</span></a>
+                    <a href="#templates" class="btn btn-ghost">See Templates</a>
+                </div>
+                <div class="rb-hero-demo">
+                    <span class="rb-demo-chip">📄 4 templates</span>
+                    <span class="rb-demo-chip">⬇ PDF export</span>
+                    <span class="rb-demo-chip">👁️ Live preview</span>
+                    <span class="rb-demo-chip">💾 Auto-save</span>
+                    <span class="rb-demo-chip">🔒 100% private</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BUILDER ===== -->
+        <section class="rb-builder-section" id="builder" aria-label="Resume Builder Application">
+            <div class="container">
+                <div class="rb-shell">
+
+                    <!-- TOOLBAR -->
+                    <div class="rb-toolbar">
+                        <div class="rb-toolbar-group">
+                            <span class="rb-toolbar-label">Template</span>
+                            <div class="rb-template-pills" id="rbTemplatePills" role="group" aria-label="Choose template">
+                                <button class="rb-tpl-pill active" data-template="modern" type="button">Modern</button>
+                                <button class="rb-tpl-pill" data-template="classic" type="button">Classic</button>
+                                <button class="rb-tpl-pill" data-template="minimal" type="button">Minimal</button>
+                                <button class="rb-tpl-pill" data-template="professional" type="button">Pro</button>
+                            </div>
+                        </div>
+                        <div class="rb-toolbar-group">
+                            <div class="rb-color-wrap" title="Accent color">
+                                <input type="color" class="rb-color-input" id="rbAccentColor" value="#c4562a" aria-label="Accent color" />
+                                <span class="rb-color-value" id="rbAccentValue">#c4562a</span>
+                            </div>
+                            <button class="rb-btn rb-btn--ghost" id="rbSampleBtn" type="button" title="Load sample data">✨ Sample</button>
+                            <button class="rb-btn rb-btn--ghost" id="rbClearBtn" type="button" title="Clear all fields">✕ Clear</button>
+                            <button class="rb-btn rb-btn--primary" id="rbDownloadBtn" type="button" title="Download as PDF">⬇ Download PDF</button>
+                        </div>
+                    </div>
+
+                    <!-- MOBILE TOGGLE -->
+                    <div class="rb-mobile-toggle">
+                        <button class="active" id="rbShowForm" type="button">✏️ Edit</button>
+                        <button id="rbShowPreview" type="button">👁️ Preview</button>
+                    </div>
+
+                    <!-- MAIN -->
+                    <div class="rb-main">
+
+                        <!-- FORM PANEL -->
+                        <div class="rb-form-panel" id="rbFormPanel">
+                            <div class="rb-tabs" role="tablist">
+                                <button class="rb-tab active" data-tab="personal" role="tab" aria-selected="true" type="button">Personal</button>
+                                <button class="rb-tab" data-tab="summary" role="tab" aria-selected="false" type="button">Summary</button>
+                                <button class="rb-tab" data-tab="experience" role="tab" aria-selected="false" type="button">Experience</button>
+                                <button class="rb-tab" data-tab="education" role="tab" aria-selected="false" type="button">Education</button>
+                                <button class="rb-tab" data-tab="skills" role="tab" aria-selected="false" type="button">Skills</button>
+                                <button class="rb-tab" data-tab="projects" role="tab" aria-selected="false" type="button">Projects</button>
+                                <button class="rb-tab" data-tab="extras" role="tab" aria-selected="false" type="button">Extras</button>
+                            </div>
+
+                            <div class="rb-form-scroll">
+
+                                <!-- PERSONAL -->
+                                <div class="rb-tab-panel active" data-panel="personal">
+                                    <div class="rb-field">
+                                        <label for="rbName">Full name</label>
+                                        <input type="text" id="rbName" data-field="personal.name" placeholder="Jane Doe" />
+                                    </div>
+                                    <div class="rb-field">
+                                        <label for="rbTitle">Professional title</label>
+                                        <input type="text" id="rbTitle" data-field="personal.title" placeholder="Senior Product Designer" />
+                                    </div>
+                                    <div class="rb-field-row">
+                                        <div class="rb-field">
+                                            <label for="rbEmail">Email</label>
+                                            <input type="email" id="rbEmail" data-field="personal.email" placeholder="jane@example.com" />
+                                        </div>
+                                        <div class="rb-field">
+                                            <label for="rbPhone">Phone</label>
+                                            <input type="tel" id="rbPhone" data-field="personal.phone" placeholder="+1 555 123 4567" />
+                                        </div>
+                                    </div>
+                                    <div class="rb-field">
+                                        <label for="rbLocation">Location</label>
+                                        <input type="text" id="rbLocation" data-field="personal.location" placeholder="San Francisco, CA" />
+                                    </div>
+                                    <div class="rb-field-row">
+                                        <div class="rb-field">
+                                            <label for="rbWebsite">Website / Portfolio</label>
+                                            <input type="text" id="rbWebsite" data-field="personal.website" placeholder="janedoe.com" />
+                                        </div>
+                                        <div class="rb-field">
+                                            <label for="rbLinkedin">LinkedIn</label>
+                                            <input type="text" id="rbLinkedin" data-field="personal.linkedin" placeholder="linkedin.com/in/janedoe" />
+                                        </div>
+                                    </div>
+                                    <div class="rb-field">
+                                        <label for="rbGithub">GitHub / Other</label>
+                                        <input type="text" id="rbGithub" data-field="personal.github" placeholder="github.com/janedoe" />
+                                    </div>
+                                </div>
+
+                                <!-- SUMMARY -->
+                                <div class="rb-tab-panel" data-panel="summary">
+                                    <div class="rb-field">
+                                        <label for="rbSummary">Professional summary</label>
+                                        <textarea id="rbSummary" data-field="summary" placeholder="Results-driven product designer with 6+ years of experience crafting user-centered digital products for fast-growing SaaS companies. Skilled in design systems, prototyping and cross-functional collaboration." rows="8"></textarea>
+                                        <div class="rb-field-hint">2–4 sentences that capture who you are, what you do, and your biggest strengths.</div>
+                                    </div>
+                                </div>
+
+                                <!-- EXPERIENCE -->
+                                <div class="rb-tab-panel" data-panel="experience">
+                                    <div id="rbExperienceList"></div>
+                                    <button class="rb-add-btn" id="rbAddExperience" type="button">＋ Add work experience</button>
+                                </div>
+
+                                <!-- EDUCATION -->
+                                <div class="rb-tab-panel" data-panel="education">
+                                    <div id="rbEducationList"></div>
+                                    <button class="rb-add-btn" id="rbAddEducation" type="button">＋ Add education</button>
+                                </div>
+
+                                <!-- SKILLS -->
+                                <div class="rb-tab-panel" data-panel="skills">
+                                    <div class="rb-field">
+                                        <label for="rbSkillsInput">Skills (comma-separated)</label>
+                                        <textarea id="rbSkillsInput" data-field="skills" placeholder="Figma, Prototyping, Design Systems, User Research, HTML/CSS, Accessibility" rows="5"></textarea>
+                                        <div class="rb-field-hint">Separate each skill with a comma. They will appear as tags in your resume.</div>
+                                    </div>
+                                </div>
+
+                                <!-- PROJECTS -->
+                                <div class="rb-tab-panel" data-panel="projects">
+                                    <div id="rbProjectsList"></div>
+                                    <button class="rb-add-btn" id="rbAddProject" type="button">＋ Add project</button>
+                                </div>
+
+                                <!-- EXTRAS -->
+                                <div class="rb-tab-panel" data-panel="extras">
+                                    <div id="rbCertificationsList"></div>
+                                    <button class="rb-add-btn" id="rbAddCertification" type="button">＋ Add certification</button>
+
+                                    <div style="height: 16px;"></div>
+
+                                    <div id="rbLanguagesList"></div>
+                                    <button class="rb-add-btn" id="rbAddLanguage" type="button">＋ Add language</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PREVIEW PANEL -->
+                        <div class="rb-preview-panel rb-hidden-mobile" id="rbPreviewPanel">
+                            <div class="rb-preview-toolbar">
+                                <span class="rb-preview-label"><span class="rb-preview-dot"></span> Live Preview</span>
+                                <span class="rb-preview-label" id="rbPageCount">1 page</span>
+                            </div>
+                            <div class="rb-preview-scroll">
+                                <div class="rb-resume rb-resume--modern" id="rbResume">
+                                    <!-- Rendered by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TEMPLATES SHOWCASE ===== -->
+        <section class="rb-templates-section" id="templates" aria-label="Resume Templates">
+            <div class="container">
+                <div class="section-label">Pick your style</div>
+                <h2 class="section-title">Four templates.<br /><em>One perfect resume.</em></h2>
+                <p class="section-sub">Every template is professionally designed, ATS-friendly, and print-ready. Switch any time without losing your content.</p>
+                <div class="rb-templates-grid">
+                    <div class="rb-template-card" data-template="modern">
+                        <div class="rb-template-preview">
+                            <div class="rb-tpl-mini rb-tpl-mini--modern">
+                                <div class="rb-tpl-mini-side">
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--title"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                </div>
+                                <div class="rb-tpl-mini-main">
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--sub"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rb-template-name">Modern</div>
+                        <p class="rb-template-desc">Two-column layout with a dark sidebar — ideal for tech, design and creative roles.</p>
+                        <span class="rb-template-use">Use this →</span>
+                    </div>
+
+                    <div class="rb-template-card" data-template="classic">
+                        <div class="rb-template-preview">
+                            <div class="rb-tpl-mini">
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--title"></div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--sub"></div>
+                                <div class="rb-tpl-mini-row">
+                                    <div class="rb-tpl-mini-line"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                </div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                <div class="rb-tpl-mini-line"></div>
+                                <div class="rb-tpl-mini-row">
+                                    <div class="rb-tpl-mini-block"></div>
+                                    <div class="rb-tpl-mini-block"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rb-template-name">Classic</div>
+                        <p class="rb-template-desc">Timeless single-column layout with serif headings. Great for any industry.</p>
+                        <span class="rb-template-use">Use this →</span>
+                    </div>
+
+                    <div class="rb-template-card" data-template="minimal">
+                        <div class="rb-template-preview">
+                            <div class="rb-tpl-mini rb-tpl-mini--minimal">
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--title"></div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                <div style="height:8px"></div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                <div class="rb-tpl-mini-line"></div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                            </div>
+                        </div>
+                        <div class="rb-template-name">Minimal</div>
+                        <p class="rb-template-desc">Lots of whitespace and clean typography. Lets your experience do the talking.</p>
+                        <span class="rb-template-use">Use this →</span>
+                    </div>
+
+                    <div class="rb-template-card" data-template="professional">
+                        <div class="rb-template-preview">
+                            <div class="rb-tpl-mini rb-tpl-mini--professional">
+                                <div class="rb-tpl-mini-pro-head">
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--title"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                </div>
+                                <div class="rb-tpl-mini-pro-body">
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--sub"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--med"></div>
+                                    <div class="rb-tpl-mini-line"></div>
+                                    <div class="rb-tpl-mini-line rb-tpl-mini-line--short"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rb-template-name">Professional</div>
+                        <p class="rb-template-desc">Bold accent header with clean sections. Perfect for corporate and finance roles.</p>
+                        <span class="rb-template-use">Use this →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="rb-features-section" id="features" aria-label="Resume Builder Features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Everything you need to <em>land the interview.</em></h2>
+                <div class="rb-features-grid">
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">👁️</span>
+                        <h3>Live Preview</h3>
+                        <p>See your resume update instantly as you type. No guesswork — what you see is exactly what prints.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">⬇</span>
+                        <h3>Instant PDF Export</h3>
+                        <p>Download a clean, print-ready PDF with one click. No watermarks, no awkward page breaks, no surprises.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">🎨</span>
+                        <h3>Four Templates</h3>
+                        <p>Modern, Classic, Minimal and Professional layouts, each crafted for readability and ATS compatibility.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">💾</span>
+                        <h3>Auto-Save</h3>
+                        <p>Your resume is saved in your browser as you type. Refresh the tab or close it — your content is safe.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">🎯</span>
+                        <h3>Custom Accent Color</h3>
+                        <p>Match your resume to your personal brand with a colour picker that instantly updates every accent.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">📱</span>
+                        <h3>Mobile Friendly</h3>
+                        <p>Edit on your phone with a toggle between form and preview. Export the PDF from any device.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">📚</span>
+                        <h3>Rich Sections</h3>
+                        <p>Summary, work experience, education, skills, projects, certifications and languages — all covered.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">✨</span>
+                        <h3>Sample Data</h3>
+                        <p>Load a filled-in example with one click to see how a strong resume is structured, then edit it.</p>
+                    </div>
+                    <div class="rb-feature-card">
+                        <span class="rb-feature-icon">🔒</span>
+                        <h3>100% Private</h3>
+                        <p>Everything runs in your browser. Nothing is uploaded, tracked or shared. Your data is yours alone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="rb-how-section" id="how-to" aria-label="How to build a resume">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Your resume in <em>3 simple steps.</em></h2>
+                <div class="rb-how-grid">
+                    <div class="rb-how-card">
+                        <div class="rb-how-num">01</div>
+                        <h3>Fill in your details</h3>
+                        <p>Use the tabs on the left to add your personal info, summary, work experience, education, skills and projects. Every field is optional — add only what's relevant.</p>
+                    </div>
+                    <div class="rb-how-card">
+                        <div class="rb-how-num">02</div>
+                        <h3>Pick a template &amp; colour</h3>
+                        <p>Switch between Modern, Classic, Minimal and Professional at any time. Choose an accent colour that matches your personal brand. The preview updates instantly.</p>
+                    </div>
+                    <div class="rb-how-card">
+                        <div class="rb-how-num">03</div>
+                        <h3>Download as PDF</h3>
+                        <p>Click the Download PDF button. Your browser generates a clean, print-ready PDF with no watermarks. Save it, email it, or upload it to any job board.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="rb-faq-section" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="rb-faq-list">
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">Is this resume builder really free?</button>
+                        <div class="rb-faq-a"><p>Yes. Our resume builder is 100% free with no signup, no watermark, and no hidden charges. You can create and download as many resumes as you like, as often as you like.</p></div>
+                    </div>
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">How do I download my resume as a PDF?</button>
+                        <div class="rb-faq-a"><p>Once you have filled in your details, click the Download PDF button in the toolbar. Your browser will generate a clean, print-ready PDF of your resume that you can save and send to employers.</p></div>
+                    </div>
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">Are my personal details safe?</button>
+                        <div class="rb-faq-a"><p>Absolutely. All of your data is stored only in your own browser using localStorage. Nothing is ever sent to our servers. Your resume content never leaves your device.</p></div>
+                    </div>
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">Can I switch templates after entering my data?</button>
+                        <div class="rb-faq-a"><p>Yes. You can switch between Modern, Classic, Minimal and Professional templates at any time without losing any of your information. All templates use the same data, so switching is instant.</p></div>
+                    </div>
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">Does the resume builder work on mobile?</button>
+                        <div class="rb-faq-a"><p>Yes. The resume builder is fully responsive. On phones and tablets you can toggle between the editor and the live preview, and export the finished resume as a PDF from any device.</p></div>
+                    </div>
+                    <div class="rb-faq-item">
+                        <button class="rb-faq-q" aria-expanded="false" type="button">What should I include in my resume?</button>
+                        <div class="rb-faq-a"><p>A strong resume usually includes a short professional summary, your work experience with measurable achievements, your education, relevant skills, and any projects or certifications that support your target role.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="rb-toast" id="rbToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* =========================================================
+           STATE
+           ========================================================= */
+        const STORAGE_KEY = 'rb-resume-v1';
+
+        const state = {
+            template: 'modern',
+            accent: '#c4562a',
+            resume: {
+                personal: {
+                    name: '', title: '', email: '', phone: '',
+                    location: '', website: '', linkedin: '', github: ''
+                },
+                summary: '',
+                skills: '',
+                experience: [],
+                education: [],
+                projects: [],
+                certifications: [],
+                languages: []
+            }
+        };
+
+        const SAMPLE = {
+            personal: {
+                name: 'Jane Doe',
+                title: 'Senior Product Designer',
+                email: 'jane.doe@example.com',
+                phone: '+1 (555) 123-4567',
+                location: 'San Francisco, CA',
+                website: 'janedoe.design',
+                linkedin: 'linkedin.com/in/janedoe',
+                github: 'github.com/janedoe'
+            },
+            summary: 'Results-driven product designer with 6+ years of experience crafting user-centered digital products for fast-growing SaaS companies. Skilled in design systems, prototyping, and cross-functional collaboration. Passionate about accessibility and turning complex problems into simple, elegant interfaces.',
+            skills: 'Figma, Sketch, Prototyping, Design Systems, User Research, HTML/CSS, Accessibility, Motion Design',
+            experience: [
+                {
+                    company: 'Northwind Labs',
+                    position: 'Senior Product Designer',
+                    startDate: '2022',
+                    endDate: '',
+                    current: true,
+                    location: 'San Francisco, CA',
+                    description: 'Led end-to-end design for the company\'s flagship analytics platform, improving activation by 34%.\nBuilt and maintained a 200+ component design system used by 4 product teams.\nMentored 3 junior designers and ran weekly design critiques.'
+                },
+                {
+                    company: 'Brightpath Software',
+                    position: 'Product Designer',
+                    startDate: '2019',
+                    endDate: '2022',
+                    current: false,
+                    location: 'Remote',
+                    description: 'Designed onboarding and checkout flows that lifted conversion by 18%.\nPartnered with PM and engineering to ship 12 major releases.\nIntroduced usability testing as a standard part of the design process.'
+                }
+            ],
+            education: [
+                {
+                    school: 'Rhode Island School of Design',
+                    degree: 'BFA',
+                    field: 'Graphic Design',
+                    startDate: '2013',
+                    endDate: '2017',
+                    location: 'Providence, RI',
+                    description: 'Graduated with honors. Focus on interaction design and typography.'
+                }
+            ],
+            projects: [
+                {
+                    name: 'OpenChart',
+                    description: 'An open-source charting library for React with 4k+ GitHub stars.',
+                    link: 'github.com/janedoe/openchart'
+                }
+            ],
+            certifications: [
+                {
+                    name: 'Nielsen Norman Group UX Certification',
+                    issuer: 'NN/g',
+                    date: '2021'
+                }
+            ],
+            languages: [
+                { name: 'English', level: 'Native' },
+                { name: 'Spanish', level: 'Fluent' },
+                { name: 'French', level: 'Basic' }
+            ]
+        };
+
+        /* =========================================================
+           DOM
+           ========================================================= */
+        const $ = (id) => document.getElementById(id);
+
+        const resumeEl        = $('rbResume');
+        const toastEl         = $('rbToast');
+        const accentInput     = $('rbAccentColor');
+        const accentValue     = $('rbAccentValue');
+        const templatePills   = document.querySelectorAll('.rb-tpl-pill');
+        const templateCards   = document.querySelectorAll('.rb-template-card');
+        const tabs            = document.querySelectorAll('.rb-tab');
+        const tabPanels       = document.querySelectorAll('.rb-tab-panel');
+
+        const experienceListEl = $('rbExperienceList');
+        const educationListEl  = $('rbEducationList');
+        const projectsListEl   = $('rbProjectsList');
+        const certsListEl      = $('rbCertificationsList');
+        const langsListEl      = $('rbLanguagesList');
+
+        let toastTimer = null;
+        let saveTimer = null;
+
+        /* =========================================================
+           HELPERS
+           ========================================================= */
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
+        }
+
+        function esc(str) {
+            return String(str == null ? '' : str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function nl2br(str) {
+            return esc(str).replace(/\n/g, '<br />');
+        }
+
+        function getPath(obj, path) {
+            return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+        }
+        function setPath(obj, path, value) {
+            const keys = path.split('.');
+            let cur = obj;
+            for (let i = 0; i < keys.length - 1; i++) {
+                if (!(keys[i] in cur)) cur[keys[i]] = {};
+                cur = cur[keys[i]];
+            }
+            cur[keys[keys.length - 1]] = value;
+        }
+
+        /* =========================================================
+           PERSISTENCE
+           ========================================================= */
+        function saveToStorage() {
+            if (saveTimer) clearTimeout(saveTimer);
+            saveTimer = setTimeout(() => {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                        template: state.template,
+                        accent: state.accent,
+                        resume: state.resume
+                    }));
+                } catch (e) { /* silent */ }
+            }, 400);
+        }
+
+        function loadFromStorage() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return false;
+                const data = JSON.parse(raw);
+                if (data && data.resume) {
+                    state.template = data.template || 'modern';
+                    state.accent = data.accent || '#c4562a';
+                    state.resume = Object.assign({}, state.resume, data.resume);
+                    // Ensure arrays exist
+                    ['experience', 'education', 'projects', 'certifications', 'languages'].forEach(k => {
+                        if (!Array.isArray(state.resume[k])) state.resume[k] = [];
+                    });
+                    return true;
+                }
+            } catch (e) { /* silent */ }
+            return false;
+        }
+
+        /* =========================================================
+           RENDER PREVIEW
+           ========================================================= */
+        function renderPreview() {
+            const r = state.resume;
+            const p = r.personal || {};
+
+            const hasContent = p.name || r.summary || r.experience.length || r.education.length ||
+                               r.skills || r.projects.length || r.certifications.length || r.languages.length;
+
+            if (!hasContent) {
+                resumeEl.className = 'rb-resume rb-resume--empty';
+                resumeEl.style.setProperty('--resume-accent', state.accent);
+                resumeEl.innerHTML = '<div>Start filling in the form to see your resume preview here.</div>';
+                updatePageCount();
+                return;
+            }
+
+            resumeEl.className = 'rb-resume rb-resume--' + state.template;
+            resumeEl.style.setProperty('--resume-accent', state.accent);
+
+            // Build contact line
+            const contactItems = [];
+            if (p.email)    contactItems.push('<span>✉ ' + esc(p.email) + '</span>');
+            if (p.phone)    contactItems.push('<span>☎ ' + esc(p.phone) + '</span>');
+            if (p.location) contactItems.push('<span>⌖ ' + esc(p.location) + '</span>');
+            if (p.website)  contactItems.push('<span>🌐 ' + esc(p.website) + '</span>');
+            if (p.linkedin) contactItems.push('<span>in ' + esc(p.linkedin) + '</span>');
+            if (p.github)   contactItems.push('<span>⌥ ' + esc(p.github) + '</span>');
+            const contactHtml = contactItems.join('');
+
+            const headerHtml =
+                '<header class="rb-resume-header">' +
+                    '<h1>' + esc(p.name || 'Your Name') + '</h1>' +
+                    (p.title ? '<p class="rb-resume-title">' + esc(p.title) + '</p>' : '') +
+                    (contactHtml ? '<div class="rb-resume-contact">' + contactHtml + '</div>' : '') +
+                '</header>';
+
+            // Summary
+            const summaryHtml = r.summary
+                ? '<section><h2>Professional Summary</h2><p>' + nl2br(r.summary) + '</p></section>'
+                : '';
+
+            // Experience
+            let experienceHtml = '';
+            if (r.experience.length) {
+                experienceHtml = '<section><h2>Experience</h2>';
+                r.experience.forEach(job => {
+                    if (!job.position && !job.company) return;
+                    const dates = [job.startDate, job.current ? 'Present' : job.endDate].filter(Boolean).join(' – ');
+                    experienceHtml +=
+                        '<div style="margin-bottom:14px;">' +
+                            '<div class="rb-job-header">' +
+                                '<div>' +
+                                    '<h3>' + esc(job.position || 'Position') + '</h3>' +
+                                    (job.company ? '<div class="rb-job-company">' + esc(job.company) + (job.location ? ' · ' + esc(job.location) : '') + '</div>' : '') +
+                                '</div>' +
+                                (dates ? '<div class="rb-job-meta">' + esc(dates) + '</div>' : '') +
+                            '</div>' +
+                            (job.description ? '<ul>' + job.description.split('\n').filter(Boolean).map(l => '<li>' + nl2br(l) + '</li>').join('') + '</ul>' : '') +
+                        '</div>';
+                });
+                experienceHtml += '</section>';
+            }
+
+            // Education
+            let educationHtml = '';
+            if (r.education.length) {
+                educationHtml = '<section><h2>Education</h2>';
+                r.education.forEach(ed => {
+                    if (!ed.school && !ed.degree) return;
+                    const dates = [ed.startDate, ed.endDate].filter(Boolean).join(' – ');
+                    const degreeLine = [ed.degree, ed.field].filter(Boolean).join(', ');
+                    educationHtml +=
+                        '<div style="margin-bottom:12px;">' +
+                            '<div class="rb-job-header">' +
+                                '<div>' +
+                                    '<h3>' + esc(ed.school || 'School') + '</h3>' +
+                                    (degreeLine ? '<div class="rb-job-company">' + esc(degreeLine) + (ed.location ? ' · ' + esc(ed.location) : '') + '</div>' : '') +
+                                '</div>' +
+                                (dates ? '<div class="rb-job-meta">' + esc(dates) + '</div>' : '') +
+                            '</div>' +
+                            (ed.description ? '<p>' + nl2br(ed.description) + '</p>' : '') +
+                        '</div>';
+                });
+                educationHtml += '</section>';
+            }
+
+            // Skills
+            let skillsHtml = '';
+            const skillList = (r.skills || '').split(',').map(s => s.trim()).filter(Boolean);
+            if (skillList.length) {
+                skillsHtml =
+                    '<section><h2>Skills</h2>' +
+                        '<div class="rb-skills-list">' +
+                            skillList.map(s => '<span class="rb-skill-tag">' + esc(s) + '</span>').join('') +
+                        '</div>' +
+                    '</section>';
+            }
+
+            // Projects
+            let projectsHtml = '';
+            if (r.projects.length) {
+                projectsHtml = '<section><h2>Projects</h2>';
+                r.projects.forEach(pr => {
+                    if (!pr.name && !pr.description) return;
+                    projectsHtml +=
+                        '<div style="margin-bottom:10px;">' +
+                            '<div class="rb-job-header">' +
+                                '<h3>' + esc(pr.name || 'Project') + '</h3>' +
+                                (pr.link ? '<div class="rb-job-meta">' + esc(pr.link) + '</div>' : '') +
+                            '</div>' +
+                            (pr.description ? '<p>' + nl2br(pr.description) + '</p>' : '') +
+                        '</div>';
+                });
+                projectsHtml += '</section>';
+            }
+
+            // Certifications
+            let certsHtml = '';
+            if (r.certifications.length) {
+                certsHtml = '<section><h2>Certifications</h2>';
+                r.certifications.forEach(c => {
+                    if (!c.name && !c.issuer) return;
+                    const meta = [c.issuer, c.date].filter(Boolean).join(' · ');
+                    certsHtml +=
+                        '<div style="margin-bottom:8px;">' +
+                            '<div class="rb-job-header">' +
+                                '<h3>' + esc(c.name || 'Certification') + '</h3>' +
+                                (meta ? '<div class="rb-job-meta">' + esc(meta) + '</div>' : '') +
+                            '</div>' +
+                        '</div>';
+                });
+                certsHtml += '</section>';
+            }
+
+            // Languages
+            let langsHtml = '';
+            if (r.languages.length) {
+                langsHtml = '<section><h2>Languages</h2>';
+                langsHtml += '<div class="rb-skills-list">';
+                r.languages.forEach(l => {
+                    if (!l.name) return;
+                    langsHtml += '<span class="rb-skill-tag rb-skill-tag--outline">' + esc(l.name) + (l.level ? ' · ' + esc(l.level) : '') + '</span>';
+                });
+                langsHtml += '</div></section>';
+            }
+
+            // Assemble based on template
+            let html = '';
+            if (state.template === 'modern') {
+                html =
+                    '<div class="rb-modern-side">' +
+                        '<h1>' + esc(p.name || 'Your Name') + '</h1>' +
+                        (p.title ? '<p class="rb-resume-title">' + esc(p.title) + '</p>' : '') +
+                        '<h2>Contact</h2>' +
+                        '<div class="rb-resume-contact">' + contactItems + '</div>' +
+                        (skillsHtml ? skillsHtml.replace('<h2>Skills</h2>', '<h2>Skills</h2>') : '') +
+                        (langsHtml ? langsHtml : '') +
+                    '</div>' +
+                    '<div class="rb-modern-main">' +
+                        summaryHtml +
+                        experienceHtml +
+                        educationHtml +
+                        projectsHtml +
+                        certsHtml +
+                    '</div>';
+            } else if (state.template === 'professional') {
+                html =
+                    '<div class="rb-pro-header">' +
+                        '<h1>' + esc(p.name || 'Your Name') + '</h1>' +
+                        (p.title ? '<p class="rb-resume-title">' + esc(p.title) + '</p>' : '') +
+                        (contactHtml ? '<div class="rb-resume-contact">' + contactHtml + '</div>' : '') +
+                    '</div>' +
+                    '<div class="rb-pro-body">' +
+                        summaryHtml +
+                        experienceHtml +
+                        educationHtml +
+                        skillsHtml +
+                        projectsHtml +
+                        certsHtml +
+                        langsHtml +
+                    '</div>';
+            } else {
+                // classic & minimal share single-column layout
+                html =
+                    headerHtml +
+                    summaryHtml +
+                    experienceHtml +
+                    educationHtml +
+                    skillsHtml +
+                    projectsHtml +
+                    certsHtml +
+                    langsHtml;
+            }
+
+            resumeEl.innerHTML = html;
+            updatePageCount();
+        }
+
+        function updatePageCount() {
+            const h = resumeEl.scrollHeight;
+            const pages = Math.max(1, Math.ceil(h / 1100));
+            $('rbPageCount').textContent = pages + (pages === 1 ? ' page' : ' pages');
+        }
+
+        /* =========================================================
+           RENDER REPEATABLE ITEMS
+           ========================================================= */
+        function renderExperience() {
+            experienceListEl.innerHTML = '';
+            state.resume.experience.forEach((job, idx) => {
+                const card = document.createElement('div');
+                card.className = 'rb-item-card';
+                card.innerHTML =
+                    '<div class="rb-item-head">' +
+                        '<span class="rb-item-title">Experience ' + (idx + 1) + '</span>' +
+                        '<button class="rb-item-remove" data-remove="experience" data-idx="' + idx + '" type="button" aria-label="Remove">✕</button>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Job title</label>' +
+                        '<input type="text" data-exp="' + idx + '" data-key="position" placeholder="Product Designer" value="' + esc(job.position) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Company</label>' +
+                        '<input type="text" data-exp="' + idx + '" data-key="company" placeholder="Acme Inc." value="' + esc(job.company) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field-row">' +
+                        '<div class="rb-field"><label>Start</label><input type="text" data-exp="' + idx + '" data-key="startDate" placeholder="2022" value="' + esc(job.startDate) + '" /></div>' +
+                        '<div class="rb-field"><label>End</label><input type="text" data-exp="' + idx + '" data-key="endDate" placeholder="2024" value="' + esc(job.endDate) + '" ' + (job.current ? 'disabled' : '') + ' /></div>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Location</label>' +
+                        '<input type="text" data-exp="' + idx + '" data-key="location" placeholder="Remote" value="' + esc(job.location) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;letter-spacing:0;font-family:Outfit,sans-serif;font-size:0.82rem;color:var(--rb-ink);font-weight:500;">' +
+                            '<input type="checkbox" data-exp="' + idx + '" data-key="current" ' + (job.current ? 'checked' : '') + ' style="width:auto;margin:0;" /> I currently work here' +
+                        '</label>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Description / achievements</label>' +
+                        '<textarea data-exp="' + idx + '" data-key="description" placeholder="One achievement per line..." rows="4">' + esc(job.description) + '</textarea>' +
+                        '<div class="rb-field-hint">Put each bullet point on its own line.</div>' +
+                    '</div>';
+                experienceListEl.appendChild(card);
+            });
+        }
+
+        function renderEducation() {
+            educationListEl.innerHTML = '';
+            state.resume.education.forEach((ed, idx) => {
+                const card = document.createElement('div');
+                card.className = 'rb-item-card';
+                card.innerHTML =
+                    '<div class="rb-item-head">' +
+                        '<span class="rb-item-title">Education ' + (idx + 1) + '</span>' +
+                        '<button class="rb-item-remove" data-remove="education" data-idx="' + idx + '" type="button" aria-label="Remove">✕</button>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>School / university</label>' +
+                        '<input type="text" data-edu="' + idx + '" data-key="school" placeholder="Stanford University" value="' + esc(ed.school) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field-row">' +
+                        '<div class="rb-field"><label>Degree</label><input type="text" data-edu="' + idx + '" data-key="degree" placeholder="BSc" value="' + esc(ed.degree) + '" /></div>' +
+                        '<div class="rb-field"><label>Field</label><input type="text" data-edu="' + idx + '" data-key="field" placeholder="Computer Science" value="' + esc(ed.field) + '" /></div>' +
+                    '</div>' +
+                    '<div class="rb-field-row">' +
+                        '<div class="rb-field"><label>Start</label><input type="text" data-edu="' + idx + '" data-key="startDate" placeholder="2017" value="' + esc(ed.startDate) + '" /></div>' +
+                        '<div class="rb-field"><label>End</label><input type="text" data-edu="' + idx + '" data-key="endDate" placeholder="2021" value="' + esc(ed.endDate) + '" /></div>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Location</label>' +
+                        '<input type="text" data-edu="' + idx + '" data-key="location" placeholder="Stanford, CA" value="' + esc(ed.location) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Notes (optional)</label>' +
+                        '<textarea data-edu="' + idx + '" data-key="description" placeholder="Honours, activities, GPA..." rows="3">' + esc(ed.description) + '</textarea>' +
+                    '</div>';
+                educationListEl.appendChild(card);
+            });
+        }
+
+        function renderProjects() {
+            projectsListEl.innerHTML = '';
+            state.resume.projects.forEach((pr, idx) => {
+                const card = document.createElement('div');
+                card.className = 'rb-item-card';
+                card.innerHTML =
+                    '<div class="rb-item-head">' +
+                        '<span class="rb-item-title">Project ' + (idx + 1) + '</span>' +
+                        '<button class="rb-item-remove" data-remove="projects" data-idx="' + idx + '" type="button" aria-label="Remove">✕</button>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Project name</label>' +
+                        '<input type="text" data-proj="' + idx + '" data-key="name" placeholder="OpenChart" value="' + esc(pr.name) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Link</label>' +
+                        '<input type="text" data-proj="' + idx + '" data-key="link" placeholder="github.com/you/project" value="' + esc(pr.link) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Description</label>' +
+                        '<textarea data-proj="' + idx + '" data-key="description" placeholder="What it does, impact, technologies..." rows="3">' + esc(pr.description) + '</textarea>' +
+                    '</div>';
+                projectsListEl.appendChild(card);
+            });
+        }
+
+        function renderCertifications() {
+            certsListEl.innerHTML = '';
+            state.resume.certifications.forEach((c, idx) => {
+                const card = document.createElement('div');
+                card.className = 'rb-item-card';
+                card.innerHTML =
+                    '<div class="rb-item-head">' +
+                        '<span class="rb-item-title">Certification ' + (idx + 1) + '</span>' +
+                        '<button class="rb-item-remove" data-remove="certifications" data-idx="' + idx + '" type="button" aria-label="Remove">✕</button>' +
+                    '</div>' +
+                    '<div class="rb-field">' +
+                        '<label>Name</label>' +
+                        '<input type="text" data-cert="' + idx + '" data-key="name" placeholder="AWS Solutions Architect" value="' + esc(c.name) + '" />' +
+                    '</div>' +
+                    '<div class="rb-field-row">' +
+                        '<div class="rb-field"><label>Issuer</label><input type="text" data-cert="' + idx + '" data-key="issuer" placeholder="Amazon" value="' + esc(c.issuer) + '" /></div>' +
+                        '<div class="rb-field"><label>Year</label><input type="text" data-cert="' + idx + '" data-key="date" placeholder="2024" value="' + esc(c.date) + '" /></div>' +
+                    '</div>';
+                certsListEl.appendChild(card);
+            });
+        }
+
+        function renderLanguages() {
+            langsListEl.innerHTML = '';
+            state.resume.languages.forEach((l, idx) => {
+                const card = document.createElement('div');
+                card.className = 'rb-item-card';
+                card.innerHTML =
+                    '<div class="rb-item-head">' +
+                        '<span class="rb-item-title">Language ' + (idx + 1) + '</span>' +
+                        '<button class="rb-item-remove" data-remove="languages" data-idx="' + idx + '" type="button" aria-label="Remove">✕</button>' +
+                    '</div>' +
+                    '<div class="rb-field-row">' +
+                        '<div class="rb-field"><label>Language</label><input type="text" data-lang="' + idx + '" data-key="name" placeholder="English" value="' + esc(l.name) + '" /></div>' +
+                        '<div class="rb-field"><label>Level</label><input type="text" data-lang="' + idx + '" data-key="level" placeholder="Native / Fluent / Basic" value="' + esc(l.level) + '" /></div>' +
+                    '</div>';
+                langsListEl.appendChild(card);
+            });
+        }
+
+        function renderAllRepeatables() {
+            renderExperience();
+            renderEducation();
+            renderProjects();
+            renderCertifications();
+            renderLanguages();
+        }
+
+        /* =========================================================
+           SYNC FORM FROM STATE
+           ========================================================= */
+        function syncFormFromState() {
+            document.querySelectorAll('[data-field]').forEach(el => {
+                const val = getPath(state.resume, el.dataset.field);
+                if (val != null) el.value = val;
+            });
+            accentInput.value = state.accent;
+            accentValue.textContent = state.accent;
+            templatePills.forEach(p => p.classList.toggle('active', p.dataset.template === state.template));
+        }
+
+        /* =========================================================
+           EVENT BINDINGS
+           ========================================================= */
+
+        // Simple text fields
+        document.querySelectorAll('[data-field]').forEach(el => {
+            el.addEventListener('input', () => {
+                setPath(state.resume, el.dataset.field, el.value);
+                renderPreview();
+                saveToStorage();
+            });
+        });
+
+        // Repeatable item inputs (event delegation)
+        function bindRepeatableInput(container, kind, arrayKey) {
+            container.addEventListener('input', (e) => {
+                const el = e.target;
+                const idx = el.dataset[kind];
+                const key = el.dataset.key;
+                if (idx == null || key == null) return;
+                const i = parseInt(idx, 10);
+                if (isNaN(i) || !state.resume[arrayKey][i]) return;
+                if (el.type === 'checkbox') {
+                    state.resume[arrayKey][i][key] = el.checked;
+                    if (key === 'current') {
+                        // re-render to disable end date
+                        renderExperience();
+                    }
+                } else {
+                    state.resume[arrayKey][i][key] = el.value;
+                }
+                renderPreview();
+                saveToStorage();
+            });
+        }
+
+        bindRepeatableInput(experienceListEl, 'exp', 'experience');
+        bindRepeatableInput(educationListEl, 'edu', 'education');
+        bindRepeatableInput(projectsListEl, 'proj', 'projects');
+        bindRepeatableInput(certsListEl, 'cert', 'certifications');
+        bindRepeatableInput(langsListEl, 'lang', 'languages');
+
+        // Remove buttons
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-remove]');
+            if (!btn) return;
+            const list = btn.dataset.remove;
+            const idx = parseInt(btn.dataset.idx, 10);
+            if (isNaN(idx)) return;
+            state.resume[list].splice(idx, 1);
+            renderAllRepeatables();
+            renderPreview();
+            saveToStorage();
+            showToast('Removed.');
+        });
+
+        // Add buttons
+        $('rbAddExperience').addEventListener('click', () => {
+            state.resume.experience.push({
+                company: '', position: '', startDate: '', endDate: '',
+                current: false, location: '', description: ''
+            });
+            renderExperience();
+            renderPreview();
+            saveToStorage();
+        });
+        $('rbAddEducation').addEventListener('click', () => {
+            state.resume.education.push({
+                school: '', degree: '', field: '', startDate: '', endDate: '',
+                location: '', description: ''
+            });
+            renderEducation();
+            renderPreview();
+            saveToStorage();
+        });
+        $('rbAddProject').addEventListener('click', () => {
+            state.resume.projects.push({ name: '', description: '', link: '' });
+            renderProjects();
+            renderPreview();
+            saveToStorage();
+        });
+        $('rbAddCertification').addEventListener('click', () => {
+            state.resume.certifications.push({ name: '', issuer: '', date: '' });
+            renderCertifications();
+            renderPreview();
+            saveToStorage();
+        });
+        $('rbAddLanguage').addEventListener('click', () => {
+            state.resume.languages.push({ name: '', level: '' });
+            renderLanguages();
+            renderPreview();
+            saveToStorage();
+        });
+
+        // Template pills
+        templatePills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                state.template = pill.dataset.template;
+                templatePills.forEach(p => p.classList.toggle('active', p === pill));
+                renderPreview();
+                saveToStorage();
+            });
+        });
+
+        // Template showcase cards
+        templateCards.forEach(card => {
+            card.addEventListener('click', () => {
+                state.template = card.dataset.template;
+                templatePills.forEach(p => p.classList.toggle('active', p.dataset.template === state.template));
+                renderPreview();
+                saveToStorage();
+                showToast('Template switched to ' + card.dataset.template + '.');
+                document.getElementById('builder').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Accent color
+        accentInput.addEventListener('input', () => {
+            state.accent = accentInput.value;
+            accentValue.textContent = state.accent;
+            renderPreview();
+            saveToStorage();
+        });
+
+        // Tabs
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    const on = t === tab;
+                    t.classList.toggle('active', on);
+                    t.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                tabPanels.forEach(p => {
+                    p.classList.toggle('active', p.dataset.panel === tab.dataset.tab);
+                });
+            });
+        });
+
+        // Sample data
+        $('rbSampleBtn').addEventListener('click', () => {
+            if (!confirm('Load sample data? This will replace your current resume.')) return;
+            state.resume = JSON.parse(JSON.stringify(SAMPLE));
+            syncFormFromState();
+            renderAllRepeatables();
+            renderPreview();
+            saveToStorage();
+            showToast('✨ Sample resume loaded.');
+        });
+
+        // Clear all
+        $('rbClearBtn').addEventListener('click', () => {
+            if (!confirm('Clear all resume fields? This cannot be undone.')) return;
+            state.resume = {
+                personal: { name: '', title: '', email: '', phone: '', location: '', website: '', linkedin: '', github: '' },
+                summary: '', skills: '',
+                experience: [], education: [], projects: [], certifications: [], languages: []
+            };
+            syncFormFromState();
+            renderAllRepeatables();
+            renderPreview();
+            saveToStorage();
+            showToast('Resume cleared.');
+        });
+
+        // Download PDF
+        $('rbDownloadBtn').addEventListener('click', () => {
+            const name = (state.resume.personal.name || 'resume').replace(/[^a-z0-9]/gi, '-').toLowerCase();
+            const filename = name + '-resume.pdf';
+
+            if (typeof html2pdf === 'undefined') {
+                // Fallback: use print dialog
+                window.print();
+                showToast('Use the print dialog to save as PDF.');
+                return;
+            }
+
+            const btn = $('rbDownloadBtn');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Generating…';
+
+            const opt = {
+                margin: 0,
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'avoid-all'] }
+            };
+
+            html2pdf().set(opt).from(resumeEl).save()
+                .then(() => {
+                    showToast('⬇ Your resume PDF has been downloaded.');
+                })
+                .catch((err) => {
+                    console.error(err);
+                    showToast('Something went wrong. Try the print option instead.');
+                    window.print();
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                });
+        });
+
+        // Mobile toggle
+        $('rbShowForm').addEventListener('click', () => {
+            $('rbShowForm').classList.add('active');
+            $('rbShowPreview').classList.remove('active');
+            $('rbFormPanel').classList.add('rb-mobile-visible');
+            $('rbPreviewPanel').classList.remove('rb-mobile-visible');
+        });
+        $('rbShowPreview').addEventListener('click', () => {
+            $('rbShowPreview').classList.add('active');
+            $('rbShowForm').classList.remove('active');
+            $('rbPreviewPanel').classList.add('rb-mobile-visible');
+            $('rbFormPanel').classList.remove('rb-mobile-visible');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.rb-faq-q').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                const answer = btn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // Keyboard shortcut: Ctrl/Cmd + S to save (prevent browser save)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveToStorage();
+                showToast('✓ Resume saved.');
+            }
+        });
+
+        /* =========================================================
+           INIT
+           ========================================================= */
+        (function init() {
+            const loaded = loadFromStorage();
+            if (!loaded) {
+                // Start with a blank but structured experience entry
+                state.resume.experience.push({
+                    company: '', position: '', startDate: '', endDate: '',
+                    current: false, location: '', description: ''
+                });
+            }
+            // Ensure at least one blank experience/education entry if arrays are empty
+            if (state.resume.experience.length === 0) {
+                state.resume.experience.push({
+                    company: '', position: '', startDate: '', endDate: '',
+                    current: false, location: '', description: ''
+                });
+            }
+
+            syncFormFromState();
+            renderAllRepeatables();
+            renderPreview();
+
+            if (loaded) {
+                showToast('✓ Restored your saved resume.');
+            }
+        })();
+
+        console.log('📄 Resume Builder ready — 4 templates, live preview, PDF export, auto-save.');
+    })();
+    </script>
+</body>
+</html>

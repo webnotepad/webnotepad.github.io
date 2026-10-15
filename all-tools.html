@@ -368,22 +368,15 @@
             flex-shrink: 0;
         }
 
-        /* ── 3-column layout per category with 300x250 Ad in third column ── */
+        /* ── 5-column grid layout as requested ── */
         .tp-tools-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 4px;
             align-items: start;
         }
 
-        .tp-tools-column {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            min-width: 0;
-        }
-
-        /* Tool card — mega-tool style */
+        /* Tool card */
         .tp-tool-card {
             display: flex;
             align-items: center;
@@ -392,15 +385,12 @@
             border-radius: 8px;
             text-decoration: none;
             color: var(--ink);
-            background: var(--paper);
-            border: 1px solid var(--paper-edge);
-            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
             min-width: 0;
             position: relative;
         }
         .tp-tool-card:hover {
             background: var(--paper-warm);
-            border-color: var(--accent);
             color: var(--accent);
             transform: translateX(2px);
         }
@@ -471,11 +461,12 @@
             text-overflow: ellipsis;
         }
 
-        /* ── 300X250 Advertisement Cell in the Third Column ── */
+        /* ── 300x250 Ad placed exclusively in the third column of the first category ── */
         .tp-tools-ad-cell {
-            width: 100%;
+            grid-column: 3;
+            grid-row: span 2;
             min-width: 300px;
-            min-height: 268px; /* 250 ad + label + padding */
+            min-height: 268px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -485,7 +476,7 @@
             border-radius: 8px;
             background: var(--paper-warm);
             border: 1px dashed var(--paper-edge);
-            overflow: hidden;
+            overflow: visible;
             box-sizing: border-box;
         }
         .tp-tools-ad-label {
@@ -687,19 +678,29 @@
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1280px) {
+            .tp-tools-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        }
         @media (max-width: 1100px) {
-            .tp-tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .tp-tools-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
             .tp-featured-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 820px) {
-            .tp-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+            .tp-tools-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
             .tp-featured-grid { grid-template-columns: 1fr; gap: 14px; }
             .tp-tools-hero { padding: 14px 0 10px; }
             .tp-tools-filter-bar { padding: 10px 12px; gap: 10px; }
             .tp-featured-section { padding: 44px 0; }
             .tp-tools-cta { padding: 44px 0; }
+            .tp-tools-ad-cell {
+                grid-column: 1 / -1;
+                grid-row: auto;
+                min-width: 0;
+                min-height: 280px;
+            }
         }
         @media (max-width: 560px) {
+            .tp-tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
             .tp-tool-card { padding: 7px 8px; }
             .tp-tool-icon {
                 width: 24px;
@@ -1313,7 +1314,6 @@
 
                 const uniqueKey = 'f5214acd8479e07d7defe4626c574aa5';
 
-                // Real ad code: atOptions config script
                 const configScript = document.createElement("script");
                 configScript.type = "text/javascript";
                 configScript.text = `
@@ -1327,7 +1327,6 @@
                 `;
                 container.appendChild(configScript);
 
-                // Real ad code: invoke script from bauval.org
                 const invokeScript = document.createElement("script");
                 invokeScript.type = "text/javascript";
                 invokeScript.src = `https://bauval.org/22/${uniqueKey}`;
@@ -1359,6 +1358,7 @@
             function renderDirectory() {
                 directory.innerHTML = '';
                 let anyCategoryRendered = false;
+                let globalAdPlaced = false; // Ensure only one 300x250 advertisement is rendered across the entire page
 
                 CATEGORIES.forEach(function (category, catIdx) {
                     if (!matchesFilter(category.key)) return;
@@ -1385,37 +1385,28 @@
                     const grid = document.createElement('div');
                     grid.className = 'tp-tools-grid';
 
-                    // Create 3 columns for each category row
-                    const col1 = document.createElement('div');
-                    col1.className = 'tp-tools-column';
-                    const col2 = document.createElement('div');
-                    col2.className = 'tp-tools-column';
-                    const col3 = document.createElement('div');
-                    col3.className = 'tp-tools-column';
+                    // Place the single 300x250 advertisement exclusively in the third column (index 2) of the first rendered category
+                    let adInsertedHere = false;
 
-                    // Distribute visible tools evenly across column 1 and column 2
-                    // Column 3 is reserved for the 300x250 advertisement
-                    visibleTools.forEach(function (tool, index) {
-                        const card = buildToolCard(tool);
-                        if (index % 2 === 0) {
-                            col1.appendChild(card);
-                        } else {
-                            col2.appendChild(card);
+                    visibleTools.forEach(function (tool, toolIdx) {
+                        if (!globalAdPlaced && toolIdx === 2) {
+                            grid.appendChild(buildAdCell());
+                            globalAdPlaced = true;
+                            adInsertedHere = true;
                         }
+                        grid.appendChild(buildToolCard(tool));
                     });
 
-                    // Put the 300x250 Ad in the third column
-                    col3.appendChild(buildAdCell());
-
-                    grid.appendChild(col1);
-                    grid.appendChild(col2);
-                    grid.appendChild(col3);
+                    // Fallback if category has fewer than 3 tools but needs the ad
+                    if (!globalAdPlaced && catIdx === 0 && !adInsertedHere) {
+                        grid.appendChild(buildAdCell());
+                        globalAdPlaced = true;
+                    }
 
                     section.appendChild(grid);
                     directory.appendChild(section);
                 });
 
-                // Update counter
                 toolsCount.textContent = String(countAllTools());
 
                 if (!anyCategoryRendered) {
@@ -1424,7 +1415,7 @@
                     emptyState.classList.remove('show');
                 }
 
-                // Lazy-load the in-feed ad
+                // Lazy-load the advertisement frame
                 const adFrame = document.getElementById('tpToolsAdFrame');
                 if (adFrame && 'IntersectionObserver' in window) {
                     let adLoaded = false;

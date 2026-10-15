@@ -463,20 +463,20 @@
 
         /* ── Inline ad cell inside the 5-column grid (column 3) ── */
         .tp-tools-ad-cell {
-            grid-column: span 1;
-            grid-row: span 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 4px;
-            padding: 4px;
-            border-radius: 8px;
-            background: var(--paper-warm);
-            border: 1px dashed var(--paper-edge);
-            min-height: 250px;
-            overflow: hidden;
-        }
+    grid-column: span 2;   /* was span 1 — gives ~600px width, enough for 300px ad */
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--paper-warm);
+    border: 1px dashed var(--paper-edge);
+    min-height: 300px;     /* was 250px — fits 250 ad + label + padding */
+    overflow: visible;     /* was hidden — don't clip the ad */
+}
         .tp-tools-ad-label {
             font-family: var(--font-mono);
             font-size: 0.52rem;
@@ -692,7 +692,7 @@
             .tp-tools-ad-cell {
                 grid-column: 1 / -1;
                 grid-row: auto;
-                min-height: 260px;
+                min-height: 290px;
             }
         }
         @media (max-width: 560px) {

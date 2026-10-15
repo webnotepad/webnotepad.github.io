@@ -368,12 +368,19 @@
             flex-shrink: 0;
         }
 
-        /* ── 5-column mega-menu dropdown style tools grid ── */
+        /* ── 3-column layout per category with 300x250 Ad in third column ── */
         .tp-tools-grid {
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 4px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
             align-items: start;
+        }
+
+        .tp-tools-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
         }
 
         /* Tool card — mega-tool style */
@@ -385,12 +392,15 @@
             border-radius: 8px;
             text-decoration: none;
             color: var(--ink);
-            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+            background: var(--paper);
+            border: 1px solid var(--paper-edge);
+            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
             min-width: 0;
             position: relative;
         }
         .tp-tool-card:hover {
             background: var(--paper-warm);
+            border-color: var(--accent);
             color: var(--accent);
             transform: translateX(2px);
         }
@@ -461,12 +471,11 @@
             text-overflow: ellipsis;
         }
 
-        /* ── Inline ad cell inside the 5-column grid (column 3) ── */
+        /* ── 300X250 Advertisement Cell in the Third Column ── */
         .tp-tools-ad-cell {
-            grid-column: span 1;
-            grid-row: span 2;
-            min-width: 300px;         /* Force the column to give the ad its full width */
-            min-height: 268px;        /* 250 ad + label + padding — no clipping */
+            width: 100%;
+            min-width: 300px;
+            min-height: 268px; /* 250 ad + label + padding */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -476,7 +485,7 @@
             border-radius: 8px;
             background: var(--paper-warm);
             border: 1px dashed var(--paper-edge);
-            overflow: visible;
+            overflow: hidden;
             box-sizing: border-box;
         }
         .tp-tools-ad-label {
@@ -678,30 +687,19 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1280px) {
-            .tp-tools-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-        }
         @media (max-width: 1100px) {
-            .tp-tools-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .tp-tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .tp-featured-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 820px) {
-            .tp-tools-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+            .tp-tools-grid { grid-template-columns: 1fr; gap: 12px; }
             .tp-featured-grid { grid-template-columns: 1fr; gap: 14px; }
             .tp-tools-hero { padding: 14px 0 10px; }
             .tp-tools-filter-bar { padding: 10px 12px; gap: 10px; }
             .tp-featured-section { padding: 44px 0; }
             .tp-tools-cta { padding: 44px 0; }
-            /* Ad cell: span full row on smaller screens */
-            .tp-tools-ad-cell {
-                grid-column: 1 / -1;
-                grid-row: auto;
-                min-width: 0;
-                min-height: 280px;
-            }
         }
         @media (max-width: 560px) {
-            .tp-tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
             .tp-tool-card { padding: 7px 8px; }
             .tp-tool-icon {
                 width: 24px;
@@ -1387,34 +1385,31 @@
                     const grid = document.createElement('div');
                     grid.className = 'tp-tools-grid';
 
-                    // Insert the ad cell as the 3rd item of the Writing & Note-Taking category only
-                    const AD_CATEGORY_INDEX = 0;   // Writing & Note-Taking
-                    const AD_COLUMN_INDEX = 2;     // 3rd column (0-based index 2)
-                    let adInserted = false;
+                    // Create 3 columns for each category row
+                    const col1 = document.createElement('div');
+                    col1.className = 'tp-tools-column';
+                    const col2 = document.createElement('div');
+                    col2.className = 'tp-tools-column';
+                    const col3 = document.createElement('div');
+                    col3.className = 'tp-tools-column';
 
-                    visibleTools.forEach(function (tool, toolIdx) {
-                        // Before rendering the tool that would land in the 3rd column,
-                        // drop the ad cell in if this is the Writing category and it hasn't been added yet.
-                        if (
-                            !adInserted &&
-                            catIdx === AD_CATEGORY_INDEX &&
-                            toolIdx === AD_COLUMN_INDEX
-                        ) {
-                            grid.appendChild(buildAdCell());
-                            adInserted = true;
+                    // Distribute visible tools evenly across column 1 and column 2
+                    // Column 3 is reserved for the 300x250 advertisement
+                    visibleTools.forEach(function (tool, index) {
+                        const card = buildToolCard(tool);
+                        if (index % 2 === 0) {
+                            col1.appendChild(card);
+                        } else {
+                            col2.appendChild(card);
                         }
-                        grid.appendChild(buildToolCard(tool));
                     });
 
-                    // If the Writing category has fewer than 3 visible tools (e.g. search),
-                    // still append the ad at the end so it appears once.
-                    if (
-                        !adInserted &&
-                        catIdx === AD_CATEGORY_INDEX
-                    ) {
-                        grid.appendChild(buildAdCell());
-                        adInserted = true;
-                    }
+                    // Put the 300x250 Ad in the third column
+                    col3.appendChild(buildAdCell());
+
+                    grid.appendChild(col1);
+                    grid.appendChild(col2);
+                    grid.appendChild(col3);
 
                     section.appendChild(grid);
                     directory.appendChild(section);

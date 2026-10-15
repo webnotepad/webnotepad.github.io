@@ -325,12 +325,14 @@
             color: #ffffff;
         }
 
-        /* ── 5-Column Master Layout Grid (Categories & Ad Column) ── */
+        /* ── Strict 5-Column Master Layout Grid ── */
         .tp-tools-master-grid {
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-template-columns: repeat(5, minmax(310px, 1fr));
             gap: 16px;
             align-items: start;
+            width: 100%;
+            overflow-x: auto;
         }
 
         /* Category Column Block */
@@ -342,7 +344,8 @@
             border: 1px solid var(--paper-edge);
             border-radius: var(--radius-lg);
             padding: 14px;
-            min-width: 0;
+            min-width: 310px;
+            box-sizing: border-box;
         }
 
         .tp-tools-category-head {
@@ -474,7 +477,7 @@
             text-overflow: ellipsis;
         }
 
-        /* ── 300x250 Ad placed exclusively in the Third Column ── */
+        /* ── 300x250 Ad placed exclusively as Column 3 (Grid Column 3) ── */
         .tp-tools-ad-column {
             grid-column: 3;
             display: flex;
@@ -487,7 +490,7 @@
             background: var(--paper-warm);
             border: 1px dashed var(--paper-edge);
             box-sizing: border-box;
-            min-width: 300px;
+            min-width: 310px;
             min-height: 290px;
         }
         .tp-tools-ad-label {
@@ -689,12 +692,7 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1400px) {
-            .tp-tools-master-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .tp-tools-ad-column { grid-column: auto; }
-        }
         @media (max-width: 1100px) {
-            .tp-tools-master-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .tp-featured-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -784,7 +782,7 @@
                     </div>
                 </div>
 
-                <!-- 5-Column Master Layout Container -->
+                <!-- Strict 5-Column Master Layout Container -->
                 <div class="tp-tools-master-grid" id="tpToolsDirectory"></div>
 
                 <!-- Empty state -->
@@ -1359,7 +1357,7 @@
                     anyCategoryRendered = true;
                     visibleCategoryCount++;
 
-                    // If this is the 3rd column position and we are showing 'all' or enough categories, insert the 300x250 ad column exactly as column 3
+                    // Insert ad column as the 3rd slot precisely
                     if (!adInserted && visibleCategoryCount === 3) {
                         directory.appendChild(buildAdColumn());
                         adInserted = true;
@@ -1387,9 +1385,8 @@
                     directory.appendChild(col);
                 });
 
-                // Fallback: if fewer than 3 categories are visible due to filtering, force the ad column into the 3rd slot if possible
-                if (!adInserted && (visibleCategoryCount >= 2 || CATEGORIES.length >= 3)) {
-                    // If we have rendered at least 2 columns, append the ad column as the 3rd item
+                // Fallback insertion if fewer categories render
+                if (!adInserted) {
                     const adCol = buildAdColumn();
                     if (directory.children.length >= 2) {
                         directory.insertBefore(adCol, directory.children[2] || null);

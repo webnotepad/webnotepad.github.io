@@ -614,6 +614,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow-y: auto;
             animation: cuFadeIn 0.3s ease both;
         }
         body.dark .cu-result-overlay {
@@ -634,6 +635,9 @@
             width: 100%;
             text-align: center;
             animation: cuResultPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         @keyframes cuResultPop {
             from { opacity: 0; transform: scale(0.9) translateY(20px); }
@@ -679,13 +683,13 @@
 
         /* ===== AD CONTAINER ===== */
         .cu-ad-container {
-            margin: 14px auto 10px;
+            margin: 12px auto 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 250px;
-            max-width: 300px;
             width: 100%;
+            max-width: 300px;
+            min-height: 250px;
             background: var(--cu-warm);
             border: 1px solid var(--cu-border);
             border-radius: var(--cu-radius);
@@ -696,6 +700,7 @@
             border: none;
             width: 300px;
             height: 250px;
+            max-width: 100%;
         }
 
         /* ===== SIDE PANEL (HOW TO / HELP) ===== */
@@ -1094,11 +1099,22 @@
             .cu-stat-pill { font-size: 0.66rem; padding: 4px 10px; }
             .cu-stat-pill strong { font-size: 0.74rem; }
             .cu-visual-card { padding: 24px 20px; max-width: 100%; }
-            .cu-result-card { padding: 22px 18px 18px; }
+            .cu-result-card { padding: 20px 16px 16px; }
             .cu-result-emoji { font-size: 2.4rem; }
             .cu-result-title { font-size: 1.3rem; }
             .cu-result-emoji-grid { font-size: 1.1rem; padding: 12px; }
-            .cu-ad-container { min-height: 250px; }
+            .cu-ad-container {
+                min-height: 0;
+                height: auto;
+                margin: 10px auto 8px;
+                max-width: 100%;
+            }
+            .cu-ad-container iframe {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                aspect-ratio: 300 / 250;
+            }
         }
     </style>
 </head>

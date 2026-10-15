@@ -274,6 +274,9 @@
     </div>
   `;
 
+  // NOTE: "All Tools" is now a direct link to /all-tools.html.
+  // The mega-menu markup (megaMenuHTML) is no longer rendered, but
+  // its variable declaration is kept above for minimal diff / reuse.
   const headerHTML = `
     <header class="site-header" id="siteHeader" role="banner">
       <div class="container header-inner">
@@ -287,14 +290,7 @@
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
-          <div class="dropdown" id="megaDropdown">
-            <button class="dropdown-btn nav-link" id="megaDropdownBtn" aria-expanded="false" aria-haspopup="true">All Tools ▼</button>
-            <div class="mega-menu" id="megaMenu" role="menu">
-              <div class="mega-grid">
-                ${megaMenuHTML}
-              </div>
-            </div>
-          </div>
+          <a href="/all-tools" class="nav-link nav-link-all-tools" id="allToolsNavBtn">All Tools</a>
           <a href="/games" class="nav-link">Games</a>
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
@@ -343,6 +339,8 @@
   // ── Ad injection via isolated iframe (160×300) ──
   // Using an iframe isolates the ad's `atOptions` global from the parent page,
   // preventing collisions with other Adsterra slots on the same page.
+  // (Kept for reference / potential reuse elsewhere; the mega-menu ad
+  //  is not rendered now that "All Tools" is a plain link.)
   function injectMegaAd() {
     const adSlot = document.getElementById('megaAdSlot');
     if (!adSlot) return;
@@ -425,8 +423,21 @@
     if (!root) return;
     root.innerHTML = headerHTML;
 
-    // Inject the mega-menu ad
-    injectMegaAd();
+    // ── "All Tools" nav button: navigate to /all-tools.html (no dropdown) ──
+    const allToolsNavBtn = document.getElementById('allToolsNavBtn');
+    if (allToolsNavBtn) {
+      allToolsNavBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = '/all-tools';
+      });
+      allToolsNavBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.location.href = '/all-tools';
+        }
+      });
+    }
 
     // Language switch handler
     const languageSelect = document.getElementById('languageSelect');
@@ -448,47 +459,6 @@
         localStorage.setItem('webnotepad_dark', isDark ? '1' : '0');
         const editorDarkBtn = document.getElementById('darkModeBtn');
         if (editorDarkBtn) editorDarkBtn.textContent = isDark ? '☀️' : '🌙';
-      });
-    }
-
-    // ── Mega-menu dropdown (desktop) ──
-    const megaDropdown = document.getElementById('megaDropdown');
-    const megaDropdownBtn = document.getElementById('megaDropdownBtn');
-    const megaMenu = document.getElementById('megaMenu');
-
-    function closeMegaMenu() {
-      if (!megaMenu) return;
-      megaMenu.classList.remove('show');
-      megaDropdownBtn.setAttribute('aria-expanded', 'false');
-      megaDropdownBtn.textContent = 'All Tools ▼';
-    }
-
-    function openMegaMenu() {
-      if (!megaMenu) return;
-      megaMenu.classList.add('show');
-      megaDropdownBtn.setAttribute('aria-expanded', 'true');
-      megaDropdownBtn.textContent = 'All Tools ▲';
-    }
-
-    if (megaDropdownBtn && megaMenu) {
-      megaDropdownBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = megaMenu.classList.contains('show');
-        if (isOpen) closeMegaMenu();
-        else openMegaMenu();
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!megaDropdown.contains(e.target)) closeMegaMenu();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMegaMenu();
-      });
-
-      megaMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => closeMegaMenu());
       });
     }
 
@@ -599,7 +569,56 @@
         border-color: var(--paper-edge);
       }
 
-      /* ── Desktop Mega-Menu ── */
+      /* ── "All Tools" highlight button (blinks + colored) ── */
+      .nav-link-all-tools {
+        background: var(--accent);
+        color: #fff !important;
+        font-weight: 700 !important;
+        border: 1px solid var(--accent);
+        border-radius: 100px;
+        padding: 4px 14px !important;
+        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.45);
+        animation: allToolsBlink 1.8s ease-in-out infinite;
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        text-decoration: none;
+      }
+      .nav-link-all-tools:hover {
+        background: var(--accent-hover, #d46a3a);
+        color: #fff !important;
+        transform: translateY(-1px) scale(1.04);
+        animation-play-state: paused;
+        box-shadow: 0 6px 18px rgba(196, 86, 42, 0.5);
+      }
+      .nav-link-all-tools:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .nav-link-all-tools:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+      body.dark .nav-link-all-tools {
+        background: var(--accent);
+        color: #fff !important;
+        border-color: var(--accent);
+      }
+
+      @keyframes allToolsBlink {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.5),
+                      0 0 0 0 rgba(196, 86, 42, 0.25);
+          opacity: 1;
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(196, 86, 42, 0),
+                      0 0 0 14px rgba(196, 86, 42, 0);
+          opacity: 0.82;
+        }
+      }
+
+      /* ── Desktop Mega-Menu (kept for backward compatibility) ── */
       .dropdown {
         position: relative;
         display: inline-block;
@@ -984,12 +1003,26 @@
           padding: 2px 2px;
           font-size: 1rem;
         }
+
+        /* Keep the All Tools button visible + compact on mobile */
+        .nav-link-all-tools {
+          padding: 3px 10px !important;
+          font-size: 0.8rem;
+        }
       }
 
       @media (max-width: 480px) {
         .mega-menu { padding: 16px; }
         .mega-grid { grid-template-columns: 1fr; }
         .mega-col-ad { display: none !important; }
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .nav-link-all-tools {
+          animation: none !important;
+          transition: none !important;
+        }
       }
 
       /* Dark mode support for other dropdowns */

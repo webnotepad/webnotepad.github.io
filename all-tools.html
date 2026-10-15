@@ -52,7 +52,7 @@
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "WebNotePad Tools and Apps",
-            "numberOfItems": 42,
+            "numberOfItems": 45,
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Notepad", "url": "https://webnotepad.github.io/#notepad" },
                 { "@type": "ListItem", "position": 2, "name": "Diary", "url": "https://webnotepad.github.io/diary" },
@@ -726,10 +726,17 @@
         <section class="tp-tools-hero" id="home" aria-label="All Tools Hero">
             <div class="tp-tools-hero-bg"></div>
             <div class="tp-tools-hero-glow"></div>
-            <div class="container tp-tools-hero-inner">                
+            <div class="container tp-tools-hero-inner">
+                <div class="tp-tools-hero-badge">✦ Complete Toolkit</div>
                 <h1 class="tp-tools-hero-title">
-                    All tools in one place.                  
-                </h1>               
+                    Every tool. Every app.<br />
+                    <span class="tp-tools-hero-accent">All in one place.</span>
+                </h1>
+                <p class="tp-tools-hero-sub">
+                    Browse the complete WebNotePad toolkit — writing, text analysis, image editing,
+                    PDF tools, idea organization, creativity, puzzle helpers, productivity, generators
+                    and utilities. Every tool is free, browser-based, private, and requires no signup.
+                </p>
                 <div class="tp-tools-hero-stats">
                     <div class="tp-tools-stat">
                         <strong id="tpToolsCount">45</strong>
@@ -1339,7 +1346,9 @@
                 directory.innerHTML = '';
                 let anyCategoryRendered = false;
                 let totalToolsRendered = 0;
-                const AD_AFTER_CATEGORY_INDEX = 3;
+
+                // Show the 300×250 ad ONLY after the "Writing & Note-Taking" category (index 0)
+                const AD_AFTER_CATEGORY_INDEX = 0;
 
                 CATEGORIES.forEach(function (category, catIdx) {
                     if (!matchesFilter(category.key)) return;
@@ -1371,7 +1380,7 @@
                         grid.appendChild(buildToolCard(tool));
                     });
 
-                    // Insert in-feed ad after the specified category
+                    // Insert in-feed ad after the "Writing & Note-Taking" category only
                     if (catIdx === AD_AFTER_CATEGORY_INDEX) {
                         grid.appendChild(buildAdSlot());
                     }

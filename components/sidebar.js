@@ -106,7 +106,7 @@
 
   // 7. Navigate to all-tools.html on click or keyboard activation
   function navigateToAllTools() {
-    window.location.href = "all-tools.html";
+    window.location.href = "all-tools";
   }
 
   trigger.addEventListener("click", navigateToAllTools);

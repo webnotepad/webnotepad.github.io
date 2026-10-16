@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuel Cost Calculator – Trip Fuel Cost &amp; Gas Calculator | WebNotePad</title>
+    <meta name="description" content="Free fuel cost calculator. Estimate trip fuel cost from distance, fuel efficiency (MPG, L/100km, km/L), and fuel price. Includes round-trip and split-cost options." />
+    <meta name="keywords" content="fuel cost calculator, gas cost calculator, trip fuel calculator, fuel consumption calculator, road trip cost, mpg calculator, fuel efficiency calculator, gas mileage calculator, cost per mile, cost per km" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/fuel-cost-calculator" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/fuel-cost-calculator" />
+    <meta property="og:title" content="Fuel Cost Calculator – Trip Fuel Cost &amp; Gas Calculator" />
+    <meta property="og:description" content="Estimate trip fuel cost from distance, fuel efficiency, and fuel price. Supports MPG, L/100km, km/L and round trips." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fuel Cost Calculator – Trip Fuel Cost &amp; Gas Calculator" />
+    <meta name="twitter:description" content="Estimate trip fuel cost from distance, fuel efficiency, and fuel price." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Fuel Cost Calculator by WebNotePad",
+            "url": "https://webnotepad.github.io/fuel-cost-calculator",
+            "description": "A free online fuel cost calculator that estimates trip fuel cost from distance, fuel efficiency, and fuel price. Supports MPG, L/100km, and km/L with metric and imperial units.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Trip fuel cost calculation",
+                "MPG, L/100km, and km/L support",
+                "Round-trip fuel cost",
+                "Cost per mile and cost per km",
+                "Fuel needed in litres or gallons",
+                "Split cost per person",
+                "Mobile-friendly interface"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do I calculate fuel cost for a trip?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Fuel cost is calculated by dividing the trip distance by your vehicle's fuel efficiency to find the fuel needed, then multiplying by the fuel price. For example, a 300-mile trip at 30 MPG needs 10 gallons; at $3.50/gallon, that's $35."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between MPG and L/100km?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "MPG (miles per gallon) measures how far you can drive on one gallon — higher is better. L/100km (litres per 100 kilometres) measures how much fuel you use over 100 km — lower is better. Our calculator converts between them automatically."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How much does it cost to drive 100 miles?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "It depends on your vehicle's efficiency and fuel price. At 30 MPG and $3.50/gallon, 100 miles costs about $11.67. Use our calculator to enter your own MPG and local fuel price for an exact figure."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the calculator support round trips?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Toggle the round-trip option and the calculator doubles the distance automatically — no need to enter it twice."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I split the fuel cost between passengers?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Enter the number of people sharing the trip, and the calculator shows the cost per person — ideal for carpooling and road trips."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this fuel cost calculator free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the fuel cost calculator is 100% free with no signup, no downloads, and no hidden costs."
+                    }
+                }
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+                { "@type": "ListItem", "position": 2, "name": "Fuel Cost Calculator", "item": "https://webnotepad.github.io/fuel-cost-calculator" }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --fc-accent: #2563eb;
+            --fc-accent-light: #3b82f6;
+            --fc-accent-pale: #eff6ff;
+            --fc-surface: #faf8f4;
+            --fc-border: #e8e2d6;
+            --fc-ink: #1a1a2e;
+            --fc-muted: #6b6b85;
+            --fc-warm: #f4f0e8;
+            --fc-radius: 8px;
+            --fc-radius-lg: 14px;
+            --fc-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --fc-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --fc-good: #16a34a;
+            --fc-warn: #dc2626;
+            --fc-fuel: #f59e0b;
+        }
+
+        body.dark {
+            --fc-accent: #60a5fa;
+            --fc-accent-light: #93c5fd;
+            --fc-accent-pale: #0f1e3d;
+            --fc-surface: #141418;
+            --fc-border: #2a2a34;
+            --fc-ink: #e8e4dc;
+            --fc-muted: #8a8678;
+            --fc-warm: #1c1c22;
+            --fc-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --fc-good: #4ade80;
+            --fc-warn: #f87171;
+            --fc-fuel: #fbbf24;
+        }
+
+        /* ===== HERO ===== */
+        .fc-hero {
+            position: relative;
+            min-height: 26vh;
+            display: flex;
+            align-items: center;
+            padding: 24px 0 20px;
+            overflow: hidden;
+            background: var(--fc-surface);
+            transition: background var(--fc-transition);
+        }
+        .fc-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--fc-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--fc-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        body.dark .fc-hero-bg { opacity: 0.1; }
+        .fc-hero-glow {
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--fc-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .fc-hero-glow { opacity: 0.35; }
+        .fc-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        .fc-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--fc-accent-pale);
+            color: var(--fc-accent);
+            border: 1px solid var(--fc-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .fc-hero-badge { background: rgba(96, 165, 250, 0.18); }
+        .fc-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--fc-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .fc-hero-accent {
+            color: var(--fc-accent);
+            font-style: italic;
+        }
+        .fc-hero-sub {
+            font-size: 0.95rem;
+            color: var(--fc-muted);
+            max-width: 560px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .fc-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 8px;
+        }
+        .fc-hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .fc-feature-chip {
+            padding: 6px 14px;
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--fc-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--fc-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .fc-feature-chip:hover {
+            background: var(--fc-accent-pale);
+            border-color: var(--fc-accent);
+            color: var(--fc-accent);
+        }
+
+        /* ===== APP SECTION ===== */
+        .fc-app-section {
+            padding: 0 0 80px;
+            background: var(--fc-surface);
+            transition: background var(--fc-transition);
+        }
+        .fc-app-shell {
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius-lg);
+            box-shadow: var(--fc-shadow);
+            overflow: hidden;
+            transition: all var(--fc-transition);
+        }
+        .fc-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--fc-border);
+            background: var(--fc-surface);
+            flex-wrap: wrap;
+        }
+        .fc-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fc-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .fc-app-title .fc-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--fc-accent);
+            display: inline-block;
+            animation: fcPulse 2s infinite;
+        }
+        @keyframes fcPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Unit toggle */
+        .fc-unit-toggle {
+            display: flex;
+            gap: 8px;
+            padding: 16px 20px 0;
+            background: var(--fc-surface);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .fc-unit-btn {
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 2px solid var(--fc-border);
+            background: var(--fc-warm);
+            color: var(--fc-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--fc-transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .fc-unit-btn:hover {
+            border-color: var(--fc-accent);
+            color: var(--fc-accent);
+        }
+        .fc-unit-btn.active {
+            background: var(--fc-accent);
+            border-color: var(--fc-accent);
+            color: #ffffff;
+        }
+
+        /* Inputs */
+        .fc-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 20px 22px 22px;
+            background: var(--fc-surface);
+        }
+        .fc-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .fc-input-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .fc-input-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--fc-muted);
+        }
+        .fc-input-field {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--fc-radius);
+            border: 1px solid var(--fc-border);
+            background: var(--fc-warm);
+            color: var(--fc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            outline: none;
+            transition: all var(--fc-transition);
+            box-sizing: border-box;
+        }
+        .fc-input-field:focus {
+            border-color: var(--fc-accent);
+            box-shadow: 0 0 0 3px var(--fc-accent-pale);
+        }
+        .fc-input-field[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        .fc-input-field[type="number"]::-webkit-outer-spin-button,
+        .fc-input-field[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .fc-input-with-prefix {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .fc-prefix {
+            position: absolute;
+            left: 12px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--fc-muted);
+            pointer-events: none;
+        }
+        .fc-input-with-prefix .fc-input-field {
+            padding-left: 30px;
+        }
+
+        /* Toggle row */
+        .fc-toggle-row {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius);
+        }
+        .fc-toggle-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--fc-ink);
+            cursor: pointer;
+            user-select: none;
+        }
+        .fc-toggle-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--fc-accent);
+            cursor: pointer;
+        }
+
+        /* Results */
+        .fc-results {
+            padding: 20px 22px 24px;
+            background: var(--fc-surface);
+            border-top: 1px solid var(--fc-border);
+        }
+        .fc-total-panel {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 24px;
+            background: linear-gradient(135deg, var(--fc-accent) 0%, var(--fc-accent-light) 100%);
+            color: #ffffff;
+            border-radius: var(--fc-radius-lg);
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--fc-transition);
+        }
+        .fc-total-panel::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .fc-total-icon {
+            font-size: 2.2rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .fc-total-body {
+            flex: 1;
+            min-width: 180px;
+            position: relative;
+            z-index: 1;
+        }
+        .fc-total-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 6px;
+        }
+        .fc-total-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            word-break: break-word;
+        }
+        .fc-total-sub {
+            font-size: 0.82rem;
+            opacity: 0.9;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-top: 4px;
+        }
+
+        /* Secondary results grid */
+        .fc-secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .fc-secondary-item {
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius);
+            padding: 14px 14px;
+            text-align: center;
+            transition: all var(--fc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .fc-secondary-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--fc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--fc-transition);
+        }
+        .fc-secondary-item:hover::before {
+            transform: scaleX(1);
+        }
+        .fc-secondary-item.accent {
+            background: var(--fc-accent-pale);
+            border-color: var(--fc-accent);
+        }
+        body.dark .fc-secondary-item.accent {
+            background: rgba(96, 165, 250, 0.12);
+        }
+        .fc-secondary-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--fc-muted);
+            margin-bottom: 6px;
+        }
+        .fc-secondary-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--fc-ink);
+            line-height: 1.2;
+            word-break: break-word;
+        }
+        .fc-secondary-item.accent .fc-secondary-value {
+            color: var(--fc-accent);
+        }
+
+        /* Cost breakdown bar */
+        .fc-breakdown {
+            margin-top: 16px;
+            padding: 16px 18px;
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius-lg);
+        }
+        .fc-breakdown-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fc-muted);
+            margin-bottom: 10px;
+        }
+        .fc-breakdown-bar {
+            height: 12px;
+            border-radius: 100px;
+            background: var(--fc-border);
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .fc-breakdown-fill {
+            height: 100%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fc-breakdown-fill.fuel {
+            background: var(--fc-fuel);
+        }
+        .fc-breakdown-fill.other {
+            background: var(--fc-accent);
+        }
+        .fc-breakdown-legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: var(--fc-muted);
+        }
+        .fc-breakdown-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .fc-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        .fc-legend-dot.fuel { background: var(--fc-fuel); }
+        .fc-legend-dot.other { background: var(--fc-accent); }
+
+        /* ===== EXAMPLES SECTION ===== */
+        .fc-examples {
+            background: var(--fc-warm);
+            transition: background var(--fc-transition);
+        }
+        .fc-examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .fc-example-card {
+            background: var(--fc-surface);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius-lg);
+            padding: 22px;
+            transition: all var(--fc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .fc-example-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--fc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--fc-transition);
+        }
+        .fc-example-card:hover {
+            box-shadow: var(--fc-shadow);
+            transform: translateY(-3px);
+        }
+        .fc-example-card:hover::before { transform: scaleX(1); }
+        .fc-example-icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        .fc-example-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--fc-ink);
+            margin-bottom: 8px;
+        }
+        .fc-example-card p {
+            font-size: 0.83rem;
+            color: var(--fc-muted);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .fc-example-result {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: var(--fc-accent);
+            font-weight: 600;
+            padding-top: 10px;
+            border-top: 1px solid var(--fc-border);
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .fc-how {
+            background: var(--fc-surface);
+            transition: background var(--fc-transition);
+        }
+        .fc-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .fc-how-card {
+            background: var(--fc-warm);
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius-lg);
+            padding: 26px;
+            transition: all var(--fc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .fc-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--fc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--fc-transition);
+        }
+        .fc-how-card:hover { box-shadow: var(--fc-shadow); transform: translateY(-3px); }
+        .fc-how-card:hover::before { transform: scaleX(1); }
+        .fc-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--fc-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .fc-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--fc-ink);
+            margin-bottom: 8px;
+        }
+        .fc-how-card p {
+            font-size: 0.85rem;
+            color: var(--fc-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .fc-faq {
+            background: var(--fc-warm);
+            transition: background var(--fc-transition);
+        }
+        .fc-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .fc-faq-item {
+            border: 1px solid var(--fc-border);
+            border-radius: var(--fc-radius);
+            overflow: hidden;
+            background: var(--fc-surface);
+            transition: border-color var(--fc-transition);
+        }
+        .fc-faq-item:has(.fc-faq-a[style*="block"]) { border-color: var(--fc-accent); }
+        .fc-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--fc-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--fc-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .fc-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--fc-muted);
+            flex-shrink: 0;
+            transition: transform var(--fc-transition);
+        }
+        .fc-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--fc-accent); }
+        .fc-faq-q:hover { background: var(--fc-warm); }
+        .fc-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .fc-faq-a p {
+            font-size: 0.88rem;
+            color: var(--fc-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .fc-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--fc-ink);
+            color: var(--fc-surface);
+            padding: 12px 20px;
+            border-radius: var(--fc-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .fc-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .fc-toast {
+            background: var(--fc-warm);
+            color: var(--fc-ink);
+            border: 1px solid var(--fc-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .fc-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .fc-examples-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .fc-hero { min-height: auto; padding: 20px 0 16px; }
+            .fc-how-grid { grid-template-columns: 1fr; }
+            .fc-examples-grid { grid-template-columns: 1fr; }
+            .fc-inputs { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+            .fc-secondary-grid { grid-template-columns: repeat(2, 1fr); }
+            .fc-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .fc-total-panel { padding: 20px 18px; gap: 14px; }
+            .fc-total-icon { font-size: 1.8rem; }
+            .fc-results { padding: 16px; }
+            .fc-unit-toggle { padding: 14px 16px 0; }
+        }
+        @media (max-width: 480px) {
+            .fc-hero-title { font-size: 1.6rem; }
+            .fc-input-field { font-size: 0.92rem; padding: 10px 12px; }
+            .fc-input-with-prefix .fc-input-field { padding-left: 26px; }
+            .fc-prefix { left: 10px; font-size: 0.78rem; }
+            .fc-secondary-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .fc-secondary-item { padding: 10px 8px; }
+            .fc-secondary-value { font-size: 0.98rem; }
+            .fc-secondary-label { font-size: 0.52rem; }
+            .fc-unit-btn { padding: 6px 14px; font-size: 0.75rem; }
+            .fc-total-value { font-size: 1.7rem; }
+            .fc-toggle-row { padding: 12px; gap: 10px; }
+            .fc-toggle-item { font-size: 0.78rem; }
+            .fc-breakdown-legend { font-size: 0.62rem; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="fc-hero" id="home" aria-label="Fuel Cost Calculator Hero">
+            <div class="fc-hero-bg"></div>
+            <div class="fc-hero-glow"></div>
+            <div class="container fc-hero-inner">
+                <div class="fc-hero-badge">⛽ Free Fuel Cost Calculator</div>
+                <h1 class="fc-hero-title">
+                    Calculate your <br />
+                    <span class="fc-hero-accent">trip fuel cost.</span>
+                </h1>
+                <p class="fc-hero-sub">Estimate how much fuel your trip will cost from distance, fuel efficiency, and fuel price. Supports MPG, L/100km, and km/L — with round-trip and split-cost options.</p>
+                <div class="fc-hero-cta">
+                    <a href="#fuel-calculator" class="btn btn-primary" style="background:var(--fc-accent);border-color:var(--fc-accent);">Calculate Cost <span>→</span></a>
+                </div>
+                <div class="fc-hero-features">
+                    <span class="fc-feature-chip">⛽ Fuel Needed</span>
+                    <span class="fc-feature-chip">💰 Total Cost</span>
+                    <span class="fc-feature-chip">🔁 Round Trip</span>
+                    <span class="fc-feature-chip">👥 Split Cost</span>
+                </div>                
+            </div>
+        </section>
+
+        <!-- ===== FUEL COST CALCULATOR APP SECTION ===== -->
+        <section class="fc-app-section" id="fuel-calculator" aria-label="Fuel Cost Calculator Application">
+            <div class="container">
+                <div class="fc-app-shell">
+                    <!-- App Header -->
+                    <div class="fc-app-header">
+                        <span class="fc-app-title"><span class="fc-dot"></span> Fuel Cost Calculator</span>
+                        <button class="btn-tool" id="fcResetBtn" title="Reset calculator" aria-label="Reset calculator">↺ Reset</button>
+                    </div>
+
+                    <!-- Unit toggle -->
+                    <div class="fc-unit-toggle" role="group" aria-label="Unit system">
+                        <button class="fc-unit-btn active" id="fcUnitMetric" data-unit="metric">
+                            📏 Metric (km / L)
+                        </button>
+                        <button class="fc-unit-btn" id="fcUnitImperial" data-unit="imperial">
+                            📐 Imperial (mi / gal)
+                        </button>
+                    </div>
+
+                    <!-- Inputs -->
+                    <div class="fc-inputs" id="fcInputs"></div>
+
+                    <!-- Results -->
+                    <div class="fc-results">
+                        <div class="fc-total-panel">
+                            <span class="fc-total-icon">💰</span>
+                            <div class="fc-total-body">
+                                <div class="fc-total-label" id="fcTotalLabel">Total Trip Fuel Cost</div>
+                                <div class="fc-total-value" id="fcTotalValue">—</div>
+                                <div class="fc-total-sub" id="fcTotalSub">Enter your trip details above</div>
+                            </div>
+                        </div>
+
+                        <div class="fc-secondary-grid" id="fcSecondaryGrid"></div>
+
+                        <div class="fc-breakdown">
+                            <div class="fc-breakdown-label">Cost Breakdown</div>
+                            <div class="fc-breakdown-bar">
+                                <div class="fc-breakdown-fill fuel" id="fcBreakdownFuel" style="width: 0%;"></div>
+                                <div class="fc-breakdown-fill other" id="fcBreakdownOther" style="width: 100%;"></div>
+                            </div>
+                            <div class="fc-breakdown-legend">
+                                <span><span class="fc-legend-dot fuel"></span> Fuel Cost</span>
+                                <span><span class="fc-legend-dot other"></span> Cost Per Person</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXAMPLES SECTION ===== -->
+        <section class="section fc-examples" id="examples" aria-label="Fuel cost examples">
+            <div class="container">
+                <div class="section-label">Quick estimates</div>
+                <h2 class="section-title">Common trip <em>fuel costs.</em></h2>
+                <p class="section-sub">Real-world examples for popular trips, assuming average fuel efficiency and current fuel prices.</p>
+
+                <div class="fc-examples-grid">
+                    <div class="fc-example-card">
+                        <div class="fc-example-icon">🏙️</div>
+                        <h3>City Commute</h3>
+                        <p>20 miles each way, 5 days a week, at 28 MPG with $3.50/gallon fuel.</p>
+                        <div class="fc-example-result">≈ $25.00 per week</div>
+                    </div>
+                    <div class="fc-example-card">
+                        <div class="fc-example-icon">🏖️</div>
+                        <h3>Weekend Road Trip</h3>
+                        <p>300 miles round trip, at 32 MPG with $3.50/gallon fuel.</p>
+                        <div class="fc-example-result">≈ $32.81 total</div>
+                    </div>
+                    <div class="fc-example-card">
+                        <div class="fc-example-icon">🚐</div>
+                        <h3>Cross-Country Drive</h3>
+                        <p>2,800 miles, at 25 MPG with $3.75/gallon fuel.</p>
+                        <div class="fc-example-result">≈ $420.00 total</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section class="section fc-how" id="how-it-works" aria-label="How the fuel cost calculator works">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Calculate fuel cost in <em>3 steps.</em></h2>
+                <div class="fc-how-grid">
+                    <div class="fc-how-card">
+                        <div class="fc-how-num">01</div>
+                        <h3>Enter Trip Distance</h3>
+                        <p>Type the one-way distance in <strong>kilometres</strong> or <strong>miles</strong>. Toggle round-trip to double it automatically.</p>
+                    </div>
+                    <div class="fc-how-card">
+                        <div class="fc-how-num">02</div>
+                        <h3>Add Efficiency &amp; Price</h3>
+                        <p>Enter your vehicle's <strong>fuel efficiency</strong> (L/100km, km/L, or MPG) and the current <strong>fuel price</strong> at the pump.</p>
+                    </div>
+                    <div class="fc-how-card">
+                        <div class="fc-how-num">03</div>
+                        <h3>See Total Cost</h3>
+                        <p>Get the <strong>total fuel cost</strong>, fuel needed in litres or gallons, cost per km or mile, and cost per person when splitting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section fc-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="fc-faq-list" id="fcFaqList">
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">How do I calculate fuel cost for a trip?</button>
+                        <div class="fc-faq-a"><p>Fuel cost is calculated by dividing the trip distance by your vehicle's fuel efficiency to find the fuel needed, then multiplying by the fuel price. For example, a 300-mile trip at 30 MPG needs 10 gallons; at $3.50/gallon, that's $35.</p></div>
+                    </div>
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">What is the difference between MPG and L/100km?</button>
+                        <div class="fc-faq-a"><p>MPG (miles per gallon) measures how far you can drive on one gallon — higher is better. L/100km (litres per 100 kilometres) measures how much fuel you use over 100 km — lower is better. Our calculator converts between them automatically.</p></div>
+                    </div>
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">How much does it cost to drive 100 miles?</button>
+                        <div class="fc-faq-a"><p>It depends on your vehicle's efficiency and fuel price. At 30 MPG and $3.50/gallon, 100 miles costs about $11.67. Use our calculator to enter your own MPG and local fuel price for an exact figure.</p></div>
+                    </div>
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">Does the calculator support round trips?</button>
+                        <div class="fc-faq-a"><p>Yes. Toggle the round-trip option and the calculator doubles the distance automatically — no need to enter it twice.</p></div>
+                    </div>
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">Can I split the fuel cost between passengers?</button>
+                        <div class="fc-faq-a"><p>Yes. Enter the number of people sharing the trip, and the calculator shows the cost per person — ideal for carpooling and road trips.</p></div>
+                    </div>
+                    <div class="fc-faq-item">
+                        <button class="fc-faq-q" aria-expanded="false">Is this fuel cost calculator free?</button>
+                        <div class="fc-faq-a"><p>Yes, the fuel cost calculator is 100% free with no signup, no downloads, and no hidden costs.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="fc-toast" id="fcToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM =====
+        const unitMetricBtn = document.getElementById('fcUnitMetric');
+        const unitImperialBtn = document.getElementById('fcUnitImperial');
+        const inputsContainer = document.getElementById('fcInputs');
+        const totalLabel = document.getElementById('fcTotalLabel');
+        const totalValue = document.getElementById('fcTotalValue');
+        const totalSub = document.getElementById('fcTotalSub');
+        const secondaryGrid = document.getElementById('fcSecondaryGrid');
+        const breakdownFuel = document.getElementById('fcBreakdownFuel');
+        const breakdownOther = document.getElementById('fcBreakdownOther');
+        const resetBtn = document.getElementById('fcResetBtn');
+        const toast = document.getElementById('fcToast');
+        const faqItems = document.querySelectorAll('.fc-faq-q');
+
+        let toastTimer = null;
+
+        // ===== STATE =====
+        let state = {
+            unit: 'metric',
+            metric: {
+                distance: 100,
+                efficiency: 7.5,      // L/100km default
+                efficiencyUnit: 'l100km', // 'l100km' or 'kmpl'
+                price: 1.60,           // per litre
+                roundTrip: false,
+                people: 1
+            },
+            imperial: {
+                distance: 60,
+                efficiency: 32,        // MPG default
+                price: 3.50,           // per gallon
+                roundTrip: false,
+                people: 1
+            }
+        };
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function toNum(val) {
+            const n = parseFloat(val);
+            return isNaN(n) ? 0 : n;
+        }
+
+        function formatNum(n, decimals) {
+            if (!isFinite(n)) return '—';
+            if (decimals === undefined) decimals = 2;
+            const rounded = Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            // Add thousand separators for large numbers
+            if (Math.abs(rounded) >= 1000) {
+                return rounded.toLocaleString(undefined, { maximumFractionDigits: decimals });
+            }
+            return rounded.toString();
+        }
+
+        function formatMoney(n, decimals) {
+            if (!isFinite(n)) return '—';
+            if (decimals === undefined) decimals = 2;
+            const rounded = Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            return '$' + rounded.toLocaleString(undefined, {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+        }
+
+        function getCurrency() {
+            // Simple heuristic: use $ for now. Could be made configurable.
+            return '$';
+        }
+
+        // ===== INPUT BUILDERS =====
+        function buildInputs() {
+            inputsContainer.innerHTML = '';
+
+            if (state.unit === 'metric') {
+                inputsContainer.innerHTML =
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcDistKm">Distance (km)</label>' +
+                        '<input type="number" class="fc-input-field" id="fcDistKm" value="' + state.metric.distance + '" min="0" step="0.1" aria-label="Distance in kilometers" />' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcEffMetric">Fuel Efficiency</label>' +
+                        '<div style="display:flex; gap:8px;">' +
+                            '<input type="number" class="fc-input-field" id="fcEffMetric" value="' + state.metric.efficiency + '" min="0.1" step="0.1" aria-label="Fuel efficiency" style="flex:2;" />' +
+                            '<select class="fc-input-field" id="fcEffUnit" aria-label="Efficiency unit" style="flex:1; padding:12px 8px;">' +
+                                '<option value="l100km"' + (state.metric.efficiencyUnit === 'l100km' ? ' selected' : '') + '>L/100km</option>' +
+                                '<option value="kmpl"' + (state.metric.efficiencyUnit === 'kmpl' ? ' selected' : '') + '>km/L</option>' +
+                            '</select>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcPriceL">Fuel Price (per litre)</label>' +
+                        '<div class="fc-input-with-prefix">' +
+                            '<span class="fc-prefix">$</span>' +
+                            '<input type="number" class="fc-input-field" id="fcPriceL" value="' + state.metric.price + '" min="0" step="0.01" aria-label="Fuel price per litre" />' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcPeopleM">Split Between (people)</label>' +
+                        '<input type="number" class="fc-input-field" id="fcPeopleM" value="' + state.metric.people + '" min="1" step="1" aria-label="Number of people" />' +
+                    '</div>' +
+                    '<div class="fc-toggle-row">' +
+                        '<label class="fc-toggle-item">' +
+                            '<input type="checkbox" id="fcRoundM"' + (state.metric.roundTrip ? ' checked' : '') + ' />' +
+                            '<span>🔁 Round trip (double distance)</span>' +
+                        '</label>' +
+                    '</div>';
+
+                document.getElementById('fcDistKm').addEventListener('input', function (e) {
+                    state.metric.distance = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcEffMetric').addEventListener('input', function (e) {
+                    state.metric.efficiency = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcEffUnit').addEventListener('change', function (e) {
+                    state.metric.efficiencyUnit = e.target.value;
+                    calculate();
+                });
+                document.getElementById('fcPriceL').addEventListener('input', function (e) {
+                    state.metric.price = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcPeopleM').addEventListener('input', function (e) {
+                    state.metric.people = Math.max(1, Math.floor(toNum(e.target.value)));
+                    calculate();
+                });
+                document.getElementById('fcRoundM').addEventListener('change', function (e) {
+                    state.metric.roundTrip = e.target.checked;
+                    calculate();
+                });
+
+            } else {
+                inputsContainer.innerHTML =
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcDistMi">Distance (miles)</label>' +
+                        '<input type="number" class="fc-input-field" id="fcDistMi" value="' + state.imperial.distance + '" min="0" step="0.1" aria-label="Distance in miles" />' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcEffImperial">Fuel Efficiency (MPG)</label>' +
+                        '<input type="number" class="fc-input-field" id="fcEffImperial" value="' + state.imperial.efficiency + '" min="0.1" step="0.1" aria-label="Fuel efficiency in miles per gallon" />' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcPriceGal">Fuel Price (per gallon)</label>' +
+                        '<div class="fc-input-with-prefix">' +
+                            '<span class="fc-prefix">$</span>' +
+                            '<input type="number" class="fc-input-field" id="fcPriceGal" value="' + state.imperial.price + '" min="0" step="0.01" aria-label="Fuel price per gallon" />' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="fc-input-group">' +
+                        '<label class="fc-input-label" for="fcPeopleI">Split Between (people)</label>' +
+                        '<input type="number" class="fc-input-field" id="fcPeopleI" value="' + state.imperial.people + '" min="1" step="1" aria-label="Number of people" />' +
+                    '</div>' +
+                    '<div class="fc-toggle-row">' +
+                        '<label class="fc-toggle-item">' +
+                            '<input type="checkbox" id="fcRoundI"' + (state.imperial.roundTrip ? ' checked' : '') + ' />' +
+                            '<span>🔁 Round trip (double distance)</span>' +
+                        '</label>' +
+                    '</div>';
+
+                document.getElementById('fcDistMi').addEventListener('input', function (e) {
+                    state.imperial.distance = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcEffImperial').addEventListener('input', function (e) {
+                    state.imperial.efficiency = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcPriceGal').addEventListener('input', function (e) {
+                    state.imperial.price = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('fcPeopleI').addEventListener('input', function (e) {
+                    state.imperial.people = Math.max(1, Math.floor(toNum(e.target.value)));
+                    calculate();
+                });
+                document.getElementById('fcRoundI').addEventListener('change', function (e) {
+                    state.imperial.roundTrip = e.target.checked;
+                    calculate();
+                });
+            }
+        }
+
+        // ===== CALCULATION =====
+        function calculate() {
+            let totalDistance, fuelNeeded, totalCost, costPerDistance, costPerPerson;
+            let distanceUnit, fuelUnit, efficiencyDisplay;
+            let people;
+
+            if (state.unit === 'metric') {
+                people = state.metric.people;
+                let distance = state.metric.distance;
+                if (state.metric.roundTrip) distance *= 2;
+
+                const eff = state.metric.efficiency;
+                const price = state.metric.price;
+
+                if (eff <= 0 || distance < 0 || price < 0) {
+                    showEmpty();
+                    return;
+                }
+
+                // Fuel needed in litres
+                if (state.metric.efficiencyUnit === 'l100km') {
+                    fuelNeeded = (distance / 100) * eff;
+                } else {
+                    // km per litre → litres = distance / kmpl
+                    fuelNeeded = distance / eff;
+                }
+
+                totalCost = fuelNeeded * price;
+                costPerDistance = distance > 0 ? totalCost / distance : 0;
+                costPerPerson = totalCost / people;
+                totalDistance = distance;
+                distanceUnit = 'km';
+                fuelUnit = 'L';
+                efficiencyDisplay = (state.metric.efficiencyUnit === 'l100km')
+                    ? formatNum(eff, 1) + ' L/100km'
+                    : formatNum(eff, 1) + ' km/L';
+
+                // Update UI
+                totalValue.textContent = formatMoney(totalCost);
+                totalSub.textContent = formatNum(totalDistance, 1) + ' km' +
+                    (state.metric.roundTrip ? ' (round trip)' : '') +
+                    ' · ' + efficiencyDisplay + ' · ' + formatMoney(price, 2) + '/L';
+
+                secondaryGrid.innerHTML =
+                    card('Fuel Needed', formatNum(fuelNeeded, 2) + ' L', true) +
+                    card('Total Distance', formatNum(totalDistance, 1) + ' km', '') +
+                    card('Cost per km', formatMoney(costPerDistance), '') +
+                    card('Cost per Person', formatMoney(costPerPerson), people > 1 ? 'accent' : '') +
+                    card('Fuel Price', formatMoney(price, 2) + ' / L', '') +
+                    card('People Sharing', people.toString(), '');
+
+            } else {
+                people = state.imperial.people;
+                let distance = state.imperial.distance;
+                if (state.imperial.roundTrip) distance *= 2;
+
+                const mpg = state.imperial.efficiency;
+                const price = state.imperial.price;
+
+                if (mpg <= 0 || distance < 0 || price < 0) {
+                    showEmpty();
+                    return;
+                }
+
+                fuelNeeded = distance / mpg; // gallons
+                totalCost = fuelNeeded * price;
+                costPerDistance = distance > 0 ? totalCost / distance : 0;
+                costPerPerson = totalCost / people;
+                totalDistance = distance;
+                distanceUnit = 'mi';
+                fuelUnit = 'gal';
+                efficiencyDisplay = formatNum(mpg, 1) + ' MPG';
+
+                totalValue.textContent = formatMoney(totalCost);
+                totalSub.textContent = formatNum(totalDistance, 1) + ' mi' +
+                    (state.imperial.roundTrip ? ' (round trip)' : '') +
+                    ' · ' + efficiencyDisplay + ' · ' + formatMoney(price, 2) + '/gal';
+
+                secondaryGrid.innerHTML =
+                    card('Fuel Needed', formatNum(fuelNeeded, 2) + ' gal', true) +
+                    card('Total Distance', formatNum(totalDistance, 1) + ' mi', '') +
+                    card('Cost per mile', formatMoney(costPerDistance), '') +
+                    card('Cost per Person', formatMoney(costPerPerson), people > 1 ? 'accent' : '') +
+                    card('Fuel Price', formatMoney(price, 2) + ' / gal', '') +
+                    card('People Sharing', people.toString(), '');
+            }
+
+            // Update breakdown bar: show fuel cost relative to total (fuel is 100% of total, other is 0)
+            // We'll visualize fuel cost vs. cost per person instead
+            if (totalCost > 0 && people > 1) {
+                const fuelPct = 100; // fuel is 100% of total
+                breakdownFuel.style.width = '100%';
+                breakdownOther.style.width = '0%';
+            } else {
+                breakdownFuel.style.width = '100%';
+                breakdownOther.style.width = '0%';
+            }
+
+            // Update total label
+            if (state.unit === 'metric') {
+                totalLabel.textContent = state.metric.roundTrip
+                    ? 'Total Round-Trip Fuel Cost'
+                    : 'Total Trip Fuel Cost';
+            } else {
+                totalLabel.textContent = state.imperial.roundTrip
+                    ? 'Total Round-Trip Fuel Cost'
+                    : 'Total Trip Fuel Cost';
+            }
+        }
+
+        function showEmpty() {
+            totalValue.textContent = '—';
+            totalSub.textContent = 'Enter valid values to calculate cost';
+            secondaryGrid.innerHTML = buildPlaceholder();
+            breakdownFuel.style.width = '0%';
+            breakdownOther.style.width = '100%';
+        }
+
+        function card(label, value, highlight) {
+            return '<div class="fc-secondary-item' + (highlight ? ' accent' : '') + '">' +
+                '<div class="fc-secondary-label">' + label + '</div>' +
+                '<div class="fc-secondary-value">' + value + '</div>' +
+                '</div>';
+        }
+
+        function buildPlaceholder() {
+            return card('Fuel Needed', '—', false) +
+                card('Total Distance', '—', false) +
+                card('Cost per Unit', '—', false) +
+                card('Cost per Person', '—', false) +
+                card('Fuel Price', '—', false) +
+                card('People Sharing', '—', false);
+        }
+
+        // ===== MODE SWITCH =====
+        function setUnit(unit) {
+            state.unit = unit;
+            unitMetricBtn.classList.toggle('active', unit === 'metric');
+            unitImperialBtn.classList.toggle('active', unit === 'imperial');
+            buildInputs();
+            calculate();
+        }
+
+        unitMetricBtn.addEventListener('click', function () { setUnit('metric'); });
+        unitImperialBtn.addEventListener('click', function () { setUnit('imperial'); });
+
+        // ===== RESET =====
+        resetBtn.addEventListener('click', function () {
+            state.unit = 'metric';
+            state.metric = {
+                distance: 100,
+                efficiency: 7.5,
+                efficiencyUnit: 'l100km',
+                price: 1.60,
+                roundTrip: false,
+                people: 1
+            };
+            state.imperial = {
+                distance: 60,
+                efficiency: 32,
+                price: 3.50,
+                roundTrip: false,
+                people: 1
+            };
+            setUnit('metric');
+            showToast('↺ Calculator reset to defaults');
+        });
+
+        // ===== FAQ =====
+        faqItems.forEach(function (qBtn) {
+            qBtn.addEventListener('click', function () {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        (function init() {
+            setUnit('metric');
+            console.log('✅ Fuel Cost Calculator ready — metric and imperial, round trips, split cost.');
+        })();
+
+    })();
+    </script>
+</body>
+</html>

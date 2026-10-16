@@ -572,7 +572,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            if (link.getAttribute('href') === '#' + entry.target.id) {
+            if (link.getAttribute('href'] === '#' + entry.target.id) {
               link.classList.add('active-nav');
             } else if (link.classList) {
               link.classList.remove('active-nav');
@@ -631,7 +631,7 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1200px, 96vw);
+        width: min(1300px, 96vw);
         max-height: 78vh;
         overflow-y: auto;
         background-color: var(--paper);
@@ -639,7 +639,7 @@
         border-radius: 16px;
         box-shadow: 0 24px 60px -12px rgba(0,0,0,0.22), 0 6px 18px -6px rgba(0,0,0,0.08);
         z-index: 1200;
-        padding: 22px 22px 18px;
+        padding: 22px 24px 18px;
         opacity: 0;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
@@ -698,6 +698,8 @@
       /* ── Advertisement column (300×250) ── */
       .mega-col-ad {
         align-items: center;
+        width: 316px;
+        flex-shrink: 0;
       }
       .mega-col-title-ad {
         color: var(--ink-muted);
@@ -718,6 +720,7 @@
         border: 1px solid var(--paper-edge);
         position: relative;
         margin: 0 auto;
+        box-sizing: content-box;
       }
       .mega-ad-slot > iframe,
       .mega-ad-slot > div,

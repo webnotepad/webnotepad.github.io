@@ -572,7 +572,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            if (link.getAttribute('href'] === '#' + entry.target.id) {
+            if (link.getAttribute('href') === '#' + entry.target.id) {
               link.classList.add('active-nav');
             } else if (link.classList) {
               link.classList.remove('active-nav');

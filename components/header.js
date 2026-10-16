@@ -43,6 +43,14 @@
       ]
     },
     {
+      name: "📄 PDF Tools",
+      tools: [
+        { name: "PDF Merger", url: "/pdf-merger", desc: "Combine multiple PDFs", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="10" height="14" rx="1.5" fill="#FFF1F2" stroke="#BE123C" stroke-width="1.5"/><rect x="9" y="7" width="10" height="14" rx="1.5" fill="#FFF1F2" stroke="#BE123C" stroke-width="1.5"/><path d="M6 7h4M6 10h4M6 13h4" stroke="#BE123C" stroke-width="1.4" stroke-linecap="round"/><path d="M12 11h4M12 14h4M12 17h4" stroke="#BE123C" stroke-width="1.4" stroke-linecap="round"/></svg>` },
+        { name: "PDF Splitter", url: "/pdf-splitter", desc: "Split & extract pages", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="18" rx="1.5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><rect x="14" y="3" width="7" height="18" rx="1.5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><path d="M10.5 5v14" stroke="#A78BFA" stroke-width="1.4" stroke-dasharray="2 3" stroke-linecap="round"/><path d="M4 8h5M4 12h5M4 16h5M15 8h5M15 12h5M15 16h5" stroke="#7C3AED" stroke-width="1.2" stroke-linecap="round"/></svg>` },
+        { name: "Image to PDF", url: "/image-to-pdf", desc: "Convert images to PDF", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="13" height="15" rx="1.5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/><circle cx="7" cy="8" r="1.5" fill="#14B8A6" stroke="#0D9488" stroke-width="1"/><path d="M3 14l4-3 3 2.5 4-4 2 2" stroke="#0D9488" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M18 9l2 2-2 2M18 15l2 2-2 2" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 11h-3M20 17h-3" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/></svg>` }
+      ]
+    },
+    {
       name: "📊 Text Analysis",
       tools: [
         { name: "Case Converter", url: "/case-converter", desc: "UPPER, lower, Title", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FFF7ED" stroke="#F97316" stroke-width="1.5"/><path d="M7 9v6M7 12h3M10 9v6M14 12l2-3 2 3M14 12v3M18 12v3" stroke="#F97316" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
@@ -52,14 +60,6 @@
         { name: "Special Char", url: "/special-character-converter", desc: "Umlauts & diacritics", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF9C3" stroke="#EAB308" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#EAB308" font-family="serif">ä</text></svg>` },
         { name: "Text Diff", url: "/text-diff", desc: "Compare two texts", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="8" height="16" rx="1.5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/><path d="M6 8h2M6 12h2M16 8h2M16 12h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>` },
         { name: "Unit Converter", url: "/unit-converter", desc: "Length, weight, data…", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M3 16h18" stroke="#0891B2" stroke-width="1.8" stroke-linecap="round"/><path d="M6 5v6M10 5v6M14 5v6M18 5v6M6 13v6M10 13v6M14 13v6M18 13v6" stroke="#0891B2" stroke-width="1.4" stroke-linecap="round"/></svg>` }
-      ]
-    },
-    {
-      name: "📄 PDF Tools",
-      tools: [
-        { name: "PDF Merger", url: "/pdf-merger", desc: "Combine multiple PDFs", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="10" height="14" rx="1.5" fill="#FFF1F2" stroke="#BE123C" stroke-width="1.5"/><rect x="9" y="7" width="10" height="14" rx="1.5" fill="#FFF1F2" stroke="#BE123C" stroke-width="1.5"/><path d="M6 7h4M6 10h4M6 13h4" stroke="#BE123C" stroke-width="1.4" stroke-linecap="round"/><path d="M12 11h4M12 14h4M12 17h4" stroke="#BE123C" stroke-width="1.4" stroke-linecap="round"/></svg>` },
-        { name: "PDF Splitter", url: "/pdf-splitter", desc: "Split & extract pages", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="18" rx="1.5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><rect x="14" y="3" width="7" height="18" rx="1.5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><path d="M10.5 5v14" stroke="#A78BFA" stroke-width="1.4" stroke-dasharray="2 3" stroke-linecap="round"/><path d="M4 8h5M4 12h5M4 16h5M15 8h5M15 12h5M15 16h5" stroke="#7C3AED" stroke-width="1.2" stroke-linecap="round"/></svg>` },
-        { name: "Image to PDF", url: "/image-to-pdf", desc: "Convert images to PDF", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="13" height="15" rx="1.5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/><circle cx="7" cy="8" r="1.5" fill="#14B8A6" stroke="#0D9488" stroke-width="1"/><path d="M3 14l4-3 3 2.5 4-4 2 2" stroke="#0D9488" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M18 9l2 2-2 2M18 15l2 2-2 2" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 11h-3M20 17h-3" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round"/></svg>` }
       ]
     },
     {
@@ -189,10 +189,22 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) with ad column inserted after category 3 (0-based index 2) ──
-  const AD_INSERT_AFTER_INDEX = 2; // Category after which to insert the ad slot
+  // ── Build mega-menu markup (desktop) with ad column inserted as the 3rd column (index 2) ──
+  const AD_INSERT_AT_INDEX = 2; // Insert the advertisement as the 3rd column
   let megaMenuColsHTML = '';
+  
   toolCategories.forEach((category, idx) => {
+    if (idx === AD_INSERT_AT_INDEX) {
+      megaMenuColsHTML += `
+        <div class="mega-col mega-col-ad" aria-label="Advertisement">
+          <div class="mega-col-title mega-col-title-ad">Sponsored</div>
+          <div class="mega-ad-slot" id="megaAdSlot">
+            <div class="mega-ad-placeholder">Loading ad…</div>
+          </div>
+        </div>
+      `;
+    }
+
     megaMenuColsHTML += `
       <div class="mega-col">
         <div class="mega-col-title">${category.name}</div>
@@ -209,19 +221,9 @@
         </div>
       </div>
     `;
-
-    if (idx === AD_INSERT_AFTER_INDEX) {
-      megaMenuColsHTML += `
-        <div class="mega-col mega-col-ad" aria-label="Advertisement">
-          <div class="mega-col-title mega-col-title-ad">Sponsored</div>
-          <div class="mega-ad-slot" id="megaAdSlot">
-            <div class="mega-ad-placeholder">Loading ad…</div>
-          </div>
-        </div>
-      `;
-    }
   });
 
+  // Append Games column at the end
   megaMenuColsHTML += `
     <div class="mega-col mega-col-games">
       <div class="mega-col-title">🎮 Games</div>
@@ -656,7 +658,7 @@
         border-top: 1px solid var(--paper-edge);
       }
 
-      /* ── 5-column grid layout with 11 items total (10 tool categories + 1 ad column spanning 2 rows + 1 games column) ── */
+      /* ── 5-column grid layout with ad placed specifically in column 3 spanning 2 rows ── */
       .mega-grid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -689,12 +691,12 @@
         gap: 1px;
       }
 
-      /* ── Advertisement column (300×250) positioned in column 5, spanning 2 rows ── */
+      /* ── Advertisement column (300×250) positioned in column 3, spanning 2 rows ── */
       .mega-col-ad {
         align-items: center;
         width: 316px;
         flex-shrink: 0;
-        grid-column: 5;
+        grid-column: 3;
         grid-row: 1 / span 2;
       }
       .mega-col-title-ad {

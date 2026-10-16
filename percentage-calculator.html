@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percentage Calculator – Percent Of, Change, Difference &amp; Reverse | WebNotePad</title>
+    <meta name="description" content="Free percentage calculator. Find the percentage of a number, percentage change, percentage difference, and reverse percentages instantly. Simple, accurate, mobile-friendly." />
+    <meta name="keywords" content="percentage calculator, percent calculator, percentage of a number, percentage change calculator, percentage difference calculator, reverse percentage calculator, percent increase, percent decrease, discount calculator, percent off" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/percentage-calculator" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/percentage-calculator" />
+    <meta property="og:title" content="Percentage Calculator – Percent Of, Change, Difference &amp; Reverse" />
+    <meta property="og:description" content="Free percentage calculator for percent of a number, percentage change, difference, and reverse percentages. Instant, accurate, mobile-friendly." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Percentage Calculator – Percent Of, Change, Difference &amp; Reverse" />
+    <meta name="twitter:description" content="Free percentage calculator for percent of a number, percentage change, difference, and reverse percentages." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Percentage Calculator by WebNotePad",
+            "url": "https://webnotepad.github.io/percentage-calculator",
+            "description": "A free online percentage calculator that computes the percentage of a number, percentage change, percentage difference, and reverse percentages. Includes a discount calculator.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Percentage of a number",
+                "Percentage change (increase/decrease)",
+                "Percentage difference between two values",
+                "Reverse percentage (original value)",
+                "Discount and percent off calculator",
+                "Real-time results",
+                "Mobile-friendly interface",
+                "Copy result to clipboard"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How do I calculate the percentage of a number?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "To find the percentage of a number, multiply the number by the percentage and divide by 100. For example, 25% of 80 = (25 × 80) ÷ 100 = 20."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How is percentage change calculated?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Percentage change = ((New Value − Old Value) ÷ Old Value) × 100. A positive result is an increase, a negative result is a decrease."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between percentage change and percentage difference?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Percentage change compares a new value to an original value (directional). Percentage difference compares two values without direction, using the average of the two as the base: |A − B| ÷ ((A + B) ÷ 2) × 100."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I find the original price after a discount?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Use the reverse percentage formula: original = final ÷ (1 − discount ÷ 100). For example, if a $60 item is 25% off, the original price is 60 ÷ 0.75 = $80."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this percentage calculator free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the percentage calculator is 100% free with no signup, no downloads, and no hidden costs."
+                    }
+                }
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+                { "@type": "ListItem", "position": 2, "name": "Percentage Calculator", "item": "https://webnotepad.github.io/percentage-calculator" }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --pc-accent: #0891b2;
+            --pc-accent-light: #06b6d4;
+            --pc-accent-pale: #ecfeff;
+            --pc-surface: #faf8f4;
+            --pc-border: #e8e2d6;
+            --pc-ink: #1a1a2e;
+            --pc-muted: #6b6b85;
+            --pc-warm: #f4f0e8;
+            --pc-radius: 8px;
+            --pc-radius-lg: 14px;
+            --pc-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --pc-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --pc-good: #16a34a;
+            --pc-warn: #dc2626;
+            --pc-highlight: #7c3aed;
+        }
+
+        body.dark {
+            --pc-accent: #22d3ee;
+            --pc-accent-light: #67e8f9;
+            --pc-accent-pale: #0e2a30;
+            --pc-surface: #141418;
+            --pc-border: #2a2a34;
+            --pc-ink: #e8e4dc;
+            --pc-muted: #8a8678;
+            --pc-warm: #1c1c22;
+            --pc-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --pc-good: #4ade80;
+            --pc-warn: #f87171;
+            --pc-highlight: #a78bfa;
+        }
+
+        /* ===== HERO ===== */
+        .pc-hero {
+            position: relative;
+            min-height: 26vh;
+            display: flex;
+            align-items: center;
+            padding: 24px 0 20px;
+            overflow: hidden;
+            background: var(--pc-surface);
+            transition: background var(--pc-transition);
+        }
+        .pc-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--pc-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--pc-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        body.dark .pc-hero-bg { opacity: 0.1; }
+        .pc-hero-glow {
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--pc-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .pc-hero-glow { opacity: 0.35; }
+        .pc-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        .pc-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--pc-accent-pale);
+            color: var(--pc-accent);
+            border: 1px solid var(--pc-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .pc-hero-badge { background: rgba(34, 211, 238, 0.18); }
+        .pc-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--pc-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .pc-hero-accent {
+            color: var(--pc-accent);
+            font-style: italic;
+        }
+        .pc-hero-sub {
+            font-size: 0.95rem;
+            color: var(--pc-muted);
+            max-width: 560px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .pc-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 8px;
+        }
+        .pc-hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .pc-feature-chip {
+            padding: 6px 14px;
+            background: var(--pc-warm);
+            border: 1px solid var(--pc-border);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--pc-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--pc-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .pc-feature-chip:hover {
+            background: var(--pc-accent-pale);
+            border-color: var(--pc-accent);
+            color: var(--pc-accent);
+        }
+
+        /* ===== APP SECTION ===== */
+        .pc-app-section {
+            padding: 0 0 80px;
+            background: var(--pc-surface);
+            transition: background var(--pc-transition);
+        }
+        .pc-app-shell {
+            background: var(--pc-warm);
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius-lg);
+            box-shadow: var(--pc-shadow);
+            overflow: hidden;
+            transition: all var(--pc-transition);
+        }
+        .pc-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--pc-border);
+            background: var(--pc-surface);
+            flex-wrap: wrap;
+        }
+        .pc-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--pc-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pc-app-title .pc-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--pc-accent);
+            display: inline-block;
+            animation: pcPulse 2s infinite;
+        }
+        @keyframes pcPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Mode tabs */
+        .pc-tabs {
+            display: flex;
+            gap: 0;
+            background: var(--pc-surface);
+            border-bottom: 1px solid var(--pc-border);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .pc-tabs::-webkit-scrollbar { display: none; }
+        .pc-tab {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 16px;
+            border: none;
+            background: transparent;
+            color: var(--pc-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--pc-transition);
+            border-bottom: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .pc-tab:hover {
+            color: var(--pc-ink);
+            background: var(--pc-warm);
+        }
+        .pc-tab.active {
+            color: var(--pc-accent);
+            border-bottom-color: var(--pc-accent);
+            background: var(--pc-accent-pale);
+        }
+        body.dark .pc-tab.active {
+            background: rgba(34, 211, 238, 0.1);
+        }
+
+        /* Inputs */
+        .pc-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 24px 22px;
+            background: var(--pc-surface);
+        }
+        .pc-inputs.three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .pc-inputs.single-col {
+            grid-template-columns: 1fr;
+        }
+        .pc-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .pc-input-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--pc-muted);
+        }
+        .pc-input-field {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--pc-radius);
+            border: 1px solid var(--pc-border);
+            background: var(--pc-warm);
+            color: var(--pc-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            outline: none;
+            transition: all var(--pc-transition);
+            box-sizing: border-box;
+        }
+        .pc-input-field:focus {
+            border-color: var(--pc-accent);
+            box-shadow: 0 0 0 3px var(--pc-accent-pale);
+        }
+        .pc-input-field[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        .pc-input-field[type="number"]::-webkit-outer-spin-button,
+        .pc-input-field[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Result panel */
+        .pc-result-panel {
+            padding: 20px 22px 24px;
+            background: var(--pc-surface);
+            border-top: 1px solid var(--pc-border);
+        }
+        .pc-result-main {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 24px;
+            background: var(--pc-accent-pale);
+            border: 1px solid var(--pc-accent);
+            border-radius: var(--pc-radius-lg);
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            transition: all var(--pc-transition);
+        }
+        body.dark .pc-result-main {
+            background: rgba(34, 211, 238, 0.1);
+        }
+        .pc-result-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .pc-result-body {
+            flex: 1;
+            min-width: 180px;
+        }
+        .pc-result-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--pc-muted);
+            margin-bottom: 4px;
+        }
+        .pc-result-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 900;
+            color: var(--pc-accent);
+            line-height: 1.1;
+            word-break: break-word;
+        }
+        .pc-result-value.negative { color: var(--pc-warn); }
+        .pc-result-value.positive { color: var(--pc-good); }
+        .pc-result-formula {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            color: var(--pc-muted);
+            margin-top: 6px;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        .pc-copy-btn {
+            padding: 10px 18px;
+            background: var(--pc-accent);
+            color: #ffffff;
+            border: 2px solid var(--pc-accent);
+            border-radius: var(--pc-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--pc-transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .pc-copy-btn:hover {
+            background: var(--pc-accent-light);
+            border-color: var(--pc-accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* Secondary results */
+        .pc-secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .pc-secondary-item {
+            background: var(--pc-warm);
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius);
+            padding: 14px 16px;
+            transition: all var(--pc-transition);
+        }
+        .pc-secondary-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--pc-muted);
+            margin-bottom: 4px;
+        }
+        .pc-secondary-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--pc-ink);
+            line-height: 1.2;
+            word-break: break-word;
+        }
+        .pc-secondary-value.accent { color: var(--pc-accent); }
+        .pc-secondary-value.positive { color: var(--pc-good); }
+        .pc-secondary-value.negative { color: var(--pc-warn); }
+
+        /* Examples / help strip */
+        .pc-help-strip {
+            padding: 14px 20px;
+            background: var(--pc-warm);
+            border-top: 1px solid var(--pc-border);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            color: var(--pc-muted);
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .pc-help-strip strong { color: var(--pc-accent); }
+
+        /* ===== HOW IT WORKS ===== */
+        .pc-how {
+            background: var(--pc-warm);
+            transition: background var(--pc-transition);
+        }
+        .pc-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .pc-how-card {
+            background: var(--pc-surface);
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius-lg);
+            padding: 26px;
+            transition: all var(--pc-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .pc-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--pc-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--pc-transition);
+        }
+        .pc-how-card:hover { box-shadow: var(--pc-shadow); transform: translateY(-3px); }
+        .pc-how-card:hover::before { transform: scaleX(1); }
+        .pc-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--pc-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .pc-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--pc-ink);
+            margin-bottom: 8px;
+        }
+        .pc-how-card p {
+            font-size: 0.85rem;
+            color: var(--pc-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FORMULA CARDS ===== */
+        .pc-formula-section {
+            background: var(--pc-surface);
+            transition: background var(--pc-transition);
+        }
+        .pc-formula-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .pc-formula-card {
+            background: var(--pc-warm);
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius-lg);
+            padding: 24px;
+            transition: all var(--pc-transition);
+        }
+        .pc-formula-card:hover {
+            border-color: var(--pc-accent);
+            box-shadow: var(--pc-shadow);
+        }
+        .pc-formula-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--pc-ink);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pc-formula-code {
+            display: block;
+            padding: 12px 14px;
+            background: var(--pc-surface);
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: var(--pc-accent);
+            margin-bottom: 10px;
+            overflow-x: auto;
+            word-break: break-word;
+        }
+        .pc-formula-card p {
+            font-size: 0.83rem;
+            color: var(--pc-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .pc-faq {
+            background: var(--pc-warm);
+            transition: background var(--pc-transition);
+        }
+        .pc-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .pc-faq-item {
+            border: 1px solid var(--pc-border);
+            border-radius: var(--pc-radius);
+            overflow: hidden;
+            background: var(--pc-surface);
+            transition: border-color var(--pc-transition);
+        }
+        .pc-faq-item:has(.pc-faq-a[style*="block"]) { border-color: var(--pc-accent); }
+        .pc-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--pc-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--pc-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .pc-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--pc-muted);
+            flex-shrink: 0;
+            transition: transform var(--pc-transition);
+        }
+        .pc-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--pc-accent); }
+        .pc-faq-q:hover { background: var(--pc-warm); }
+        .pc-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .pc-faq-a p {
+            font-size: 0.88rem;
+            color: var(--pc-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .pc-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--pc-ink);
+            color: var(--pc-surface);
+            padding: 12px 20px;
+            border-radius: var(--pc-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .pc-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .pc-toast {
+            background: var(--pc-warm);
+            color: var(--pc-ink);
+            border: 1px solid var(--pc-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .pc-how-grid { grid-template-columns: repeat(2, 1fr); }
+            .pc-formula-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .pc-hero { min-height: auto; padding: 20px 0 16px; }
+            .pc-how-grid { grid-template-columns: 1fr; }
+            .pc-inputs.three-col { grid-template-columns: 1fr 1fr; }
+            .pc-inputs.three-col > :last-child { grid-column: 1 / -1; }
+            .pc-secondary-grid { grid-template-columns: 1fr 1fr; }
+            .pc-result-main { padding: 18px 18px; gap: 12px; }
+            .pc-result-icon { font-size: 1.5rem; }
+            .pc-copy-btn { width: 100%; justify-content: center; }
+            .pc-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .pc-tab { min-width: 120px; font-size: 0.76rem; padding: 12px 10px; }
+        }
+        @media (max-width: 480px) {
+            .pc-hero-title { font-size: 1.6rem; }
+            .pc-inputs { padding: 18px 16px; gap: 12px; }
+            .pc-inputs.three-col { grid-template-columns: 1fr; }
+            .pc-inputs.three-col > :last-child { grid-column: auto; }
+            .pc-input-field { font-size: 0.95rem; padding: 10px 12px; }
+            .pc-result-panel { padding: 16px; }
+            .pc-result-main { padding: 16px; }
+            .pc-result-value { font-size: 1.5rem; }
+            .pc-secondary-grid { grid-template-columns: 1fr; }
+            .pc-secondary-value { font-size: 1rem; }
+            .pc-tab { font-size: 0.72rem; padding: 10px 8px; min-width: 105px; }
+            .pc-formula-card { padding: 18px; }
+            .pc-formula-code { font-size: 0.7rem; padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="pc-hero" id="home" aria-label="Percentage Calculator Hero">
+            <div class="pc-hero-bg"></div>
+            <div class="pc-hero-glow"></div>
+            <div class="container pc-hero-inner">
+                <div class="pc-hero-badge">% Free Percentage Calculator</div>
+                <h1 class="pc-hero-title">
+                    Calculate any <br />
+                    <span class="pc-hero-accent">percentage instantly.</span>
+                </h1>
+                <p class="pc-hero-sub">Find the percentage of a number, percentage change, percentage difference, and reverse percentages. Four calculators in one — accurate, instant, and completely free.</p>
+                <div class="pc-hero-cta">
+                    <a href="#percentage-calculator" class="btn btn-primary" style="background:var(--pc-accent);border-color:var(--pc-accent);">Calculate Now <span>→</span></a>
+                </div>
+                <div class="pc-hero-features">
+                    <span class="pc-feature-chip">% Percent Of</span>
+                    <span class="pc-feature-chip">📈 Percent Change</span>
+                    <span class="pc-feature-chip">↔️ Percent Difference</span>
+                    <span class="pc-feature-chip">🔁 Reverse Percent</span>
+                </div>               
+            </div>
+        </section>
+
+        <!-- ===== PERCENTAGE CALCULATOR APP SECTION ===== -->
+        <section class="pc-app-section" id="percentage-calculator" aria-label="Percentage Calculator Application">
+            <div class="container">
+                <div class="pc-app-shell">
+                    <!-- App Header -->
+                    <div class="pc-app-header">
+                        <span class="pc-app-title"><span class="pc-dot"></span> Percentage Calculator</span>
+                        <button class="btn-tool" id="pcResetBtn" title="Reset calculator" aria-label="Reset calculator">↺ Reset</button>
+                    </div>
+
+                    <!-- Mode Tabs -->
+                    <div class="pc-tabs" role="tablist" aria-label="Calculation modes">
+                        <button class="pc-tab active" id="pcTabOf" data-mode="of" role="tab" aria-selected="true">
+                            % What is X% of Y
+                        </button>
+                        <button class="pc-tab" id="pcTabChange" data-mode="change" role="tab" aria-selected="false">
+                            📈 Percent Change
+                        </button>
+                        <button class="pc-tab" id="pcTabDiff" data-mode="diff" role="tab" aria-selected="false">
+                            ↔️ Percent Difference
+                        </button>
+                        <button class="pc-tab" id="pcTabReverse" data-mode="reverse" role="tab" aria-selected="false">
+                            🔁 Reverse Percent
+                        </button>
+                    </div>
+
+                    <!-- Inputs (dynamically updated) -->
+                    <div class="pc-inputs" id="pcInputs">
+                        <!-- populated by JS -->
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div class="pc-result-panel">
+                        <div class="pc-result-main" id="pcResultMain">
+                            <span class="pc-result-icon" id="pcResultIcon">🎯</span>
+                            <div class="pc-result-body">
+                                <div class="pc-result-label" id="pcResultLabel">Result</div>
+                                <div class="pc-result-value" id="pcResultValue">—</div>
+                                <div class="pc-result-formula" id="pcResultFormula">Enter values above to see the result.</div>
+                            </div>
+                            <button class="pc-copy-btn" id="pcCopyBtn" title="Copy result" aria-label="Copy result">
+                                ⎘ Copy
+                            </button>
+                        </div>
+
+                        <div class="pc-secondary-grid" id="pcSecondaryGrid"></div>
+                    </div>
+
+                    <!-- Help strip -->
+                    <div class="pc-help-strip" id="pcHelpStrip">
+                        💡 <span id="pcHelpText">Enter a percentage and a number to find the percentage value.</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section class="section pc-how" id="how-it-works" aria-label="How the percentage calculator works">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Four calculators, <em>one tool.</em></h2>
+                <div class="pc-how-grid">
+                    <div class="pc-how-card">
+                        <div class="pc-how-num">01</div>
+                        <h3>Pick a Mode</h3>
+                        <p>Choose from <strong>percent of</strong>, <strong>percent change</strong>, <strong>percent difference</strong>, or <strong>reverse percent</strong>. Each tab reveals its own inputs.</p>
+                    </div>
+                    <div class="pc-how-card">
+                        <div class="pc-how-num">02</div>
+                        <h3>Enter Your Values</h3>
+                        <p>Type the numbers you have. Every field updates the result in <strong>real time</strong> — no button to press.</p>
+                    </div>
+                    <div class="pc-how-card">
+                        <div class="pc-how-num">03</div>
+                        <h3>Read the Result</h3>
+                        <p>Get the answer, the <strong>formula used</strong>, and secondary values like the difference or total. Copy with one click.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FORMULA REFERENCE ===== -->
+        <section class="section pc-formula-section" id="formulas" aria-label="Percentage formulas reference">
+            <div class="container">
+                <div class="section-label">Quick reference</div>
+                <h2 class="section-title">Percentage <em>formulas.</em></h2>
+                <p class="section-sub">The four core percentage formulas used by this calculator — handy for checking your work by hand.</p>
+
+                <div class="pc-formula-grid">
+                    <div class="pc-formula-card">
+                        <h3>🎯 Percent of a Number</h3>
+                        <code class="pc-formula-code">result = (percent ÷ 100) × number</code>
+                        <p>Find what a given percentage of a value is. Example: 25% of 80 = (25 ÷ 100) × 80 = 20.</p>
+                    </div>
+
+                    <div class="pc-formula-card">
+                        <h3>📈 Percent Change</h3>
+                        <code class="pc-formula-code">change% = ((new − old) ÷ old) × 100</code>
+                        <p>Measure an increase or decrease from an original value. Positive = increase, negative = decrease.</p>
+                    </div>
+
+                    <div class="pc-formula-card">
+                        <h3>↔️ Percent Difference</h3>
+                        <code class="pc-formula-code">diff% = (|a − b| ÷ ((a + b) ÷ 2)) × 100</code>
+                        <p>Compare two values without direction, using their average as the base. Useful in science and statistics.</p>
+                    </div>
+
+                    <div class="pc-formula-card">
+                        <h3>🔁 Reverse Percent</h3>
+                        <code class="pc-formula-code">original = final ÷ (1 − percent ÷ 100)</code>
+                        <p>Find the original value before a percentage was applied. Example: $60 after 25% off → 60 ÷ 0.75 = $80.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section pc-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="pc-faq-list" id="pcFaqList">
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">How do I calculate the percentage of a number?</button>
+                        <div class="pc-faq-a"><p>To find the percentage of a number, multiply the number by the percentage and divide by 100. For example, 25% of 80 = (25 × 80) ÷ 100 = 20. Our calculator does this instantly.</p></div>
+                    </div>
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">How is percentage change calculated?</button>
+                        <div class="pc-faq-a"><p>Percentage change = ((New Value − Old Value) ÷ Old Value) × 100. A positive result is an increase, a negative result is a decrease.</p></div>
+                    </div>
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">What is the difference between percentage change and percentage difference?</button>
+                        <div class="pc-faq-a"><p>Percentage change compares a new value to an original value (directional). Percentage difference compares two values without direction, using the average of the two as the base: |A − B| ÷ ((A + B) ÷ 2) × 100.</p></div>
+                    </div>
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">How do I find the original price after a discount?</button>
+                        <div class="pc-faq-a"><p>Use the reverse percentage formula: original = final ÷ (1 − discount ÷ 100). For example, if a $60 item is 25% off, the original price is 60 ÷ 0.75 = $80.</p></div>
+                    </div>
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">How do I calculate a percentage increase?</button>
+                        <div class="pc-faq-a"><p>Percentage increase = ((New Value − Original Value) ÷ Original Value) × 100. Example: from 50 to 65 → ((65 − 50) ÷ 50) × 100 = 30% increase.</p></div>
+                    </div>
+                    <div class="pc-faq-item">
+                        <button class="pc-faq-q" aria-expanded="false">Is this percentage calculator free?</button>
+                        <div class="pc-faq-a"><p>Yes, the percentage calculator is 100% free with no signup, no downloads, and no hidden costs. Use it as often as you like.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="pc-toast" id="pcToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM =====
+        const tabs = document.querySelectorAll('.pc-tab');
+        const inputsContainer = document.getElementById('pcInputs');
+        const resultIcon = document.getElementById('pcResultIcon');
+        const resultLabel = document.getElementById('pcResultLabel');
+        const resultValue = document.getElementById('pcResultValue');
+        const resultFormula = document.getElementById('pcResultFormula');
+        const secondaryGrid = document.getElementById('pcSecondaryGrid');
+        const helpText = document.getElementById('pcHelpText');
+        const copyBtn = document.getElementById('pcCopyBtn');
+        const resetBtn = document.getElementById('pcResetBtn');
+        const toast = document.getElementById('pcToast');
+        const faqItems = document.querySelectorAll('.pc-faq-q');
+
+        // ===== STATE =====
+        let state = {
+            mode: 'of',
+            of: { percent: 25, number: 80 },
+            change: { oldVal: 50, newVal: 65 },
+            diff: { a: 40, b: 60 },
+            reverse: { finalVal: 60, percent: 25 }
+        };
+
+        let toastTimer = null;
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function formatNum(n, decimals) {
+            if (!isFinite(n)) return '—';
+            if (decimals === undefined) decimals = 4;
+            // Trim trailing zeros but keep at most `decimals`
+            const rounded = Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            let s = rounded.toString();
+            // Add thousands separators for large numbers
+            if (Math.abs(rounded) >= 1000) {
+                s = rounded.toLocaleString(undefined, { maximumFractionDigits: decimals });
+            }
+            return s;
+        }
+
+        function formatPercent(n, decimals) {
+            if (!isFinite(n)) return '—';
+            if (decimals === undefined) decimals = 2;
+            const rounded = Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            return rounded.toString() + '%';
+        }
+
+        function toNum(val) {
+            const n = parseFloat(val);
+            return isNaN(n) ? 0 : n;
+        }
+
+        // ===== INPUT BUILDERS =====
+        function buildInputs() {
+            inputsContainer.innerHTML = '';
+            inputsContainer.className = 'pc-inputs';
+
+            if (state.mode === 'of') {
+                inputsContainer.classList.add('single-col');
+                // Two columns side by side even in single-col? Override: use 2-col grid
+                inputsContainer.className = 'pc-inputs';
+                inputsContainer.innerHTML =
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcOfPercent">Percentage (%)</label>' +
+                        '<input type="number" class="pc-input-field" id="pcOfPercent" value="' + state.of.percent + '" step="any" aria-label="Percentage" />' +
+                    '</div>' +
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcOfNumber">Number</label>' +
+                        '<input type="number" class="pc-input-field" id="pcOfNumber" value="' + state.of.number + '" step="any" aria-label="Number" />' +
+                    '</div>';
+
+                document.getElementById('pcOfPercent').addEventListener('input', function (e) {
+                    state.of.percent = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('pcOfNumber').addEventListener('input', function (e) {
+                    state.of.number = toNum(e.target.value);
+                    calculate();
+                });
+
+            } else if (state.mode === 'change') {
+                inputsContainer.className = 'pc-inputs';
+                inputsContainer.innerHTML =
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcOldVal">Original Value</label>' +
+                        '<input type="number" class="pc-input-field" id="pcOldVal" value="' + state.change.oldVal + '" step="any" aria-label="Original value" />' +
+                    '</div>' +
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcNewVal">New Value</label>' +
+                        '<input type="number" class="pc-input-field" id="pcNewVal" value="' + state.change.newVal + '" step="any" aria-label="New value" />' +
+                    '</div>';
+
+                document.getElementById('pcOldVal').addEventListener('input', function (e) {
+                    state.change.oldVal = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('pcNewVal').addEventListener('input', function (e) {
+                    state.change.newVal = toNum(e.target.value);
+                    calculate();
+                });
+
+            } else if (state.mode === 'diff') {
+                inputsContainer.className = 'pc-inputs';
+                inputsContainer.innerHTML =
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcDiffA">Value A</label>' +
+                        '<input type="number" class="pc-input-field" id="pcDiffA" value="' + state.diff.a + '" step="any" aria-label="Value A" />' +
+                    '</div>' +
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcDiffB">Value B</label>' +
+                        '<input type="number" class="pc-input-field" id="pcDiffB" value="' + state.diff.b + '" step="any" aria-label="Value B" />' +
+                    '</div>';
+
+                document.getElementById('pcDiffA').addEventListener('input', function (e) {
+                    state.diff.a = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('pcDiffB').addEventListener('input', function (e) {
+                    state.diff.b = toNum(e.target.value);
+                    calculate();
+                });
+
+            } else if (state.mode === 'reverse') {
+                inputsContainer.className = 'pc-inputs';
+                inputsContainer.innerHTML =
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcReverseFinal">Final Value (after %)</label>' +
+                        '<input type="number" class="pc-input-field" id="pcReverseFinal" value="' + state.reverse.finalVal + '" step="any" aria-label="Final value" />' +
+                    '</div>' +
+                    '<div class="pc-input-group">' +
+                        '<label class="pc-input-label" for="pcReversePercent">Percentage Applied (%)</label>' +
+                        '<input type="number" class="pc-input-field" id="pcReversePercent" value="' + state.reverse.percent + '" step="any" aria-label="Percentage applied" />' +
+                    '</div>';
+
+                document.getElementById('pcReverseFinal').addEventListener('input', function (e) {
+                    state.reverse.finalVal = toNum(e.target.value);
+                    calculate();
+                });
+                document.getElementById('pcReversePercent').addEventListener('input', function (e) {
+                    state.reverse.percent = toNum(e.target.value);
+                    calculate();
+                });
+            }
+        }
+
+        // ===== CALCULATIONS =====
+        function calculate() {
+            if (state.mode === 'of') {
+                const p = state.of.percent;
+                const n = state.of.number;
+                const result = (p / 100) * n;
+
+                resultIcon.textContent = '🎯';
+                resultLabel.textContent = p + '% of ' + formatNum(n) + ' is';
+                resultValue.className = 'pc-result-value';
+                resultValue.textContent = formatNum(result);
+                resultFormula.textContent = '(' + p + ' ÷ 100) × ' + formatNum(n) + ' = ' + formatNum(result);
+
+                // Secondary: reverse — what percent is result of n
+                const reversePct = n !== 0 ? (result / n) * 100 : 0;
+                const diffVal = n - result;
+
+                secondaryGrid.innerHTML =
+                    card('Number', formatNum(n), '') +
+                    card('Result', formatNum(result), 'accent') +
+                    card('Difference (number − result)', formatNum(diffVal), diffVal < 0 ? 'negative' : '') +
+                    card('Result as % of number', formatPercent(reversePct), '');
+
+                helpText.textContent = 'Find what a percentage of a number is. Example: 25% of 80 = 20.';
+
+            } else if (state.mode === 'change') {
+                const oldV = state.change.oldVal;
+                const newV = state.change.newVal;
+
+                if (oldV === 0) {
+                    resultIcon.textContent = '⚠️';
+                    resultLabel.textContent = 'Cannot compute';
+                    resultValue.className = 'pc-result-value negative';
+                    resultValue.textContent = '—';
+                    resultFormula.textContent = 'Original value cannot be zero.';
+                    secondaryGrid.innerHTML =
+                        card('Original Value', formatNum(oldV), '') +
+                        card('New Value', formatNum(newV), '');
+                    helpText.textContent = 'Enter a non-zero original value to calculate the change.';
+                    return;
+                }
+
+                const changePct = ((newV - oldV) / oldV) * 100;
+                const absDiff = newV - oldV;
+                const isIncrease = changePct >= 0;
+                const ratio = oldV !== 0 ? (newV / oldV) : 0;
+
+                resultIcon.textContent = isIncrease ? '📈' : '📉';
+                resultLabel.textContent = isIncrease ? 'Percentage Increase' : 'Percentage Decrease';
+                resultValue.className = 'pc-result-value ' + (isIncrease ? 'positive' : 'negative');
+                resultValue.textContent = (isIncrease ? '+' : '') + formatPercent(changePct);
+                resultFormula.textContent = '((' + formatNum(newV) + ' − ' + formatNum(oldV) + ') ÷ ' + formatNum(oldV) + ') × 100 = ' + formatPercent(changePct);
+
+                secondaryGrid.innerHTML =
+                    card('Original Value', formatNum(oldV), '') +
+                    card('New Value', formatNum(newV), '') +
+                    card('Absolute Change', (absDiff >= 0 ? '+' : '') + formatNum(absDiff), absDiff >= 0 ? 'positive' : 'negative') +
+                    card('New as % of Original', formatPercent(ratio * 100), '');
+
+                helpText.textContent = 'Percent change compares a new value to an original value. Positive = increase, negative = decrease.';
+
+            } else if (state.mode === 'diff') {
+                const a = state.diff.a;
+                const b = state.diff.b;
+                const avg = (a + b) / 2;
+                const absDiff = Math.abs(a - b);
+
+                if (avg === 0) {
+                    resultIcon.textContent = '⚠️';
+                    resultLabel.textContent = 'Cannot compute';
+                    resultValue.className = 'pc-result-value negative';
+                    resultValue.textContent = '—';
+                    resultFormula.textContent = 'The average of A and B cannot be zero.';
+                    secondaryGrid.innerHTML =
+                        card('Value A', formatNum(a), '') +
+                        card('Value B', formatNum(b), '');
+                    helpText.textContent = 'Enter two values whose average is not zero.';
+                    return;
+                }
+
+                const diffPct = (absDiff / Math.abs(avg)) * 100;
+
+                resultIcon.textContent = '↔️';
+                resultLabel.textContent = 'Percentage Difference';
+                resultValue.className = 'pc-result-value';
+                resultValue.textContent = formatPercent(diffPct);
+                resultFormula.textContent = '(|' + formatNum(a) + ' − ' + formatNum(b) + '| ÷ ((' + formatNum(a) + ' + ' + formatNum(b) + ') ÷ 2)) × 100 = ' + formatPercent(diffPct);
+
+                secondaryGrid.innerHTML =
+                    card('Value A', formatNum(a), '') +
+                    card('Value B', formatNum(b), '') +
+                    card('Absolute Difference', formatNum(absDiff), '') +
+                    card('Average of A and B', formatNum(avg), 'accent');
+
+                helpText.textContent = 'Percent difference compares two values using their average as the base (no direction).';
+
+            } else if (state.mode === 'reverse') {
+                const finalV = state.reverse.finalVal;
+                const pct = state.reverse.percent;
+
+                if (pct === 100) {
+                    resultIcon.textContent = '⚠️';
+                    resultLabel.textContent = 'Cannot compute';
+                    resultValue.className = 'pc-result-value negative';
+                    resultValue.textContent = '—';
+                    resultFormula.textContent = 'A 100% reduction leaves an original of zero — undefined.';
+                    secondaryGrid.innerHTML =
+                        card('Final Value', formatNum(finalV), '') +
+                        card('Percentage Applied', formatPercent(pct), '');
+                    helpText.textContent = 'Percentage applied cannot be 100%.';
+                    return;
+                }
+
+                const original = finalV / (1 - pct / 100);
+                const amountChanged = original - finalV;
+                const discountAmount = amountChanged;
+
+                resultIcon.textContent = '🔁';
+                resultLabel.textContent = 'Original Value (before ' + formatPercent(pct) + ')';
+                resultValue.className = 'pc-result-value';
+                resultValue.textContent = formatNum(original);
+                resultFormula.textContent = formatNum(finalV) + ' ÷ (1 − ' + pct + ' ÷ 100) = ' + formatNum(original);
+
+                secondaryGrid.innerHTML =
+                    card('Final Value', formatNum(finalV), '') +
+                    card('Original Value', formatNum(original), 'accent') +
+                    card('Amount Reduced', formatNum(Math.abs(discountAmount)), '') +
+                    card('Reduction Percentage', formatPercent(pct), '');
+
+                helpText.textContent = 'Find the original value before a percentage was applied (e.g. reverse a discount).';
+            }
+        }
+
+        function card(label, value, valueClass) {
+            return '<div class="pc-secondary-item">' +
+                '<div class="pc-secondary-label">' + label + '</div>' +
+                '<div class="pc-secondary-value ' + (valueClass || '') + '">' + value + '</div>' +
+                '</div>';
+        }
+
+        // ===== MODE SWITCHING =====
+        function setMode(mode) {
+            state.mode = mode;
+            tabs.forEach(function (t) {
+                const isActive = t.dataset.mode === mode;
+                t.classList.toggle('active', isActive);
+                t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+            buildInputs();
+            calculate();
+        }
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                setMode(tab.dataset.mode);
+            });
+        });
+
+        // ===== COPY =====
+        copyBtn.addEventListener('click', function () {
+            const label = resultLabel.textContent;
+            const value = resultValue.textContent;
+            const formula = resultFormula.textContent;
+            const text = 'Percentage Calculator — ' + label + ': ' + value + '\n' + formula + '\n— via WebNotePad';
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(function () { showToast('✅ Result copied to clipboard!'); })
+                    .catch(function () { showToast('⚠️ Copy failed.'); });
+            } else {
+                showToast('⚠️ Copy not supported on this browser.');
+            }
+        });
+
+        // ===== RESET =====
+        resetBtn.addEventListener('click', function () {
+            state.of = { percent: 25, number: 80 };
+            state.change = { oldVal: 50, newVal: 65 };
+            state.diff = { a: 40, b: 60 };
+            state.reverse = { finalVal: 60, percent: 25 };
+            setMode('of');
+            showToast('↺ Calculator reset to defaults');
+        });
+
+        // ===== FAQ =====
+        faqItems.forEach(function (qBtn) {
+            qBtn.addEventListener('click', function () {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        (function init() {
+            setMode('of');
+            console.log('✅ Percentage Calculator ready — percent of, change, difference, and reverse percent.');
+        })();
+
+    })();
+    </script>
+</body>
+</html>

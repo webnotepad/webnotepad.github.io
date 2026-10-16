@@ -19,12 +19,12 @@
     <meta name="keywords" content="free online tools, web apps, browser tools, writing tools, text tools, productivity apps, online notepad, free utilities, webnotepad tools, all tools, calculators, bmi calculator, paint calculator" />
     <meta name="author" content="WebNotePad" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://webnotepad.github.io/tools" />
+    <link rel="canonical" href="https://webnotepad.github.io/all-tools" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://webnotepad.github.io/tools" />
+    <meta property="og:url" content="https://webnotepad.github.io/all-tools" />
     <meta property="og:title" content="All Tools &amp; Apps – Free Online Web Tools | WebNotePad" />
     <meta property="og:description" content="Browse every free tool and app on WebNotePad. Writing, text analysis, image editing, PDF tools, calculators, creativity, productivity and more — all browser-based, no signup." />
     <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
@@ -40,7 +40,7 @@
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "All Tools & Apps – WebNotePad",
-            "url": "https://webnotepad.github.io/tools",
+            "url": "https://webnotepad.github.io/all-tools",
             "description": "A directory of every free browser-based tool and app on WebNotePad, organized into writing, text analysis, image editing, PDF tools, calculators, idea organization, creativity, puzzle helpers and productivity categories.",
             "isPartOf": { "@type": "WebSite", "name": "WebNotePad", "url": "https://webnotepad.github.io/" }
         }
@@ -134,7 +134,7 @@
             "@type": "BreadcrumbList",
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
-                { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://webnotepad.github.io/tools" }
+                { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://webnotepad.github.io/all-tools" }
             ]
         }
     </script>
@@ -333,14 +333,15 @@
             color: #ffffff;
         }
 
-        /* ── Strict 5-Column Master Layout Grid ── */
+        /* ── Responsive auto-fitting master grid ── */
+        /* Fits as many columns as will comfortably fit, then wraps.
+           No fixed 5-column track, no horizontal overflow/scrollbar. */
         .tp-tools-master-grid {
             display: grid;
-            grid-template-columns: repeat(5, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
             align-items: start;
             width: 100%;
-            overflow-x: auto;
         }
 
         /* Category Column Block */
@@ -352,7 +353,7 @@
             border: 1px solid var(--paper-edge);
             border-radius: var(--radius-lg);
             padding: 14px;
-            min-width: 310px;
+            min-width: 0;
             box-sizing: border-box;
         }
 
@@ -485,9 +486,8 @@
             text-overflow: ellipsis;
         }
 
-        /* ── 300x250 Ad placed exclusively as Column 3 (Grid Column 3) ── */
+        /* ── 300x250 Ad — now a normal flowing grid cell ── */
         .tp-tools-ad-column {
-            grid-column: 3;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -498,7 +498,7 @@
             background: var(--paper-warm);
             border: 1px dashed var(--paper-edge);
             box-sizing: border-box;
-            min-width: 310px;
+            min-width: 0;
             min-height: 290px;
         }
         .tp-tools-ad-label {
@@ -710,10 +710,6 @@
             .tp-tools-filter-bar { padding: 10px 12px; gap: 10px; }
             .tp-featured-section { padding: 44px 0; }
             .tp-tools-cta { padding: 44px 0; }
-            .tp-tools-ad-column {
-                grid-column: 1 / -1;
-                min-width: 0;
-            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -791,7 +787,7 @@
                     </div>
                 </div>
 
-                <!-- Strict 5-Column Master Layout Container -->
+                <!-- Responsive auto-fitting layout container -->
                 <div class="tp-tools-master-grid" id="tpToolsDirectory"></div>
 
                 <!-- Empty state -->
@@ -1427,7 +1423,7 @@
                 let visibleCategoryCount = 0;
                 let adInserted = false;
 
-                CATEGORIES.forEach(function (category, catIdx) {
+                CATEGORIES.forEach(function (category) {
                     if (!matchesFilter(category.key)) return;
 
                     const visibleTools = category.tools.filter(function (t) {

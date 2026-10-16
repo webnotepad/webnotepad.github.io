@@ -16,15 +16,15 @@
   ];
 
   // ─────────────────────────────────────────────────────────────
-  // Mega-menu advertisement (160×300)
+  // Mega-menu advertisement (300×250)
   // Uses an ISOLATED iframe so its atOptions doesn't collide with
   // other ads on the page.
   // ─────────────────────────────────────────────────────────────
   const MEGA_AD = {
-    key: '74f7e86527c4143fc47ee6c4a8dc2de9',
-    src: 'https://bauval.org/22/74f7e86527c4143fc47ee6c4a8dc2de9',
-    width: 160,
-    height: 300
+    key: 'f5214acd8479e07d7defe4626c574aa5',
+    src: 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5',
+    width: 300,
+    height: 250
   };
 
   // Tools catalog — mirrors sidebar categories (no ads)
@@ -340,7 +340,7 @@
     </nav>
   `;
 
-  // ── Ad injection via isolated iframe (160×300) ──
+  // ── Ad injection via isolated iframe (300×250) ──
   // Using an iframe isolates the ad's `atOptions` global from the parent page,
   // preventing collisions with other Adsterra slots on the same page.
   function injectMegaAd() {
@@ -682,7 +682,7 @@
         gap: 2px;
       }
 
-      /* ── Advertisement column (160×300) ── */
+      /* ── Advertisement column (300×250) ── */
       .mega-col-ad {
         align-items: center;
       }
@@ -696,8 +696,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 160px;
-        height: 300px;
+        width: 300px;
+        height: 250px;
         max-width: 100%;
         overflow: hidden;
         border-radius: 8px;

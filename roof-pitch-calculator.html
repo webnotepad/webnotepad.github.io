@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8148292690390336"
+     crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VSR10YQZW3');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roof Pitch Calculator – Calculate Roof Slope, Angle, Rise & Run | WebNotePad</title>
+    <meta name="description" content="Free roof pitch calculator. Convert between roof pitch (x:12), slope angle (degrees), rise, and run. Get accurate roofing measurements for rafters, shingles, and construction." />
+    <meta name="keywords" content="roof pitch calculator, roof slope calculator, roof angle calculator, rise over run, roof pitch to degrees, roof pitch chart, rafter length calculator, roof slope angle, roofing calculator, pitch to angle" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/roof-pitch-calculator" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/roof-pitch-calculator" />
+    <meta property="og:title" content="Roof Pitch Calculator – Calculate Roof Slope, Angle, Rise & Run" />
+    <meta property="og:description" content="Convert between roof pitch, slope angle, rise, and run. Free, accurate roofing calculator for builders, contractors, and DIYers." />
+    <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Roof Pitch Calculator – Calculate Roof Slope, Angle, Rise & Run" />
+    <meta name="twitter:description" content="Convert between roof pitch, slope angle, rise, and run. Free roofing calculator." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Roof Pitch Calculator by WebNotePad",
+            "url": "https://webnotepad.github.io/roof-pitch-calculator",
+            "description": "A free online roof pitch calculator that converts between roof pitch (x:12), slope angle in degrees, rise, and run. Ideal for roofing, construction, and DIY projects.",
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Roof pitch to degrees conversion",
+                "Degrees to roof pitch conversion",
+                "Rise over run calculator",
+                "Rafter length calculation",
+                "Roof pitch chart",
+                "Slope percentage",
+                "Mobile-friendly interface"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is roof pitch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Roof pitch describes the steepness of a roof. It's usually written as a ratio of rise over run, such as 4:12, meaning the roof rises 4 inches for every 12 inches of horizontal run. It can also be expressed as an angle in degrees."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I convert roof pitch to degrees?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "To convert roof pitch (x:12) to degrees, use the formula: angle = arctan(x / 12). For example, a 6:12 pitch gives arctan(0.5) ≈ 26.57°."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is a good roof pitch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Roof pitch depends on climate and roofing material. A 4:12 to 6:12 pitch is common for residential homes, while steeper pitches (8:12 and above) shed water and snow better. Flat roofs (under 2:12) require special waterproofing."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I calculate rafter length?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Rafter length can be calculated using the Pythagorean theorem: rafter = √(rise² + run²). For a 6:12 pitch with a 12-foot run: rise = 6 ft, rafter = √(36 + 144) = √180 ≈ 13.42 ft."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --rp-accent: #b45309;
+            --rp-accent-light: #d97706;
+            --rp-accent-pale: #fef3c7;
+            --rp-surface: #faf8f4;
+            --rp-border: #e8e2d6;
+            --rp-ink: #1a1a2e;
+            --rp-muted: #6b6b85;
+            --rp-warm: #f4f0e8;
+            --rp-radius: 8px;
+            --rp-radius-lg: 14px;
+            --rp-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --rp-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --rp-good: #16a34a;
+            --rp-warn: #dc2626;
+        }
+
+        body.dark {
+            --rp-accent: #fbbf24;
+            --rp-accent-light: #fcd34d;
+            --rp-accent-pale: #2a1f0a;
+            --rp-surface: #141418;
+            --rp-border: #2a2a34;
+            --rp-ink: #e8e4dc;
+            --rp-muted: #8a8678;
+            --rp-warm: #1c1c22;
+            --rp-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --rp-good: #4ade80;
+            --rp-warn: #f87171;
+        }
+
+        /* ===== HERO ===== */
+        .rp-hero {
+            position: relative;
+            min-height: 28vh;
+            display: flex;
+            align-items: center;
+            padding: 24px 0 20px;
+            overflow: hidden;
+            background: var(--rp-surface);
+            transition: background var(--rp-transition);
+        }
+        .rp-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--rp-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--rp-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        body.dark .rp-hero-bg { opacity: 0.1; }
+        .rp-hero-glow {
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--rp-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .rp-hero-glow { opacity: 0.35; }
+        .rp-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+        .rp-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--rp-accent-pale);
+            color: var(--rp-accent);
+            border: 1px solid var(--rp-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .rp-hero-badge { background: rgba(251, 191, 36, 0.18); }
+        .rp-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--rp-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .rp-hero-accent {
+            color: var(--rp-accent);
+            font-style: italic;
+        }
+        .rp-hero-sub {
+            font-size: 0.95rem;
+            color: var(--rp-muted);
+            max-width: 560px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .rp-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 8px;
+        }
+        .rp-hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .rp-feature-chip {
+            padding: 6px 14px;
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--rp-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--rp-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .rp-feature-chip:hover {
+            background: var(--rp-accent-pale);
+            border-color: var(--rp-accent);
+            color: var(--rp-accent);
+        }
+
+        /* ===== APP SECTION ===== */
+        .rp-app-section {
+            padding: 0 0 80px;
+            background: var(--rp-surface);
+            transition: background var(--rp-transition);
+        }
+        .rp-app-shell {
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius-lg);
+            box-shadow: var(--rp-shadow);
+            overflow: hidden;
+            transition: all var(--rp-transition);
+        }
+        .rp-app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--rp-border);
+            background: var(--rp-surface);
+            flex-wrap: wrap;
+        }
+        .rp-app-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--rp-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rp-app-title .rp-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--rp-accent);
+            display: inline-block;
+            animation: rpPulse 2s infinite;
+        }
+        @keyframes rpPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+
+        /* Mode toggle */
+        .rp-mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 20px 0;
+            background: var(--rp-surface);
+            flex-wrap: wrap;
+        }
+        .rp-mode-btn {
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 2px solid var(--rp-border);
+            background: var(--rp-warm);
+            color: var(--rp-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--rp-transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .rp-mode-btn:hover {
+            border-color: var(--rp-accent);
+            color: var(--rp-accent);
+        }
+        .rp-mode-btn.active {
+            background: var(--rp-accent);
+            border-color: var(--rp-accent);
+            color: #ffffff;
+        }
+
+        /* Input panels */
+        .rp-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: var(--rp-surface);
+            border-bottom: 1px solid var(--rp-border);
+        }
+        .rp-input-panel {
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius);
+            padding: 18px;
+        }
+        .rp-input-panel-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--rp-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .rp-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .rp-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .rp-input-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--rp-muted);
+        }
+        .rp-input-field {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: var(--rp-radius);
+            border: 1px solid var(--rp-border);
+            background: var(--rp-surface);
+            color: var(--rp-ink);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            outline: none;
+            transition: all var(--rp-transition);
+            box-sizing: border-box;
+        }
+        .rp-input-field:focus {
+            border-color: var(--rp-accent);
+            box-shadow: 0 0 0 3px var(--rp-accent-pale);
+        }
+        .rp-input-field[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        .rp-input-field[type="number"]::-webkit-outer-spin-button,
+        .rp-input-field[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .rp-input-hint {
+            font-size: 0.66rem;
+            color: var(--rp-muted);
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+
+        /* Results */
+        .rp-results {
+            padding: 20px 22px 24px;
+            background: var(--rp-surface);
+        }
+        .rp-results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .rp-results-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--rp-ink);
+        }
+        .rp-results-note {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            color: var(--rp-muted);
+        }
+        .rp-results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .rp-result-item {
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius);
+            padding: 16px 12px;
+            text-align: center;
+            transition: all var(--rp-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rp-result-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--rp-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--rp-transition);
+        }
+        .rp-result-item:hover::before {
+            transform: scaleX(1);
+        }
+        .rp-result-item.highlight {
+            background: var(--rp-accent-pale);
+            border-color: var(--rp-accent);
+        }
+        body.dark .rp-result-item.highlight {
+            background: rgba(251, 191, 36, 0.12);
+        }
+        .rp-result-label {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--rp-muted);
+            margin-bottom: 6px;
+        }
+        .rp-result-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--rp-ink);
+            line-height: 1.1;
+            word-break: break-word;
+        }
+        .rp-result-value .rp-unit {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--rp-muted);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+        .rp-result-item.highlight .rp-result-value {
+            color: var(--rp-accent);
+        }
+
+        /* Pitch chart / info bar */
+        .rp-chart-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius);
+            flex-wrap: wrap;
+        }
+        .rp-chart-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .rp-chart-text {
+            font-size: 0.82rem;
+            color: var(--rp-ink);
+            line-height: 1.5;
+            flex: 1;
+            min-width: 200px;
+        }
+        .rp-chart-text strong {
+            color: var(--rp-accent);
+        }
+        .rp-chart-badge {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--rp-accent);
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        /* Visual diagram */
+        .rp-diagram {
+            margin-top: 16px;
+            padding: 18px;
+            background: var(--rp-warm);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius);
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .rp-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .rp-how {
+            background: var(--rp-warm);
+            transition: background var(--rp-transition);
+        }
+        .rp-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .rp-how-card {
+            background: var(--rp-surface);
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius-lg);
+            padding: 26px;
+            transition: all var(--rp-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .rp-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rp-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--rp-transition);
+        }
+        .rp-how-card:hover { box-shadow: var(--rp-shadow); transform: translateY(-3px); }
+        .rp-how-card:hover::before { transform: scaleX(1); }
+        .rp-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--rp-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .rp-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rp-ink);
+            margin-bottom: 8px;
+        }
+        .rp-how-card p {
+            font-size: 0.85rem;
+            color: var(--rp-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== PITCH TABLE ===== */
+        .rp-table-section {
+            background: var(--rp-surface);
+            transition: background var(--rp-transition);
+        }
+        .rp-table-wrap {
+            margin-top: 40px;
+            overflow-x: auto;
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius-lg);
+        }
+        .rp-pitch-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+        .rp-pitch-table thead {
+            background: var(--rp-warm);
+        }
+        .rp-pitch-table th {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--rp-muted);
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--rp-border);
+        }
+        .rp-pitch-table td {
+            padding: 11px 16px;
+            border-bottom: 1px solid var(--rp-border);
+            color: var(--rp-ink);
+        }
+        .rp-pitch-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .rp-pitch-table tbody tr:hover {
+            background: var(--rp-warm);
+        }
+        .rp-pitch-table td strong {
+            color: var(--rp-accent);
+            font-family: 'DM Mono', 'Courier New', monospace;
+        }
+
+        /* ===== FAQ ===== */
+        .rp-faq {
+            background: var(--rp-warm);
+            transition: background var(--rp-transition);
+        }
+        .rp-faq-list {
+            max-width: 720px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .rp-faq-item {
+            border: 1px solid var(--rp-border);
+            border-radius: var(--rp-radius);
+            overflow: hidden;
+            background: var(--rp-surface);
+            transition: border-color var(--rp-transition);
+        }
+        .rp-faq-item:has(.rp-faq-a[style*="block"]) { border-color: var(--rp-accent); }
+        .rp-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--rp-ink);
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background var(--rp-transition);
+            cursor: pointer;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rp-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--rp-muted);
+            flex-shrink: 0;
+            transition: transform var(--rp-transition);
+        }
+        .rp-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--rp-accent); }
+        .rp-faq-q:hover { background: var(--rp-warm); }
+        .rp-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .rp-faq-a p {
+            font-size: 0.88rem;
+            color: var(--rp-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .rp-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--rp-ink);
+            color: var(--rp-surface);
+            padding: 12px 20px;
+            border-radius: var(--rp-radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 320px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .rp-toast.show { transform: translateY(0); opacity: 1; }
+        body.dark .rp-toast {
+            background: var(--rp-warm);
+            color: var(--rp-ink);
+            border: 1px solid var(--rp-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .rp-how-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .rp-hero { min-height: auto; padding: 20px 0 16px; }
+            .rp-how-grid { grid-template-columns: 1fr; }
+            .rp-inputs { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
+            .rp-results-grid { grid-template-columns: repeat(2, 1fr); }
+            .rp-result-value { font-size: 1.2rem; }
+            .rp-app-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .rp-mode-toggle { padding: 12px 16px 0; }
+            .rp-results { padding: 16px; }
+            .rp-chart-bar { padding: 12px 14px; }
+            .rp-diagram { padding: 12px; }
+        }
+        @media (max-width: 480px) {
+            .rp-hero-title { font-size: 1.6rem; }
+            .rp-input-panel { padding: 14px; }
+            .rp-input-field { font-size: 0.92rem; padding: 9px 10px; }
+            .rp-results-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .rp-result-item { padding: 12px 8px; }
+            .rp-result-value { font-size: 1.05rem; }
+            .rp-result-label { font-size: 0.54rem; }
+            .rp-mode-btn { padding: 6px 14px; font-size: 0.75rem; }
+            .rp-input-row { grid-template-columns: 1fr; gap: 8px; }
+            .rp-chart-text { font-size: 0.76rem; }
+            .rp-pitch-table th,
+            .rp-pitch-table td { padding: 9px 10px; font-size: 0.78rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="rp-hero" id="home" aria-label="Roof Pitch Calculator Hero">
+            <div class="rp-hero-bg"></div>
+            <div class="rp-hero-glow"></div>
+            <div class="container rp-hero-inner">
+                <div class="rp-hero-badge">📐 Free Roofing Calculator</div>
+                <h1 class="rp-hero-title">
+                    Calculate any <br />
+                    <span class="rp-hero-accent">roof pitch instantly.</span>
+                </h1>
+                <p class="rp-hero-sub">Convert between roof pitch (x:12), slope angle in degrees, rise, and run. Get accurate roofing measurements for rafters, shingles, and construction projects.</p>
+                <div class="rp-hero-cta">
+                    <a href="#roof-calculator" class="btn btn-primary" style="background:var(--rp-accent);border-color:var(--rp-accent);">Calculate Now <span>→</span></a>
+                </div>
+                <div class="rp-hero-features">
+                    <span class="rp-feature-chip">📐 Pitch to Degrees</span>
+                    <span class="rp-feature-chip">📏 Rise &amp; Run</span>
+                    <span class="rp-feature-chip">📊 Slope %</span>
+                    <span class="rp-feature-chip">🔨 Rafter Length</span>
+                </div>               
+            </div>
+        </section>
+
+        <!-- ===== ROOF PITCH CALCULATOR APP SECTION ===== -->
+        <section class="rp-app-section" id="roof-calculator" aria-label="Roof Pitch Calculator Application">
+            <div class="container">
+                <div class="rp-app-shell">
+                    <!-- App Header -->
+                    <div class="rp-app-header">
+                        <span class="rp-app-title"><span class="rp-dot"></span> Roof Pitch Calculator</span>
+                        <button class="btn-tool" id="rpResetBtn" title="Reset calculator" aria-label="Reset calculator">↺ Reset</button>
+                    </div>
+
+                    <!-- Mode Toggle -->
+                    <div class="rp-mode-toggle" role="group" aria-label="Calculation mode">
+                        <button class="rp-mode-btn active" id="rpModePitch" data-mode="pitch">
+                            📐 Pitch to Degrees
+                        </button>
+                        <button class="rp-mode-btn" id="rpModeDegrees" data-mode="degrees">
+                            📐 Degrees to Pitch
+                        </button>
+                        <button class="rp-mode-btn" id="rpModeRiseRun" data-mode="riserun">
+                            📏 Rise / Run
+                        </button>
+                    </div>
+
+                    <!-- Inputs -->
+                    <div class="rp-inputs" id="rpInputs">
+                        <!-- PITCH MODE -->
+                        <div class="rp-input-panel" id="rpPanelPitch">
+                            <div class="rp-input-panel-label">📐 Roof Pitch (x:12)</div>
+                            <div class="rp-input-row">
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpPitchRise">Rise (inches)</label>
+                                    <input type="number" class="rp-input-field" id="rpPitchRise" value="6" min="0" step="0.25" aria-label="Rise in inches" />
+                                </div>
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpPitchRun">Run (inches)</label>
+                                    <input type="number" class="rp-input-field" id="rpPitchRun" value="12" min="0.01" step="0.25" aria-label="Run in inches" />
+                                </div>
+                            </div>
+                            <div class="rp-input-hint">Standard roof pitch is written as rise over 12 inches of run (e.g. 6:12).</div>
+                        </div>
+
+                        <!-- DEGREES MODE -->
+                        <div class="rp-input-panel" id="rpPanelDegrees" style="display:none;">
+                            <div class="rp-input-panel-label">📐 Slope Angle</div>
+                            <div class="rp-input-row">
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpDegreesAngle">Angle (degrees)</label>
+                                    <input type="number" class="rp-input-field" id="rpDegreesAngle" value="26.57" min="0" max="89.99" step="0.01" aria-label="Angle in degrees" />
+                                </div>
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpDegreesRun">Run (inches)</label>
+                                    <input type="number" class="rp-input-field" id="rpDegreesRun" value="12" min="0.01" step="0.25" aria-label="Run in inches" />
+                                </div>
+                            </div>
+                            <div class="rp-input-hint">Enter the roof angle (0–89.99°) and a base run to calculate pitch.</div>
+                        </div>
+
+                        <!-- RISE/RUN MODE -->
+                        <div class="rp-input-panel" id="rpPanelRiseRun" style="display:none;">
+                            <div class="rp-input-panel-label">📏 Rise &amp; Run</div>
+                            <div class="rp-input-row">
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpRiseValue">Rise</label>
+                                    <input type="number" class="rp-input-field" id="rpRiseValue" value="6" min="0" step="0.01" aria-label="Rise value" />
+                                </div>
+                                <div class="rp-input-group">
+                                    <label class="rp-input-label" for="rpRunValue">Run</label>
+                                    <input type="number" class="rp-input-field" id="rpRunValue" value="12" min="0.01" step="0.01" aria-label="Run value" />
+                                </div>
+                            </div>
+                            <div class="rp-input-hint">Enter any rise and run in the same unit (inches, feet, cm, m).</div>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="rp-results" id="rpResults">
+                        <div class="rp-results-header">
+                            <span class="rp-results-title" id="rpResultsTitle">Roof Measurements</span>
+                            <span class="rp-results-note" id="rpResultsNote">Based on your inputs</span>
+                        </div>
+                        <div class="rp-results-grid" id="rpResultsGrid"></div>
+
+                        <!-- Pitch classification bar -->
+                        <div class="rp-chart-bar" id="rpChartBar">
+                            <span class="rp-chart-icon" id="rpChartIcon">📐</span>
+                            <span class="rp-chart-text" id="rpChartText">—</span>
+                            <span class="rp-chart-badge" id="rpChartBadge">—</span>
+                        </div>
+
+                        <!-- Visual diagram -->
+                        <div class="rp-diagram" id="rpDiagram">
+                            <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg" aria-label="Roof pitch diagram">
+                                <!-- ground -->
+                                <line x1="40" y1="130" x2="360" y2="130" stroke="var(--rp-border)" stroke-width="2" stroke-linecap="round"/>
+                                <!-- run -->
+                                <line x1="40" y1="130" x2="340" y2="130" stroke="var(--rp-accent)" stroke-width="3" stroke-linecap="round"/>
+                                <!-- rise -->
+                                <line x1="340" y1="130" x2="340" y2="40" stroke="var(--rp-accent)" stroke-width="3" stroke-linecap="round"/>
+                                <!-- rafter (hypotenuse) -->
+                                <line x1="40" y1="130" x2="340" y2="40" stroke="var(--rp-ink)" stroke-width="2.5" stroke-linecap="round"/>
+                                <!-- angle arc -->
+                                <path d="M 40 130 A 40 40 0 0 1 78 105" fill="none" stroke="var(--rp-muted)" stroke-width="2"/>
+                                <!-- labels -->
+                                <text x="185" y="150" text-anchor="middle" font-size="12" font-family="monospace" fill="var(--rp-muted)" id="rpLabelRun">RUN</text>
+                                <text x="355" y="90" text-anchor="middle" font-size="12" font-family="monospace" fill="var(--rp-muted)" id="rpLabelRise">RISE</text>
+                                <text x="180" y="75" text-anchor="middle" font-size="12" font-family="monospace" fill="var(--rp-muted)" id="rpLabelRafter">RAFTER</text>
+                                <text x="62" y="120" text-anchor="middle" font-size="11" font-family="monospace" fill="var(--rp-accent)" id="rpLabelAngle">θ</text>
+                                <!-- right angle marker -->
+                                <polyline points="328,130 328,118 340,118" fill="none" stroke="var(--rp-muted)" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section class="section rp-how" id="how-it-works" aria-label="How the roof pitch calculator works">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Measure any roof in <em>3 steps.</em></h2>
+                <div class="rp-how-grid">
+                    <div class="rp-how-card">
+                        <div class="rp-how-num">01</div>
+                        <h3>Pick Your Input Mode</h3>
+                        <p>Choose <strong>pitch</strong>, <strong>degrees</strong>, or <strong>rise/run</strong>. Each mode lets you enter the values you already know.</p>
+                    </div>
+                    <div class="rp-how-card">
+                        <div class="rp-how-num">02</div>
+                        <h3>Enter Your Measurements</h3>
+                        <p>Type in the rise and run, angle, or pitch ratio you measured on the roof. All conversions update instantly.</p>
+                    </div>
+                    <div class="rp-how-card">
+                        <div class="rp-how-num">03</div>
+                        <h3>Get Every Value</h3>
+                        <p>See the <strong>pitch (x:12)</strong>, <strong>angle in degrees</strong>, <strong>slope %</strong>, and <strong>rafter length</strong> in one view — ready for cutting and materials.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PITCH TABLE ===== -->
+        <section class="section rp-table-section" id="pitch-chart" aria-label="Roof pitch chart">
+            <div class="container">
+                <div class="section-label">Quick reference</div>
+                <h2 class="section-title">Roof Pitch <em>Conversion Chart</em></h2>
+                <p class="section-sub">Common roof pitches with their equivalent slope angle, slope percentage, and typical use cases.</p>
+
+                <div class="rp-table-wrap">
+                    <table class="rp-pitch-table" aria-label="Roof pitch conversion chart">
+                        <thead>
+                            <tr>
+                                <th>Pitch (x:12)</th>
+                                <th>Angle (°)</th>
+                                <th>Slope (%)</th>
+                                <th>Typical Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>1:12</strong></td><td>4.76°</td><td>8.3%</td><td>Flat / low-slope commercial</td></tr>
+                            <tr><td><strong>2:12</strong></td><td>9.46°</td><td>16.7%</td><td>Minimum for shingles (some codes)</td></tr>
+                            <tr><td><strong>3:12</strong></td><td>14.04°</td><td>25.0%</td><td>Low-slope porch or shed roofs</td></tr>
+                            <tr><td><strong>4:12</strong></td><td>18.43°</td><td>33.3%</td><td>Common residential; steep enough for shingles</td></tr>
+                            <tr><td><strong>5:12</strong></td><td>22.62°</td><td>41.7%</td><td>Standard residential roof</td></tr>
+                            <tr><td><strong>6:12</strong></td><td>26.57°</td><td>50.0%</td><td>Very common residential pitch</td></tr>
+                            <tr><td><strong>7:12</strong></td><td>30.26°</td><td>58.3%</td><td>Steeper residential / snow shedding</td></tr>
+                            <tr><td><strong>8:12</strong></td><td>33.69°</td><td>66.7%</td><td>Steep roof; good drainage</td></tr>
+                            <tr><td><strong>9:12</strong></td><td>36.87°</td><td>75.0%</td><td>Steep; often requires harnesses</td></tr>
+                            <tr><td><strong>10:12</strong></td><td>39.81°</td><td>83.3%</td><td>Very steep; snow and rain shedding</td></tr>
+                            <tr><td><strong>12:12</strong></td><td>45.00°</td><td>100.0%</td><td>45° roof; steep, dramatic look</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ SECTION ===== -->
+        <section class="section rp-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="rp-faq-list" id="rpFaqList">
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">What is roof pitch?</button>
+                        <div class="rp-faq-a"><p>Roof pitch describes the steepness of a roof. It's usually written as a ratio of rise over run, such as 4:12, meaning the roof rises 4 inches for every 12 inches of horizontal run. It can also be expressed as an angle in degrees.</p></div>
+                    </div>
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">How do I convert roof pitch to degrees?</button>
+                        <div class="rp-faq-a"><p>To convert roof pitch (x:12) to degrees, use the formula: angle = arctan(x / 12). For example, a 6:12 pitch gives arctan(0.5) ≈ 26.57°. The calculator does this automatically.</p></div>
+                    </div>
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">What is a good roof pitch?</button>
+                        <div class="rp-faq-a"><p>Roof pitch depends on climate and roofing material. A 4:12 to 6:12 pitch is common for residential homes, while steeper pitches (8:12 and above) shed water and snow better. Flat roofs (under 2:12) require special waterproofing.</p></div>
+                    </div>
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">How do I calculate rafter length?</button>
+                        <div class="rp-faq-a"><p>Rafter length can be calculated using the Pythagorean theorem: rafter = √(rise² + run²). For a 6:12 pitch with a 12-foot run: rise = 6 ft, rafter = √(36 + 144) = √180 ≈ 13.42 ft. Our calculator returns this automatically.</p></div>
+                    </div>
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">What does slope percentage mean?</button>
+                        <div class="rp-faq-a"><p>Slope percentage is rise divided by run, multiplied by 100. A 6:12 pitch has a rise/run of 0.5, so the slope is 50%. This is often used in civil engineering and drainage calculations.</p></div>
+                    </div>
+                    <div class="rp-faq-item">
+                        <button class="rp-faq-q" aria-expanded="false">Is the roof pitch calculator free?</button>
+                        <div class="rp-faq-a"><p>Yes, the roof pitch calculator is 100% free with no signup required. Use it as often as you like for your construction, roofing, or DIY projects.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast notification -->
+    <div class="rp-toast" id="rpToast" role="alert" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== DOM ELEMENTS =====
+        const modePitchBtn = document.getElementById('rpModePitch');
+        const modeDegreesBtn = document.getElementById('rpModeDegrees');
+        const modeRiseRunBtn = document.getElementById('rpModeRiseRun');
+
+        const panelPitch = document.getElementById('rpPanelPitch');
+        const panelDegrees = document.getElementById('rpPanelDegrees');
+        const panelRiseRun = document.getElementById('rpPanelRiseRun');
+
+        const pitchRiseInput = document.getElementById('rpPitchRise');
+        const pitchRunInput = document.getElementById('rpPitchRun');
+        const degreesAngleInput = document.getElementById('rpDegreesAngle');
+        const degreesRunInput = document.getElementById('rpDegreesRun');
+        const riseValueInput = document.getElementById('rpRiseValue');
+        const runValueInput = document.getElementById('rpRunValue');
+
+        const resultsGrid = document.getElementById('rpResultsGrid');
+        const resultsTitle = document.getElementById('rpResultsTitle');
+        const resultsNote = document.getElementById('rpResultsNote');
+        const chartIcon = document.getElementById('rpChartIcon');
+        const chartText = document.getElementById('rpChartText');
+        const chartBadge = document.getElementById('rpChartBadge');
+
+        const labelRun = document.getElementById('rpLabelRun');
+        const labelRise = document.getElementById('rpLabelRise');
+        const labelRafter = document.getElementById('rpLabelRafter');
+        const labelAngle = document.getElementById('rpLabelAngle');
+
+        const resetBtn = document.getElementById('rpResetBtn');
+        const toast = document.getElementById('rpToast');
+        const faqItems = document.querySelectorAll('.rp-faq-q');
+
+        // ===== STATE =====
+        let state = {
+            mode: 'pitch',      // 'pitch' | 'degrees' | 'riserun'
+            pitchRise: 6,
+            pitchRun: 12,
+            degreesAngle: 26.57,
+            degreesRun: 12,
+            riseValue: 6,
+            runValue: 12
+        };
+
+        let toastTimer = null;
+
+        // ===== HELPERS =====
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.textContent = msg;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        function toRad(deg) { return deg * Math.PI / 180; }
+        function toDeg(rad) { return rad * 180 / Math.PI; }
+
+        function formatNumber(n, decimals) {
+            if (!isFinite(n)) return '—';
+            if (decimals === undefined) decimals = 2;
+            const rounded = Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            return rounded.toString();
+        }
+
+        function formatRatio(n) {
+            if (!isFinite(n) || n <= 0) return '—';
+            return formatNumber(n, 2) + ' : 12';
+        }
+
+        // ===== CORE CALCULATION =====
+        // Always returns a normalized set of values:
+        // { risePer12, angleDeg, slopePct, rise, run, rafter }
+        function computeValues() {
+            let rise, run;
+
+            if (state.mode === 'pitch') {
+                rise = state.pitchRise;
+                run = state.pitchRun;
+            } else if (state.mode === 'degrees') {
+                const angle = state.degreesAngle;
+                run = state.degreesRun;
+                rise = run * Math.tan(toRad(angle));
+            } else {
+                rise = state.riseValue;
+                run = state.runValue;
+            }
+
+            if (run <= 0 || !isFinite(run)) run = 1;
+            if (rise < 0 || !isFinite(rise)) rise = 0;
+
+            const risePer12 = (rise / run) * 12;
+            const angleDeg = toDeg(Math.atan(rise / run));
+            const slopePct = (rise / run) * 100;
+            const rafter = Math.sqrt(rise * rise + run * run);
+
+            return {
+                rise: rise,
+                run: run,
+                risePer12: risePer12,
+                angleDeg: angleDeg,
+                slopePct: slopePct,
+                rafter: rafter
+            };
+        }
+
+        // ===== CLASSIFICATION =====
+        function classifyPitch(risePer12) {
+            if (risePer12 < 2) {
+                return {
+                    label: 'Flat / Low-Slope',
+                    icon: '➖',
+                    desc: 'Flat or nearly flat roof (under 2:12). Requires membrane or special waterproofing.',
+                    className: 'low'
+                };
+            } else if (risePer12 < 4) {
+                return {
+                    label: 'Low-Slope',
+                    icon: '📐',
+                    desc: 'Low-slope roof (2:12 to 4:12). Suitable for some shingles and rolled roofing.',
+                    className: 'low'
+                };
+            } else if (risePer12 < 8) {
+                return {
+                    label: 'Conventional Slope',
+                    icon: '🏠',
+                    desc: 'Conventional residential roof pitch (4:12 to 8:12). Most common for homes.',
+                    className: 'conventional'
+                };
+            } else if (risePer12 < 12) {
+                return {
+                    label: 'Steep Slope',
+                    icon: '⛰️',
+                    desc: 'Steep roof pitch (8:12 to 12:12). Good drainage; requires fall protection for work.',
+                    className: 'steep'
+                };
+            } else {
+                return {
+                    label: 'Very Steep',
+                    icon: '🧗',
+                    desc: 'Very steep roof (12:12 and above). Specialty roofing only; harnesses required.',
+                    className: 'steep'
+                };
+            }
+        }
+
+        // ===== RENDER =====
+        function renderResults() {
+            const v = computeValues();
+            const cls = classifyPitch(v.risePer12);
+
+            // Build result cards
+            const cards = [
+                { label: 'Pitch', value: formatRatio(v.risePer12), highlight: state.mode === 'pitch' },
+                { label: 'Angle', value: formatNumber(v.angleDeg, 2) + '°', highlight: state.mode === 'degrees' },
+                { label: 'Slope', value: formatNumber(v.slopePct, 2) + '%', highlight: false },
+                { label: 'Rafter', value: formatNumber(v.rafter, 3), highlight: false }
+            ];
+
+            resultsGrid.innerHTML = '';
+            cards.forEach(function (c) {
+                const el = document.createElement('div');
+                el.className = 'rp-result-item' + (c.highlight ? ' highlight' : '');
+                el.innerHTML =
+                    '<div class="rp-result-label">' + c.label + '</div>' +
+                    '<div class="rp-result-value">' + c.value + '</div>';
+                resultsGrid.appendChild(el);
+            });
+
+            // Results title / note
+            if (state.mode === 'pitch') {
+                resultsTitle.textContent = 'Roof Measurements';
+                resultsNote.textContent = 'From pitch ' + formatRatio(v.risePer12);
+            } else if (state.mode === 'degrees') {
+                resultsTitle.textContent = 'Roof Measurements';
+                resultsNote.textContent = 'From angle ' + formatNumber(v.angleDeg, 2) + '°';
+            } else {
+                resultsTitle.textContent = 'Roof Measurements';
+                resultsNote.textContent = 'Rise ' + formatNumber(v.rise, 3) + ' / Run ' + formatNumber(v.run, 3);
+            }
+
+            // Chart bar
+            chartIcon.textContent = cls.icon;
+            chartText.innerHTML = '<strong>' + cls.label + '</strong> — ' + cls.desc;
+            chartBadge.textContent = formatRatio(v.risePer12);
+
+            // Update diagram labels with actual numbers
+            labelRun.textContent = 'RUN ' + formatNumber(v.run, 2);
+            labelRise.textContent = 'RISE ' + formatNumber(v.rise, 2);
+            labelRafter.textContent = 'RAFTER ' + formatNumber(v.rafter, 2);
+            labelAngle.textContent = formatNumber(v.angleDeg, 1) + '°';
+        }
+
+        // ===== MODE SWITCHING =====
+        function updateModeUI() {
+            // Toggle active class on buttons
+            [modePitchBtn, modeDegreesBtn, modeRiseRunBtn].forEach(function (b) {
+                b.classList.remove('active');
+            });
+
+            // Show correct panel
+            panelPitch.style.display = 'none';
+            panelDegrees.style.display = 'none';
+            panelRiseRun.style.display = 'none';
+
+            if (state.mode === 'pitch') {
+                modePitchBtn.classList.add('active');
+                panelPitch.style.display = '';
+            } else if (state.mode === 'degrees') {
+                modeDegreesBtn.classList.add('active');
+                panelDegrees.style.display = '';
+            } else {
+                modeRiseRunBtn.classList.add('active');
+                panelRiseRun.style.display = '';
+            }
+
+            renderResults();
+        }
+
+        // ===== EVENT LISTENERS =====
+        modePitchBtn.addEventListener('click', function () {
+            state.mode = 'pitch';
+            updateModeUI();
+        });
+
+        modeDegreesBtn.addEventListener('click', function () {
+            state.mode = 'degrees';
+            updateModeUI();
+        });
+
+        modeRiseRunBtn.addEventListener('click', function () {
+            state.mode = 'riserun';
+            updateModeUI();
+        });
+
+        // Pitch inputs
+        pitchRiseInput.addEventListener('input', function () {
+            const val = parseFloat(pitchRiseInput.value);
+            if (!isNaN(val) && val >= 0) {
+                state.pitchRise = val;
+                renderResults();
+            }
+        });
+        pitchRunInput.addEventListener('input', function () {
+            const val = parseFloat(pitchRunInput.value);
+            if (!isNaN(val) && val > 0) {
+                state.pitchRun = val;
+                renderResults();
+            }
+        });
+
+        // Degrees inputs
+        degreesAngleInput.addEventListener('input', function () {
+            let val = parseFloat(degreesAngleInput.value);
+            if (!isNaN(val)) {
+                if (val < 0) val = 0;
+                if (val > 89.99) val = 89.99;
+                state.degreesAngle = val;
+                renderResults();
+            }
+        });
+        degreesRunInput.addEventListener('input', function () {
+            const val = parseFloat(degreesRunInput.value);
+            if (!isNaN(val) && val > 0) {
+                state.degreesRun = val;
+                renderResults();
+            }
+        });
+
+        // Rise/Run inputs
+        riseValueInput.addEventListener('input', function () {
+            const val = parseFloat(riseValueInput.value);
+            if (!isNaN(val) && val >= 0) {
+                state.riseValue = val;
+                renderResults();
+            }
+        });
+        runValueInput.addEventListener('input', function () {
+            const val = parseFloat(runValueInput.value);
+            if (!isNaN(val) && val > 0) {
+                state.runValue = val;
+                renderResults();
+            }
+        });
+
+        // Clamp on blur
+        pitchRiseInput.addEventListener('blur', function () {
+            let val = parseFloat(pitchRiseInput.value);
+            if (isNaN(val) || val < 0) val = 0;
+            pitchRiseInput.value = val;
+            state.pitchRise = val;
+            renderResults();
+        });
+        pitchRunInput.addEventListener('blur', function () {
+            let val = parseFloat(pitchRunInput.value);
+            if (isNaN(val) || val <= 0) val = 12;
+            pitchRunInput.value = val;
+            state.pitchRun = val;
+            renderResults();
+        });
+        degreesAngleInput.addEventListener('blur', function () {
+            let val = parseFloat(degreesAngleInput.value);
+            if (isNaN(val) || val < 0) val = 0;
+            if (val > 89.99) val = 89.99;
+            degreesAngleInput.value = val;
+            state.degreesAngle = val;
+            renderResults();
+        });
+        degreesRunInput.addEventListener('blur', function () {
+            let val = parseFloat(degreesRunInput.value);
+            if (isNaN(val) || val <= 0) val = 12;
+            degreesRunInput.value = val;
+            state.degreesRun = val;
+            renderResults();
+        });
+        riseValueInput.addEventListener('blur', function () {
+            let val = parseFloat(riseValueInput.value);
+            if (isNaN(val) || val < 0) val = 0;
+            riseValueInput.value = val;
+            state.riseValue = val;
+            renderResults();
+        });
+        runValueInput.addEventListener('blur', function () {
+            let val = parseFloat(runValueInput.value);
+            if (isNaN(val) || val <= 0) val = 12;
+            runValueInput.value = val;
+            state.runValue = val;
+            renderResults();
+        });
+
+        // Reset
+        resetBtn.addEventListener('click', function () {
+            state.mode = 'pitch';
+            state.pitchRise = 6;
+            state.pitchRun = 12;
+            state.degreesAngle = 26.57;
+            state.degreesRun = 12;
+            state.riseValue = 6;
+            state.runValue = 12;
+
+            pitchRiseInput.value = '6';
+            pitchRunInput.value = '12';
+            degreesAngleInput.value = '26.57';
+            degreesRunInput.value = '12';
+            riseValueInput.value = '6';
+            runValueInput.value = '12';
+
+            updateModeUI();
+            showToast('↺ Calculator reset to defaults');
+        });
+
+        // FAQ accordion
+        faqItems.forEach(function (qBtn) {
+            qBtn.addEventListener('click', function () {
+                const expanded = qBtn.getAttribute('aria-expanded') === 'true';
+                qBtn.setAttribute('aria-expanded', !expanded);
+                const answer = qBtn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        // ===== INIT =====
+        (function init() {
+            // Sync inputs with state
+            pitchRiseInput.value = state.pitchRise;
+            pitchRunInput.value = state.pitchRun;
+            degreesAngleInput.value = state.degreesAngle;
+            degreesRunInput.value = state.degreesRun;
+            riseValueInput.value = state.riseValue;
+            runValueInput.value = state.runValue;
+
+            updateModeUI();
+
+            console.log('✅ Roof Pitch Calculator ready — pitch, angle, rise, run, and rafter length.');
+        })();
+
+    })();
+    </script>
+</body>
+</html>

@@ -139,14 +139,14 @@
     }
   ];
 
-  // ── Move PDF Tools (index 2) to the second row (position index 1) ──
+  // ── Move PDF Tools to the second row ──
   const pdfCategoryIndex = toolCategories.findIndex(cat => cat.name.includes("PDF Tools"));
   if (pdfCategoryIndex !== -1) {
     const [pdfCategory] = toolCategories.splice(pdfCategoryIndex, 1);
     toolCategories.splice(1, 0, pdfCategory);
   }
 
-  // ── Games catalog — mirrors social-share widget GAMES list ──
+  // ── Games catalog ──
   const GAMES = [
     { id: 'connections-unlimited', name: 'Connections Unlimited', emoji: '🧩', desc: 'Group 16 words into 4 categories', url: '/connections-unlimited' },
     { id: 'spelling-bee', name: 'Spelling Bee Unlimited', emoji: '🐝', desc: 'Build words from 7 letters', url: '/spelling-bee-unlimited' },
@@ -160,7 +160,6 @@
     { id: 'minesweeper', name: 'Minesweeper', emoji: '💣', desc: 'Clear the minefield', url: '/minesweeper' }
   ];
 
-  // Helper function to resolve localized URLs based on current location
   function getLocalizedUrl(targetPrefix) {
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(Boolean);
@@ -172,25 +171,21 @@
     return targetPrefix ? `${targetPrefix}/${relativePath}` : `/${relativePath}`;
   }
 
-  // Detect current active language prefix
   const currentPath = window.location.pathname;
   const activeLangCode = languages.find(l => l.code !== 'en' && currentPath.startsWith(`/${l.code}`))?.code || 'en';
 
-  // Generate options for desktop select
   const desktopOptions = languages.map(lang => {
     const isSelected = lang.code === activeLangCode ? 'selected' : '';
     return `<option value="${lang.prefix}" ${isSelected}>${lang.label}</option>`;
   }).join('');
 
-  // Generate links for mobile language list
   const mobileLangLinks = languages.map(lang => {
     const targetUrl = getLocalizedUrl(lang.prefix);
     const activeClass = lang.code === activeLangCode ? 'font-weight: bold; color: var(--accent);' : '';
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build optimized 4-column balanced mega-menu markup (Ad placed in 3rd column) ──
-  const AD_INSERT_AT_INDEX = 2; // Insert the advertisement as the 3rd column
+  const AD_INSERT_AT_INDEX = 2; 
   let megaMenuColsHTML = '';
   
   toolCategories.forEach((category, idx) => {
@@ -223,7 +218,6 @@
     `;
   });
 
-  // Append Games column at the end
   megaMenuColsHTML += `
     <div class="mega-col mega-col-games">
       <div class="mega-col-title">🎮 Games</div>
@@ -250,7 +244,6 @@
 
   const megaMenuHTML = megaMenuColsHTML;
 
-  // ── Build mobile accordion markup (NO AD on mobile) ──
   const mobileToolsHTML = toolCategories.map((category, idx) => `
     <div class="mobile-tools-group">
       <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
@@ -362,7 +355,6 @@
     </nav>
   `;
 
-  // ── Ad injection via isolated iframe (300×250) ──
   function injectMegaAd() {
     const adSlot = document.getElementById('megaAdSlot');
     if (!adSlot) return;
@@ -568,7 +560,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            if (link.getAttribute('href'] === '#' + entry.target.id) {
+            if (link.getAttribute('href') === '#' + entry.target.id) {
               link.classList.add('active-nav');
             } else if (link.classList) {
               link.classList.remove('active-nav');
@@ -579,10 +571,9 @@
     }, { rootMargin: '-40% 0px -40% 0px' });
     sections.forEach(s => observer.observe(s));
 
-    // ── Styles (Optimized 4-Column Layout with Gorgeous, Comfortable Tool Cards) ──
+    // ── Styles ──
     const style = document.createElement('style');
     style.textContent = `
-      /* Language Switcher */
       .lang-selector-wrapper {
         display: inline-flex;
         align-items: center;
@@ -608,7 +599,6 @@
         border-color: var(--paper-edge);
       }
 
-      /* ── Desktop Mega-Menu (Balanced 4-Column Layout, No Cramping, No Scrollbars) ── */
       .dropdown {
         position: relative;
         display: inline-block;
@@ -658,7 +648,6 @@
         border-top: 1px solid var(--paper-edge);
       }
 
-      /* ── 4-Column Grid (Eliminates excessive empty white space and gives generous padding to tool boxes) ── */
       .mega-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -691,7 +680,6 @@
         gap: 5px;
       }
 
-      /* ── Advertisement column (300×250) positioned in column 3, spanning 2 rows ── */
       .mega-col-ad {
         align-items: center;
         width: 100%;
@@ -737,7 +725,6 @@
         text-transform: uppercase;
       }
 
-      /* ── Comfortable, Luxurious Tool Item Box ── */
       .mega-tool {
         display: flex;
         align-items: center;
@@ -794,7 +781,6 @@
         text-overflow: ellipsis;
       }
 
-      /* ── Games column styling ── */
       .mega-col-games .mega-col-title {
         color: #4f46e5;
       }
@@ -827,7 +813,6 @@
         color: #a5b4fc;
       }
 
-      /* Dark mode for mega-menu */
       body.dark .mega-menu {
         background-color: var(--paper);
         border-color: var(--paper-edge);
@@ -843,7 +828,6 @@
       body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
       body.dark .mega-ad-slot { background: var(--paper-warm); border-color: var(--paper-edge); }
 
-      /* ── Mobile Dropdown ── */
       .mobile-dropdown { width: 100%; }
       .mobile-dropdown-btn {
         background: none;
@@ -871,7 +855,6 @@
       }
       .mobile-dropdown-content a:hover { color: var(--accent); }
 
-      /* ── Mobile All-Tools accordion ── */
       .mobile-tools-list {
         padding: 4px 0 8px;
         background: var(--paper-warm) !important;
@@ -952,7 +935,6 @@
         text-overflow: ellipsis;
       }
 
-      /* Games group on mobile */
       .mobile-tools-group-games .mobile-tools-toggle { color: #4f46e5; }
       body.dark .mobile-tools-group-games .mobile-tools-toggle { color: #818cf8; }
       .mobile-tool-all-games {
@@ -970,12 +952,6 @@
       body.dark .mobile-tool-link { color: var(--ink) !important; }
       body.dark .mobile-tool-link:hover { background: var(--paper-warm); color: var(--accent) !important; }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      /* ── Responsive Screen Breakpoints ── */
       @media (max-width: 1180px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .mega-menu { width: min(980px, 96vw); }
@@ -988,12 +964,8 @@
       }
 
       @media (max-width: 768px) {
-        /* Hide desktop mega dropdown on mobile — mobile nav handles it */
         .header-nav .dropdown { display: none; }
-
-        /* Ensure the ad column is completely hidden on mobile */
         .mega-col-ad { display: none !important; }
-
         .header-inner { padding: 0 8px; }
         .header-logo { gap: 6px; }
         .header-logo span {
@@ -1015,7 +987,6 @@
         .mega-col-ad { display: none !important; }
       }
 
-      /* Dark mode support for other dropdowns */
       body.dark .mobile-dropdown-btn { color: var(--ink); }
       body.dark .mobile-dropdown-btn:hover { color: var(--accent); }
       body.dark .mobile-dropdown-content { background-color: var(--paper-warm); }

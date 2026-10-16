@@ -139,6 +139,13 @@
     }
   ];
 
+  // ── Move PDF Tools (index 2) to the second row (position index 1) ──
+  const pdfCategoryIndex = toolCategories.findIndex(cat => cat.name.includes("PDF Tools"));
+  if (pdfCategoryIndex !== -1) {
+    const [pdfCategory] = toolCategories.splice(pdfCategoryIndex, 1);
+    toolCategories.splice(1, 0, pdfCategory);
+  }
+
   // ── Games catalog — mirrors social-share widget GAMES list ──
   const GAMES = [
     { id: 'connections-unlimited', name: 'Connections Unlimited', emoji: '🧩', desc: 'Group 16 words into 4 categories', url: '/connections-unlimited' },
@@ -182,8 +189,8 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) with ad column inserted after category 3 ──
-  const AD_INSERT_AFTER_INDEX = 2; // 0-based index of the category after which to insert the ad
+  // ── Build mega-menu markup (desktop) with ad column inserted after category 3 (0-based index 2) ──
+  const AD_INSERT_AFTER_INDEX = 2; // Category after which to insert the ad slot
   let megaMenuColsHTML = '';
   toolCategories.forEach((category, idx) => {
     megaMenuColsHTML += `
@@ -354,13 +361,10 @@
   `;
 
   // ── Ad injection via isolated iframe (300×250) ──
-  // Using an iframe isolates the ad's `atOptions` global from the parent page,
-  // preventing collisions with other Adsterra slots on the same page.
   function injectMegaAd() {
     const adSlot = document.getElementById('megaAdSlot');
     if (!adSlot) return;
 
-    // Clear placeholder / previous content
     adSlot.innerHTML = '';
 
     const adHtml = `<!DOCTYPE html>
@@ -405,7 +409,6 @@
   <\/script>
   <script src="${MEGA_AD.src}"><\/script>
   <script>
-    // Hide the fallback if the ad rendered
     setTimeout(function() {
       var fallback = document.getElementById('fallback');
       if (fallback && (document.querySelector('iframe') || document.querySelector('img'))) {
@@ -438,10 +441,8 @@
     if (!root) return;
     root.innerHTML = headerHTML;
 
-    // Inject the mega-menu ad
     injectMegaAd();
 
-    // Language switch handler
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
       languageSelect.addEventListener('change', (e) => {
@@ -450,7 +451,6 @@
       });
     }
 
-    // Dark mode toggle
     const headerDarkBtn = document.getElementById('headerDarkBtn');
     if (headerDarkBtn) {
       headerDarkBtn.addEventListener('click', () => {
@@ -464,7 +464,6 @@
       });
     }
 
-    // ── Mega-menu dropdown (desktop) ──
     const megaDropdown = document.getElementById('megaDropdown');
     const megaDropdownBtn = document.getElementById('megaDropdownBtn');
     const megaMenu = document.getElementById('megaMenu');
@@ -505,7 +504,6 @@
       });
     }
 
-    // ── Mobile dropdown toggles ──
     const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
     mobileDropdownBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -524,7 +522,6 @@
       });
     });
 
-    // ── Mobile inner accordion toggles (per category + Games) ──
     const mobileToolsToggles = document.querySelectorAll('.mobile-tools-toggle');
     mobileToolsToggles.forEach((toggle) => {
       toggle.addEventListener('click', (e) => {
@@ -541,7 +538,6 @@
       });
     });
 
-    // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileNav = document.getElementById('mobileNav');
     if (hamburger && mobileNav) {
@@ -559,13 +555,11 @@
       });
     }
 
-    // Restore dark mode preference
     if (localStorage.getItem('webnotepad_dark') === '1') {
       document.body.classList.add('dark');
       if (headerDarkBtn) headerDarkBtn.textContent = '☀️';
     }
 
-    // Highlight active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.header-nav .nav-link');
     const observer = new IntersectionObserver((entries) => {
@@ -612,7 +606,7 @@
         border-color: var(--paper-edge);
       }
 
-      /* ── Desktop Mega-Menu ── */
+      /* ── Desktop Mega-Menu (Wider, NO scrollbars, fits all categories) ── */
       .dropdown {
         position: relative;
         display: inline-block;
@@ -631,15 +625,15 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1300px, 96vw);
-        max-height: 78vh;
-        overflow-y: auto;
+        width: min(1560px, 98vw);
+        max-height: none;
+        overflow-y: visible;
         background-color: var(--paper);
         border: 1px solid var(--paper-edge);
         border-radius: 16px;
         box-shadow: 0 24px 60px -12px rgba(0,0,0,0.22), 0 6px 18px -6px rgba(0,0,0,0.08);
         z-index: 1200;
-        padding: 22px 24px 18px;
+        padding: 24px 28px 20px;
         opacity: 0;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
@@ -662,18 +656,18 @@
         border-top: 1px solid var(--paper-edge);
       }
 
-      /* ── 5-column grid ── */
+      /* ── 5-column grid layout with 11 items total (10 tool categories + 1 ad column spanning 2 rows + 1 games column) ── */
       .mega-grid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 20px 20px;
+        gap: 18px 22px;
         align-items: start;
       }
 
       .mega-col {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         min-width: 0;
       }
       .mega-col-title {
@@ -682,7 +676,7 @@
         letter-spacing: 0.06em;
         text-transform: uppercase;
         color: var(--ink-muted);
-        padding-bottom: 8px;
+        padding-bottom: 6px;
         border-bottom: 1px solid var(--paper-edge);
         opacity: 0.8;
         display: flex;
@@ -692,10 +686,10 @@
       .mega-col-tools {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 1px;
       }
 
-      /* ── Advertisement column (300×250) ── */
+      /* ── Advertisement column (300×250) positioned in column 5, spanning 2 rows ── */
       .mega-col-ad {
         align-items: center;
         width: 316px;
@@ -742,9 +736,9 @@
       .mega-tool {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 8px 8px;
-        border-radius: 8px;
+        gap: 9px;
+        padding: 6px 6px;
+        border-radius: 6px;
         text-decoration: none;
         color: var(--ink);
         transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
@@ -757,33 +751,33 @@
       }
       .mega-tool-icon {
         flex-shrink: 0;
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: var(--paper-warm);
-        border-radius: 7px;
+        border-radius: 6px;
         border: 1px solid var(--paper-edge);
       }
-      .mega-tool-icon svg { width: 18px; height: 18px; display: block; }
+      .mega-tool-icon svg { width: 16px; height: 16px; display: block; }
       .mega-tool:hover .mega-tool-icon { background: var(--paper); border-color: var(--accent); }
 
       .mega-tool-text {
         display: flex;
         flex-direction: column;
         min-width: 0;
-        line-height: 1.2;
+        line-height: 1.15;
       }
       .mega-tool-name {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         font-weight: 600;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
       .mega-tool-desc {
-        font-size: 0.68rem;
+        font-size: 0.65rem;
         color: var(--ink-muted);
         white-space: nowrap;
         overflow: hidden;
@@ -800,16 +794,16 @@
       .mega-tool-game .mega-tool-icon-game {
         background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
         border-color: rgba(99, 102, 241, 0.25);
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       .mega-tool-game:hover .mega-tool-icon-game {
         background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
         border-color: #6366f1;
       }
       .mega-tool-all-games {
-        margin-top: 4px;
+        margin-top: 2px;
         border-top: 1px dashed var(--paper-edge);
-        padding-top: 10px;
+        padding-top: 8px;
         color: #4f46e5;
         font-weight: 600;
       }
@@ -971,16 +965,21 @@
         to { opacity: 1; transform: translateY(0); }
       }
 
-      /* ── Responsive ── */
-      @media (max-width: 1100px) {
+      /* ── Responsive adjustments ── */
+      @media (max-width: 1400px) {
         .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .mega-menu { width: min(1000px, 96vw); }
+        .mega-menu { width: min(1280px, 98vw); }
         .mega-col-ad { grid-column: auto; grid-row: auto; }
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1100px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .mega-menu { width: min(850px, 96vw); }
+        .mega-menu { width: min(980px, 98vw); }
+      }
+
+      @media (max-width: 900px) {
+        .mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .mega-menu { width: min(680px, 98vw); }
       }
 
       @media (max-width: 768px) {

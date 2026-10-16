@@ -810,7 +810,7 @@ function injectModalAd() {
 
   const invokeScript = document.createElement('script');
   invokeScript.type = 'text/javascript';
-  invokeScript.src = 'https://www.highrevenueformat.com/f5214acd8479e07d7defe4626c574aa5/invoke.js';
+  invokeScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
   invokeScript.async = true;
   adFrame.appendChild(invokeScript);
 }
@@ -949,7 +949,7 @@ function closeModal(){
   }
 
   const cdOverlay = $('pdfCountdownOverlay');
-  if(cdOverlay) cdOverlay.classList.remove('hidden');
+  if(cdOverlay) cdOverlay.classList.add('hidden');
 
   // Reset modal mode for next open
   modalMode = 'pdf';

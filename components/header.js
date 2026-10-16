@@ -189,7 +189,7 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  // ── Build mega-menu markup (desktop) with ad column inserted as the 3rd column (index 2) ──
+  // ── Build optimized 4-column balanced mega-menu markup (Ad placed in 3rd column) ──
   const AD_INSERT_AT_INDEX = 2; // Insert the advertisement as the 3rd column
   let megaMenuColsHTML = '';
   
@@ -568,7 +568,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            if (link.getAttribute('href') === '#' + entry.target.id) {
+            if (link.getAttribute('href'] === '#' + entry.target.id) {
               link.classList.add('active-nav');
             } else if (link.classList) {
               link.classList.remove('active-nav');
@@ -579,7 +579,7 @@
     }, { rootMargin: '-40% 0px -40% 0px' });
     sections.forEach(s => observer.observe(s));
 
-    // ── Styles ──
+    // ── Styles (Optimized 4-Column Layout with Gorgeous, Comfortable Tool Cards) ──
     const style = document.createElement('style');
     style.textContent = `
       /* Language Switcher */
@@ -608,7 +608,7 @@
         border-color: var(--paper-edge);
       }
 
-      /* ── Desktop Mega-Menu (Wider, NO scrollbars, fits all categories) ── */
+      /* ── Desktop Mega-Menu (Balanced 4-Column Layout, No Cramping, No Scrollbars) ── */
       .dropdown {
         position: relative;
         display: inline-block;
@@ -624,18 +624,18 @@
       .mega-menu {
         display: none;
         position: absolute;
-        top: calc(100% + 10px);
+        top: calc(100% + 12px);
         left: 50%;
         transform: translateX(-50%) translateY(-6px);
-        width: min(1560px, 98vw);
+        width: min(1280px, 96vw);
         max-height: none;
         overflow-y: visible;
         background-color: var(--paper);
         border: 1px solid var(--paper-edge);
-        border-radius: 16px;
-        box-shadow: 0 24px 60px -12px rgba(0,0,0,0.22), 0 6px 18px -6px rgba(0,0,0,0.08);
+        border-radius: 20px;
+        box-shadow: 0 28px 70px -14px rgba(0,0,0,0.22), 0 8px 22px -6px rgba(0,0,0,0.08);
         z-index: 1200;
-        padding: 24px 28px 20px;
+        padding: 30px 32px 26px;
         opacity: 0;
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
@@ -658,46 +658,48 @@
         border-top: 1px solid var(--paper-edge);
       }
 
-      /* ── 5-column grid layout with ad placed specifically in column 3 spanning 2 rows ── */
+      /* ── 4-Column Grid (Eliminates excessive empty white space and gives generous padding to tool boxes) ── */
       .mega-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 18px 22px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px 28px;
         align-items: start;
       }
 
       .mega-col {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
         min-width: 0;
       }
       .mega-col-title {
-        font-size: 0.72rem;
+        font-size: 0.78rem;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--ink-muted);
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--paper-edge);
-        opacity: 0.8;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--paper-edge);
+        opacity: 0.85;
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
       }
       .mega-col-tools {
         display: flex;
         flex-direction: column;
-        gap: 1px;
+        gap: 5px;
       }
 
       /* ── Advertisement column (300×250) positioned in column 3, spanning 2 rows ── */
       .mega-col-ad {
         align-items: center;
-        width: 316px;
+        width: 100%;
+        max-width: 316px;
         flex-shrink: 0;
         grid-column: 3;
         grid-row: 1 / span 2;
+        justify-self: center;
       }
       .mega-col-title-ad {
         color: var(--ink-muted);
@@ -713,7 +715,7 @@
         height: 250px;
         max-width: 100%;
         overflow: hidden;
-        border-radius: 8px;
+        border-radius: 12px;
         background: var(--paper-warm);
         border: 1px solid var(--paper-edge);
         position: relative;
@@ -735,51 +737,57 @@
         text-transform: uppercase;
       }
 
+      /* ── Comfortable, Luxurious Tool Item Box ── */
       .mega-tool {
         display: flex;
         align-items: center;
-        gap: 9px;
-        padding: 6px 6px;
-        border-radius: 6px;
+        gap: 12px;
+        padding: 9px 10px;
+        border-radius: 10px;
         text-decoration: none;
         color: var(--ink);
-        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        background: rgba(0,0,0,0.01);
+        border: 1px solid transparent;
+        transition: all 0.2s ease;
         min-width: 0;
       }
       .mega-tool:hover {
         background: var(--paper-warm);
+        border-color: var(--paper-edge);
         color: var(--accent);
-        transform: translateX(2px);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
       }
       .mega-tool-icon {
         flex-shrink: 0;
-        width: 26px;
-        height: 26px;
+        width: 34px;
+        height: 34px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: var(--paper-warm);
-        border-radius: 6px;
+        border-radius: 8px;
         border: 1px solid var(--paper-edge);
+        transition: border-color 0.2s ease, background 0.2s ease;
       }
-      .mega-tool-icon svg { width: 16px; height: 16px; display: block; }
+      .mega-tool-icon svg { width: 20px; height: 20px; display: block; }
       .mega-tool:hover .mega-tool-icon { background: var(--paper); border-color: var(--accent); }
 
       .mega-tool-text {
         display: flex;
         flex-direction: column;
         min-width: 0;
-        line-height: 1.15;
+        line-height: 1.3;
       }
       .mega-tool-name {
-        font-size: 0.8rem;
+        font-size: 0.88rem;
         font-weight: 600;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
       .mega-tool-desc {
-        font-size: 0.65rem;
+        font-size: 0.72rem;
         color: var(--ink-muted);
         white-space: nowrap;
         overflow: hidden;
@@ -796,16 +804,16 @@
       .mega-tool-game .mega-tool-icon-game {
         background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
         border-color: rgba(99, 102, 241, 0.25);
-        font-size: 0.95rem;
+        font-size: 1.05rem;
       }
       .mega-tool-game:hover .mega-tool-icon-game {
         background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
         border-color: #6366f1;
       }
       .mega-tool-all-games {
-        margin-top: 2px;
+        margin-top: 4px;
         border-top: 1px dashed var(--paper-edge);
-        padding-top: 8px;
+        padding-top: 10px;
         color: #4f46e5;
         font-weight: 600;
       }
@@ -823,15 +831,15 @@
       body.dark .mega-menu {
         background-color: var(--paper);
         border-color: var(--paper-edge);
-        box-shadow: 0 24px 60px -12px rgba(0,0,0,0.6);
+        box-shadow: 0 28px 70px -14px rgba(0,0,0,0.6);
       }
       body.dark .mega-menu::before {
         background: var(--paper);
         border-color: var(--paper-edge);
       }
       body.dark .mega-col-title { color: var(--ink-muted); }
-      body.dark .mega-tool { color: var(--ink); }
-      body.dark .mega-tool:hover { background: var(--paper-warm); color: var(--accent); }
+      body.dark .mega-tool { color: var(--ink); background: rgba(255,255,255,0.01); }
+      body.dark .mega-tool:hover { background: var(--paper-warm); border-color: var(--paper-edge); color: var(--accent); }
       body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
       body.dark .mega-ad-slot { background: var(--paper-warm); border-color: var(--paper-edge); }
 
@@ -967,21 +975,16 @@
         to { opacity: 1; transform: translateY(0); }
       }
 
-      /* ── Responsive adjustments ── */
-      @media (max-width: 1400px) {
-        .mega-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .mega-menu { width: min(1280px, 98vw); }
-        .mega-col-ad { grid-column: auto; grid-row: auto; }
-      }
-
-      @media (max-width: 1100px) {
+      /* ── Responsive Screen Breakpoints ── */
+      @media (max-width: 1180px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .mega-menu { width: min(980px, 98vw); }
+        .mega-menu { width: min(980px, 96vw); }
+        .mega-col-ad { grid-column: auto; grid-row: auto; justify-self: stretch; max-width: none; }
       }
 
       @media (max-width: 900px) {
         .mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .mega-menu { width: min(680px, 98vw); }
+        .mega-menu { width: min(680px, 96vw); }
       }
 
       @media (max-width: 768px) {

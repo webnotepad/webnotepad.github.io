@@ -9,6 +9,9 @@
  * linking to all games on the site.
  *
  * Games popup opens to the LEFT of the trigger for better ergonomics.
+ *
+ * ALSO includes a Follow widget at the top middle-right with Pinterest, X, and Reddit icons.
+ * Handle: @webnotepad
  */
 
 (function () {
@@ -23,6 +26,9 @@
     link: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
+
+    // ---- Reddit Icon (for Follow widget) ----
+    reddit: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.313 3.516 8.484l-2.36 2.36c-.297.297-.087.805.335.805H12c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.01 6.947c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zm-10.02 0c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zM12 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-5.304 5.07c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zm10.608 0c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zM12 18c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2z"/></svg>`,
 
     // ---- CLASSIC ARCADE JOYSTICK ICON ----
     joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -74,6 +80,35 @@
       icon: ICONS.threads,
       getUrl: () =>
         `https://www.threads.net/intent/post?text=${encodeURIComponent(document.title + ' ' + window.location.href)}`,
+    },
+  ];
+
+  // ---- Follow Configuration (NEW) ----
+  const FOLLOW_HANDLE = '@webnotepad';
+  const FOLLOW_PLATFORMS = [
+    {
+      id: 'pinterest',
+      label: 'Pinterest',
+      icon: ICONS.pinterest,
+      url: 'https://pinterest.com/webnotepad',
+      color: '#e60023',
+      bg: 'linear-gradient(145deg, #ff4d6d, #e60023)',
+    },
+    {
+      id: 'x',
+      label: 'X',
+      icon: ICONS.x,
+      url: 'https://x.com/webnotepad',
+      color: '#000000',
+      bg: 'linear-gradient(145deg, #444, #000000)',
+    },
+    {
+      id: 'reddit',
+      label: 'Reddit',
+      icon: ICONS.reddit,
+      url: 'https://reddit.com/user/webnotepad',
+      color: '#ff4500',
+      bg: 'linear-gradient(145deg, #ff7a3d, #ff4500)',
     },
   ];
 
@@ -690,6 +725,135 @@
       }
     }
 
+    /* ===== FOLLOW WIDGET — TOP MIDDLE-RIGHT ===== */
+    .follow-widget {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .follow-label {
+      font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted, #6b6b85);
+      opacity: 0.8;
+    }
+
+    .follow-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .follow-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      overflow: hidden;
+    }
+    .follow-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      border-radius: 50%;
+      transition: opacity 0.3s ease;
+    }
+    .follow-btn:hover {
+      transform: translateY(-3px) scale(1.1);
+    }
+    .follow-btn:active {
+      transform: translateY(0) scale(0.95);
+    }
+
+    /* Pinterest */
+    .follow-btn[data-platform="pinterest"] {
+      background: linear-gradient(145deg, #ff4d6d, #e60023);
+      color: #ffffff;
+    }
+    .follow-btn[data-platform="pinterest"]:hover {
+      box-shadow: 0 8px 24px rgba(230, 0, 35, 0.45);
+    }
+
+    /* X (Twitter) */
+    .follow-btn[data-platform="x"] {
+      background: linear-gradient(145deg, #444, #000000);
+      color: #ffffff;
+    }
+    .follow-btn[data-platform="x"]:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Reddit */
+    .follow-btn[data-platform="reddit"] {
+      background: linear-gradient(145deg, #ff7a3d, #ff4500);
+      color: #ffffff;
+    }
+    .follow-btn[data-platform="reddit"]:hover {
+      box-shadow: 0 8px 24px rgba(255, 69, 0, 0.45);
+    }
+
+    .follow-btn svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .follow-btn:hover svg {
+      transform: scale(1.15);
+    }
+
+    /* Tooltip on hover */
+    .follow-btn::after {
+      content: attr(aria-label);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      background: var(--ink, #1a1a2e);
+      color: var(--paper, #faf8f4);
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      font-family: var(--font-body, 'Outfit', sans-serif);
+    }
+    .follow-btn:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* Hide follow widget when tools sidebar is open */
+    body.tools-sidebar-open .follow-widget {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-20px) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
     /* Responsive */
     @media (max-width: 480px) {
       .social-floating-trigger {
@@ -766,6 +930,24 @@
       .games-popup-header span {
         font-size: 0.7rem;
       }
+
+      /* Follow widget on mobile */
+      .follow-widget {
+        top: 12px;
+        right: 12px;
+        gap: 5px;
+      }
+      .follow-label {
+        font-size: 0.58rem;
+      }
+      .follow-btn {
+        width: 34px;
+        height: 34px;
+      }
+      .follow-btn svg {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     @media (max-width: 380px) {
@@ -831,9 +1013,58 @@
       .social-toast {
         bottom: 128px;
       }
+
+      /* Follow widget on very small screens */
+      .follow-widget {
+        top: 8px;
+        right: 8px;
+        gap: 4px;
+      }
+      .follow-label {
+        display: none;
+      }
+      .follow-btn {
+        width: 30px;
+        height: 30px;
+      }
+      .follow-btn svg {
+        width: 14px;
+        height: 14px;
+      }
     }
   `;
   document.head.appendChild(styleEl);
+
+  // =========================================================
+  // ================= FOLLOW WIDGET =========================
+  // =========================================================
+
+  const followWidget = document.createElement('div');
+  followWidget.className = 'follow-widget';
+  followWidget.setAttribute('aria-label', 'Follow us on social media');
+
+  const followLabel = document.createElement('div');
+  followLabel.className = 'follow-label';
+  followLabel.textContent = FOLLOW_HANDLE;
+  followWidget.appendChild(followLabel);
+
+  const followButtons = document.createElement('div');
+  followButtons.className = 'follow-buttons';
+
+  FOLLOW_PLATFORMS.forEach((platform) => {
+    const btn = document.createElement('a');
+    btn.className = 'follow-btn';
+    btn.setAttribute('data-platform', platform.id);
+    btn.setAttribute('aria-label', `Follow ${FOLLOW_HANDLE} on ${platform.label}`);
+    btn.setAttribute('target', '_blank');
+    btn.setAttribute('rel', 'noopener noreferrer');
+    btn.href = platform.url;
+    btn.innerHTML = platform.icon;
+    followButtons.appendChild(btn);
+  });
+
+  followWidget.appendChild(followButtons);
+  document.body.appendChild(followWidget);
 
   // =========================================================
   // ================= GAMES WIDGET ==========================
@@ -1146,5 +1377,5 @@
     }
   });
 
-  console.log('Social Share + Games Widgets initialized — games above sidebar trigger, social below (no overlap).');
+  console.log('Social Share + Games + Follow Widgets initialized — follow buttons top right, games above sidebar trigger, social below.');
 })();

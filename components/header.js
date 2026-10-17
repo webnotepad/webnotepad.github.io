@@ -15,18 +15,6 @@
     { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
-  // ─────────────────────────────────────────────────────────────
-  // Mega-menu advertisement (300×250)
-  // Uses an ISOLATED iframe so its atOptions doesn't collide with
-  // other ads on the page.
-  // ─────────────────────────────────────────────────────────────
-  const MEGA_AD = {
-    key: 'f5214acd8479e07d7defe4626c574aa5',
-    src: 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5',
-    width: 300,
-    height: 250
-  };
-
   // Tools catalog — mirrors sidebar categories (no ads)
   const toolCategories = [
     {
@@ -185,21 +173,9 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  const AD_INSERT_AT_INDEX = 2; 
   let megaMenuColsHTML = '';
   
-  toolCategories.forEach((category, idx) => {
-    if (idx === AD_INSERT_AT_INDEX) {
-      megaMenuColsHTML += `
-        <div class="mega-col mega-col-ad" aria-label="Advertisement">
-          <div class="mega-col-title mega-col-title-ad">Sponsored</div>
-          <div class="mega-ad-slot" id="megaAdSlot">
-            <div class="mega-ad-placeholder">Loading ad…</div>
-          </div>
-        </div>
-      `;
-    }
-
+  toolCategories.forEach((category) => {
     megaMenuColsHTML += `
       <div class="mega-col">
         <div class="mega-col-title">${category.name}</div>
@@ -355,87 +331,10 @@
     </nav>
   `;
 
-  function injectMegaAd() {
-    const adSlot = document.getElementById('megaAdSlot');
-    if (!adSlot) return;
-
-    adSlot.innerHTML = '';
-
-    const adHtml = `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=${MEGA_AD.width},height=${MEGA_AD.height}">
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: ${MEGA_AD.width}px;
-    height: ${MEGA_AD.height}px;
-    overflow: hidden;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  iframe, img, ins { max-width: ${MEGA_AD.width}px; max-height: ${MEGA_AD.height}px; border: 0; display: block; }
-  #fallback {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 10px;
-    color: #9ca3af;
-    text-align: center;
-    padding: 8px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-</style>
-</head>
-<body>
-  <div id="fallback">Advertisement</div>
-  <script>
-    atOptions = {
-      'key' : '${MEGA_AD.key}',
-      'format' : 'iframe',
-      'height' : ${MEGA_AD.height},
-      'width' : ${MEGA_AD.width},
-      'params' : {}
-    };
-  <\/script>
-  <script src="${MEGA_AD.src}"><\/script>
-  <script>
-    setTimeout(function() {
-      var fallback = document.getElementById('fallback');
-      if (fallback && (document.querySelector('iframe') || document.querySelector('img'))) {
-        fallback.style.display = 'none';
-      }
-    }, 1500);
-  <\/script>
-</body>
-</html>`;
-
-    const iframe = document.createElement('iframe');
-    iframe.width = String(MEGA_AD.width);
-    iframe.height = String(MEGA_AD.height);
-    iframe.style.border = '0';
-    iframe.style.display = 'block';
-    iframe.style.width = MEGA_AD.width + 'px';
-    iframe.style.height = MEGA_AD.height + 'px';
-    iframe.style.maxWidth = '100%';
-    iframe.setAttribute('scrolling', 'no');
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('title', 'Advertisement');
-    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
-    iframe.srcdoc = adHtml;
-
-    adSlot.appendChild(iframe);
-  }
-
   function initHeader() {
     const root = document.getElementById('header-root');
     if (!root) return;
     root.innerHTML = headerHTML;
-
-    injectMegaAd();
 
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
@@ -680,51 +579,6 @@
         gap: 5px;
       }
 
-      .mega-col-ad {
-        align-items: center;
-        width: 100%;
-        max-width: 316px;
-        flex-shrink: 0;
-        grid-column: 3;
-        grid-row: 1 / span 2;
-        justify-self: center;
-      }
-      .mega-col-title-ad {
-        color: var(--ink-muted);
-        opacity: 0.5;
-        letter-spacing: 0.12em;
-        align-self: stretch;
-      }
-      .mega-ad-slot {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 300px;
-        height: 250px;
-        max-width: 100%;
-        overflow: hidden;
-        border-radius: 12px;
-        background: var(--paper-warm);
-        border: 1px solid var(--paper-edge);
-        position: relative;
-        margin: 0 auto;
-        box-sizing: content-box;
-      }
-      .mega-ad-slot > iframe,
-      .mega-ad-slot > div,
-      .mega-ad-slot > img {
-        max-width: 100%;
-        display: block;
-      }
-      .mega-ad-placeholder {
-        font-size: 0.7rem;
-        color: var(--ink-muted);
-        opacity: 0.4;
-        font-family: 'DM Mono', 'Courier New', monospace;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
       .mega-tool {
         display: flex;
         align-items: center;
@@ -826,7 +680,6 @@
       body.dark .mega-tool { color: var(--ink); background: rgba(255,255,255,0.01); }
       body.dark .mega-tool:hover { background: var(--paper-warm); border-color: var(--paper-edge); color: var(--accent); }
       body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
-      body.dark .mega-ad-slot { background: var(--paper-warm); border-color: var(--paper-edge); }
 
       .mobile-dropdown { width: 100%; }
       .mobile-dropdown-btn {
@@ -955,7 +808,6 @@
       @media (max-width: 1180px) {
         .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .mega-menu { width: min(980px, 96vw); }
-        .mega-col-ad { grid-column: auto; grid-row: auto; justify-self: stretch; max-width: none; }
       }
 
       @media (max-width: 900px) {
@@ -965,7 +817,6 @@
 
       @media (max-width: 768px) {
         .header-nav .dropdown { display: none; }
-        .mega-col-ad { display: none !important; }
         .header-inner { padding: 0 8px; }
         .header-logo { gap: 6px; }
         .header-logo span {
@@ -984,7 +835,6 @@
       @media (max-width: 480px) {
         .mega-menu { padding: 16px; }
         .mega-grid { grid-template-columns: 1fr; }
-        .mega-col-ad { display: none !important; }
       }
 
       body.dark .mobile-dropdown-btn { color: var(--ink); }

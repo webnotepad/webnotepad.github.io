@@ -214,13 +214,13 @@
       // social icons row – placed after the brand description (below first widget)
       const socialIconsHTML = `
         <div class="social-icons-row">
-          <a href="https://www.pinterest.com/yourpage" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+          <a href="https://www.pinterest.com/webnotepad" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
             ${pinterestSvg}
           </a>
-          <a href="https://x.com/yourhandle" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+          <a href="https://x.com/webnotepad" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
             ${xSvg}
           </a>
-          <a href="https://www.reddit.com/user/yourname" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+          <a href="https://www.reddit.com/user/webnotepad" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
             ${redditSvg}
           </a>
         </div>

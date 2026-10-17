@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Letter Boxed Unlimited – Free Online Word Puzzle Game | WebNotePad</title>
+  <meta name="description" content="Play Letter Boxed Unlimited free! Connect letters around the box to form words and use every letter. Advanced features, dark mode, mobile-friendly, no signup needed." />
+  <meta name="keywords" content="letter boxed, letter boxed unlimited, letter boxed game, word puzzle, letter game, free word game, online letter boxed, word chain game, vocabulary game" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/letter-boxed-unlimited" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/letter-boxed-unlimited" />
+  <meta property="og:title" content="Letter Boxed Unlimited – Free Online Word Puzzle Game" />
+  <meta property="og:description" content="Connect letters around the box to form words and use every letter. Free, no signup, mobile-friendly Letter Boxed game." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Letter Boxed Unlimited – Free Online Word Puzzle Game" />
+  <meta name="twitter:description" content="Connect letters around the box to form words and use every letter. Free, no signup, mobile-friendly." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Letter Boxed Unlimited",
+    "url": "https://webnotepad.github.io/letter-boxed-unlimited",
+    "description": "A free online Letter Boxed game where you connect letters around a box to form valid words and use every letter on the board. Includes word validation, dark mode, and game statistics.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "12 letters arranged around a box",
+      "Connect letters to form valid words",
+      "Use every letter to solve the puzzle",
+      "Word validation against dictionary",
+      "Dark mode toggle",
+      "Game statistics (wins, streaks)",
+      "Mobile-friendly responsive design",
+      "No signup required",
+      "Free forever"
+    ],
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Letter Boxed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Letter Boxed is a word puzzle where 12 letters are arranged around a square. You form words by connecting letters, but consecutive letters must come from different sides of the box. The goal is to use every letter on the board." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Letter Boxed Unlimited free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Letter Boxed Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you play Letter Boxed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Click or tap letters to build words. Each new letter must come from a different side of the box than the previous letter. When you complete a valid word of 3+ letters, press Enter to submit it. The last letter of one word becomes the first letter of the next word. Use all 12 letters to win." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I play Letter Boxed on my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The game is fully responsive and works on smartphones and tablets. Tap the letters around the box to build words." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Letter Boxed have a dark mode?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Letter Boxed Unlimited includes a dark mode toggle for comfortable playing in low-light environments." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum word length in Letter Boxed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Words must be at least 3 letters long to be accepted." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== LETTER BOXED THEME ===== */
+    :root {
+      --lb-accent: #d97706;
+      --lb-accent-light: #f59e0b;
+      --lb-accent-pale: #fffbeb;
+      --lb-surface: #faf8f4;
+      --lb-border: #e8e2d6;
+      --lb-ink: #1a1a2e;
+      --lb-muted: #6b6b85;
+      --lb-warm: #f4f0e8;
+      --lb-radius: 8px;
+      --lb-radius-lg: 14px;
+      --lb-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+      --lb-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --lb-green: #16a34a;
+      --lb-red: #dc2626;
+      --lb-tile-bg: #ffffff;
+      --lb-tile-text: #1a1a2e;
+      --lb-tile-used-bg: #d1d5db;
+      --lb-tile-used-text: #6b7280;
+    }
+
+    body.dark {
+      --lb-accent: #f59e0b;
+      --lb-accent-light: #fbbf24;
+      --lb-accent-pale: #2a1f08;
+      --lb-surface: #141418;
+      --lb-border: #2a2a34;
+      --lb-ink: #e8e4dc;
+      --lb-muted: #8a8678;
+      --lb-warm: #1c1c22;
+      --lb-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      --lb-green: #4ade80;
+      --lb-red: #f87171;
+      --lb-tile-bg: #1c1c22;
+      --lb-tile-text: #e8e4dc;
+      --lb-tile-used-bg: #3a3a44;
+      --lb-tile-used-text: #8a8678;
+    }
+
+    /* ===== HERO ===== */
+    .lb-hero {
+      position: relative;
+      min-height: 18vh;
+      display: flex;
+      align-items: center;
+      padding: 16px 0 12px;
+      overflow: hidden;
+      background: var(--lb-surface);
+      transition: background var(--lb-transition);
+    }
+    .lb-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--lb-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--lb-border) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    body.dark .lb-hero-bg { opacity: 0.1; }
+    .lb-hero-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, var(--lb-accent-pale) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    body.dark .lb-hero-glow { opacity: 0.35; }
+    .lb-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .lb-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--lb-accent-pale);
+      color: var(--lb-accent);
+      border: 1px solid var(--lb-accent);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.5s ease both;
+    }
+    body.dark .lb-hero-badge { background: rgba(245, 158, 11, 0.18); }
+    .lb-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--lb-ink);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.6s 0.1s ease both;
+    }
+    .lb-hero-accent {
+      color: var(--lb-accent);
+      font-style: italic;
+    }
+    .lb-hero-sub {
+      font-size: 0.9rem;
+      color: var(--lb-muted);
+      max-width: 560px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      animation: fadeInDown 0.6s 0.2s ease both;
+    }
+    .lb-hero-cta {
+      animation: fadeInDown 0.6s 0.3s ease both;
+      margin-bottom: 16px;
+    }
+    .lb-hero-demo {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      animation: fadeInDown 0.6s 0.4s ease both;
+    }
+    .lb-demo-chip {
+      padding: 7px 16px;
+      background: var(--lb-warm);
+      border: 1px solid var(--lb-border);
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--lb-ink);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      transition: all var(--lb-transition);
+      cursor: default;
+      white-space: nowrap;
+    }
+    .lb-demo-chip:hover {
+      background: var(--lb-accent-pale);
+      border-color: var(--lb-accent);
+      color: var(--lb-accent);
+    }
+
+    /* ===== GAME SECTION ===== */
+    .lb-game-section {
+      padding: 0 0 64px;
+      background: var(--lb-surface);
+      transition: background var(--lb-transition);
+    }
+    .lb-game-shell {
+      background: var(--lb-warm);
+      border: 1px solid var(--lb-border);
+      border-radius: var(--lb-radius-lg);
+      box-shadow: var(--lb-shadow);
+      overflow: hidden;
+      transition: all var(--lb-transition);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .lb-game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--lb-border);
+      background: var(--lb-surface);
+      flex-wrap: wrap;
+    }
+    .lb-game-title {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lb-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lb-game-title .lb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lb-accent);
+      display: inline-block;
+      animation: lbPulse 2s infinite;
+    }
+    @keyframes lbPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.6); }
+    }
+    .lb-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .lb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--lb-radius);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all var(--lb-transition);
+      white-space: nowrap;
+      border: 2px solid transparent;
+      background: transparent;
+      color: var(--lb-ink);
+    }
+    .lb-btn-primary {
+      background: var(--lb-accent);
+      color: #ffffff;
+      border-color: var(--lb-accent);
+    }
+    .lb-btn-primary:hover {
+      background: var(--lb-accent-light);
+      border-color: var(--lb-accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.3);
+    }
+    .lb-btn-ghost {
+      background: var(--lb-surface);
+      color: var(--lb-ink);
+      border-color: var(--lb-border);
+    }
+    .lb-btn-ghost:hover {
+      background: var(--lb-warm);
+      border-color: var(--lb-accent);
+      color: var(--lb-accent);
+    }
+    .lb-btn-icon {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--lb-radius);
+      background: var(--lb-surface);
+      border: 1px solid var(--lb-border);
+      color: var(--lb-ink);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--lb-transition);
+    }
+    .lb-btn-icon:hover {
+      background: var(--lb-accent-pale);
+      border-color: var(--lb-accent);
+      color: var(--lb-accent);
+    }
+
+    /* Stats bar */
+    .lb-stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 18px;
+      background: var(--lb-surface);
+      border-bottom: 1px solid var(--lb-border);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--lb-muted);
+      flex-wrap: wrap;
+    }
+    .lb-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lb-stat-value {
+      font-weight: 700;
+      color: var(--lb-ink);
+      font-size: 0.85rem;
+    }
+    .lb-stat-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--lb-border);
+    }
+
+    /* Game board area */
+    .lb-board-wrap {
+      padding: 20px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Letter box */
+    .lb-box {
+      position: relative;
+      width: min(78vw, 340px);
+      height: min(78vw, 340px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 6px;
+      padding: 0;
+    }
+    .lb-side {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .lb-side-top {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      flex-direction: row;
+    }
+    .lb-side-right {
+      grid-column: 3;
+      grid-row: 2;
+      flex-direction: column;
+    }
+    .lb-side-bottom {
+      grid-column: 1 / 4;
+      grid-row: 3;
+      flex-direction: row;
+    }
+    .lb-side-left {
+      grid-column: 1;
+      grid-row: 2;
+      flex-direction: column;
+    }
+    .lb-center {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--lb-muted);
+      text-align: center;
+      line-height: 1.3;
+      padding: 4px;
+    }
+    .lb-center .lb-center-icon {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .lb-side-top .lb-letter-tile,
+    .lb-side-bottom .lb-letter-tile {
+      flex: 1;
+    }
+    .lb-side-left .lb-letter-tile,
+    .lb-side-right .lb-letter-tile {
+      flex: 1;
+      width: 100%;
+    }
+    .lb-letter-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lb-tile-bg);
+      border: 2px solid var(--lb-border);
+      border-radius: 8px;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: clamp(1rem, 4.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--lb-tile-text);
+      cursor: pointer;
+      transition: all var(--lb-transition);
+      user-select: none;
+      aspect-ratio: 1 / 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lb-letter-tile:hover {
+      border-color: var(--lb-accent);
+      background: var(--lb-accent-pale);
+      transform: scale(1.05);
+    }
+    .lb-letter-tile:active {
+      transform: scale(0.95);
+    }
+    .lb-letter-tile.lb-used {
+      background: var(--lb-tile-used-bg);
+      color: var(--lb-tile-used-text);
+      border-color: var(--lb-tile-used-bg);
+    }
+    .lb-letter-tile.lb-selected {
+      border-color: var(--lb-accent);
+      background: var(--lb-accent-pale);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+    }
+    .lb-letter-tile.lb-current {
+      border-color: var(--lb-accent);
+      background: var(--lb-accent);
+      color: #ffffff;
+    }
+    .lb-letter-tile.lb-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .lb-letter-tile.lb-disabled:hover {
+      transform: none;
+      border-color: var(--lb-border);
+      background: var(--lb-tile-bg);
+    }
+
+    /* Word display area */
+    .lb-word-area {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .lb-current-word {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 52px;
+      padding: 8px 16px;
+      background: var(--lb-surface);
+      border: 2px solid var(--lb-border);
+      border-radius: var(--lb-radius);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lb-ink);
+      transition: border-color var(--lb-transition);
+    }
+    .lb-current-word.lb-empty {
+      color: var(--lb-muted);
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+    .lb-current-word.lb-valid {
+      border-color: var(--lb-green);
+    }
+    .lb-current-word.lb-invalid {
+      border-color: var(--lb-red);
+      animation: lbShake 0.4s ease;
+    }
+    @keyframes lbShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .lb-word-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .lb-action-btn {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: var(--lb-radius);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--lb-transition);
+      border: 2px solid var(--lb-border);
+      background: var(--lb-surface);
+      color: var(--lb-ink);
+    }
+    .lb-action-btn:hover:not(:disabled) {
+      border-color: var(--lb-accent);
+      color: var(--lb-accent);
+      background: var(--lb-accent-pale);
+    }
+    .lb-action-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .lb-action-btn.lb-submit {
+      background: var(--lb-accent);
+      color: #ffffff;
+      border-color: var(--lb-accent);
+    }
+    .lb-action-btn.lb-submit:hover:not(:disabled) {
+      background: var(--lb-accent-light);
+      border-color: var(--lb-accent-light);
+      color: #ffffff;
+    }
+
+    /* Words used list */
+    .lb-words-used {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .lb-words-used-header {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--lb-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lb-words-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 32px;
+    }
+    .lb-word-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      background: var(--lb-accent-pale);
+      border: 1px solid var(--lb-accent);
+      border-radius: 100px;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--lb-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .lb-word-chip .lb-chip-arrow {
+      opacity: 0.6;
+      font-size: 0.65rem;
+    }
+
+    /* Toast */
+    .lb-toast {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--lb-ink);
+      color: var(--lb-surface);
+      padding: 12px 24px;
+      border-radius: var(--lb-radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 8px 32px rgba(26, 26, 46, 0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .lb-toast.lb-show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    body.dark .lb-toast {
+      background: var(--lb-warm);
+      color: var(--lb-ink);
+      border: 1px solid var(--lb-border);
+    }
+
+    /* Result overlay */
+    .lb-result-overlay {
+      display: none;
+      padding: 24px 20px;
+      background: var(--lb-surface);
+      border-top: 1px solid var(--lb-border);
+      text-align: center;
+      animation: fadeInDown 0.4s ease both;
+    }
+    .lb-result-overlay.lb-show { display: block; }
+    .lb-result-emoji {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+    .lb-result-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--lb-ink);
+      margin-bottom: 4px;
+    }
+    .lb-result-sub {
+      font-size: 0.9rem;
+      color: var(--lb-muted);
+      margin-bottom: 16px;
+    }
+    .lb-result-words {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== HOW TO SECTION ===== */
+    .lb-how {
+      background: var(--lb-warm);
+      transition: background var(--lb-transition);
+    }
+    .lb-how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .lb-how-card {
+      background: var(--lb-surface);
+      border: 1px solid var(--lb-border);
+      border-radius: var(--lb-radius-lg);
+      padding: 26px;
+      transition: all var(--lb-transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .lb-how-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--lb-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--lb-transition);
+    }
+    .lb-how-card:hover { box-shadow: var(--lb-shadow); transform: translateY(-3px); }
+    .lb-how-card:hover::before { transform: scaleX(1); }
+    .lb-how-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--lb-border);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .lb-how-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--lb-ink);
+      margin-bottom: 8px;
+    }
+    .lb-how-card p {
+      font-size: 0.85rem;
+      color: var(--lb-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== DESCRIPTION SECTION ===== */
+    .lb-desc {
+      background: var(--lb-surface);
+      transition: background var(--lb-transition);
+    }
+    .lb-desc-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .lb-desc-text p {
+      font-size: 0.95rem;
+      color: var(--lb-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .lb-desc-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .lb-benefit-tag {
+      padding: 6px 14px;
+      background: var(--lb-warm);
+      border: 1px solid var(--lb-border);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--lb-ink);
+      transition: all var(--lb-transition);
+    }
+    .lb-benefit-tag:hover {
+      background: var(--lb-accent-pale);
+      border-color: var(--lb-accent);
+      color: var(--lb-accent);
+    }
+    .lb-desc-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lb-visual-card {
+      background: var(--lb-ink);
+      color: var(--lb-surface);
+      border-radius: var(--lb-radius-lg);
+      padding: 36px 32px;
+      max-width: 340px;
+      box-shadow: var(--lb-shadow);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      position: relative;
+      width: 100%;
+    }
+    body.dark .lb-visual-card {
+      background: var(--lb-warm);
+      border: 1px solid var(--lb-border);
+      color: var(--lb-ink);
+    }
+    .lb-visual-card .lb-v-line {
+      width: 36px;
+      height: 3px;
+      background: var(--lb-accent);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+    .lb-visual-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    body.dark .lb-visual-row { border-bottom-color: var(--lb-border); }
+    .lb-visual-row:last-child { border-bottom: none; }
+    .lb-v-label {
+      opacity: 0.5;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .lb-v-text {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--lb-accent-light);
+    }
+    body.dark .lb-visual-card .lb-v-text { color: var(--lb-accent); }
+
+    /* ===== FAQ SECTION ===== */
+    .lb-faq {
+      background: var(--lb-warm);
+      transition: background var(--lb-transition);
+    }
+    .lb-faq-list {
+      max-width: 720px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .lb-faq-item {
+      border: 1px solid var(--lb-border);
+      border-radius: var(--lb-radius);
+      overflow: hidden;
+      background: var(--lb-surface);
+      transition: border-color var(--lb-transition);
+    }
+    .lb-faq-item.lb-open { border-color: var(--lb-accent); }
+    .lb-faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--lb-ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--lb-transition);
+      cursor: pointer;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+    }
+    .lb-faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--lb-muted);
+      flex-shrink: 0;
+      transition: transform var(--lb-transition);
+    }
+    .lb-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--lb-accent); }
+    .lb-faq-q:hover { background: var(--lb-warm); }
+    .lb-faq-a {
+      display: none;
+      padding: 0 20px 16px;
+    }
+    .lb-faq-a p {
+      font-size: 0.88rem;
+      color: var(--lb-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .lb-how-grid { grid-template-columns: repeat(2, 1fr); }
+      .lb-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+      .lb-desc-visual { justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .lb-hero { min-height: auto; padding: 24px 0 20px; }
+      .lb-how-grid { grid-template-columns: 1fr; }
+      .lb-game-header { flex-direction: column; align-items: stretch; gap: 8px; }
+      .lb-header-actions { justify-content: flex-start; }
+      .lb-hero-demo { gap: 6px; }
+      .lb-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+      .lb-game-shell { border-radius: 0; border-left: none; border-right: none; }
+    }
+    @media (max-width: 480px) {
+      .lb-hero-title { font-size: 1.6rem; }
+      .lb-game-header { padding: 10px 12px; }
+      .lb-btn { padding: 6px 12px; font-size: 0.72rem; }
+      .lb-btn-icon { width: 30px; height: 30px; font-size: 0.85rem; }
+      .lb-result-overlay { padding: 20px 14px; }
+      .lb-result-title { font-size: 1.2rem; }
+      .lb-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+      .lb-stats-bar { font-size: 0.65rem; padding: 6px 12px; gap: 10px; }
+      .lb-current-word { font-size: 1.2rem; min-height: 44px; }
+    }
+    @media (max-width: 380px) {
+      .lb-box { width: 90vw; height: 90vw; gap: 4px; }
+      .lb-letter-tile { font-size: 0.9rem; border-width: 1.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="lb-hero" id="home" aria-label="Letter Boxed Game Hero">
+      <div class="lb-hero-bg"></div>
+      <div class="lb-hero-glow"></div>
+      <div class="container lb-hero-inner">
+        <div class="lb-hero-badge">🔤 Free Online Letter Boxed Unlimited</div>
+        <h1 class="lb-hero-title">
+          Connect the letters.<br />
+          <span class="lb-hero-accent">Use them all.</span>
+        </h1>
+        <p class="lb-hero-sub">A free Letter Boxed game where you connect letters around a box to form valid words and use every letter on the board. Mobile-friendly, dark mode, no signup, unlimited plays.</p>
+        <div class="lb-hero-cta">
+          <a href="#letter-boxed-game" class="btn btn-primary" style="background:var(--lb-accent);border-color:var(--lb-accent);">Play Letter Boxed <span>→</span></a>
+        </div>
+        <div class="lb-hero-demo">
+          <span class="lb-demo-chip">🔤 12 Letters</span>
+          <span class="lb-demo-chip">🔗 Different Sides</span>
+          <span class="lb-demo-chip">✅ Valid Words</span>
+          <span class="lb-demo-chip">📱 Mobile Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GAME SECTION ===== -->
+    <section class="lb-game-section" id="letter-boxed-game" aria-label="Letter Boxed Game">
+      <div class="container">
+        <div class="lb-game-shell">
+          <!-- Game Header -->
+          <div class="lb-game-header">
+            <span class="lb-game-title"><span class="lb-dot"></span> Letter Boxed Unlimited</span>
+            <div class="lb-header-actions">
+              <button class="lb-btn lb-btn-primary" id="lbNewGameBtn" aria-label="Start a new game">
+                <span>↺</span> New Game
+              </button>
+              <button class="lb-btn-icon" id="lbDarkModeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+            </div>
+          </div>
+
+          <!-- Stats bar -->
+          <div class="lb-stats-bar" id="lbStatsBar">
+            <div class="lb-stat">
+              <span>Letters used:</span>
+              <span class="lb-stat-value" id="lbLettersUsed">0/12</span>
+            </div>
+            <div class="lb-stat-divider"></div>
+            <div class="lb-stat">
+              <span>Words:</span>
+              <span class="lb-stat-value" id="lbWordsCount">0</span>
+            </div>
+            <div class="lb-stat-divider"></div>
+            <div class="lb-stat">
+              <span>Wins:</span>
+              <span class="lb-stat-value" id="lbWins">0</span>
+            </div>
+            <div class="lb-stat-divider"></div>
+            <div class="lb-stat">
+              <span>Streak:</span>
+              <span class="lb-stat-value" id="lbStreak">0</span>
+            </div>
+          </div>
+
+          <!-- Game board area -->
+          <div class="lb-board-wrap">
+            <!-- Letter box -->
+            <div class="lb-box" id="lbBox" role="group" aria-label="Letter box with 12 letters">
+              <!-- Top side -->
+              <div class="lb-side lb-side-top" data-side="top">
+                <!-- 3 tiles added by JS -->
+              </div>
+              <!-- Left side -->
+              <div class="lb-side lb-side-left" data-side="left">
+                <!-- 3 tiles added by JS -->
+              </div>
+              <!-- Center -->
+              <div class="lb-center">
+                <span>
+                  <span class="lb-center-icon">🔤</span>
+                  Connect<br />all letters
+                </span>
+              </div>
+              <!-- Right side -->
+              <div class="lb-side lb-side-right" data-side="right">
+                <!-- 3 tiles added by JS -->
+              </div>
+              <!-- Bottom side -->
+              <div class="lb-side lb-side-bottom" data-side="bottom">
+                <!-- 3 tiles added by JS -->
+              </div>
+            </div>
+
+            <!-- Current word display -->
+            <div class="lb-word-area">
+              <div class="lb-current-word lb-empty" id="lbCurrentWord">Tap letters to build a word</div>
+              <div class="lb-word-actions">
+                <button class="lb-action-btn" id="lbBackspaceBtn" aria-label="Remove last letter">⌫ Back</button>
+                <button class="lb-action-btn" id="lbClearBtn" aria-label="Clear current word">✕ Clear</button>
+                <button class="lb-action-btn lb-submit" id="lbSubmitBtn" aria-label="Submit word">✓ Submit</button>
+              </div>
+            </div>
+
+            <!-- Words used -->
+            <div class="lb-words-used">
+              <div class="lb-words-used-header">
+                <span>Words used</span>
+                <span id="lbWordsUsedHint">Words chain together</span>
+              </div>
+              <div class="lb-words-chips" id="lbWordsChips"></div>
+            </div>
+          </div>
+
+          <!-- Result overlay -->
+          <div class="lb-result-overlay" id="lbResultOverlay" role="region" aria-label="Game result">
+            <div class="lb-result-emoji" id="lbResultEmoji">🎉</div>
+            <div class="lb-result-title" id="lbResultTitle">Congratulations!</div>
+            <div class="lb-result-sub" id="lbResultSub">You used all 12 letters.</div>
+            <div class="lb-result-words" id="lbResultWords"></div>
+            <button class="lb-btn lb-btn-primary" id="lbPlayAgainBtn" style="margin: 0 auto;">
+              <span>↺</span> Play Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO PLAY ===== -->
+    <section class="section lb-how" id="how-to-play" aria-label="How to play Letter Boxed">
+      <div class="container">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">Play Letter Boxed in <em>3 simple steps.</em></h2>
+        <div class="lb-how-grid">
+          <div class="lb-how-card">
+            <div class="lb-how-num">01</div>
+            <h3>Connect Letters</h3>
+            <p>Tap letters around the box to build a word. <strong>Consecutive letters must come from different sides</strong> of the box. Words must be at least <strong>3 letters</strong> long.</p>
+          </div>
+          <div class="lb-how-card">
+            <div class="lb-how-num">02</div>
+            <h3>Submit Valid Words</h3>
+            <p>Press <strong>Submit</strong> to add your word. Valid words use letters from the board. The <strong>last letter</strong> of one word becomes the <strong>first letter</strong> of the next — words must chain together.</p>
+          </div>
+          <div class="lb-how-card">
+            <div class="lb-how-num">03</div>
+            <h3>Use Every Letter</h3>
+            <p>Win by using <strong>all 12 letters</strong> on the board. Used letters are marked off. Plan your word chain carefully — you may need just 2 or 3 well-chosen words.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <section class="section lb-desc" id="about-letter-boxed" aria-label="About Letter Boxed">
+      <div class="container lb-desc-inner">
+        <div class="lb-desc-text">
+          <div class="section-label">What is it?</div>
+          <h2 class="section-title">The Free Online <em>Letter Boxed Game</em></h2>
+          <p><strong>Letter Boxed</strong> is a word puzzle where 12 letters are arranged around a square. You form words by connecting letters, but consecutive letters must come from different sides of the box — no two letters from the same side can be adjacent in a word.</p>
+          <p>Our free <strong>Letter Boxed Unlimited</strong> generates a fresh set of 12 letters each game. Every word you submit must be a valid English word of at least 3 letters, and the last letter of one word must become the first letter of the next. The goal is to use all 12 letters in as few words as possible.</p>
+          <p>Whether you're a word game enthusiast, a student looking to expand your vocabulary, or just someone who enjoys a good mental challenge, this <strong>online Letter Boxed</strong> is perfect for you. The game is fully responsive and works on phones, tablets, and desktop. Tap the letters on screen or use your keyboard to type.</p>
+          <p>No signup, no downloads, no ads blocking your view — just a clean, beautiful <strong>word connection game</strong> that runs right in your browser. Track your wins and streaks, toggle dark mode, and enjoy endless letter-connecting fun.</p>
+          <div class="lb-desc-benefits">
+            <span class="lb-benefit-tag">🔤 12 Letters Around Box</span>
+            <span class="lb-benefit-tag">🔗 Different Sides Rule</span>
+            <span class="lb-benefit-tag">📱 Mobile Friendly</span>
+            <span class="lb-benefit-tag">🌙 Dark Mode</span>
+            <span class="lb-benefit-tag">📊 Stats & Streaks</span>
+            <span class="lb-benefit-tag">♾️ Unlimited Plays</span>
+          </div>
+        </div>
+        <div class="lb-desc-visual">
+          <div class="lb-visual-card">
+            <div class="lb-v-line"></div>
+            <div class="lb-visual-row">
+              <span class="lb-v-label">🔤 Letters</span>
+              <span class="lb-v-text">12 around box</span>
+            </div>
+            <div class="lb-visual-row">
+              <span class="lb-v-label">🔗 Rule</span>
+              <span class="lb-v-text">Different sides</span>
+            </div>
+            <div class="lb-visual-row">
+              <span class="lb-v-label">✅ Min length</span>
+              <span class="lb-v-text">3 letters</span>
+            </div>
+            <div class="lb-visual-row">
+              <span class="lb-v-label">🎯 Goal</span>
+              <span class="lb-v-text">Use all 12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section lb-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="lb-faq-list" id="lbFaqList">
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">What is Letter Boxed?</button>
+            <div class="lb-faq-a"><p>Letter Boxed is a word puzzle where 12 letters are arranged around a square. You form words by connecting letters, but consecutive letters must come from different sides of the box. The goal is to use every letter on the board.</p></div>
+          </div>
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">Is Letter Boxed Unlimited free?</button>
+            <div class="lb-faq-a"><p>Yes, Letter Boxed Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like.</p></div>
+          </div>
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">How do you play Letter Boxed?</button>
+            <div class="lb-faq-a"><p>Click or tap letters to build words. Each new letter must come from a different side of the box than the previous letter. When you complete a valid word of 3+ letters, press Enter to submit it. The last letter of one word becomes the first letter of the next word. Use all 12 letters to win.</p></div>
+          </div>
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">Can I play Letter Boxed on my phone?</button>
+            <div class="lb-faq-a"><p>Absolutely. The game is fully responsive and works on smartphones and tablets. Tap the letters around the box to build words.</p></div>
+          </div>
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">Does Letter Boxed have a dark mode?</button>
+            <div class="lb-faq-a"><p>Yes, Letter Boxed Unlimited includes a dark mode toggle for comfortable playing in low-light environments.</p></div>
+          </div>
+          <div class="lb-faq-item">
+            <button class="lb-faq-q" aria-expanded="false">What is the minimum word length in Letter Boxed?</button>
+            <div class="lb-faq-a"><p>Words must be at least 3 letters long to be accepted.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="lb-toast" id="lbToast" role="alert" aria-live="polite"></div>
+
+  <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
+  <script src="/wordlist.js"></script>
+
+  <!-- ===== GAME SCRIPT ===== -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+
+    // ===== GUARD: WORDLIST MUST BE LOADED =====
+    function getWordSet() {
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        console.error('Letter Boxed: WORDLIST not loaded');
+        return null;
+      }
+      const set = new Set();
+      for (const w of WORDLIST) {
+        if (typeof w === 'string' && w.length >= 3 && /^[a-z]+$/.test(w)) {
+          set.add(w.toLowerCase());
+        }
+      }
+      return set;
+    }
+
+    const WORD_SET = getWordSet();
+
+    // ===== CONSTANTS =====
+    const SIDES = ['top', 'right', 'bottom', 'left'];
+    const LETTERS_PER_SIDE = 3;
+    const MIN_WORD_LENGTH = 3;
+
+    // ===== GAME STATE =====
+    const state = {
+      // letters: array of 12 letter objects {letter, side, index, used}
+      letters: [],
+      currentWord: '',
+      currentWordPositions: [], // array of letter indices in state.letters
+      usedLetterIndices: new Set(),
+      usedWords: [], // array of submitted words
+      lastLetter: null, // the last letter of the previous word (or null for first word)
+      gameOver: false,
+      won: false,
+      wins: 0,
+      streak: 0
+    };
+
+    // ===== DOM ELEMENTS =====
+    const boxEl = document.getElementById('lbBox');
+    const currentWordEl = document.getElementById('lbCurrentWord');
+    const backspaceBtn = document.getElementById('lbBackspaceBtn');
+    const clearBtn = document.getElementById('lbClearBtn');
+    const submitBtn = document.getElementById('lbSubmitBtn');
+    const wordsChipsEl = document.getElementById('lbWordsChips');
+    const resultOverlay = document.getElementById('lbResultOverlay');
+    const resultEmoji = document.getElementById('lbResultEmoji');
+    const resultTitle = document.getElementById('lbResultTitle');
+    const resultSub = document.getElementById('lbResultSub');
+    const resultWords = document.getElementById('lbResultWords');
+    const newGameBtn = document.getElementById('lbNewGameBtn');
+    const playAgainBtn = document.getElementById('lbPlayAgainBtn');
+    const darkModeBtn = document.getElementById('lbDarkModeBtn');
+    const toastEl = document.getElementById('lbToast');
+    const lettersUsedEl = document.getElementById('lbLettersUsed');
+    const wordsCountEl = document.getElementById('lbWordsCount');
+    const winsEl = document.getElementById('lbWins');
+    const streakEl = document.getElementById('lbStreak');
+    const wordsUsedHint = document.getElementById('lbWordsUsedHint');
+
+    let toastTimer = null;
+
+    function showToast(msg, duration = 2000) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastEl.textContent = msg;
+      toastEl.classList.add('lb-show');
+      toastTimer = setTimeout(() => toastEl.classList.remove('lb-show'), duration);
+    }
+
+    // ===== LETTER GENERATION =====
+    // We need 12 distinct letters arranged 3 per side.
+    // Use a pool of common letters, weighted by frequency.
+    const LETTER_POOL = 'eeeeeeeeaaaaiiiioooouuunnnnrrrrttttllllssssddddgggbbccmmppffhhvvwwyykjxqz'.split('');
+
+    function generateLetters() {
+      // Pick 12 distinct letters. Try to use common letters.
+      const pool = [...LETTER_POOL];
+      const chosen = new Set();
+      let attempts = 0;
+      while (chosen.size < 12 && attempts < 500) {
+        attempts++;
+        const idx = Math.floor(Math.random() * pool.length);
+        const letter = pool[idx];
+        if (!chosen.has(letter)) {
+          chosen.add(letter);
+        }
+      }
+      // Fallback: if somehow fewer than 12, add random letters
+      const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+      while (chosen.size < 12) {
+        const c = alphabet[Math.floor(Math.random() * alphabet.length)];
+        chosen.add(c);
+      }
+      const letters = Array.from(chosen);
+      // Shuffle
+      for (let i = letters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [letters[i], letters[j]] = [letters[j], letters[i]];
+      }
+      // Assign to sides: top gets 0-2, right gets 3-5, bottom gets 6-8, left gets 9-11
+      const result = [];
+      for (let s = 0; s < SIDES.length; s++) {
+        for (let i = 0; i < LETTERS_PER_SIDE; i++) {
+          result.push({
+            letter: letters[s * LETTERS_PER_SIDE + i],
+            side: SIDES[s],
+            used: false
+          });
+        }
+      }
+      return result;
+    }
+
+    // ===== BOARD RENDERING =====
+    function renderBox() {
+      // Clear side containers
+      SIDES.forEach(side => {
+        const sideEl = boxEl.querySelector(`.lb-side-${side}`);
+        if (sideEl) sideEl.innerHTML = '';
+      });
+
+      // Group letters by side
+      const bySide = { top: [], right: [], bottom: [], left: [] };
+      state.letters.forEach((l, idx) => {
+        bySide[l.side].push({ ...l, index: idx });
+      });
+
+      // Render each side
+      SIDES.forEach(side => {
+        const sideEl = boxEl.querySelector(`.lb-side-${side}`);
+        if (!sideEl) return;
+        bySide[side].forEach(l => {
+          const tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'lb-letter-tile';
+          tile.dataset.index = l.index;
+          tile.dataset.letter = l.letter;
+          tile.dataset.side = l.side;
+          tile.textContent = l.letter.toUpperCase();
+          tile.setAttribute('aria-label', `Letter ${l.letter.toUpperCase()} on ${l.side} side`);
+          if (l.used) tile.classList.add('lb-used');
+          tile.addEventListener('click', () => handleLetterClick(l.index));
+          sideEl.appendChild(tile);
+        });
+      });
+
+      updateTileStates();
+    }
+
+    function updateTileStates() {
+      const tiles = boxEl.querySelectorAll('.lb-letter-tile');
+      tiles.forEach(tile => {
+        const idx = parseInt(tile.dataset.index, 10);
+        const letter = state.letters[idx];
+        if (!letter) return;
+
+        tile.classList.toggle('lb-used', letter.used);
+
+        // If the letter is in the current word, mark as current
+        const posInWord = state.currentWordPositions.indexOf(idx);
+        tile.classList.toggle('lb-current', posInWord !== -1);
+
+        // Check if this letter can be the next letter (different side than last chosen)
+        let canBeNext = true;
+        if (state.gameOver) {
+          canBeNext = false;
+        }
+        if (letter.used && !state.currentWordPositions.includes(idx)) {
+          // Used letters can still be part of the current word if they're already used?
+          // Actually used letters can't be re-used in a new word if they're already used.
+          // But they can be used in the current word if selected. Let's allow re-use of used letters
+          // only if they're already part of the current word (to avoid confusion).
+          // Simpler: disable used letters that aren't in current word.
+          canBeNext = false;
+        }
+        // Check last letter side
+        if (state.currentWordPositions.length > 0) {
+          const lastIdx = state.currentWordPositions[state.currentWordPositions.length - 1];
+          const lastLetter = state.letters[lastIdx];
+          if (lastLetter && lastLetter.side === letter.side) {
+            canBeNext = false;
+          }
+        } else if (state.lastLetter) {
+          // First letter of new word must chain from last letter of previous word
+          // The last letter of previous word must be the first letter of this word.
+          // So the first letter of the current word must be the lastLetter (by letter value).
+          // Actually in Letter Boxed, the last letter of one word is the first letter of the next word.
+          // So if state.lastLetter is set, the first letter we pick MUST equal state.lastLetter.
+          if (letter.letter !== state.lastLetter) {
+            canBeNext = false;
+          }
+        }
+
+        // If the letter is already in the current word, it can't be added again at a different position
+        // (but it can be the same position? No, you can't reuse a letter position in the same word).
+        if (posInWord !== -1 && posInWord !== state.currentWordPositions.length - 1) {
+          // Allow it to be highlighted as current, but clicking it again should do nothing special
+          // Actually clicking it should not add it again. We'll handle in click.
+        }
+
+        tile.classList.toggle('lb-disabled', !canBeNext && posInWord === -1);
+      });
+    }
+
+    // ===== STATS =====
+    function updateStats() {
+      const usedCount = state.usedLetterIndices.size;
+      lettersUsedEl.textContent = `${usedCount}/12`;
+      wordsCountEl.textContent = state.usedWords.length;
+      winsEl.textContent = state.wins;
+      streakEl.textContent = state.streak;
+    }
+
+    // ===== WORDS DISPLAY =====
+    function updateWordsDisplay() {
+      wordsChipsEl.innerHTML = '';
+      if (state.usedWords.length === 0) {
+        wordsChipsEl.innerHTML = '<span style="font-size:0.75rem;color:var(--lb-muted);">No words submitted yet</span>';
+      } else {
+        state.usedWords.forEach((word, idx) => {
+          const chip = document.createElement('span');
+          chip.className = 'lb-word-chip';
+          chip.textContent = word.toUpperCase();
+          if (idx < state.usedWords.length - 1) {
+            // add arrow between
+            const arrow = document.createElement('span');
+            arrow.className = 'lb-word-chip';
+            arrow.style.background = 'transparent';
+            arrow.style.border = 'none';
+            arrow.style.padding = '0 2px';
+            arrow.textContent = '→';
+            wordsChipsEl.appendChild(chip);
+            wordsChipsEl.appendChild(arrow);
+          } else {
+            wordsChipsEl.appendChild(chip);
+          }
+        });
+      }
+      if (state.lastLetter) {
+        wordsUsedHint.textContent = `Next word must start with "${state.lastLetter.toUpperCase()}"`;
+      } else {
+        wordsUsedHint.textContent = 'Words chain together';
+      }
+    }
+
+    // ===== CURRENT WORD DISPLAY =====
+    function updateCurrentWordDisplay() {
+      if (state.currentWord.length === 0) {
+        currentWordEl.textContent = 'Tap letters to build a word';
+        currentWordEl.classList.add('lb-empty');
+        currentWordEl.classList.remove('lb-valid', 'lb-invalid');
+      } else {
+        currentWordEl.textContent = state.currentWord.toUpperCase();
+        currentWordEl.classList.remove('lb-empty');
+        // Check if valid (without submitting)
+        const valid = isValidWord(state.currentWord);
+        currentWordEl.classList.toggle('lb-valid', valid);
+        currentWordEl.classList.toggle('lb-invalid', !valid && state.currentWord.length >= MIN_WORD_LENGTH);
+      }
+      backspaceBtn.disabled = state.currentWord.length === 0;
+      clearBtn.disabled = state.currentWord.length === 0;
+      submitBtn.disabled = state.currentWord.length < MIN_WORD_LENGTH;
+    }
+
+    // ===== VALIDATION =====
+    function isValidWord(word) {
+      if (!word || word.length < MIN_WORD_LENGTH) return false;
+      if (!WORD_SET) return false;
+      if (!WORD_SET.has(word.toLowerCase())) return false;
+      // Check side rule
+      for (let i = 0; i < word.length; i++) {
+        const idx = state.currentWordPositions[i];
+        if (idx === undefined) return false;
+        const letter = state.letters[idx];
+        if (!letter) return false;
+        if (i > 0) {
+          const prevIdx = state.currentWordPositions[i - 1];
+          const prevLetter = state.letters[prevIdx];
+          if (prevLetter && letter.side === prevLetter.side) return false;
+        }
+      }
+      return true;
+    }
+
+    // ===== LETTER CLICK =====
+    function handleLetterClick(idx) {
+      if (state.gameOver) return;
+      const letter = state.letters[idx];
+      if (!letter) return;
+
+      // Check if already in current word (can't reuse same position)
+      if (state.currentWordPositions.includes(idx)) {
+        // If it's the last letter, treat as backspace? No, just ignore.
+        return;
+      }
+
+      // Check side rule
+      if (state.currentWordPositions.length > 0) {
+        const lastIdx = state.currentWordPositions[state.currentWordPositions.length - 1];
+        const lastLetter = state.letters[lastIdx];
+        if (lastLetter && lastLetter.side === letter.side) {
+          showToast('Consecutive letters must be from different sides');
+          return;
+        }
+      } else {
+        // First letter of word
+        if (state.lastLetter) {
+          // Must equal state.lastLetter
+          if (letter.letter !== state.lastLetter) {
+            showToast(`Word must start with "${state.lastLetter.toUpperCase()}"`);
+            return;
+          }
+        }
+      }
+
+      // Check if letter is already used (in a previous word). If so, warn but allow? 
+      // In Letter Boxed, you can't reuse a letter once used, unless it's the last letter of the previous word
+      // (which becomes first of next word). So used letters are generally not available.
+      // But the last letter of the previous word is allowed as the first letter of the next.
+      // And actually, you can reuse letters within the same word? No, you can't reuse the same letter tile.
+      // In the real game, letters are consumed when used. But the last letter carries over.
+      // Let's implement: used letters are NOT available for new words, except the chaining letter.
+      if (letter.used) {
+        // If this letter is the chaining letter (state.lastLetter) and it's the first letter of the word, allow.
+        if (state.currentWordPositions.length === 0 && state.lastLetter && letter.letter === state.lastLetter) {
+          // allowed
+        } else {
+          showToast('This letter has already been used');
+          return;
+        }
+      }
+
+      // Add letter
+      state.currentWordPositions.push(idx);
+      state.currentWord += letter.letter;
+      updateCurrentWordDisplay();
+      updateTileStates();
+    }
+
+    // ===== BACKSPACE / CLEAR =====
+    function handleBackspace() {
+      if (state.currentWordPositions.length === 0) return;
+      const removedIdx = state.currentWordPositions.pop();
+      state.currentWord = state.currentWord.slice(0, -1);
+      updateCurrentWordDisplay();
+      updateTileStates();
+    }
+
+    function handleClear() {
+      state.currentWordPositions = [];
+      state.currentWord = '';
+      updateCurrentWordDisplay();
+      updateTileStates();
+    }
+
+    // ===== SUBMIT =====
+    function handleSubmit() {
+      if (state.gameOver) return;
+      if (state.currentWord.length < MIN_WORD_LENGTH) {
+        showToast(`Words must be at least ${MIN_WORD_LENGTH} letters`);
+        currentWordEl.classList.add('lb-invalid');
+        setTimeout(() => currentWordEl.classList.remove('lb-invalid'), 500);
+        return;
+      }
+      if (!isValidWord(state.currentWord)) {
+        showToast('Not a valid word');
+        currentWordEl.classList.add('lb-invalid');
+        setTimeout(() => currentWordEl.classList.remove('lb-invalid'), 500);
+        return;
+      }
+
+      // Valid word! Commit it.
+      const word = state.currentWord.toLowerCase();
+      // Mark all letters used (except the last letter, which carries over)
+      const lastIdx = state.currentWordPositions[state.currentWordPositions.length - 1];
+      for (const idx of state.currentWordPositions) {
+        if (idx !== lastIdx) {
+          state.letters[idx].used = true;
+          state.usedLetterIndices.add(idx);
+        }
+      }
+      // The last letter is not "used" yet because it carries over as the first letter of the next word.
+      // But we should mark it as used if it's already been used before? No, it becomes available for chaining.
+      // Actually in Letter Boxed, the last letter of a word remains available to start the next word.
+      // But if it was already marked used from a previous word (as a chaining letter), it stays chained.
+      // Let's mark the last letter as used too, but allow it to be the first letter of the next word.
+      // We'll handle via state.lastLetter.
+      state.letters[lastIdx].used = true;
+      state.usedLetterIndices.add(lastIdx);
+
+      state.usedWords.push(word);
+      state.lastLetter = state.letters[lastIdx].letter;
+
+      // Check win: all 12 letters used
+      if (state.usedLetterIndices.size === 12) {
+        state.gameOver = true;
+        state.won = true;
+        state.wins++;
+        state.streak++;
+        updateStats();
+        updateWordsDisplay();
+        setTimeout(() => endGame(true), 600);
+        return;
+      }
+
+      // Reset current word
+      state.currentWordPositions = [];
+      state.currentWord = '';
+      updateStats();
+      updateWordsDisplay();
+      updateCurrentWordDisplay();
+      renderBox();
+
+      showToast(`"${word.toUpperCase()}" accepted!`, 1500);
+    }
+
+    // ===== END GAME =====
+    function endGame(won) {
+      if (won) {
+        resultEmoji.textContent = '🎉';
+        resultTitle.textContent = 'Congratulations!';
+        resultSub.textContent = `You used all 12 letters in ${state.usedWords.length} word${state.usedWords.length !== 1 ? 's' : ''}.`;
+      } else {
+        resultEmoji.textContent = '😔';
+        resultTitle.textContent = 'Game Over';
+        resultSub.textContent = `You used ${state.usedLetterIndices.size} of 12 letters.`;
+      }
+      resultWords.innerHTML = '';
+      state.usedWords.forEach(w => {
+        const chip = document.createElement('span');
+        chip.className = 'lb-word-chip';
+        chip.textContent = w.toUpperCase();
+        resultWords.appendChild(chip);
+      });
+      resultOverlay.classList.add('lb-show');
+    }
+
+    // ===== NEW GAME =====
+    function startNewGame() {
+      if (!WORD_SET) {
+        resultOverlay.classList.add('lb-show');
+        resultEmoji.textContent = '⚠️';
+        resultTitle.textContent = 'Word list not loaded';
+        resultSub.textContent = 'Please refresh the page and try again.';
+        resultWords.innerHTML = '';
+        return;
+      }
+
+      state.letters = generateLetters();
+      state.currentWord = '';
+      state.currentWordPositions = [];
+      state.usedLetterIndices = new Set();
+      state.usedWords = [];
+      state.lastLetter = null;
+      state.gameOver = false;
+      state.won = false;
+
+      resultOverlay.classList.remove('lb-show');
+      renderBox();
+      updateStats();
+      updateWordsDisplay();
+      updateCurrentWordDisplay();
+    }
+
+    // ===== INIT =====
+    renderBox(); // will render empty sides first
+    startNewGame();
+
+    newGameBtn.addEventListener('click', startNewGame);
+    playAgainBtn.addEventListener('click', startNewGame);
+    backspaceBtn.addEventListener('click', handleBackspace);
+    clearBtn.addEventListener('click', handleClear);
+    submitBtn.addEventListener('click', handleSubmit);
+
+    darkModeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      darkModeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    // Physical keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (state.gameOver) return;
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSubmit();
+        return;
+      }
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        handleBackspace();
+        return;
+      }
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        handleClear();
+        return;
+      }
+      if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
+        // Find an unused tile with this letter that can be played
+        const letterLower = e.key.toLowerCase();
+        // Find candidate indices
+        const candidates = [];
+        state.letters.forEach((l, idx) => {
+          if (l.letter === letterLower && !state.currentWordPositions.includes(idx)) {
+            candidates.push(idx);
+          }
+        });
+        if (candidates.length > 0) {
+          // Filter by side rule
+          const valid = candidates.filter(idx => {
+            const letter = state.letters[idx];
+            if (state.currentWordPositions.length > 0) {
+              const lastIdx = state.currentWordPositions[state.currentWordPositions.length - 1];
+              const lastLetter = state.letters[lastIdx];
+              if (lastLetter && lastLetter.side === letter.side) return false;
+            } else if (state.lastLetter) {
+              if (letter.letter !== state.lastLetter) return false;
+            }
+            if (letter.used && !(state.currentWordPositions.length === 0 && state.lastLetter && letter.letter === state.lastLetter)) {
+              return false;
+            }
+            return true;
+          });
+          if (valid.length > 0) {
+            e.preventDefault();
+            handleLetterClick(valid[0]);
+          } else {
+            e.preventDefault();
+            showToast('No valid tile for that letter');
+          }
+        }
+      }
+    });
+
+    updateStats();
+
+    // FAQ accordion
+    document.querySelectorAll('.lb-faq-q').forEach(function (qBtn) {
+      qBtn.addEventListener('click', function () {
+        var expanded = qBtn.getAttribute('aria-expanded') === 'true';
+        qBtn.setAttribute('aria-expanded', String(!expanded));
+        var answer = qBtn.nextElementSibling;
+        if (answer) {
+          answer.style.display = expanded ? 'none' : 'block';
+          var item = qBtn.closest('.lb-faq-item');
+          if (item) item.classList.toggle('lb-open', !expanded);
+        }
+      });
+    });
+
+  });
+  </script>
+
+  <!-- ===== COMPONENT SCRIPTS ===== -->
+  <script src="/components/header.js" onerror="console.warn('header.js not found')"></script>
+  <script src="/components/footer.js" onerror="console.warn('footer.js not found')"></script>
+  <script src="/components/social-share.js" onerror="console.warn('social-share.js not found')"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js" onerror="console.warn('sidebar.js not found')"></script>
+
+</body>
+</html>

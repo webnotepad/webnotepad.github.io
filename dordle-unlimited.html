@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Dordle Unlimited – Free Online Double Word Game | WebNotePad</title>
+  <meta name="description" content="Play Dordle Unlimited free! Guess two 5-letter words simultaneously in 7 tries. Advanced stats, dark mode, mobile-friendly, no signup. Test your vocabulary now." />
+  <meta name="keywords" content="dordle, dordle unlimited, dordle game, double wordle, 2 word game, word puzzle, free word game, online dordle, vocabulary game, brain teaser" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/dordle-unlimited" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/dordle-unlimited" />
+  <meta property="og:title" content="Dordle Unlimited – Free Online Double Word Game" />
+  <meta property="og:description" content="Guess two 5-letter words in 7 tries. Free, no signup, mobile-friendly Dordle game with stats and dark mode." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dordle Unlimited – Free Online Double Word Game" />
+  <meta name="twitter:description" content="Guess two 5-letter words in 7 tries. Free, no signup, mobile-friendly." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Dordle Unlimited",
+    "url": "https://webnotepad.github.io/dordle-unlimited",
+    "description": "A free online Dordle game where you guess two 5-letter words simultaneously in 7 attempts. Includes color-coded feedback, on-screen keyboard, dark mode, and game statistics.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Two simultaneous 5-letter word puzzles",
+      "7 attempts per game",
+      "Color-coded feedback (green, yellow, gray)",
+      "On-screen keyboard",
+      "Dark mode toggle",
+      "Game statistics (wins, streaks, guesses)",
+      "Mobile-friendly responsive design",
+      "No signup required",
+      "Free forever"
+    ],
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Dordle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Dordle is a word puzzle game where you guess two 5-letter words simultaneously. Each guess applies to both boards, and you have 7 attempts to find both words. Color clues help you narrow down the letters." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dordle Unlimited free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Dordle Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many guesses do you get in Dordle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You get 7 guesses to solve both 5-letter words. Every guess you make is applied to both boards simultaneously." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I play Dordle on my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The game is fully responsive and works on smartphones and tablets. Use the on-screen keyboard to enter letters, and the boards adapt to your screen size." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do the colors mean in Dordle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Green means the letter is correct and in the right position for that board. Yellow means the letter is in the word but in the wrong position. Gray means the letter is not in that word." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dordle have a dark mode?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Dordle Unlimited includes a dark mode toggle for comfortable playing in low-light environments." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== DORDLE THEME ===== */
+    :root {
+      --dd-accent: #0891b2;
+      --dd-accent-light: #22d3ee;
+      --dd-accent-pale: #ecfeff;
+      --dd-surface: #faf8f4;
+      --dd-border: #e8e2d6;
+      --dd-ink: #1a1a2e;
+      --dd-muted: #6b6b85;
+      --dd-warm: #f4f0e8;
+      --dd-radius: 8px;
+      --dd-radius-lg: 14px;
+      --dd-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+      --dd-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --dd-correct: #16a34a;
+      --dd-present: #eab308;
+      --dd-absent: #9ca3af;
+      --dd-key-bg: #d1d5db;
+      --dd-key-text: #1a1a2e;
+      --dd-tile-empty: #ffffff;
+    }
+
+    body.dark {
+      --dd-accent: #22d3ee;
+      --dd-accent-light: #67e8f9;
+      --dd-accent-pale: #0a2a33;
+      --dd-surface: #141418;
+      --dd-border: #2a2a34;
+      --dd-ink: #e8e4dc;
+      --dd-muted: #8a8678;
+      --dd-warm: #1c1c22;
+      --dd-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      --dd-correct: #4ade80;
+      --dd-present: #facc15;
+      --dd-absent: #6b7280;
+      --dd-key-bg: #3a3a44;
+      --dd-key-text: #e8e4dc;
+      --dd-tile-empty: #1c1c22;
+    }
+
+    /* ===== HERO ===== */
+    .dd-hero {
+      position: relative;
+      min-height: 18vh;
+      display: flex;
+      align-items: center;
+      padding: 16px 0 12px;
+      overflow: hidden;
+      background: var(--dd-surface);
+      transition: background var(--dd-transition);
+    }
+    .dd-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--dd-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--dd-border) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    body.dark .dd-hero-bg { opacity: 0.1; }
+    .dd-hero-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, var(--dd-accent-pale) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    body.dark .dd-hero-glow { opacity: 0.35; }
+    .dd-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .dd-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--dd-accent-pale);
+      color: var(--dd-accent);
+      border: 1px solid var(--dd-accent);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.5s ease both;
+    }
+    body.dark .dd-hero-badge { background: rgba(34, 211, 238, 0.18); }
+    .dd-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--dd-ink);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.6s 0.1s ease both;
+    }
+    .dd-hero-accent {
+      color: var(--dd-accent);
+      font-style: italic;
+    }
+    .dd-hero-sub {
+      font-size: 0.9rem;
+      color: var(--dd-muted);
+      max-width: 560px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      animation: fadeInDown 0.6s 0.2s ease both;
+    }
+    .dd-hero-cta {
+      animation: fadeInDown 0.6s 0.3s ease both;
+      margin-bottom: 16px;
+    }
+    .dd-hero-demo {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      animation: fadeInDown 0.6s 0.4s ease both;
+    }
+    .dd-demo-chip {
+      padding: 7px 16px;
+      background: var(--dd-warm);
+      border: 1px solid var(--dd-border);
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--dd-ink);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      transition: all var(--dd-transition);
+      cursor: default;
+      white-space: nowrap;
+    }
+    .dd-demo-chip:hover {
+      background: var(--dd-accent-pale);
+      border-color: var(--dd-accent);
+      color: var(--dd-accent);
+    }
+
+    /* ===== GAME SECTION ===== */
+    .dd-game-section {
+      padding: 0 0 64px;
+      background: var(--dd-surface);
+      transition: background var(--dd-transition);
+    }
+    .dd-game-shell {
+      background: var(--dd-warm);
+      border: 1px solid var(--dd-border);
+      border-radius: var(--dd-radius-lg);
+      box-shadow: var(--dd-shadow);
+      overflow: hidden;
+      transition: all var(--dd-transition);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .dd-game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--dd-border);
+      background: var(--dd-surface);
+      flex-wrap: wrap;
+    }
+    .dd-game-title {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dd-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dd-game-title .dd-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dd-accent);
+      display: inline-block;
+      animation: ddPulse 2s infinite;
+    }
+    @keyframes ddPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.6); }
+    }
+    .dd-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .dd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--dd-radius);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all var(--dd-transition);
+      white-space: nowrap;
+      border: 2px solid transparent;
+      background: transparent;
+      color: var(--dd-ink);
+    }
+    .dd-btn-primary {
+      background: var(--dd-accent);
+      color: #ffffff;
+      border-color: var(--dd-accent);
+    }
+    .dd-btn-primary:hover {
+      background: var(--dd-accent-light);
+      border-color: var(--dd-accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(8, 145, 178, 0.3);
+    }
+    .dd-btn-ghost {
+      background: var(--dd-surface);
+      color: var(--dd-ink);
+      border-color: var(--dd-border);
+    }
+    .dd-btn-ghost:hover {
+      background: var(--dd-warm);
+      border-color: var(--dd-accent);
+      color: var(--dd-accent);
+    }
+    .dd-btn-icon {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--dd-radius);
+      background: var(--dd-surface);
+      border: 1px solid var(--dd-border);
+      color: var(--dd-ink);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--dd-transition);
+    }
+    .dd-btn-icon:hover {
+      background: var(--dd-accent-pale);
+      border-color: var(--dd-accent);
+      color: var(--dd-accent);
+    }
+
+    /* Stats bar */
+    .dd-stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 18px;
+      background: var(--dd-surface);
+      border-bottom: 1px solid var(--dd-border);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--dd-muted);
+      flex-wrap: wrap;
+    }
+    .dd-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dd-stat-value {
+      font-weight: 700;
+      color: var(--dd-ink);
+      font-size: 0.85rem;
+    }
+    .dd-stat-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--dd-border);
+    }
+
+    /* Boards grid */
+    .dd-boards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 18px 16px;
+    }
+    .dd-board-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .dd-board-label {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dd-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dd-board-label .dd-solved-badge {
+      display: none;
+      color: var(--dd-correct);
+      font-size: 0.7rem;
+    }
+    .dd-board-wrapper.dd-solved .dd-board-label .dd-solved-badge {
+      display: inline;
+    }
+    .dd-board {
+      display: grid;
+      grid-template-rows: repeat(7, 1fr);
+      gap: 4px;
+      width: 100%;
+      max-width: 260px;
+    }
+    .dd-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+    }
+    .dd-tile {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.85rem, 3vw, 1.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--dd-ink);
+      background: var(--dd-tile-empty);
+      border: 2px solid var(--dd-border);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      user-select: none;
+      line-height: 1;
+    }
+    .dd-tile.dd-filled {
+      border-color: var(--dd-muted);
+      animation: ddPop 0.1s ease;
+    }
+    @keyframes ddPop {
+      0% { transform: scale(0.9); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .dd-tile.dd-correct {
+      background: var(--dd-correct);
+      border-color: var(--dd-correct);
+      color: #ffffff;
+    }
+    .dd-tile.dd-present {
+      background: var(--dd-present);
+      border-color: var(--dd-present);
+      color: #ffffff;
+    }
+    .dd-tile.dd-absent {
+      background: var(--dd-absent);
+      border-color: var(--dd-absent);
+      color: #ffffff;
+    }
+    .dd-tile.dd-reveal {
+      animation: ddFlip 0.45s ease forwards;
+    }
+    @keyframes ddFlip {
+      0% { transform: rotateX(0); }
+      50% { transform: rotateX(90deg); }
+      100% { transform: rotateX(0); }
+    }
+    .dd-tile.dd-shake {
+      animation: ddShake 0.4s ease;
+    }
+    @keyframes ddShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
+    .dd-tile.dd-bounce {
+      animation: ddBounce 0.6s ease;
+    }
+    @keyframes ddBounce {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+      50% { transform: translateY(0); }
+      70% { transform: translateY(-5px); }
+      90% { transform: translateY(0); }
+    }
+
+    /* Keyboard */
+    .dd-keyboard-wrap {
+      padding: 8px 10px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .dd-keyboard-row {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      width: 100%;
+      max-width: 500px;
+    }
+    .dd-key {
+      flex: 1;
+      min-width: 0;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.65rem, 2.8vw, 0.85rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--dd-key-text);
+      background: var(--dd-key-bg);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      padding: 0 3px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .dd-key:active {
+      transform: scale(0.95);
+      filter: brightness(0.9);
+    }
+    .dd-key.dd-key-wide {
+      flex: 1.5;
+      font-size: clamp(0.55rem, 2.2vw, 0.7rem);
+    }
+    .dd-key.dd-correct {
+      background: var(--dd-correct);
+      color: #ffffff;
+    }
+    .dd-key.dd-present {
+      background: var(--dd-present);
+      color: #ffffff;
+    }
+    .dd-key.dd-absent {
+      background: var(--dd-absent);
+      color: #ffffff;
+    }
+
+    /* Toast */
+    .dd-toast {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--dd-ink);
+      color: var(--dd-surface);
+      padding: 12px 24px;
+      border-radius: var(--dd-radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 8px 32px rgba(26, 26, 46, 0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .dd-toast.dd-show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    body.dark .dd-toast {
+      background: var(--dd-warm);
+      color: var(--dd-ink);
+      border: 1px solid var(--dd-border);
+    }
+
+    /* Result overlay */
+    .dd-result-overlay {
+      display: none;
+      padding: 24px 20px;
+      background: var(--dd-surface);
+      border-top: 1px solid var(--dd-border);
+      text-align: center;
+      animation: fadeInDown 0.4s ease both;
+    }
+    .dd-result-overlay.dd-show { display: block; }
+    .dd-result-emoji {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+    .dd-result-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dd-ink);
+      margin-bottom: 4px;
+    }
+    .dd-result-sub {
+      font-size: 0.9rem;
+      color: var(--dd-muted);
+      margin-bottom: 16px;
+    }
+    .dd-result-words {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .dd-result-word-chip {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      background: var(--dd-accent-pale);
+      color: var(--dd-accent);
+      border-radius: var(--dd-radius);
+      border: 1px solid var(--dd-accent);
+    }
+
+    /* ===== HOW TO SECTION ===== */
+    .dd-how {
+      background: var(--dd-warm);
+      transition: background var(--dd-transition);
+    }
+    .dd-how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .dd-how-card {
+      background: var(--dd-surface);
+      border: 1px solid var(--dd-border);
+      border-radius: var(--dd-radius-lg);
+      padding: 26px;
+      transition: all var(--dd-transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .dd-how-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--dd-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--dd-transition);
+    }
+    .dd-how-card:hover { box-shadow: var(--dd-shadow); transform: translateY(-3px); }
+    .dd-how-card:hover::before { transform: scaleX(1); }
+    .dd-how-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--dd-border);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .dd-how-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dd-ink);
+      margin-bottom: 8px;
+    }
+    .dd-how-card p {
+      font-size: 0.85rem;
+      color: var(--dd-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== DESCRIPTION SECTION ===== */
+    .dd-desc {
+      background: var(--dd-surface);
+      transition: background var(--dd-transition);
+    }
+    .dd-desc-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .dd-desc-text p {
+      font-size: 0.95rem;
+      color: var(--dd-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .dd-desc-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .dd-benefit-tag {
+      padding: 6px 14px;
+      background: var(--dd-warm);
+      border: 1px solid var(--dd-border);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--dd-ink);
+      transition: all var(--dd-transition);
+    }
+    .dd-benefit-tag:hover {
+      background: var(--dd-accent-pale);
+      border-color: var(--dd-accent);
+      color: var(--dd-accent);
+    }
+    .dd-desc-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dd-visual-card {
+      background: var(--dd-ink);
+      color: var(--dd-surface);
+      border-radius: var(--dd-radius-lg);
+      padding: 36px 32px;
+      max-width: 320px;
+      box-shadow: var(--dd-shadow);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      position: relative;
+      width: 100%;
+    }
+    body.dark .dd-visual-card {
+      background: var(--dd-warm);
+      border: 1px solid var(--dd-border);
+      color: var(--dd-ink);
+    }
+    .dd-visual-card .dd-v-line {
+      width: 36px;
+      height: 3px;
+      background: var(--dd-accent);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+    .dd-visual-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    body.dark .dd-visual-row { border-bottom-color: var(--dd-border); }
+    .dd-visual-row:last-child { border-bottom: none; }
+    .dd-v-label {
+      opacity: 0.5;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .dd-v-text {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--dd-accent-light);
+    }
+    body.dark .dd-visual-card .dd-v-text { color: var(--dd-accent); }
+
+    /* ===== FAQ SECTION ===== */
+    .dd-faq {
+      background: var(--dd-warm);
+      transition: background var(--dd-transition);
+    }
+    .dd-faq-list {
+      max-width: 720px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .dd-faq-item {
+      border: 1px solid var(--dd-border);
+      border-radius: var(--dd-radius);
+      overflow: hidden;
+      background: var(--dd-surface);
+      transition: border-color var(--dd-transition);
+    }
+    .dd-faq-item.dd-open { border-color: var(--dd-accent); }
+    .dd-faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dd-ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--dd-transition);
+      cursor: pointer;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+    }
+    .dd-faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--dd-muted);
+      flex-shrink: 0;
+      transition: transform var(--dd-transition);
+    }
+    .dd-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--dd-accent); }
+    .dd-faq-q:hover { background: var(--dd-warm); }
+    .dd-faq-a {
+      display: none;
+      padding: 0 20px 16px;
+    }
+    .dd-faq-a p {
+      font-size: 0.88rem;
+      color: var(--dd-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .dd-how-grid { grid-template-columns: repeat(2, 1fr); }
+      .dd-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+      .dd-desc-visual { justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .dd-hero { min-height: auto; padding: 24px 0 20px; }
+      .dd-how-grid { grid-template-columns: 1fr; }
+      .dd-boards-grid { gap: 10px; padding: 14px 10px; }
+      .dd-board { max-width: 200px; gap: 3px; }
+      .dd-row { gap: 3px; }
+      .dd-tile { font-size: 0.9rem; border-width: 1.5px; border-radius: 5px; }
+      .dd-key { height: 40px; font-size: 0.7rem; border-radius: 4px; }
+      .dd-keyboard-row { gap: 3px; }
+      .dd-keyboard-wrap { padding: 8px 6px 14px; gap: 3px; }
+      .dd-game-header { flex-direction: column; align-items: stretch; gap: 8px; }
+      .dd-header-actions { justify-content: flex-start; }
+      .dd-hero-demo { gap: 6px; }
+      .dd-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+      .dd-game-shell { border-radius: 0; border-left: none; border-right: none; }
+    }
+    @media (max-width: 480px) {
+      .dd-hero-title { font-size: 1.6rem; }
+      .dd-boards-grid { gap: 8px; padding: 10px 6px; }
+      .dd-board { max-width: 160px; gap: 2px; }
+      .dd-row { gap: 2px; }
+      .dd-tile { font-size: 0.7rem; border-width: 1px; border-radius: 4px; }
+      .dd-key { height: 36px; font-size: 0.6rem; border-radius: 4px; }
+      .dd-keyboard-row { gap: 2px; }
+      .dd-keyboard-wrap { padding: 6px 4px 12px; gap: 2px; }
+      .dd-game-header { padding: 10px 12px; }
+      .dd-btn { padding: 6px 12px; font-size: 0.72rem; }
+      .dd-btn-icon { width: 30px; height: 30px; font-size: 0.85rem; }
+      .dd-result-overlay { padding: 20px 14px; }
+      .dd-result-title { font-size: 1.2rem; }
+      .dd-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+      .dd-board-label { font-size: 0.55rem; }
+      .dd-stats-bar { font-size: 0.65rem; padding: 6px 12px; gap: 10px; }
+    }
+    @media (max-width: 380px) {
+      .dd-board { max-width: 140px; gap: 1.5px; }
+      .dd-row { gap: 1.5px; }
+      .dd-tile { font-size: 0.6rem; border-width: 1px; }
+      .dd-key { height: 32px; font-size: 0.55rem; }
+      .dd-keyboard-row { gap: 1.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="dd-hero" id="home" aria-label="Dordle Game Hero">
+      <div class="dd-hero-bg"></div>
+      <div class="dd-hero-glow"></div>
+      <div class="container dd-hero-inner">
+        <div class="dd-hero-badge">🧩 Free Online Dordle Unlimited</div>
+        <h1 class="dd-hero-title">
+          Two words.<br />
+          <span class="dd-hero-accent">Seven guesses.</span>
+        </h1>
+        <p class="dd-hero-sub">Guess two 5-letter words simultaneously in 7 attempts. Use color-coded clues across both boards to solve the puzzle. Mobile-friendly, dark mode, no signup.</p>
+        <div class="dd-hero-cta">
+          <a href="#dordle-game" class="btn btn-primary" style="background:var(--dd-accent);border-color:var(--dd-accent);">Play Dordle <span>→</span></a>
+        </div>
+        <div class="dd-hero-demo">
+          <span class="dd-demo-chip">🟩 Correct position</span>
+          <span class="dd-demo-chip">🟨 Wrong position</span>
+          <span class="dd-demo-chip">⬛ Not in word</span>
+          <span class="dd-demo-chip">📱 Mobile ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GAME SECTION ===== -->
+    <section class="dd-game-section" id="dordle-game" aria-label="Dordle Game">
+      <div class="container">
+        <div class="dd-game-shell">
+          <!-- Game Header -->
+          <div class="dd-game-header">
+            <span class="dd-game-title"><span class="dd-dot"></span> Dordle Unlimited</span>
+            <div class="dd-header-actions">
+              <button class="dd-btn dd-btn-primary" id="ddNewGameBtn" aria-label="Start a new game">
+                <span>↺</span> New Game
+              </button>
+              <button class="dd-btn-icon" id="ddDarkModeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+            </div>
+          </div>
+
+          <!-- Stats bar -->
+          <div class="dd-stats-bar" id="ddStatsBar">
+            <div class="dd-stat">
+              <span>Guesses left:</span>
+              <span class="dd-stat-value" id="ddGuessesLeft">7</span>
+            </div>
+            <div class="dd-stat-divider"></div>
+            <div class="dd-stat">
+              <span>Solved:</span>
+              <span class="dd-stat-value" id="ddSolvedCount">0/2</span>
+            </div>
+            <div class="dd-stat-divider"></div>
+            <div class="dd-stat">
+              <span>Wins:</span>
+              <span class="dd-stat-value" id="ddWins">0</span>
+            </div>
+            <div class="dd-stat-divider"></div>
+            <div class="dd-stat">
+              <span>Streak:</span>
+              <span class="dd-stat-value" id="ddStreak">0</span>
+            </div>
+          </div>
+
+          <!-- Boards grid -->
+          <div class="dd-boards-grid" id="ddBoardsGrid">
+            <!-- Board 1 -->
+            <div class="dd-board-wrapper" data-board="0">
+              <div class="dd-board-label">Word 1 <span class="dd-solved-badge">✓</span></div>
+              <div class="dd-board" id="ddBoard0" role="grid" aria-label="Word 1 board"></div>
+            </div>
+            <!-- Board 2 -->
+            <div class="dd-board-wrapper" data-board="1">
+              <div class="dd-board-label">Word 2 <span class="dd-solved-badge">✓</span></div>
+              <div class="dd-board" id="ddBoard1" role="grid" aria-label="Word 2 board"></div>
+            </div>
+          </div>
+
+          <!-- Result overlay -->
+          <div class="dd-result-overlay" id="ddResultOverlay" role="region" aria-label="Game result">
+            <div class="dd-result-emoji" id="ddResultEmoji">🎉</div>
+            <div class="dd-result-title" id="ddResultTitle">Congratulations!</div>
+            <div class="dd-result-sub" id="ddResultSub">You solved both words.</div>
+            <div class="dd-result-words" id="ddResultWords"></div>
+            <button class="dd-btn dd-btn-primary" id="ddPlayAgainBtn" style="margin: 0 auto;">
+              <span>↺</span> Play Again
+            </button>
+          </div>
+
+          <!-- Keyboard -->
+          <div class="dd-keyboard-wrap" id="ddKeyboard" role="group" aria-label="On-screen keyboard"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO PLAY ===== -->
+    <section class="section dd-how" id="how-to-play" aria-label="How to play Dordle">
+      <div class="container">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">Play Dordle in <em>3 simple steps.</em></h2>
+        <div class="dd-how-grid">
+          <div class="dd-how-card">
+            <div class="dd-how-num">01</div>
+            <h3>Guess a 5-Letter Word</h3>
+            <p>Type any valid 5-letter word and press <strong>Enter</strong>. Your guess is applied to both <strong>boards simultaneously</strong>. You have <strong>7 attempts</strong> to solve both words.</p>
+          </div>
+          <div class="dd-how-card">
+            <div class="dd-how-num">02</div>
+            <h3>Read the Color Clues</h3>
+            <p><strong>🟩 Green</strong> means the letter is correct and in the right spot for that board. <strong>🟨 Yellow</strong> means the letter is in that word but in a different position. <strong>⬛ Gray</strong> means the letter is not in that word.</p>
+          </div>
+          <div class="dd-how-card">
+            <div class="dd-how-num">03</div>
+            <h3>Solve Both Words</h3>
+            <p>Use the color feedback to deduce each word. A board becomes <strong>locked</strong> once solved. Keep guessing to solve the remaining board before you run out of 7 attempts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <section class="section dd-desc" id="about-dordle" aria-label="About Dordle">
+      <div class="container dd-desc-inner">
+        <div class="dd-desc-text">
+          <div class="section-label">What is it?</div>
+          <h2 class="section-title">The Free Online <em>Dordle Game</em></h2>
+          <p><strong>Dordle</strong> is a word puzzle that challenges you to guess <strong>two 5-letter words simultaneously</strong> in seven attempts. Every guess you make is applied to both boards, and the color-coded feedback helps you narrow down the possibilities for each word independently.</p>
+          <p>Our free <strong>Dordle Unlimited</strong> includes a comprehensive list of common five-letter English words. The two target words are randomly selected each game, so you get a fresh challenge every time you play. There's no daily limit — play as many games as you like.</p>
+          <p>Whether you're a word game enthusiast, a student looking to improve your vocabulary, or just someone who enjoys a good brain teaser, this <strong>online Dordle</strong> is perfect for you. The game is fully responsive and works on phones, tablets, and desktop. Use the on-screen keyboard or your physical keyboard to enter guesses.</p>
+          <p>No signup, no downloads, no ads blocking your view — just a clean, beautiful <strong>double-word puzzle game</strong> that runs right in your browser. Track your wins and streaks, toggle dark mode, and enjoy endless word-solving fun.</p>
+          <div class="dd-desc-benefits">
+            <span class="dd-benefit-tag">🧩 Two Words at Once</span>
+            <span class="dd-benefit-tag">🎯 7 Attempts</span>
+            <span class="dd-benefit-tag">📱 Mobile Friendly</span>
+            <span class="dd-benefit-tag">🌙 Dark Mode</span>
+            <span class="dd-benefit-tag">📊 Stats & Streaks</span>
+            <span class="dd-benefit-tag">♾️ Unlimited Plays</span>
+          </div>
+        </div>
+        <div class="dd-desc-visual">
+          <div class="dd-visual-card">
+            <div class="dd-v-line"></div>
+            <div class="dd-visual-row">
+              <span class="dd-v-label">🟩 Correct</span>
+              <span class="dd-v-text">Right spot</span>
+            </div>
+            <div class="dd-visual-row">
+              <span class="dd-v-label">🟨 Present</span>
+              <span class="dd-v-text">Wrong spot</span>
+            </div>
+            <div class="dd-visual-row">
+              <span class="dd-v-label">⬛ Absent</span>
+              <span class="dd-v-text">Not in word</span>
+            </div>
+            <div class="dd-visual-row">
+              <span class="dd-v-label">🎯 Boards</span>
+              <span class="dd-v-text">2 words</span>
+            </div>
+            <div class="dd-visual-row">
+              <span class="dd-v-label">🔢 Attempts</span>
+              <span class="dd-v-text">7 tries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section dd-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="dd-faq-list" id="ddFaqList">
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">What is Dordle?</button>
+            <div class="dd-faq-a"><p>Dordle is a word puzzle game where you guess two 5-letter words simultaneously. Each guess applies to both boards, and you have 7 attempts to find both words. Color clues help you narrow down the letters.</p></div>
+          </div>
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">Is Dordle Unlimited free?</button>
+            <div class="dd-faq-a"><p>Yes, Dordle Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like.</p></div>
+          </div>
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">How many guesses do you get in Dordle?</button>
+            <div class="dd-faq-a"><p>You get 7 guesses to solve both 5-letter words. Every guess you make is applied to both boards simultaneously.</p></div>
+          </div>
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">Can I play Dordle on my phone?</button>
+            <div class="dd-faq-a"><p>Absolutely. The game is fully responsive and works on smartphones and tablets. Use the on-screen keyboard to enter letters, and the boards adapt to your screen size.</p></div>
+          </div>
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">What do the colors mean in Dordle?</button>
+            <div class="dd-faq-a"><p>Green means the letter is correct and in the right position for that board. Yellow means the letter is in the word but in the wrong position. Gray means the letter is not in that word.</p></div>
+          </div>
+          <div class="dd-faq-item">
+            <button class="dd-faq-q" aria-expanded="false">Does Dordle have a dark mode?</button>
+            <div class="dd-faq-a"><p>Yes, Dordle Unlimited includes a dark mode toggle for comfortable playing in low-light environments.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="dd-toast" id="ddToast" role="alert" aria-live="polite"></div>
+
+  <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
+  <script src="/wordlist.js"></script>
+
+  <!-- ===== GAME SCRIPT ===== -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+
+    /* ── Guard: word list must be loaded ── */
+    function getTargetWords() {
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        console.error('Dordle: WORDLIST not loaded');
+        return null;
+      }
+      const fiveLetter = WORDLIST.filter(w => typeof w === 'string' && /^[a-z]{5}$/.test(w));
+      if (fiveLetter.length < 2) {
+        console.error('Dordle: word list has fewer than 2 five-letter words');
+        return null;
+      }
+      return fiveLetter;
+    }
+
+    const FIVE_LETTER_WORDS = getTargetWords();
+
+    // ===== GAME STATE =====
+    const NUM_BOARDS = 2;
+    const MAX_GUESSES = 7;
+
+    const state = {
+      targets: [],
+      guesses: [],
+      currentRow: 0,
+      currentCol: 0,
+      gameOver: false,
+      won: false,
+      boardSolved: [false, false],
+      boardEvaluations: [],
+      keyStates: {},
+      wins: 0,
+      streak: 0
+    };
+
+    // ===== DOM ELEMENTS =====
+    const boards = [
+      document.getElementById('ddBoard0'),
+      document.getElementById('ddBoard1')
+    ];
+    const boardWrappers = document.querySelectorAll('.dd-board-wrapper');
+    const keyboardEl = document.getElementById('ddKeyboard');
+    const resultOverlay = document.getElementById('ddResultOverlay');
+    const resultEmoji = document.getElementById('ddResultEmoji');
+    const resultTitle = document.getElementById('ddResultTitle');
+    const resultSub = document.getElementById('ddResultSub');
+    const resultWords = document.getElementById('ddResultWords');
+    const newGameBtn = document.getElementById('ddNewGameBtn');
+    const playAgainBtn = document.getElementById('ddPlayAgainBtn');
+    const darkModeBtn = document.getElementById('ddDarkModeBtn');
+    const toastEl = document.getElementById('ddToast');
+    const guessesLeftEl = document.getElementById('ddGuessesLeft');
+    const solvedCountEl = document.getElementById('ddSolvedCount');
+    const winsEl = document.getElementById('ddWins');
+    const streakEl = document.getElementById('ddStreak');
+
+    let toastTimer = null;
+
+    function showToast(msg, duration = 2000) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastEl.textContent = msg;
+      toastEl.classList.add('dd-show');
+      toastTimer = setTimeout(() => toastEl.classList.remove('dd-show'), duration);
+    }
+
+    function pickRandomWord() {
+      return FIVE_LETTER_WORDS[Math.floor(Math.random() * FIVE_LETTER_WORDS.length)].toUpperCase();
+    }
+
+    function isLetter(ch) {
+      return /^[a-zA-Z]$/.test(ch);
+    }
+
+    // ===== BOARD CREATION =====
+    function createBoard(boardEl) {
+      boardEl.innerHTML = '';
+      for (let r = 0; r < MAX_GUESSES; r++) {
+        const row = document.createElement('div');
+        row.className = 'dd-row';
+        for (let c = 0; c < 5; c++) {
+          const tile = document.createElement('div');
+          tile.className = 'dd-tile';
+          tile.dataset.row = r;
+          tile.dataset.col = c;
+          row.appendChild(tile);
+        }
+        boardEl.appendChild(row);
+      }
+    }
+
+    function getTile(boardIndex, row, col) {
+      const boardEl = boards[boardIndex];
+      const r = boardEl.children[row];
+      return r ? r.children[col] : null;
+    }
+
+    function updateTileLetter(boardIndex, row, col, letter) {
+      const tile = getTile(boardIndex, row, col);
+      if (!tile) return;
+      tile.textContent = letter || '';
+      tile.classList.toggle('dd-filled', !!letter);
+    }
+
+    function resetBoardVisual(boardIndex) {
+      for (let r = 0; r < MAX_GUESSES; r++) {
+        for (let c = 0; c < 5; c++) {
+          const tile = getTile(boardIndex, r, c);
+          if (tile) {
+            tile.textContent = '';
+            tile.className = 'dd-tile';
+          }
+        }
+      }
+    }
+
+    // ===== KEYBOARD =====
+    const KEYBOARD_ROWS = [
+      ['Q','W','E','R','T','Y','U','I','O','P'],
+      ['A','S','D','F','G','H','J','K','L'],
+      ['ENTER','Z','X','C','V','B','N','M','BACK']
+    ];
+
+    function createKeyboard() {
+      keyboardEl.innerHTML = '';
+      KEYBOARD_ROWS.forEach(row => {
+        const rowEl = document.createElement('div');
+        rowEl.className = 'dd-keyboard-row';
+        row.forEach(key => {
+          const keyEl = document.createElement('button');
+          keyEl.type = 'button';
+          keyEl.className = 'dd-key';
+          keyEl.dataset.key = key;
+          if (key === 'ENTER' || key === 'BACK') {
+            keyEl.classList.add('dd-key-wide');
+            keyEl.textContent = key === 'ENTER' ? 'Enter' : '⌫';
+          } else {
+            keyEl.textContent = key;
+          }
+          keyEl.addEventListener('click', () => handleKeyInput(key));
+          rowEl.appendChild(keyEl);
+        });
+        keyboardEl.appendChild(rowEl);
+      });
+    }
+
+    function updateKeyboardColors() {
+      keyboardEl.querySelectorAll('.dd-key').forEach(keyEl => {
+        const key = keyEl.dataset.key;
+        if (key.length === 1) {
+          keyEl.classList.remove('dd-correct', 'dd-present', 'dd-absent');
+          const status = state.keyStates[key];
+          if (status === 'correct') keyEl.classList.add('dd-correct');
+          else if (status === 'present') keyEl.classList.add('dd-present');
+          else if (status === 'absent') keyEl.classList.add('dd-absent');
+        }
+      });
+    }
+
+    // ===== GAME LOGIC =====
+    function evaluateGuess(guess, target) {
+      const targetLetters = target.split('');
+      const result = new Array(5).fill('absent');
+      const guessLetters = guess.split('');
+
+      for (let i = 0; i < 5; i++) {
+        if (guessLetters[i] === targetLetters[i]) {
+          result[i] = 'correct';
+          targetLetters[i] = null;
+          guessLetters[i] = null;
+        }
+      }
+      for (let i = 0; i < 5; i++) {
+        if (guessLetters[i] === null) continue;
+        const idx = targetLetters.indexOf(guessLetters[i]);
+        if (idx !== -1) {
+          result[i] = 'present';
+          targetLetters[idx] = null;
+        }
+      }
+      return result;
+    }
+
+    function updateKeyStates(guess, evaluations) {
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        if (state.boardSolved[b]) continue;
+        const evalArr = evaluations[b];
+        for (let i = 0; i < 5; i++) {
+          const letter = guess[i];
+          const status = evalArr[i];
+          const current = state.keyStates[letter];
+          if (status === 'correct') {
+            state.keyStates[letter] = 'correct';
+          } else if (status === 'present' && current !== 'correct') {
+            state.keyStates[letter] = 'present';
+          } else if (status === 'absent' && !current) {
+            state.keyStates[letter] = 'absent';
+          }
+        }
+      }
+    }
+
+    function revealRowForBoard(boardIndex, row, guess, evaluation) {
+      return new Promise(resolve => {
+        const tiles = [];
+        for (let c = 0; c < 5; c++) tiles.push(getTile(boardIndex, row, c));
+        tiles.forEach((tile, i) => {
+          setTimeout(() => {
+            tile.classList.add('dd-reveal');
+            setTimeout(() => {
+              tile.classList.remove('dd-reveal');
+              tile.classList.add('dd-' + evaluation[i]);
+            }, 200);
+          }, i * 100);
+        });
+        setTimeout(resolve, 5 * 100 + 350);
+      });
+    }
+
+    function shakeRowAllBoards(row) {
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        for (let c = 0; c < 5; c++) {
+          const tile = getTile(b, row, c);
+          if (tile) {
+            tile.classList.add('dd-shake');
+            setTimeout(() => tile.classList.remove('dd-shake'), 400);
+          }
+        }
+      }
+    }
+
+    function bounceRowForBoard(boardIndex, row) {
+      for (let c = 0; c < 5; c++) {
+        const tile = getTile(boardIndex, row, c);
+        if (tile) {
+          setTimeout(() => {
+            tile.classList.add('dd-bounce');
+            setTimeout(() => tile.classList.remove('dd-bounce'), 600);
+          }, c * 80);
+        }
+      }
+    }
+
+    function updateStatsBar() {
+      const solvedCount = state.boardSolved.filter(Boolean).length;
+      solvedCountEl.textContent = solvedCount + '/2';
+      guessesLeftEl.textContent = MAX_GUESSES - state.currentRow;
+      winsEl.textContent = state.wins;
+      streakEl.textContent = state.streak;
+    }
+
+    async function submitGuess() {
+      const row = state.currentRow;
+      if (row >= MAX_GUESSES) return;
+
+      const guess = [];
+      for (let c = 0; c < 5; c++) {
+        const tile = getTile(0, row, c);
+        guess.push(tile ? (tile.textContent || '') : '');
+      }
+      const guessStr = guess.join('').toUpperCase();
+
+      if (guessStr.length !== 5) {
+        showToast('Not enough letters');
+        shakeRowAllBoards(row);
+        return;
+      }
+      if (!FIVE_LETTER_WORDS.includes(guessStr.toLowerCase())) {
+        showToast('Not a valid word');
+        shakeRowAllBoards(row);
+        return;
+      }
+
+      const evaluations = [];
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        if (state.boardSolved[b]) {
+          evaluations.push(null);
+        } else {
+          evaluations.push(evaluateGuess(guessStr, state.targets[b]));
+        }
+      }
+
+      state.guesses.push(guessStr);
+      state.boardEvaluations.push(evaluations);
+
+      const revealPromises = [];
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        if (!state.boardSolved[b]) {
+          revealPromises.push(revealRowForBoard(b, row, guessStr, evaluations[b]));
+        }
+      }
+      await Promise.all(revealPromises);
+
+      let newlySolved = 0;
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        if (state.boardSolved[b]) continue;
+        if (guessStr === state.targets[b]) {
+          state.boardSolved[b] = true;
+          newlySolved++;
+          bounceRowForBoard(b, row);
+          boardWrappers[b].classList.add('dd-solved');
+        }
+      }
+
+      updateKeyStates(guessStr, evaluations);
+      updateKeyboardColors();
+
+      if (newlySolved > 0) {
+        showToast(newlySolved + ' word' + (newlySolved > 1 ? 's' : '') + ' solved! 🎉', 1800);
+      }
+
+      const solvedCount = state.boardSolved.filter(Boolean).length;
+      updateStatsBar();
+
+      if (solvedCount === NUM_BOARDS) {
+        state.gameOver = true;
+        state.won = true;
+        state.wins++;
+        state.streak++;
+        updateStatsBar();
+        setTimeout(() => endGame(true), 800);
+        return;
+      }
+
+      state.currentRow++;
+      state.currentCol = 0;
+
+      if (state.currentRow >= MAX_GUESSES) {
+        state.gameOver = true;
+        state.won = false;
+        state.streak = 0;
+        updateStatsBar();
+        setTimeout(() => endGame(false), 600);
+      }
+    }
+
+    function endGame(won) {
+      if (won) {
+        resultEmoji.textContent = '🎉';
+        resultTitle.textContent = 'Congratulations!';
+        resultSub.textContent = 'You solved both words in ' + state.currentRow + ' ' + (state.currentRow === 1 ? 'try' : 'tries') + '.';
+      } else {
+        resultEmoji.textContent = '😔';
+        resultTitle.textContent = 'Better luck next time!';
+        const solved = state.boardSolved.filter(Boolean).length;
+        resultSub.textContent = solved + ' of 2 words solved. The words were:';
+      }
+      resultWords.innerHTML = '';
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        const chip = document.createElement('span');
+        chip.className = 'dd-result-word-chip';
+        chip.textContent = state.targets[b];
+        resultWords.appendChild(chip);
+      }
+      resultOverlay.classList.add('dd-show');
+    }
+
+    function handleKeyInput(key) {
+      if (state.gameOver) return;
+      if (key === 'ENTER') { submitGuess(); return; }
+      if (key === 'BACK') {
+        if (state.currentCol > 0) {
+          state.currentCol--;
+          for (let b = 0; b < NUM_BOARDS; b++) {
+            if (!state.boardSolved[b]) {
+              updateTileLetter(b, state.currentRow, state.currentCol, '');
+            }
+          }
+        }
+        return;
+      }
+      if (isLetter(key) && state.currentCol < 5) {
+        for (let b = 0; b < NUM_BOARDS; b++) {
+          if (!state.boardSolved[b]) {
+            updateTileLetter(b, state.currentRow, state.currentCol, key.toUpperCase());
+          }
+        }
+        state.currentCol++;
+      }
+    }
+
+    function startNewGame() {
+      if (!FIVE_LETTER_WORDS) {
+        resultOverlay.classList.add('dd-show');
+        resultEmoji.textContent = '⚠️';
+        resultTitle.textContent = 'Word list not loaded';
+        resultSub.textContent = 'Please refresh the page and try again.';
+        resultWords.innerHTML = '';
+        return;
+      }
+
+      // Pick 2 unique random words
+      const shuffled = [...FIVE_LETTER_WORDS].sort(() => Math.random() - 0.5);
+      state.targets = shuffled.slice(0, 2).map(w => w.toUpperCase());
+      state.guesses = [];
+      state.boardEvaluations = [];
+      state.currentRow = 0;
+      state.currentCol = 0;
+      state.gameOver = false;
+      state.won = false;
+      state.boardSolved = [false, false];
+      state.keyStates = {};
+
+      for (let b = 0; b < NUM_BOARDS; b++) {
+        resetBoardVisual(b);
+        boardWrappers[b].classList.remove('dd-solved');
+      }
+      resultOverlay.classList.remove('dd-show');
+      updateKeyboardColors();
+      updateStatsBar();
+    }
+
+    // ===== INIT =====
+    for (let b = 0; b < NUM_BOARDS; b++) {
+      createBoard(boards[b]);
+    }
+    createKeyboard();
+    startNewGame();
+
+    newGameBtn.addEventListener('click', startNewGame);
+    playAgainBtn.addEventListener('click', startNewGame);
+
+    darkModeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      darkModeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.key === 'Enter') { e.preventDefault(); handleKeyInput('ENTER'); return; }
+      if (e.key === 'Backspace') { e.preventDefault(); handleKeyInput('BACK'); return; }
+      if (isLetter(e.key)) { e.preventDefault(); handleKeyInput(e.key); }
+    });
+
+    updateStatsBar();
+
+    // FAQ accordion
+    document.querySelectorAll('.dd-faq-q').forEach(function (qBtn) {
+      qBtn.addEventListener('click', function () {
+        var expanded = qBtn.getAttribute('aria-expanded') === 'true';
+        qBtn.setAttribute('aria-expanded', String(!expanded));
+        var answer = qBtn.nextElementSibling;
+        if (answer) {
+          answer.style.display = expanded ? 'none' : 'block';
+          var item = qBtn.closest('.dd-faq-item');
+          if (item) item.classList.toggle('dd-open', !expanded);
+        }
+      });
+    });
+
+  });
+  </script>
+
+  <!-- ===== COMPONENT SCRIPTS ===== -->
+  <script src="/components/header.js" onerror="console.warn('header.js not found')"></script>
+  <script src="/components/footer.js" onerror="console.warn('footer.js not found')"></script>
+  <script src="/components/social-share.js" onerror="console.warn('social-share.js not found')"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js" onerror="console.warn('sidebar.js not found')"></script>
+
+</body>
+</html>

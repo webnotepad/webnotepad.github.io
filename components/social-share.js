@@ -1,10 +1,10 @@
 /**
  * social-share.js
  * Floating social share widget with SVG icons and vertical layout
- * Positioned above the main tools sidebar.
+ * Positioned BELOW the main tools sidebar trigger.
  * Theme: Editorial / Ink-on-paper aesthetic
  *
- * ALSO includes a floating Games widget above it, with an updated, 
+ * ALSO includes a floating Games widget ABOVE the tools sidebar trigger, with an updated, 
  * classic arcade-style joystick SVG (red ball top, dark metallic stick and base),
  * linking to all games on the site.
  *
@@ -168,14 +168,14 @@
   styleEl.textContent = `
     /* Social Share Widget — injected by social-share.js */
 
-    /* Floating share trigger */
+    /* Floating share trigger — positioned BELOW the tools sidebar trigger */
     .social-floating-trigger {
       position: fixed;
-      bottom: 190px;
+      bottom: 120px;             /* below the tools sidebar trigger */
       right: 24px;
       z-index: 10001;
-      width: 52px;
-      height: 52px;
+      width: 42px;               /* smaller button */
+      height: 42px;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
       border-radius: 50%;
@@ -193,6 +193,8 @@
       user-select: none;
     }
     .social-floating-trigger svg {
+      width: 18px;               /* smaller icon */
+      height: 18px;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .social-floating-trigger:hover svg {
@@ -218,13 +220,14 @@
     }
 
     /* ===== FLOATING GAMES TRIGGER — VIBRANT INDIGO / VIOLET GAMING THEME ===== */
+    /* Positioned ABOVE the tools sidebar trigger */
     .games-floating-trigger {
       position: fixed;
-      bottom: 260px;
+      bottom: 182px;             /* above the tools sidebar trigger (120px + 52px + 10px gap) */
       right: 24px;
       z-index: 10001;
-      width: 52px;
-      height: 52px;
+      width: 42px;               /* smaller button */
+      height: 42px;
       background: linear-gradient(145deg, #6366f1, #4f46e5);
       color: #ffffff;
       border-radius: 50%;
@@ -244,8 +247,8 @@
     .games-floating-trigger svg {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: block;
-      width: 26px;
-      height: 26px;
+      width: 20px;               /* smaller icon */
+      height: 20px;
       filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
     .games-floating-trigger:hover svg {
@@ -278,7 +281,7 @@
       }
       50% {
         transform: scale(1.06);
-        box-shadow: 0 0 0 16px rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
+        box-shadow: 0 0 0 14px rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
       }
       100% {
         transform: scale(1);
@@ -286,18 +289,18 @@
       }
     }
 
-    /* Popup panel - vertical layout */
+    /* Popup panel - vertical layout — positioned ABOVE the social trigger */
     .social-share-popup {
       position: fixed;
-      bottom: 254px;
+      bottom: 170px;             /* above the social trigger */
       right: 24px;
       z-index: 10002;
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
       box-shadow: var(--shadow-lg, 0 16px 48px rgba(26,26,46,0.18));
-      padding: 16px 16px 14px;
-      min-width: 180px;
+      padding: 14px 14px 12px;
+      min-width: 160px;
       opacity: 0;
       pointer-events: none;
       transform: translateY(12px) scale(0.96);
@@ -314,24 +317,24 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* ===== GAMES POPUP — OPENS TO THE LEFT OF TRIGGER ===== */
+    /* ===== GAMES POPUP — OPENS TO THE LEFT OF TRIGGER, ABOVE SOCIAL POPUP ===== */
     .games-popup {
       position: fixed;
-      bottom: 250px;
-      right: 88px;              /* positioned to the LEFT of the trigger */
+      bottom: 232px;             /* above the games trigger */
+      right: 88px;               /* positioned to the LEFT of the trigger */
       z-index: 10002;
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
       box-shadow: 0 16px 48px rgba(99, 102, 241, 0.28);
-      padding: 16px 16px 14px;
-      min-width: 280px;
-      max-width: 340px;
+      padding: 14px 14px 12px;
+      min-width: 260px;
+      max-width: 320px;
       opacity: 0;
       pointer-events: none;
       transform: translateX(12px) scale(0.96);
       transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: bottom right;   /* scales from the bottom-right, near trigger */
+      transform-origin: bottom right;
     }
     .games-popup.open {
       opacity: 1;
@@ -348,13 +351,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--paper-edge, #e8e2d6);
     }
     .games-popup-header span {
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       letter-spacing: -0.01em;
@@ -371,8 +374,8 @@
     }
 
     .games-popup-close {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border: none;
       background: none;
       color: var(--ink-muted, #6b6b85);
@@ -396,8 +399,8 @@
     .games-list {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      max-height: 380px;
+      gap: 3px;
+      max-height: 340px;
       overflow-y: auto;
       padding-right: 2px;
       overscroll-behavior: contain;
@@ -415,8 +418,8 @@
     .game-item {
       display: flex;
       align-items: center;
-      gap: 11px;
-      padding: 9px 11px;
+      gap: 10px;
+      padding: 8px 10px;
       border-radius: var(--radius, 6px);
       border: 1px solid transparent;
       background: transparent;
@@ -458,14 +461,14 @@
 
     .game-item-emoji {
       flex-shrink: 0;
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.15rem;
+      font-size: 1rem;
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
-      border-radius: 8px;
+      border-radius: 7px;
       border: 1px solid rgba(99, 102, 241, 0.2);
     }
     body.dark .game-item-emoji {
@@ -481,7 +484,7 @@
       min-width: 0;
     }
     .game-item-title {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       line-height: 1.2;
@@ -490,7 +493,7 @@
       text-overflow: ellipsis;
     }
     .game-item-desc {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 400;
       color: var(--ink-muted, #6b6b85);
       line-height: 1.3;
@@ -501,7 +504,7 @@
     .game-item-arrow {
       flex-shrink: 0;
       color: var(--ink-muted, #6b6b85);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: transform 0.2s ease, color 0.2s ease;
     }
     .game-item:hover .game-item-arrow {
@@ -528,20 +531,20 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--paper-edge, #e8e2d6);
     }
     .social-popup-header span {
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--ink, #1a1a2e);
       letter-spacing: -0.01em;
     }
     .social-popup-close {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border: none;
       background: none;
       color: var(--ink-muted, #6b6b85);
@@ -565,19 +568,19 @@
     .social-grid {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
     .social-btn {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
+      gap: 10px;
+      padding: 9px 12px;
       border-radius: var(--radius, 6px);
       border: 1px solid transparent;
       background: transparent;
       color: var(--ink, #1a1a2e);
       font-family: var(--font-body, 'Outfit', sans-serif);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 500;
       cursor: pointer;
       transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
@@ -595,8 +598,8 @@
     }
     .social-btn .social-icon {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -608,8 +611,8 @@
     }
     .social-btn .social-icon svg {
       display: block;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
     .social-btn .social-label {
       flex: 1;
@@ -617,7 +620,7 @@
 
     /* Copy link button - full width, prominent */
     .social-btn.copy-btn {
-      margin-top: 4px;
+      margin-top: 3px;
       border-color: var(--paper-edge, #e8e2d6);
       background: var(--paper-warm, #f4f0e8);
       font-weight: 600;
@@ -645,13 +648,13 @@
     /* Toast notification */
     .social-toast {
       position: fixed;
-      bottom: 310px;
+      bottom: 226px;             /* above the social popup */
       right: 24px;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
-      padding: 8px 18px;
+      padding: 7px 16px;
       border-radius: var(--radius, 6px);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 500;
       box-shadow: var(--shadow-lg, 0 16px 48px rgba(26,26,46,0.18));
       opacity: 0;
@@ -679,7 +682,7 @@
       }
       50% {
         transform: scale(1.06);
-        box-shadow: 0 0 0 14px rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
+        box-shadow: 0 0 0 12px rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
       }
       100% {
         transform: scale(1);
@@ -690,142 +693,140 @@
     /* Responsive */
     @media (max-width: 480px) {
       .social-floating-trigger {
-        bottom: 175px;
+        bottom: 100px;           /* below tools trigger on mobile */
         right: 16px;
-        width: 46px;
-        height: 46px;
+        width: 38px;
+        height: 38px;
       }
       .social-floating-trigger svg {
-        width: 18px;
-        height: 18px;
-      }
-      .games-floating-trigger {
-        bottom: 235px;
-        right: 16px;
-        width: 46px;
-        height: 46px;
-      }
-      .games-floating-trigger svg {
-        width: 22px;
-        height: 22px;
-      }
-      .social-share-popup {
-        bottom: 232px;
-        right: 16px;
-        min-width: 160px;
-        padding: 14px 14px 12px;
-      }
-      /* Games popup on mobile — still opens to the left, adjusted spacing */
-      .games-popup {
-        bottom: 230px;
-        right: 74px;
-        min-width: 240px;
-        max-width: calc(100vw - 90px);
-        padding: 14px 14px 12px;
-      }
-      .games-list {
-        max-height: 300px;
-      }
-      .social-btn {
-        padding: 8px 12px;
-        font-size: 0.75rem;
-        gap: 10px;
-      }
-      .social-btn .social-icon {
-        width: 24px;
-        height: 24px;
-      }
-      .social-btn .social-icon svg {
         width: 16px;
         height: 16px;
       }
+      .games-floating-trigger {
+        bottom: 156px;           /* above tools trigger on mobile */
+        right: 16px;
+        width: 38px;
+        height: 38px;
+      }
+      .games-floating-trigger svg {
+        width: 18px;
+        height: 18px;
+      }
+      .social-share-popup {
+        bottom: 146px;
+        right: 16px;
+        min-width: 150px;
+        padding: 12px 12px 10px;
+      }
+      .games-popup {
+        bottom: 204px;
+        right: 74px;
+        min-width: 230px;
+        max-width: calc(100vw - 90px);
+        padding: 12px 12px 10px;
+      }
+      .games-list {
+        max-height: 280px;
+      }
+      .social-btn {
+        padding: 7px 10px;
+        font-size: 0.72rem;
+        gap: 9px;
+      }
+      .social-btn .social-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .social-btn .social-icon svg {
+        width: 15px;
+        height: 15px;
+      }
       .game-item {
-        padding: 8px 10px;
-        gap: 10px;
+        padding: 7px 9px;
+        gap: 9px;
       }
       .game-item-emoji {
-        width: 28px;
-        height: 28px;
-        font-size: 1rem;
+        width: 26px;
+        height: 26px;
+        font-size: 0.9rem;
       }
       .game-item-title {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
       }
       .game-item-desc {
-        font-size: 0.62rem;
+        font-size: 0.6rem;
       }
       .social-toast {
-        bottom: 282px;
+        bottom: 200px;
         right: 16px;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         padding: 6px 14px;
       }
       .social-popup-header span,
       .games-popup-header span {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
       }
     }
 
     @media (max-width: 380px) {
       .social-floating-trigger {
-        bottom: 165px;
+        bottom: 90px;
         right: 12px;
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
       }
       .social-floating-trigger svg {
+        width: 14px;
+        height: 14px;
+      }
+      .games-floating-trigger {
+        bottom: 140px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+      }
+      .games-floating-trigger svg {
         width: 16px;
         height: 16px;
       }
-      .games-floating-trigger {
-        bottom: 219px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-      }
-      .games-floating-trigger svg {
-        width: 20px;
-        height: 20px;
-      }
       .social-share-popup {
-        bottom: 216px;
+        bottom: 134px;
         right: 12px;
-        min-width: 140px;
+        min-width: 130px;
         padding: 10px 10px 8px;
       }
-      /* Games popup — shifted further left on very small screens */
       .games-popup {
-        bottom: 210px;
+        bottom: 186px;
         right: 62px;
-        min-width: 220px;
+        min-width: 200px;
         max-width: calc(100vw - 74px);
         padding: 10px 10px 8px;
       }
       .games-list {
-        max-height: 260px;
+        max-height: 240px;
       }
       .social-btn {
-        font-size: 0.7rem;
-        padding: 6px 10px;
-        gap: 8px;
+        font-size: 0.68rem;
+        padding: 6px 8px;
+        gap: 7px;
       }
       .social-btn .social-icon {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
       }
       .social-btn .social-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 13px;
+        height: 13px;
       }
       .game-item {
-        font-size: 0.7rem;
-        padding: 6px 8px;
-        gap: 8px;
+        font-size: 0.68rem;
+        padding: 5px 7px;
+        gap: 7px;
       }
       .game-item-emoji {
-        width: 24px;
-        height: 24px;
-        font-size: 0.9rem;
+        width: 22px;
+        height: 22px;
+        font-size: 0.85rem;
       }
     }
   `;
@@ -1142,5 +1143,5 @@
     }
   });
 
-  console.log('Social Share + Games Widgets initialized — games popup opens to the left.');
+  console.log('Social Share + Games Widgets initialized — games above sidebar trigger, social below.');
 })();

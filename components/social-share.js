@@ -107,11 +107,43 @@
   ];
 
   // ---- Games Configuration ----
+  // NEW GAMES ADDED: Quordle Unlimited, Dordle Unlimited, Nerdle Unlimited, Letter Boxed Unlimited
   const GAMES = [
+    // ===== NEW: The four games just built =====
+    {
+      id: 'quordle-unlimited',
+      label: 'Quordle Unlimited',
+      emoji: '🧩',
+      description: 'Solve four 5-letter words in 9 tries',
+      url: '/quordle-unlimited'
+    },
+    {
+      id: 'dordle-unlimited',
+      label: 'Dordle Unlimited',
+      emoji: '🔠',
+      description: 'Guess two 5-letter words in 7 tries',
+      url: '/dordle-unlimited'
+    },
+    {
+      id: 'nerdle-unlimited',
+      label: 'Nerdle Unlimited',
+      emoji: '🧮',
+      description: 'Guess the hidden math equation',
+      url: '/nerdle-unlimited'
+    },
+    {
+      id: 'letter-boxed-unlimited',
+      label: 'Letter Boxed Unlimited',
+      emoji: '🔤',
+      description: 'Connect letters around the box',
+      url: '/letter-boxed-unlimited'
+    },
+
+    // ===== Existing games =====
     {
       id: 'connections-unlimited',
       label: 'Connections Unlimited',
-      emoji: '🧩',
+      emoji: '🟨',
       description: 'Group 16 words into 4 categories',
       url: '/connections-unlimited'
     },
@@ -132,7 +164,7 @@
     {
       id: 'wordle',
       label: 'Wordle',
-      emoji: '🔤',
+      emoji: '🟩',
       description: 'Guess the 5-letter word',
       url: '/wordle'
     },

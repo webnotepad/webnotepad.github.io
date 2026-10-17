@@ -10,8 +10,8 @@
  *
  * Games popup opens to the LEFT of the trigger for better ergonomics.
  *
- * ALSO includes a Follow widget at the top middle-right with Pinterest, X, and Reddit icons.
- * Handle: @webnotepad
+ * ALSO includes a Follow widget (small, vertical) at the MIDDLE-LEFT of the page
+ * with Pinterest, X, and Reddit icons. Handle: @webnotepad
  */
 
 (function () {
@@ -83,7 +83,7 @@
     },
   ];
 
-  // ---- Follow Configuration (NEW) ----
+  // ---- Follow Configuration ----
   const FOLLOW_HANDLE = '@webnotepad';
   const FOLLOW_PLATFORMS = [
     {
@@ -91,24 +91,18 @@
       label: 'Pinterest',
       icon: ICONS.pinterest,
       url: 'https://pinterest.com/webnotepad',
-      color: '#e60023',
-      bg: 'linear-gradient(145deg, #ff4d6d, #e60023)',
     },
     {
       id: 'x',
       label: 'X',
       icon: ICONS.x,
       url: 'https://x.com/webnotepad',
-      color: '#000000',
-      bg: 'linear-gradient(145deg, #444, #000000)',
     },
     {
       id: 'reddit',
       label: 'Reddit',
       icon: ICONS.reddit,
       url: 'https://reddit.com/user/webnotepad',
-      color: '#ff4500',
-      bg: 'linear-gradient(145deg, #ff7a3d, #ff4500)',
     },
   ];
 
@@ -550,7 +544,7 @@
       color: #818cf8;
     }
 
-    /* Hide both widgets when tools sidebar is open */
+    /* Hide widgets when tools sidebar is open */
     body.tools-sidebar-open .social-floating-trigger,
     body.tools-sidebar-open .social-share-popup,
     body.tools-sidebar-open .social-toast,
@@ -725,36 +719,41 @@
       }
     }
 
-    /* ===== FOLLOW WIDGET — TOP MIDDLE-RIGHT ===== */
+    /* ===== FOLLOW WIDGET — MIDDLE LEFT, VERTICAL, SMALL ===== */
     .follow-widget {
       position: fixed;
-      top: 20px;
-      right: 24px;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
       z-index: 10000;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .follow-label {
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.68rem;
+      font-size: 0.55rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       color: var(--ink-muted, #6b6b85);
-      opacity: 0.8;
+      opacity: 0.75;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-bottom: 2px;
     }
 
     .follow-buttons {
       display: flex;
-      gap: 8px;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .follow-btn {
-      width: 40px;
-      height: 40px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -764,23 +763,15 @@
       position: relative;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                   box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       text-decoration: none;
-      overflow: hidden;
-    }
-    .follow-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      border-radius: 50%;
-      transition: opacity 0.3s ease;
+      overflow: visible;
     }
     .follow-btn:hover {
-      transform: translateY(-3px) scale(1.1);
+      transform: translateX(3px) scale(1.12);
     }
     .follow-btn:active {
-      transform: translateY(0) scale(0.95);
+      transform: translateX(0) scale(0.95);
     }
 
     /* Pinterest */
@@ -789,7 +780,7 @@
       color: #ffffff;
     }
     .follow-btn[data-platform="pinterest"]:hover {
-      box-shadow: 0 8px 24px rgba(230, 0, 35, 0.45);
+      box-shadow: 0 6px 18px rgba(230, 0, 35, 0.45);
     }
 
     /* X (Twitter) */
@@ -798,7 +789,7 @@
       color: #ffffff;
     }
     .follow-btn[data-platform="x"]:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
     }
 
     /* Reddit */
@@ -807,13 +798,13 @@
       color: #ffffff;
     }
     .follow-btn[data-platform="reddit"]:hover {
-      box-shadow: 0 8px 24px rgba(255, 69, 0, 0.45);
+      box-shadow: 0 6px 18px rgba(255, 69, 0, 0.45);
     }
 
     .follow-btn svg {
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 14px;
+      height: 14px;
       position: relative;
       z-index: 1;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -822,16 +813,17 @@
       transform: scale(1.15);
     }
 
-    /* Tooltip on hover */
+    /* Tooltip on hover — appears to the RIGHT of the button */
     .follow-btn::after {
       content: attr(aria-label);
       position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%) scale(0.8);
+      left: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%) scale(0.8);
+      transform-origin: left center;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 600;
       padding: 3px 8px;
       border-radius: 4px;
@@ -843,14 +835,14 @@
     }
     .follow-btn:hover::after {
       opacity: 1;
-      transform: translateX(-50%) scale(1);
+      transform: translateY(-50%) scale(1);
     }
 
     /* Hide follow widget when tools sidebar is open */
     body.tools-sidebar-open .follow-widget {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-20px) scale(0.9);
+      transform: translateY(-50%) translateX(-20px) scale(0.9);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -931,22 +923,21 @@
         font-size: 0.7rem;
       }
 
-      /* Follow widget on mobile */
+      /* Follow widget on mobile — still middle-left, slightly smaller */
       .follow-widget {
-        top: 12px;
-        right: 12px;
+        left: 8px;
         gap: 5px;
       }
       .follow-label {
-        font-size: 0.58rem;
+        font-size: 0.5rem;
       }
       .follow-btn {
-        width: 34px;
-        height: 34px;
+        width: 26px;
+        height: 26px;
       }
       .follow-btn svg {
-        width: 16px;
-        height: 16px;
+        width: 13px;
+        height: 13px;
       }
     }
 
@@ -1016,20 +1007,19 @@
 
       /* Follow widget on very small screens */
       .follow-widget {
-        top: 8px;
-        right: 8px;
+        left: 6px;
         gap: 4px;
       }
       .follow-label {
         display: none;
       }
       .follow-btn {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
       }
       .follow-btn svg {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
       }
     }
   `;
@@ -1377,5 +1367,5 @@
     }
   });
 
-  console.log('Social Share + Games + Follow Widgets initialized — follow buttons top right, games above sidebar trigger, social below.');
+  console.log('Social Share + Games + Follow Widgets initialized — follow buttons middle-left vertical, games above sidebar trigger, social below.');
 })();

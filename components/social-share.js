@@ -171,7 +171,7 @@
     /* Floating share trigger — positioned BELOW the tools sidebar trigger */
     .social-floating-trigger {
       position: fixed;
-      bottom: 120px;             /* below the tools sidebar trigger */
+      bottom: 68px;              /* clearly below the tools sidebar trigger (which sits at 120px) */
       right: 24px;
       z-index: 10001;
       width: 42px;               /* smaller button */
@@ -292,7 +292,7 @@
     /* Popup panel - vertical layout — positioned ABOVE the social trigger */
     .social-share-popup {
       position: fixed;
-      bottom: 170px;             /* above the social trigger */
+      bottom: 118px;             /* above the social trigger */
       right: 24px;
       z-index: 10002;
       background: var(--paper, #faf8f4);
@@ -648,7 +648,7 @@
     /* Toast notification */
     .social-toast {
       position: fixed;
-      bottom: 226px;             /* above the social popup */
+      bottom: 174px;             /* above the social popup */
       right: 24px;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
@@ -693,7 +693,7 @@
     /* Responsive */
     @media (max-width: 480px) {
       .social-floating-trigger {
-        bottom: 100px;           /* below tools trigger on mobile */
+        bottom: 52px;            /* clearly below tools trigger on mobile */
         right: 16px;
         width: 38px;
         height: 38px;
@@ -713,7 +713,7 @@
         height: 18px;
       }
       .social-share-popup {
-        bottom: 146px;
+        bottom: 98px;
         right: 16px;
         min-width: 150px;
         padding: 12px 12px 10px;
@@ -757,7 +757,7 @@
         font-size: 0.6rem;
       }
       .social-toast {
-        bottom: 200px;
+        bottom: 148px;
         right: 16px;
         font-size: 0.72rem;
         padding: 6px 14px;
@@ -770,7 +770,7 @@
 
     @media (max-width: 380px) {
       .social-floating-trigger {
-        bottom: 90px;
+        bottom: 44px;
         right: 12px;
         width: 34px;
         height: 34px;
@@ -790,7 +790,7 @@
         height: 16px;
       }
       .social-share-popup {
-        bottom: 134px;
+        bottom: 84px;
         right: 12px;
         min-width: 130px;
         padding: 10px 10px 8px;
@@ -827,6 +827,9 @@
         width: 22px;
         height: 22px;
         font-size: 0.85rem;
+      }
+      .social-toast {
+        bottom: 128px;
       }
     }
   `;
@@ -1143,5 +1146,5 @@
     }
   });
 
-  console.log('Social Share + Games Widgets initialized — games above sidebar trigger, social below.');
+  console.log('Social Share + Games Widgets initialized — games above sidebar trigger, social below (no overlap).');
 })();

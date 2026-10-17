@@ -173,53 +173,6 @@
     return `<a href="${targetUrl}" class="nav-link" style="padding-left: 32px; ${activeClass}">• ${lang.label}</a>`;
   }).join('');
 
-  let megaMenuColsHTML = '';
-  
-  toolCategories.forEach((category) => {
-    megaMenuColsHTML += `
-      <div class="mega-col">
-        <div class="mega-col-title">${category.name}</div>
-        <div class="mega-col-tools">
-          ${category.tools.map(tool => `
-            <a href="${tool.url}" class="mega-tool">
-              <span class="mega-tool-icon">${tool.svg}</span>
-              <span class="mega-tool-text">
-                <span class="mega-tool-name">${tool.name}</span>
-                <span class="mega-tool-desc">${tool.desc}</span>
-              </span>
-            </a>
-          `).join('')}
-        </div>
-      </div>
-    `;
-  });
-
-  megaMenuColsHTML += `
-    <div class="mega-col mega-col-games">
-      <div class="mega-col-title">🎮 Games</div>
-      <div class="mega-col-tools">
-        ${GAMES.map(game => `
-          <a href="${game.url}" class="mega-tool mega-tool-game">
-            <span class="mega-tool-icon mega-tool-icon-game">${game.emoji}</span>
-            <span class="mega-tool-text">
-              <span class="mega-tool-name">${game.name}</span>
-              <span class="mega-tool-desc">${game.desc}</span>
-            </span>
-          </a>
-        `).join('')}
-        <a href="/games" class="mega-tool mega-tool-all-games">
-          <span class="mega-tool-icon mega-tool-icon-game">🎯</span>
-          <span class="mega-tool-text">
-            <span class="mega-tool-name">All Games</span>
-            <span class="mega-tool-desc">See every game in one hub</span>
-          </span>
-        </a>
-      </div>
-    </div>
-  `;
-
-  const megaMenuHTML = megaMenuColsHTML;
-
   const mobileToolsHTML = toolCategories.map((category, idx) => `
     <div class="mobile-tools-group">
       <button class="mobile-tools-toggle" data-target="mob-tools-${idx}" aria-expanded="false">
@@ -278,14 +231,7 @@
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
-          <div class="dropdown" id="megaDropdown">
-            <button class="dropdown-btn nav-link" id="megaDropdownBtn" aria-expanded="false" aria-haspopup="true">All Tools ▼</button>
-            <div class="mega-menu" id="megaMenu" role="menu">
-              <div class="mega-grid">
-                ${megaMenuHTML}
-              </div>
-            </div>
-          </div>
+          <a href="/all-tools" class="nav-link">All Tools</a>
           <a href="/games" class="nav-link">Games</a>
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
@@ -315,12 +261,7 @@
           ${mobileLangLinks}
         </div>
       </div>
-      <div class="mobile-dropdown">
-        <button class="mobile-dropdown-btn">📁 All Tools ▼</button>
-        <div class="mobile-dropdown-content mobile-tools-list">
-          ${mobileToolsHTML}
-        </div>
-      </div>      
+      <a href="/all-tools" class="nav-link">📁 All Tools</a>
       <a href="/diary" class="nav-link">🔄 Diary</a>
       <a href="/mindmap" class="nav-link">👥 MindMap</a>
       <a href="/list-maker" class="nav-link">❓ List Maker</a>
@@ -354,46 +295,6 @@
         localStorage.setItem('webnotepad_dark', isDark ? '1' : '0');
         const editorDarkBtn = document.getElementById('darkModeBtn');
         if (editorDarkBtn) editorDarkBtn.textContent = isDark ? '☀️' : '🌙';
-      });
-    }
-
-    const megaDropdown = document.getElementById('megaDropdown');
-    const megaDropdownBtn = document.getElementById('megaDropdownBtn');
-    const megaMenu = document.getElementById('megaMenu');
-
-    function closeMegaMenu() {
-      if (!megaMenu) return;
-      megaMenu.classList.remove('show');
-      megaDropdownBtn.setAttribute('aria-expanded', 'false');
-      megaDropdownBtn.textContent = 'All Tools ▼';
-    }
-
-    function openMegaMenu() {
-      if (!megaMenu) return;
-      megaMenu.classList.add('show');
-      megaDropdownBtn.setAttribute('aria-expanded', 'true');
-      megaDropdownBtn.textContent = 'All Tools ▲';
-    }
-
-    if (megaDropdownBtn && megaMenu) {
-      megaDropdownBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = megaMenu.classList.contains('show');
-        if (isOpen) closeMegaMenu();
-        else openMegaMenu();
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!megaDropdown.contains(e.target)) closeMegaMenu();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMegaMenu();
-      });
-
-      megaMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => closeMegaMenu());
       });
     }
 
@@ -497,189 +398,6 @@
         color: var(--ink);
         border-color: var(--paper-edge);
       }
-
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-      .dropdown-btn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: inherit;
-      }
-
-      .mega-menu {
-        display: none;
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 50%;
-        transform: translateX(-50%) translateY(-6px);
-        width: min(1280px, 96vw);
-        max-height: none;
-        overflow-y: visible;
-        background-color: var(--paper);
-        border: 1px solid var(--paper-edge);
-        border-radius: 20px;
-        box-shadow: 0 28px 70px -14px rgba(0,0,0,0.22), 0 8px 22px -6px rgba(0,0,0,0.08);
-        z-index: 1200;
-        padding: 30px 32px 26px;
-        opacity: 0;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-      }
-      .mega-menu.show {
-        display: block;
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-
-      .mega-menu::before {
-        content: "";
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%) rotate(45deg);
-        width: 14px;
-        height: 14px;
-        background: var(--paper);
-        border-left: 1px solid var(--paper-edge);
-        border-top: 1px solid var(--paper-edge);
-      }
-
-      .mega-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 24px 28px;
-        align-items: start;
-      }
-
-      .mega-col {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        min-width: 0;
-      }
-      .mega-col-title {
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--ink-muted);
-        padding-bottom: 8px;
-        border-bottom: 2px solid var(--paper-edge);
-        opacity: 0.85;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .mega-col-tools {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .mega-tool {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 9px 10px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: var(--ink);
-        background: rgba(0,0,0,0.01);
-        border: 1px solid transparent;
-        transition: all 0.2s ease;
-        min-width: 0;
-      }
-      .mega-tool:hover {
-        background: var(--paper-warm);
-        border-color: var(--paper-edge);
-        color: var(--accent);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      }
-      .mega-tool-icon {
-        flex-shrink: 0;
-        width: 34px;
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--paper-warm);
-        border-radius: 8px;
-        border: 1px solid var(--paper-edge);
-        transition: border-color 0.2s ease, background 0.2s ease;
-      }
-      .mega-tool-icon svg { width: 20px; height: 20px; display: block; }
-      .mega-tool:hover .mega-tool-icon { background: var(--paper); border-color: var(--accent); }
-
-      .mega-tool-text {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        line-height: 1.3;
-      }
-      .mega-tool-name {
-        font-size: 0.88rem;
-        font-weight: 600;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .mega-tool-desc {
-        font-size: 0.72rem;
-        color: var(--ink-muted);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .mega-col-games .mega-col-title {
-        color: #4f46e5;
-      }
-      body.dark .mega-col-games .mega-col-title {
-        color: #818cf8;
-      }
-      .mega-tool-game .mega-tool-icon-game {
-        background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
-        border-color: rgba(99, 102, 241, 0.25);
-        font-size: 1.05rem;
-      }
-      .mega-tool-game:hover .mega-tool-icon-game {
-        background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
-        border-color: #6366f1;
-      }
-      .mega-tool-all-games {
-        margin-top: 4px;
-        border-top: 1px dashed var(--paper-edge);
-        padding-top: 10px;
-        color: #4f46e5;
-        font-weight: 600;
-      }
-      .mega-tool-all-games:hover {
-        color: #4338ca;
-      }
-      body.dark .mega-tool-all-games {
-        color: #818cf8;
-      }
-      body.dark .mega-tool-all-games:hover {
-        color: #a5b4fc;
-      }
-
-      body.dark .mega-menu {
-        background-color: var(--paper);
-        border-color: var(--paper-edge);
-        box-shadow: 0 28px 70px -14px rgba(0,0,0,0.6);
-      }
-      body.dark .mega-menu::before {
-        background: var(--paper);
-        border-color: var(--paper-edge);
-      }
-      body.dark .mega-col-title { color: var(--ink-muted); }
-      body.dark .mega-tool { color: var(--ink); background: rgba(255,255,255,0.01); }
-      body.dark .mega-tool:hover { background: var(--paper-warm); border-color: var(--paper-edge); color: var(--accent); }
-      body.dark .mega-tool-icon { background: var(--paper-warm); border-color: var(--paper-edge); }
 
       .mobile-dropdown { width: 100%; }
       .mobile-dropdown-btn {
@@ -805,18 +523,7 @@
       body.dark .mobile-tool-link { color: var(--ink) !important; }
       body.dark .mobile-tool-link:hover { background: var(--paper-warm); color: var(--accent) !important; }
 
-      @media (max-width: 1180px) {
-        .mega-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .mega-menu { width: min(980px, 96vw); }
-      }
-
-      @media (max-width: 900px) {
-        .mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .mega-menu { width: min(680px, 96vw); }
-      }
-
       @media (max-width: 768px) {
-        .header-nav .dropdown { display: none; }
         .header-inner { padding: 0 8px; }
         .header-logo { gap: 6px; }
         .header-logo span {
@@ -830,11 +537,6 @@
           padding: 2px 2px;
           font-size: 1rem;
         }
-      }
-
-      @media (max-width: 480px) {
-        .mega-menu { padding: 16px; }
-        .mega-grid { grid-template-columns: 1fr; }
       }
 
       body.dark .mobile-dropdown-btn { color: var(--ink); }

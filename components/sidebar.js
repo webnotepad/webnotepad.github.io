@@ -715,35 +715,14 @@
       overflow: hidden;
     }
 
-    /* In-feed ad slot — spans both category columns */
-    .tools-sb-ad-infeed {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      padding: 16px 0;
-      margin: 8px 0;
-      border-top: 1px dashed var(--paper-edge);
-      border-bottom: 1px dashed var(--paper-edge);
-      min-height: 286px;
-    }
-    .tools-sb-ad-infeed .tools-sb-ad-label {
-      align-self: center;
-      text-align: center;
-    }
-    .tools-sb-ad-infeed .tools-sb-ad-frame {
-      background: var(--paper);
-    }
-
-    /* Scrollable body — categories in TWO COLUMNS */
+    /* Scrollable body — categories in THREE COLUMNS */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
       padding: 20px 28px 36px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px 20px;
       align-content: start;
       overscroll-behavior: contain;
     }
@@ -752,25 +731,25 @@
     .tools-sb-category-block {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       min-width: 0;
     }
 
     /* Category Section Headers */
     .tools-sb-category {
       font-family: var(--font-display);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--ink-muted);
-      padding-bottom: 8px;
+      padding-bottom: 7px;
       border-bottom: 1px solid var(--paper-edge);
       opacity: 0.75;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: 6px;
     }
     .tools-sb-category > span:first-child {
       overflow: hidden;
@@ -778,7 +757,7 @@
       white-space: nowrap;
     }
     .tools-sb-category-count {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 500;
       color: var(--ink-muted);
       opacity: 0.6;
@@ -786,22 +765,22 @@
       flex-shrink: 0;
     }
 
-    /* Tools row — side-by-side inside each category */
+    /* Tools row — compact boxes, 2 per row inside each category column */
     .tools-sb-category-tools {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
 
-    /* Compact Tool Box */
+    /* Compact Tool Box (matches header dropdown density) */
     .tools-sb-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      gap: 7px;
-      padding: 14px 10px 12px;
+      gap: 5px;
+      padding: 9px 6px 8px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -832,7 +811,7 @@
     .tools-sb-item:hover {
       background: var(--paper);
       border-color: var(--accent);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
     .tools-sb-item:hover::before {
@@ -845,10 +824,10 @@
 
     /* Compact icon container */
     .tools-sb-item-icon {
-      width: 44px;
-      height: 44px;
+      width: 32px;
+      height: 32px;
       background: var(--paper);
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -858,14 +837,14 @@
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
       background: var(--accent-pale);
       border-color: var(--accent);
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
     body.dark .tools-sb-item:hover .tools-sb-item-icon {
       background: rgba(196,86,42,0.15);
@@ -876,17 +855,17 @@
       min-width: 0;
     }
     .tools-sb-item-name {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       font-weight: 600;
       color: var(--ink);
-      line-height: 1.2;
+      line-height: 1.15;
       word-break: break-word;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .tools-sb-item-desc {
-      font-size: 0.63rem;
+      font-size: 0.56rem;
       color: var(--ink-muted);
-      line-height: 1.35;
+      line-height: 1.3;
       word-break: break-word;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -904,7 +883,7 @@
     .tools-sb-item-game .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
       border-color: rgba(99, 102, 241, 0.25);
-      font-size: 1.15rem;
+      font-size: 1rem;
     }
     .tools-sb-item-game:hover .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
@@ -912,8 +891,8 @@
     }
     .tools-sb-item-all-games {
       border-top: 1px dashed var(--paper-edge);
-      margin-top: 4px;
-      padding-top: 10px;
+      margin-top: 2px;
+      padding-top: 8px;
       color: #4f46e5 !important;
       font-weight: 600;
     }
@@ -1030,6 +1009,12 @@
     }
 
     /* ---------- Responsive adjustments ---------- */
+    @media (max-width: 1100px) {
+      .tools-sb-body {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 900px) {
       .tools-fixed-sidebar {
         width: 100%;
@@ -1042,11 +1027,11 @@
       }
       .tools-sb-body {
         padding: 16px 20px 28px;
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
       .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
       .tools-sb-scroll-arrow {
         bottom: 18px;
@@ -1085,37 +1070,30 @@
         gap: 14px;
       }
       .tools-sb-category-tools {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 6px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
       }
       .tools-sb-item {
-        padding: 10px 6px 8px;
+        padding: 9px 6px 8px;
         gap: 5px;
       }
       .tools-sb-item-icon {
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
       }
       .tools-sb-item-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
       }
       .tools-sb-item-name {
-        font-size: 0.7rem;
+        font-size: 0.66rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.58rem;
+        font-size: 0.55rem;
       }
       .tools-sb-ad-frame {
         width: 300px;
         min-height: 250px;
-      }
-      /* Keep second ad container visible with minimum height on mobile */
-      .tools-sb-ad-infeed {
-        min-height: 270px;
-        display: flex !important;
-        visibility: visible !important;
-        margin: 12px 0;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -1152,9 +1130,6 @@
   // 5. Generate the DOM structural markup dynamically
   const rootContainer = document.getElementById("tools-sidebar-root");
   if (!rootContainer) return;
-
-  // 🧰 Toolbox icon for the floating trigger
-  const toolboxSvg = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.6"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`;
 
   const triggerEmoji = "🧰";
 
@@ -1221,7 +1196,7 @@
   newLeftTools.forEach(t => leftNewContainer.appendChild(buildNewToolCard(t)));
   newRightTools.forEach(t => rightNewContainer.appendChild(buildNewToolCard(t)));
 
-  // Reusable ad injection helper (kept — advertisement preserved)
+  // Reusable ad injection helper (top banner ad only)
   function injectAdInto(container) {
     if (!container) return;
 
@@ -1250,13 +1225,10 @@
   // Load top banner ad immediately
   injectAdInto(adFrame);
 
-  // Populate categories inside sidebar body
-  const INFEED_AD_AFTER_CATEGORY = Math.ceil(categories.length / 2);
-
+  // Populate categories inside sidebar body (three columns)
   let toolIndex = 0;
-  let infeedAdRendered = false;
 
-  categories.forEach((category, catIdx) => {
+  categories.forEach((category) => {
     const catBlock = document.createElement("div");
     catBlock.className = "tools-sb-category-block";
 
@@ -1290,18 +1262,6 @@
 
     catBlock.appendChild(toolsRow);
     sidebarBody.appendChild(catBlock);
-
-    // Insert in-feed ad (lazy) after the middle category
-    if (catIdx + 1 === INFEED_AD_AFTER_CATEGORY && !infeedAdRendered) {
-      infeedAdRendered = true;
-      const infeed = document.createElement("div");
-      infeed.className = "tools-sb-ad-infeed";
-      infeed.innerHTML = `
-        <span class="tools-sb-ad-label">Advertisement</span>
-        <div class="tools-sb-ad-frame" id="toolsSidebarAdFrameInfeed"></div>
-      `;
-      sidebarBody.appendChild(infeed);
-    }
   });
 
   // ── Games category (mirrors header) ──
@@ -1353,34 +1313,6 @@
 
   gamesBlock.appendChild(gamesRow);
   sidebarBody.appendChild(gamesBlock);
-
-  // Lazy-load in-feed ad
-  const infeedFrame = document.getElementById("toolsSidebarAdFrameInfeed");
-
-  if (infeedFrame && "IntersectionObserver" in window) {
-    let infeedLoaded = false;
-
-    const adObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !infeedLoaded) {
-            infeedLoaded = true;
-            injectAdInto(infeedFrame);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        root: sidebarBody,
-        rootMargin: "250px 0px",
-        threshold: 0
-      }
-    );
-
-    adObserver.observe(infeedFrame);
-  } else if (infeedFrame) {
-    setTimeout(() => injectAdInto(infeedFrame), 1500);
-  }
 
   // Active Structural Interface Controls and Handlers
   let isSidebarOpen = false;

@@ -1,36 +1,136 @@
-# WebNotePad – Free Online Notepad
+# WebNotePad – Free Online Notepad, Productivity Tools & Games
 
-> A clean, distraction‑free text editor that runs entirely in your browser. No sign‑up, no downloads, no account. Auto‑saves every keystroke to local storage, works offline, supports rich text formatting, multiple notes, export to TXT/HTML, dark mode, and live word/character counts. 100% free forever.
+> A clean, privacy-first suite of free browser-based tools. No sign-up, no downloads, no accounts. Everything runs client-side with local storage. Data never leaves your device.
 
-## Quick Links
-- [Editor](https://webnotepad.github.io/): The main writing area — open, type, and save instantly.
-- [Features](#features): Auto‑save, dark mode, rich text formatting, multiple notes, find & replace, export, live stats, offline mode, fullscreen.
-- [Use Cases](#use-cases): Students, professionals, writers, developers, everyday users, creatives.
-- [About / Story](#story): Why WebNotePad was built — no data collection, no monetization, just a tool that works.
+Website: https://webnotepad.github.io  
+Source: https://github.com/webnotepad/webnotepad.github.io
 
-## Key Features
-- **Instant Auto‑Save** — Every keystroke is saved to your browser’s local storage. Close the tab accidentally? Your notes are safe.[reference:0]
-- **Dark Mode** — Toggle between light and dark themes to protect your eyes during late‑night writing.[reference:1]
-- **Rich Text Formatting** — Bold, italic, underline, lists, alignment, font sizes, and text color — real formatting without the complexity.[reference:2]
-- **Multiple Notes** — Create unlimited notes, switch between them instantly. Each note has its own title, content, and formatting.[reference:3]
-- **Find & Replace** — Powerful inline search. Find any word or phrase and replace it in one click, or replace all instances at once.[reference:4]
-- **Export Options** — Download your notes as clean `.txt` or formatted `.html` files with one click.[reference:5]
-- **Live Stats** — Real‑time word count, character count, line count, and reading time estimate shown in the status bar.[reference:6]
-- **Works Offline** — Once loaded, WebNotePad runs entirely in your browser. No internet needed. Your notes are stored locally.[reference:7]
-- **Fullscreen Mode** — Enter a distraction‑free fullscreen writing environment with a single click.[reference:8]
+## Core Writing Apps
 
-## Who Uses WebNotePad
-- **Students** — Class notes, essays, study points — fast, clean, and distraction‑free.[reference:9]
-- **Professionals** — Draft quick memos, track meeting action items, write project briefs, or store temporary code snippets.[reference:10]
-- **Writers & Bloggers** — Capture ideas, write first drafts, brainstorm outlines, or store quotes — without the editor getting in the way.[reference:11]
-- **Developers** — Paste snippets, write quick docs, store API keys temporarily, or jot down terminal commands.[reference:12]
-- **Everyday Users** — Shopping lists, to‑do items, phone numbers, recipes, passwords — anything you need to jot down fast and access instantly.[reference:13]
-- **Creatives** — Brainstorm ideas, write song lyrics, script dialogue, capture fleeting inspiration before it slips away.[reference:14]
+- [Notepad Online](https://webnotepad.github.io/) – Rich-text editor with instant auto-save, multiple notes, dark mode, find & replace, export to TXT/HTML, live stats, fullscreen, offline support.
+- [Diary](https://webnotepad.github.io/diary) – Private daily journal with dated entries and rich text.
+- [Focus Writer](https://webnotepad.github.io/focus-writer) – Minimalist zen writing mode with real-time word count.
+- [Memo Notepad](https://webnotepad.github.io/memo-notepad) – Quick sticky notes, to-dos and short memos.
+- [WordPad Online](https://webnotepad.github.io/wordpad) – Classic-style rich text editor.
+- [Markdown Editor](https://webnotepad.github.io/markdown-editor) – Live Markdown preview and editing.
+- [Meeting Notes](https://webnotepad.github.io/meeting-notes) – Structured notes for meetings and action items.
+- [Teleprompter](https://webnotepad.github.io/teleprompter) – Script reader with adjustable speed and font size.
+- [Bionic Reader](https://webnotepad.github.io/bionic-reader) – Convert text into bionic reading format for faster comprehension.
+- [Reading List](https://webnotepad.github.io/reading-list) – Track books and articles you want to read.
 
-## FAQ
-- **Is it really free?** Yes, 100% free forever. No sign‑up, no hidden costs, no monetization of your attention.[reference:15]
-- **Do you store my notes on your servers?** No. Your notes live in your browser’s local storage. We don’t collect your data or read your notes.[reference:16]
-- **Does it work offline?** Yes. Once the page loads, it runs entirely in your browser. No internet connection is required.[reference:17]
-- **Can I export my notes?** Yes — download as `.txt` or formatted `.html` with one click.[reference:18]
-- **How many notes can I create?** Unlimited. Create as many as you need and switch between them instantly.[reference:19]
-- **Does it have dark mode?** Yes — toggle between light and dark themes to protect your eyes.[reference:20]
+## Text Analysis & Manipulation
+
+- [Case Converter](https://webnotepad.github.io/case-converter) – Uppercase, lowercase, title case, sentence case, and more.
+- [Word Counter](https://webnotepad.github.io/word-counter) – Words, characters, sentences, paragraphs, reading time.
+- [Readability Analyzer](https://webnotepad.github.io/readability) – Reading ease, grade level and complexity scores.
+- [Word Shuffler](https://webnotepad.github.io/word-shuffler) – Randomize word order for creative prompts.
+- [Special Character Converter](https://webnotepad.github.io/special-character-converter) – Convert special / accented characters.
+- [Text Diff](https://webnotepad.github.io/text-diff) – Compare two texts and highlight differences.
+- [Typing Test](https://webnotepad.github.io/typing-test) – Measure typing speed (WPM) and accuracy.
+
+## Idea Organization & Visualization
+
+- [MindMap](https://webnotepad.github.io/mindmap) – Interactive mind-mapping board for brainstorming.
+- [List Maker](https://webnotepad.github.io/list-maker) – Checklists, to-dos and bullet lists with drag-and-drop.
+- [Study Planner](https://webnotepad.github.io/study-planner) – Plan study sessions, assignments and exam prep.
+
+## Creativity & Generators
+
+- [Random Text Generator](https://webnotepad.github.io/random-text) – Placeholder paragraphs, sentences or words.
+- [Word Cloud Generator](https://webnotepad.github.io/word-cloud) – Visual word clouds with customizable colors and fonts.
+- [Choice Maker / Decision Wheel](https://webnotepad.github.io/choice-maker) – Spin a wheel, flip a coin or randomize options.
+- [Random Name Generator](https://webnotepad.github.io/random-name-generator) – Generate names for characters, projects, etc.
+- [Password Generator](https://webnotepad.github.io/password-generator) – Strong random passwords with customizable options.
+- [QR Code Generator](https://webnotepad.github.io/qr-code-generator) – Create QR codes from any text or URL.
+- [Emoji Picker](https://webnotepad.github.io/emoji-picker) – Search, browse and copy emojis.
+- [Business Card Generator](https://webnotepad.github.io/business-card-generator) – Design simple digital business cards.
+- [Invoice Generator](https://webnotepad.github.io/invoice-generator) – Create professional invoices in the browser.
+- [Resume Builder](https://webnotepad.github.io/resume-builder) – Build and export a clean resume.
+
+## Word & Puzzle Helpers
+
+- [Word Finder](https://webnotepad.github.io/word-finder) – Anagrams, word search helpers and vocabulary tools.
+- [Crossword Solver](https://webnotepad.github.io/crossword-solver) – Clue helper and word finder for crosswords.
+- [Word Search Solver](https://webnotepad.github.io/word-search-solver) – Find hidden words in letter grids.
+- [Contexto Hints](https://webnotepad.github.io/contexto-hints) – Helper for Contexto-style word games.
+
+## Productivity & Habit Tools
+
+- [Pomodoro Timer](https://webnotepad.github.io/pomodoro-timer) – Customizable work/break intervals with alerts.
+- [Habit Tracker](https://webnotepad.github.io/habit-tracker) – Visual calendar and streak tracking.
+- [Click Speed Test](https://webnotepad.github.io/click-speed-test) – Measure clicks per second.
+
+## Image Tools
+
+- [Image Compressor](https://webnotepad.github.io/image-compressor)
+- [Image Converter](https://webnotepad.github.io/image-converter)
+- [Image Crop](https://webnotepad.github.io/image-crop)
+- [Image Flip](https://webnotepad.github.io/image-flip)
+- [Image Resizer](https://webnotepad.github.io/image-resizer)
+- [Image to PDF](https://webnotepad.github.io/image-to-pdf)
+- [Color Converter](https://webnotepad.github.io/color-converter)
+
+## PDF Tools
+
+- [PDF Merger](https://webnotepad.github.io/pdf-merger)
+- [PDF Splitter](https://webnotepad.github.io/pdf-splitter)
+
+## Calculators
+
+- [Age Calculator](https://webnotepad.github.io/age-calculator) – Exact age, next birthday, zodiac, milestones.
+- [BMI Calculator](https://webnotepad.github.io/bmi-calculator) – Body Mass Index with WHO categories.
+- [Fuel Cost Calculator](https://webnotepad.github.io/fuel-cost-calculator) – Trip cost from distance, efficiency and price.
+- [Paint Calculator](https://webnotepad.github.io/paint-calculator) – Paint needed for rooms (metric/imperial).
+- [Percentage Calculator](https://webnotepad.github.io/percentage-calculator) – Percent of, change, difference, reverse.
+- [Sleep Calculator](https://webnotepad.github.io/sleep-calculator) – Ideal bedtime/wake times based on 90-min cycles.
+- [Unit Converter](https://webnotepad.github.io/unit-converter)
+- [Roof Pitch Calculator](https://webnotepad.github.io/roof-pitch-calculator)
+
+## Free Online Games
+
+All games are free, no signup, mobile-friendly, work offline once loaded, progress saved locally.
+
+- [2048](https://webnotepad.github.io/2048)
+- [Connections Unlimited](https://webnotepad.github.io/connections-unlimited)
+- [Crossword Puzzle](https://webnotepad.github.io/crossword-puzzle)
+- [Memory Match](https://webnotepad.github.io/memory-match)
+- [Minesweeper](https://webnotepad.github.io/minesweeper)
+- [Spelling Bee Unlimited](https://webnotepad.github.io/spelling-bee-unlimited)
+- [Sudoku](https://webnotepad.github.io/sudoku)
+- [Tic-Tac-Toe](https://webnotepad.github.io/tic-tac-toe)
+- [Word Search](https://webnotepad.github.io/word-search)
+- [Wordle Unlimited](https://webnotepad.github.io/wordle-unlimited)
+
+Games hub: https://webnotepad.github.io/games
+
+## Hub Pages
+
+- [All Tools](https://webnotepad.github.io/all-tools) – Complete catalog of every tool and app.
+- [Games](https://webnotepad.github.io/games) – All free browser games in one place.
+- [Blog](https://webnotepad.github.io/blog) – Articles on productivity, note-taking, privacy and tools.
+
+## Key Principles
+
+- 100% free forever – no accounts, no subscriptions, no paywalls.
+- Privacy by default – all data stays in the browser’s local storage.
+- Works offline after first load.
+- No tracking of note content or game progress on servers.
+- Mobile-responsive and works on modern browsers (Chrome, Firefox, Safari, Edge, Opera).
+
+## Contact & About
+
+- About: https://webnotepad.github.io/about
+- Contact: https://webnotepad.github.io/contact
+- Founder: Aansa Waqas (web developer & SEO specialist based in Pakistan)
+- Email: aansawaqas50@gmail.com
+
+## Localized Versions
+
+Main notepad and diary available in:
+- Danish: https://webnotepad.github.io/da/
+- German: https://webnotepad.github.io/de/
+- Finnish: https://webnotepad.github.io/fi/
+- French: https://webnotepad.github.io/fr/
+- Dutch: https://webnotepad.github.io/nl/
+- Polish: https://webnotepad.github.io/pl/
+- Swedish: https://webnotepad.github.io/sv/

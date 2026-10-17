@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Nerdle Unlimited – Free Online Math Equation Game | WebNotePad</title>
+  <meta name="description" content="Play Nerdle Unlimited free! Guess the hidden math equation in 6 tries. Numbers, operators, and equals sign. Advanced stats, dark mode, mobile-friendly, no signup." />
+  <meta name="keywords" content="nerdle, nerdle unlimited, nerdle game, math equation game, math puzzle, number game, free math game, online nerdle, arithmetic puzzle, brain teaser" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/nerdle-unlimited" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/nerdle-unlimited" />
+  <meta property="og:title" content="Nerdle Unlimited – Free Online Math Equation Game" />
+  <meta property="og:description" content="Guess the hidden math equation in 6 tries. Free, no signup, mobile-friendly Nerdle game with stats and dark mode." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nerdle Unlimited – Free Online Math Equation Game" />
+  <meta name="twitter:description" content="Guess the hidden math equation in 6 tries. Free, no signup, mobile-friendly." />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Nerdle Unlimited",
+    "url": "https://webnotepad.github.io/nerdle-unlimited",
+    "description": "A free online Nerdle game where you guess a hidden arithmetic equation in 6 attempts. Includes color-coded feedback, on-screen keyboard, dark mode, and game statistics.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Guess hidden math equations",
+      "6 attempts per game",
+      "Color-coded feedback (green, purple, gray)",
+      "On-screen keyboard",
+      "Dark mode toggle",
+      "Game statistics (wins, streaks, guesses)",
+      "Mobile-friendly responsive design",
+      "No signup required",
+      "Free forever"
+    ],
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Nerdle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nerdle is a math-based word puzzle game where you guess a hidden arithmetic equation in 6 tries. The equation contains numbers, operators (+, -, *, /), and an equals sign. Color-coded tiles give you clues after each guess." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Nerdle Unlimited free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Nerdle Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many guesses do you get in Nerdle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You get 6 guesses to solve the hidden equation. Every guess must be a valid arithmetic equation that evaluates correctly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I play Nerdle on my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The game is fully responsive and works on smartphones and tablets. Use the on-screen keyboard to enter numbers and operators." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do the colors mean in Nerdle?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Green means the character is correct and in the right position. Purple means the character is in the equation but in the wrong position. Gray means the character is not in the equation." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Nerdle use order of operations?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, Nerdle follows the standard order of operations (BODMAS/PEMDAS). Multiplication and division are evaluated before addition and subtraction." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== NERDLE THEME ===== */
+    :root {
+      --nd-accent: #7c3aed;
+      --nd-accent-light: #a78bfa;
+      --nd-accent-pale: #f5f3ff;
+      --nd-surface: #faf8f4;
+      --nd-border: #e8e2d6;
+      --nd-ink: #1a1a2e;
+      --nd-muted: #6b6b85;
+      --nd-warm: #f4f0e8;
+      --nd-radius: 8px;
+      --nd-radius-lg: 14px;
+      --nd-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+      --nd-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --nd-correct: #16a34a;
+      --nd-present: #9333ea;
+      --nd-absent: #9ca3af;
+      --nd-key-bg: #d1d5db;
+      --nd-key-text: #1a1a2e;
+      --nd-tile-empty: #ffffff;
+    }
+
+    body.dark {
+      --nd-accent: #a78bfa;
+      --nd-accent-light: #c4b5fd;
+      --nd-accent-pale: #1e1a2e;
+      --nd-surface: #141418;
+      --nd-border: #2a2a34;
+      --nd-ink: #e8e4dc;
+      --nd-muted: #8a8678;
+      --nd-warm: #1c1c22;
+      --nd-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      --nd-correct: #4ade80;
+      --nd-present: #c084fc;
+      --nd-absent: #6b7280;
+      --nd-key-bg: #3a3a44;
+      --nd-key-text: #e8e4dc;
+      --nd-tile-empty: #1c1c22;
+    }
+
+    /* ===== HERO ===== */
+    .nd-hero {
+      position: relative;
+      min-height: 18vh;
+      display: flex;
+      align-items: center;
+      padding: 16px 0 12px;
+      overflow: hidden;
+      background: var(--nd-surface);
+      transition: background var(--nd-transition);
+    }
+    .nd-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--nd-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--nd-border) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    body.dark .nd-hero-bg { opacity: 0.1; }
+    .nd-hero-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, var(--nd-accent-pale) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    body.dark .nd-hero-glow { opacity: 0.35; }
+    .nd-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .nd-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--nd-accent-pale);
+      color: var(--nd-accent);
+      border: 1px solid var(--nd-accent);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.5s ease both;
+    }
+    body.dark .nd-hero-badge { background: rgba(167, 139, 250, 0.18); }
+    .nd-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--nd-ink);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      animation: fadeInDown 0.6s 0.1s ease both;
+    }
+    .nd-hero-accent {
+      color: var(--nd-accent);
+      font-style: italic;
+    }
+    .nd-hero-sub {
+      font-size: 0.9rem;
+      color: var(--nd-muted);
+      max-width: 560px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      animation: fadeInDown 0.6s 0.2s ease both;
+    }
+    .nd-hero-cta {
+      animation: fadeInDown 0.6s 0.3s ease both;
+      margin-bottom: 16px;
+    }
+    .nd-hero-demo {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      animation: fadeInDown 0.6s 0.4s ease both;
+    }
+    .nd-demo-chip {
+      padding: 7px 16px;
+      background: var(--nd-warm);
+      border: 1px solid var(--nd-border);
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--nd-ink);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      transition: all var(--nd-transition);
+      cursor: default;
+      white-space: nowrap;
+    }
+    .nd-demo-chip:hover {
+      background: var(--nd-accent-pale);
+      border-color: var(--nd-accent);
+      color: var(--nd-accent);
+    }
+
+    /* ===== GAME SECTION ===== */
+    .nd-game-section {
+      padding: 0 0 64px;
+      background: var(--nd-surface);
+      transition: background var(--nd-transition);
+    }
+    .nd-game-shell {
+      background: var(--nd-warm);
+      border: 1px solid var(--nd-border);
+      border-radius: var(--nd-radius-lg);
+      box-shadow: var(--nd-shadow);
+      overflow: hidden;
+      transition: all var(--nd-transition);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .nd-game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--nd-border);
+      background: var(--nd-surface);
+      flex-wrap: wrap;
+    }
+    .nd-game-title {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--nd-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nd-game-title .nd-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--nd-accent);
+      display: inline-block;
+      animation: ndPulse 2s infinite;
+    }
+    @keyframes ndPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.6); }
+    }
+    .nd-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nd-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--nd-radius);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all var(--nd-transition);
+      white-space: nowrap;
+      border: 2px solid transparent;
+      background: transparent;
+      color: var(--nd-ink);
+    }
+    .nd-btn-primary {
+      background: var(--nd-accent);
+      color: #ffffff;
+      border-color: var(--nd-accent);
+    }
+    .nd-btn-primary:hover {
+      background: var(--nd-accent-light);
+      border-color: var(--nd-accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+    }
+    .nd-btn-icon {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--nd-radius);
+      background: var(--nd-surface);
+      border: 1px solid var(--nd-border);
+      color: var(--nd-ink);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--nd-transition);
+    }
+    .nd-btn-icon:hover {
+      background: var(--nd-accent-pale);
+      border-color: var(--nd-accent);
+      color: var(--nd-accent);
+    }
+
+    /* Stats bar */
+    .nd-stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 18px;
+      background: var(--nd-surface);
+      border-bottom: 1px solid var(--nd-border);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--nd-muted);
+      flex-wrap: wrap;
+    }
+    .nd-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nd-stat-value {
+      font-weight: 700;
+      color: var(--nd-ink);
+      font-size: 0.85rem;
+    }
+    .nd-stat-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--nd-border);
+    }
+
+    /* Board */
+    .nd-board-wrap {
+      padding: 20px 16px 12px;
+      display: flex;
+      justify-content: center;
+    }
+    .nd-board {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 6px;
+      width: 100%;
+      max-width: 460px;
+    }
+    .nd-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 6px;
+    }
+    .nd-tile {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: clamp(1rem, 4vw, 1.6rem);
+      font-weight: 700;
+      color: var(--nd-ink);
+      background: var(--nd-tile-empty);
+      border: 2px solid var(--nd-border);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      user-select: none;
+      line-height: 1;
+    }
+    .nd-tile.nd-filled {
+      border-color: var(--nd-muted);
+      animation: ndPop 0.1s ease;
+    }
+    @keyframes ndPop {
+      0% { transform: scale(0.9); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .nd-tile.nd-correct {
+      background: var(--nd-correct);
+      border-color: var(--nd-correct);
+      color: #ffffff;
+    }
+    .nd-tile.nd-present {
+      background: var(--nd-present);
+      border-color: var(--nd-present);
+      color: #ffffff;
+    }
+    .nd-tile.nd-absent {
+      background: var(--nd-absent);
+      border-color: var(--nd-absent);
+      color: #ffffff;
+    }
+    .nd-tile.nd-reveal {
+      animation: ndFlip 0.45s ease forwards;
+    }
+    @keyframes ndFlip {
+      0% { transform: rotateX(0); }
+      50% { transform: rotateX(90deg); }
+      100% { transform: rotateX(0); }
+    }
+    .nd-tile.nd-shake {
+      animation: ndShake 0.4s ease;
+    }
+    @keyframes ndShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
+    .nd-tile.nd-bounce {
+      animation: ndBounce 0.6s ease;
+    }
+    @keyframes ndBounce {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+      50% { transform: translateY(0); }
+      70% { transform: translateY(-5px); }
+      90% { transform: translateY(0); }
+    }
+
+    /* Keyboard */
+    .nd-keyboard-wrap {
+      padding: 8px 10px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .nd-keyboard-row {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      width: 100%;
+      max-width: 520px;
+    }
+    .nd-key {
+      flex: 1;
+      min-width: 0;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: clamp(0.7rem, 2.8vw, 0.95rem);
+      font-weight: 600;
+      color: var(--nd-key-text);
+      background: var(--nd-key-bg);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      padding: 0 3px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nd-key:active {
+      transform: scale(0.95);
+      filter: brightness(0.9);
+    }
+    .nd-key.nd-key-wide {
+      flex: 1.6;
+      font-size: clamp(0.55rem, 2.2vw, 0.72rem);
+    }
+    .nd-key.nd-correct {
+      background: var(--nd-correct);
+      color: #ffffff;
+    }
+    .nd-key.nd-present {
+      background: var(--nd-present);
+      color: #ffffff;
+    }
+    .nd-key.nd-absent {
+      background: var(--nd-absent);
+      color: #ffffff;
+    }
+
+    /* Toast */
+    .nd-toast {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: var(--nd-ink);
+      color: var(--nd-surface);
+      padding: 12px 24px;
+      border-radius: var(--nd-radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 8px 32px rgba(26, 26, 46, 0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .nd-toast.nd-show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    body.dark .nd-toast {
+      background: var(--nd-warm);
+      color: var(--nd-ink);
+      border: 1px solid var(--nd-border);
+    }
+
+    /* Result overlay */
+    .nd-result-overlay {
+      display: none;
+      padding: 24px 20px;
+      background: var(--nd-surface);
+      border-top: 1px solid var(--nd-border);
+      text-align: center;
+      animation: fadeInDown 0.4s ease both;
+    }
+    .nd-result-overlay.nd-show { display: block; }
+    .nd-result-emoji {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+    .nd-result-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--nd-ink);
+      margin-bottom: 4px;
+    }
+    .nd-result-sub {
+      font-size: 0.9rem;
+      color: var(--nd-muted);
+      margin-bottom: 16px;
+    }
+    .nd-result-equation {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--nd-accent);
+      margin-bottom: 20px;
+    }
+
+    /* ===== HOW TO SECTION ===== */
+    .nd-how {
+      background: var(--nd-warm);
+      transition: background var(--nd-transition);
+    }
+    .nd-how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .nd-how-card {
+      background: var(--nd-surface);
+      border: 1px solid var(--nd-border);
+      border-radius: var(--nd-radius-lg);
+      padding: 26px;
+      transition: all var(--nd-transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .nd-how-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--nd-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--nd-transition);
+    }
+    .nd-how-card:hover { box-shadow: var(--nd-shadow); transform: translateY(-3px); }
+    .nd-how-card:hover::before { transform: scaleX(1); }
+    .nd-how-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--nd-border);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .nd-how-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--nd-ink);
+      margin-bottom: 8px;
+    }
+    .nd-how-card p {
+      font-size: 0.85rem;
+      color: var(--nd-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== DESCRIPTION SECTION ===== */
+    .nd-desc {
+      background: var(--nd-surface);
+      transition: background var(--nd-transition);
+    }
+    .nd-desc-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .nd-desc-text p {
+      font-size: 0.95rem;
+      color: var(--nd-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .nd-desc-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .nd-benefit-tag {
+      padding: 6px 14px;
+      background: var(--nd-warm);
+      border: 1px solid var(--nd-border);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--nd-ink);
+      transition: all var(--nd-transition);
+    }
+    .nd-benefit-tag:hover {
+      background: var(--nd-accent-pale);
+      border-color: var(--nd-accent);
+      color: var(--nd-accent);
+    }
+    .nd-desc-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nd-visual-card {
+      background: var(--nd-ink);
+      color: var(--nd-surface);
+      border-radius: var(--nd-radius-lg);
+      padding: 36px 32px;
+      max-width: 340px;
+      box-shadow: var(--nd-shadow);
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      position: relative;
+      width: 100%;
+    }
+    body.dark .nd-visual-card {
+      background: var(--nd-warm);
+      border: 1px solid var(--nd-border);
+      color: var(--nd-ink);
+    }
+    .nd-visual-card .nd-v-line {
+      width: 36px;
+      height: 3px;
+      background: var(--nd-accent);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+    .nd-visual-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    body.dark .nd-visual-row { border-bottom-color: var(--nd-border); }
+    .nd-visual-row:last-child { border-bottom: none; }
+    .nd-v-label {
+      opacity: 0.5;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .nd-v-text {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--nd-accent-light);
+    }
+    body.dark .nd-visual-card .nd-v-text { color: var(--nd-accent); }
+
+    /* ===== FAQ SECTION ===== */
+    .nd-faq {
+      background: var(--nd-warm);
+      transition: background var(--nd-transition);
+    }
+    .nd-faq-list {
+      max-width: 720px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .nd-faq-item {
+      border: 1px solid var(--nd-border);
+      border-radius: var(--nd-radius);
+      overflow: hidden;
+      background: var(--nd-surface);
+      transition: border-color var(--nd-transition);
+    }
+    .nd-faq-item.nd-open { border-color: var(--nd-accent); }
+    .nd-faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--nd-ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--nd-transition);
+      cursor: pointer;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+    }
+    .nd-faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--nd-muted);
+      flex-shrink: 0;
+      transition: transform var(--nd-transition);
+    }
+    .nd-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--nd-accent); }
+    .nd-faq-q:hover { background: var(--nd-warm); }
+    .nd-faq-a {
+      display: none;
+      padding: 0 20px 16px;
+    }
+    .nd-faq-a p {
+      font-size: 0.88rem;
+      color: var(--nd-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .nd-how-grid { grid-template-columns: repeat(2, 1fr); }
+      .nd-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+      .nd-desc-visual { justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .nd-hero { min-height: auto; padding: 24px 0 20px; }
+      .nd-how-grid { grid-template-columns: 1fr; }
+      .nd-board { max-width: 380px; gap: 4px; }
+      .nd-row { gap: 4px; }
+      .nd-tile { font-size: 1.1rem; border-width: 1.5px; border-radius: 5px; }
+      .nd-key { height: 42px; font-size: 0.72rem; border-radius: 4px; }
+      .nd-keyboard-row { gap: 3px; }
+      .nd-keyboard-wrap { padding: 8px 6px 14px; gap: 3px; }
+      .nd-game-header { flex-direction: column; align-items: stretch; gap: 8px; }
+      .nd-header-actions { justify-content: flex-start; }
+      .nd-hero-demo { gap: 6px; }
+      .nd-demo-chip { font-size: 0.7rem; padding: 5px 11px; }
+      .nd-game-shell { border-radius: 0; border-left: none; border-right: none; }
+    }
+    @media (max-width: 480px) {
+      .nd-hero-title { font-size: 1.6rem; }
+      .nd-board { max-width: 320px; gap: 3px; }
+      .nd-row { gap: 3px; }
+      .nd-tile { font-size: 0.9rem; border-width: 1px; border-radius: 4px; }
+      .nd-key { height: 38px; font-size: 0.65rem; border-radius: 4px; }
+      .nd-keyboard-row { gap: 2px; }
+      .nd-keyboard-wrap { padding: 6px 4px 12px; gap: 2px; }
+      .nd-game-header { padding: 10px 12px; }
+      .nd-btn { padding: 6px 12px; font-size: 0.72rem; }
+      .nd-btn-icon { width: 30px; height: 30px; font-size: 0.85rem; }
+      .nd-result-overlay { padding: 20px 14px; }
+      .nd-result-title { font-size: 1.2rem; }
+      .nd-visual-card { padding: 24px 20px; max-width: 100%; font-size: 0.75rem; }
+      .nd-stats-bar { font-size: 0.65rem; padding: 6px 12px; gap: 10px; }
+    }
+    @media (max-width: 380px) {
+      .nd-board { max-width: 280px; gap: 2px; }
+      .nd-row { gap: 2px; }
+      .nd-tile { font-size: 0.8rem; border-width: 1px; }
+      .nd-key { height: 34px; font-size: 0.58rem; }
+      .nd-keyboard-row { gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="nd-hero" id="home" aria-label="Nerdle Game Hero">
+      <div class="nd-hero-bg"></div>
+      <div class="nd-hero-glow"></div>
+      <div class="container nd-hero-inner">
+        <div class="nd-hero-badge">🧮 Free Online Nerdle Unlimited</div>
+        <h1 class="nd-hero-title">
+          Guess the equation.<br />
+          <span class="nd-hero-accent">In six tries.</span>
+        </h1>
+        <p class="nd-hero-sub">A free Nerdle game where you crack a hidden math equation using numbers and operators. Color-coded clues help you solve it. Mobile-friendly, dark mode, no signup, unlimited plays.</p>
+        <div class="nd-hero-cta">
+          <a href="#nerdle-game" class="btn btn-primary" style="background:var(--nd-accent);border-color:var(--nd-accent);">Play Nerdle <span>→</span></a>
+        </div>
+        <div class="nd-hero-demo">
+          <span class="nd-demo-chip">🟩 Correct position</span>
+          <span class="nd-demo-chip">🟪 Wrong position</span>
+          <span class="nd-demo-chip">⬛ Not in equation</span>
+          <span class="nd-demo-chip">📱 Mobile ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GAME SECTION ===== -->
+    <section class="nd-game-section" id="nerdle-game" aria-label="Nerdle Game">
+      <div class="container">
+        <div class="nd-game-shell">
+          <!-- Game Header -->
+          <div class="nd-game-header">
+            <span class="nd-game-title"><span class="nd-dot"></span> Nerdle Unlimited</span>
+            <div class="nd-header-actions">
+              <button class="nd-btn nd-btn-primary" id="ndNewGameBtn" aria-label="Start a new game">
+                <span>↺</span> New Game
+              </button>
+              <button class="nd-btn-icon" id="ndDarkModeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+            </div>
+          </div>
+
+          <!-- Stats bar -->
+          <div class="nd-stats-bar" id="ndStatsBar">
+            <div class="nd-stat">
+              <span>Guesses left:</span>
+              <span class="nd-stat-value" id="ndGuessesLeft">6</span>
+            </div>
+            <div class="nd-stat-divider"></div>
+            <div class="nd-stat">
+              <span>Wins:</span>
+              <span class="nd-stat-value" id="ndWins">0</span>
+            </div>
+            <div class="nd-stat-divider"></div>
+            <div class="nd-stat">
+              <span>Streak:</span>
+              <span class="nd-stat-value" id="ndStreak">0</span>
+            </div>
+            <div class="nd-stat-divider"></div>
+            <div class="nd-stat">
+              <span>Equation length:</span>
+              <span class="nd-stat-value" id="ndLength">8</span>
+            </div>
+          </div>
+
+          <!-- Board -->
+          <div class="nd-board-wrap">
+            <div class="nd-board" id="ndBoard" role="grid" aria-label="Nerdle game board"></div>
+          </div>
+
+          <!-- Result overlay -->
+          <div class="nd-result-overlay" id="ndResultOverlay" role="region" aria-label="Game result">
+            <div class="nd-result-emoji" id="ndResultEmoji">🎉</div>
+            <div class="nd-result-title" id="ndResultTitle">Congratulations!</div>
+            <div class="nd-result-sub" id="ndResultSub">You solved the equation.</div>
+            <div class="nd-result-equation" id="ndResultEquation">1+2+3=6</div>
+            <button class="nd-btn nd-btn-primary" id="ndPlayAgainBtn" style="margin: 0 auto;">
+              <span>↺</span> Play Again
+            </button>
+          </div>
+
+          <!-- Keyboard -->
+          <div class="nd-keyboard-wrap" id="ndKeyboard" role="group" aria-label="On-screen keyboard"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW TO PLAY ===== -->
+    <section class="section nd-how" id="how-to-play" aria-label="How to play Nerdle">
+      <div class="container">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">Play Nerdle in <em>3 simple steps.</em></h2>
+        <div class="nd-how-grid">
+          <div class="nd-how-card">
+            <div class="nd-how-num">01</div>
+            <h3>Guess a Math Equation</h3>
+            <p>Type a valid arithmetic equation of <strong>8 characters</strong> using numbers (0–9), operators (<strong>+ − * /</strong>), and the equals sign (<strong>=</strong>). It must evaluate correctly. You have <strong>6 attempts</strong>.</p>
+          </div>
+          <div class="nd-how-card">
+            <div class="nd-how-num">02</div>
+            <h3>Read the Color Clues</h3>
+            <p><strong>🟩 Green</strong> means the character is correct and in the right spot. <strong>🟪 Purple</strong> means the character is in the equation but in a different position. <strong>⬛ Gray</strong> means it's not in the equation at all.</p>
+          </div>
+          <div class="nd-how-card">
+            <div class="nd-how-num">03</div>
+            <h3>Crack the Equation</h3>
+            <p>Use the clues to deduce the hidden equation. You win when your guess exactly matches. If you run out of guesses, the answer is revealed and you can play again instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <section class="section nd-desc" id="about-nerdle" aria-label="About Nerdle">
+      <div class="container nd-desc-inner">
+        <div class="nd-desc-text">
+          <div class="section-label">What is it?</div>
+          <h2 class="section-title">The Free Online <em>Nerdle Game</em></h2>
+          <p><strong>Nerdle</strong> is a math puzzle game that challenges you to guess a hidden arithmetic equation in six attempts. Unlike word games, every guess must be a valid equation — numbers, operators, and an equals sign, all arranged so the left side equals the right side.</p>
+          <p>Our free <strong>Nerdle Unlimited</strong> generates a fresh 8-character equation each game using standard arithmetic. The tiles turn green, purple, or gray to guide you — exactly like Wordle but for math. There's no daily limit, so you can play as many rounds as you want.</p>
+          <p>Whether you're a math enthusiast, a student practicing arithmetic, or just someone who enjoys a satisfying brain teaser, this <strong>online Nerdle</strong> is perfect for you. The game follows standard order of operations (BODMAS/PEMDAS), so multiplication and division come before addition and subtraction.</p>
+          <p>No signup, no downloads, no ads blocking your view — just a clean, beautiful <strong>math equation game</strong> that runs right in your browser. Track your wins and streaks, toggle dark mode, and enjoy endless number-cracking fun.</p>
+          <div class="nd-desc-benefits">
+            <span class="nd-benefit-tag">🧮 8-Character Equations</span>
+            <span class="nd-benefit-tag">🎯 6 Attempts</span>
+            <span class="nd-benefit-tag">📱 Mobile Friendly</span>
+            <span class="nd-benefit-tag">🌙 Dark Mode</span>
+            <span class="nd-benefit-tag">📊 Stats & Streaks</span>
+            <span class="nd-benefit-tag">♾️ Unlimited Plays</span>
+          </div>
+        </div>
+        <div class="nd-desc-visual">
+          <div class="nd-visual-card">
+            <div class="nd-v-line"></div>
+            <div class="nd-visual-row">
+              <span class="nd-v-label">🟩 Correct</span>
+              <span class="nd-v-text">Right spot</span>
+            </div>
+            <div class="nd-visual-row">
+              <span class="nd-v-label">🟪 Present</span>
+              <span class="nd-v-text">Wrong spot</span>
+            </div>
+            <div class="nd-visual-row">
+              <span class="nd-v-label">⬛ Absent</span>
+              <span class="nd-v-text">Not in equation</span>
+            </div>
+            <div class="nd-visual-row">
+              <span class="nd-v-label">📏 Length</span>
+              <span class="nd-v-text">8 chars</span>
+            </div>
+            <div class="nd-visual-row">
+              <span class="nd-v-label">🔢 Attempts</span>
+              <span class="nd-v-text">6 tries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section nd-faq" id="faq" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="nd-faq-list" id="ndFaqList">
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">What is Nerdle?</button>
+            <div class="nd-faq-a"><p>Nerdle is a math-based word puzzle game where you guess a hidden arithmetic equation in 6 tries. The equation contains numbers, operators (+, -, *, /), and an equals sign. Color-coded tiles give you clues after each guess.</p></div>
+          </div>
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">Is Nerdle Unlimited free?</button>
+            <div class="nd-faq-a"><p>Yes, Nerdle Unlimited is completely free with no signup, no downloads, and no hidden costs. Play as many games as you like.</p></div>
+          </div>
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">How many guesses do you get in Nerdle?</button>
+            <div class="nd-faq-a"><p>You get 6 guesses to solve the hidden equation. Every guess must be a valid arithmetic equation that evaluates correctly.</p></div>
+          </div>
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">Can I play Nerdle on my phone?</button>
+            <div class="nd-faq-a"><p>Absolutely. The game is fully responsive and works on smartphones and tablets. Use the on-screen keyboard to enter numbers and operators.</p></div>
+          </div>
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">What do the colors mean in Nerdle?</button>
+            <div class="nd-faq-a"><p>Green means the character is correct and in the right position. Purple means the character is in the equation but in the wrong position. Gray means the character is not in the equation.</p></div>
+          </div>
+          <div class="nd-faq-item">
+            <button class="nd-faq-q" aria-expanded="false">Does Nerdle use order of operations?</button>
+            <div class="nd-faq-a"><p>Yes, Nerdle follows the standard order of operations (BODMAS/PEMDAS). Multiplication and division are evaluated before addition and subtraction.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast notification -->
+  <div class="nd-toast" id="ndToast" role="alert" aria-live="polite"></div>
+
+  <!-- ===== GAME SCRIPT ===== -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+
+    // ===== CONSTANTS =====
+    const EQUATION_LENGTH = 8;
+    const MAX_GUESSES = 6;
+    const VALID_CHARS = '0123456789+-*/=';
+
+    // ===== GAME STATE =====
+    const state = {
+      target: '',
+      guesses: [],
+      currentRow: 0,
+      currentCol: 0,
+      gameOver: false,
+      won: false,
+      keyStates: {},
+      wins: 0,
+      streak: 0
+    };
+
+    // ===== DOM ELEMENTS =====
+    const boardEl = document.getElementById('ndBoard');
+    const keyboardEl = document.getElementById('ndKeyboard');
+    const resultOverlay = document.getElementById('ndResultOverlay');
+    const resultEmoji = document.getElementById('ndResultEmoji');
+    const resultTitle = document.getElementById('ndResultTitle');
+    const resultSub = document.getElementById('ndResultSub');
+    const resultEquation = document.getElementById('ndResultEquation');
+    const newGameBtn = document.getElementById('ndNewGameBtn');
+    const playAgainBtn = document.getElementById('ndPlayAgainBtn');
+    const darkModeBtn = document.getElementById('ndDarkModeBtn');
+    const toastEl = document.getElementById('ndToast');
+    const guessesLeftEl = document.getElementById('ndGuessesLeft');
+    const winsEl = document.getElementById('ndWins');
+    const streakEl = document.getElementById('ndStreak');
+    const lengthEl = document.getElementById('ndLength');
+
+    let toastTimer = null;
+
+    function showToast(msg, duration = 2000) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastEl.textContent = msg;
+      toastEl.classList.add('nd-show');
+      toastTimer = setTimeout(() => toastEl.classList.remove('nd-show'), duration);
+    }
+
+    // ===== EQUATION VALIDATION =====
+    // Must be exactly 8 chars, contain one '=', left side must evaluate to right side.
+    // Uses standard order of operations.
+    function evaluateExpression(expr) {
+      // Only allow digits, + - * / and parentheses (we don't use parens in this game)
+      // We'll use a safe manual parser to avoid eval().
+      // Tokenize
+      const tokens = [];
+      let i = 0;
+      while (i < expr.length) {
+        const ch = expr[i];
+        if (ch >= '0' && ch <= '9') {
+          let num = '';
+          while (i < expr.length && expr[i] >= '0' && expr[i] <= '9') {
+            num += expr[i];
+            i++;
+          }
+          tokens.push({ type: 'num', value: parseInt(num, 10) });
+        } else if (ch === '+' || ch === '-' || ch === '*' || ch === '/') {
+          tokens.push({ type: 'op', value: ch });
+          i++;
+        } else {
+          return null; // invalid character
+        }
+      }
+
+      // Evaluate with order of operations: first pass * and /, second pass + and -
+      // Convert to a flat list: numbers and ops
+      if (tokens.length === 0) return null;
+      if (tokens[0].type !== 'num') return null; // must start with a number
+
+      // First pass: handle * and /
+      const firstPass = [];
+      let j = 0;
+      while (j < tokens.length) {
+        if (tokens[j].type === 'num') {
+          firstPass.push(tokens[j].value);
+          j++;
+        } else if (tokens[j].type === 'op') {
+          const op = tokens[j].value;
+          if (op === '*' || op === '/') {
+            const left = firstPass.pop();
+            const right = tokens[j + 1];
+            if (!right || right.type !== 'num') return null;
+            if (op === '/' && right.value === 0) return null;
+            const result = op === '*' ? left * right.value : left / right.value;
+            // keep as number; allow fractional intermediate results
+            firstPass.push(result);
+            j += 2;
+          } else {
+            firstPass.push(op);
+            j++;
+          }
+        } else {
+          return null;
+        }
+      }
+
+      // Second pass: handle + and -
+      if (firstPass.length === 0) return null;
+      let result = firstPass[0];
+      if (typeof result !== 'number') return null;
+      let k = 1;
+      while (k < firstPass.length) {
+        const op = firstPass[k];
+        const right = firstPass[k + 1];
+        if (typeof op !== 'string' || typeof right !== 'number') return null;
+        if (op === '+') result += right;
+        else if (op === '-') result -= right;
+        else return null;
+        k += 2;
+      }
+
+      // Must be a non-negative integer result (Nerdle convention)
+      if (!Number.isFinite(result)) return null;
+      if (!Number.isInteger(result)) return null;
+      if (result < 0) return null;
+      return result;
+    }
+
+    function isValidEquation(expr) {
+      if (typeof expr !== 'string') return false;
+      if (expr.length !== EQUATION_LENGTH) return false;
+      // Must contain exactly one '='
+      const eqCount = (expr.match(/=/g) || []).length;
+      if (eqCount !== 1) return false;
+      // Split on '='
+      const [left, right] = expr.split('=');
+      if (!left || !right) return false;
+      // Right side must be a single integer (possibly multi-digit)
+      if (!/^\d+$/.test(right)) return false;
+      // Left side must contain at least one operator (to be a real equation)
+      if (!/[+\-*/]/.test(left)) return false;
+      // Evaluate
+      const leftVal = evaluateExpression(left);
+      if (leftVal === null) return false;
+      const rightVal = parseInt(right, 10);
+      if (!Number.isFinite(rightVal)) return false;
+      return leftVal === rightVal;
+    }
+
+    // ===== EQUATION GENERATOR =====
+    function generateEquation() {
+      // Generate a valid 8-character equation
+      // Strategy: pick left side of form A op B op C ... such that total length is 8 including '=' and result
+      // Possible patterns for length 8:
+      //  - "A op B op C=R"  -> 1+1+1+1+1+1+1+1 = 8 (A op B op C = R) with single digit each: 3 numbers, 2 ops, '=', result
+      //    Example: 1+2+3=6 (8 chars) ✓
+      //  - "A op B=R" with multi-digit numbers: e.g. 12+3=15 (7 chars) -> need 8: 12+34=46 (8 chars) ✓
+      //  - "A op BC=R" etc.
+      //  - "A op B op CD=R" (1+2+34=37) 8 chars ✓
+      //  - "AB op C=R" with 2-digit result: 12+3=15 is 7, 12+34=46 is 8
+      //  - "A op B op C op D=R"? 1+2+3+4=10 is 10 chars - too long
+      // So valid 8-char shapes:
+      //  Shape 1: D op D op D = D  (1+1+1+1+1+1+1+1=8)  e.g. 1+2+3=6
+      //  Shape 2: DD op DD = DD  (12+34=46) 8 chars
+      //  Shape 3: DD op D = DD   (12+3=15) is 7 - no. Wait 12+3=15 is 7. Need 8: 12+34=46 is 8.
+      //  Shape 4: D op DD = DD   (1+23=24) 7 chars - no. Need 8: 1+234=235 is 8? 1+234=235 -> 1+234=235 is 8 chars ✓
+      //  Shape 5: D op D op DD = ? let's compute: 1+2+34=37 -> 1+2+34=37 is 9 chars - too long.
+      //  Shape 6: DD op D op D = ? 12+3+4=19 -> 12+3+4=19 is 9 chars - too long.
+      //  Shape 7: D op DD op D = ? 1+23+4=28 -> 9 chars - too long.
+      //  Shape 8: DD op D = D? 12+3=15 is 7. No.
+      //  Shape 9: D op D op D = DD? 1+2+3=6 is 8. If result is 2-digit: 1+2+3=06 -> no, 1+2+3=6 is 7? wait 1+2+3=6 is 7 chars! Let me recount: "1+2+3=6" -> 1,+ ,2,+,3,=,6 = 7 chars. Hmm.
+      // Let me recount carefully:
+      // "1+2+3=6": characters: '1','+','2','+','3','=','6' = 7 chars. Not 8!
+      // So we need 8 chars. Let me think again.
+      // 8-char patterns:
+      //  - "12+34=46" -> 1,2,+,3,4,=,4,6 = 8 chars ✓
+      //  - "1+23+4=28"? 1,+,2,3,+,4,=,2,8 = 9 chars - too long
+      //  - "12+3=15" -> 1,2,+,3,=,1,5 = 7 chars - too short
+      //  - "1+234=235" -> 1,+,2,3,4,=,2,3,5 = 9 chars - too long
+      //  - "12-3=9" -> 7 chars
+      //  - "1*2*3=6" -> 7 chars
+      //  - "1+2*3=7" -> 7 chars
+      //  - "12+3*4=24"? 1,2,+,3,*,4,=,2,4 = 9 chars - too long
+      //  - "1+2+3+4=10"? 1,+,2,+,3,+,4,=,1,0 = 10 chars - too long
+      //  - "1+2+3=06"? no
+      //  - "1+2+4=7" -> 7 chars
+      //  - "1+2+5=8" -> 7 chars
+      //  - "1+2+10=13"? 1,+,2,+,1,0,=,1,3 = 9 chars - too long
+      // Hmm, let's find 8-char valid equations:
+      //  "12+3=15" is 7 chars. "123+4=127" is 9 chars.
+      //  "12+34=46" is 8 chars ✓
+      //  "1+23=24" is 7 chars. "1+234=235" is 9 chars.
+      //  "12-3=9" 7 chars. "12-34=-22" invalid negative.
+      //  "1*2*3=6" 7 chars. "1*2*12=24"? 1,*,2,*,1,2,=,2,4 = 9 chars.
+      //  "1+2*3=7" 7 chars. "1+2*4=9" 7 chars. "1+2*5=11" 8 chars ✓ (1,+,2,*,5,=,1,1 = 8 chars) Wait let me recount: '1','+','2','*','5','=','1','1' = 8 chars ✓
+      //  "1+2*5=11" ✓ (1+10=11)
+      //  "1+3*4=13" -> 1,+,3,*,4,=,1,3 = 8 chars ✓ (1+12=13)
+      //  "1+4*5=21" -> 1,+,4,*,5,=,2,1 = 8 chars ✓ (1+20=21)
+      //  "1+5*6=31" -> 1,+,5,*,6,=,3,1 = 8 chars ✓ (1+30=31)
+      //  "1+6*7=43" -> 8 chars ✓ (1+42=43)
+      //  "1+7*8=57" -> 8 chars ✓ (1+56=57)
+      //  "1+8*9=73" -> 8 chars ✓ (1+72=73)
+      //  "1+9*10=91"? 1,+,9,*,1,0,=,9,1 = 9 chars - too long
+      //  "2+3*4=14" -> 8 chars ✓ (2+12=14)
+      //  "2+4*5=22" -> 8 chars ✓
+      //  "2+5*6=32" -> 8 chars ✓
+      //  "2+6*7=44" -> 8 chars ✓
+      //  "2+7*8=58" -> 8 chars ✓
+      //  "2+8*9=74" -> 8 chars ✓
+      //  "3+4*5=23" -> 8 chars ✓
+      //  "3+5*6=33" -> 8 chars ✓
+      //  ...many such patterns
+      //  Also: "12+3=15" is 7. "12+34=46" is 8.
+      //  "1+2+3=6" is 7. "1+2+3=06" no.
+      //  "1+2+4=7" 7 chars. "1+2+10=13" 9.
+      //  "10+2=12" 7. "10+20=30" 8 chars ✓ (1,0,+,2,0,=,3,0 = 8)
+      //  "10+34=44" 8 ✓
+      //  "11+22=33" 8 ✓
+      //  "12+34=46" 8 ✓
+      //  "13+24=37" 8 ✓ (13+24=37)
+      //  "14+25=39" 8 ✓
+      //  "15+26=41" 8 ✓
+      //  "16+27=43" 8 ✓
+      //  "17+28=45" 8 ✓
+      //  "18+29=47" 8 ✓
+      //  "20+30=50" 8 ✓
+      //  "21+31=52" 8 ✓
+      //  etc.
+      //  Also "1*2*3=6" 7 chars. "1*2*4=8" 7. "1*2*5=10" 8 ✓ (1,*,2,*,5,=,1,0 = 8) (1*2*5=10 ✓)
+      //  "1*3*4=12" 8 ✓ (1*3*4=12)
+      //  "1*4*5=20" 8 ✓
+      //  "2*3*4=24" 8 ✓
+      //  "2*4*5=40" 8 ✓
+      //  "3*4*5=60" 8 ✓
+      //  "1*2*3=6" 7 chars — no
+      //  "2*3*4=24" 8 ✓
+      //  Also "1+2+5=08"? no.
+      //  "1*2+3=5" 7 chars. "1*2+4=6" 7. "1*2+6=8" 7. "1*2+7=9" 7. "1*2+8=10" 8 ✓ (1,*,2,+,8,=,1,0 = 8) (2+8=10 ✓)
+      //  "1*3+4=7" 7. "1*3+5=8" 7. "1*3+6=9" 7. "1*3+8=11" 8 ✓ (3+8=11 ✓)
+      //  "1*4+5=9" 7. "1*4+6=10" 8 ✓ (4+6=10 ✓)
+      //  "1*5+6=11" 8 ✓ (5+6=11 ✓)
+      //  "2*2+5=9" 7. "2*2+6=10" 8 ✓ (4+6=10 ✓)
+      //  Many possibilities.
+      //  Also division: "12/3=4" 6 chars - too short. "12/3=04" no.
+      //  "12/4=3" 6. "12/6=2" 6. "16/4=4" 6. "18/3=6" 6. "18/6=3" 6.
+      //  "12/4=3" 6 chars. Need 8: "24/4=06"? no.
+      //  "24/6=04"? no.
+      //  "48/6=08"? no.
+      //  "84/2=42" 7 chars. "84/2=42" - 7.
+      //  "84/4=21" 7 chars. "84/6=14" 7.
+      //  "96/3=32" 7. "96/4=24" 7. "96/6=16" 7. "96/8=12" 7.
+      //  "128/4=32" 8 chars ✓ (1,2,8,/,4,=,3,2 = 8) (128/4=32 ✓)
+      //  "144/6=24" 8 ✓
+      //  "168/7=24" 8 ✓
+      //  "196/7=28" 8 ✓
+      //  "224/8=28" 8 ✓
+      //  "256/8=32" 8 ✓
+      //  "288/9=32" 8 ✓
+      //  Also "1+2*5=11" etc.
+      //  Also "8/2+6=10" 8 chars ✓ (8,/,2,+,6,=,1,0 = 8) (4+6=10 ✓)
+      //  "9/3+7=10" 8 ✓ (3+7=10 ✓)
+      //  "12/3+4=8" 8 ✓ (4+4=8 ✓)
+      //  "15/3+5=10" 8 ✓
+      //  "16/4+6=10" 8 ✓
+      //  "18/3+6=12" 8 ✓
+      //  "20/4+5=10" 8 ✓
+      //  "21/3+7=14" 8 ✓
+      //  "24/4+6=12" 8 ✓
+      //  "25/5+5=10" 8 ✓
+      //  "27/3+9=18" 8 ✓
+      //  "28/4+7=14" 8 ✓
+      //  "30/5+6=12" 8 ✓
+      //  "32/4+8=16" 8 ✓
+      //  "35/5+7=14" 8 ✓
+      //  "36/4+9=18" 8 ✓
+      //  "40/5+8=16" 8 ✓
+      //  "42/6+7=14" 8 ✓
+      //  "45/5+9=18" 8 ✓
+      //  "48/6+8=16" 8 ✓
+      //  "54/6+9=18" 8 ✓
+      //  "56/7+8=16" 8 ✓
+      //  "63/7+9=18" 8 ✓
+      //  "64/8+8=16" 8 ✓
+      //  "72/8+9=18" 8 ✓
+      //  Lots of valid patterns! Let's generate randomly from a set of templates.
+      // Simplify: generate by picking from a curated set of valid equations plus random ones.
+
+      // Let's build a generator that tries random combinations.
+      // We'll use a loop: generate random equation of length 8 and validate.
+      // To be efficient, use weighted patterns.
+      // Pattern A: DD op DD = DD  (12+34=46) - pick two 2-digit numbers a,b; op in +, -, * (division risky); check length.
+      // Pattern B: D op D op D = D (1+2+3=6) - 7 chars - too short. Skip.
+      // Pattern C: D op DD = DD (1+23=24) - 7 chars. Skip.
+      // Pattern D: DD op D = DD (12+3=15) - 7 chars. Skip.
+      // Pattern E: 1+2*5=11 (D op D * D = DD) - 8 chars ✓ - this is D op D op D = DD
+      //    Actually "1+2*5=11" is: D, op, D, op, D, =, D, D -> 8 chars ✓
+      //    So shape: D op D op D = DD (single digit operands, 2-digit result)
+      //    This works when a op b op c = two-digit number.
+      // Pattern F: D op D op DD = ? (1+2+34=37) - 9 chars. Skip.
+      // Pattern G: DD op D op D = ? (12+3+4=19) - 9 chars. Skip.
+      // Pattern H: D op DD op D = ? (1+23+4=28) - 9 chars. Skip.
+      // Pattern I: D op D = DD (1+2=3) - 5 chars. Too short.
+      // Pattern J: DD op DD = DD (12+34=46) - 8 chars ✓
+      // Pattern K: D op D op D = D? 1+2+3=6 is 7 chars. Need 8: 1+2+3=06 no.
+      // Pattern L: D op D op D op D = ? 10 chars. Skip.
+      // Pattern M: D op D * D = DD (1+2*5=11) ✓ 8 chars
+      // Pattern N: DD op D * D = ? 12+3*4=24 is 9 chars. Skip.
+      // Pattern O: D * D op D = DD (2*3+5=11) ✓ 8 chars
+      // Pattern P: D op D * D = DD (1+2*5=11) ✓
+      // Pattern Q: D * D + D = DD (2*3+5=11) ✓
+      // Pattern R: D * D * D = DD (2*3*4=24) ✓ 8 chars
+      // Pattern S: DD / D = DD (128/4=32) ✓ 8 chars
+      // Pattern T: D op D op D = D? 7 chars.
+      // Pattern U: D + D * D = DD (1+2*5=11) ✓
+      // Pattern V: D * D + DD = ? 1*2+34=36 is 9 chars. Skip.
+      // Pattern W: D op D op D = D? 7.
+      // Pattern X: D op DD = ? 1+23=24 is 7.
+      // Pattern Y: DD op D = ? 12+3=15 is 7.
+      // Pattern Z: D op D = D? 1+2=3 is 5.
+
+      // So valid shapes for 8 chars:
+      // 1. DD op DD = DD  (e.g. 12+34=46)
+      // 2. D op D op D = DD (e.g. 1+2*5=11)
+      // 3. D op D * D = DD (e.g. 1+2*5=11) - same as 2
+      // 4. D * D op D = DD (e.g. 2*3+5=11)
+      // 5. D * D * D = DD (e.g. 2*3*4=24)
+      // 6. DD / D = DD (e.g. 128/4=32)
+      // 7. D op D + D = DD (1+2+8=11) ✓ (1+2+8=11) - shape D op D op D = DD with op=+,+ works
+      // 8. D op D - D = DD? 1+2-3=0 is 7 chars. 9-2-1=6 is 7. Skip.
+      // 9. D * D + D = DD (2*3+5=11) ✓
+      // 10. D / D * D = DD? 8/2*5=20 ✓ (8,/,2,*,5,=,2,0 = 8) (4*5=20 ✓)
+      // 11. D * D / D = DD? 2*8/4=4 is 7 chars. 2*8/2=8 is 7. Skip.
+      // 12. D + D + D = DD (1+2+8=11) ✓ 8 chars
+      // 13. D + D - D = DD? 9+2-1=10 ✓ (9,+,2,-,1,=,1,0 = 8) (9+2-1=10 ✓)
+      // 14. D - D + D = DD? 9-2+3=10 ✓ (9,-,2,+,3,=,1,0 = 8) (9-2+3=10 ✓)
+      // 15. DD - D = DD? 12-3=09? no. 12-3=9 is 6 chars. 15-3=12 is 7. 25-3=22 is 7.
+      //     "20-4=16" is 7 chars. "20-14=6" is 7. "30-10=20" is 8? 3,0,-,1,0,=,2,0 = 8 ✓ (30-10=20 ✓)
+      //     Yes! "30-10=20" is 8 chars ✓
+      //     "40-20=20" 8 ✓
+      //     "50-30=20" 8 ✓
+      //     "10+20=30" 8 ✓
+      // 16. DD + D = DD? 12+3=15 is 7. 12+13=25 is 7. "20+5=25" 7. "20+15=35" 8? 2,0,+,1,5,=,3,5 = 8 ✓
+      //     "30+15=45" 8 ✓
+      // 17. D * D = DD? 2*6=12 is 5 chars. 3*4=12 is 5. "10*2=20" 6. "12*2=24" 6. "24*2=48" 6. 
+      //     "12*3=36" 6. "12*4=48" 6. "12*5=60" 6. "12*6=72" 6. "12*7=84" 6. "12*8=96" 6.
+      //     None of these are 8 chars.
+      //     "32*2=64" 6. "32*3=96" 6. "36*2=72" 6. "40*2=80" 6.
+      //     "12*12=144" 8? 1,2,*,1,2,=,1,4,4 = 9 chars - too long.
+      //     "8*12=96" 6.
+      //     So no simple D*D=DD gives 8 chars.
+
+      // Let's build a set of equation templates and generate from them.
+      // We'll use a curated set of valid 8-char equations that are known to work.
+      // This is easier and more reliable.
+
+      const templates = [
+        // DD op DD = DD
+        { pattern: 'AB+CD=EF', type: 'add2x2' },
+        { pattern: 'AB-CD=EF', type: 'sub2x2' },
+        { pattern: 'AB*CD=EFGH', type: 'mul2x2' }, // careful length
+        // D op D op D = DD
+        { pattern: 'A+B+C=DE', type: 'add3' },
+        { pattern: 'A+B-C=DE', type: 'addsub3' },
+        { pattern: 'A-B+C=DE', type: 'subadd3' },
+        { pattern: 'A*B+C=DE', type: 'muladd3' },
+        { pattern: 'A+B*C=DE', type: 'addmul3' },
+        { pattern: 'A*B*C=DE', type: 'mul3' },
+        { pattern: 'A/B*C=DE', type: 'divmul3' },
+        { pattern: 'A/B+C=DE', type: 'divadd3' },
+        // DD / D = DD
+        { pattern: 'ABC/D=EF', type: 'div3by1' },
+        // DD op D = DD
+        { pattern: 'AB+C=DE', type: 'add2by1' },
+        { pattern: 'AB-C=DE', type: 'sub2by1' },
+        { pattern: 'AB*C=DE', type: 'mul2by1' },
+      ];
+
+      // Actually let's just generate directly with random valid attempts.
+      // We'll try up to 5000 random attempts.
+      for (let attempt = 0; attempt < 5000; attempt++) {
+        const eq = tryGenerateRandomEquation();
+        if (eq) return eq;
+      }
+      // Fallback: a known valid equation
+      return '1+2*5=11';
+
+      function tryGenerateRandomEquation() {
+        // Pick a random shape
+        const shapes = [
+          // Shape: D op D op D = DD  (e.g. 1+2*5=11)
+          () => {
+            const a = randInt(0, 9);
+            const b = randInt(0, 9);
+            const c = randInt(0, 9);
+            const op1 = pick(['+', '-', '*', '/']);
+            const op2 = pick(['+', '-', '*', '/']);
+            // Compute using order of operations
+            const left = `${a}${op1}${b}${op2}${c}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 0 || val > 99) return null;
+            const rightStr = String(val).padStart(2, '0');
+            if (rightStr.length > 2) return null;
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: DD op DD = DD  (e.g. 12+34=46)
+          () => {
+            const a = randInt(10, 99);
+            const b = randInt(10, 99);
+            const op = pick(['+', '-']);
+            const left = `${a}${op}${b}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 0 || val > 99) return null;
+            const rightStr = String(val).padStart(2, '0');
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: DD + D = DD  (e.g. 20+15=35) - wait that's 8? 2,0,+,1,5,=,3,5 = 8 chars
+          () => {
+            const a = randInt(10, 99);
+            const b = randInt(0, 9);
+            const op = '+';
+            const left = `${a}${op}${b}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 10 || val > 99) return null;
+            const rightStr = String(val);
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: D op D + D = DD  (e.g. 9+2-1=10) but simpler: D + D + D = DD
+          () => {
+            const a = randInt(0, 9);
+            const b = randInt(0, 9);
+            const c = randInt(0, 9);
+            const op1 = '+';
+            const op2 = '+';
+            const left = `${a}${op1}${b}${op2}${c}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 10 || val > 99) return null;
+            const rightStr = String(val);
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: DD / D = DD  (e.g. 128/4=32)
+          () => {
+            const a = randInt(100, 999);
+            const b = randInt(1, 9);
+            const left = `${a}/${b}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (!Number.isInteger(val)) return null;
+            if (val < 0 || val > 99) return null;
+            const rightStr = String(val).padStart(2, '0');
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: D * D * D = DD  (e.g. 2*3*4=24)
+          () => {
+            const a = randInt(1, 9);
+            const b = randInt(1, 9);
+            const c = randInt(1, 9);
+            const left = `${a}*${b}*${c}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 10 || val > 99) return null;
+            const rightStr = String(val);
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: D * D + D = DD  (e.g. 2*3+5=11)
+          () => {
+            const a = randInt(1, 9);
+            const b = randInt(1, 9);
+            const c = randInt(0, 9);
+            const left = `${a}*${b}+${c}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 10 || val > 99) return null;
+            const rightStr = String(val);
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          },
+          // Shape: D + D * D = DD  (e.g. 1+2*5=11)
+          () => {
+            const a = randInt(0, 9);
+            const b = randInt(1, 9);
+            const c = randInt(1, 9);
+            const left = `${a}+${b}*${c}`;
+            const val = evaluateExpression(left);
+            if (val === null) return null;
+            if (val < 10 || val > 99) return null;
+            const rightStr = String(val);
+            const eq = `${left}=${rightStr}`;
+            if (eq.length !== 8) return null;
+            return eq;
+          }
+        ];
+
+        // Pick a random shape and try it
+        const shape = shapes[randInt(0, shapes.length - 1)];
+        return shape();
+      }
+
+      function randInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+    }
+
+    // ===== BOARD CREATION =====
+    function createBoard() {
+      boardEl.innerHTML = '';
+      for (let r = 0; r < MAX_GUESSES; r++) {
+        const row = document.createElement('div');
+        row.className = 'nd-row';
+        for (let c = 0; c < EQUATION_LENGTH; c++) {
+          const tile = document.createElement('div');
+          tile.className = 'nd-tile';
+          tile.dataset.row = r;
+          tile.dataset.col = c;
+          row.appendChild(tile);
+        }
+        boardEl.appendChild(row);
+      }
+    }
+
+    function getTile(row, col) {
+      const r = boardEl.children[row];
+      return r ? r.children[col] : null;
+    }
+
+    function updateTileChar(row, col, char) {
+      const tile = getTile(row, col);
+      if (!tile) return;
+      tile.textContent = char || '';
+      tile.classList.toggle('nd-filled', !!char);
+    }
+
+    function resetBoardVisual() {
+      for (let r = 0; r < MAX_GUESSES; r++) {
+        for (let c = 0; c < EQUATION_LENGTH; c++) {
+          const tile = getTile(r, c);
+          if (tile) {
+            tile.textContent = '';
+            tile.className = 'nd-tile';
+          }
+        }
+      }
+    }
+
+    // ===== KEYBOARD =====
+    const KEYBOARD_ROWS = [
+      ['7','8','9','/'],
+      ['4','5','6','*'],
+      ['1','2','3','-'],
+      ['0','=','ENTER','BACK'],
+      ['+']
+    ];
+
+    // Better keyboard layout: 4 rows of 4 + 1 row of 4? Let's do 4x4 grid plus extras
+    // Standard Nerdle keyboard layout: 
+    // Row 1: 7 8 9 ÷
+    // Row 2: 4 5 6 ×
+    // Row 3: 1 2 3 −
+    // Row 4: 0 = + ENTER
+    // Row 5: BACK (or use a wide BACK)
+    // Let's use:
+    // Row 1: 7 8 9 /
+    // Row 2: 4 5 6 *
+    // Row 3: 1 2 3 -
+    // Row 4: 0 = + ENTER
+    // Row 5: BACK (wide)
+    const KEYBOARD_LAYOUT = [
+      ['7','8','9','/'],
+      ['4','5','6','*'],
+      ['1','2','3','-'],
+      ['0','=','+','ENTER'],
+      ['BACK']
+    ];
+
+    function createKeyboard() {
+      keyboardEl.innerHTML = '';
+      KEYBOARD_LAYOUT.forEach(row => {
+        const rowEl = document.createElement('div');
+        rowEl.className = 'nd-keyboard-row';
+        row.forEach(key => {
+          const keyEl = document.createElement('button');
+          keyEl.type = 'button';
+          keyEl.className = 'nd-key';
+          keyEl.dataset.key = key;
+          if (key === 'ENTER' || key === 'BACK') {
+            keyEl.classList.add('nd-key-wide');
+            keyEl.textContent = key === 'ENTER' ? 'Enter' : '⌫';
+          } else {
+            keyEl.textContent = key;
+          }
+          keyEl.addEventListener('click', () => handleKeyInput(key));
+          rowEl.appendChild(keyEl);
+        });
+        keyboardEl.appendChild(rowEl);
+      });
+    }
+
+    function updateKeyboardColors() {
+      keyboardEl.querySelectorAll('.nd-key').forEach(keyEl => {
+        const key = keyEl.dataset.key;
+        if (key.length === 1) {
+          keyEl.classList.remove('nd-correct', 'nd-present', 'nd-absent');
+          const status = state.keyStates[key];
+          if (status === 'correct') keyEl.classList.add('nd-correct');
+          else if (status === 'present') keyEl.classList.add('nd-present');
+          else if (status === 'absent') keyEl.classList.add('nd-absent');
+        }
+      });
+    }
+
+    // ===== GAME LOGIC =====
+    function evaluateGuess(guess) {
+      const target = state.target.split('');
+      const result = new Array(EQUATION_LENGTH).fill('absent');
+      const targetChars = [...target];
+      const guessChars = guess.split('');
+
+      // First pass: exact matches
+      for (let i = 0; i < EQUATION_LENGTH; i++) {
+        if (guessChars[i] === targetChars[i]) {
+          result[i] = 'correct';
+          targetChars[i] = null;
+          guessChars[i] = null;
+        }
+      }
+      // Second pass: present
+      for (let i = 0; i < EQUATION_LENGTH; i++) {
+        if (guessChars[i] === null) continue;
+        const idx = targetChars.indexOf(guessChars[i]);
+        if (idx !== -1) {
+          result[i] = 'present';
+          targetChars[idx] = null;
+        }
+      }
+      return result;
+    }
+
+    function updateKeyStates(guess, evaluation) {
+      for (let i = 0; i < EQUATION_LENGTH; i++) {
+        const ch = guess[i];
+        const status = evaluation[i];
+        const current = state.keyStates[ch];
+        if (status === 'correct') {
+          state.keyStates[ch] = 'correct';
+        } else if (status === 'present' && current !== 'correct') {
+          state.keyStates[ch] = 'present';
+        } else if (status === 'absent' && !current) {
+          state.keyStates[ch] = 'absent';
+        }
+      }
+    }
+
+    function revealRow(row, guess, evaluation) {
+      return new Promise(resolve => {
+        const tiles = [];
+        for (let c = 0; c < EQUATION_LENGTH; c++) tiles.push(getTile(row, c));
+        tiles.forEach((tile, i) => {
+          setTimeout(() => {
+            tile.classList.add('nd-reveal');
+            setTimeout(() => {
+              tile.classList.remove('nd-reveal');
+              tile.classList.add('nd-' + evaluation[i]);
+            }, 200);
+          }, i * 100);
+        });
+        setTimeout(resolve, EQUATION_LENGTH * 100 + 350);
+      });
+    }
+
+    function shakeRow(row) {
+      for (let c = 0; c < EQUATION_LENGTH; c++) {
+        const tile = getTile(row, c);
+        if (tile) {
+          tile.classList.add('nd-shake');
+          setTimeout(() => tile.classList.remove('nd-shake'), 400);
+        }
+      }
+    }
+
+    function bounceRow(row) {
+      for (let c = 0; c < EQUATION_LENGTH; c++) {
+        const tile = getTile(row, c);
+        if (tile) {
+          setTimeout(() => {
+            tile.classList.add('nd-bounce');
+            setTimeout(() => tile.classList.remove('nd-bounce'), 600);
+          }, c * 80);
+        }
+      }
+    }
+
+    function updateStatsBar() {
+      guessesLeftEl.textContent = MAX_GUESSES - state.currentRow;
+      winsEl.textContent = state.wins;
+      streakEl.textContent = state.streak;
+      lengthEl.textContent = EQUATION_LENGTH;
+    }
+
+    async function submitGuess() {
+      const row = state.currentRow;
+      if (row >= MAX_GUESSES) return;
+
+      const guess = [];
+      for (let c = 0; c < EQUATION_LENGTH; c++) {
+        const tile = getTile(row, c);
+        guess.push(tile ? (tile.textContent || '') : '');
+      }
+      const guessStr = guess.join('');
+
+      if (guessStr.length !== EQUATION_LENGTH) {
+        showToast('Not enough characters');
+        shakeRow(row);
+        return;
+      }
+      if (!isValidEquation(guessStr)) {
+        showToast('Not a valid equation');
+        shakeRow(row);
+        return;
+      }
+
+      const evaluation = evaluateGuess(guessStr);
+      state.guesses.push(guessStr);
+
+      await revealRow(row, guessStr, evaluation);
+      updateKeyStates(guessStr, evaluation);
+      updateKeyboardColors();
+
+      if (guessStr === state.target) {
+        state.gameOver = true;
+        state.won = true;
+        state.wins++;
+        state.streak++;
+        updateStatsBar();
+        bounceRow(row);
+        setTimeout(() => endGame(true), 800);
+        return;
+      }
+
+      state.currentRow++;
+      state.currentCol = 0;
+      updateStatsBar();
+
+      if (state.currentRow >= MAX_GUESSES) {
+        state.gameOver = true;
+        state.won = false;
+        state.streak = 0;
+        updateStatsBar();
+        setTimeout(() => endGame(false), 600);
+      }
+    }
+
+    function endGame(won) {
+      if (won) {
+        resultEmoji.textContent = '🎉';
+        resultTitle.textContent = 'Congratulations!';
+        resultSub.textContent = 'You solved the equation in ' + state.currentRow + ' ' + (state.currentRow === 1 ? 'try' : 'tries') + '.';
+      } else {
+        resultEmoji.textContent = '😔';
+        resultTitle.textContent = 'Better luck next time!';
+        resultSub.textContent = 'The equation was:';
+      }
+      resultEquation.textContent = state.target;
+      resultOverlay.classList.add('nd-show');
+    }
+
+    function handleKeyInput(key) {
+      if (state.gameOver) return;
+      if (key === 'ENTER') { submitGuess(); return; }
+      if (key === 'BACK') {
+        if (state.currentCol > 0) {
+          state.currentCol--;
+          updateTileChar(state.currentRow, state.currentCol, '');
+        }
+        return;
+      }
+      if (key.length === 1 && VALID_CHARS.includes(key) && state.currentCol < EQUATION_LENGTH) {
+        updateTileChar(state.currentRow, state.currentCol, key);
+        state.currentCol++;
+      }
+    }
+
+    function startNewGame() {
+      state.target = generateEquation();
+      state.guesses = [];
+      state.currentRow = 0;
+      state.currentCol = 0;
+      state.gameOver = false;
+      state.won = false;
+      state.keyStates = {};
+      resetBoardVisual();
+      resultOverlay.classList.remove('nd-show');
+      updateKeyboardColors();
+      updateStatsBar();
+    }
+
+    // ===== INIT =====
+    createBoard();
+    createKeyboard();
+    startNewGame();
+
+    newGameBtn.addEventListener('click', startNewGame);
+    playAgainBtn.addEventListener('click', startNewGame);
+
+    darkModeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      darkModeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.key === 'Enter') { e.preventDefault(); handleKeyInput('ENTER'); return; }
+      if (e.key === 'Backspace') { e.preventDefault(); handleKeyInput('BACK'); return; }
+      if (e.key.length === 1) {
+        const ch = e.key;
+        if (VALID_CHARS.includes(ch)) {
+          e.preventDefault();
+          handleKeyInput(ch);
+        }
+      }
+    });
+
+    updateStatsBar();
+
+    // FAQ accordion
+    document.querySelectorAll('.nd-faq-q').forEach(function (qBtn) {
+      qBtn.addEventListener('click', function () {
+        var expanded = qBtn.getAttribute('aria-expanded') === 'true';
+        qBtn.setAttribute('aria-expanded', String(!expanded));
+        var answer = qBtn.nextElementSibling;
+        if (answer) {
+          answer.style.display = expanded ? 'none' : 'block';
+          var item = qBtn.closest('.nd-faq-item');
+          if (item) item.classList.toggle('nd-open', !expanded);
+        }
+      });
+    });
+
+  });
+  </script>
+
+  <!-- ===== COMPONENT SCRIPTS ===== -->
+  <script src="/components/header.js" onerror="console.warn('header.js not found')"></script>
+  <script src="/components/footer.js" onerror="console.warn('footer.js not found')"></script>
+  <script src="/components/social-share.js" onerror="console.warn('social-share.js not found')"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js" onerror="console.warn('sidebar.js not found')"></script>
+
+</body>
+</html>

@@ -127,6 +127,12 @@
           url: "/unit-converter",
           desc: "Length, weight, data…",
           svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h18M3 16h18" stroke="#0891B2" stroke-width="1.8" stroke-linecap="round"/><path d="M6 5v6M10 5v6M14 5v6M18 5v6M6 13v6M10 13v6M14 13v6M18 13v6" stroke="#0891B2" stroke-width="1.4" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Grammar & Spelling",
+          url: "/grammer-and-spelling",
+          desc: "Fix spelling & grammar",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="16" rx="2" fill="#E8F3ED" stroke="#2D6A4F" stroke-width="1.6"/><path d="M7 9h10M7 13h6M7 17h4" stroke="#2D6A4F" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="15" r="2.5" fill="#52B788" stroke="#2D6A4F" stroke-width="1.2"/><path d="M16.2 15l0.7 0.7 1.4-1.4" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>`
         }
       ]
     },
@@ -267,6 +273,18 @@
           url: "/random-name-generator",
           desc: "Random names",
           svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M4 20a8 8 0 0 1 16 0" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Username Generator",
+          url: "/username-generator",
+          desc: "Cool gaming & social names",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FCE9E3" stroke="#C4562A" stroke-width="1.6"/><circle cx="9" cy="11" r="2.2" fill="#E8714A" stroke="#C4562A" stroke-width="1.2"/><path d="M5.5 16c0.4-1.6 1.8-2.5 3.5-2.5s3.1 0.9 3.5 2.5" stroke="#C4562A" stroke-width="1.4" stroke-linecap="round"/><path d="M14 10h5M14 13h5M14 16h3" stroke="#C4562A" stroke-width="1.6" stroke-linecap="round"/></svg>`
+        },
+        {
+          name: "Quote Generator",
+          url: "/quote-generator",
+          desc: "Motivational & custom quotes",
+          svg: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6c-2 0-3.5 1.6-3.5 3.6 0 2 1.5 3.6 3.5 3.6 1.5 0 2.5-0.8 3-2.2V20c0 1.1-0.9 2-2 2" fill="#FDF6DC" stroke="#B8960C" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 6c-2 0-3.5 1.6-3.5 3.6 0 2 1.5 3.6 3.5 3.6 1.5 0 2.5-0.8 3-2.2V20c0 1.1-0.9 2-2 2" fill="#FDF6DC" stroke="#B8960C" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`
         }
       ]
     },

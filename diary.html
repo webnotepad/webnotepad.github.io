@@ -325,7 +325,12 @@
      HERO AD STYLES (round borders, grid, etc.)
      ============================================= -->
     <style>
-      /* Hero layout: ad left, text right */
+     /* Override the narrow 620px hero inner so text + ad fit side-by-side */
+.d-hero-inner {
+  max-width: 1140px !important;
+}
+
+/* Side-by-side: text left, ad right */
 .d-hero-layout {
   display: flex;
   align-items: center;
@@ -334,7 +339,7 @@
   flex-wrap: wrap;
 }
 
-/* Text column — normal left alignment, grows to fill space */
+/* Text column — left aligned, grows to fill */
 .d-hero-text {
   flex: 1 1 480px;
   min-width: 0;
@@ -361,10 +366,10 @@
   display: block;
 }
 
-/* Mobile: stack, keep button centered */
+/* Mobile: stack text above ad, keep button centered */
 @media (max-width: 768px) {
   .d-hero-layout {
-    flex-direction: column-reverse; /* keeps text ABOVE ad on mobile */
+    flex-direction: column;
     gap: 24px;
   }
   .d-hero-text {

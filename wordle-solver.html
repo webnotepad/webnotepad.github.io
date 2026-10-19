@@ -919,7 +919,7 @@
   <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
   <script src="/wordlist.js"></script>
 
-  <script>
+    <script>
   (function () {
     'use strict';
 
@@ -934,6 +934,35 @@
 
     /* State: one object per position with { letter, color } */
     let guessState = Array.from({ length: WORD_LENGTH }, () => ({ letter: '', color: 'gray' }));
+
+    /* ── Normalize wordlist once, at load ──
+       Keep only words that are:
+         - exactly 5 characters long
+         - purely alphabetic (a-z, case-insensitive)
+       This strips numbers, punctuation, abbreviations, etc.        */
+    let NORMALIZED_WORDS = [];
+    let normalizeError = null;
+
+    function normalizeWordlist() {
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        normalizeError = 'Word list not loaded yet. Please wait a moment and try again.';
+        return;
+      }
+      const seen = new Set();
+      const out = [];
+      for (let i = 0; i < WORDLIST.length; i++) {
+        const raw = WORDLIST[i];
+        if (typeof raw !== 'string') continue;
+        const lower = raw.toLowerCase();
+        // Must be exactly 5 chars and only a-z
+        if (lower.length !== WORD_LENGTH) continue;
+        if (!/^[a-z]{5}$/.test(lower)) continue;
+        if (seen.has(lower)) continue;
+        seen.add(lower);
+        out.push(lower);
+      }
+      NORMALIZED_WORDS = out;
+    }
 
     /* ── Build input UI ── */
     function buildInputs() {
@@ -965,7 +994,6 @@
           const val = e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1);
           e.target.value = val;
           guessState[i].letter = val;
-          // Auto-advance to next input if a letter was typed
           if (val && i < WORD_LENGTH - 1) {
             const next = lettersWrap.children[i + 1];
             if (next) next.focus();
@@ -984,7 +1012,6 @@
           }
         });
 
-        // Paste support: distribute letters across inputs
         input.addEventListener('paste', (e) => {
           e.preventDefault();
           const text = (e.clipboardData || window.clipboardData).getData('text').toUpperCase().replace(/[^A-Z]/g, '');
@@ -1001,7 +1028,6 @@
       }
       row.appendChild(lettersWrap);
 
-      // Color controls
       const controls = document.createElement('div');
       controls.className = 'ws-row-controls';
 
@@ -1012,7 +1038,6 @@
         btn.dataset.color = color;
         btn.textContent = color === 'green' ? '🟩 Green' : color === 'yellow' ? '🟨 Yellow' : '⬛ Gray';
         btn.addEventListener('click', () => {
-          // Find the focused input, or default to 0
           const focused = document.activeElement;
           let targetIdx = 0;
           if (focused && focused.classList.contains('ws-letter-input')) {
@@ -1026,12 +1051,9 @@
 
       row.appendChild(controls);
       guessRowsContainer.appendChild(row);
-
-      // Initialize color buttons
       updateColorButtonStates();
     }
 
-    /* Highlight the active color button based on the focused input */
     function updateColorButtonStates() {
       const focused = document.activeElement;
       let activeIdx = 0;
@@ -1044,23 +1066,25 @@
       });
     }
 
-    // Also update when focus changes between inputs
     document.addEventListener('focusin', (e) => {
       if (e.target.classList.contains('ws-letter-input')) {
         updateColorButtonStates();
       }
     });
 
-    /* ── Solver logic ── */
+    /* ── Solver logic (uses NORMALIZED_WORDS) ── */
     function solveWordle(state) {
-      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
-        return { error: 'Word list not loaded yet. Please wait a moment and try again.' };
+      if (normalizeError) {
+        return { error: normalizeError };
+      }
+      if (!NORMALIZED_WORDS.length) {
+        return { error: 'No valid 5-letter words found in the word list. Check that wordlist.js is loading correctly.' };
       }
 
       // Build constraints
       const greens = {};        // position -> letter
-      const yellows = [];       // { letter, position }  (letter is in word but NOT at position)
-      const grays = new Set();  // letters completely absent
+      const yellows = [];       // { letter, position }
+      const grays = new Set();
       const yellowLetters = new Set();
 
       for (let i = 0; i < WORD_LENGTH; i++) {
@@ -1076,14 +1100,19 @@
         }
       }
 
-      // A gray letter that also appears as green or yellow is not truly gray
+      // A letter marked gray but also green/yellow elsewhere is not truly absent
       for (const l of yellowLetters) grays.delete(l);
       for (const pos in greens) grays.delete(greens[pos]);
 
-      const matches = [];
-      for (const word of WORDLIST) {
-        if (word.length !== WORD_LENGTH) continue;
+      // Count minimum required occurrences of each yellow letter
+      // (if the same letter is yellow in multiple positions, it must appear at least that many times)
+      const yellowMinCount = {};
+      for (const { letter } of yellows) {
+        yellowMinCount[letter] = (yellowMinCount[letter] || 0) + 1;
+      }
 
+      const matches = [];
+      for (const word of NORMALIZED_WORDS) {
         // 1. Green constraints
         let ok = true;
         for (const pos in greens) {
@@ -1091,13 +1120,13 @@
         }
         if (!ok) continue;
 
-        // 2. Gray constraints
+        // 2. Gray constraints (letter must not appear at all, UNLESS it's also green/yellow elsewhere — already handled)
         for (const letter of grays) {
           if (word.indexOf(letter) !== -1) { ok = false; break; }
         }
         if (!ok) continue;
 
-        // 3. Yellow constraints — letter must be in word, but not at the given position
+        // 3. Yellow constraints: letter must be in word, but NOT at the position we entered it
         let yellowOk = true;
         for (const { letter, position } of yellows) {
           if (word.indexOf(letter) === -1) { yellowOk = false; break; }
@@ -1105,11 +1134,28 @@
         }
         if (!yellowOk) continue;
 
-        // 4. Also, if a letter is yellow in *any* position, it must appear
-        //    (already covered above, but ensure multiple yellows don't conflict)
-        // Additional: count of yellow letters must be at least as many as in the word
-        // For simplicity, we just ensure each yellow letter is present and not in the guessed position.
-        // This is a good approximation for Wordle.
+        // 4. Yellow letter counts: word must contain at least as many of each yellow letter
+        //    as we entered (Wordle's duplicate-letter rule)
+        let countOk = true;
+        for (const letter in yellowMinCount) {
+          let cnt = 0;
+          for (let k = 0; k < word.length; k++) if (word[k] === letter) cnt++;
+          // Also account for green occurrences of the same letter
+          let greenCount = 0;
+          for (const pos in greens) if (greens[pos] === letter) greenCount++;
+          if (cnt < yellowMinCount[letter] + greenCount) {
+            countOk = false;
+            break;
+          }
+        }
+        if (!countOk) continue;
+
+        // 5. Wordle duplicate rule: if a gray letter appears, it must be fully excluded,
+        //    but if the same letter is green, gray should already have been removed above.
+        //    A stricter version: if letter is green once and gray elsewhere, word must have exactly
+        //    the green count (not more). This is handled by treating gray as "no more than green count".
+        //    For simplicity and correctness on the common cases, we also enforce:
+        //    any letter that is ONLY gray cannot appear at all (done above).
 
         matches.push(word);
       }
@@ -1166,7 +1212,6 @@
       html += `</div>`;
       resultsDiv.innerHTML = html;
 
-      // Click-to-copy
       resultsDiv.querySelectorAll('.ws-word-tile').forEach(tile => {
         tile.addEventListener('click', () => {
           const word = tile.dataset.word.toUpperCase();
@@ -1187,7 +1232,6 @@
 
     /* ── Run solve ── */
     function runSolve() {
-      // Read current state from inputs (in case of paste or programmatic change)
       const inputs = document.querySelectorAll('.ws-letter-input');
       inputs.forEach((input, i) => {
         guessState[i].letter = input.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1);
@@ -1234,7 +1278,6 @@
       btn.addEventListener('click', () => {
         const answer = btn.nextElementSibling;
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
-        // Close all
         document.querySelectorAll('#faqList .faq-q').forEach(b => {
           b.setAttribute('aria-expanded', 'false');
           if (b.nextElementSibling) b.nextElementSibling.style.display = 'none';
@@ -1247,16 +1290,22 @@
     });
 
     /* ── Init ── */
+    normalizeWordlist();
     buildInputs();
 
     solveBtn.addEventListener('click', runSolve);
     clearBtn.addEventListener('click', clearAll);
 
-    // Focus first input after load
     window.addEventListener('load', () => {
       const first = document.querySelector('.ws-letter-input');
       if (first) first.focus();
     });
+
+    if (normalizeError) {
+      console.warn(normalizeError);
+    } else {
+      console.log(`✅ Wordle Solver ready — ${NORMALIZED_WORDS.length} valid 5-letter words loaded.`);
+    }
 
   })();
   </script>

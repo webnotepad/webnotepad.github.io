@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anagram Solver – Rearrange Scrambled Letters into Words | WebNotePad</title>
+  <meta name="description" content="Free Anagram Solver. Enter any scrambled letters and instantly rearrange them into valid words, grouped by length. Perfect for anagrams, word games, Scrabble, and puzzles. No signup required." />
+  <meta name="keywords" content="anagram solver, anagram finder, unscramble letters, scrambled letters solver, anagram generator, word anagram solver, rearrange letters into words, anagram helper, anagram word finder" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/anagram-solver" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/anagram-solver" />
+  <meta property="og:title" content="Anagram Solver – Rearrange Scrambled Letters into Valid Words" />
+  <meta property="og:description" content="Enter scrambled letters and instantly see every valid word you can make, neatly grouped by length. Free, fast, no signup." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anagram Solver – Free Anagram Finder & Word Unscrambler" />
+  <meta name="twitter:description" content="Rearrange any set of scrambled letters into valid words instantly, grouped by length." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Anagram Solver",
+    "url": "https://webnotepad.github.io/anagram-solver",
+    "description": "A free browser-based anagram solver that rearranges any set of scrambled letters into every valid word they can form, grouped neatly by word length.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Rearrange scrambled letters into valid words",
+      "Results grouped by word length",
+      "Filter by minimum and maximum word length",
+      "One-click copy of any word",
+      "Copy all results at once",
+      "Instant client-side results",
+      "Works offline once loaded",
+      "No signup or download required",
+      "Mobile friendly"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an Anagram Solver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An Anagram Solver is a tool that rearranges a set of scrambled letters into every valid word that can be formed from those letters. It is commonly used for word games, puzzles, and vocabulary building."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use the Anagram Solver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Type or paste your scrambled letters into the input box and click Solve Anagram. The solver instantly shows every valid word you can make, grouped by length."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it find words using all the letters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The solver checks every possible word that can be formed using some or all of your letters. Words using all your letters are listed in the group matching that exact length."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I filter results by word length?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Use the minimum and maximum length filters to narrow results. For example, set minimum to 5 to only see words with 5 or more letters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Anagram Solver free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Anagram Solver is 100% free with no signup, no download, and no limits on searches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Anagram Solver is fully responsive and works smoothly on phones, tablets, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Anagram Solver", "item": "https://webnotepad.github.io/anagram-solver" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 56px;
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px);
+      opacity: 0.3; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,86,42,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-pale); color: var(--accent);
+      border: 1px solid rgba(196,86,42,0.2); border-radius: 100px;
+      padding: 6px 16px; font-size: 0.78rem; font-weight: 600;
+      font-family: var(--font-mono); margin-bottom: 24px; letter-spacing: 0.04em;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--ink); margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+      font-family: var(--font-mono);
+    }
+
+    /* SECTION COMMONS */
+    .section { padding: 88px 0; }
+    .section-label {
+      font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 900; color: var(--ink); line-height: 1.14;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .section-title em { color: var(--accent); font-style: italic; }
+    .section-sub {
+      font-size: 1.05rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7;
+    }
+
+    /* ===== SOLVER APP ===== */
+    .section-app { padding: 0 0 80px; background: var(--paper); }
+
+    .as-input-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+    .as-input-top {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .as-input-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 220px; }
+    .as-input-label {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    #asLetters {
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    #asLetters:focus { border-color: var(--accent); }
+    #asLetters::placeholder {
+      font-size: 1rem; font-weight: 400; letter-spacing: 0.04em;
+      color: var(--ink-muted); opacity: 0.6; text-transform: none;
+    }
+    .as-solve-btn {
+      padding: 14px 32px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .as-solve-btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(196,86,42,0.3);
+    }
+    .as-solve-btn:active { transform: translateY(0); }
+    .as-clear-btn {
+      padding: 14px 18px;
+      background: transparent;
+      color: var(--ink-muted);
+      border: 2px solid var(--paper-edge);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      flex-shrink: 0;
+    }
+    .as-clear-btn:hover {
+      color: var(--ink);
+      background: var(--paper-warm);
+      border-color: var(--ink-muted);
+    }
+
+    /* Filters */
+    .as-filters {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid var(--paper-edge);
+    }
+    .as-filter-group { display: flex; flex-direction: column; gap: 5px; }
+    .as-filter-label {
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .as-filter-input {
+      padding: 7px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition);
+      width: 64px;
+    }
+    .as-filter-input:focus { border-color: var(--accent); }
+    .as-filter-sep { align-self: flex-end; padding-bottom: 8px; color: var(--ink-muted); font-size: 0.85rem; }
+    .as-filter-note {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      margin-left: auto;
+      align-self: flex-end;
+      padding-bottom: 8px;
+    }
+    .as-filter-note strong { color: var(--accent); }
+
+    /* Results meta */
+    .as-results-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 12px 20px;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+    .as-results-count { font-weight: 600; color: var(--ink); }
+    .as-results-count span { color: var(--accent); }
+    .as-meta-actions { display: flex; gap: 8px; align-items: center; }
+    .as-meta-btn {
+      padding: 5px 12px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-mono);
+    }
+    .as-meta-btn:hover { color: var(--ink); background: var(--paper-edge); }
+
+    /* Length group headers */
+    .as-group-header {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 14px 0 8px;
+      border-bottom: 1px solid var(--paper-edge);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .as-group-count {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    /* Word tiles */
+    .as-word-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .as-word-tile {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 14px 6px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all var(--transition);
+      user-select: none;
+      position: relative;
+    }
+    .as-word-tile:hover {
+      border-color: var(--accent);
+      background: var(--accent-pale);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .as-word-tile.copied {
+      border-color: var(--green);
+      background: rgba(45,106,79,0.08);
+    }
+    .as-tile-word {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .as-tile-len {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Empty / loading states */
+    .as-empty {
+      text-align: center;
+      padding: 64px 24px;
+      background: var(--paper-warm);
+      border: 1px dashed var(--paper-edge);
+      border-radius: var(--radius-lg);
+      color: var(--ink-muted);
+    }
+    .as-empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .as-empty h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .as-empty p { font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin: 0 auto; }
+
+    .as-loading {
+      text-align: center;
+      padding: 48px;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+    .as-spinner {
+      display: inline-block;
+      width: 28px; height: 28px;
+      border: 3px solid var(--paper-edge);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-bottom: 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===== FEATURES ===== */
+    .section-features { background: var(--paper-warm); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .feature-card {
+      padding: 28px 24px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      border-color: var(--accent-pale);
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .feature-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== HOW IT WORKS ===== */
+    .section-how { background: var(--paper); }
+    .how-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 52px;
+    }
+    .how-step {
+      flex: 1;
+      padding: 28px 24px;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+    }
+    .how-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 52px;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--paper-edge);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .how-step h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .how-step p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== USE CASES ===== */
+    .section-usecases { background: var(--paper-warm); }
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .usecase-card {
+      padding: 26px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .usecase-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .usecase-emoji { font-size: 2rem; margin-bottom: 14px; }
+    .usecase-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .usecase-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== FAQ ===== */
+    .section-faq { background: var(--paper); }
+    .faq-list {
+      max-width: 720px;
+      margin: 52px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .faq-item {
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .faq-q[aria-expanded="true"]::after {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+    .faq-q:hover { background: var(--paper-warm); }
+    .faq-a { display: none; padding: 0 20px 18px; }
+    .faq-a p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ===== CTA ===== */
+    .section-cta {
+      background: var(--ink);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    body.dark .section-cta { background: #0e0e12; }
+    .cta-ink {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(196,86,42,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    .cta-text p {
+      font-size: 1.05rem;
+      color: rgba(250,248,244,0.6);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .btn-cta:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(196,86,42,0.4);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .usecases-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero { padding: 60px 0 44px; }
+      .features-grid, .usecases-grid { grid-template-columns: 1fr; }
+      .how-steps { flex-direction: column; }
+      .how-connector { display: none; }
+      .as-input-top { flex-direction: column; align-items: stretch; }
+      .as-solve-btn, .as-clear-btn { width: 100%; justify-content: center; }
+      .as-filters { gap: 10px; }
+      .as-filter-note { margin-left: 0; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.1rem; }
+      #asLetters { font-size: 1.2rem; letter-spacing: 0.1em; }
+      .as-word-tile { padding: 6px 10px 5px; }
+      .as-tile-word { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Anagram Solver · Word Unscrambler · Letter Rearranger</div>
+        <h1 class="hero-title">Turn scrambled letters<br /><em>into real words.</em></h1>
+        <p class="hero-sub">Enter any set of letters and instantly see every valid word you can make, neatly grouped by length. Perfect for anagram puzzles, word games, Scrabble, and vocabulary practice.</p>
+        <div class="hero-pills">
+          <span class="hero-pill">🔤 Anagram Finder</span>
+          <span class="hero-pill">🧩 Word Game Helper</span>
+          <span class="hero-pill">📏 Grouped by Length</span>
+          <span class="hero-pill">⚡ Instant Results</span>
+          <span class="hero-pill">📋 One-Click Copy</span>
+          <span class="hero-pill">🆓 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — SOLVER APP
+    ════════════════════════════════════════ -->
+    <section class="section-app" id="solver" aria-label="Anagram Solver Application">
+      <div class="container">
+
+        <div class="section-label">The solver</div>
+        <h2 class="section-title">Enter letters.<br /><em>Get every word.</em></h2>
+        <p class="section-sub" style="margin-bottom:32px;">Type or paste your scrambled letters (up to 15) and click Solve Anagram. Results are grouped by word length so you can find the perfect answer fast.</p>
+
+        <!-- Input Card -->
+        <div class="as-input-card">
+          <div class="as-input-top">
+            <div class="as-input-group">
+              <label class="as-input-label" for="asLetters">Your Letters <span style="color:var(--accent);">*</span></label>
+              <input
+                type="text"
+                id="asLetters"
+                maxlength="15"
+                placeholder="e.g.  L I S T E N  or  TAC"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                aria-label="Enter your scrambled letters"
+              />
+            </div>
+            <button class="as-solve-btn" id="asSolveBtn" aria-label="Solve anagram">
+              🔤 Solve Anagram
+            </button>
+            <button class="as-clear-btn" id="asClearBtn" aria-label="Clear">✕ Clear</button>
+          </div>
+
+          <!-- Filters -->
+          <div class="as-filters" role="group" aria-label="Filter options">
+            <div class="as-filter-group">
+              <label class="as-filter-label" for="asLengthMin">Min Length</label>
+              <input type="number" class="as-filter-input" id="asLengthMin" min="1" max="15" value="2" aria-label="Minimum word length" />
+            </div>
+            <div class="as-filter-sep">—</div>
+            <div class="as-filter-group">
+              <label class="as-filter-label" for="asLengthMax">Max Length</label>
+              <input type="number" class="as-filter-input" id="asLengthMax" min="1" max="15" value="15" aria-label="Maximum word length" />
+            </div>
+            <div class="as-filter-note">
+              Tip: set <strong>Min = 5</strong> to only see longer words
+            </div>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div id="asStatus" aria-live="polite" aria-atomic="true" style="display:none;">
+          <div class="as-loading">
+            <div class="as-spinner"></div>
+            <div id="asStatusMsg">Searching…</div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="asResults" role="region" aria-label="Anagram results">
+          <div class="as-empty">
+            <div class="as-empty-icon">🔤</div>
+            <h3>Enter your letters above</h3>
+            <p>Type or paste up to 15 letters and click <strong>Solve Anagram</strong> to see every valid word they can form, grouped by length.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — FEATURES
+    ════════════════════════════════════════ -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">A smarter<br /><em>anagram finder.</em></h2>
+        <p class="section-sub">Everything a word-game player or puzzle solver needs — with clean, grouped results and no clutter.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🔤</div>
+            <h3>Full-Letter Unscrambling</h3>
+            <p>Uses all your letters to find every possible word — from short 2-letter words up to the longest word your letters can form.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📏</div>
+            <h3>Grouped by Length</h3>
+            <p>Results are organized into length groups with counts, so you can jump straight to 6-letter or 7-letter answers.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎚️</div>
+            <h3>Length Filters</h3>
+            <p>Set a minimum and maximum word length to hide short filler words and focus on the longer, higher-value answers.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Results</h3>
+            <p>All anagram logic runs in your browser against a large word list. Results appear in milliseconds.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>One-Click Copy</h3>
+            <p>Click any word tile to copy it instantly. Use Copy All to grab the entire result list in one click.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>A fully responsive layout with large touch targets makes it easy to unscramble letters on any device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — HOW IT WORKS
+    ════════════════════════════════════════ -->
+    <section class="section section-how" id="how" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">Three simple steps</div>
+        <h2 class="section-title">From scrambled<br /><em>to solved.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <h3>Enter your letters</h3>
+            <p>Type or paste up to 15 scrambled letters into the input box. Spaces and punctuation are ignored automatically.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <h3>Set length filters</h3>
+            <p>Optionally narrow results with a minimum and maximum word length — great for hiding 2- and 3-letter filler words.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <h3>Browse & copy</h3>
+            <p>Results are grouped by length. Click any word to copy it. Use Copy All to grab the full list.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — USE CASES
+    ════════════════════════════════════════ -->
+    <section class="section section-usecases" id="usecases" aria-label="Use cases">
+      <div class="container">
+        <div class="section-label">Who uses this</div>
+        <h2 class="section-title">Built for every<br /><em>word puzzle fan.</em></h2>
+        <div class="usecases-grid">
+          <div class="usecase-card">
+            <div class="usecase-emoji">🧩</div>
+            <h3>Anagram Puzzles</h3>
+            <p>Stuck on a newspaper anagram or a word puzzle app? Enter the scrambled letters and see every valid solution instantly.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🎲</div>
+            <h3>Scrabble Players</h3>
+            <p>Unscramble your rack letters to find high-value plays. Use the length filter to spot 7-letter bingo words quickly.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">📱</div>
+            <h3>Words With Friends</h3>
+            <p>The same letter-set logic works for any word game. Find the best play from your current tiles in seconds.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">✏️</div>
+            <h3>Crossword Helpers</h3>
+            <p>Know some letters in a slot but not all? Use this as a starting point and narrow with the length filter.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">👩‍🏫</div>
+            <h3>Teachers & Students</h3>
+            <p>Generate word lists from letter sets for classroom vocabulary games, spelling challenges, and anagram exercises.</p>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-emoji">🧠</div>
+            <h3>Vocabulary Practice</h3>
+            <p>Discover longer, less-common words hidden in familiar letter sets — a fun way to expand your word knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — FAQ
+    ════════════════════════════════════════ -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is an Anagram Solver?</button>
+            <div class="faq-a"><p>An Anagram Solver is a tool that rearranges a set of scrambled letters into every valid word that can be formed from those letters. It is commonly used for word games, puzzles, and vocabulary building.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How do I use the Anagram Solver?</button>
+            <div class="faq-a"><p>Type or paste your scrambled letters into the input box and click <strong>Solve Anagram</strong>. The solver instantly shows every valid word you can make, grouped by length.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does it find words using all the letters?</button>
+            <div class="faq-a"><p>Yes. The solver checks every possible word that can be formed using some or all of your letters. Words using all your letters are listed in the group matching that exact length.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I filter results by word length?</button>
+            <div class="faq-a"><p>Yes. Use the minimum and maximum length filters to narrow results. For example, set minimum to 5 to only see words with 5 or more letters.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is the Anagram Solver free?</button>
+            <div class="faq-a"><p>Yes, the Anagram Solver is 100% free with no signup, no download, and no limits on searches.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does it work on mobile?</button>
+            <div class="faq-a"><p>Yes, the Anagram Solver is fully responsive and works smoothly on phones, tablets, and desktop browsers.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How many letters can I enter?</button>
+            <div class="faq-a"><p>You can enter up to 15 letters. Scrabble racks have 7 tiles, and most word games use between 7 and 10 — 15 covers all common word games and then some.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ════════════════════════════════════════ -->
+    <section class="section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Got scrambled letters?</h2>
+          <p>Turn them into real words in seconds — free, instant, and no signup needed.</p>
+          <a href="#solver" class="btn-cta">Solve My Anagram →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Site components -->
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+
+  <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
+  <script src="/wordlist.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Dom refs ── */
+    const lettersInput = document.getElementById('asLetters');
+    const solveBtn = document.getElementById('asSolveBtn');
+    const clearBtn = document.getElementById('asClearBtn');
+    const resultsDiv = document.getElementById('asResults');
+    const statusDiv = document.getElementById('asStatus');
+    const statusMsg = document.getElementById('asStatusMsg');
+    const filterMin = document.getElementById('asLengthMin');
+    const filterMax = document.getElementById('asLengthMax');
+
+    /* ── Uppercase input live ── */
+    lettersInput.addEventListener('input', () => {
+      lettersInput.value = lettersInput.value.toUpperCase();
+    });
+    lettersInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') runSearch();
+    });
+
+    /* ── Buttons ── */
+    solveBtn.addEventListener('click', runSearch);
+    clearBtn.addEventListener('click', () => {
+      lettersInput.value = '';
+      filterMin.value = '2';
+      filterMax.value = '15';
+      renderEmpty('Enter your letters above');
+      lettersInput.focus();
+    });
+
+    /* ── Core: can word be made from letters ── */
+    function canMake(word, letters) {
+      const freq = {};
+      for (const c of letters) freq[c] = (freq[c] || 0) + 1;
+      for (const ch of word) {
+        if (!freq[ch] || freq[ch] <= 0) return false;
+        freq[ch]--;
+      }
+      return true;
+    }
+
+    /* ── Main search ── */
+    function runSearch() {
+      // Guard: wordlist must be loaded
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        renderError('Word list not loaded yet. Please wait a moment and try again.');
+        return;
+      }
+
+      const raw = lettersInput.value.trim().replace(/[^a-zA-Z]/g, '').toUpperCase();
+      if (!raw) {
+        renderEmpty('Please enter at least 1 letter.');
+        return;
+      }
+
+      // Read filters
+      const minLen = Math.max(1, parseInt(filterMin.value) || 1);
+      const maxLen = Math.min(15, parseInt(filterMax.value) || 15);
+      const letters = raw.toLowerCase();
+
+      // Show loading
+      showLoading('Unscrambling letters…');
+
+      // Defer to avoid blocking paint
+      setTimeout(() => {
+        const results = [];
+
+        for (const word of WORDLIST) {
+          const wl = word.length;
+          if (wl < minLen || wl > maxLen) continue;
+          if (wl > letters.length) continue;
+          if (!canMake(word, letters)) continue;
+          results.push(word);
+        }
+
+        // Sort: longest first, then alphabetical
+        results.sort((a, b) => b.length - a.length || a.localeCompare(b));
+
+        renderResults(results, raw);
+      }, 10);
+    }
+
+    /* ── Render helpers ── */
+    function showLoading(msg) {
+      statusDiv.style.display = 'block';
+      statusMsg.textContent = msg;
+      resultsDiv.innerHTML = '';
+    }
+
+    function hideLoading() {
+      statusDiv.style.display = 'none';
+    }
+
+    function renderEmpty(msg) {
+      hideLoading();
+      resultsDiv.innerHTML = `
+        <div class="as-empty">
+          <div class="as-empty-icon">🔤</div>
+          <h3>${msg}</h3>
+          <p>Type up to 15 letters and click <strong>Solve Anagram</strong> to see every valid word they can form.</p>
+        </div>`;
+    }
+
+    function renderError(msg) {
+      hideLoading();
+      resultsDiv.innerHTML = `
+        <div class="as-empty">
+          <div class="as-empty-icon">⚠️</div>
+          <h3>Something went wrong</h3>
+          <p>${msg}</p>
+        </div>`;
+    }
+
+    function renderResults(words, rawLetters) {
+      hideLoading();
+
+      if (!words.length) {
+        resultsDiv.innerHTML = `
+          <div class="as-empty">
+            <div class="as-empty-icon">🙁</div>
+            <h3>No words found</h3>
+            <p>Try adjusting your length filters — or check your letters for typos.</p>
+          </div>`;
+        return;
+      }
+
+      // Group by length
+      const groups = {};
+      words.forEach(w => {
+        const l = w.length;
+        if (!groups[l]) groups[l] = [];
+        groups[l].push(w);
+      });
+
+      const sortedLengths = Object.keys(groups).map(Number).sort((a, b) => b - a);
+
+      let html = `
+        <div class="as-results-meta">
+          <div class="as-results-count">
+            Found <span>${words.length}</span> word${words.length !== 1 ? 's' : ''}
+            from <span>${rawLetters}</span>
+          </div>
+          <div class="as-meta-actions">
+            <button class="as-meta-btn" id="asCopyAll">⎘ Copy All</button>
+          </div>
+        </div>`;
+
+      sortedLengths.forEach(l => {
+        html += `
+          <div class="as-length-group" data-group="${l}">
+            <div class="as-group-header">
+              ${l}-letter words
+              <span class="as-group-count">${groups[l].length}</span>
+            </div>
+            <div class="as-word-grid">`;
+        groups[l].forEach(word => {
+          html += `
+              <div class="as-word-tile" data-word="${word}" tabindex="0" role="button" aria-label="Copy word ${word.toUpperCase()}">
+                <span class="as-tile-word">${word.toUpperCase()}</span>
+                <span class="as-tile-len">${l} letters</span>
+              </div>`;
+        });
+        html += `</div></div>`;
+      });
+
+      resultsDiv.innerHTML = html;
+
+      /* ── Event delegation: word tile clicks ── */
+      resultsDiv.addEventListener('click', e => {
+        const tile = e.target.closest('.as-word-tile');
+        if (tile) {
+          const w = tile.dataset.word.toUpperCase();
+          navigator.clipboard.writeText(w).then(() => {
+            tile.classList.add('copied');
+            setTimeout(() => tile.classList.remove('copied'), 1200);
+            showToast(`Copied "${w}"`);
+          }).catch(() => showToast(`Word: ${w}`));
+        }
+      });
+      resultsDiv.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const tile = e.target.closest('.as-word-tile');
+          if (tile) {
+            e.preventDefault();
+            tile.click();
+          }
+        }
+      });
+
+      /* ── Copy All ── */
+      const copyAllBtn = document.getElementById('asCopyAll');
+      if (copyAllBtn) {
+        copyAllBtn.addEventListener('click', () => {
+          const allWords = words.map(w => w.toUpperCase()).join(', ');
+          navigator.clipboard.writeText(allWords).then(() => showToast(`Copied ${words.length} words!`));
+        });
+      }
+    }
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('#faqList .faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('#faqList .faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          if (b.nextElementSibling) b.nextElementSibling.style.display = 'none';
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.style.display = 'block';
+        }
+      });
+    });
+
+    /* ── Toast ── */
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

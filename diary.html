@@ -73,17 +73,38 @@
   <main>
 
     <!-- HERO -->
-    <section class="d-hero">
-      <div class="d-hero-orbs">
-        <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-      </div>
-      <div class="d-container d-hero-inner">
+<section class="d-hero">
+  <div class="d-hero-orbs">
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+  <div class="d-container d-hero-inner">
+    <div class="d-hero-layout">
+      <!-- Left: Text content -->
+      <div class="d-hero-text">
         <div class="d-badge">📖 Your private space to write & Save as PDF</div>
         <h1>Free Online Diary & Private Journal</h1>
         <p>Write daily entries with mood tracker, tags, and prompts. 100% private, auto-saved in your browser. Export to beautiful PDF with one click.</p>
-        <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Now ↓</a>        
-      </div>    
-    </section>     
+        <div class="d-hero-btn-wrap">
+          <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Now ↓</a>
+        </div>
+      </div>
+
+      <!-- Right: 300x200 Advertisement -->
+      <div class="d-hero-ad">
+        <script>
+          atOptions = {
+            'key' : 'f5214acd8479e07d7defe4626c574aa5',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script src="https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5"></script>
+      </div>
+    </div>
+  </div>
+</section>    
 
     <!-- DIARY APP -->
     <section class="d-app-section" id="diary-app">
@@ -295,7 +316,64 @@
       <a href="#diary-app" class="d-btn d-btn-primary">✍️ Write Now &amp; Export Later</a>
     </div>
   </div>
-</section>    
+</section> 
+
+
+    <!-- =============================================
+     HERO AD STYLES (round borders, grid, etc.)
+     ============================================= -->
+    <style>
+      /* Hero layout: text left, ad right */
+.d-hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.d-hero-text {
+  flex: 1 1 480px;
+  min-width: 0;
+  text-align: center; /* centers badge, h1, p, and button */
+}
+
+/* Center the Start Writing Now button */
+.d-hero-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* Ad container on the right */
+.d-hero-ad {
+  flex: 0 0 300px;
+  width: 300px;
+  height: 250px; /* matches the 300x250 ad slot from your script */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.d-hero-ad iframe {
+  max-width: 100%;
+  border: 0;
+}
+
+/* Mobile: stack ad below text, keep button centered */
+@media (max-width: 768px) {
+  .d-hero-layout {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .d-hero-ad {
+    flex: 0 0 auto;
+    margin: 0 auto;
+  }
+}
+      </style>
 
 <!-- =============================================
      ADDITIONAL STYLES (round borders, grid, etc.)

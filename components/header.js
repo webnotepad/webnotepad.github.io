@@ -420,19 +420,27 @@
         height: 16px;
         flex-shrink: 0;
         transition: transform 0.2s ease;
+        /* Preserve monochrome currentColor for desktop nav icons */
+        color: inherit;
       }
       .header-nav .nav-link-icon:hover svg {
         transform: scale(1.1);
       }
 
-      /* ── All Tools CTA button with blink ── */
+      /* ── All Tools CTA button (compact landscape pill) ── */
       .header-nav .nav-link-cta {
-        padding: 6px 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 10px;
         border-radius: 100px;
         background: var(--accent);
         color: #ffffff !important;
         font-weight: 600;
+        font-size: 0.78rem;
+        line-height: 1.15;
         border: 1px solid var(--accent);
+        white-space: nowrap;
         transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
       }
       .header-nav .nav-link-cta:hover {
@@ -446,8 +454,9 @@
         color: #ffffff !important;
       }
       .header-nav .nav-link-cta svg {
-        width: 15px;
-        height: 15px;
+        width: 12px;
+        height: 12px;
+        color: #ffffff;
       }
 
       .nav-link-blink {
@@ -459,8 +468,8 @@
           opacity: 1;
         }
         50% {
-          box-shadow: 0 0 0 8px rgba(196, 86, 42, 0);
-          opacity: 0.78;
+          box-shadow: 0 0 0 6px rgba(196, 86, 42, 0);
+          opacity: 0.82;
         }
       }
 
@@ -556,7 +565,15 @@
         justify-content: center;
         font-size: 1rem;
       }
-      .mobile-tool-icon svg { width: 20px; height: 20px; display: block; }
+      /* Preserve the inline SVG colors (fill/stroke attributes) */
+      .mobile-tool-icon svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+        overflow: visible;
+        /* Do NOT set fill or stroke here — inline attributes must win */
+        color: initial;
+      }
       .mobile-tool-text {
         display: flex;
         flex-direction: column;

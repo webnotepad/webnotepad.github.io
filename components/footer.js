@@ -72,7 +72,7 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <div class="footer-logo">✦ Notepad Online</div>
-            <p>The cleanest free online notepad. Write, save and organize your notes instantly in your browser — no signup, no ads, no complexity. Your thoughts, always safe.</p>
+            <p>The cleanest free online notepad. Write, save and organize your notes instantly in your browser — no signup, no complexity. Your thoughts, always safe.</p>
             ${socialIconsHTML}
           </div>
           <div class="footer-col">

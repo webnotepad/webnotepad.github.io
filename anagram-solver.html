@@ -994,7 +994,7 @@
   <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
   <script src="/wordlist.js"></script>
 
-  <script>
+    <script>
   (function () {
     'use strict';
 
@@ -1007,6 +1007,37 @@
     const statusMsg = document.getElementById('asStatusMsg');
     const filterMin = document.getElementById('asLengthMin');
     const filterMax = document.getElementById('asLengthMax');
+
+    /* ── Normalize wordlist once, at load ──
+       Keep only entries that are:
+         - at least 2 characters long
+         - purely alphabetic (a-z after lowercasing)
+       This strips numbers, abbreviations, punctuation, proper nouns, etc. */
+    let NORMALIZED_WORDS = [];
+    let normalizeError = null;
+
+    function normalizeWordlist() {
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        normalizeError = 'Word list not loaded yet. Please wait a moment and try again.';
+        return;
+      }
+      const seen = new Set();
+      const out = [];
+      for (let i = 0; i < WORDLIST.length; i++) {
+        const raw = WORDLIST[i];
+        if (typeof raw !== 'string') continue;
+        const lower = raw.toLowerCase();
+        // Must be pure a-z, length 2–15
+        if (lower.length < 2 || lower.length > 15) continue;
+        if (!/^[a-z]+$/.test(lower)) continue;
+        if (seen.has(lower)) continue;
+        seen.add(lower);
+        out.push(lower);
+      }
+      // Sort by length desc, then alphabetical — matches display order
+      out.sort((a, b) => b.length - a.length || a.localeCompare(b));
+      NORMALIZED_WORDS = out;
+    }
 
     /* ── Uppercase input live ── */
     lettersInput.addEventListener('input', () => {
@@ -1026,22 +1057,26 @@
       lettersInput.focus();
     });
 
-    /* ── Core: can word be made from letters ── */
-    function canMake(word, letters) {
-      const freq = {};
-      for (const c of letters) freq[c] = (freq[c] || 0) + 1;
+    /* ── Core: can word be made from letters (multiset check) ── */
+    function canMake(word, letterFreq) {
+      // Fast path: if word is longer than total letters, impossible
+      // (caller already checks length, but guard here too)
+      const local = {};
       for (const ch of word) {
-        if (!freq[ch] || freq[ch] <= 0) return false;
-        freq[ch]--;
+        local[ch] = (local[ch] || 0) + 1;
+        if (!letterFreq[ch] || local[ch] > letterFreq[ch]) return false;
       }
       return true;
     }
 
     /* ── Main search ── */
     function runSearch() {
-      // Guard: wordlist must be loaded
-      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
-        renderError('Word list not loaded yet. Please wait a moment and try again.');
+      if (normalizeError) {
+        renderError(normalizeError);
+        return;
+      }
+      if (!NORMALIZED_WORDS.length) {
+        renderError('No valid words found in the word list. Check that wordlist.js is loading correctly.');
         return;
       }
 
@@ -1051,28 +1086,29 @@
         return;
       }
 
-      // Read filters
       const minLen = Math.max(1, parseInt(filterMin.value) || 1);
       const maxLen = Math.min(15, parseInt(filterMax.value) || 15);
       const letters = raw.toLowerCase();
 
-      // Show loading
+      // Precompute letter frequency for the input (O(n))
+      const letterFreq = {};
+      for (const ch of letters) letterFreq[ch] = (letterFreq[ch] || 0) + 1;
+
       showLoading('Unscrambling letters…');
 
-      // Defer to avoid blocking paint
       setTimeout(() => {
         const results = [];
 
-        for (const word of WORDLIST) {
+        for (const word of NORMALIZED_WORDS) {
           const wl = word.length;
           if (wl < minLen || wl > maxLen) continue;
           if (wl > letters.length) continue;
-          if (!canMake(word, letters)) continue;
+          if (!canMake(word, letterFreq)) continue;
           results.push(word);
         }
 
-        // Sort: longest first, then alphabetical
-        results.sort((a, b) => b.length - a.length || a.localeCompare(b));
+        // NORMALIZED_WORDS is already pre-sorted by length desc then alpha,
+        // so `results` preserves that order. No re-sort needed.
 
         renderResults(results, raw);
       }, 10);
@@ -1122,7 +1158,7 @@
         return;
       }
 
-      // Group by length
+      // Group by length (results already sorted longest-first)
       const groups = {};
       words.forEach(w => {
         const l = w.length;
@@ -1163,7 +1199,6 @@
 
       resultsDiv.innerHTML = html;
 
-      /* ── Event delegation: word tile clicks ── */
       resultsDiv.addEventListener('click', e => {
         const tile = e.target.closest('.as-word-tile');
         if (tile) {
@@ -1185,7 +1220,6 @@
         }
       });
 
-      /* ── Copy All ── */
       const copyAllBtn = document.getElementById('asCopyAll');
       if (copyAllBtn) {
         copyAllBtn.addEventListener('click', () => {
@@ -1218,6 +1252,14 @@
       t.classList.add('show');
       clearTimeout(t._timer);
       t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    /* ── Init ── */
+    normalizeWordlist();
+    if (normalizeError) {
+      console.warn(normalizeError);
+    } else {
+      console.log(`✅ Anagram Solver ready — ${NORMALIZED_WORDS.length} valid words loaded.`);
     }
 
   })();

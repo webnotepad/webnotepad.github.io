@@ -15,6 +15,16 @@
     { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
+  // ── Desktop nav SVG icons ──
+  const NAV_ICONS = {
+    home: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 3l9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20a1 1 0 0 0 1 1H10v-5.5h4V21h3.5a1 1 0 0 0 1-1V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    diary: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="15" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7.5 3v18" stroke="currentColor" stroke-width="1.8"/><path d="M11 8h5M11 12h5M11 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    mindmap: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="5" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M10 11L6.2 7.2M14 11l3.8-3.8M10 13l-3.8 3.8M14 13l3.8 3.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    list: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="7" y="7" width="3" height="3" rx="0.5" stroke="currentColor" stroke-width="1.4"/><path d="M7.6 8.5l1 1 1.6-1.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5h5M12 13h5M7 13h3M7 17h3M12 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    allTools: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>`,
+    games: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="6" y1="11" x2="10" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="9" x2="8" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="12" r="0.9" fill="currentColor"/><circle cx="18" cy="10" r="0.9" fill="currentColor"/></svg>`
+  };
+
   // Tools catalog — mirrors sidebar categories (no ads)
   const toolCategories = [
     {
@@ -227,12 +237,12 @@
         </a>
 
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="/" class="nav-link">Home</a>                
-          <a href="/diary" class="nav-link">Diary</a>
-          <a href="/mindmap" class="nav-link">MindMap</a>
-          <a href="/list-maker" class="nav-link">List Maker</a>
-          <a href="/all-tools" class="nav-link nav-link-cta nav-link-blink">All Tools</a>
-          <a href="/games" class="nav-link">Games</a>
+          <a href="/" class="nav-link nav-link-icon">${NAV_ICONS.home}<span>Home</span></a>                
+          <a href="/diary" class="nav-link nav-link-icon">${NAV_ICONS.diary}<span>Diary</span></a>
+          <a href="/mindmap" class="nav-link nav-link-icon">${NAV_ICONS.mindmap}<span>MindMap</span></a>
+          <a href="/list-maker" class="nav-link nav-link-icon">${NAV_ICONS.list}<span>List Maker</span></a>
+          <a href="/all-tools" class="nav-link nav-link-cta nav-link-blink nav-link-icon">${NAV_ICONS.allTools}<span>All Tools</span></a>
+          <a href="/games" class="nav-link nav-link-icon">${NAV_ICONS.games}<span>Games</span></a>
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
         </nav>
@@ -399,6 +409,22 @@
         border-color: var(--paper-edge);
       }
 
+      /* ── Desktop nav links with icons ── */
+      .header-nav .nav-link-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .header-nav .nav-link-icon svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+      }
+      .header-nav .nav-link-icon:hover svg {
+        transform: scale(1.1);
+      }
+
       /* ── All Tools CTA button with blink ── */
       .header-nav .nav-link-cta {
         padding: 6px 14px;
@@ -418,6 +444,10 @@
       .header-nav .nav-link-cta.active-nav {
         background: var(--accent);
         color: #ffffff !important;
+      }
+      .header-nav .nav-link-cta svg {
+        width: 15px;
+        height: 15px;
       }
 
       .nav-link-blink {
@@ -577,6 +607,7 @@
           font-size: 1rem;
         }
         .nav-link-blink { animation: none; }
+        .header-nav .nav-link-icon svg { display: none; }
       }
 
       body.dark .mobile-dropdown-btn { color: var(--ink); }

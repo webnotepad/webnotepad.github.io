@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptogram Solver – Decode Substitution Ciphers with Frequency Analysis | WebNotePad</title>
+  <meta name="description" content="Free Cryptogram Solver. Paste a substitution cipher and instantly decode it using frequency analysis, pattern matching, and a dictionary of common English words. No signup required." />
+  <meta name="keywords" content="cryptogram solver, cryptogram decoder, substitution cipher solver, cryptogram helper, cipher decoder, frequency analysis cipher, cryptogram answer finder, cryptoquip solver, cryptogram puzzle solver" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/cryptogram-solver" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/cryptogram-solver" />
+  <meta property="og:title" content="Cryptogram Solver – Decode Substitution Ciphers Instantly" />
+  <meta property="og:description" content="Paste a substitution cipher and instantly decode it with frequency analysis and pattern matching. Free, fast, no signup." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cryptogram Solver – Free Substitution Cipher Decoder" />
+  <meta name="twitter:description" content="Decode cryptogram puzzles automatically using frequency analysis and dictionary matching." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cryptogram Solver",
+    "url": "https://webnotepad.github.io/cryptogram-solver",
+    "description": "A free browser-based cryptogram solver that decodes substitution ciphers using frequency analysis, letter-pattern matching, and a dictionary of common English words.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Automatic decoding of substitution ciphers",
+      "English letter frequency analysis",
+      "Dictionary-based word pattern matching",
+      "Live frequency chart of cipher letters",
+      "Editable cipher-to-plaintext key",
+      "One-click copy of decoded text",
+      "Instant client-side results",
+      "Works offline once loaded",
+      "No signup or download required",
+      "Mobile friendly"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Cryptogram Solver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Cryptogram Solver is a tool that helps you decode substitution ciphers — puzzles where each letter of the alphabet is replaced by another letter. It uses frequency analysis and dictionary matching to guess the mapping and reveal the plaintext."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Cryptogram Solver work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The solver counts how often each cipher letter appears and compares that to known English letter frequencies. It also uses common word patterns (like 'THE', 'AND', 'ING') and a dictionary of frequent words to build a best-guess substitution key, which you can then adjust manually."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I manually adjust the cipher key?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The solver produces a suggested key, but you can override any cipher letter's plaintext mapping. The decoded text updates instantly as you edit the key."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of cryptograms does it work on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The solver works on any simple substitution cipher where each letter maps to exactly one other letter — including cryptoquips, newspaper cryptograms, and classic substitution puzzles. It does not handle polyalphabetic ciphers like Vigenère."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Cryptogram Solver free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Cryptogram Solver is 100% free with no signup, no download, and no limits on how many cryptograms you solve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Cryptogram Solver is fully responsive and works smoothly on phones, tablets, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Cryptogram Solver", "item": "https://webnotepad.github.io/cryptogram-solver" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 56px;
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px);
+      opacity: 0.3; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,86,42,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-pale); color: var(--accent);
+      border: 1px solid rgba(196,86,42,0.2); border-radius: 100px;
+      padding: 6px 16px; font-size: 0.78rem; font-weight: 600;
+      font-family: var(--font-mono); margin-bottom: 24px; letter-spacing: 0.04em;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--ink); margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+      font-family: var(--font-mono);
+    }
+
+    /* SECTION COMMONS */
+    .section { padding: 88px 0; }
+    .section-label {
+      font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 900; color: var(--ink); line-height: 1.14;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .section-title em { color: var(--accent); font-style: italic; }
+    .section-sub {
+      font-size: 1.05rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7;
+    }
+
+    /* ===== SOLVER APP ===== */
+    .section-app { padding: 0 0 80px; background: var(--paper); }
+
+    .cs-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .cs-panel {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .cs-panel-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cs-panel-label .cs-char-count {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    #csCipherInput {
+      width: 100%;
+      min-height: 140px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+      outline: none;
+      resize: vertical;
+      transition: border-color var(--transition);
+      box-sizing: border-box;
+    }
+    #csCipherInput:focus { border-color: var(--accent); }
+    #csCipherInput::placeholder { color: var(--ink-muted); opacity: 0.6; font-family: var(--font-body); letter-spacing: 0; }
+
+    .cs-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .cs-solve-btn {
+      padding: 12px 28px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cs-solve-btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(196,86,42,0.3);
+    }
+    .cs-secondary-btn {
+      padding: 12px 18px;
+      background: transparent;
+      color: var(--ink-muted);
+      border: 2px solid var(--paper-edge);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .cs-secondary-btn:hover {
+      color: var(--ink);
+      background: var(--paper);
+      border-color: var(--ink-muted);
+    }
+
+    /* Output */
+    .cs-output {
+      min-height: 140px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+      transition: border-color var(--transition);
+    }
+    .cs-output.is-empty {
+      color: var(--ink-muted);
+      font-family: var(--font-body);
+      letter-spacing: 0;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0.7;
+    }
+    .cs-output .cs-unsolved {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline dotted;
+    }
+    .cs-output .cs-solved-word {
+      color: var(--ink);
+    }
+    .cs-output .cs-word-break {
+      display: inline-block;
+      width: 0.55em;
+    }
+
+    /* Key table */
+    .cs-key-section { margin-top: 20px; }
+    .cs-key-grid {
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .cs-key-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 4px 2px;
+      border-radius: 4px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      transition: border-color var(--transition);
+    }
+    .cs-key-cell.is-unset { opacity: 0.5; }
+    .cs-key-cipher {
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cs-key-plain {
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid var(--paper-edge);
+      border-radius: 3px;
+      background: var(--paper-warm);
+      color: var(--ink);
+      outline: none;
+      padding: 0;
+      transition: border-color var(--transition);
+    }
+    .cs-key-plain:focus { border-color: var(--accent); }
+    .cs-key-plain::placeholder { color: var(--paper-edge); font-weight: 400; }
+
+    /* Frequency chart */
+    .cs-freq-section { margin-top: 20px; }
+    .cs-freq-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 90px;
+      padding: 8px 0 0;
+      border-bottom: 1px solid var(--paper-edge);
+    }
+    .cs-freq-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      min-width: 0;
+    }
+    .cs-freq-bar {
+      width: 100%;
+      max-width: 22px;
+      background: var(--accent);
+      border-radius: 2px 2px 0 0;
+      min-height: 2px;
+      transition: height 0.3s ease, opacity 0.2s ease;
+      opacity: 0.75;
+    }
+    .cs-freq-col:hover .cs-freq-bar { opacity: 1; }
+    .cs-freq-letter {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      margin-top: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Empty state */
+    .cs-empty {
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--paper-warm);
+      border: 1px dashed var(--paper-edge);
+      border-radius: var(--radius-lg);
+      color: var(--ink-muted);
+    }
+    .cs-empty-icon { font-size: 2.6rem; margin-bottom: 14px; }
+    .cs-empty h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .cs-empty p { font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin: 0 auto; }
+
+    /* ===== FEATURES ===== */
+    .section-features { background: var(--paper-warm); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .feature-card {
+      padding: 28px 24px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      border-color: var(--accent-pale);
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .feature-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== HOW IT WORKS ===== */
+    .section-how { background: var(--paper); }
+    .how-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 52px;
+    }
+    .how-step {
+      flex: 1;
+      padding: 28px 24px;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+    }
+    .how-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 52px;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--paper-edge);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .how-step h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .how-step p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== TIPS ===== */
+    .section-tips { background: var(--paper-warm); }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .tip-card {
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+    }
+    .tip-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tip-card p, .tip-card li {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .tip-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+    }
+    .tip-card ul li {
+      padding-left: 18px;
+      position: relative;
+    }
+    .tip-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* ===== FAQ ===== */
+    .section-faq { background: var(--paper); }
+    .faq-list {
+      max-width: 720px;
+      margin: 52px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .faq-item {
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .faq-q[aria-expanded="true"]::after {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+    .faq-q:hover { background: var(--paper-warm); }
+    .faq-a { display: none; padding: 0 20px 18px; }
+    .faq-a p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ===== CTA ===== */
+    .section-cta {
+      background: var(--ink);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    body.dark .section-cta { background: #0e0e12; }
+    .cta-ink {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(196,86,42,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    .cta-text p {
+      font-size: 1.05rem;
+      color: rgba(250,248,244,0.6);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .btn-cta:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(196,86,42,0.4);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-shell { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero { padding: 60px 0 44px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-steps { flex-direction: column; }
+      .how-connector { display: none; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .cs-key-grid { grid-template-columns: repeat(9, 1fr); }
+      .cs-actions { flex-direction: column; }
+      .cs-solve-btn, .cs-secondary-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.1rem; }
+      .cs-key-grid { grid-template-columns: repeat(7, 1fr); }
+      .cs-key-plain { width: 20px; height: 20px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Cryptogram Solver · Substitution Cipher Decoder</div>
+        <h1 class="hero-title">Crack the cipher.<br /><em>Read the message.</em></h1>
+        <p class="hero-sub">Paste any substitution cipher and the solver decodes it automatically using letter-frequency analysis, common word patterns, and a dictionary of frequent English words. Adjust the key by hand when needed.</p>
+        <div class="hero-pills">
+          <span class="hero-pill">🔐 Substitution Ciphers</span>
+          <span class="hero-pill">📊 Frequency Analysis</span>
+          <span class="hero-pill">🧠 Pattern Matching</span>
+          <span class="hero-pill">✏️ Editable Key</span>
+          <span class="hero-pill">⚡ Instant Decode</span>
+          <span class="hero-pill">🆓 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — SOLVER APP
+    ════════════════════════════════════════ -->
+    <section class="section-app" id="solver" aria-label="Cryptogram Solver Application">
+      <div class="container">
+
+        <div class="section-label">The solver</div>
+        <h2 class="section-title">Paste a cryptogram.<br /><em>See the plaintext.</em></h2>
+        <p class="section-sub" style="margin-bottom:32px;">Punctuation and spacing are preserved. Each cipher letter maps to exactly one plaintext letter. Click <strong>Decode</strong> to auto-solve, then tweak the key below if needed.</p>
+
+        <div class="cs-shell">
+          <!-- Input panel -->
+          <div class="cs-panel">
+            <div class="cs-panel-label">
+              <span>Cipher text</span>
+              <span class="cs-char-count" id="csCharCount">0 chars</span>
+            </div>
+            <textarea
+              id="csCipherInput"
+              placeholder="Paste your cryptogram here, e.g.&#10;XLI MWXIV WEW XLI WXERH"
+              spellcheck="false"
+              autocapitalize="characters"
+              aria-label="Cipher text input"
+            ></textarea>
+
+            <div class="cs-actions">
+              <button class="cs-solve-btn" id="csSolveBtn" aria-label="Decode cryptogram">
+                🔓 Decode
+              </button>
+              <button class="cs-secondary-btn" id="csExampleBtn" aria-label="Load example">Load Example</button>
+              <button class="cs-secondary-btn" id="csClearBtn" aria-label="Clear">✕ Clear</button>
+            </div>
+
+            <div class="cs-freq-section" id="csFreqSection">
+              <div class="cs-panel-label">
+                <span>Cipher letter frequency</span>
+              </div>
+              <div class="cs-freq-bars" id="csFreqBars" aria-label="Frequency of cipher letters"></div>
+            </div>
+          </div>
+
+          <!-- Output panel -->
+          <div class="cs-panel">
+            <div class="cs-panel-label">
+              <span>Decoded text</span>
+              <button class="cs-secondary-btn" id="csCopyBtn" style="padding:4px 10px;font-size:0.72rem;" aria-label="Copy decoded text">⎘ Copy</button>
+            </div>
+            <div class="cs-output is-empty" id="csOutput" aria-live="polite">
+              Your decoded message will appear here.
+            </div>
+
+            <div class="cs-key-section" id="csKeySection" style="display:none;">
+              <div class="cs-panel-label">
+                <span>Cipher → Plaintext key</span>
+                <span class="cs-char-count" id="csKeyProgress"></span>
+              </div>
+              <div class="cs-key-grid" id="csKeyGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty hint below when nothing yet -->
+        <div id="csBelowHint" style="margin-top:24px;">
+          <div class="cs-empty">
+            <div class="cs-empty-icon">🔐</div>
+            <h3>No cryptogram yet</h3>
+            <p>Paste a substitution cipher above and click <strong>Decode</strong> — or click <strong>Load Example</strong> to try a sample.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — FEATURES
+    ════════════════════════════════════════ -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">A smarter<br /><em>cipher cracker.</em></h2>
+        <p class="section-sub">Frequency analysis, dictionary matching, and an editable key — everything a cryptogram fan needs.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Frequency Analysis</h3>
+            <p>Counts how often each cipher letter appears and maps the most common ones to E, T, A, O, I, N — the most frequent English letters.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Pattern Matching</h3>
+            <p>Finds repeated word patterns like "THE", "AND", "ING", and "TION" to lock in high-confidence letter mappings.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Dictionary Assistance</h3>
+            <p>Uses a curated list of the most common English words to fill in gaps that simple frequency analysis leaves behind.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✏️</div>
+            <h3>Editable Key</h3>
+            <p>The auto-solve is only a starting point. Every cipher letter's mapping can be edited by hand, and the decoded text updates live.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Live Frequency Chart</h3>
+            <p>See a bar chart of cipher letter frequencies side-by-side with the decoded output to spot mapping mistakes instantly.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Friendly</h3>
+            <p>A fully responsive layout with large touch targets makes it easy to crack cryptograms on any device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — HOW IT WORKS
+    ════════════════════════════════════════ -->
+    <section class="section section-how" id="how" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">Three simple steps</div>
+        <h2 class="section-title">From cipher<br /><em>to clear text.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <h3>Paste the cipher</h3>
+            <p>Copy the cryptogram from a puzzle book, newspaper, or website and paste it into the input box. Spaces and punctuation are preserved.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <h3>Auto-decode</h3>
+            <p>Click Decode. The solver uses letter-frequency analysis and dictionary matching to build a best-guess substitution key and applies it.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <h3>Refine by hand</h3>
+            <p>Not quite right? Edit any cipher letter's plaintext mapping in the key grid. The decoded text updates instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — TIPS
+    ════════════════════════════════════════ -->
+    <section class="section section-tips" id="tips" aria-label="Cryptogram tips">
+      <div class="container">
+        <div class="section-label">Strategy</div>
+        <h2 class="section-title">Tips to crack<br /><em>any cryptogram.</em></h2>
+        <p class="section-sub">Use these proven techniques alongside the solver to solve cryptograms faster.</p>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h3>📊 Letter Frequency</h3>
+            <ul>
+              <li><strong>E</strong> is the most common English letter (~12.7%).</li>
+              <li><strong>T</strong> is the most common consonant (~9.1%).</li>
+              <li><strong>A, O, I, N</strong> all appear at 7–8% frequency.</li>
+              <li>The rarest letters are <strong>Z, Q, X, J</strong> — often appear only once or twice.</li>
+              <li>If a letter appears more than 10% of the time, it's almost certainly <strong>E</strong>.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>🔤 Word Patterns</h3>
+            <ul>
+              <li>Single-letter words are almost always <strong>A</strong> or <strong>I</strong>.</li>
+              <li>The most common 3-letter word is <strong>THE</strong>.</li>
+              <li>Common 2-letter words: <strong>OF, TO, IN, IT, IS, BE, AS, AT, SO, WE, HE, BY, OR, ON, DO, IF, ME, MY, UP, AN, GO, NO, US, AM</strong>.</li>
+              <li>Common endings: <strong>-ING, -TION, -ED, -LY, -EST, -ER</strong>.</li>
+              <li>Repeated patterns like <strong>XYYX</strong> (e.g., "SEES", "THAT") are strong clues.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>✏️ Work Iteratively</h3>
+            <ul>
+              <li>Start with the highest-frequency cipher letter — map it to <strong>E</strong>.</li>
+              <li>Find the most common 3-letter word and test <strong>THE</strong>.</li>
+              <li>Look for double letters — LL, EE, SS, OO, TT are most common.</li>
+              <li>Capitalized words in the middle of a sentence are usually proper nouns.</li>
+              <li>Use the frequency chart to cross-check your guesses.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>🚫 Common Pitfalls</h3>
+            <ul>
+              <li>Don't assume the first guess is right — verify against multiple words.</li>
+              <li>Watch for letter-swaps like E↔T that are easy to confuse.</li>
+              <li>Punctuation doesn't always match English — some puzzle writers omit it.</li>
+              <li>Rare letters like Q are almost always followed by U.</li>
+              <li>If a mapping makes one word work but breaks another, undo it.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — FAQ
+    ════════════════════════════════════════ -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What is a Cryptogram Solver?</button>
+            <div class="faq-a"><p>A Cryptogram Solver is a tool that helps you decode substitution ciphers — puzzles where each letter of the alphabet is replaced by another letter. It uses frequency analysis and dictionary matching to guess the mapping and reveal the plaintext.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How does the Cryptogram Solver work?</button>
+            <div class="faq-a"><p>The solver counts how often each cipher letter appears and compares that to known English letter frequencies. It also uses common word patterns (like 'THE', 'AND', 'ING') and a dictionary of frequent words to build a best-guess substitution key, which you can then adjust manually.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I manually adjust the cipher key?</button>
+            <div class="faq-a"><p>Yes. The solver produces a suggested key, but you can override any cipher letter's plaintext mapping in the key grid. The decoded text updates instantly as you edit the key.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What types of cryptograms does it work on?</button>
+            <div class="faq-a"><p>The solver works on any simple substitution cipher where each letter maps to exactly one other letter — including cryptoquips, newspaper cryptograms, and classic substitution puzzles. It does not handle polyalphabetic ciphers like Vigenère.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is the Cryptogram Solver free?</button>
+            <div class="faq-a"><p>Yes, the Cryptogram Solver is 100% free with no signup, no download, and no limits on how many cryptograms you solve.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does it work on mobile?</button>
+            <div class="faq-a"><p>Yes, the Cryptogram Solver is fully responsive and works smoothly on phones, tablets, and desktop browsers.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Why doesn't the decoded text make sense?</button>
+            <div class="faq-a"><p>Simple frequency analysis gets you close but not always perfect, especially on short cryptograms. Use the key grid to adjust any letters that look wrong — the decoded text will update immediately. Longer messages are much easier to solve accurately.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ════════════════════════════════════════ -->
+    <section class="section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Got a cryptic message?</h2>
+          <p>Paste it, click Decode, and read the plaintext in seconds — free, instant, no signup.</p>
+          <a href="#solver" class="btn-cta">Decode My Cryptogram →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Site components -->
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+
+  <!-- Word list — optional; used as a dictionary for common-word scoring -->
+  <script src="/wordlist.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Dom refs ── */
+    const cipherInput = document.getElementById('csCipherInput');
+    const solveBtn = document.getElementById('csSolveBtn');
+    const exampleBtn = document.getElementById('csExampleBtn');
+    const clearBtn = document.getElementById('csClearBtn');
+    const copyBtn = document.getElementById('csCopyBtn');
+    const outputEl = document.getElementById('csOutput');
+    const charCountEl = document.getElementById('csCharCount');
+    const keySection = document.getElementById('csKeySection');
+    const keyGrid = document.getElementById('csKeyGrid');
+    const keyProgress = document.getElementById('csKeyProgress');
+    const freqBars = document.getElementById('csFreqBars');
+    const belowHint = document.getElementById('csBelowHint');
+
+    const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    /* English letter frequencies (percent) — used for frequency-based mapping */
+    const ENGLISH_FREQ = {
+      A: 8.17, B: 1.49, C: 2.78, D: 4.25, E: 12.70, F: 2.23, G: 2.02,
+      H: 6.09, I: 6.97, J: 0.15, K: 0.77, L: 4.03, M: 2.41, N: 6.75,
+      O: 7.51, P: 1.93, Q: 0.10, R: 5.99, S: 6.33, T: 9.06, U: 2.76,
+      V: 0.98, W: 2.36, X: 0.15, Y: 1.97, Z: 0.07
+    };
+
+    /* Curated common English words for pattern matching */
+    const COMMON_WORDS = [
+      'THE','AND','YOU','THAT','WAS','FOR','ARE','WITH','THEY','HAVE',
+      'THIS','WILL','YOUR','FROM','THEM','THEN','THAN','WHAT','WHEN','MADE',
+      'WERE','SAID','EACH','WHICH','THEIR','TIME','WILL','WOULD','THERE','COULD',
+      'PEOPLE','INTO','YEAR','YOUR','GOOD','SOME','COULD','THEM','SEE','OTHER',
+      'THAN','THEN','NOW','LOOK','ONLY','COME','ITS','OVER','THINK','ALSO',
+      'BACK','AFTER','USE','TWO','HOW','OUR','WORK','FIRST','WELL','WAY',
+      'EVEN','NEW','WANT','BECAUSE','ANY','THESE','GIVE','DAY','MOST','US',
+      'IS','WAS','ARE','BEEN','HAS','HAD','WERE','SAID','DID','GET',
+      'MAY','WILL','ONE','ALL','BUT','NOT','OUT','UP','SO','NO',
+      'IF','WHO','WHY','NOW','HOW','CAN','HIM','HER','HIS','SHE',
+      'HE','IT','WE','ME','MY','AS','AT','BE','BY','DO',
+      'GO','IF','IN','IS','IT','ME','MY','NO','OF','ON',
+      'OR','SO','TO','UP','US','WE','AM','AN','AS','AT',
+      'BE','BY','DO','GO','HE','IF','IN','IS','IT','ME',
+      'MY','NO','OF','ON','OR','SO','TO','UP','US','WE',
+      'A','I',
+      // 3-letter words
+      'THE','AND','FOR','ARE','BUT','NOT','YOU','ALL','ANY','CAN',
+      'HAD','HER','WAS','ONE','OUR','OUT','DAY','GET','HAS','HIM',
+      'HIS','HOW','ITS','MAY','NEW','NOW','OLD','SEE','TWO','WAY',
+      'WHO','BOY','DID','ITS','LET','PUT','SAY','SHE','TOO','USE',
+      // 4-letter words
+      'THAT','WITH','HAVE','THIS','WILL','YOUR','FROM','THEY','KNOW','WANT',
+      'BEEN','GOOD','MUCH','SOME','TIME','VERY','WHEN','COME','HERE','JUST',
+      'LIKE','LONG','MAKE','MANY','MORE','ONLY','OVER','SUCH','TAKE','THAN',
+      'THEM','THEN','THEY','WELL','WERE','WHAT','WILL','WITH','YEAR','YOU',
+      // 5-letter words
+      'ABOUT','AFTER','AGAIN','COULD','FIRST','FOUND','GREAT','HOUSE','LARGE','LEARN',
+      'NEVER','OTHER','PLACE','PLANT','POINT','RIGHT','SMALL','SOUND','SPELL','STILL',
+      'STUDY','THEIR','THERE','THESE','THING','THINK','THREE','WATER','WHERE','WHICH',
+      'WHILE','WORLD','WOULD','WRITE','YOUNG','BEING','EVERY','MIGHT','SHALL','UNDER'
+    ];
+
+    /* Filter dictionary to valid words only (in case wordlist.js is noisy) */
+    let DICTIONARY = [];
+    if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
+      const seen = new Set();
+      for (const raw of WORDLIST) {
+        if (typeof raw !== 'string') continue;
+        const lower = raw.toLowerCase();
+        if (lower.length < 2 || lower.length > 15) continue;
+        if (!/^[a-z]+$/.test(lower)) continue;
+        if (seen.has(lower)) continue;
+        seen.add(lower);
+        DICTIONARY.push(lower);
+      }
+    }
+    // Merge in our curated common words (in case wordlist.js is missing)
+    for (const w of COMMON_WORDS) {
+      const lower = w.toLowerCase();
+      if (lower.length >= 2 && DICTIONARY.indexOf(lower) === -1) {
+        DICTIONARY.push(lower);
+      }
+    }
+    DICTIONARY = Array.from(new Set(DICTIONARY));
+
+    /* ── State ── */
+    // key[cipherLetter] = plaintextLetter (both uppercase)
+    let key = {};
+    let cipherText = '';
+    let cipherLettersPresent = [];
+
+    /* ── Utility ── */
+    function isLetter(ch) { return ch >= 'A' && ch <= 'Z'; }
+
+    function countLetters(text) {
+      const counts = {};
+      for (const ch of text) {
+        if (!isLetter(ch)) continue;
+        const c = ch.toUpperCase();
+        counts[c] = (counts[c] || 0) + 1;
+      }
+      return counts;
+    }
+
+    function uniqueLetters(text) {
+      const set = new Set();
+      for (const ch of text) {
+        if (isLetter(ch)) set.add(ch.toUpperCase());
+      }
+      return Array.from(set).sort();
+    }
+
+    /* ── Frequency chart ── */
+    function renderFrequencyChart() {
+      const counts = countLetters(cipherText);
+      const max = Math.max(1, ...Object.values(counts));
+
+      let html = '';
+      for (const letter of ALPHABET) {
+        const count = counts[letter] || 0;
+        const height = count === 0 ? 2 : Math.max(4, Math.round((count / max) * 100));
+        const opacity = count === 0 ? 0.15 : 0.75;
+        html += `
+          <div class="cs-freq-col" title="${letter}: ${count}">
+            <div class="cs-freq-bar" style="height:${height}%;opacity:${opacity};"></div>
+            <span class="cs-freq-letter">${letter}</span>
+          </div>`;
+      }
+      freqBars.innerHTML = html;
+    }
+
+    /* ── Render the key grid ── */
+    function renderKeyGrid() {
+      if (!cipherLettersPresent.length) {
+        keySection.style.display = 'none';
+        return;
+      }
+      keySection.style.display = 'block';
+
+      let filled = 0;
+      let html = '';
+      for (const cipherLetter of cipherLettersPresent) {
+        const plain = key[cipherLetter] || '';
+        if (plain) filled++;
+        html += `
+          <div class="cs-key-cell ${plain ? '' : 'is-unset'}" data-cipher="${cipherLetter}">
+            <span class="cs-key-cipher">${cipherLetter}</span>
+            <input type="text" class="cs-key-plain" maxlength="1"
+                   data-cipher="${cipherLetter}"
+                   value="${plain}"
+                   placeholder="?"
+                   aria-label="Plaintext for cipher letter ${cipherLetter}" />
+          </div>`;
+      }
+      keyGrid.innerHTML = html;
+      keyProgress.textContent = `${filled} / ${cipherLettersPresent.length} mapped`;
+
+      // Bind input events
+      keyGrid.querySelectorAll('.cs-key-plain').forEach(inp => {
+        inp.addEventListener('input', (e) => {
+          const cipher = e.target.dataset.cipher;
+          let val = e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1);
+          e.target.value = val;
+          if (val) {
+            key[cipher] = val;
+            e.target.closest('.cs-key-cell').classList.remove('is-unset');
+          } else {
+            delete key[cipher];
+            e.target.closest('.cs-key-cell').classList.add('is-unset');
+          }
+          // Update progress
+          let f = 0;
+          for (const c of cipherLettersPresent) if (key[c]) f++;
+          keyProgress.textContent = `${f} / ${cipherLettersPresent.length} mapped`;
+          renderOutput();
+        });
+        inp.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !e.target.value) {
+            e.preventDefault();
+            delete key[e.target.dataset.cipher];
+            e.target.closest('.cs-key-cell').classList.add('is-unset');
+            renderOutput();
+            let f = 0;
+            for (const c of cipherLettersPresent) if (key[c]) f++;
+            keyProgress.textContent = `${f} / ${cipherLettersPresent.length} mapped`;
+          }
+        });
+      });
+    }
+
+    /* ── Render decoded output ── */
+    function renderOutput() {
+      if (!cipherText) {
+        outputEl.classList.add('is-empty');
+        outputEl.textContent = 'Your decoded message will appear here.';
+        belowHint.style.display = 'block';
+        return;
+      }
+      belowHint.style.display = 'none';
+      outputEl.classList.remove('is-empty');
+
+      let html = '';
+      for (const ch of cipherText) {
+        if (isLetter(ch)) {
+          const upper = ch.toUpperCase();
+          const plain = key[upper];
+          if (plain) {
+            html += `<span class="cs-solved-word">${plain}</span>`;
+          } else {
+            html += `<span class="cs-unsolved">${ch}</span>`;
+          }
+        } else if (ch === ' ') {
+          html += ' ';
+        } else {
+          // Preserve punctuation as-is
+          html += ch;
+        }
+      }
+      outputEl.innerHTML = html || '<span style="opacity:0.5">(no output)</span>';
+    }
+
+    /* ══════════════════════════════════════
+       AUTO-SOLVE ALGORITHM
+       ══════════════════════════════════════
+       Strategy:
+        1. Count cipher letter frequencies.
+        2. Rank cipher letters by frequency (descending).
+        3. Map them to English letters ranked by frequency (E, T, A, O, I, N, ...).
+        4. Score the resulting plaintext against common English words.
+        5. Iteratively try swapping pairs of mappings to improve the score.
+        6. Stop when no improvement or after N iterations.
+    */
+
+    function englishLettersByFreq() {
+      return Object.keys(ENGLISH_FREQ).sort((a, b) => ENGLISH_FREQ[b] - ENGLISH_FREQ[a]);
+    }
+
+    function buildFrequencyKey(text) {
+      const counts = countLetters(text);
+      const cipherRanked = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const englishRanked = englishLettersByFreq();
+
+      const newKey = {};
+      cipherRanked.forEach((cipherLetter, i) => {
+        if (i < englishRanked.length) {
+          newKey[cipherLetter] = englishRanked[i];
+        }
+      });
+      return newKey;
+    }
+
+    /* Score plaintext against the dictionary and common-word bonuses */
+    function scoreText(plaintext) {
+      // Extract words (uppercase letters only, split on non-letters)
+      const words = plaintext.toUpperCase().match(/[A-Z]+/g) || [];
+      let score = 0;
+
+      // Dictionary membership bonus (weighted by word length)
+      const dictSet = new Set(DICTIONARY);
+      const commonSet = new Set(COMMON_WORDS.map(w => w.toLowerCase()));
+      for (const w of words) {
+        const lower = w.toLowerCase();
+        if (dictSet.has(lower)) score += w.length * 2;
+        if (commonSet.has(lower)) score += w.length * 3;
+      }
+
+      // Common letter-frequency alignment bonus
+      const counts = countLetters(plaintext);
+      for (const letter in ENGLISH_FREQ) {
+        const observed = counts[letter] || 0;
+        const expected = ENGLISH_FREQ[letter] / 100 * plaintext.length;
+        // Penalize squared deviation
+        score -= Math.abs(observed - expected) * 0.5;
+      }
+
+      // Bigram bonus for very common pairs
+      const commonBigrams = ['TH','HE','IN','ER','AN','RE','ON','AT','EN','ND','TI','ES','OR','TE','OF','ED','IS','IT','AL','AR','ST','TO','NT','NG','SE','HA','AS','OU','IO','LE','VE','CO','ME','DE','HI','RI','RO','IC','NE','EA','RA','CE','LI','CH','LL','BE','MA','SI','OM','UR'];
+      const bigramSet = new Set(commonBigrams);
+      const upper = plaintext.toUpperCase();
+      for (let i = 0; i < upper.length - 1; i++) {
+        const bg = upper[i] + upper[i + 1];
+        if (bigramSet.has(bg)) score += 1.5;
+      }
+
+      // Penalize unrecognized standalone 1-letter words that aren't A or I
+      for (const w of words) {
+        if (w.length === 1 && w !== 'A' && w !== 'I') {
+          score -= 5;
+        }
+      }
+
+      return score;
+    }
+
+    /* Apply a key to a ciphertext, producing plaintext */
+    function applyKey(text, k) {
+      let out = '';
+      for (const ch of text) {
+        if (isLetter(ch)) {
+          const upper = ch.toUpperCase();
+          const plain = k[upper];
+          out += plain || upper;
+        } else {
+          out += ch;
+        }
+      }
+      return out;
+    }
+
+    /* Local search: try swapping assignments to improve score */
+    function refineKey(initialKey, text, maxIterations) {
+      let bestKey = { ...initialKey };
+      let bestScore = scoreText(applyKey(text, bestKey));
+      const cipherLetters = Object.keys(bestKey);
+
+      for (let iter = 0; iter < maxIterations; iter++) {
+        let improved = false;
+
+        for (let i = 0; i < cipherLetters.length; i++) {
+          for (let j = i + 1; j < cipherLetters.length; j++) {
+            const a = cipherLetters[i];
+            const b = cipherLetters[j];
+            if (!bestKey[a] || !bestKey[b]) continue;
+
+            // Swap
+            const swapped = { ...bestKey };
+            const tmp = swapped[a];
+            swapped[a] = swapped[b];
+            swapped[b] = tmp;
+
+            const score = scoreText(applyKey(text, swapped));
+            if (score > bestScore) {
+              bestScore = score;
+              bestKey = swapped;
+              improved = true;
+            }
+          }
+        }
+
+        if (!improved) break;
+      }
+      return bestKey;
+    }
+
+    /* Full auto-solve pipeline */
+    function autoSolve(text) {
+      // Step 1: frequency-based initial key
+      let k = buildFrequencyKey(text);
+
+      // Step 2: seed high-confidence word-pattern mappings
+      k = seedWordPatterns(text, k);
+
+      // Step 3: refine by local search
+      k = refineKey(k, text, 30);
+
+      return k;
+    }
+
+    /* Seed the key with high-confidence word-pattern matches */
+    function seedWordPatterns(text, k) {
+      const words = text.toUpperCase().match(/[A-Z]+/g) || [];
+
+      // Seed single-letter words as A or I (assume A unless we already used A for something else)
+      const usedPlain = new Set(Object.values(k));
+      for (const w of words) {
+        if (w.length === 1) {
+          if (!k[w[0]]) {
+            k[w[0]] = usedPlain.has('A') ? 'I' : 'A';
+            usedPlain.add(k[w[0]]);
+          }
+        }
+      }
+
+      // Seed 3-letter words toward THE / AND
+      for (const w of words) {
+        if (w.length !== 3) continue;
+        if (w[0] === w[1] || w[1] === w[2]) continue;
+
+        // Try THE
+        if (canAssign(k, w, 'THE')) {
+          k[w[0]] = 'T';
+          k[w[1]] = 'H';
+          k[w[2]] = 'E';
+        } else if (canAssign(k, w, 'AND')) {
+          k[w[0]] = 'A';
+          k[w[1]] = 'N';
+          k[w[2]] = 'D';
+        }
+      }
+
+      // Seed 2-letter words toward OF/TO/IN/IS/IT
+      const twoLetterTargets = ['OF','TO','IN','IS','IT','BE','AS','AT','SO','WE','HE','BY','OR','ON','DO','IF','ME','MY','UP','AN','GO','NO','US','AM'];
+      for (const w of words) {
+        if (w.length !== 2) continue;
+        for (const target of twoLetterTargets) {
+          if (canAssign(k, w, target)) {
+            k[w[0]] = target[0];
+            k[w[1]] = target[1];
+            break;
+          }
+        }
+      }
+
+      return k;
+    }
+
+    /* Can we assign cipher word -> plain word given current key constraints? */
+    function canAssign(k, cipherWord, plainWord) {
+      const usedPlain = new Set();
+      for (const cipherLetter in k) {
+        usedPlain.add(k[cipherLetter]);
+      }
+      const localUsed = new Set();
+      for (let i = 0; i < cipherWord.length; i++) {
+        const c = cipherWord[i];
+        const p = plainWord[i];
+        if (localUsed.has(p)) return false;
+        localUsed.add(p);
+        if (k[c]) {
+          if (k[c] !== p) return false;
+        } else {
+          if (usedPlain.has(p)) return false;
+        }
+      }
+      return true;
+    }
+
+    /* ── Main decode action ── */
+    function decode() {
+      cipherText = cipherInput.value;
+
+      if (!cipherText.trim()) {
+        showToast('Paste a cryptogram first');
+        return;
+      }
+
+      cipherLettersPresent = uniqueLetters(cipherText);
+      if (!cipherLettersPresent.length) {
+        showToast('No letters found in your text');
+        return;
+      }
+
+      // Auto-solve
+      key = autoSolve(cipherText);
+
+      // Render UI
+      renderFrequencyChart();
+      renderKeyGrid();
+      renderOutput();
+      showToast(`Decoded using ${cipherLettersPresent.length} unique cipher letters`);
+    }
+
+    /* ── Clear ── */
+    function clearAll() {
+      cipherInput.value = '';
+      cipherText = '';
+      key = {};
+      cipherLettersPresent = [];
+      charCountEl.textContent = '0 chars';
+      keySection.style.display = 'none';
+      freqBars.innerHTML = '';
+      outputEl.classList.add('is-empty');
+      outputEl.textContent = 'Your decoded message will appear here.';
+      belowHint.style.display = 'block';
+    }
+
+    /* ── Load example ── */
+    function loadExample() {
+      // Classic cryptogram: "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
+      // Cipher: each letter shifted to a random substitute (consistent mapping)
+      // Using a fixed substitution so it's reproducible:
+      // Plain:  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+      // Cipher: Q W E R T Y U I O P A S D F G H J K L Z X C V B N M
+      const exampleCipher =
+        'ZIT HXOPA WKGVF YGP PXDHL GCJK ZIT SQBQ RGU';
+
+      cipherInput.value = exampleCipher;
+      charCountEl.textContent = exampleCipher.length + ' chars';
+      decode();
+    }
+
+    /* ── Input events ── */
+    cipherInput.addEventListener('input', () => {
+      charCountEl.textContent = cipherInput.value.length + ' chars';
+    });
+    cipherInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        decode();
+      }
+    });
+
+    solveBtn.addEventListener('click', decode);
+    exampleBtn.addEventListener('click', loadExample);
+    clearBtn.addEventListener('click', clearAll);
+
+    copyBtn.addEventListener('click', () => {
+      if (!cipherText) {
+        showToast('Nothing to copy yet');
+        return;
+      }
+      // Extract the plaintext from the rendered output
+      const plain = outputEl.textContent;
+      navigator.clipboard.writeText(plain).then(() => {
+        showToast('Copied decoded text');
+      }).catch(() => {
+        showToast('Copy failed — try selecting manually');
+      });
+    });
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('#faqList .faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('#faqList .faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          if (b.nextElementSibling) b.nextElementSibling.style.display = 'none';
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.style.display = 'block';
+        }
+      });
+    });
+
+    /* ── Toast ── */
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    /* ── Init ── */
+    console.log(`✅ Cryptogram Solver ready — dictionary: ${DICTIONARY.length} words.`);
+    if (DICTIONARY.length < 100) {
+      console.warn('Dictionary is small. Include wordlist.js for better decoding accuracy.');
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -421,7 +421,7 @@
     categories.splice(1, 0, pdfCategory);
   }
 
-  // 2. Newly added tools beside top advertisement
+  // 2. Newly added tools that appear in the top "Featured" strip
   const newLeftTools = [
     {
       name: "Image Converter",
@@ -617,13 +617,13 @@
     /* ---- Compact Top Section & Reduced Spacing ---- */
     .tools-sb-top-section {
       flex-shrink: 0;
-      padding: 8px 16px 8px;
+      padding: 10px 16px 12px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
     .tools-sb-ad-label {
       font-family: var(--font-display);
@@ -637,49 +637,23 @@
     }
     .tools-sb-top-grid {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
       gap: 14px;
       width: 100%;
+      flex-wrap: wrap;
     }
     .tools-sb-side-tools {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 6px;
       flex: 1;
-      max-width: 148px;
-    }
-    .tools-sb-ad {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      flex-shrink: 0;
-      margin: 0 2px;
-    }
-    .tools-sb-ad-frame {
-      width: 300px;
-      max-width: 100%;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-    }
-    .tools-sb-ad-frame iframe,
-    .tools-sb-ad-frame img,
-    .tools-sb-ad-frame > div {
-      max-width: 100%;
-      border: 0;
-      display: block;
+      min-width: 0;
     }
 
     /* Newly Added Badge & Items — compact app-style */
     .tools-sb-new-item {
-      padding: 7px 6px 6px;
+      padding: 8px 6px 7px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -688,8 +662,9 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 2px;
+      gap: 3px;
       position: relative;
+      min-width: 0;
       transition: all var(--transition);
     }
     .tools-sb-new-item:hover {
@@ -712,21 +687,22 @@
       line-height: 1.2;
     }
     .tools-sb-new-item-icon {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .tools-sb-new-item-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
     }
     .tools-sb-new-item-name {
-      font-size: 0.62rem;
+      font-size: 0.64rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.1;
+      word-break: break-word;
     }
     .tools-sb-new-item-desc {
       font-size: 0.5rem;
@@ -1068,12 +1044,8 @@
         gap: 8px;
       }
       .tools-sb-side-tools {
-        flex-direction: row;
-        max-width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 100%;
-      }
-      .tools-sb-new-item {
-        flex: 1;
       }
       .tools-sb-header {
         padding: 8px 14px;
@@ -1108,10 +1080,6 @@
       }
       .tools-sb-item-desc {
         font-size: 0.48rem;
-      }
-      .tools-sb-ad-frame {
-        width: 300px;
-        min-height: 250px;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -1160,17 +1128,11 @@
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
 
-      <!-- Top Section: Left New Tools + Banner Ad + Right New Tools -->
+      <!-- Top Section: Featured newly added tools (no ad) -->
       <div class="tools-sb-top-section">
-        <span class="tools-sb-ad-label">Featured & Advertisement</span>
+        <span class="tools-sb-ad-label">Featured Tools</span>
         <div class="tools-sb-top-grid">
-          <div class="tools-sb-side-tools" id="toolsSidebarNewLeft"></div>
-          
-          <div class="tools-sb-ad" id="toolsSidebarAd">
-            <div class="tools-sb-ad-frame" id="toolsSidebarAdFrame"></div>
-          </div>
-
-          <div class="tools-sb-side-tools" id="toolsSidebarNewRight"></div>
+          <div class="tools-sb-side-tools" id="toolsSidebarFeatured"></div>
         </div>
       </div>
 
@@ -1191,12 +1153,10 @@
   const trigger = document.getElementById("toolsSidebarTrigger");
   const overlay = document.getElementById("toolsSidebarOverlay");
   const closeBtn = document.getElementById("toolsSidebarClose");
-  const adFrame = document.getElementById("toolsSidebarAdFrame");
-  const leftNewContainer = document.getElementById("toolsSidebarNewLeft");
-  const rightNewContainer = document.getElementById("toolsSidebarNewRight");
+  const featuredContainer = document.getElementById("toolsSidebarFeatured");
   const scrollArrow = document.getElementById("toolsSidebarScrollArrow");
 
-  // Helper function to build newly added tool cards
+  // Helper function to build featured tool cards
   function buildNewToolCard(tool) {
     const a = document.createElement("a");
     a.href = tool.url;
@@ -1210,38 +1170,9 @@
     return a;
   }
 
-  // Inject newly added left/right tools
-  newLeftTools.forEach(t => leftNewContainer.appendChild(buildNewToolCard(t)));
-  newRightTools.forEach(t => rightNewContainer.appendChild(buildNewToolCard(t)));
-
-  // Reusable ad injection helper (top banner ad only)
-  function injectAdInto(container) {
-    if (!container) return;
-
-    const uniqueKey = 'f5214acd8479e07d7defe4626c574aa5';
-
-    const configScript = document.createElement("script");
-    configScript.type = "text/javascript";
-    configScript.text = `
-      atOptions = {
-        'key' : '${uniqueKey}',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    `;
-    container.appendChild(configScript);
-
-    const invokeScript = document.createElement("script");
-    invokeScript.type = "text/javascript";
-    invokeScript.src = `https://www.highrevenueformat.com/${uniqueKey}/invoke.js`;
-    invokeScript.async = true;
-    container.appendChild(invokeScript);
-  }
-
-  // Load top banner ad immediately
-  injectAdInto(adFrame);
+  // Combine left + right featured tools into one balanced grid (no ad between them)
+  const featuredTools = [...newLeftTools, ...newRightTools];
+  featuredTools.forEach(t => featuredContainer.appendChild(buildNewToolCard(t)));
 
   // Populate categories inside sidebar body (three columns)
   let toolIndex = 0;

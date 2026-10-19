@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <!-- Right: 300x200 Advertisement -->
+      <!-- Right: Advertisement -->
       <div class="d-hero-ad">
         <script>
           atOptions = {
@@ -104,7 +104,7 @@
       </div>
     </div>
   </div>
-</section>    
+</section>  
 
     <!-- DIARY APP -->
     <section class="d-app-section" id="diary-app">
@@ -324,53 +324,50 @@
      ============================================= -->
     <style>
       /* Hero layout: text left, ad right */
+/* Side-by-side: text left, ad right */
 .d-hero-layout {
   display: flex;
-  align-items: center;
+  align-items: center;          /* vertically align text block with ad */
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
 }
 
+/* Text column — NOT centered, keeps normal left alignment */
 .d-hero-text {
   flex: 1 1 480px;
   min-width: 0;
-  text-align: center; /* centers badge, h1, p, and button */
+  text-align: left;             /* text stays left-aligned */
 }
 
-/* Center the Start Writing Now button */
+/* Center ONLY the button, relative to the text column */
 .d-hero-btn-wrap {
   display: flex;
-  justify-content: center;
+  justify-content: center;      /* centers button within the text column */
   margin-top: 24px;
 }
 
-/* Ad container on the right */
+/* Ad column — fixed 300x250, no extra height */
 .d-hero-ad {
   flex: 0 0 300px;
   width: 300px;
-  height: 250px; /* matches the 300x250 ad slot from your script */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 250px;
   overflow: hidden;
-  border-radius: 12px;
 }
 
 .d-hero-ad iframe {
-  max-width: 100%;
   border: 0;
+  display: block;
 }
 
-/* Mobile: stack ad below text, keep button centered */
+/* Mobile: stack below, keep button centered */
 @media (max-width: 768px) {
   .d-hero-layout {
     flex-direction: column;
     gap: 24px;
   }
-  .d-hero-ad {
-    flex: 0 0 auto;
-    margin: 0 auto;
+  .d-hero-text {
+    text-align: center;         /* optional on mobile for nicer look */
   }
 }
       </style>

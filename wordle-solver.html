@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordle Solver – Find 5-Letter Words from Green, Yellow & Gray Letters | WebNotePad</title>
+  <meta name="description" content="Free Wordle Solver. Enter your green, yellow, and gray letters to instantly filter all possible 5-letter words. The fastest Wordle helper — no signup, works in your browser." />
+  <meta name="keywords" content="wordle solver, wordle helper, wordle answer finder, wordle assistant, 5 letter word finder, green yellow gray letters, wordle puzzle solver, wordle hint" />
+  <meta name="author" content="WebNotePad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/wordle-solver" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/wordle-solver" />
+  <meta property="og:title" content="Wordle Solver – Filter 5-Letter Words by Green, Yellow & Gray Letters" />
+  <meta property="og:description" content="Enter your Wordle clues and instantly see every possible 5-letter answer. Free, fast, no signup." />
+  <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wordle Solver – Free Wordle Helper & Answer Finder" />
+  <meta name="twitter:description" content="Instantly filter 5-letter words using your green, yellow, and gray Wordle letters." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Wordle Solver",
+    "url": "https://webnotepad.github.io/wordle-solver",
+    "description": "A free browser-based Wordle solver that filters all possible 5-letter words using green (correct), yellow (present), and gray (absent) letters from your current puzzle.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": [
+      "Filter 5-letter words by green (correct position) letters",
+      "Filter by yellow (present but misplaced) letters",
+      "Exclude gray (absent) letters",
+      "Instant client-side results",
+      "Works offline once loaded",
+      "No signup or download required",
+      "Mobile friendly"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the Wordle Solver work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You enter the green letters in their exact positions, the yellow letters you know are in the word but in the wrong spot, and the gray letters that are not in the word. The solver then filters a list of all 5-letter English words to show only the possible answers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Wordle Solver free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Wordle Solver is 100% free. There is no signup, no download, and no hidden cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do the green, yellow, and gray colors mean in Wordle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Green means the letter is correct and in the right position. Yellow means the letter is in the answer but in a different position. Gray means the letter is not in the answer at all."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this for other 5-letter word games?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The same filtering logic works for any game that uses 5-letter words, including Wordle clones and other word puzzles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Wordle Solver is fully responsive and works on phones, tablets, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Wordle Solver", "item": "https://webnotepad.github.io/wordle-solver" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ===== PAGE-SPECIFIC STYLES ===== */
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 56px;
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-warm);
+    }
+    .hero-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, var(--paper-edge) 40px, var(--paper-edge) 41px);
+      opacity: 0.3; pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,86,42,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-pale); color: var(--accent);
+      border: 1px solid rgba(196,86,42,0.2); border-radius: 100px;
+      padding: 6px 16px; font-size: 0.78rem; font-weight: 600;
+      font-family: var(--font-mono); margin-bottom: 24px; letter-spacing: 0.04em;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--ink); margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; background: var(--paper); border: 1px solid var(--paper-edge);
+      border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft);
+      font-family: var(--font-mono);
+    }
+
+    /* SECTION COMMONS */
+    .section { padding: 88px 0; }
+    .section-label {
+      font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 900; color: var(--ink); line-height: 1.14;
+      letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .section-title em { color: var(--accent); font-style: italic; }
+    .section-sub {
+      font-size: 1.05rem; color: var(--ink-muted);
+      max-width: 580px; line-height: 1.7;
+    }
+
+    /* ===== SOLVER APP ===== */
+    .section-app { padding: 0 0 80px; background: var(--paper); }
+
+    .ws-input-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    /* Guess rows */
+    .ws-guess-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .ws-guess-label {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      width: 64px;
+      flex-shrink: 0;
+    }
+    .ws-letters {
+      display: flex;
+      gap: 6px;
+    }
+    .ws-letter-input {
+      width: 48px;
+      height: 52px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 6px;
+      border: 2px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      caret-color: var(--accent);
+    }
+    .ws-letter-input:focus {
+      border-color: var(--accent);
+    }
+    .ws-letter-input::placeholder {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      opacity: 0.35;
+    }
+
+    /* Color modes */
+    .ws-row-controls {
+      display: flex;
+      gap: 6px;
+      margin-left: 4px;
+      flex-wrap: wrap;
+    }
+    .ws-color-btn {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1.5px solid var(--paper-edge);
+      background: var(--paper);
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .ws-color-btn:hover { border-color: var(--ink-muted); color: var(--ink); }
+    .ws-color-btn[data-color="green"].active {
+      background: #538d4e; border-color: #538d4e; color: #fff;
+    }
+    .ws-color-btn[data-color="yellow"].active {
+      background: #b59f3b; border-color: #b59f3b; color: #fff;
+    }
+    .ws-color-btn[data-color="gray"].active {
+      background: #787c7e; border-color: #787c7e; color: #fff;
+    }
+
+    .ws-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--paper-edge);
+    }
+    .ws-solve-btn {
+      padding: 13px 32px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ws-solve-btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(196,86,42,0.3);
+    }
+    .ws-clear-btn {
+      padding: 13px 22px;
+      background: transparent;
+      color: var(--ink-muted);
+      border: 2px solid var(--paper-edge);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .ws-clear-btn:hover {
+      color: var(--ink);
+      background: var(--paper-warm);
+      border-color: var(--ink-muted);
+    }
+
+    /* Results */
+    .ws-results-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 12px 20px;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+    .ws-results-count { font-weight: 600; color: var(--ink); }
+    .ws-results-count span { color: var(--accent); }
+
+    .ws-word-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ws-word-tile {
+      display: inline-flex;
+      gap: 2px;
+      padding: 4px;
+      border-radius: 6px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      user-select: none;
+    }
+    .ws-word-tile:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+    .ws-word-tile.copied {
+      border-color: #2d6a4f;
+      background: rgba(45,106,79,0.08);
+    }
+    .ws-tile {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      border-radius: 4px;
+      color: var(--ink);
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+    }
+
+    /* Empty / error states */
+    .ws-empty {
+      text-align: center;
+      padding: 64px 24px;
+      background: var(--paper-warm);
+      border: 1px dashed var(--paper-edge);
+      border-radius: var(--radius-lg);
+      color: var(--ink-muted);
+    }
+    .ws-empty-icon { font-size: 3rem; margin-bottom: 16px; }
+    .ws-empty h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .ws-empty p { font-size: 0.9rem; line-height: 1.6; max-width: 400px; margin: 0 auto; }
+
+    /* ===== FEATURES ===== */
+    .section-features { background: var(--paper-warm); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .feature-card {
+      padding: 28px 24px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      border-color: var(--accent-pale);
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .feature-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== HOW IT WORKS ===== */
+    .section-how { background: var(--paper); }
+    .how-steps {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 52px;
+    }
+    .how-step {
+      flex: 1;
+      padding: 28px 24px;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+    }
+    .how-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 52px;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--paper-edge);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .how-step h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .how-step p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
+
+    /* ===== TIPS ===== */
+    .section-tips { background: var(--paper-warm); }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+    .tip-card {
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+    }
+    .tip-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tip-card p, .tip-card li {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .tip-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+    }
+    .tip-card ul li {
+      padding-left: 18px;
+      position: relative;
+    }
+    .tip-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    /* ===== FAQ ===== */
+    .section-faq { background: var(--paper); }
+    .faq-list {
+      max-width: 720px;
+      margin: 52px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .faq-item {
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .faq-q[aria-expanded="true"]::after {
+      transform: rotate(45deg);
+      color: var(--accent);
+    }
+    .faq-q:hover { background: var(--paper-warm); }
+    .faq-a { display: none; padding: 0 20px 18px; }
+    .faq-a p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ===== CTA ===== */
+    .section-cta {
+      background: var(--ink);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    body.dark .section-cta { background: #0e0e12; }
+    .cta-ink {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(196,86,42,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; text-align: center; }
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    .cta-text p {
+      font-size: 1.05rem;
+      color: rgba(250,248,244,0.6);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .btn-cta:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(196,86,42,0.4);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+      max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero { padding: 60px 0 44px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-steps { flex-direction: column; }
+      .how-connector { display: none; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .ws-guess-row { gap: 8px; }
+      .ws-guess-label { width: 48px; font-size: 0.65rem; }
+      .ws-letter-input { width: 40px; height: 44px; font-size: 1.05rem; }
+      .ws-actions { flex-direction: column; }
+      .ws-solve-btn, .ws-clear-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.1rem; }
+      .ws-letter-input { width: 34px; height: 38px; font-size: 0.95rem; }
+      .ws-tile { width: 26px; height: 26px; font-size: 0.8rem; }
+      .ws-row-controls { margin-left: 0; width: 100%; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="hero-badge">✦ Wordle Solver · Green · Yellow · Gray</div>
+        <h1 class="hero-title">Solve today's<br /><em>Wordle puzzle.</em></h1>
+        <p class="hero-sub">Enter your green (correct), yellow (present), and gray (absent) letters. Instantly filter every possible 5-letter word and find your next guess. Free, fast, and no signup.</p>
+        <div class="hero-pills">
+          <span class="hero-pill">🟩 Green Letters</span>
+          <span class="hero-pill">🟨 Yellow Letters</span>
+          <span class="hero-pill">⬛ Gray Letters</span>
+          <span class="hero-pill">⚡ Instant Results</span>
+          <span class="hero-pill">📱 Mobile Friendly</span>
+          <span class="hero-pill">🆓 100% Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — SOLVER APP
+    ════════════════════════════════════════ -->
+    <section class="section-app" id="solver" aria-label="Wordle Solver Application">
+      <div class="container">
+
+        <div class="section-label">The solver</div>
+        <h2 class="section-title">Enter your clues.<br /><em>See every answer.</em></h2>
+        <p class="section-sub" style="margin-bottom:32px;">For each position, pick the color you got and type the letter. Then hit Solve to filter all 5-letter words.</p>
+
+        <!-- Input Card -->
+        <div class="ws-input-card">
+          <div id="wsGuessRows"></div>
+
+          <div class="ws-actions">
+            <button class="ws-solve-btn" id="wsSolveBtn" aria-label="Solve Wordle">
+              🔍 Solve Wordle
+            </button>
+            <button class="ws-clear-btn" id="wsClearBtn" aria-label="Clear all">✕ Clear</button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="wsResults" role="region" aria-label="Possible word results" aria-live="polite">
+          <div class="ws-empty">
+            <div class="ws-empty-icon">🟩🟨⬛</div>
+            <h3>Enter your Wordle clues above</h3>
+            <p>Pick a color and type a letter for each position, then click <strong>Solve Wordle</strong> to see every possible 5-letter answer.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — FEATURES
+    ════════════════════════════════════════ -->
+    <section class="section section-features" id="features" aria-label="Features">
+      <div class="container">
+        <div class="section-label">What you get</div>
+        <h2 class="section-title">The fastest<br /><em>Wordle helper.</em></h2>
+        <p class="section-sub">Advanced filtering, color-coded inputs, and instant results — everything you need to crack today's puzzle.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Position-Aware Filtering</h3>
+            <p>Green letters are locked to their exact positions. The solver only shows words where those letters match perfectly.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🟨</div>
+            <h3>Yellow Letter Handling</h3>
+            <p>Yellow letters must appear in the word — but not in the position you entered. The solver respects both constraints.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⬛</div>
+            <h3>Gray Letter Exclusion</h3>
+            <p>Gray letters are completely excluded from every result, so you never see a word with a letter you know is wrong.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Results</h3>
+            <p>All filtering happens directly in your browser in milliseconds. No server round-trips, no waiting.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>One-Click Copy</h3>
+            <p>Click any word tile to copy it instantly to your clipboard. Try it in Wordle right away.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Optimized</h3>
+            <p>A fully responsive layout with large touch targets makes it easy to solve on your phone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — HOW IT WORKS
+    ════════════════════════════════════════ -->
+    <section class="section section-how" id="how" aria-label="How it works">
+      <div class="container">
+        <div class="section-label">Three simple steps</div>
+        <h2 class="section-title">From clues<br /><em>to the answer.</em></h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <h3>Enter your green letters</h3>
+            <p>For any position where you have a green tile, select green and type the correct letter. Leave other positions blank.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <h3>Add yellow & gray</h3>
+            <p>For yellow tiles, enter the letter in the position you guessed it (the solver knows it belongs elsewhere). For gray tiles, type the letter and pick gray.</p>
+          </div>
+          <div class="how-connector">→</div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <h3>Hit solve</h3>
+            <p>Every possible 5-letter word appears instantly. Click any tile to copy it and make your next guess.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — TIPS
+    ════════════════════════════════════════ -->
+    <section class="section section-tips" id="tips" aria-label="Wordle tips">
+      <div class="container">
+        <div class="section-label">Strategy</div>
+        <h2 class="section-title">Tips to solve<br /><em>Wordle faster.</em></h2>
+        <p class="section-sub">Use these proven strategies alongside the solver to crack the puzzle in fewer guesses.</p>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h3>🧠 Opening Words</h3>
+            <ul>
+              <li><strong>CRANE</strong> — covers C, R, A, N, E (three of the most common letters).</li>
+              <li><strong>SLATE</strong> — hits S, L, A, T, E, including two top-5 consonants.</li>
+              <li><strong>AUDIO</strong> — locks in four vowels and D in one guess.</li>
+              <li><strong>RAISE</strong> — strong vowel coverage with R and S.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>🎯 Reading the Colors</h3>
+            <ul>
+              <li>🟩 Green: letter is correct and in the right spot.</li>
+              <li>🟨 Yellow: letter is in the word but in a different position.</li>
+              <li>⬛ Gray: letter is not in the word at all.</li>
+              <li>Repeated letters: each tile is independent — if one is gray and another green, the letter appears exactly once.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>📊 Letter Frequency</h3>
+            <ul>
+              <li>Most common vowels: E, A, O, I, U.</li>
+              <li>Most common consonants: R, S, T, L, N, C, D, H.</li>
+              <li>Words ending in -ER, -LY, -ED, -TION are common.</li>
+              <li>Avoid repeating letters in early guesses unless you're confident.</li>
+            </ul>
+          </div>
+          <div class="tip-card">
+            <h3>🔄 Using the Solver</h3>
+            <ul>
+              <li>After each guess, update the solver with the new color information.</li>
+              <li>If the list is too long, make a strategic guess that eliminates many possibilities.</li>
+              <li>Sort mentally by common word patterns and try the most likely answer first.</li>
+              <li>Use the solver to check if a word you have in mind is still possible.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6 — FAQ
+    ════════════════════════════════════════ -->
+    <section class="section section-faq" id="faq" aria-label="FAQ">
+      <div class="container">
+        <div class="section-label">Got questions?</div>
+        <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">How does the Wordle Solver work?</button>
+            <div class="faq-a"><p>You enter the green letters in their exact positions, the yellow letters you know are in the word but in the wrong spot, and the gray letters that are not in the word. The solver then filters a list of all 5-letter English words to show only the possible answers.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Is the Wordle Solver free to use?</button>
+            <div class="faq-a"><p>Yes, the Wordle Solver is 100% free. There is no signup, no download, and no hidden cost.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What do the green, yellow, and gray colors mean in Wordle?</button>
+            <div class="faq-a"><p>Green means the letter is correct and in the right position. Yellow means the letter is in the answer but in a different position. Gray means the letter is not in the answer at all.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Can I use this for other 5-letter word games?</button>
+            <div class="faq-a"><p>Yes. The same filtering logic works for any game that uses 5-letter words, including Wordle clones and other word puzzles.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">Does it work on mobile?</button>
+            <div class="faq-a"><p>Yes, the Wordle Solver is fully responsive and works on phones, tablets, and desktop browsers.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">What if no words match?</button>
+            <div class="faq-a"><p>Double-check your green and yellow entries — a common mistake is placing a yellow letter in a position where it's actually green, or marking a letter gray when it appears elsewhere. The solver is strict, so any mismatch will remove the word.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ════════════════════════════════════════ -->
+    <section class="section-cta" id="start" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-ink"></div>
+        <div class="cta-text">
+          <h2>Stuck on today's Wordle?</h2>
+          <p>Enter your clues and find every possible answer in seconds — free, instant, no signup.</p>
+          <a href="#solver" class="btn-cta">Solve Wordle Now →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Site components -->
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+
+  <!-- Word list — must export a global `WORDLIST` array of lowercase strings -->
+  <script src="/wordlist.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Dom refs ── */
+    const guessRowsContainer = document.getElementById('wsGuessRows');
+    const solveBtn = document.getElementById('wsSolveBtn');
+    const clearBtn = document.getElementById('wsClearBtn');
+    const resultsDiv = document.getElementById('wsResults');
+
+    const WORD_LENGTH = 5;
+    const MAX_RESULTS = 300;
+
+    /* State: one object per position with { letter, color } */
+    let guessState = Array.from({ length: WORD_LENGTH }, () => ({ letter: '', color: 'gray' }));
+
+    /* ── Build input UI ── */
+    function buildInputs() {
+      guessRowsContainer.innerHTML = '';
+      const row = document.createElement('div');
+      row.className = 'ws-guess-row';
+
+      const label = document.createElement('span');
+      label.className = 'ws-guess-label';
+      label.textContent = 'Letters';
+      row.appendChild(label);
+
+      const lettersWrap = document.createElement('div');
+      lettersWrap.className = 'ws-letters';
+
+      for (let i = 0; i < WORD_LENGTH; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.maxLength = 1;
+        input.className = 'ws-letter-input';
+        input.dataset.index = i;
+        input.setAttribute('aria-label', `Letter at position ${i + 1}`);
+        input.autocomplete = 'off';
+        input.autocorrect = 'off';
+        input.autocapitalize = 'characters';
+        input.spellcheck = false;
+
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1);
+          e.target.value = val;
+          guessState[i].letter = val;
+          // Auto-advance to next input if a letter was typed
+          if (val && i < WORD_LENGTH - 1) {
+            const next = lettersWrap.children[i + 1];
+            if (next) next.focus();
+          }
+          updateColorButtonStates();
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !e.target.value && i > 0) {
+            const prev = lettersWrap.children[i - 1];
+            if (prev) prev.focus();
+          }
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            runSolve();
+          }
+        });
+
+        // Paste support: distribute letters across inputs
+        input.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const text = (e.clipboardData || window.clipboardData).getData('text').toUpperCase().replace(/[^A-Z]/g, '');
+          for (let j = 0; j < WORD_LENGTH; j++) {
+            if (text[j]) {
+              guessState[j].letter = text[j];
+              lettersWrap.children[j].value = text[j];
+            }
+          }
+          updateColorButtonStates();
+        });
+
+        lettersWrap.appendChild(input);
+      }
+      row.appendChild(lettersWrap);
+
+      // Color controls
+      const controls = document.createElement('div');
+      controls.className = 'ws-row-controls';
+
+      ['green', 'yellow', 'gray'].forEach(color => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ws-color-btn';
+        btn.dataset.color = color;
+        btn.textContent = color === 'green' ? '🟩 Green' : color === 'yellow' ? '🟨 Yellow' : '⬛ Gray';
+        btn.addEventListener('click', () => {
+          // Find the focused input, or default to 0
+          const focused = document.activeElement;
+          let targetIdx = 0;
+          if (focused && focused.classList.contains('ws-letter-input')) {
+            targetIdx = parseInt(focused.dataset.index, 10);
+          }
+          guessState[targetIdx].color = color;
+          updateColorButtonStates();
+        });
+        controls.appendChild(btn);
+      });
+
+      row.appendChild(controls);
+      guessRowsContainer.appendChild(row);
+
+      // Initialize color buttons
+      updateColorButtonStates();
+    }
+
+    /* Highlight the active color button based on the focused input */
+    function updateColorButtonStates() {
+      const focused = document.activeElement;
+      let activeIdx = 0;
+      if (focused && focused.classList.contains('ws-letter-input')) {
+        activeIdx = parseInt(focused.dataset.index, 10);
+      }
+      const currentColor = guessState[activeIdx].color;
+      document.querySelectorAll('.ws-color-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.color === currentColor);
+      });
+    }
+
+    // Also update when focus changes between inputs
+    document.addEventListener('focusin', (e) => {
+      if (e.target.classList.contains('ws-letter-input')) {
+        updateColorButtonStates();
+      }
+    });
+
+    /* ── Solver logic ── */
+    function solveWordle(state) {
+      if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+        return { error: 'Word list not loaded yet. Please wait a moment and try again.' };
+      }
+
+      // Build constraints
+      const greens = {};        // position -> letter
+      const yellows = [];       // { letter, position }  (letter is in word but NOT at position)
+      const grays = new Set();  // letters completely absent
+      const yellowLetters = new Set();
+
+      for (let i = 0; i < WORD_LENGTH; i++) {
+        const { letter, color } = state[i];
+        if (!letter) continue;
+        if (color === 'green') {
+          greens[i] = letter;
+        } else if (color === 'yellow') {
+          yellows.push({ letter, position: i });
+          yellowLetters.add(letter);
+        } else {
+          grays.add(letter);
+        }
+      }
+
+      // A gray letter that also appears as green or yellow is not truly gray
+      for (const l of yellowLetters) grays.delete(l);
+      for (const pos in greens) grays.delete(greens[pos]);
+
+      const matches = [];
+      for (const word of WORDLIST) {
+        if (word.length !== WORD_LENGTH) continue;
+
+        // 1. Green constraints
+        let ok = true;
+        for (const pos in greens) {
+          if (word[pos] !== greens[pos]) { ok = false; break; }
+        }
+        if (!ok) continue;
+
+        // 2. Gray constraints
+        for (const letter of grays) {
+          if (word.indexOf(letter) !== -1) { ok = false; break; }
+        }
+        if (!ok) continue;
+
+        // 3. Yellow constraints — letter must be in word, but not at the given position
+        let yellowOk = true;
+        for (const { letter, position } of yellows) {
+          if (word.indexOf(letter) === -1) { yellowOk = false; break; }
+          if (word[position] === letter) { yellowOk = false; break; }
+        }
+        if (!yellowOk) continue;
+
+        // 4. Also, if a letter is yellow in *any* position, it must appear
+        //    (already covered above, but ensure multiple yellows don't conflict)
+        // Additional: count of yellow letters must be at least as many as in the word
+        // For simplicity, we just ensure each yellow letter is present and not in the guessed position.
+        // This is a good approximation for Wordle.
+
+        matches.push(word);
+      }
+
+      return { matches, greens };
+    }
+
+    /* ── Render results ── */
+    function renderResults(result) {
+      if (result.error) {
+        resultsDiv.innerHTML = `
+          <div class="ws-empty">
+            <div class="ws-empty-icon">⚠️</div>
+            <h3>Something went wrong</h3>
+            <p>${result.error}</p>
+          </div>`;
+        return;
+      }
+
+      const { matches, greens } = result;
+
+      if (!matches.length) {
+        resultsDiv.innerHTML = `
+          <div class="ws-empty">
+            <div class="ws-empty-icon">🙁</div>
+            <h3>No matching words</h3>
+            <p>Double-check your clues — a yellow letter might need to be excluded from its position, or a gray letter might not actually be gray.</p>
+          </div>`;
+        return;
+      }
+
+      const shown = matches.slice(0, MAX_RESULTS);
+      const more = matches.length > MAX_RESULTS;
+
+      let html = `
+        <div class="ws-results-meta">
+          <div class="ws-results-count">
+            Found <span>${matches.length}</span> possible word${matches.length !== 1 ? 's' : ''}
+            ${more ? ` (showing first ${MAX_RESULTS})` : ''}
+          </div>
+        </div>
+        <div class="ws-word-grid">`;
+
+      for (const word of shown) {
+        html += `<div class="ws-word-tile" data-word="${word}" tabindex="0" role="button" aria-label="Copy word ${word.toUpperCase()}">`;
+        for (let i = 0; i < WORD_LENGTH; i++) {
+          const ch = word[i];
+          const isGreen = greens[i] && greens[i] === ch;
+          html += `<span class="ws-tile" style="${isGreen ? 'background:#538d4e;color:#fff;border-color:#538d4e;' : ''}">${ch.toUpperCase()}</span>`;
+        }
+        html += `</div>`;
+      }
+
+      html += `</div>`;
+      resultsDiv.innerHTML = html;
+
+      // Click-to-copy
+      resultsDiv.querySelectorAll('.ws-word-tile').forEach(tile => {
+        tile.addEventListener('click', () => {
+          const word = tile.dataset.word.toUpperCase();
+          navigator.clipboard.writeText(word).then(() => {
+            tile.classList.add('copied');
+            setTimeout(() => tile.classList.remove('copied'), 1200);
+            showToast(`Copied "${word}"`);
+          }).catch(() => showToast(`Word: ${word}`));
+        });
+        tile.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            tile.click();
+          }
+        });
+      });
+    }
+
+    /* ── Run solve ── */
+    function runSolve() {
+      // Read current state from inputs (in case of paste or programmatic change)
+      const inputs = document.querySelectorAll('.ws-letter-input');
+      inputs.forEach((input, i) => {
+        guessState[i].letter = input.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 1);
+      });
+
+      const hasAny = guessState.some(s => s.letter);
+      if (!hasAny) {
+        resultsDiv.innerHTML = `
+          <div class="ws-empty">
+            <div class="ws-empty-icon">🟩🟨⬛</div>
+            <h3>Enter at least one letter</h3>
+            <p>Type a letter in any position and pick a color, then click <strong>Solve Wordle</strong>.</p>
+          </div>`;
+        return;
+      }
+
+      const result = solveWordle(guessState);
+      renderResults(result);
+    }
+
+    /* ── Clear ── */
+    function clearAll() {
+      guessState = Array.from({ length: WORD_LENGTH }, () => ({ letter: '', color: 'gray' }));
+      buildInputs();
+      resultsDiv.innerHTML = `
+        <div class="ws-empty">
+          <div class="ws-empty-icon">🟩🟨⬛</div>
+          <h3>Enter your Wordle clues above</h3>
+          <p>Pick a color and type a letter for each position, then click <strong>Solve Wordle</strong> to see every possible 5-letter answer.</p>
+        </div>`;
+    }
+
+    /* ── Toast ── */
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('#faqList .faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        document.querySelectorAll('#faqList .faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          if (b.nextElementSibling) b.nextElementSibling.style.display = 'none';
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (answer) answer.style.display = 'block';
+        }
+      });
+    });
+
+    /* ── Init ── */
+    buildInputs();
+
+    solveBtn.addEventListener('click', runSolve);
+    clearBtn.addEventListener('click', clearAll);
+
+    // Focus first input after load
+    window.addEventListener('load', () => {
+      const first = document.querySelector('.ws-letter-input');
+      if (first) first.focus();
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

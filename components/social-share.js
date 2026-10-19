@@ -4,11 +4,12 @@
  * Positioned BELOW the main tools sidebar trigger.
  * Theme: Editorial / Ink-on-paper aesthetic
  *
- * ALSO includes a floating Games widget ABOVE the tools sidebar trigger, with an updated, 
+ * ALSO includes a floating Games widget ABOVE the tools sidebar trigger, with a
  * classic arcade-style joystick SVG (red ball top, dark metallic stick and base),
  * linking to all games on the site.
  *
  * Games popup opens to the LEFT of the trigger for better ergonomics.
+ * Games now use crisp SVG icons instead of emojis.
  *
  * ALSO includes a Follow widget (small, vertical) at the MIDDLE-LEFT of the page
  * with Pinterest, X, and Reddit icons. Handle: @webnotepad
@@ -48,7 +49,37 @@
       <line x1="15" y1="12" x2="15.01" y2="12"/>
       <line x1="18" y1="10" x2="18.01" y2="10"/>
       <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
-    </svg>`
+    </svg>`,
+
+    // ---- Per-game SVG icons (replacing emojis) ----
+    gameIcons: {
+      // Puzzle piece for word grouping games
+      puzzle: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3a2 2 0 0 1 4 0v1h3a2 2 0 0 1 2 2v3h1a2 2 0 0 1 0 4h-1v3a2 2 0 0 1-2 2h-3v1a2 2 0 0 1-4 0v-1H7a2 2 0 0 1-2-2v-3H4a2 2 0 0 1 0-4h1V6a2 2 0 0 1 2-2h3V3z" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+      // Bee/honeycomb for spelling games
+      bee: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 4v8l-7 4-7-4V7l7-4z" fill="#FEF3C7" stroke="#EAB308" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 7l3.5 2v4L12 15l-3.5-2V9L12 7z" fill="#FDE68A" stroke="#EAB308" stroke-width="1.2" stroke-linejoin="round"/></svg>`,
+      // Grid for crossword
+      crossword: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="6" height="6" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="9" y="3" width="6" height="6" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="15" y="3" width="6" height="6" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="3" y="9" width="6" height="6" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/><rect x="9" y="9" width="6" height="6" fill="#fff" stroke="#4F46E5" stroke-width="1.3"/><rect x="15" y="9" width="6" height="6" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="3" y="15" width="6" height="6" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="9" y="15" width="6" height="6" fill="#E0E7FF" stroke="#4F46E5" stroke-width="1.3"/><rect x="15" y="15" width="6" height="6" fill="#4F46E5" stroke="#4F46E5" stroke-width="1.3"/></svg>`,
+      // Letter tile for wordle-like games
+      letterTile: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="2" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/><path d="M9 9l3 6 3-6" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      // Magnifying glass for word search
+      search: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10.5" cy="10.5" r="6.5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/><path d="M15.5 15.5L21 21" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>`,
+      // Cards for memory match
+      cards: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="4" width="10" height="14" rx="1.5" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.5" transform="rotate(-8 10 11)"/><rect x="10" y="6" width="10" height="14" rx="1.5" fill="#FDF2F8" stroke="#DB2777" stroke-width="1.5"/><path d="M15 13c0-1.5-2-2.5-2-2.5S11 11.5 11 13a2 2 0 0 0 4 0z" fill="#DB2777"/></svg>`,
+      // Number tile for 2048
+      number: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M8 9h2v6M14 9h2l-2 6M16 9h1" stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      // X for tic-tac-toe
+      xox: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" fill="#ECFDF5" stroke="#10B981" stroke-width="1.4"/><path d="M7 7l4 4M11 7l-4 4" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.5" stroke="#2563EB" stroke-width="2" fill="none"/></svg>`,
+      // Grid for sudoku
+      sudoku: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke="#0D9488" stroke-width="1.2"/><rect x="6" y="6" width="3" height="3" fill="#0D9488"/><rect x="12" y="12" width="3" height="3" fill="#0D9488"/><rect x="15" y="6" width="3" height="3" fill="#5EEAD4"/></svg>`,
+      // Bomb for minesweeper
+      bomb: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="14" r="6" fill="#1F2937" stroke="#111827" stroke-width="1.5"/><circle cx="9" cy="12" r="1.5" fill="#6B7280"/><path d="M15 9l2-2M17 7l1 1M17 7l-1 1" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/><path d="M16 6l1-1" stroke="#F59E0B" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+      // Box for letter boxed
+      box: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="2" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/><path d="M4 12h16M12 4v16" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="2 2"/><circle cx="4" cy="4" r="1.5" fill="#A78BFA"/><circle cx="20" cy="4" r="1.5" fill="#A78BFA"/><circle cx="4" cy="20" r="1.5" fill="#A78BFA"/><circle cx="20" cy="20" r="1.5" fill="#A78BFA"/></svg>`,
+      // Calculator for math games
+      calculator: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/><rect x="7" y="6" width="10" height="3" rx="0.5" fill="#BFDBFE" stroke="#2563EB" stroke-width="1"/><circle cx="8" cy="13" r="1" fill="#2563EB"/><circle cx="12" cy="13" r="1" fill="#2563EB"/><circle cx="16" cy="13" r="1" fill="#2563EB"/><circle cx="8" cy="17" r="1" fill="#2563EB"/><circle cx="12" cy="17" r="1" fill="#2563EB"/><circle cx="16" cy="17" r="1" fill="#2563EB"/></svg>`,
+      // Two stacked tiles for dordle/quordle
+      multiWord: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="8" height="8" rx="1.5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.4"/><rect x="13" y="4" width="8" height="8" rx="1.5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/><rect x="3" y="14" width="8" height="8" rx="1.5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.4"/><rect x="13" y="14" width="8" height="8" rx="1.5" fill="#FCE7F3" stroke="#DB2777" stroke-width="1.4"/></svg>`
+    }
   };
 
   // ---- Configuration ----
@@ -106,107 +137,103 @@
     },
   ];
 
-  // ---- Games Configuration ----
-  // NEW GAMES ADDED: Quordle Unlimited, Dordle Unlimited, Nerdle Unlimited, Letter Boxed Unlimited
+  // ---- Games Configuration (SVG icon per game) ----
   const GAMES = [
-    // ===== NEW: The four games just built =====
     {
       id: 'quordle-unlimited',
       label: 'Quordle Unlimited',
-      emoji: '🧩',
+      icon: ICONS.gameIcons.multiWord,
       description: 'Solve four 5-letter words in 9 tries',
       url: '/quordle-unlimited'
     },
     {
       id: 'dordle-unlimited',
       label: 'Dordle Unlimited',
-      emoji: '🔠',
+      icon: ICONS.gameIcons.multiWord,
       description: 'Guess two 5-letter words in 7 tries',
       url: '/dordle-unlimited'
     },
     {
       id: 'nerdle-unlimited',
       label: 'Nerdle Unlimited',
-      emoji: '🧮',
+      icon: ICONS.gameIcons.calculator,
       description: 'Guess the hidden math equation',
       url: '/nerdle-unlimited'
     },
     {
       id: 'letter-boxed-unlimited',
       label: 'Letter Boxed Unlimited',
-      emoji: '🔤',
+      icon: ICONS.gameIcons.box,
       description: 'Connect letters around the box',
       url: '/letter-boxed-unlimited'
     },
-
-    // ===== Existing games =====
     {
       id: 'connections-unlimited',
       label: 'Connections Unlimited',
-      emoji: '🟨',
+      icon: ICONS.gameIcons.puzzle,
       description: 'Group 16 words into 4 categories',
       url: '/connections-unlimited'
     },
     {
       id: 'spelling-bee',
       label: 'Spelling Bee Unlimited',
-      emoji: '🐝',
+      icon: ICONS.gameIcons.bee,
       description: 'Build words from 7 letters',
       url: '/spelling-bee-unlimited'
     },
     {
       id: 'crossword-puzzle',
       label: 'Crossword Puzzle',
-      emoji: '📝',
+      icon: ICONS.gameIcons.crossword,
       description: 'Solve interactive crossword grids',
       url: '/crossword-puzzle'
     },
     {
       id: 'wordle',
       label: 'Wordle',
-      emoji: '🟩',
+      icon: ICONS.gameIcons.letterTile,
       description: 'Guess the 5-letter word',
       url: '/wordle'
     },
     {
       id: 'word-search',
       label: 'Word Search',
-      emoji: '🔍',
+      icon: ICONS.gameIcons.search,
       description: 'Find hidden words in a grid',
       url: '/word-search'
     },
     {
       id: 'memory-match',
       label: 'Memory Match',
-      emoji: '🃏',
+      icon: ICONS.gameIcons.cards,
       description: 'Flip and match the cards',
       url: '/memory-match'
     },
     {
       id: '2048',
       label: '2048',
-      emoji: '🔢',
+      icon: ICONS.gameIcons.number,
       description: 'Slide to combine numbers',
       url: '/2048'
     },
     {
       id: 'tic-tac-toe',
       label: 'Tic-Tac-Toe',
-      emoji: '❌',
+      icon: ICONS.gameIcons.xox,
       description: 'Three in a row wins',
       url: '/tic-tac-toe'
     },
     {
       id: 'sudoku',
       label: 'Sudoku',
-      emoji: '🧮',
+      icon: ICONS.gameIcons.sudoku,
       description: 'Fill the grid with digits',
       url: '/sudoku'
     },
     {
       id: 'minesweeper',
       label: 'Minesweeper',
-      emoji: '💣',
+      icon: ICONS.gameIcons.bomb,
       description: 'Clear the minefield',
       url: '/minesweeper'
     }
@@ -232,10 +259,10 @@
     /* Floating share trigger — positioned BELOW the tools sidebar trigger */
     .social-floating-trigger {
       position: fixed;
-      bottom: 68px;              /* clearly below the tools sidebar trigger (which sits at 120px) */
+      bottom: 68px;
       right: 24px;
       z-index: 10001;
-      width: 42px;               /* smaller button */
+      width: 42px;
       height: 42px;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
@@ -254,7 +281,7 @@
       user-select: none;
     }
     .social-floating-trigger svg {
-      width: 18px;               /* smaller icon */
+      width: 18px;
       height: 18px;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -280,22 +307,21 @@
       box-shadow: none;
     }
 
-    /* ===== FLOATING GAMES TRIGGER — VIBRANT INDIGO / VIOLET GAMING THEME ===== */
-    /* Positioned ABOVE the tools sidebar trigger */
+    /* ===== FLOATING GAMES TRIGGER — WARM AMBER / ORANGE THEME ===== */
     .games-floating-trigger {
       position: fixed;
-      bottom: 182px;             /* above the tools sidebar trigger (120px + 52px + 10px gap) */
+      bottom: 182px;
       right: 24px;
       z-index: 10001;
-      width: 42px;               /* smaller button */
+      width: 42px;
       height: 42px;
-      background: linear-gradient(145deg, #6366f1, #4f46e5);
+      background: linear-gradient(145deg, #f59e0b, #d97706);
       color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45), 0 0 0 0 rgba(99, 102, 241, 0.35);
+      box-shadow: 0 6px 24px rgba(217, 119, 6, 0.45), 0 0 0 0 rgba(217, 119, 6, 0.35);
       cursor: pointer;
       border: 1.5px solid rgba(255, 255, 255, 0.35);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -308,7 +334,7 @@
     .games-floating-trigger svg {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: block;
-      width: 20px;               /* smaller icon */
+      width: 20px;
       height: 20px;
       filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
@@ -317,9 +343,9 @@
     }
     .games-floating-trigger:hover {
       transform: scale(1.08) rotate(8deg);
-      background: linear-gradient(145deg, #818cf8, #4338ca);
+      background: linear-gradient(145deg, #fbbf24, #b45309);
       animation-play-state: paused;
-      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.7);
+      box-shadow: 0 8px 28px rgba(217, 119, 6, 0.7);
     }
     .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
@@ -338,22 +364,22 @@
     @keyframes gamesPulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.5), 0 6px 24px rgba(99, 102, 241, 0.45);
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.5), 0 6px 24px rgba(217, 119, 6, 0.45);
       }
       50% {
         transform: scale(1.06);
-        box-shadow: 0 0 0 14px rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
+        box-shadow: 0 0 0 14px rgba(217, 119, 6, 0), 0 6px 24px rgba(217, 119, 6, 0.45);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0), 0 6px 24px rgba(99, 102, 241, 0.45);
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, 0), 0 6px 24px rgba(217, 119, 6, 0.45);
       }
     }
 
     /* Popup panel - vertical layout — positioned ABOVE the social trigger */
     .social-share-popup {
       position: fixed;
-      bottom: 118px;             /* above the social trigger */
+      bottom: 118px;
       right: 24px;
       z-index: 10002;
       background: var(--paper, #faf8f4);
@@ -378,19 +404,19 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* ===== GAMES POPUP — OPENS TO THE LEFT OF TRIGGER, ABOVE SOCIAL POPUP ===== */
+    /* ===== GAMES POPUP — WARM AMBER ACCENTS ===== */
     .games-popup {
       position: fixed;
-      bottom: 232px;             /* above the games trigger */
-      right: 88px;               /* positioned to the LEFT of the trigger */
+      bottom: 232px;
+      right: 88px;
       z-index: 10002;
       background: var(--paper, #faf8f4);
       border: 1px solid var(--paper-edge, #e8e2d6);
       border-radius: var(--radius-lg, 14px);
-      box-shadow: 0 16px 48px rgba(99, 102, 241, 0.28);
+      box-shadow: 0 16px 48px rgba(217, 119, 6, 0.22);
       padding: 14px 14px 12px;
-      min-width: 260px;
-      max-width: 320px;
+      min-width: 270px;
+      max-width: 330px;
       opacity: 0;
       pointer-events: none;
       transform: translateX(12px) scale(0.96);
@@ -405,7 +431,7 @@
     body.dark .games-popup {
       background: var(--paper-warm, #1c1c22);
       border-color: var(--paper-edge, #2a2a34);
-      box-shadow: 0 16px 48px rgba(99, 102, 241, 0.35);
+      box-shadow: 0 16px 48px rgba(217, 119, 6, 0.3);
     }
 
     .games-popup-header {
@@ -427,11 +453,11 @@
       gap: 6px;
     }
     .games-popup-header span .games-header-icon {
-      color: #4f46e5;
+      color: #d97706;
       display: inline-flex;
     }
     body.dark .games-popup-header span .games-header-icon {
-      color: #818cf8;
+      color: #fbbf24;
     }
 
     .games-popup-close {
@@ -456,14 +482,14 @@
       display: block;
     }
 
-    /* Scrollable games list */
+    /* Scrollable games list — improved layout */
     .games-list {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      max-height: 340px;
+      gap: 4px;
+      max-height: 360px;
       overflow-y: auto;
-      padding-right: 2px;
+      padding-right: 4px;
       overscroll-behavior: contain;
     }
     .games-list::-webkit-scrollbar { width: 5px; }
@@ -493,6 +519,7 @@
       text-align: left;
       position: relative;
       overflow: hidden;
+      box-sizing: border-box;
     }
     .game-item::before {
       content: '';
@@ -501,47 +528,53 @@
       top: 0;
       bottom: 0;
       width: 3px;
-      background: #6366f1;
+      background: #d97706;
       transform: scaleY(0);
       transform-origin: center;
       transition: transform 0.2s ease;
       border-radius: 0 3px 3px 0;
     }
     .game-item:hover {
-      background: rgba(99, 102, 241, 0.1);
-      border-color: rgba(99, 102, 241, 0.25);
+      background: rgba(217, 119, 6, 0.1);
+      border-color: rgba(217, 119, 6, 0.25);
       transform: translateX(2px);
     }
     .game-item:hover::before {
       transform: scaleY(1);
     }
     body.dark .game-item:hover {
-      background: rgba(129, 140, 248, 0.14);
-      border-color: rgba(129, 140, 248, 0.3);
+      background: rgba(251, 191, 36, 0.12);
+      border-color: rgba(251, 191, 36, 0.28);
     }
 
-    .game-item-emoji {
+    /* SVG icon wrapper — fixed square for consistent alignment */
+    .game-item-icon {
       flex-shrink: 0;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
+      background: linear-gradient(145deg, rgba(217, 119, 6, 0.14), rgba(217, 119, 6, 0.06));
       border-radius: 7px;
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(217, 119, 6, 0.2);
+      overflow: hidden;
     }
-    body.dark .game-item-emoji {
-      background: linear-gradient(145deg, rgba(129, 140, 248, 0.2), rgba(129, 140, 248, 0.08));
-      border-color: rgba(129, 140, 248, 0.25);
+    .game-item-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    body.dark .game-item-icon {
+      background: linear-gradient(145deg, rgba(251, 191, 36, 0.16), rgba(251, 191, 36, 0.06));
+      border-color: rgba(251, 191, 36, 0.25);
     }
 
     .game-item-info {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
       min-width: 0;
     }
     .game-item-title {
@@ -569,11 +602,11 @@
       transition: transform 0.2s ease, color 0.2s ease;
     }
     .game-item:hover .game-item-arrow {
-      color: #4f46e5;
+      color: #d97706;
       transform: translateX(3px);
     }
     body.dark .game-item:hover .game-item-arrow {
-      color: #818cf8;
+      color: #fbbf24;
     }
 
     /* Hide widgets when tools sidebar is open */
@@ -709,7 +742,7 @@
     /* Toast notification */
     .social-toast {
       position: fixed;
-      bottom: 174px;             /* above the social popup */
+      bottom: 174px;
       right: 24px;
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
@@ -806,7 +839,6 @@
       transform: translateX(0) scale(0.95);
     }
 
-    /* Pinterest */
     .follow-btn[data-platform="pinterest"] {
       background: linear-gradient(145deg, #ff4d6d, #e60023);
       color: #ffffff;
@@ -815,7 +847,6 @@
       box-shadow: 0 6px 18px rgba(230, 0, 35, 0.45);
     }
 
-    /* X (Twitter) */
     .follow-btn[data-platform="x"] {
       background: linear-gradient(145deg, #444, #000000);
       color: #ffffff;
@@ -824,7 +855,6 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
     }
 
-    /* Reddit */
     .follow-btn[data-platform="reddit"] {
       background: linear-gradient(145deg, #ff7a3d, #ff4500);
       color: #ffffff;
@@ -845,7 +875,6 @@
       transform: scale(1.15);
     }
 
-    /* Tooltip on hover — appears to the RIGHT of the button */
     .follow-btn::after {
       content: attr(aria-label);
       position: absolute;
@@ -870,7 +899,6 @@
       transform: translateY(-50%) scale(1);
     }
 
-    /* Hide follow widget when tools sidebar is open */
     body.tools-sidebar-open .follow-widget {
       opacity: 0;
       pointer-events: none;
@@ -881,7 +909,7 @@
     /* Responsive */
     @media (max-width: 480px) {
       .social-floating-trigger {
-        bottom: 52px;            /* clearly below tools trigger on mobile */
+        bottom: 52px;
         right: 16px;
         width: 38px;
         height: 38px;
@@ -891,7 +919,7 @@
         height: 16px;
       }
       .games-floating-trigger {
-        bottom: 156px;           /* above tools trigger on mobile */
+        bottom: 156px;
         right: 16px;
         width: 38px;
         height: 38px;
@@ -909,12 +937,12 @@
       .games-popup {
         bottom: 204px;
         right: 74px;
-        min-width: 230px;
+        min-width: 240px;
         max-width: calc(100vw - 90px);
         padding: 12px 12px 10px;
       }
       .games-list {
-        max-height: 280px;
+        max-height: 300px;
       }
       .social-btn {
         padding: 7px 10px;
@@ -933,10 +961,13 @@
         padding: 7px 9px;
         gap: 9px;
       }
-      .game-item-emoji {
-        width: 26px;
-        height: 26px;
-        font-size: 0.9rem;
+      .game-item-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .game-item-icon svg {
+        width: 18px;
+        height: 18px;
       }
       .game-item-title {
         font-size: 0.72rem;
@@ -955,7 +986,6 @@
         font-size: 0.7rem;
       }
 
-      /* Follow widget on mobile — still middle-left, slightly smaller */
       .follow-widget {
         left: 8px;
         gap: 5px;
@@ -1003,12 +1033,12 @@
       .games-popup {
         bottom: 186px;
         right: 62px;
-        min-width: 200px;
+        min-width: 210px;
         max-width: calc(100vw - 74px);
         padding: 10px 10px 8px;
       }
       .games-list {
-        max-height: 240px;
+        max-height: 260px;
       }
       .social-btn {
         font-size: 0.68rem;
@@ -1025,19 +1055,21 @@
       }
       .game-item {
         font-size: 0.68rem;
-        padding: 5px 7px;
+        padding: 6px 7px;
         gap: 7px;
       }
-      .game-item-emoji {
-        width: 22px;
-        height: 22px;
-        font-size: 0.85rem;
+      .game-item-icon {
+        width: 24px;
+        height: 24px;
+      }
+      .game-item-icon svg {
+        width: 16px;
+        height: 16px;
       }
       .social-toast {
         bottom: 128px;
       }
 
-      /* Follow widget on very small screens */
       .follow-widget {
         left: 6px;
         gap: 4px;
@@ -1127,7 +1159,7 @@
     item.href = game.url;
     item.setAttribute('aria-label', `Play ${game.label}`);
     item.innerHTML = `
-      <span class="game-item-emoji">${game.emoji}</span>
+      <span class="game-item-icon">${game.icon}</span>
       <span class="game-item-info">
         <span class="game-item-title">${game.label}</span>
         <span class="game-item-desc">${game.description}</span>
@@ -1251,7 +1283,7 @@
 
   // ---- Social popup open/close ----
   function openPopup() {
-    closeGamesPopup(); // ensure only one open
+    closeGamesPopup();
     popup.classList.add('open');
     trigger.classList.add('active');
     trigger.innerHTML = ICONS.close;
@@ -1273,7 +1305,7 @@
 
   // ---- Games popup open/close ----
   function openGamesPopup() {
-    closePopup(); // ensure only one open
+    closePopup();
     gamesPopup.classList.add('open');
     gamesTrigger.classList.add('active');
     gamesTrigger.innerHTML = ICONS.close;
@@ -1294,13 +1326,11 @@
   }
 
   // ---- Event listeners ----
-  // Social trigger
   trigger.addEventListener('click', (e) => {
     e.stopPropagation();
     togglePopup();
   });
 
-  // Games trigger
   gamesTrigger.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleGamesPopup();
@@ -1318,12 +1348,10 @@
     }
   });
 
-  // Observe the sidebar when it exists
   const sidebarEl = document.getElementById('toolsFixedSidebar');
   if (sidebarEl) {
     sidebarObserver.observe(sidebarEl, { attributes: true, attributeFilter: ['class'] });
   } else {
-    // Sidebar may not be in DOM yet — wait for it
     const bodyObserver = new MutationObserver(() => {
       const sb = document.getElementById('toolsFixedSidebar');
       if (sb) {
@@ -1356,14 +1384,12 @@
   document.addEventListener('click', (e) => {
     const target = e.target;
 
-    // Social popup
     if (popup.classList.contains('open')) {
       if (!popup.contains(target) && target !== trigger && !trigger.contains(target)) {
         closePopup();
       }
     }
 
-    // Games popup
     if (gamesPopup.classList.contains('open')) {
       if (!gamesPopup.contains(target) && target !== gamesTrigger && !gamesTrigger.contains(target)) {
         closeGamesPopup();
@@ -1399,5 +1425,5 @@
     }
   });
 
-  console.log('Social Share + Games + Follow Widgets initialized — follow buttons middle-left vertical, games above sidebar trigger, social below.');
+  console.log('Social Share + Games + Follow Widgets initialized — games now use SVG icons and warm amber theme.');
 })();

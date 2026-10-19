@@ -238,8 +238,7 @@
 
         <nav class="header-nav" aria-label="Main navigation">
           <a href="/" class="nav-link nav-link-icon">${NAV_ICONS.home}<span>Home</span></a>                
-          <a href="/diary" class="nav-link nav-link-icon">${NAV_ICONS.diary}<span>Diary</span></a>
-          <a href="/mindmap" class="nav-link nav-link-icon">${NAV_ICONS.mindmap}<span>MindMap</span></a>
+          <a href="/diary" class="nav-link nav-link-icon">${NAV_ICONS.diary}<span>Diary</span></a>          
           <a href="/list-maker" class="nav-link nav-link-icon">${NAV_ICONS.list}<span>List Maker</span></a>
           <a href="/all-tools" class="nav-link nav-link-cta nav-link-blink nav-link-icon">${NAV_ICONS.allTools}<span>All Tools</span></a>
           <a href="/games" class="nav-link nav-link-icon">${NAV_ICONS.games}<span>Games</span></a>

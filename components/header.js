@@ -281,10 +281,86 @@
     </nav>
   `;
 
+  // ── Inject the 300x250 ad directly below the header (outside header) ──
+  function injectHeaderAd() {
+    const header = document.getElementById('siteHeader');
+    if (!header) return;
+
+    // Prevent duplicate injection if initHeader runs more than once
+    if (document.getElementById('header-ad-slot')) return;
+
+    // Wrapper placed as a sibling AFTER <header>, so it's outside the header
+    const adWrap = document.createElement('div');
+    adWrap.id = 'header-ad-slot';
+    adWrap.className = 'header-ad-slot';
+    adWrap.setAttribute('aria-label', 'Advertisement');
+
+    // Inner 300x250 container that the ad script will target
+    const adBox = document.createElement('div');
+    adBox.id = 'header-ad-300x250';
+    adBox.className = 'header-ad-box';
+    adBox.style.width = '300px';
+    adBox.style.height = '250px';
+    adWrap.appendChild(adBox);
+
+    // Insert the slot right after the header element (outside of it)
+    header.insertAdjacentElement('afterend', adWrap);
+
+    // Configure the ad options expected by the remote script
+    window.atOptions = {
+      key: 'f5214acd8479e07d7defe4626c574aa5',
+      format: 'iframe',
+      height: 250,
+      width: 300,
+      params: {}
+    };
+
+    // Load the ad script dynamically into the 300x250 box
+    const adScript = document.createElement('script');
+    adScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
+    adScript.async = true;
+    adBox.appendChild(adScript);
+
+    // Styles for the ad slot (centered, subtle separator, responsive)
+    const adStyle = document.createElement('style');
+    adStyle.textContent = `
+      .header-ad-slot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 16px;
+        background: var(--paper-warm, transparent);
+        border-bottom: 1px solid var(--paper-edge, #e5e5e5);
+        min-height: 250px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      .header-ad-box {
+        max-width: 100%;
+        overflow: hidden;
+      }
+      .header-ad-box iframe {
+        display: block;
+        border: 0;
+      }
+      @media (max-width: 340px) {
+        .header-ad-slot { padding: 8px; min-height: auto; }
+      }
+      body.dark .header-ad-slot {
+        background: var(--paper-warm, #1a1a1a);
+        border-color: var(--paper-edge, #333);
+      }
+    `;
+    document.head.appendChild(adStyle);
+  }
+
   function initHeader() {
     const root = document.getElementById('header-root');
     if (!root) return;
     root.innerHTML = headerHTML;
+
+    // Inject the 300x250 ad right below the header (outside header)
+    injectHeaderAd();
 
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {

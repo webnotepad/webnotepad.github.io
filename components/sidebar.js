@@ -1,7 +1,7 @@
 /**
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for the productive tools
- * Theme: Editorial / Ink-on-paper aesthetic
+ * Theme: Editorial / Ink-on-paper aesthetic — app-style cards
  */
 
 (function () {
@@ -572,30 +572,33 @@
       pointer-events: auto;
     }
 
-    /* Sidebar Header Details */
+    /* ── Compact Sidebar Header ── */
     .tools-sb-header {
-      padding: 22px 32px;
+      padding: 10px 20px;
       border-bottom: 1px solid var(--paper-edge);
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: var(--paper-warm);
       flex-shrink: 0;
+      min-height: 44px;
     }
     .tools-sb-header h2 {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--ink);
+      line-height: 1.2;
+      margin: 0;
     }
     .tools-sb-header h2 em {
       font-style: italic;
       color: var(--accent);
     }
     .tools-sb-close {
-      width: 34px;
-      height: 34px;
-      font-size: 1.05rem;
+      width: 28px;
+      height: 28px;
+      font-size: 0.85rem;
       color: var(--ink-muted);
       border-radius: var(--radius);
       display: flex;
@@ -611,47 +614,48 @@
       background: var(--paper-edge);
     }
 
-    /* ---- Top Section & Improved Spacing ---- */
+    /* ---- Compact Top Section & Reduced Spacing ---- */
     .tools-sb-top-section {
       flex-shrink: 0;
-      padding: 18px 24px 16px;
+      padding: 8px 16px 8px;
       border-bottom: 1px solid var(--paper-edge);
       background: var(--paper);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 4px;
+    }
+    .tools-sb-ad-label {
+      font-family: var(--font-display);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      opacity: 0.5;
+      line-height: 1;
     }
     .tools-sb-top-grid {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 14px;
       width: 100%;
     }
     .tools-sb-side-tools {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       flex: 1;
-      max-width: 160px;
+      max-width: 148px;
     }
     .tools-sb-ad {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 2px;
       flex-shrink: 0;
-      margin: 0 4px;
-    }
-    .tools-sb-ad-label {
-      font-family: var(--font-display);
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      opacity: 0.55;
+      margin: 0 2px;
     }
     .tools-sb-ad-frame {
       width: 300px;
@@ -673,9 +677,9 @@
       display: block;
     }
 
-    /* Newly Added Badge & Items */
+    /* Newly Added Badge & Items — compact app-style */
     .tools-sb-new-item {
-      padding: 10px 8px 8px;
+      padding: 7px 6px 6px;
       border-radius: var(--radius);
       border: 1px solid var(--paper-edge);
       background: var(--paper-warm);
@@ -684,7 +688,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 4px;
+      gap: 2px;
       position: relative;
       transition: all var(--transition);
     }
@@ -695,36 +699,37 @@
     }
     .tools-sb-badge {
       position: absolute;
-      top: -6px;
-      right: 6px;
+      top: -5px;
+      right: 5px;
       background: #EF4444;
       color: #FFF;
-      font-size: 0.52rem;
+      font-size: 0.48rem;
       font-weight: 700;
-      padding: 1px 5px;
+      padding: 1px 4px;
       border-radius: 8px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      line-height: 1.2;
     }
     .tools-sb-new-item-icon {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .tools-sb-new-item-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
     }
     .tools-sb-new-item-name {
-      font-size: 0.7rem;
+      font-size: 0.62rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.1;
     }
     .tools-sb-new-item-desc {
-      font-size: 0.58rem;
+      font-size: 0.5rem;
       color: var(--ink-muted);
       line-height: 1.2;
       display: -webkit-box;
@@ -737,33 +742,37 @@
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
-      padding: 20px 28px 36px;
+      padding: 16px 20px 32px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px 20px;
+      gap: 14px 16px;
       align-content: start;
       overscroll-behavior: contain;
     }
 
-    /* Category block */
+    /* Category block — matches the app-style */
     .tools-sb-category-block {
       display: flex;
       flex-direction: column;
       gap: 8px;
       min-width: 0;
+      background: var(--paper-warm);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 10px;
+      box-sizing: border-box;
     }
 
     /* Category Section Headers */
     .tools-sb-category {
       font-family: var(--font-display);
-      font-size: 0.68rem;
-      font-weight: 700;
+      font-size: 0.62rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-muted);
-      padding-bottom: 7px;
-      border-bottom: 1px solid var(--paper-edge);
-      opacity: 0.75;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--paper-edge);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -775,11 +784,15 @@
       white-space: nowrap;
     }
     .tools-sb-category-count {
-      font-size: 0.58rem;
-      font-weight: 500;
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      font-weight: 600;
       color: var(--ink-muted);
-      opacity: 0.6;
-      letter-spacing: 0.04em;
+      padding: 1px 5px;
+      border-radius: 100px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      letter-spacing: 0.03em;
       flex-shrink: 0;
     }
 
@@ -787,21 +800,21 @@
     .tools-sb-category-tools {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      gap: 6px;
     }
 
-    /* Compact Tool Box (matches header dropdown density) */
+    /* Compact app-style Tool Box */
     .tools-sb-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      gap: 5px;
-      padding: 9px 6px 8px;
-      border-radius: var(--radius);
+      gap: 4px;
+      padding: 7px 5px 6px;
+      border-radius: 6px;
       border: 1px solid var(--paper-edge);
-      background: var(--paper-warm);
+      background: var(--paper);
       transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
       opacity: 0;
       transform: translateY(8px);
@@ -812,28 +825,13 @@
       overflow: hidden;
       box-sizing: border-box;
     }
-    .tools-sb-item::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
     .tools-fixed-sidebar.open .tools-sb-item {
       animation: slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
     .tools-sb-item:hover {
       background: var(--paper);
       border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-    .tools-sb-item:hover::before {
-      opacity: 1;
+      transform: translateX(2px);
     }
     .tools-sb-item:focus-visible {
       outline: 2px solid var(--accent);
@@ -842,10 +840,10 @@
 
     /* Compact icon container */
     .tools-sb-item-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--paper);
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      background: var(--paper-warm);
+      border-radius: 5px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -855,8 +853,8 @@
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
@@ -873,15 +871,15 @@
       min-width: 0;
     }
     .tools-sb-item-name {
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.15;
       word-break: break-word;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
     .tools-sb-item-desc {
-      font-size: 0.56rem;
+      font-size: 0.5rem;
       color: var(--ink-muted);
       line-height: 1.3;
       word-break: break-word;
@@ -901,7 +899,7 @@
     .tools-sb-item-game .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
       border-color: rgba(99, 102, 241, 0.25);
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
     .tools-sb-item-game:hover .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
@@ -910,7 +908,7 @@
     .tools-sb-item-all-games {
       border-top: 1px dashed var(--paper-edge);
       margin-top: 2px;
-      padding-top: 8px;
+      padding-top: 6px;
       color: #4f46e5 !important;
       font-weight: 600;
     }
@@ -965,8 +963,8 @@
       bottom: 22px;
       right: 26px;
       z-index: 10001;
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--accent);
       color: var(--paper);
@@ -981,8 +979,8 @@
       animation: glowBlink 1.8s ease-in-out infinite;
     }
     .tools-sb-scroll-arrow svg {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
       transition: transform 0.25s ease;
     }
@@ -1044,29 +1042,30 @@
         transform: translateX(0);
       }
       .tools-sb-body {
-        padding: 16px 20px 28px;
+        padding: 12px 16px 24px;
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 12px;
       }
       .tools-sb-category-tools {
         grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
       }
       .tools-sb-scroll-arrow {
         bottom: 18px;
         right: 18px;
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
       }
       .tools-sb-scroll-arrow svg {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
       }
     }
 
     @media (max-width: 640px) {
       .tools-sb-top-grid {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
       }
       .tools-sb-side-tools {
         flex-direction: row;
@@ -1077,37 +1076,38 @@
         flex: 1;
       }
       .tools-sb-header {
-        padding: 16px 18px;
+        padding: 8px 14px;
+        min-height: 38px;
       }
       .tools-sb-header h2 {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
       }
       .tools-sb-body {
-        padding: 12px 14px 24px;
+        padding: 10px 10px 20px;
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 10px;
       }
       .tools-sb-category-tools {
         grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        gap: 6px;
       }
       .tools-sb-item {
-        padding: 9px 6px 8px;
-        gap: 5px;
+        padding: 7px 5px 6px;
+        gap: 4px;
       }
       .tools-sb-item-icon {
-        width: 30px;
-        height: 30px;
+        width: 22px;
+        height: 22px;
       }
       .tools-sb-item-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
       }
       .tools-sb-item-name {
-        font-size: 0.66rem;
+        font-size: 0.6rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.55rem;
+        font-size: 0.48rem;
       }
       .tools-sb-ad-frame {
         width: 300px;
@@ -1130,12 +1130,12 @@
       .tools-sb-scroll-arrow {
         bottom: 16px;
         right: 14px;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
       }
       .tools-sb-scroll-arrow svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
       }
     }
   `;

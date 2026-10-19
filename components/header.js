@@ -231,7 +231,7 @@
           <a href="/diary" class="nav-link">Diary</a>
           <a href="/mindmap" class="nav-link">MindMap</a>
           <a href="/list-maker" class="nav-link">List Maker</a>
-          <a href="/all-tools" class="nav-link">All Tools</a>
+          <a href="/all-tools" class="nav-link nav-link-cta nav-link-blink">All Tools</a>
           <a href="/games" class="nav-link">Games</a>
           <a href="/blog" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>   
@@ -399,6 +399,45 @@
         border-color: var(--paper-edge);
       }
 
+      /* ── All Tools CTA button with blink ── */
+      .header-nav .nav-link-cta {
+        padding: 6px 14px;
+        border-radius: 100px;
+        background: var(--accent);
+        color: #ffffff !important;
+        font-weight: 600;
+        border: 1px solid var(--accent);
+        transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+      .header-nav .nav-link-cta:hover {
+        background: var(--accent-light, #e8714a);
+        border-color: var(--accent-light, #e8714a);
+        color: #ffffff !important;
+        transform: translateY(-1px);
+      }
+      .header-nav .nav-link-cta.active-nav {
+        background: var(--accent);
+        color: #ffffff !important;
+      }
+
+      .nav-link-blink {
+        animation: allToolsBlink 1.6s ease-in-out infinite;
+      }
+      @keyframes allToolsBlink {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.6);
+          opacity: 1;
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(196, 86, 42, 0);
+          opacity: 0.78;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nav-link-blink { animation: none; }
+      }
+
       .mobile-dropdown { width: 100%; }
       .mobile-dropdown-btn {
         background: none;
@@ -537,6 +576,7 @@
           padding: 2px 2px;
           font-size: 1rem;
         }
+        .nav-link-blink { animation: none; }
       }
 
       body.dark .mobile-dropdown-btn { color: var(--ink); }

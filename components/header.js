@@ -281,7 +281,7 @@
     </nav>
   `;
 
-  // ── Inject the 300x250 ad directly below the header (outside header) ──
+  // ── Inject the 300x250 ad below the header, overlapping the hero, hidden on mobile ──
   function injectHeaderAd() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
@@ -289,7 +289,7 @@
     // Prevent duplicate injection if initHeader runs more than once
     if (document.getElementById('header-ad-slot')) return;
 
-    // Wrapper placed as a sibling AFTER <header>, so it's outside the header
+    // Wrapper is absolutely positioned so it overlaps the hero section
     const adWrap = document.createElement('div');
     adWrap.id = 'header-ad-slot';
     adWrap.className = 'header-ad-slot';
@@ -303,8 +303,9 @@
     adBox.style.height = '250px';
     adWrap.appendChild(adBox);
 
-    // Insert the slot right after the header element (outside of it)
-    header.insertAdjacentElement('afterend', adWrap);
+    // Append as last child of #header-root so it can absolutely-position over the page content
+    const root = document.getElementById('header-root') || header.parentElement || document.body;
+    root.appendChild(adWrap);
 
     // Configure the ad options expected by the remote script
     window.atOptions = {
@@ -315,40 +316,54 @@
       params: {}
     };
 
-    // Load the ad script dynamically into the 300x250 box
-    const adScript = document.createElement('script');
-    adScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
-    adScript.async = true;
-    adBox.appendChild(adScript);
+    // Load the ad script dynamically into the 300x250 box (skip on mobile)
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) {
+      const adScript = document.createElement('script');
+      adScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
+      adScript.async = true;
+      adBox.appendChild(adScript);
+    }
 
-    // Styles for the ad slot (centered, subtle separator, responsive)
+    // Styles: absolutely positioned overlay over the hero, hidden on mobile
     const adStyle = document.createElement('style');
     adStyle.textContent = `
+      /* Anchor for the absolutely positioned ad (header-root is at top of page) */
+      #header-root {
+        position: relative;
+      }
+
       .header-ad-slot {
+        position: absolute;
+        top: 100%;              /* directly below the header */
+        right: 16px;            /* tucked to the right edge of the header area */
+        z-index: 50;            /* sit above the hero content */
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 12px 16px;
-        background: var(--paper-warm, transparent);
-        border-bottom: 1px solid var(--paper-edge, #e5e5e5);
-        min-height: 250px;
-        box-sizing: border-box;
-        width: 100%;
+        pointer-events: auto;
       }
+
       .header-ad-box {
+        width: 300px;
+        height: 250px;
         max-width: 100%;
         overflow: hidden;
+        /* Optional: subtle shadow so it reads as an overlay */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        border-radius: 6px;
       }
+
       .header-ad-box iframe {
         display: block;
         border: 0;
       }
-      @media (max-width: 340px) {
-        .header-ad-slot { padding: 8px; min-height: auto; }
-      }
-      body.dark .header-ad-slot {
-        background: var(--paper-warm, #1a1a1a);
-        border-color: var(--paper-edge, #333);
+
+      /* Hide the ad on mobile — it would cover too much of the viewport */
+      @media (max-width: 768px) {
+        .header-ad-slot {
+          display: none !important;
+        }
       }
     `;
     document.head.appendChild(adStyle);
@@ -359,7 +374,7 @@
     if (!root) return;
     root.innerHTML = headerHTML;
 
-    // Inject the 300x250 ad right below the header (outside header)
+    // Inject the 300x250 ad right below the header (overlapping hero, hidden on mobile)
     injectHeaderAd();
 
     const languageSelect = document.getElementById('languageSelect');

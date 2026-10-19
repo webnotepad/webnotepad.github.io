@@ -79,17 +79,8 @@
   </div>
   <div class="d-container d-hero-inner">
     <div class="d-hero-layout">
-      <!-- Left: Text content -->
-      <div class="d-hero-text">
-        <div class="d-badge">📖 Your private space to write & Save as PDF</div>
-        <h1>Free Online Diary & Private Journal</h1>
-        <p>Write daily entries with mood tracker, tags, and prompts. 100% private, auto-saved in your browser. Export to beautiful PDF with one click.</p>
-        <div class="d-hero-btn-wrap">
-          <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Now ↓</a>
-        </div>
-      </div>
 
-      <!-- Right: Advertisement -->
+      <!-- LEFT: Advertisement -->
       <div class="d-hero-ad">
         <script>
           atOptions = {
@@ -102,9 +93,20 @@
         </script>
         <script src="https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5"></script>
       </div>
+
+      <!-- RIGHT: Text content -->
+      <div class="d-hero-text">
+        <div class="d-badge">📖 Your private space to write & Save as PDF</div>
+        <h1>Free Online Diary & Private Journal</h1>
+        <p>Write daily entries with mood tracker, tags, and prompts. 100% private, auto-saved in your browser. Export to beautiful PDF with one click.</p>
+        <div class="d-hero-btn-wrap">
+          <a href="#diary-app" class="d-btn d-btn-primary">Start Writing Now ↓</a>
+        </div>
+      </div>
+
     </div>
   </div>
-</section>  
+</section>
 
     <!-- DIARY APP -->
     <section class="d-app-section" id="diary-app">
@@ -323,27 +325,26 @@
      HERO AD STYLES (round borders, grid, etc.)
      ============================================= -->
     <style>
-      /* Hero layout: text left, ad right */
-/* Side-by-side: text left, ad right */
+      /* Hero layout: ad left, text right */
 .d-hero-layout {
   display: flex;
-  align-items: center;          /* vertically align text block with ad */
+  align-items: center;
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
 }
 
-/* Text column — NOT centered, keeps normal left alignment */
+/* Text column — normal left alignment, grows to fill space */
 .d-hero-text {
   flex: 1 1 480px;
   min-width: 0;
-  text-align: left;             /* text stays left-aligned */
+  text-align: left;
 }
 
-/* Center ONLY the button, relative to the text column */
+/* Center ONLY the button within the text column */
 .d-hero-btn-wrap {
   display: flex;
-  justify-content: center;      /* centers button within the text column */
+  justify-content: center;
   margin-top: 24px;
 }
 
@@ -360,14 +361,17 @@
   display: block;
 }
 
-/* Mobile: stack below, keep button centered */
+/* Mobile: stack, keep button centered */
 @media (max-width: 768px) {
   .d-hero-layout {
-    flex-direction: column;
+    flex-direction: column-reverse; /* keeps text ABOVE ad on mobile */
     gap: 24px;
   }
   .d-hero-text {
-    text-align: center;         /* optional on mobile for nicer look */
+    text-align: center;
+  }
+  .d-hero-ad {
+    margin: 0 auto;
   }
 }
       </style>

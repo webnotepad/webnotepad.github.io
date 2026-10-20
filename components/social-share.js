@@ -1,20 +1,13 @@
 /**
  * social-share.js
- * Floating social share widget with SVG icons and vertical layout
- * Positioned BELOW the main tools sidebar trigger.
+ * Floating social share widget + floating games widget.
+ *
+ * Both menus now open as a CENTERED radial circle in the middle of the screen.
+ * Each item shows its label underneath the icon at all times (not just on hover).
+ * The page blurs behind the menu. Entrance is staggered + springy.
+ *
  * Theme: Editorial / Ink-on-paper aesthetic
- *
- * ALSO includes a floating Games widget ABOVE the tools sidebar trigger, with a
- * classic arcade-style joystick SVG (red ball top, dark metallic stick and base),
- * linking to all games on the site.
- *
- * Games popup opens as a CIRCULAR RADIAL MENU around the trigger.
- * The arc is biased to the top/left so no icon is clipped off the right edge.
- * Games now use crisp SVG icons instead of emojis.
- * Page blurs when games menu is open.
- *
- * ALSO includes a Follow widget (small, vertical) at the MIDDLE-LEFT of the page
- * with Pinterest, X, and Reddit icons. Handle: @webnotepad
+ * Handle for follow widget: @webnotepad
  */
 
 (function () {
@@ -30,25 +23,17 @@
     close: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
     share: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
 
-    // ---- Reddit Icon (for Follow widget) ----
     reddit: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.313 3.516 8.484l-2.36 2.36c-.297.297-.087.805.335.805H12c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.01 6.947c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zm-10.02 0c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zM12 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-5.304 5.07c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zm10.608 0c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zM12 18c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2z"/></svg>`,
 
-    // ---- MODERN GAMEPAD WITH BUTTONS ICON ----
     joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Gamepad Body Outline -->
       <path d="M6 5h12a4 4 0 0 1 4 4v3a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V9a4 4 0 0 1 4-4z"/>
-      
-      <!-- D-Pad (Left) -->
       <path d="M6 11h2M7 10v2" stroke-width="1.8"/>
-      
-      <!-- Action Buttons (Right) -->
       <circle cx="16.5" cy="10" r="0.75" fill="currentColor" stroke="none"/>
       <circle cx="18" cy="11.5" r="0.75" fill="currentColor" stroke="none"/>
       <circle cx="15" cy="11.5" r="0.75" fill="currentColor" stroke="none"/>
       <circle cx="16.5" cy="13" r="0.75" fill="currentColor" stroke="none"/>
     </svg>`,
 
-    // ---- Per-game SVG icons (replacing emojis) ----
     gameIcons: {
       puzzle: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3a2 2 0 0 1 4 0v1h3a2 2 0 0 1 2 2v3h1a2 2 0 0 1 0 4h-1v3a2 2 0 0 1-2 2h-3v1a2 2 0 0 1-4 0v-1H7a2 2 0 0 1-2-2v-3H4a2 2 0 0 1 0-4h1V6a2 2 0 0 1 2-2h3V3z" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
       bee: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 4v8l-7 4-7-4V7l7-4z" fill="#FEF3C7" stroke="#EAB308" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 7l3.5 2v4L12 15l-3.5-2V9L12 7z" fill="#FDE68A" stroke="#EAB308" stroke-width="1.2" stroke-linejoin="round"/></svg>`,
@@ -98,129 +83,32 @@
     },
   ];
 
+  const COPY_ITEM = { id: 'copy', label: 'Copy Link', icon: ICONS.link };
+
   // ---- Follow Configuration ----
   const FOLLOW_HANDLE = '@webnotepad';
   const FOLLOW_PLATFORMS = [
-    {
-      id: 'pinterest',
-      label: 'Pinterest',
-      icon: ICONS.pinterest,
-      url: 'https://pinterest.com/webnotepad',
-    },
-    {
-      id: 'x',
-      label: 'X',
-      icon: ICONS.x,
-      url: 'https://x.com/webnotepad',
-    },
-    {
-      id: 'reddit',
-      label: 'Reddit',
-      icon: ICONS.reddit,
-      url: 'https://reddit.com/user/webnotepad',
-    },
+    { id: 'pinterest', label: 'Pinterest', icon: ICONS.pinterest, url: 'https://pinterest.com/webnotepad' },
+    { id: 'x', label: 'X', icon: ICONS.x, url: 'https://x.com/webnotepad' },
+    { id: 'reddit', label: 'Reddit', icon: ICONS.reddit, url: 'https://reddit.com/user/webnotepad' },
   ];
 
-  // ---- Games Configuration (SVG icon per game) ----
+  // ---- Games Configuration ----
   const GAMES = [
-    {
-      id: 'quordle-unlimited',
-      label: 'Quordle Unlimited',
-      icon: ICONS.gameIcons.multiWord,
-      description: 'Solve four 5-letter words in 9 tries',
-      url: '/quordle-unlimited'
-    },
-    {
-      id: 'dordle-unlimited',
-      label: 'Dordle Unlimited',
-      icon: ICONS.gameIcons.multiWord,
-      description: 'Guess two 5-letter words in 7 tries',
-      url: '/dordle-unlimited'
-    },
-    {
-      id: 'nerdle-unlimited',
-      label: 'Nerdle Unlimited',
-      icon: ICONS.gameIcons.calculator,
-      description: 'Guess the hidden math equation',
-      url: '/nerdle-unlimited'
-    },
-    {
-      id: 'letter-boxed-unlimited',
-      label: 'Letter Boxed Unlimited',
-      icon: ICONS.gameIcons.box,
-      description: 'Connect letters around the box',
-      url: '/letter-boxed-unlimited'
-    },
-    {
-      id: 'connections-unlimited',
-      label: 'Connections Unlimited',
-      icon: ICONS.gameIcons.puzzle,
-      description: 'Group 16 words into 4 categories',
-      url: '/connections-unlimited'
-    },
-    {
-      id: 'spelling-bee',
-      label: 'Spelling Bee Unlimited',
-      icon: ICONS.gameIcons.bee,
-      description: 'Build words from 7 letters',
-      url: '/spelling-bee-unlimited'
-    },
-    {
-      id: 'crossword-puzzle',
-      label: 'Crossword Puzzle',
-      icon: ICONS.gameIcons.crossword,
-      description: 'Solve interactive crossword grids',
-      url: '/crossword-puzzle'
-    },
-    {
-      id: 'wordle',
-      label: 'Wordle',
-      icon: ICONS.gameIcons.letterTile,
-      description: 'Guess the 5-letter word',
-      url: '/wordle'
-    },
-    {
-      id: 'word-search',
-      label: 'Word Search',
-      icon: ICONS.gameIcons.search,
-      description: 'Find hidden words in a grid',
-      url: '/word-search'
-    },
-    {
-      id: 'memory-match',
-      label: 'Memory Match',
-      icon: ICONS.gameIcons.cards,
-      description: 'Flip and match the cards',
-      url: '/memory-match'
-    },
-    {
-      id: '2048',
-      label: '2048',
-      icon: ICONS.gameIcons.number,
-      description: 'Slide to combine numbers',
-      url: '/2048'
-    },
-    {
-      id: 'tic-tac-toe',
-      label: 'Tic-Tac-Toe',
-      icon: ICONS.gameIcons.xox,
-      description: 'Three in a row wins',
-      url: '/tic-tac-toe'
-    },
-    {
-      id: 'sudoku',
-      label: 'Sudoku',
-      icon: ICONS.gameIcons.sudoku,
-      description: 'Fill the grid with digits',
-      url: '/sudoku'
-    },
-    {
-      id: 'minesweeper',
-      label: 'Minesweeper',
-      icon: ICONS.gameIcons.bomb,
-      description: 'Clear the minefield',
-      url: '/minesweeper'
-    }
+    { id: 'quordle-unlimited', label: 'Quordle', icon: ICONS.gameIcons.multiWord, description: 'Solve four 5-letter words', url: '/quordle-unlimited' },
+    { id: 'dordle-unlimited', label: 'Dordle', icon: ICONS.gameIcons.multiWord, description: 'Guess two words', url: '/dordle-unlimited' },
+    { id: 'nerdle-unlimited', label: 'Nerdle', icon: ICONS.gameIcons.calculator, description: 'Hidden math equation', url: '/nerdle-unlimited' },
+    { id: 'letter-boxed-unlimited', label: 'Letter Boxed', icon: ICONS.gameIcons.box, description: 'Connect the letters', url: '/letter-boxed-unlimited' },
+    { id: 'connections-unlimited', label: 'Connections', icon: ICONS.gameIcons.puzzle, description: 'Group the words', url: '/connections-unlimited' },
+    { id: 'spelling-bee', label: 'Spelling Bee', icon: ICONS.gameIcons.bee, description: 'Build from 7 letters', url: '/spelling-bee-unlimited' },
+    { id: 'crossword-puzzle', label: 'Crossword', icon: ICONS.gameIcons.crossword, description: 'Solve the grid', url: '/crossword-puzzle' },
+    { id: 'wordle', label: 'Wordle', icon: ICONS.gameIcons.letterTile, description: 'Guess the word', url: '/wordle' },
+    { id: 'word-search', label: 'Word Search', icon: ICONS.gameIcons.search, description: 'Find hidden words', url: '/word-search' },
+    { id: 'memory-match', label: 'Memory', icon: ICONS.gameIcons.cards, description: 'Match the cards', url: '/memory-match' },
+    { id: '2048', label: '2048', icon: ICONS.gameIcons.number, description: 'Combine numbers', url: '/2048' },
+    { id: 'tic-tac-toe', label: 'Tic-Tac-Toe', icon: ICONS.gameIcons.xox, description: 'Three in a row', url: '/tic-tac-toe' },
+    { id: 'sudoku', label: 'Sudoku', icon: ICONS.gameIcons.sudoku, description: 'Fill the grid', url: '/sudoku' },
+    { id: 'minesweeper', label: 'Minesweeper', icon: ICONS.gameIcons.bomb, description: 'Clear the field', url: '/minesweeper' }
   ];
 
   // ---- Helper: toast ----
@@ -230,22 +118,20 @@
     toast.textContent = message;
     toast.classList.add('show');
     clearTimeout(toast._hideTimer);
-    toast._hideTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, duration);
+    toast._hideTimer = setTimeout(() => toast.classList.remove('show'), duration);
   }
 
   // ---- Inject CSS ----
   const styleEl = document.createElement('style');
   styleEl.textContent = `
     /* ============================================================
-       SOCIAL SHARE WIDGET
+       SHARED TRIGGER STYLES
        ============================================================ */
-    .social-floating-trigger {
+    .social-floating-trigger,
+    .games-floating-trigger {
       position: fixed;
-      bottom: 68px;
       right: 24px;
-      z-index: 10001;
+      z-index: 10005;
       width: 42px;
       height: 42px;
       background: var(--ink, #1a1a2e);
@@ -261,193 +147,325 @@
                   background 0.2s ease,
                   color 0.2s ease,
                   box-shadow 0.3s ease;
-      animation: socialPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
     }
-    .social-floating-trigger svg {
-      width: 18px;
-      height: 18px;
+    .social-floating-trigger { bottom: 68px; animation: socialPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
+    .games-floating-trigger  { bottom: 182px; animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
+
+    .social-floating-trigger svg,
+    .games-floating-trigger svg {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: block;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
-    .social-floating-trigger:hover svg {
-      transform: scale(1.1);
-    }
-    body.dark .social-floating-trigger {
+    .social-floating-trigger svg { width: 18px; height: 18px; }
+    .games-floating-trigger svg  { width: 20px; height: 20px; }
+    .social-floating-trigger:hover svg { transform: scale(1.1); }
+    .games-floating-trigger:hover svg  { transform: scale(1.12) rotate(-6deg); }
+
+    body.dark .social-floating-trigger,
+    body.dark .games-floating-trigger {
       background: var(--accent, #c4562a);
       color: var(--white, #ffffff);
     }
-    .social-floating-trigger:hover {
+    .social-floating-trigger:hover,
+    .games-floating-trigger:hover {
       transform: scale(1.08) rotate(8deg);
       background: var(--accent, #c4562a);
       color: var(--white, #ffffff);
       animation-play-state: paused;
       box-shadow: 0 8px 24px rgba(196, 86, 42, 0.3);
     }
-    .social-floating-trigger.active {
+    .social-floating-trigger.active,
+    .games-floating-trigger.active {
       transform: scale(0.9) rotate(-90deg);
       background: var(--paper-warm, #f4f0e8);
       color: var(--ink, #1a1a2e);
       animation: none;
       box-shadow: none;
+      border-color: var(--paper-edge, #e8e2d6);
+    }
+    body.dark .social-floating-trigger.active,
+    body.dark .games-floating-trigger.active {
+      background: var(--paper, #141418);
+      color: var(--ink, #e8e4dc);
+      border-color: var(--paper-edge, #2a2a34);
     }
 
     @keyframes socialPulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.25), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
-      50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 0 12px rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
+      0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0.25), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+      50%  { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+      100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+    }
+    @keyframes gamesPulse {
+      0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0.25), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+      50%  { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+      100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
     }
 
-    /* Social popup */
-    .social-share-popup {
+    /* ============================================================
+       BLUR OVERLAY
+       ============================================================ */
+    .radial-blur-overlay {
       position: fixed;
-      bottom: 118px;
-      right: 24px;
-      z-index: 10002;
-      background: var(--paper, #faf8f4);
-      border: 1px solid var(--paper-edge, #e8e2d6);
-      border-radius: var(--radius-lg, 14px);
-      box-shadow: var(--shadow-lg, 0 16px 48px rgba(26,26,46,0.18));
-      padding: 14px 14px 12px;
-      min-width: 160px;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(26, 26, 46, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       opacity: 0;
       pointer-events: none;
-      transform: translateY(12px) scale(0.96);
-      transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: bottom right;
+      transition: opacity 0.35s ease;
     }
-    .social-share-popup.open {
+    .radial-blur-overlay.active {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0) scale(1);
     }
-    body.dark .social-share-popup {
+
+    /* ============================================================
+       CENTERED RADIAL MENU (shared)
+       ============================================================ */
+    .radial-menu {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      z-index: 10002;
+      pointer-events: none;
+      opacity: 0;
+      /* Centered anchor point */
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+    .radial-menu.open {
+      opacity: 1;
+    }
+
+    /* Center hub — a subtle ring that anchors the circle visually */
+    .radial-menu::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 76px;
+      height: 76px;
+      margin-left: -38px;
+      margin-top: -38px;
+      border-radius: 50%;
+      border: 1px dashed var(--paper-edge, #e8e2d6);
+      background: var(--paper, #faf8f4);
+      box-shadow: 0 6px 24px rgba(26,26,46,0.12);
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+    .radial-menu.open::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+    body.dark .radial-menu::before {
       background: var(--paper-warm, #1c1c22);
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    .social-popup-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--paper-edge, #e8e2d6);
-    }
-    .social-popup-header span {
+    /* Center label inside the hub */
+    .radial-menu-hub-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       font-family: var(--font-display, 'Playfair Display', Georgia, serif);
-      font-size: 0.78rem;
+      font-size: 0.62rem;
       font-weight: 700;
-      color: var(--ink, #1a1a2e);
-      letter-spacing: -0.01em;
-    }
-    .social-popup-close {
-      width: 26px;
-      height: 26px;
-      border: none;
-      background: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--ink-muted, #6b6b85);
-      cursor: pointer;
-      border-radius: var(--radius, 6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
-      padding: 0;
+      opacity: 0;
+      transition: opacity 0.35s ease 0.15s;
+      pointer-events: none;
+      text-align: center;
+      line-height: 1.2;
+      z-index: 2;
     }
-    .social-popup-close:hover {
-      background: var(--paper-edge, #e8e2d6);
-      color: var(--ink, #1a1a2e);
+    .radial-menu.open .radial-menu-hub-label {
+      opacity: 1;
     }
-    .social-popup-close svg {
-      display: block;
+    body.dark .radial-menu-hub-label {
+      color: var(--ink-muted, #8a8678);
     }
 
-    .social-grid {
+    /* ============================================================
+       RADIAL ITEM (shared)
+       ============================================================ */
+    .radial-item {
+      position: absolute;
+      left: 0;
+      top: 0;
       display: flex;
       flex-direction: column;
-      gap: 3px;
-    }
-    .social-btn {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 12px;
-      border-radius: var(--radius, 6px);
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--ink, #1a1a2e);
-      font-family: var(--font-body, 'Outfit', sans-serif);
-      font-size: 0.78rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all var(--transition, 0.2s cubic-bezier(0.4, 0, 0.2, 1));
+      gap: 6px;
       text-decoration: none;
-      width: 100%;
-      text-align: left;
+      cursor: pointer;
+      pointer-events: auto;
+      background: none;
+      border: none;
+      padding: 0;
+      /* Closed: collapsed at center */
+      transform: translate(0, 0) scale(0);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.3s ease;
+      will-change: transform, opacity;
     }
-    .social-btn:hover {
-      background: var(--paper-warm, #f4f0e8);
-      border-color: var(--paper-edge, #e8e2d6);
-      transform: translateX(2px);
-    }
-    body.dark .social-btn:hover {
-      background: var(--paper, #141418);
-    }
-    .social-btn .social-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink-muted, #6b6b85);
-      transition: color var(--transition);
-    }
-    .social-btn:hover .social-icon {
-      color: var(--accent, #c4562a);
-    }
-    .social-btn .social-icon svg {
-      display: block;
-      width: 16px;
-      height: 16px;
-    }
-    .social-btn .social-label {
-      flex: 1;
+    .radial-menu.open .radial-item {
+      opacity: 1;
+      transform: translate(var(--radial-x, 0px), var(--radial-y, 0px)) scale(1);
     }
 
-    .social-btn.copy-btn {
-      margin-top: 3px;
-      border-color: var(--paper-edge, #e8e2d6);
-      background: var(--paper-warm, #f4f0e8);
-      font-weight: 600;
-      color: var(--accent, #c4562a);
+    /* The circular icon bubble */
+    .radial-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      border-style: dashed;
+      background: var(--paper, #faf8f4);
+      border: 1px solid var(--paper-edge, #e8e2d6);
+      box-shadow: 0 4px 16px rgba(26, 26, 46, 0.15);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.25s ease,
+                  border-color 0.25s ease,
+                  background 0.25s ease;
     }
-    body.dark .social-btn.copy-btn {
-      background: var(--paper, #141418);
+    body.dark .radial-icon {
+      background: var(--paper-warm, #1c1c22);
       border-color: var(--paper-edge, #2a2a34);
     }
-    .social-btn.copy-btn:hover {
+    .radial-icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      pointer-events: none;
+    }
+    .radial-item:hover .radial-icon {
+      transform: scale(1.14);
+      border-color: var(--accent, #c4562a);
+      background: var(--accent-pale, #fce9e3);
+      box-shadow: 0 8px 28px rgba(196, 86, 42, 0.35);
+    }
+    body.dark .radial-item:hover .radial-icon {
+      background: var(--paper, #141418);
+      border-color: var(--accent-light, #e8714a);
+    }
+
+    /* Always-visible label under each icon */
+    .radial-item-label {
+      font-family: var(--font-body, 'Outfit', sans-serif);
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--ink, #1a1a2e);
+      text-align: center;
+      white-space: nowrap;
+      max-width: 90px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.2;
+      padding: 3px 7px;
+      border-radius: 100px;
+      background: var(--paper, #faf8f4);
+      border: 1px solid var(--paper-edge, #e8e2d6);
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.08);
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      pointer-events: none;
+    }
+    body.dark .radial-item-label {
+      background: var(--paper-warm, #1c1c22);
+      border-color: var(--paper-edge, #2a2a34);
+      color: var(--ink, #e8e4dc);
+    }
+    .radial-item:hover .radial-item-label {
+      color: var(--accent, #c4562a);
+      border-color: var(--accent, #c4562a);
+      background: var(--accent-pale, #fce9e3);
+    }
+    body.dark .radial-item:hover .radial-item-label {
+      color: var(--accent-light, #e8714a);
+      border-color: var(--accent-light, #e8714a);
+      background: var(--paper, #141418);
+    }
+
+    /* Copy item accent in social menu */
+    .radial-item.is-copy .radial-icon {
       background: var(--accent-pale, #fce9e3);
       border-color: var(--accent, #c4562a);
-      border-style: solid;
-      transform: translateX(0) scale(1.01);
     }
-    .social-btn.copy-btn .social-icon {
-      color: var(--accent, #c4562a);
+    body.dark .radial-item.is-copy .radial-icon {
+      background: rgba(196, 86, 42, 0.2);
+      border-color: var(--accent-light, #e8714a);
     }
-    .social-btn.copy-btn:hover .social-icon {
-      color: var(--accent-light, #e8714a);
+
+    /* Staggered entrance — social (5 items) */
+    .radial-menu.open .radial-item:nth-of-type(1) { transition-delay: 0.04s; }
+    .radial-menu.open .radial-item:nth-of-type(2) { transition-delay: 0.09s; }
+    .radial-menu.open .radial-item:nth-of-type(3) { transition-delay: 0.14s; }
+    .radial-menu.open .radial-item:nth-of-type(4) { transition-delay: 0.19s; }
+    .radial-menu.open .radial-item:nth-of-type(5) { transition-delay: 0.24s; }
+
+    /* Staggered entrance — games (14 items) */
+    .radial-menu.open .radial-item:nth-of-type(1)  { transition-delay: 0.03s; }
+    .radial-menu.open .radial-item:nth-of-type(2)  { transition-delay: 0.06s; }
+    .radial-menu.open .radial-item:nth-of-type(3)  { transition-delay: 0.09s; }
+    .radial-menu.open .radial-item:nth-of-type(4)  { transition-delay: 0.12s; }
+    .radial-menu.open .radial-item:nth-of-type(5)  { transition-delay: 0.15s; }
+    .radial-menu.open .radial-item:nth-of-type(6)  { transition-delay: 0.18s; }
+    .radial-menu.open .radial-item:nth-of-type(7)  { transition-delay: 0.21s; }
+    .radial-menu.open .radial-item:nth-of-type(8)  { transition-delay: 0.24s; }
+    .radial-menu.open .radial-item:nth-of-type(9)  { transition-delay: 0.27s; }
+    .radial-menu.open .radial-item:nth-of-type(10) { transition-delay: 0.30s; }
+    .radial-menu.open .radial-item:nth-of-type(11) { transition-delay: 0.33s; }
+    .radial-menu.open .radial-item:nth-of-type(12) { transition-delay: 0.36s; }
+    .radial-menu.open .radial-item:nth-of-type(13) { transition-delay: 0.39s; }
+    .radial-menu.open .radial-item:nth-of-type(14) { transition-delay: 0.42s; }
+
+    /* Mobile trigger sizes */
+    @media (max-width: 480px) {
+      .social-floating-trigger { bottom: 52px; right: 16px; width: 38px; height: 38px; }
+      .social-floating-trigger svg { width: 16px; height: 16px; }
+      .games-floating-trigger  { bottom: 156px; right: 16px; width: 38px; height: 38px; }
+      .games-floating-trigger svg  { width: 18px; height: 18px; }
+
+      .radial-icon { width: 46px; height: 46px; }
+      .radial-icon svg { width: 20px; height: 20px; }
+      .radial-item-label { font-size: 0.56rem; max-width: 76px; padding: 2px 6px; }
+      .radial-menu::before { width: 64px; height: 64px; margin-left: -32px; margin-top: -32px; }
+      .radial-menu-hub-label { font-size: 0.55rem; }
+    }
+    @media (max-width: 380px) {
+      .social-floating-trigger { bottom: 44px; right: 12px; width: 34px; height: 34px; }
+      .social-floating-trigger svg { width: 14px; height: 14px; }
+      .games-floating-trigger  { bottom: 140px; right: 12px; width: 34px; height: 34px; }
+      .games-floating-trigger svg  { width: 16px; height: 16px; }
+
+      .radial-icon { width: 40px; height: 40px; }
+      .radial-icon svg { width: 17px; height: 17px; }
+      .radial-item-label { font-size: 0.52rem; max-width: 64px; padding: 2px 5px; }
+      .radial-menu::before { width: 54px; height: 54px; margin-left: -27px; margin-top: -27px; }
+      .radial-menu-hub-label { display: none; }
+    }
+
+    /* Hide widgets when tools sidebar is open */
+    body.tools-sidebar-open .social-floating-trigger,
+    body.tools-sidebar-open .games-floating-trigger,
+    body.tools-sidebar-open .radial-menu,
+    body.tools-sidebar-open .radial-blur-overlay,
+    body.tools-sidebar-open .social-toast {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease;
     }
 
     /* Toast */
@@ -474,238 +492,7 @@
       color: var(--ink, #e8e4dc);
       border: 1px solid var(--paper-edge, #2a2a34);
     }
-    .social-toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================================================
-       GAMES RADIAL MENU
-       ============================================================ */
-
-    /* Games trigger button — same palette as share widget */
-    .games-floating-trigger {
-      position: fixed;
-      bottom: 182px;
-      right: 24px;
-      z-index: 10001;
-      width: 42px;
-      height: 42px;
-      background: var(--ink, #1a1a2e);
-      color: var(--paper, #faf8f4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      cursor: pointer;
-      border: 1px solid var(--paper-edge, #e8e2d6);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  background 0.2s ease,
-                  color 0.2s ease,
-                  box-shadow 0.3s ease;
-      animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-    }
-    .games-floating-trigger svg {
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      display: block;
-      width: 20px;
-      height: 20px;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-    }
-    .games-floating-trigger:hover svg {
-      transform: scale(1.12) rotate(-6deg);
-    }
-    body.dark .games-floating-trigger {
-      background: var(--accent, #c4562a);
-      color: var(--white, #ffffff);
-    }
-    .games-floating-trigger:hover {
-      transform: scale(1.08) rotate(8deg);
-      background: var(--accent, #c4562a);
-      color: var(--white, #ffffff);
-      animation-play-state: paused;
-      box-shadow: 0 8px 24px rgba(196, 86, 42, 0.3);
-    }
-    .games-floating-trigger.active {
-      transform: scale(0.9) rotate(-90deg);
-      background: var(--paper-warm, #f4f0e8);
-      color: var(--ink, #1a1a2e);
-      animation: none;
-      box-shadow: none;
-      border-color: var(--paper-edge, #e8e2d6);
-    }
-    body.dark .games-floating-trigger.active {
-      background: var(--paper, #141418);
-      color: var(--ink, #e8e4dc);
-      border-color: var(--paper-edge, #2a2a34);
-    }
-
-    @keyframes gamesPulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0.25), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
-      50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 0 14px rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(196, 86, 42, 0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      }
-    }
-
-    /* Page blur overlay */
-    .games-blur-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(26, 26, 46, 0.35);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-    }
-    .games-blur-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Radial menu container */
-    .games-radial-menu {
-      position: fixed;
-      bottom: 203px;
-      right: 45px;
-      z-index: 10002;
-      width: 0;
-      height: 0;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .games-radial-menu.open {
-      opacity: 1;
-    }
-
-    /* Individual game item in radial menu */
-    .games-radial-item {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 38px;
-      height: 38px;
-      margin-left: -19px;
-      margin-top: -19px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--paper, #faf8f4);
-      border: 1px solid var(--paper-edge, #e8e2d6);
-      box-shadow: 0 4px 16px rgba(26, 26, 46, 0.15);
-      cursor: pointer;
-      pointer-events: auto;
-      text-decoration: none;
-      /* Closed state: collapsed at the center */
-      transform: translate(0, 0) scale(0);
-      opacity: 0;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  opacity 0.3s ease,
-                  box-shadow 0.25s ease,
-                  background 0.2s ease;
-      will-change: transform, opacity;
-    }
-    body.dark .games-radial-item {
-      background: var(--paper-warm, #1c1c22);
-      border-color: var(--paper-edge, #2a2a34);
-    }
-
-    /* Open state: use the custom properties for translation */
-    .games-radial-menu.open .games-radial-item {
-      opacity: 1;
-      transform: translate(var(--radial-x, 0px), var(--radial-y, 0px)) scale(1);
-    }
-
-    /* Hover state for radial items */
-    .games-radial-item:hover {
-      box-shadow: 0 6px 24px rgba(196, 86, 42, 0.35);
-      border-color: var(--accent, #c4562a);
-      background: var(--accent-pale, #fce9e3);
-    }
-    .games-radial-menu.open .games-radial-item:hover {
-      transform: translate(var(--radial-x, 0px), var(--radial-y, 0px)) scale(1.18);
-    }
-    body.dark .games-radial-item:hover {
-      background: var(--paper, #141418);
-      border-color: var(--accent-light, #e8714a);
-    }
-
-    .games-radial-item svg {
-      width: 20px;
-      height: 20px;
-      display: block;
-      pointer-events: none;
-    }
-
-    /* Tooltip label for radial items */
-    .games-radial-item .radial-label {
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 6px);
-      transform: translateX(-50%) scale(0.85);
-      background: var(--ink, #1a1a2e);
-      color: var(--paper, #faf8f4);
-      font-family: var(--font-body, 'Outfit', sans-serif);
-      font-size: 0.62rem;
-      font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 5px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      z-index: 10;
-    }
-    body.dark .games-radial-item .radial-label {
-      background: var(--paper, #2a2a34);
-      color: var(--ink, #e8e4dc);
-    }
-    .games-radial-item:hover .radial-label {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
-    }
-
-    /* Staggered entrance animation for each item */
-    .games-radial-menu.open .games-radial-item:nth-child(1) { transition-delay: 0.02s; }
-    .games-radial-menu.open .games-radial-item:nth-child(2) { transition-delay: 0.04s; }
-    .games-radial-menu.open .games-radial-item:nth-child(3) { transition-delay: 0.06s; }
-    .games-radial-menu.open .games-radial-item:nth-child(4) { transition-delay: 0.08s; }
-    .games-radial-menu.open .games-radial-item:nth-child(5) { transition-delay: 0.10s; }
-    .games-radial-menu.open .games-radial-item:nth-child(6) { transition-delay: 0.12s; }
-    .games-radial-menu.open .games-radial-item:nth-child(7) { transition-delay: 0.14s; }
-    .games-radial-menu.open .games-radial-item:nth-child(8) { transition-delay: 0.16s; }
-    .games-radial-menu.open .games-radial-item:nth-child(9) { transition-delay: 0.18s; }
-    .games-radial-menu.open .games-radial-item:nth-child(10) { transition-delay: 0.20s; }
-    .games-radial-menu.open .games-radial-item:nth-child(11) { transition-delay: 0.22s; }
-    .games-radial-menu.open .games-radial-item:nth-child(12) { transition-delay: 0.24s; }
-    .games-radial-menu.open .games-radial-item:nth-child(13) { transition-delay: 0.26s; }
-    .games-radial-menu.open .games-radial-item:nth-child(14) { transition-delay: 0.28s; }
-
-    /* Hide widgets when tools sidebar is open */
-    body.tools-sidebar-open .social-floating-trigger,
-    body.tools-sidebar-open .social-share-popup,
-    body.tools-sidebar-open .social-toast,
-    body.tools-sidebar-open .games-floating-trigger,
-    body.tools-sidebar-open .games-radial-menu,
-    body.tools-sidebar-open .games-blur-overlay {
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transform: scale(0.8);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
+    .social-toast.show { opacity: 1; transform: translateY(0); }
 
     /* ============================================================
        FOLLOW WIDGET
@@ -733,11 +520,7 @@
       transform: rotate(180deg);
       margin-bottom: 2px;
     }
-    .follow-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    .follow-buttons { display: flex; flex-direction: column; gap: 6px; }
     .follow-btn {
       width: 28px;
       height: 28px;
@@ -748,39 +531,19 @@
       cursor: pointer;
       border: none;
       position: relative;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  box-shadow 0.3s ease;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       text-decoration: none;
       overflow: visible;
     }
-    .follow-btn:hover {
-      transform: translateX(3px) scale(1.12);
-    }
-    .follow-btn:active {
-      transform: translateX(0) scale(0.95);
-    }
-    .follow-btn[data-platform="pinterest"] {
-      background: linear-gradient(145deg, #ff4d6d, #e60023);
-      color: #ffffff;
-    }
-    .follow-btn[data-platform="pinterest"]:hover {
-      box-shadow: 0 6px 18px rgba(230, 0, 35, 0.45);
-    }
-    .follow-btn[data-platform="x"] {
-      background: linear-gradient(145deg, #444, #000000);
-      color: #ffffff;
-    }
-    .follow-btn[data-platform="x"]:hover {
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-    }
-    .follow-btn[data-platform="reddit"] {
-      background: linear-gradient(145deg, #ff7a3d, #ff4500);
-      color: #ffffff;
-    }
-    .follow-btn[data-platform="reddit"]:hover {
-      box-shadow: 0 6px 18px rgba(255, 69, 0, 0.45);
-    }
+    .follow-btn:hover { transform: translateX(3px) scale(1.12); }
+    .follow-btn:active { transform: translateX(0) scale(0.95); }
+    .follow-btn[data-platform="pinterest"] { background: linear-gradient(145deg, #ff4d6d, #e60023); color: #fff; }
+    .follow-btn[data-platform="pinterest"]:hover { box-shadow: 0 6px 18px rgba(230, 0, 35, 0.45); }
+    .follow-btn[data-platform="x"] { background: linear-gradient(145deg, #444, #000); color: #fff; }
+    .follow-btn[data-platform="x"]:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); }
+    .follow-btn[data-platform="reddit"] { background: linear-gradient(145deg, #ff7a3d, #ff4500); color: #fff; }
+    .follow-btn[data-platform="reddit"]:hover { box-shadow: 0 6px 18px rgba(255, 69, 0, 0.45); }
     .follow-btn svg {
       display: block;
       width: 14px;
@@ -789,9 +552,7 @@
       z-index: 1;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .follow-btn:hover svg {
-      transform: scale(1.15);
-    }
+    .follow-btn:hover svg { transform: scale(1.15); }
     .follow-btn::after {
       content: attr(aria-label);
       position: absolute;
@@ -811,10 +572,7 @@
       transition: opacity 0.2s ease, transform 0.2s ease;
       font-family: var(--font-body, 'Outfit', sans-serif);
     }
-    .follow-btn:hover::after {
-      opacity: 1;
-      transform: translateY(-50%) scale(1);
-    }
+    .follow-btn:hover::after { opacity: 1; transform: translateY(-50%) scale(1); }
     body.tools-sidebar-open .follow-widget {
       opacity: 0;
       pointer-events: none;
@@ -822,174 +580,17 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
     @media (max-width: 480px) {
-      .social-floating-trigger {
-        bottom: 52px;
-        right: 16px;
-        width: 38px;
-        height: 38px;
-      }
-      .social-floating-trigger svg {
-        width: 16px;
-        height: 16px;
-      }
-      .games-floating-trigger {
-        bottom: 156px;
-        right: 16px;
-        width: 38px;
-        height: 38px;
-      }
-      .games-floating-trigger svg {
-        width: 18px;
-        height: 18px;
-      }
-      .social-share-popup {
-        bottom: 98px;
-        right: 16px;
-        min-width: 150px;
-        padding: 12px 12px 10px;
-      }
-      .social-btn {
-        padding: 7px 10px;
-        font-size: 0.72rem;
-        gap: 9px;
-      }
-      .social-btn .social-icon {
-        width: 22px;
-        height: 22px;
-      }
-      .social-btn .social-icon svg {
-        width: 15px;
-        height: 15px;
-      }
-      .social-toast {
-        bottom: 148px;
-        right: 16px;
-        font-size: 0.72rem;
-        padding: 6px 14px;
-      }
-      .social-popup-header span {
-        font-size: 0.7rem;
-      }
-
-      /* Radial menu adjustments for small screens */
-      .games-radial-menu {
-        bottom: 177px;
-        right: 35px;
-      }
-      .games-radial-item {
-        width: 32px;
-        height: 32px;
-        margin-left: -16px;
-        margin-top: -16px;
-      }
-      .games-radial-item svg {
-        width: 16px;
-        height: 16px;
-      }
-      .games-radial-item .radial-label {
-        font-size: 0.55rem;
-        padding: 3px 6px;
-      }
-
-      .follow-widget {
-        left: 8px;
-        gap: 5px;
-      }
-      .follow-label {
-        font-size: 0.5rem;
-      }
-      .follow-btn {
-        width: 26px;
-        height: 26px;
-      }
-      .follow-btn svg {
-        width: 13px;
-        height: 13px;
-      }
+      .follow-widget { left: 8px; gap: 5px; }
+      .follow-label { font-size: 0.5rem; }
+      .follow-btn { width: 26px; height: 26px; }
+      .follow-btn svg { width: 13px; height: 13px; }
     }
-
     @media (max-width: 380px) {
-      .social-floating-trigger {
-        bottom: 44px;
-        right: 12px;
-        width: 34px;
-        height: 34px;
-      }
-      .social-floating-trigger svg {
-        width: 14px;
-        height: 14px;
-      }
-      .games-floating-trigger {
-        bottom: 140px;
-        right: 12px;
-        width: 34px;
-        height: 34px;
-      }
-      .games-floating-trigger svg {
-        width: 16px;
-        height: 16px;
-      }
-      .social-share-popup {
-        bottom: 84px;
-        right: 12px;
-        min-width: 130px;
-        padding: 10px 10px 8px;
-      }
-      .social-btn {
-        font-size: 0.68rem;
-        padding: 6px 8px;
-        gap: 7px;
-      }
-      .social-btn .social-icon {
-        width: 18px;
-        height: 18px;
-      }
-      .social-btn .social-icon svg {
-        width: 13px;
-        height: 13px;
-      }
-      .social-toast {
-        bottom: 128px;
-      }
-
-      /* Radial menu on very small screens */
-      .games-radial-menu {
-        bottom: 159px;
-        right: 29px;
-      }
-      .games-radial-item {
-        width: 28px;
-        height: 28px;
-        margin-left: -14px;
-        margin-top: -14px;
-      }
-      .games-radial-item svg {
-        width: 14px;
-        height: 14px;
-      }
-      .games-radial-item .radial-label {
-        display: none;
-      }
-
-      .follow-widget {
-        left: 6px;
-        gap: 4px;
-      }
-      .follow-label {
-        display: none;
-      }
-      .follow-btn {
-        width: 24px;
-        height: 24px;
-      }
-      .follow-btn svg {
-        width: 12px;
-        height: 12px;
-      }
+      .follow-widget { left: 6px; gap: 4px; }
+      .follow-label { display: none; }
+      .follow-btn { width: 24px; height: 24px; }
+      .follow-btn svg { width: 12px; height: 12px; }
     }
   `;
   document.head.appendChild(styleEl);
@@ -1009,7 +610,6 @@
 
   const followButtons = document.createElement('div');
   followButtons.className = 'follow-buttons';
-
   FOLLOW_PLATFORMS.forEach((platform) => {
     const btn = document.createElement('a');
     btn.className = 'follow-btn';
@@ -1021,21 +621,30 @@
     btn.innerHTML = platform.icon;
     followButtons.appendChild(btn);
   });
-
   followWidget.appendChild(followButtons);
   document.body.appendChild(followWidget);
 
   // =========================================================
-  // ================= GAMES WIDGET (RADIAL) =================
+  // ================= SHARED BLUR OVERLAY ===================
   // =========================================================
 
-  // Blur overlay
   const blurOverlay = document.createElement('div');
-  blurOverlay.className = 'games-blur-overlay';
-  blurOverlay.id = 'gamesBlurOverlay';
+  blurOverlay.className = 'radial-blur-overlay';
+  blurOverlay.id = 'radialBlurOverlay';
   document.body.appendChild(blurOverlay);
 
-  // Games trigger button
+  // =========================================================
+  // ================= TRIGGERS ==============================
+  // =========================================================
+
+  const socialTrigger = document.createElement('div');
+  socialTrigger.className = 'social-floating-trigger';
+  socialTrigger.setAttribute('aria-label', 'Share this page');
+  socialTrigger.setAttribute('role', 'button');
+  socialTrigger.setAttribute('tabindex', '0');
+  socialTrigger.innerHTML = ICONS.share;
+  document.body.appendChild(socialTrigger);
+
   const gamesTrigger = document.createElement('div');
   gamesTrigger.className = 'games-floating-trigger';
   gamesTrigger.setAttribute('aria-label', 'Play games');
@@ -1044,209 +653,183 @@
   gamesTrigger.innerHTML = ICONS.joystick;
   document.body.appendChild(gamesTrigger);
 
-  // Radial menu container
-  const radialMenu = document.createElement('div');
-  radialMenu.className = 'games-radial-menu';
-  radialMenu.id = 'gamesRadialMenu';
-  radialMenu.setAttribute('role', 'menu');
-  radialMenu.setAttribute('aria-label', 'Games menu');
-
-  // Radial radius based on screen size — larger than before so the icons
-  // have room to breathe and can be biased away from the right edge.
-  function getRadialRadius() {
-    if (window.innerWidth <= 380) return 88;
-    if (window.innerWidth <= 480) return 104;
-    return 140;
-  }
-
-  // Build radial menu items
-  const gameRadialItems = [];
-
-  GAMES.forEach((game, index) => {
-    const item = document.createElement('a');
-    item.className = 'games-radial-item';
-    item.href = game.url;
-    item.setAttribute('role', 'menuitem');
-    item.setAttribute('aria-label', `${game.label}: ${game.description}`);
-    item.setAttribute('data-index', index);
-    item.innerHTML = `
-      ${game.icon}
-      <span class="radial-label">${game.label}</span>
-    `;
-    item.addEventListener('click', () => {
-      closeGamesMenu();
-    });
-    radialMenu.appendChild(item);
-    gameRadialItems.push(item);
-  });
-
-  document.body.appendChild(radialMenu);
-
-  // ---- Position radial items in a circle ----
-  function positionRadialItems() {
-    const total = GAMES.length;
-    const radius = getRadialRadius();
-
-    // The trigger sits at the bottom-right of the viewport, so a full 360°
-    // ring puts several icons behind the trigger and off the right edge.
-    //
-    // Fix: spread the items across an arc that skips the bottom-right
-    // quadrant. We sweep from the top (-90°) counter-clockwise through the
-    // left side to the bottom-left, covering ~270° of usable space. This
-    // leaves the bottom-right sector (roughly 0° to 90° in screen coords)
-    // empty, which is exactly where the trigger lives and where the
-    // viewport edge would otherwise clip icons.
-    //
-    // Screen coords: 0° = right, 90° = down, 180° = left, 270° = up.
-    // Start angle: -100° (slightly past straight-up, toward the top-left)
-    // End angle:   -280° (i.e. +80°, well into the bottom-left)
-    // That's a 180°+ sweep but rotated so it avoids the bottom-right.
-    //
-    // Simpler mental model: start at top (-90°) and sweep counter-clockwise
-    // (decreasing angle) until we come back around to the bottom-left.
-    // We'll use: angle_i = startAngle - i * step, where startAngle = -90°
-    // and step = arcSpan / (total - 1). arcSpan = 280° gives a comfortable
-    // spread without crowding near the trigger.
-    const startAngleDeg = -90;   // straight up
-    const arcSpanDeg = 280;      // sweep counter-clockwise toward bottom-left
-    const step = arcSpanDeg / Math.max(total - 1, 1);
-
-    gameRadialItems.forEach((item, i) => {
-      const angleDeg = startAngleDeg - step * i;
-      const angleRad = (angleDeg * Math.PI) / 180;
-      const x = Math.cos(angleRad) * radius;
-      const y = Math.sin(angleRad) * radius;
-
-      // These custom properties are consumed by the CSS rule:
-      // .games-radial-menu.open .games-radial-item { transform: translate(var(--radial-x), var(--radial-y)) scale(1); }
-      item.style.setProperty('--radial-x', `${x.toFixed(2)}px`);
-      item.style.setProperty('--radial-y', `${y.toFixed(2)}px`);
-    });
-  }
-
-  // Initial positioning
-  positionRadialItems();
-
-  // Reposition on resize (debounced)
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(positionRadialItems, 150);
-  });
-
-  // ---- Open / Close functions ----
-
-  function openGamesMenu() {
-    closePopup(); // close social popup if open
-    blurOverlay.classList.add('active');
-    radialMenu.classList.add('open');
-    gamesTrigger.classList.add('active');
-    gamesTrigger.innerHTML = ICONS.close;
-  }
-
-  function closeGamesMenu() {
-    blurOverlay.classList.remove('active');
-    radialMenu.classList.remove('open');
-    gamesTrigger.classList.remove('active');
-    gamesTrigger.innerHTML = ICONS.joystick;
-  }
-
-  function toggleGamesMenu() {
-    if (radialMenu.classList.contains('open')) {
-      closeGamesMenu();
-    } else {
-      openGamesMenu();
-    }
-  }
-
-  // =========================================================
-  // ================= SOCIAL WIDGET =========================
-  // =========================================================
-
-  // Trigger button
-  const trigger = document.createElement('div');
-  trigger.className = 'social-floating-trigger';
-  trigger.setAttribute('aria-label', 'Share this page');
-  trigger.setAttribute('role', 'button');
-  trigger.setAttribute('tabindex', '0');
-  trigger.innerHTML = ICONS.share;
-  document.body.appendChild(trigger);
-
   // Toast
   const toast = document.createElement('div');
   toast.className = 'social-toast';
   toast.id = 'socialToast';
   document.body.appendChild(toast);
 
-  // Popup panel
-  const popup = document.createElement('div');
-  popup.className = 'social-share-popup';
-  popup.id = 'socialSharePopup';
-  popup.setAttribute('role', 'dialog');
-  popup.setAttribute('aria-label', 'Share options');
+  // =========================================================
+  // ================= RADIAL MENU BUILDER ===================
+  // =========================================================
 
-  // Popup header
-  const header = document.createElement('div');
-  header.className = 'social-popup-header';
-  header.innerHTML = `
-    <span>Share</span>
-    <button class="social-popup-close" id="socialPopupClose" aria-label="Close share panel">${ICONS.close}</button>
-  `;
-  popup.appendChild(header);
+  /**
+   * Create a centered radial menu.
+   * @param {string} id          element id
+   * @param {string} hubLabel    text shown in the center hub
+   */
+  function createRadialMenu(id, hubLabel) {
+    const menu = document.createElement('div');
+    menu.className = 'radial-menu';
+    menu.id = id;
+    menu.setAttribute('role', 'menu');
+    menu.setAttribute('aria-label', hubLabel);
 
-  // Grid container - vertical
-  const grid = document.createElement('div');
-  grid.className = 'social-grid';
+    const hub = document.createElement('span');
+    hub.className = 'radial-menu-hub-label';
+    hub.textContent = hubLabel;
+    menu.appendChild(hub);
 
-  // Add platform buttons
-  SOCIAL_PLATFORMS.forEach((platform) => {
-    const btn = document.createElement('button');
-    btn.className = 'social-btn';
-    btn.setAttribute('data-platform', platform.id);
-    btn.setAttribute('aria-label', `Share on ${platform.label}`);
-    btn.innerHTML = `
-      <span class="social-icon">${platform.icon}</span>
-      <span class="social-label">${platform.label}</span>
+    return menu;
+  }
+
+  // ---- Games menu ----
+  const gamesMenu = createRadialMenu('gamesRadialMenu', 'Games');
+  const gamesItems = [];
+
+  GAMES.forEach((game) => {
+    const item = document.createElement('a');
+    item.className = 'radial-item';
+    item.href = game.url;
+    item.setAttribute('role', 'menuitem');
+    item.setAttribute('aria-label', `${game.label}: ${game.description}`);
+    item.innerHTML = `
+      <span class="radial-icon">${game.icon}</span>
+      <span class="radial-item-label">${game.label}</span>
     `;
-    btn.addEventListener('click', (e) => {
+    item.addEventListener('click', () => closeGamesMenu());
+    gamesMenu.appendChild(item);
+    gamesItems.push(item);
+  });
+  document.body.appendChild(gamesMenu);
+
+  // ---- Social menu ----
+  const socialMenu = createRadialMenu('socialRadialMenu', 'Share');
+  const socialItems = [];
+
+  SOCIAL_PLATFORMS.forEach((platform) => {
+    const item = document.createElement('button');
+    item.className = 'radial-item';
+    item.type = 'button';
+    item.setAttribute('role', 'menuitem');
+    item.setAttribute('aria-label', `Share on ${platform.label}`);
+    item.innerHTML = `
+      <span class="radial-icon">${platform.icon}</span>
+      <span class="radial-item-label">${platform.label}</span>
+    `;
+    item.addEventListener('click', (e) => {
       e.stopPropagation();
-      const url = platform.getUrl();
-      window.open(url, '_blank', 'width=600,height=500');
-      closePopup();
+      window.open(platform.getUrl(), '_blank', 'width=600,height=500');
+      closeSocialMenu();
     });
-    grid.appendChild(btn);
+    socialMenu.appendChild(item);
+    socialItems.push(item);
   });
 
-  // Copy link button
-  const copyBtn = document.createElement('button');
-  copyBtn.className = 'social-btn copy-btn';
-  copyBtn.setAttribute('aria-label', 'Copy link to clipboard');
-  copyBtn.innerHTML = `
-    <span class="social-icon">${ICONS.link}</span>
-    <span class="social-label">Copy Link</span>
+  // Copy link item
+  const copyItem = document.createElement('button');
+  copyItem.className = 'radial-item is-copy';
+  copyItem.type = 'button';
+  copyItem.setAttribute('role', 'menuitem');
+  copyItem.setAttribute('aria-label', 'Copy link to clipboard');
+  copyItem.innerHTML = `
+    <span class="radial-icon">${COPY_ITEM.icon}</span>
+    <span class="radial-item-label">${COPY_ITEM.label}</span>
   `;
-  copyBtn.addEventListener('click', (e) => {
+  copyItem.addEventListener('click', (e) => {
     e.stopPropagation();
+    copyCurrentUrl();
+  });
+  socialMenu.appendChild(copyItem);
+  socialItems.push(copyItem);
+
+  document.body.appendChild(socialMenu);
+
+  // =========================================================
+  // ================= RADIAL LAYOUT ENGINE ==================
+  // =========================================================
+
+  /**
+   * Compute radius for a menu based on item count and viewport size.
+   * The circle is centered on screen, so the radius must stay small enough
+   * that the icons + labels never touch the viewport edges.
+   */
+  function getRadiusFor(count) {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const minDim = Math.min(vw, vh);
+
+    // Base radius as a fraction of the smaller viewport dimension.
+    // Fewer items → tighter ring; more items → wider ring.
+    let base;
+    if (count <= 5) {
+      base = minDim * 0.22;            // social: compact ring
+    } else if (count <= 8) {
+      base = minDim * 0.26;
+    } else if (count <= 11) {
+      base = minDim * 0.30;
+    } else {
+      base = minDim * 0.33;            // games: widest ring
+    }
+
+    // Clamp so labels never get clipped on small screens.
+    const maxR = minDim * 0.42;
+    const minR = count <= 5 ? 90 : 110;
+    return Math.max(minR, Math.min(base, maxR));
+  }
+
+  /**
+   * Position items evenly around a full circle centered on screen.
+   * The first item starts at the top (-90°) and goes clockwise.
+   */
+  function layoutItems(menu, items) {
+    const count = items.length;
+    const radius = getRadiusFor(count);
+    const startAngle = -90;
+    const step = 360 / count;
+
+    items.forEach((item, i) => {
+      const angleDeg = startAngle + step * i;
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const x = Math.cos(angleRad) * radius;
+      const y = Math.sin(angleRad) * radius;
+
+      // The radial-item container is centred on the anchor point via
+      // translate(). We offset by half the icon width so the icon's
+      // visual center lands exactly on the ring position.
+      item.style.setProperty('--radial-x', `calc(${x.toFixed(2)}px - 50%)`);
+      item.style.setProperty('--radial-y', `calc(${y.toFixed(2)}px - 50%)`);
+    });
+  }
+
+  function layoutAll() {
+    layoutItems(gamesMenu, gamesItems);
+    layoutItems(socialMenu, socialItems);
+  }
+
+  layoutAll();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layoutAll, 150);
+  });
+
+  // =========================================================
+  // ================= COPY LINK HELPERS =====================
+  // =========================================================
+
+  function copyCurrentUrl() {
     const url = window.location.href;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url)
-        .then(() => {
-          showToast('Link copied!', 1500);
-          closePopup();
-        })
-        .catch(() => {
-          fallbackCopy(url);
-        });
+        .then(() => { showToast('Link copied!', 1500); closeSocialMenu(); })
+        .catch(() => fallbackCopy(url));
     } else {
       fallbackCopy(url);
     }
-  });
-  grid.appendChild(copyBtn);
+  }
 
-  popup.appendChild(grid);
-  document.body.appendChild(popup);
-
-  // ---- Helpers ----
   function fallbackCopy(text) {
     const textarea = document.createElement('textarea');
     textarea.value = text;
@@ -1262,35 +845,70 @@
       showToast('Could not copy link', 1500);
     }
     document.body.removeChild(textarea);
-    closePopup();
+    closeSocialMenu();
   }
 
-  // ---- Social popup open/close ----
-  function openPopup() {
+  // =========================================================
+  // ================= OPEN / CLOSE ==========================
+  // =========================================================
+
+  function syncOverlay() {
+    const anyOpen =
+      gamesMenu.classList.contains('open') ||
+      socialMenu.classList.contains('open');
+    blurOverlay.classList.toggle('active', anyOpen);
+  }
+
+  function openGamesMenu() {
+    closeSocialMenu();
+    // Re-layout in case viewport changed since last open
+    layoutItems(gamesMenu, gamesItems);
+    gamesMenu.classList.add('open');
+    gamesTrigger.classList.add('active');
+    gamesTrigger.innerHTML = ICONS.close;
+    syncOverlay();
+  }
+
+  function closeGamesMenu() {
+    gamesMenu.classList.remove('open');
+    gamesTrigger.classList.remove('active');
+    gamesTrigger.innerHTML = ICONS.joystick;
+    syncOverlay();
+  }
+
+  function toggleGamesMenu() {
+    if (gamesMenu.classList.contains('open')) closeGamesMenu();
+    else openGamesMenu();
+  }
+
+  function openSocialMenu() {
     closeGamesMenu();
-    popup.classList.add('open');
-    trigger.classList.add('active');
-    trigger.innerHTML = ICONS.close;
+    layoutItems(socialMenu, socialItems);
+    socialMenu.classList.add('open');
+    socialTrigger.classList.add('active');
+    socialTrigger.innerHTML = ICONS.close;
+    syncOverlay();
   }
 
-  function closePopup() {
-    popup.classList.remove('open');
-    trigger.classList.remove('active');
-    trigger.innerHTML = ICONS.share;
+  function closeSocialMenu() {
+    socialMenu.classList.remove('open');
+    socialTrigger.classList.remove('active');
+    socialTrigger.innerHTML = ICONS.share;
+    syncOverlay();
   }
 
-  function togglePopup() {
-    if (popup.classList.contains('open')) {
-      closePopup();
-    } else {
-      openPopup();
-    }
+  function toggleSocialMenu() {
+    if (socialMenu.classList.contains('open')) closeSocialMenu();
+    else openSocialMenu();
   }
 
-  // ---- Event listeners ----
-  trigger.addEventListener('click', (e) => {
+  // =========================================================
+  // ================= EVENT LISTENERS =======================
+  // =========================================================
+
+  socialTrigger.addEventListener('click', (e) => {
     e.stopPropagation();
-    togglePopup();
+    toggleSocialMenu();
   });
 
   gamesTrigger.addEventListener('click', (e) => {
@@ -1298,17 +916,78 @@
     toggleGamesMenu();
   });
 
-  // Click on blur overlay closes menu
   blurOverlay.addEventListener('click', () => {
     closeGamesMenu();
+    closeSocialMenu();
   });
 
-  // ---- Hide when tools sidebar is open ----
+  // Clicking the center hub (::before) or empty space inside a menu closes it
+  // — but clicking an item does not. We attach on the menu container.
+  gamesMenu.addEventListener('click', (e) => {
+    if (e.target === gamesMenu) closeGamesMenu();
+  });
+  socialMenu.addEventListener('click', (e) => {
+    if (e.target === socialMenu) closeSocialMenu();
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+
+    if (socialMenu.classList.contains('open')) {
+      if (
+        !t.closest('#socialRadialMenu') &&
+        t !== socialTrigger &&
+        !socialTrigger.contains(t) &&
+        !blurOverlay.contains(t)
+      ) {
+        closeSocialMenu();
+      }
+    }
+
+    if (gamesMenu.classList.contains('open')) {
+      if (
+        !t.closest('#gamesRadialMenu') &&
+        t !== gamesTrigger &&
+        !gamesTrigger.contains(t) &&
+        !blurOverlay.contains(t)
+      ) {
+        closeGamesMenu();
+      }
+    }
+  });
+
+  // Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (socialMenu.classList.contains('open')) closeSocialMenu();
+      if (gamesMenu.classList.contains('open')) closeGamesMenu();
+    }
+  });
+
+  // Keyboard support for triggers
+  gamesTrigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleGamesMenu();
+    }
+  });
+  socialTrigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleSocialMenu();
+    }
+  });
+
+  // =========================================================
+  // ================= HIDE WITH TOOLS SIDEBAR ===============
+  // =========================================================
+
   const sidebarObserver = new MutationObserver(() => {
     const sidebar = document.getElementById('toolsFixedSidebar');
     if (sidebar && sidebar.classList.contains('open')) {
       document.body.classList.add('tools-sidebar-open');
-      closePopup();
+      closeSocialMenu();
       closeGamesMenu();
     } else {
       document.body.classList.remove('tools-sidebar-open');
@@ -1329,66 +1008,5 @@
     bodyObserver.observe(document.body, { childList: true, subtree: true });
   }
 
-  // Close button inside social popup
-  const closeBtn = document.getElementById('socialPopupClose');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closePopup();
-    });
-  }
-
-  // Close on click outside
-  document.addEventListener('click', (e) => {
-    const target = e.target;
-
-    if (popup.classList.contains('open')) {
-      if (!popup.contains(target) && target !== trigger && !trigger.contains(target)) {
-        closePopup();
-      }
-    }
-
-    if (radialMenu.classList.contains('open')) {
-      const isRadialItem = target.closest('.games-radial-item');
-      if (!isRadialItem && target !== gamesTrigger && !gamesTrigger.contains(target)) {
-        if (!blurOverlay.contains(target)) {
-          closeGamesMenu();
-        }
-      }
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (popup.classList.contains('open')) closePopup();
-      if (radialMenu.classList.contains('open')) closeGamesMenu();
-    }
-  });
-
-  // Prevent popup from closing when clicking inside
-  popup.addEventListener('click', (e) => e.stopPropagation());
-  radialMenu.addEventListener('click', (e) => {
-    if (e.target === radialMenu) {
-      e.stopPropagation();
-    }
-  });
-
-  // Keyboard support for games trigger
-  gamesTrigger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleGamesMenu();
-    }
-  });
-
-  // Keyboard support for social trigger
-  trigger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      togglePopup();
-    }
-  });
-
-  console.log('Social Share + Games (Radial) + Follow Widgets initialized.');
+  console.log('Social Share + Games (Centered Radial) + Follow Widgets initialized.');
 })();

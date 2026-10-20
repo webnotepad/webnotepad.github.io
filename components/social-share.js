@@ -32,23 +32,13 @@
     reddit: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.313 3.516 8.484l-2.36 2.36c-.297.297-.087.805.335.805H12c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.01 6.947c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zm-10.02 0c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zM12 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-5.304 5.07c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zm10.608 0c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zM12 18c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2z"/></svg>`,
 
     // ---- CLASSIC ARCADE JOYSTICK ICON ----
-    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <!-- Arcade Base / Cabinet Plate -->
-      <path d="M4 17h16c1.1 0 2 .9 2 2v1c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1v-1c0-1.1.9-2 2-2Z" fill="currentColor" opacity="0.85"/>
-      <!-- Metallic Joystick Shaft -->
-      <path d="M11 9l-3 7h2l2-5 2 5h2l-3-7h-2Z" fill="#e2e8f0"/>
-      <line x1="12" y1="9" x2="12" y2="16" stroke="#94a3b8" stroke-width="1.5"/>
-      <!-- Classic Red Ball Top -->
-      <circle cx="12" cy="7" r="4.5" fill="#ef4444"/>
-      <circle cx="10.5" cy="5.5" r="1.2" fill="#fca5a5" opacity="0.8"/>
-    </svg>`,
-
-    gamepad: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="6" y1="11" x2="10" y2="11"/>
-      <line x1="8" y1="9" x2="8" y2="13"/>
-      <line x1="15" y1="12" x2="15.01" y2="12"/>
-      <line x1="18" y1="10" x2="18.01" y2="10"/>
-      <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+    // ---- MODERN GAMEPAD / JOYSTICK ICON ----
+    joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="7"/>
+      <path d="M12 10v6"/>
+      <path d="M9 13h6"/>
+      <path d="M12 6V3"/>
+      <circle cx="12" cy="2" r="1"/>
     </svg>`,
 
     // ---- Per-game SVG icons (replacing emojis) ----

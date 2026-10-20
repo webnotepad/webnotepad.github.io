@@ -31,17 +31,19 @@
     // ---- Reddit Icon (for Follow widget) ----
     reddit: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.313 3.516 8.484l-2.36 2.36c-.297.297-.087.805.335.805H12c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.01 6.947c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zm-10.02 0c.87 0 1.577.707 1.577 1.577 0 .87-.707 1.577-1.577 1.577-.87 0-1.577-.707-1.577-1.577 0-.87.707-1.577 1.577-1.577zM12 7.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5zm-5.304 5.07c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zm10.608 0c.306.306.306.803 0 1.108-.306.306-.803.306-1.108 0-.306-.306-.306-.803 0-1.108.306-.306.803-.306 1.108 0zM12 18c-1.657 0-3-.895-3-2s1.343-2 3-2 3 .895 3 2-1.343 2-3 2z"/></svg>`,
 
-    // ---- MODERN JOYSTICK ICON (FILLED STYLE) ----
+    // ---- MODERN GAMEPAD WITH BUTTONS ICON ----
     joystick: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Base / Mounting Ring -->
-      <ellipse cx="12" cy="18" rx="6" ry="2.5" fill="currentColor" opacity="0.2"/>
-      <path d="M6 18c0-1.4 2.7-2.5 6-2.5s6 1.1 6 2.5" stroke="currentColor"/>
+      <!-- Gamepad Body Outline -->
+      <path d="M6 5h12a4 4 0 0 1 4 4v3a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V9a4 4 0 0 1 4-4z"/>
       
-      <!-- Stick Shaft -->
-      <path d="M12 16L14 8" stroke="currentColor"/>
+      <!-- D-Pad (Left) -->
+      <path d="M6 11h2M7 10v2" stroke-width="1.8"/>
       
-      <!-- Top Knob (Thumbstick / Ball) -->
-      <circle cx="15" cy="6" r="3" fill="currentColor"/>
+      <!-- Action Buttons (Right) -->
+      <circle cx="16.5" cy="10" r="0.75" fill="currentColor" stroke="none"/>
+      <circle cx="18" cy="11.5" r="0.75" fill="currentColor" stroke="none"/>
+      <circle cx="15" cy="11.5" r="0.75" fill="currentColor" stroke="none"/>
+      <circle cx="16.5" cy="13" r="0.75" fill="currentColor" stroke="none"/>
     </svg>`,
 
     // ---- Per-game SVG icons (replacing emojis) ----

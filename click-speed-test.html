@@ -983,6 +983,58 @@
             .cs-ripple, .cs-float-score, .cs-countdown-num { animation: none; }
         }
     </style>
+    <style>
+        /* ===== Compact hero override — preserves all SEO text ===== */
+.cs-hero {
+    min-height: auto !important;
+    padding: 22px 0 16px !important;
+}
+.cs-hero-badge {
+    margin-bottom: 10px !important;
+    padding: 4px 12px !important;
+    font-size: 0.68rem !important;
+}
+.cs-hero-title {
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
+}
+.cs-hero-sub {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 16px !important;
+    max-width: 540px !important;
+}
+.cs-hero-cta {
+    gap: 10px !important;
+}
+.cs-hero-cta .btn {
+    padding: 9px 20px !important;
+    font-size: 0.88rem !important;
+}
+.cs-hero-chips {
+    margin-top: 16px !important;
+    gap: 6px !important;
+}
+.cs-chip {
+    padding: 4px 11px !important;
+    font-size: 0.7rem !important;
+}
+
+/* Mobile: compress further so the click arena comes up immediately */
+@media (max-width: 768px) {
+    .cs-hero { padding: 18px 0 14px !important; }
+    .cs-hero-title { font-size: clamp(1.45rem, 6.5vw, 2rem) !important; }
+    .cs-hero-sub { font-size: 0.85rem !important; margin-bottom: 12px !important; }
+    .cs-hero-chips { margin-top: 12px !important; }
+}
+@media (max-width: 480px) {
+    .cs-hero-cta { flex-direction: row !important; gap: 8px !important; }
+    .cs-hero-cta .btn { flex: 1 1 auto; padding: 9px 14px !important; font-size: 0.82rem !important; }
+    .cs-hero-chips { gap: 5px !important; }
+    .cs-chip { font-size: 0.64rem !important; padding: 3px 9px !important; }
+}
+        </style>
 </head>
 <body>
 

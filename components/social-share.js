@@ -9,6 +9,7 @@
  * linking to all games on the site.
  *
  * Games popup opens as a CIRCULAR RADIAL MENU around the trigger.
+ * The arc is biased to the top/left so no icon is clipped off the right edge.
  * Games now use crisp SVG icons instead of emojis.
  * Page blurs when games menu is open.
  *
@@ -1050,11 +1051,12 @@
   radialMenu.setAttribute('role', 'menu');
   radialMenu.setAttribute('aria-label', 'Games menu');
 
-  // Radial radius based on screen size
+  // Radial radius based on screen size — larger than before so the icons
+  // have room to breathe and can be biased away from the right edge.
   function getRadialRadius() {
-    if (window.innerWidth <= 380) return 72;
-    if (window.innerWidth <= 480) return 88;
-    return 110;
+    if (window.innerWidth <= 380) return 88;
+    if (window.innerWidth <= 480) return 104;
+    return 140;
   }
 
   // Build radial menu items
@@ -1085,16 +1087,32 @@
     const total = GAMES.length;
     const radius = getRadialRadius();
 
-    // Distribute items evenly around a full circle.
-    // Start at the top (-90°) and go clockwise.
-    // The trigger sits at the bottom-right of the circle centre, so the
-    // bottom-right quadrant ends up relatively empty (items there sit close
-    // to the trigger), which looks natural for a radial menu.
-    const startAngleDeg = -90; // top
-    const angleStep = 360 / total;
+    // The trigger sits at the bottom-right of the viewport, so a full 360°
+    // ring puts several icons behind the trigger and off the right edge.
+    //
+    // Fix: spread the items across an arc that skips the bottom-right
+    // quadrant. We sweep from the top (-90°) counter-clockwise through the
+    // left side to the bottom-left, covering ~270° of usable space. This
+    // leaves the bottom-right sector (roughly 0° to 90° in screen coords)
+    // empty, which is exactly where the trigger lives and where the
+    // viewport edge would otherwise clip icons.
+    //
+    // Screen coords: 0° = right, 90° = down, 180° = left, 270° = up.
+    // Start angle: -100° (slightly past straight-up, toward the top-left)
+    // End angle:   -280° (i.e. +80°, well into the bottom-left)
+    // That's a 180°+ sweep but rotated so it avoids the bottom-right.
+    //
+    // Simpler mental model: start at top (-90°) and sweep counter-clockwise
+    // (decreasing angle) until we come back around to the bottom-left.
+    // We'll use: angle_i = startAngle - i * step, where startAngle = -90°
+    // and step = arcSpan / (total - 1). arcSpan = 280° gives a comfortable
+    // spread without crowding near the trigger.
+    const startAngleDeg = -90;   // straight up
+    const arcSpanDeg = 280;      // sweep counter-clockwise toward bottom-left
+    const step = arcSpanDeg / Math.max(total - 1, 1);
 
     gameRadialItems.forEach((item, i) => {
-      const angleDeg = startAngleDeg + angleStep * i;
+      const angleDeg = startAngleDeg - step * i;
       const angleRad = (angleDeg * Math.PI) / 180;
       const x = Math.cos(angleRad) * radius;
       const y = Math.sin(angleRad) * radius;

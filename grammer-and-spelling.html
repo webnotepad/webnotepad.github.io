@@ -23,19 +23,16 @@
   <link rel="canonical" href="https://webnotepad.github.io/grammer-and-spelling" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webnotepad.github.io/grammer-and-spelling" />
   <meta property="og:title" content="Free Grammar &amp; Spelling Checker – Fix Your Text Instantly" />
   <meta property="og:description" content="Scan your writing for spelling mistakes, grammar errors, punctuation slips and style issues. Free, private, no signup." />
   <meta property="og:image" content="https://webnotepad.github.io/og-image.png" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Grammar &amp; Spelling Checker – Fix Your Text Instantly" />
   <meta name="twitter:description" content="Find and fix spelling, grammar and punctuation issues in seconds. Free, private and works offline." />
 
-  <!-- Schema: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +61,6 @@
   }
   </script>
 
-  <!-- Schema: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -73,48 +69,42 @@
       {
         "@type": "Question",
         "name": "Is this grammar and spelling checker free?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The WebNotePad grammar and spelling checker is 100% free with no signup, no usage limits and no hidden costs. You can check as much text as you like, as often as you like." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The WebNotePad grammar and spelling checker is 100% free with no signup, no usage limits and no hidden costs." }
       },
       {
         "@type": "Question",
         "name": "Is my text private when I use the checker?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All checking happens locally in your browser using JavaScript. Your text is never uploaded to a server, never stored remotely and never seen by anyone but you." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All checking happens locally in your browser using JavaScript. Your text is never uploaded to a server." }
       },
       {
         "@type": "Question",
         "name": "What kinds of mistakes does the checker find?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The checker finds common spelling mistakes and misspellings, repeated words, missing or extra spaces around punctuation, uncapitalized sentence starts, lowercase 'i' pronouns, 'could of' style errors, your/you're and its/it's confusions, a/an article mistakes, repeated punctuation and wordy phrasing that can be tightened." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The checker finds common spelling mistakes, repeated words, missing or extra spaces around punctuation, uncapitalized sentence starts, lowercase 'i' pronouns, 'could of' style errors, your/you're and its/it's confusions, a/an article mistakes, repeated punctuation and wordy phrasing." }
       },
       {
         "@type": "Question",
         "name": "Can I fix all issues at once?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click 'Fix all' to apply every suggested correction in one go, or fix issues one at a time by clicking the Fix button next to each suggestion. You can also dismiss suggestions you disagree with." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click 'Fix all' to apply every suggested correction in one go, or fix issues one at a time." }
       },
       {
         "@type": "Question",
         "name": "Does the checker work on mobile phones and tablets?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The grammar and spelling checker is fully responsive and works on iOS Safari, Android Chrome and every modern mobile browser. The interface adapts to small screens for comfortable checking on the go." }
-      },
-      {
-        "@type": "Question",
-        "name": "Does it check punctuation as well as spelling?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The checker flags spaces before punctuation, missing spaces after punctuation, repeated exclamation or question marks and repeated commas, alongside spelling and grammar issues." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The grammar and spelling checker is fully responsive and works on iOS Safari, Android Chrome and every modern mobile browser." }
       },
       {
         "@type": "Question",
         "name": "Is there a word or character limit?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. There is no hard limit. Because everything runs in your browser, you can check long documents, essays or articles. For very long text, checking may take a moment but it will complete." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. There is no hard limit. Because everything runs in your browser, you can check long documents." }
       },
       {
         "@type": "Question",
         "name": "Can the checker replace a human proofreader?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. It is a fast first pass that catches the most common errors. It cannot understand context, tone or nuance the way a human editor can, so always review important writing yourself." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. It is a fast first pass that catches the most common errors. It cannot understand context, tone or nuance the way a human editor can." }
       }
     ]
   }
   </script>
 
-  <!-- Schema: BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -126,15 +116,12 @@
   }
   </script>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Shared styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Page-specific styles -->
   <style>
     :root {
       --gs-accent: #2d6a4f;
@@ -159,514 +146,119 @@
       --gs-info-pale: #171a2a;
     }
 
-    /* ===== HERO ===== */
-    .gs-hero {
-      position: relative;
-      padding: 52px 0 44px;
-      background: var(--paper);
-      overflow: hidden;
-      transition: background var(--transition);
-    }
-    .gs-hero-bg {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(var(--paper-edge) 1px, transparent 1px),
-        linear-gradient(90deg, var(--paper-edge) 1px, transparent 1px);
-      background-size: 52px 52px;
-      opacity: 0.3;
-      pointer-events: none;
-    }
+    .gs-hero { position: relative; padding: 52px 0 44px; background: var(--paper); overflow: hidden; transition: background var(--transition); }
+    .gs-hero-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--paper-edge) 1px, transparent 1px), linear-gradient(90deg, var(--paper-edge) 1px, transparent 1px); background-size: 52px 52px; opacity: 0.3; pointer-events: none; }
     body.dark .gs-hero-bg { opacity: 0.1; }
-    .gs-hero-glow {
-      position: absolute;
-      top: -120px; right: -120px;
-      width: 520px; height: 520px;
-      background: radial-gradient(ellipse, var(--gs-accent-pale) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
+    .gs-hero-glow { position: absolute; top: -120px; right: -120px; width: 520px; height: 520px; background: radial-gradient(ellipse, var(--gs-accent-pale) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
     body.dark .gs-hero-glow { opacity: 0.4; }
     .gs-hero-inner { position: relative; z-index: 1; max-width: 760px; }
-    .gs-hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 13px;
-      background: var(--gs-accent-pale);
-      color: var(--gs-accent);
-      border: 1px solid var(--gs-accent);
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      margin-bottom: 16px;
-      animation: gsFadeInDown 0.5s ease both;
-    }
-    .gs-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.9rem, 4.5vw, 3.1rem);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: var(--ink);
-      margin-bottom: 16px;
-      animation: gsFadeInDown 0.6s 0.08s ease both;
-    }
+    .gs-hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 13px; background: var(--gs-accent-pale); color: var(--gs-accent); border: 1px solid var(--gs-accent); border-radius: 100px; font-size: 0.72rem; font-weight: 600; font-family: var(--font-mono); margin-bottom: 16px; animation: gsFadeInDown 0.5s ease both; }
+    .gs-hero-title { font-family: var(--font-display); font-size: clamp(1.9rem, 4.5vw, 3.1rem); font-weight: 900; line-height: 1.15; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 16px; animation: gsFadeInDown 0.6s 0.08s ease both; }
     .gs-hero-accent { color: var(--gs-accent); font-style: italic; }
-    .gs-hero-sub {
-      font-size: 1.02rem;
-      color: var(--ink-muted);
-      max-width: 580px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      animation: gsFadeInDown 0.6s 0.16s ease both;
-    }
-    .gs-hero-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-      animation: gsFadeInDown 0.6s 0.24s ease both;
-    }
-    .gs-hero-demo {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      animation: gsFadeInDown 0.6s 0.32s ease both;
-    }
-    .gs-demo-chip {
-      padding: 6px 14px;
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--ink);
-      font-family: var(--font-mono);
-      white-space: nowrap;
-      transition: all var(--transition);
-    }
-    .gs-demo-chip:hover {
-      background: var(--gs-accent-pale);
-      border-color: var(--gs-accent);
-      color: var(--gs-accent);
-    }
-    @keyframes gsFadeInDown {
-      from { opacity: 0; transform: translateY(-14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .gs-hero-sub { font-size: 1.02rem; color: var(--ink-muted); max-width: 580px; line-height: 1.7; margin-bottom: 24px; animation: gsFadeInDown 0.6s 0.16s ease both; }
+    .gs-hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; animation: gsFadeInDown 0.6s 0.24s ease both; }
+    .gs-hero-demo { display: flex; gap: 8px; flex-wrap: wrap; animation: gsFadeInDown 0.6s 0.32s ease both; }
+    .gs-demo-chip { padding: 6px 14px; background: var(--paper-warm); border: 1px solid var(--paper-edge); border-radius: 100px; font-size: 0.78rem; font-weight: 500; color: var(--ink); font-family: var(--font-mono); white-space: nowrap; transition: all var(--transition); }
+    .gs-demo-chip:hover { background: var(--gs-accent-pale); border-color: var(--gs-accent); color: var(--gs-accent); }
+    @keyframes gsFadeInDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ===== APP SECTION ===== */
-    .gs-app-section {
-      padding: 0 0 80px;
-      background: var(--paper);
-      transition: background var(--transition);
-    }
-    .gs-app {
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: all var(--transition);
-    }
-    .gs-app-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 20px;
-      background: var(--paper);
-      border-bottom: 1px solid var(--paper-edge);
-      flex-wrap: wrap;
-    }
-    .gs-app-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-    .gs-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gs-accent);
-      display: inline-block;
-    }
+    .gs-app-section { padding: 0 0 80px; background: var(--paper); transition: background var(--transition); }
+    .gs-app { background: var(--paper-warm); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; transition: all var(--transition); }
+    .gs-app-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 20px; background: var(--paper); border-bottom: 1px solid var(--paper-edge); flex-wrap: wrap; }
+    .gs-app-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+    .gs-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gs-accent); display: inline-block; }
     .gs-app-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .gs-grid { display: grid; grid-template-columns: 1fr 1fr; }
-    .gs-pane {
-      padding: 18px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
+    .gs-pane { padding: 18px 20px 20px; display: flex; flex-direction: column; min-width: 0; }
     .gs-pane--input { border-right: 1px solid var(--paper-edge); }
 
-    .gs-label {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      font-family: var(--font-mono);
-      margin-bottom: 8px;
-    }
-    .gs-textarea {
-      width: 100%;
-      min-height: 300px;
-      flex: 1;
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--paper-edge);
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      line-height: 1.75;
-      resize: vertical;
-      outline: none;
-      box-sizing: border-box;
-      transition: all var(--transition);
-    }
+    .gs-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); font-family: var(--font-mono); margin-bottom: 8px; }
+    .gs-textarea { width: 100%; min-height: 300px; flex: 1; padding: 16px 18px; border-radius: var(--radius); border: 1px solid var(--paper-edge); background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 0.95rem; line-height: 1.75; resize: vertical; outline: none; box-sizing: border-box; transition: all var(--transition); }
     .gs-textarea::placeholder { color: var(--ink-muted); opacity: 0.65; font-style: italic; }
-    .gs-textarea:focus {
-      border-color: var(--gs-accent);
-      box-shadow: 0 0 0 3px var(--gs-accent-pale);
-    }
+    .gs-textarea:focus { border-color: var(--gs-accent); box-shadow: 0 0 0 3px var(--gs-accent-pale); }
 
-    .gs-input-stats {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      padding: 10px 2px 14px;
-      font-size: 0.73rem;
-      font-family: var(--font-mono);
-      color: var(--ink-muted);
-    }
+    .gs-input-stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 2px 14px; font-size: 0.73rem; font-family: var(--font-mono); color: var(--ink-muted); }
     .gs-sep { color: var(--paper-edge); }
     .gs-stat-val { font-weight: 600; color: var(--ink); }
 
     .gs-primary-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .gs-btn-primary {
-      flex: 1 1 160px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 22px;
-      border-radius: var(--radius);
-      background: var(--gs-accent);
-      border: 2px solid var(--gs-accent);
-      color: #ffffff;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: all var(--transition);
-    }
-    .gs-btn-primary:hover {
-      background: var(--gs-accent-light);
-      border-color: var(--gs-accent-light);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(45, 106, 79, 0.28);
-    }
+    .gs-btn-primary { flex: 1 1 160px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: var(--radius); background: var(--gs-accent); border: 2px solid var(--gs-accent); color: #ffffff; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: all var(--transition); }
+    .gs-btn-primary:hover { background: var(--gs-accent-light); border-color: var(--gs-accent-light); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(45, 106, 79, 0.28); }
     .gs-btn-primary:active { transform: translateY(0); box-shadow: none; }
-    .gs-btn-ghost {
-      flex: 0 1 auto;
-      padding: 13px 18px;
-      border-radius: var(--radius);
-      background: transparent;
-      border: 2px solid var(--paper-edge);
-      color: var(--ink);
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: all var(--transition);
-    }
-    .gs-btn-ghost:hover:not(:disabled) {
-      border-color: var(--gs-accent);
-      color: var(--gs-accent);
-      background: var(--gs-accent-pale);
-    }
+    .gs-btn-ghost { flex: 0 1 auto; padding: 13px 18px; border-radius: var(--radius); background: transparent; border: 2px solid var(--paper-edge); color: var(--ink); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all var(--transition); }
+    .gs-btn-ghost:hover:not(:disabled) { border-color: var(--gs-accent); color: var(--gs-accent); background: var(--gs-accent-pale); }
     .gs-btn-ghost:disabled { opacity: 0.45; cursor: not-allowed; }
 
-    /* ===== RESULTS PANE ===== */
-    .gs-results-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
+    .gs-results-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
     .gs-results-head .gs-label { margin-bottom: 0; }
-    .gs-score {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 5px;
-      font-family: var(--font-display);
-      font-weight: 900;
-      line-height: 1;
-      color: var(--ink-muted);
-      transition: color var(--transition);
-    }
+    .gs-score { display: inline-flex; align-items: baseline; gap: 5px; font-family: var(--font-display); font-weight: 900; line-height: 1; color: var(--ink-muted); transition: color var(--transition); }
     .gs-score b { font-size: 1.5rem; }
     .gs-score span { font-size: 0.68rem; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
     .gs-score.is-good b { color: var(--gs-accent); }
     .gs-score.is-mid b { color: var(--gs-warn); }
     .gs-score.is-bad b { color: var(--gs-error); }
 
-    .gs-summary {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-      min-height: 26px;
-    }
-    .gs-summary-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 11px;
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      color: var(--ink-muted);
-    }
+    .gs-summary { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; min-height: 26px; }
+    .gs-summary-chip { display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; font-family: var(--font-mono); background: var(--paper-warm); border: 1px solid var(--paper-edge); color: var(--ink-muted); }
     .gs-summary-chip--ok { color: var(--gs-accent); border-color: var(--gs-accent); background: var(--gs-accent-pale); }
     .gs-summary-chip--spelling { color: var(--gs-error); border-color: var(--gs-error); background: var(--gs-error-pale); }
     .gs-summary-chip--grammar { color: var(--gs-warn); border-color: var(--gs-warn); background: var(--gs-warn-pale); }
     .gs-summary-chip--style { color: var(--gs-info); border-color: var(--gs-info); background: var(--gs-info-pale); }
 
-    .gs-issues {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: 440px;
-      overflow-y: auto;
-      padding-right: 4px;
-      margin: 0;
-    }
-    .gs-issue {
-      background: var(--paper);
-      border: 1px solid var(--paper-edge);
-      border-left: 3px solid var(--gs-warn);
-      border-radius: var(--radius);
-      padding: 11px 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
+    .gs-issues { list-style: none; display: flex; flex-direction: column; gap: 10px; max-height: 440px; overflow-y: auto; padding-right: 4px; margin: 0; }
+    .gs-issue { background: var(--paper); border: 1px solid var(--paper-edge); border-left: 3px solid var(--gs-warn); border-radius: var(--radius); padding: 11px 13px; display: flex; flex-direction: column; gap: 8px; transition: border-color var(--transition), box-shadow var(--transition); }
     .gs-issue:hover { box-shadow: var(--shadow-sm); }
     .gs-issue--spelling { border-left-color: var(--gs-error); }
     .gs-issue--grammar { border-left-color: var(--gs-warn); }
     .gs-issue--style { border-left-color: var(--gs-info); }
 
     .gs-issue-top { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
-    .gs-badge {
-      flex-shrink: 0;
-      padding: 2px 9px;
-      border-radius: 100px;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      color: var(--ink-muted);
-    }
+    .gs-badge { flex-shrink: 0; padding: 2px 9px; border-radius: 100px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; font-family: var(--font-mono); background: var(--paper-warm); border: 1px solid var(--paper-edge); color: var(--ink-muted); }
     .gs-badge--spelling { color: var(--gs-error); border-color: var(--gs-error); background: var(--gs-error-pale); }
     .gs-badge--grammar { color: var(--gs-warn); border-color: var(--gs-warn); background: var(--gs-warn-pale); }
     .gs-badge--style { color: var(--gs-info); border-color: var(--gs-info); background: var(--gs-info-pale); }
     .gs-issue-msg { font-size: 0.83rem; color: var(--ink); line-height: 1.5; flex: 1; min-width: 120px; }
 
-    .gs-issue-diff {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-    }
-    .gs-chip {
-      padding: 3px 9px;
-      border-radius: 4px;
-      border: 1px solid var(--paper-edge);
-      background: var(--paper-warm);
-      color: var(--ink);
-      max-width: 100%;
-      overflow-wrap: anywhere;
-      transition: all var(--transition);
-      text-align: left;
-    }
+    .gs-issue-diff { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.78rem; }
+    .gs-chip { padding: 3px 9px; border-radius: 4px; border: 1px solid var(--paper-edge); background: var(--paper-warm); color: var(--ink); max-width: 100%; overflow-wrap: anywhere; transition: all var(--transition); text-align: left; }
     button.gs-chip { cursor: pointer; }
     button.gs-chip:hover { border-color: var(--gs-accent); color: var(--gs-accent); }
     .gs-chip--fix { background: var(--gs-accent-pale); border-color: var(--gs-accent); color: var(--gs-accent); font-weight: 600; }
     .gs-arrow { color: var(--ink-muted); flex-shrink: 0; }
 
     .gs-issue-actions { display: flex; gap: 6px; flex-wrap: wrap; }
-    .gs-mini-btn {
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      border: 1px solid var(--paper-edge);
-      background: var(--paper-warm);
-      color: var(--ink-muted);
-      transition: all var(--transition);
-    }
+    .gs-mini-btn { padding: 4px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; border: 1px solid var(--paper-edge); background: var(--paper-warm); color: var(--ink-muted); transition: all var(--transition); cursor: pointer; }
     .gs-mini-btn:hover { border-color: var(--ink-muted); color: var(--ink); }
-    .gs-mini-btn--fix {
-      background: var(--gs-accent);
-      border-color: var(--gs-accent);
-      color: #ffffff;
-    }
-    .gs-mini-btn--fix:hover {
-      background: var(--gs-accent-light);
-      border-color: var(--gs-accent-light);
-      color: #ffffff;
-    }
+    .gs-mini-btn--fix { background: var(--gs-accent); border-color: var(--gs-accent); color: #ffffff; }
+    .gs-mini-btn--fix:hover { background: var(--gs-accent-light); border-color: var(--gs-accent-light); color: #ffffff; }
 
-    .gs-empty {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      text-align: center;
-      padding: 42px 20px;
-      border: 1px dashed var(--paper-edge);
-      border-radius: var(--radius);
-      background: var(--paper);
-      color: var(--ink-muted);
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
+    .gs-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 42px 20px; border: 1px dashed var(--paper-edge); border-radius: var(--radius); background: var(--paper); color: var(--ink-muted); font-size: 0.88rem; line-height: 1.6; }
     .gs-empty-icon { font-size: 1.9rem; }
     .gs-empty strong { color: var(--ink); font-weight: 600; }
 
-    /* ===== TOAST ===== */
-    .gs-toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 12px 20px;
-      border-radius: var(--radius);
-      font-size: 0.875rem;
-      font-weight: 500;
-      box-shadow: var(--shadow-lg);
-      transform: translateY(80px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 9999;
-      pointer-events: none;
-      max-width: 320px;
-    }
+    .gs-toast { position: fixed; bottom: 24px; right: 24px; background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; box-shadow: var(--shadow-lg); transform: translateY(80px); opacity: 0; transition: all 0.3s ease; z-index: 9999; pointer-events: none; max-width: 320px; }
     .gs-toast.show { transform: translateY(0); opacity: 1; }
     body.dark .gs-toast { background: var(--paper-warm); color: var(--ink); border: 1px solid var(--paper-edge); }
 
-    /* ===== BANDS / SECTIONS ===== */
     .gs-band { background: var(--paper-warm); transition: background var(--transition); }
-
-    .gs-how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-    }
-    .gs-how-card {
-      background: var(--paper);
-      border: 1px solid var(--paper-edge);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      position: relative;
-      overflow: hidden;
-      transition: all var(--transition);
-    }
-    .gs-how-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gs-accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
-    }
+    .gs-how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+    .gs-how-card { background: var(--paper); border: 1px solid var(--paper-edge); border-radius: var(--radius-lg); padding: 26px; position: relative; overflow: hidden; transition: all var(--transition); }
+    .gs-how-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gs-accent); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
     .gs-how-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
     .gs-how-card:hover::before { transform: scaleX(1); }
-    .gs-how-num {
-      font-family: var(--font-display);
-      font-size: 2.6rem;
-      font-weight: 900;
-      color: var(--paper-edge);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .gs-how-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
+    .gs-how-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--paper-edge); line-height: 1; margin-bottom: 12px; }
+    .gs-how-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
     .gs-how-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.65; }
 
-    /* Description */
-    .gs-desc-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .gs-desc-text p {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      line-height: 1.78;
-      margin-bottom: 16px;
-    }
+    .gs-desc-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 56px; align-items: center; }
+    .gs-desc-text p { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.78; margin-bottom: 16px; }
     .gs-desc-text strong { color: var(--ink); font-weight: 600; }
     .gs-benefits { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .gs-benefit-tag {
-      padding: 6px 14px;
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--ink);
-      transition: all var(--transition);
-    }
-    .gs-benefit-tag:hover {
-      background: var(--gs-accent-pale);
-      border-color: var(--gs-accent);
-      color: var(--gs-accent);
-    }
+    .gs-benefit-tag { padding: 6px 14px; background: var(--paper-warm); border: 1px solid var(--paper-edge); border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--ink); transition: all var(--transition); }
+    .gs-benefit-tag:hover { background: var(--gs-accent-pale); border-color: var(--gs-accent); color: var(--gs-accent); }
     .gs-desc-visual { display: flex; align-items: center; justify-content: center; }
-    .gs-visual-card {
-      background: var(--ink);
-      color: var(--paper);
-      border-radius: var(--radius-lg);
-      padding: 32px 30px;
-      max-width: 330px;
-      width: 100%;
-      box-shadow: var(--shadow-lg);
-      font-family: var(--font-mono);
-      font-size: 0.83rem;
-      line-height: 1.85;
-    }
+    .gs-visual-card { background: var(--ink); color: var(--paper); border-radius: var(--radius-lg); padding: 32px 30px; max-width: 330px; width: 100%; box-shadow: var(--shadow-lg); font-family: var(--font-mono); font-size: 0.83rem; line-height: 1.85; }
     body.dark .gs-visual-card { background: var(--paper-warm); border: 1px solid var(--paper-edge); color: var(--ink); }
     .gs-v-line { width: 36px; height: 3px; background: var(--gs-accent); border-radius: 2px; margin-bottom: 18px; }
     .gs-v-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -676,89 +268,23 @@
     body.dark .gs-v-right { color: var(--gs-accent); }
     .gs-v-arrow { opacity: 0.5; }
 
-    /* FAQ */
-    .gs-faq-list {
-      max-width: 760px;
-      margin: 48px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .gs-faq-item {
-      border: 1px solid var(--paper-edge);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--paper);
-      transition: border-color var(--transition);
-    }
-    .gs-faq-item:has(.gs-faq-a[style*="block"]) { border-color: var(--gs-accent); }
-    .gs-faq-q {
-      width: 100%;
-      text-align: left;
-      padding: 16px 20px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ink);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      font-family: var(--font-body);
-      transition: background var(--transition);
-    }
-    .gs-faq-q::after {
-      content: '+';
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--ink-muted);
-      flex-shrink: 0;
-      transition: transform var(--transition);
-    }
+    .gs-faq-list { max-width: 760px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 2px; }
+    .gs-faq-item { border: 1px solid var(--paper-edge); border-radius: var(--radius); overflow: hidden; background: var(--paper); transition: border-color var(--transition); }
+    .gs-faq-q { width: 100%; text-align: left; padding: 16px 20px; font-size: 0.95rem; font-weight: 600; color: var(--ink); background: transparent; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--font-body); transition: background var(--transition); }
+    .gs-faq-q::after { content: '+'; font-size: 1.2rem; font-weight: 300; color: var(--ink-muted); flex-shrink: 0; transition: transform var(--transition); }
     .gs-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--gs-accent); }
     .gs-faq-q:hover { background: var(--paper-warm); }
     .gs-faq-a { display: none; padding: 0 20px 16px; }
     .gs-faq-a p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.72; }
 
-    /* CTA */
-    .gs-cta {
-      background: var(--ink);
-      padding: 72px 0;
-      position: relative;
-      overflow: hidden;
-      transition: background var(--transition);
-    }
+    .gs-cta { background: var(--ink); padding: 72px 0; position: relative; overflow: hidden; transition: background var(--transition); }
     body.dark .gs-cta { background: #0e0e12; }
-    .gs-cta-glow {
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(45, 106, 79, 0.35) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .gs-cta-glow { position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(45, 106, 79, 0.35) 0%, transparent 70%); pointer-events: none; }
     .gs-cta-inner { position: relative; z-index: 1; text-align: center; }
-    .gs-cta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.9rem, 4vw, 2.75rem);
-      font-weight: 900;
-      color: var(--paper);
-      margin-bottom: 14px;
-    }
-    .gs-cta p {
-      font-size: 1.02rem;
-      color: rgba(250, 248, 244, 0.6);
-      max-width: 480px;
-      margin: 0 auto 28px;
-    }
-    .gs-cta .gs-btn-primary {
-      flex: 0 0 auto;
-      padding: 15px 32px;
-      font-size: 1rem;
-    }
+    .gs-cta h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 900; color: var(--paper); margin-bottom: 14px; }
+    .gs-cta p { font-size: 1.02rem; color: rgba(250, 248, 244, 0.6); max-width: 480px; margin: 0 auto 28px; }
+    .gs-cta .gs-btn-primary { flex: 0 0 auto; padding: 15px 32px; font-size: 1rem; text-decoration: none; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .gs-how-grid { grid-template-columns: repeat(2, 1fr); }
       .gs-desc-inner { grid-template-columns: 1fr; gap: 36px; }
@@ -792,72 +318,13 @@
       .gs-toast { left: 16px; right: 16px; max-width: none; }
     }
   </style>
-
-<style>
-  /* ===== Compact hero override — preserves all SEO text ===== */
-.gs-hero {
-    padding: 22px 0 16px !important;
-}
-.gs-hero-badge {
-    margin-bottom: 10px !important;
-    padding: 4px 12px !important;
-    font-size: 0.68rem !important;
-}
-.gs-hero-title {
-    font-size: clamp(1.6rem, 3.4vw, 2.4rem) !important;
-    line-height: 1.1 !important;
-    margin-bottom: 10px !important;
-}
-.gs-hero-sub {
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 16px !important;
-    max-width: 560px !important;
-}
-.gs-hero-cta {
-    gap: 10px !important;
-    margin-bottom: 14px !important;
-}
-.gs-hero-cta .gs-btn-primary {
-    padding: 10px 20px !important;
-    font-size: 0.88rem !important;
-}
-.gs-hero-cta .btn-ghost {
-    padding: 10px 18px !important;
-    font-size: 0.85rem !important;
-}
-.gs-hero-demo {
-    gap: 6px !important;
-}
-.gs-demo-chip {
-    padding: 4px 11px !important;
-    font-size: 0.7rem !important;
-}
-
-/* Mobile: compress further so the checker comes up sooner */
-@media (max-width: 768px) {
-    .gs-hero { padding: 18px 0 14px !important; }
-    .gs-hero-title { font-size: clamp(1.45rem, 6.5vw, 2rem) !important; }
-    .gs-hero-sub { font-size: 0.85rem !important; margin-bottom: 12px !important; }
-    .gs-hero-demo { gap: 5px !important; }
-    .gs-demo-chip { font-size: 0.66rem !important; padding: 3px 9px !important; }
-}
-@media (max-width: 480px) {
-    .gs-hero-cta { flex-direction: row !important; gap: 8px !important; }
-    .gs-hero-cta .gs-btn-primary,
-    .gs-hero-cta .btn-ghost { flex: 1 1 auto; padding: 9px 14px !important; font-size: 0.82rem !important; }
-}
-  </style>
-  
 </head>
 <body>
 
-  <!-- Header injected by header.js -->
   <div id="header-root"></div>
 
   <main>
 
-    <!-- ===== HERO ===== -->
     <section class="gs-hero" id="home" aria-label="Grammar and spelling checker hero">
       <div class="gs-hero-bg"></div>
       <div class="gs-hero-glow"></div>
@@ -872,7 +339,7 @@
           phrasing. Fix each issue with one click — privately, in your browser, with no signup.
         </p>
         <div class="gs-hero-cta">
-          <a href="#checker" class="gs-btn-primary">Check My Text <span>→</span></a>
+          <a href="#checker" class="gs-btn-primary" style="text-decoration:none;">Check My Text <span>→</span></a>
           <a href="#how-it-works" class="btn btn-ghost" style="padding:13px 22px;">How it works</a>
         </div>
         <div class="gs-hero-demo">
@@ -885,12 +352,10 @@
       </div>
     </section>
 
-    <!-- ===== CHECKER APP ===== -->
     <section class="gs-app-section" id="checker" aria-label="Grammar and spelling checker tool">
       <div class="container">
         <div class="gs-app">
 
-          <!-- App header -->
           <div class="gs-app-header">
             <span class="gs-app-title"><span class="gs-dot"></span> Grammar &amp; Spelling Checker</span>
             <div class="gs-app-actions">
@@ -902,7 +367,6 @@
 
           <div class="gs-grid">
 
-            <!-- Input pane -->
             <div class="gs-pane gs-pane--input">
               <label class="gs-label" for="gsInput">📝 Your text</label>
               <textarea
@@ -910,7 +374,7 @@
                 id="gsInput"
                 spellcheck="false"
                 autocomplete="off"
-                placeholder="Paste or type your text here, then click “Check text”. Everything is analysed locally in your browser — nothing is uploaded."
+                placeholder="Paste or type your text here, then click &ldquo;Check text&rdquo;. Everything is analysed locally in your browser — nothing is uploaded."
                 aria-label="Text to check"></textarea>
 
               <div class="gs-input-stats">
@@ -927,7 +391,6 @@
               </div>
             </div>
 
-            <!-- Results pane -->
             <div class="gs-pane gs-pane--results">
               <div class="gs-results-head">
                 <span class="gs-label">🔎 Results</span>
@@ -946,7 +409,6 @@
       </div>
     </section>
 
-    <!-- ===== HOW IT WORKS ===== -->
     <section class="section gs-band" id="how-it-works" aria-label="How the checker works">
       <div class="container">
         <div class="section-label">Simple by design</div>
@@ -971,7 +433,6 @@
       </div>
     </section>
 
-    <!-- ===== DESCRIPTION ===== -->
     <section class="section" id="about-checker" aria-label="About the grammar and spelling checker">
       <div class="container gs-desc-inner">
         <div class="gs-desc-text">
@@ -1018,7 +479,6 @@
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
     <section class="section gs-band" id="faq" aria-label="Frequently asked questions">
       <div class="container">
         <div class="section-label">Questions</div>
@@ -1060,7 +520,6 @@
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
     <section class="gs-cta" aria-label="Call to action">
       <div class="gs-cta-glow"></div>
       <div class="container gs-cta-inner">
@@ -1072,224 +531,102 @@
 
   </main>
 
-  <!-- Footer injected by footer.js -->
   <div id="footer-root"></div>
 
-  <!-- Toast -->
   <div class="gs-toast" id="gsToast" role="alert" aria-live="polite"></div>
 
-  <!-- Scripts -->
   <script src="/components/header.js"></script>
   <script src="/components/footer.js"></script>
   <script src="/components/social-share.js"></script>
   <div id="tools-sidebar-root"></div>
   <script src="/components/sidebar.js"></script>
+
+  <!-- CRITICAL: Load wordlist.js BEFORE the checker script -->
   <script src="/wordlist.js"></script>
+
   <script>
   (function () {
     'use strict';
 
-    /* ============================================================
-       DICTIONARY — built-in fallback (used if wordlist.js is missing)
-       ============================================================ */
-    const FALLBACK_WORDS = `
-      a able about above accept access accident according account across act action active activity
-      actually add address admit adult advance advantage adventure advice affect afraid after afternoon
-      again against age agency agenda ago agree agreement ahead aid aim air aircraft alive all allow
-      almost alone along already also alternative although always amazing among amount analysis analyze
-      ancient and anger angle angry animal announce annual another answer any anybody anyone anything
-      anyway anywhere apart apartment apologize apparent appeal appear appearance apple application apply
-      appointment appreciate approach appropriate approve area argue argument arise arm army around
-      arrange arrest arrival arrive art article artist as aside ask aspect assist assume assure at
-      atmosphere attach attack attempt attend attention attitude attract attractive audience author
-      authority automatic autumn available average avoid awake award aware away awesome awful
+    // ============================================================
+    // DIAGNOSTIC LOGGING — check console (F12) to verify loading
+    // ============================================================
+    console.log('=== Grammar Checker starting ===');
+    console.log('typeof WORDLIST:', typeof WORDLIST);
+    if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
+      console.log('WORDLIST length:', WORDLIST.length);
+      console.log('WORDLIST sample:', WORDLIST.slice(0, 5));
+    } else {
+      console.warn('⚠️ WORDLIST is not defined! wordlist.js failed to load, or has a different variable name.');
+    }
 
-      baby back bad bag ball bank bar base basic basis be beach bear beat beautiful beauty because
-      become bed bedroom before begin beginning behavior behind being belief believe below benefit best
-      bet better between beyond big bill billion bit black blame blood blue board boat body bone book
-      boot border born borrow boss both bottle bottom box boy brain branch brand bread break breakfast
-      breath bridge brief bright bring broad brother brown budget build building bus business busy but
-      butter button buy by
-
-      cabin cable cake call calm camera camp campaign can cancel cancer candidate capital car card care
-      career careful carefully carry case cash cat catch cause cell center central century certain
-      certainly chain chair chairman challenge chance change channel character charge chart check cheek
-      cheese chest chicken chief child childhood choice choose church circle citizen city civil claim
-      class classic clean clear clearly climb clock close closed closely clothes cloud club coach coal
-      coast coat code coffee cold collapse colleague collect college color column combination combine
-      come comfort comfortable command comment commercial commission commit committee common communicate
-      community company compare competition complain complete completely complex computer concern concert
-      conclude condition conference confidence confirm conflict confuse connect consider considerable
-      consist constant contact contain content continue contract contrast contribute control convenient
-      conversation copy corner correct cost cottage cotton could council count country county couple
-      courage course court cousin cover create creative credit crime crisis critical culture cup current
-      customer cut cycle
-
-      dad daily damage dance danger dangerous dark data date daughter day dead deal dear death debate
-      debt decade decide decision declare deep defeat defend defense define degree delay deliver demand
-      democratic demonstrate deny department depend describe description desert deserve design desire
-      desk despite detail determine develop development device die diet difference different difficult
-      dinner direct direction directly director dirt dirty discover discuss discussion disease dish do
-      doctor document dog dollar door double doubt down downtown dozen draft drag draw dream dress drink
-      drive driver drop drug dry due during duty
-
-      each ear early earn earth ease easily east easy eat economic economy edge education educational
-      effect effective effort egg eight either election electric element else elsewhere email employee
-      employer empty enable end enemy energy engine engineer enjoy enough enter entire entirely
-      environment environmental equal equipment error escape especially essential establish even evening
-      event ever every everybody everyone everything everywhere evidence exact exactly example excellent
-      except exchange excited exciting executive exercise exist existence expand expect expensive
-      experience experiment expert explain explanation eye
-
-      face fact factor fail failure fair fairly faith fall false familiar family famous fan far farm
-      farmer fast fat father fault favor favorite fear feature federal fee feed feel feeling fellow
-      female fence festival few field fight figure file fill film final finally finance find fine finger
-      finish fire firm first fish fit five fix flat flight floor flow flower fly focus follow food foot
-      for force foreign forest forever forget form formal former forward four free freedom fresh friend
-      friendly from front fruit full fun function fund future
-
-      gain game garden gas gate gather general generally generation get girl give glass go goal god gold
-      good government great green ground group grow growth guard guess guest guide gun guy
-
-      hair half hall hand handle hang happen happy hard hat hate have he head health healthy hear heart
-      heat heavy height hello help her here herself hey hi hide high hill him himself his history hit
-      hold hole home honest honey hope horse hospital hot hotel hour house how however huge human
-      hundred hungry husband
-
-      i ice idea identify if ignore image imagine impact important improve in include including increase
-      indeed independent indicate individual industry information inside instead institution interest
-      interested interesting international interview into introduce investment invite involve iron is
-      issue it item its itself
-
-      job join joke journey joy judge jump just
-
-      keep key kick kid kill kind king kitchen knee know knowledge
-
-      lab lack lady lake land language large last late later laugh law lawyer lay lead leader leaf learn
-      least leave left leg legal less lesson let letter level lie life light like likely line link list
-      listen little live load loan local locate long look lose loss lot loud love low luck lunch
-
-      machine mad magazine mail main maintain major majority make male man manage management manager many
-      map market marriage material matter may maybe me meal mean measure meat media medical medicine meet
-      meeting member memory mention menu message metal method middle might mile military milk million
-      mind mine minute miss mission mistake mix model modern moment money month mood moon moral more
-      morning most mother mountain mouth move movement movie much music must my myself
-
-      name narrow nation national natural nature near nearly necessary neck need negative neighbor
-      neither nerve never new news newspaper next nice night no nobody noise none nor normal north nose
-      not note nothing notice now number
-
-      occur ocean of off offer office officer official often oh oil ok old on once one only open
-      operation opinion opportunity option or order organization organize other others our out outcome
-      outside over overall own owner
-
-      pace pack page pain paint painting pair paper parent park part participant particular particularly
-      partner party pass passage past path patient pattern pay peace people per percent perfect perform
-      performance perhaps period person personal phone photo physical pick picture piece place plan plane
-      plant play player point police policy political politics pool poor popular population position
-      positive possible post pot potential power practice prepare present president press pressure
-      pretty prevent price primary prime print private probably problem process produce product
-      production professional professor program project property protect prove provide public pull
-      purpose push put
-
-      quality question quickly quiet quite
-
-      race radio raise range rate rather reach read ready real reality realize really reason receive
-      recent recently recognize record red reduce reflect region regular relate relationship religious
-      remain remember remove repeat replace report represent require research resource respond response
-      responsibility rest restaurant result return reveal rich right ring rise risk road rock role roll
-      room root rough round route row rule run rural rush
-
-      safe safety same sample save say scene school science scientist score sea search season seat
-      second secret section security see seek seem sell send senior sense series serious serve service
-      set seven several shake share she sheet ship shoot shop short shot should shoulder shout show side
-      sign significant similar simple simply since sing single sister sit site situation six size skill
-      skin sky sleep slice slide slow small smart smile so social society soft software soldier some
-      somebody someone something sometimes son song soon sorry sort sound soup source south southern
-      space speak special specific speech spend sport spot spread spring square staff stage stand
-      standard star start state statement station stay step stick still stock stop store storm story
-      straight strange strategy street strong structure student study stuff style subject success
-      successful such suddenly suffer suggest summer sun supply support sure surface system
-
-      table take talk tall task tax teach teacher team technology television tell ten tend term test
-      than thank that the their them themselves then theory there these they thing think third this
-      those though thought thousand threat three through throughout throw thus time to today together
-      tonight too top topic total touch tough toward town track trade tradition traditional traffic
-      train training travel treat treatment tree trial trip trouble truck true trust truth try turn type
-
-      under understand unit until up upon us use useful usual usually
-
-      value various very victim view village violence visit visitor voice vote
-
-      wait walk wall want war warm watch water way we weak wealth weapon wear weather week weight
-      welcome well west western what whatever when where whether which while white who whole whom whose
-      why wide wife wild will win wind window wine winter wish with within without woman wonder word
-      work worker world worry would write writer wrong
-
-      yard yeah year yellow yes yesterday yet you young your yourself
-
-      bought brought caught taught found gave given went gone came saw seen said made took taken knew
-      known wrote written spoke spoken ran ate eaten drank began begun broke broken chose chosen drove
-      driven fell fallen flew flown forgot forgotten froze frozen grew grown hid hidden held kept laid
-      led lent lost meant met paid rode ridden rose risen sold sent shook shaken shone showed shown shut
-      slept spent stood stole stolen struck swore sworn threw thrown understood woke woken wore worn won
-      wound
-
-      limit limits limited limiting unlimited limitation limitations limits less least
-      emails notes friends ideas problems sentences words letters messages computers phones users pages
-      files images photos videos hours minutes seconds days weeks months years times children men women
-      things places names numbers questions answers examples mistakes errors lessons classes students
-      teachers workers jobs companies businesses products services prices costs orders customers markets
-      stores shops apples oranges bananas vegetables potatoes tomatoes carrots families countries cities
-      towns villages schools hospitals libraries restaurants hotels airports stations gardens houses
-      rooms doors windows tables chairs beds trees flowers animals birds fish dogs cats horses cars
-      buses trains planes bikes boats roads streets bridges buildings offices factories farms fields
-      forests rivers lakes seas oceans mountains hills skies clouds rain snow ice fire earth light dark
-      sound movies books stories poems songs games sports teams players coaches fans clubs parties
-      holidays birthdays weddings mornings afternoons evenings nights weekends
-
-      internet website websites browser online offline download upload password passwords username
-      login logout app apps hardware database server servers network networks cloud backup update
-      updates version versions settings profile profiles search click clicks text grammar spelling
-      punctuation paragraph paragraphs essay essays article articles document documents title titles
-      heading headings emailing writing reading editing checking proofreading
-
-      everyday everyone anything something nothing everything
-    `;
-
-    /* ============================================================
-       BUILD DICTIONARY — merge fallback + wordlist.js
-       ============================================================ */
+    // ============================================================
+    // BUILD DICTIONARY
+    // ============================================================
     const DICTIONARY = new Set();
 
-    // 1. Add fallback words
-    FALLBACK_WORDS.split(/\s+/).forEach(function (w) {
+    // Small built-in fallback — only used if wordlist.js is missing
+    const FALLBACK = `
+      the be to of and a in that have i it for not on with he as you do at this but his by from
+      they we say her she or an will my one all would there their what so up out if about who get
+      which go me when make can like time no just him know take people into year your good some
+      could them see other than then now look only come its over think also back after use two how
+      our work first well way even new want because any these give day most us is was are been has
+      had were said did get may one all but not out up so no if who why now how can him her his she
+      he it we me my as at be by do go if in is it me my no of on or so to up us we am an as at be
+      by do go he if in is it me my no of on or so to up us we limit limits limited limiting
+      unlimited limitation limitations less least word words text grammar spelling check checker
+      checking checked correct correction corrections mistake mistakes error errors sentence
+      sentences paragraph paragraphs letter letters document documents write writing writer
+      written read reading reader readers people person persons everyone somebody someone nobody
+      anybody something anything nothing everything thing things place places time times day days
+      week weeks month months year years hour hours minute minutes second seconds question
+      questions answer answers problem problems idea ideas example examples test tests study
+      studies learn learning school schools student students teacher teachers class classes
+      lesson lessons book books page pages note notes email emails message messages friend
+      friends family families home house houses room rooms door doors window windows work works
+      working worked job jobs company companies business businesses money price prices cost costs
+      pay paid buy bought sell sold shop shops store stores market markets product products
+      service services customer customers order orders delivery deliveries phone phones computer
+      computers internet website websites browser online offline download upload file files
+      image images photo photos video videos music song songs movie movies game games play
+      playing player players team teams sport sports run running walk walking talk talking
+      speak speaking listen listening hear hearing see seeing look looking watch watching think
+      thinking thought know knowing understand understanding remember remembering forget
+      forgetting find finding lose losing keep keeping hold holding give giving take taking
+      make making do doing get getting go going come coming leave leaving stay staying put
+      putting set setting run running walk walking open opening close closing start starting
+      stop stopping begin beginning end ending finish finishing continue continuing change
+      changing try trying use using need needing want wanting like liking love loving hate
+      hating help helping show showing tell telling ask asking answer answering call calling
+      phone phoning
+    `;
+    FALLBACK.split(/\s+/).forEach(function (w) {
       const lower = w.toLowerCase().trim();
-      if (lower) DICTIONARY.add(lower);
+      if (lower && /^[a-z]{2,}$/.test(lower)) DICTIONARY.add(lower);
     });
 
-    // 2. Merge in wordlist.js if available
-    let WORDLIST_COUNT = 0;
+    // Merge in WORDLIST if available
+    let wordlistAdded = 0;
     if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
       for (let i = 0; i < WORDLIST.length; i++) {
         const raw = WORDLIST[i];
         if (typeof raw !== 'string') continue;
-        // Only pure alphabetic words — skip numbers, punctuation, abbreviations
-        if (!/^[a-z]+$/i.test(raw)) continue;
-        const lower = raw.toLowerCase();
-        if (lower.length < 2 || lower.length > 30) continue;
+        const lower = raw.toLowerCase().trim();
+        // Accept pure alphabetic words 2-30 chars
+        if (!/^[a-z]{2,30}$/.test(lower)) continue;
         DICTIONARY.add(lower);
-        WORDLIST_COUNT++;
+        wordlistAdded++;
       }
-    } else {
-      console.warn('⚠️ wordlist.js not loaded — using fallback dictionary only. Add <script src="/wordlist.js"></script> before this script.');
     }
 
-    console.log('📚 Dictionary loaded: ' + DICTIONARY.size + ' words (' + WORDLIST_COUNT + ' from wordlist.js)');
+    console.log('📚 Dictionary built: ' + DICTIONARY.size + ' words (' + wordlistAdded + ' from wordlist.js)');
+    console.log('   Test: dictionary has "limit"?', DICTIONARY.has('limit'));
+    console.log('   Test: dictionary has "the"?', DICTIONARY.has('the'));
 
-    /* ============================================================
-       COMMON MISSPELLINGS  (lowercase -> correct)
-       ============================================================ */
+    // ============================================================
+    // MISSPELLINGS
+    // ============================================================
     const MISSPELLINGS = {
       teh: 'the', recieve: 'receive', recieved: 'received', recieving: 'receiving',
       seperate: 'separate', seperated: 'separated', seperately: 'separately',
@@ -1333,7 +670,6 @@
       vehical: 'vehicle', visable: 'visible', waht: 'what', wether: 'whether',
       writting: 'writing', yeild: 'yield', irregardless: 'regardless',
       supposably: 'supposedly', conversate: 'converse', orientate: 'orient',
-      // contractions typed without apostrophes
       dont: "don't", cant: "can't", wont: "won't", isnt: "isn't", arent: "aren't",
       wasnt: "wasn't", werent: "weren't", didnt: "didn't", doesnt: "doesn't",
       couldnt: "couldn't", shouldnt: "shouldn't", wouldnt: "wouldn't",
@@ -1342,27 +678,33 @@
       whats: "what's", heres: "here's", theres: "there's"
     };
 
-    /* ============================================================
-       DOM
-       ============================================================ */
-    const inputEl    = document.getElementById('gsInput');
-    const checkBtn   = document.getElementById('gsCheckBtn');
-    const fixAllBtn  = document.getElementById('gsFixAllBtn');
-    const copyBtn    = document.getElementById('gsCopyBtn');
-    const clearBtn   = document.getElementById('gsClearBtn');
-    const sampleBtn  = document.getElementById('gsSampleBtn');
-    const issuesEl   = document.getElementById('gsIssues');
-    const summaryEl  = document.getElementById('gsSummary');
-    const emptyEl    = document.getElementById('gsEmpty');
-    const scoreEl    = document.getElementById('gsScore');
-    const toastEl    = document.getElementById('gsToast');
-    const wordCountEl = document.getElementById('gsWordCount');
-    const charCountEl = document.getElementById('gsCharCount');
-    const sentCountEl = document.getElementById('gsSentenceCount');
+    // ============================================================
+    // DOM REFERENCES
+    // ============================================================
+    function $(id) { return document.getElementById(id); }
+    const inputEl    = $('gsInput');
+    const checkBtn   = $('gsCheckBtn');
+    const fixAllBtn  = $('gsFixAllBtn');
+    const copyBtn    = $('gsCopyBtn');
+    const clearBtn   = $('gsClearBtn');
+    const sampleBtn  = $('gsSampleBtn');
+    const issuesEl   = $('gsIssues');
+    const summaryEl  = $('gsSummary');
+    const emptyEl    = $('gsEmpty');
+    const scoreEl    = $('gsScore');
+    const toastEl    = $('gsToast');
+    const wordCountEl = $('gsWordCount');
+    const charCountEl = $('gsCharCount');
+    const sentCountEl = $('gsSentenceCount');
 
-    /* ============================================================
-       STATE
-       ============================================================ */
+    if (!inputEl || !checkBtn) {
+      console.error('❌ Critical DOM elements not found. Check the HTML IDs.');
+      return;
+    }
+
+    // ============================================================
+    // STATE
+    // ============================================================
     let currentIssues = [];
     let hasChecked = false;
     let debounceTimer = null;
@@ -1373,9 +715,9 @@
       ignoredWords = new Set(JSON.parse(localStorage.getItem('gsIgnoredWords') || '[]'));
     } catch (e) { ignoredWords = new Set(); }
 
-    /* ============================================================
-       HELPERS
-       ============================================================ */
+    // ============================================================
+    // HELPERS
+    // ============================================================
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, function (c) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -1404,15 +746,16 @@
       return parts.length || 1;
     }
     function showToast(msg) {
+      if (!toastEl) return;
       if (toastTimer) clearTimeout(toastTimer);
       toastEl.textContent = msg;
       toastEl.classList.add('show');
       toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
     }
 
-    /* ============================================================
-       ANALYSER
-       ============================================================ */
+    // ============================================================
+    // ANALYSER
+    // ============================================================
     function analyze(text) {
       const issues = [];
       if (!text || !text.trim()) return issues;
@@ -1438,27 +781,27 @@
         }
       }
 
-      /* ---------- 1. Repeated words ---------- */
+      // 1. Repeated words
       each(/\b([A-Za-z][A-Za-z'’-]*)\s+\1\b/gi, function (m) {
         if (m[1].toLowerCase() === 'had') return;
         add(m.index, m.index + m[0].length, m[1],
             'Repeated word: “' + m[1] + ' ' + m[1] + '”.', 'grammar', 'error');
       });
 
-      /* ---------- 2. Multiple spaces ---------- */
+      // 2. Multiple spaces
       each(/[ \t]{2,}/g, function (m) {
         const prev = text.charAt(m.index - 1);
         if (m.index === 0 || prev === '\n') return;
         add(m.index, m.index + m[0].length, ' ', 'Multiple spaces found.', 'style', 'warning');
       });
 
-      /* ---------- 3. Space before punctuation ---------- */
+      // 3. Space before punctuation
       each(/[ \t]+([,.!?;:])/g, function (m) {
         add(m.index, m.index + m[0].length, m[1],
             'Remove the space before “' + m[1] + '”.', 'grammar', 'warning');
       });
 
-      /* ---------- 4. Missing space after punctuation ---------- */
+      // 4. Missing space after punctuation
       each(/([A-Za-z])([!?;:,])([A-Za-z])/g, function (m) {
         add(m.index + 1, m.index + 2, m[2] + ' ',
             'Add a space after “' + m[2] + '”.', 'grammar', 'warning');
@@ -1468,14 +811,14 @@
             'Add a space after the period.', 'grammar', 'warning');
       });
 
-      /* ---------- 5. Lowercase pronoun “i” ---------- */
+      // 5. Lowercase pronoun "i"
       each(/\bi\b/g, function (m) {
         if (text.charAt(m.index + 1) === '.') return;
         add(m.index, m.index + 1, 'I',
             'The pronoun “I” should be capitalised.', 'grammar', 'error');
       });
 
-      /* ---------- 6. Sentence-start capitalisation ---------- */
+      // 6. Sentence-start capitalisation
       each(/([.!?])\s+([a-z])/g, function (m) {
         const idx = m.index + m[0].length - 1;
         add(idx, idx + 1, m[2].toUpperCase(),
@@ -1488,7 +831,7 @@
             'Start the text with a capital letter.', 'grammar', 'error');
       }
 
-      /* ---------- 7. Repeated punctuation ---------- */
+      // 7. Repeated punctuation
       each(/([!?])\1+/g, function (m) {
         add(m.index, m.index + m[0].length, m[1],
             'Repeated punctuation.', 'style', 'warning');
@@ -1498,31 +841,31 @@
             'Repeated commas.', 'style', 'warning');
       });
 
-      /* ---------- 8. “could of” family ---------- */
+      // 8. "could of" family
       each(/\b(could|should|would|must|might)\s+of\b/gi, function (m) {
         add(m.index, m.index + m[0].length, m[1] + ' have',
             'Use “' + m[1] + ' have” instead of “' + m[1] + ' of”.', 'grammar', 'error');
       });
 
-      /* ---------- 9. your / you’re ---------- */
+      // 9. your / you're
       each(/\byour\s+(welcome|right|wrong|correct|amazing|awesome|going|doing|not|the\s+best)\b/gi, function (m) {
         const rep = /^[A-Z]/.test(m[0]) ? "You're" : "you're";
         add(m.index, m.index + 4, rep, 'Did you mean “you’re”?', 'grammar', 'error');
       });
 
-      /* ---------- 10. its / it’s ---------- */
+      // 10. its / it's
       each(/\bits\s+(not|been|going|a|an|the|really|very|so|too|just|already|important|possible|time|getting|being|made|done)\b/gi, function (m) {
         const rep = /^[A-Z]/.test(m[0]) ? "It's" : "it's";
         add(m.index, m.index + 3, rep, 'Did you mean “it’s” (it is)?', 'grammar', 'error');
       });
 
-      /* ---------- 11. their is / their are ---------- */
+      // 11. their is / their are
       each(/\btheir\s+(is|are|was|were|has|have)\b/gi, function (m) {
         const rep = /^[A-Z]/.test(m[0]) ? 'There' : 'there';
         add(m.index, m.index + 5, rep, 'Did you mean “there”?', 'grammar', 'error');
       });
 
-      /* ---------- 12. a / an ---------- */
+      // 12. a / an
       const aExceptions = /^(university|universities|user|users|unique|useful|unit|units|union|united|universal|usual|usually|european|one|once|uniform|utility|uranium|url|usb|ufo|ukulele|ubiquitous|unanimous|unicorn)/;
       each(/\b([Aa])\s+([A-Za-z]+)/g, function (m) {
         const w = m[2].toLowerCase();
@@ -1540,7 +883,7 @@
         }
       });
 
-      /* ---------- 13. Style / wordiness ---------- */
+      // 13. Style / wordiness
       const styleRules = [
         { re: /\bvery unique\b/gi,  rep: 'unique',   msg: '“Very unique” is redundant — “unique” is absolute.' },
         { re: /\bin order to\b/gi,  rep: 'to',       msg: 'Consider “to” instead of “in order to”.' },
@@ -1556,7 +899,7 @@
         });
       });
 
-      /* ---------- 14. Spelling ---------- */
+      // 14. Spelling
       const wordRe = /[A-Za-z][A-Za-z'’]*/g;
       let wm;
       while ((wm = wordRe.exec(text)) !== null) {
@@ -1568,7 +911,6 @@
 
         const lower = word.toLowerCase().replace(/’/g, "'");
 
-        // Known misspelling
         if (Object.prototype.hasOwnProperty.call(MISSPELLINGS, lower)) {
           const sug = matchCase(word, MISSPELLINGS[lower]);
           add(start, end, sug, '“' + word + '” is misspelled — did you mean “' + sug + '”?',
@@ -1576,19 +918,11 @@
           continue;
         }
 
-        // In dictionary
         if (DICTIONARY.has(lower)) continue;
-
-        // User ignored
         if (ignoredWords.has(lower)) continue;
-
-        // All-caps acronyms
         if (word.length > 1 && word === word.toUpperCase()) continue;
-
-        // Words with apostrophes are usually names/contractions
         if (lower.indexOf("'") !== -1) continue;
 
-        // Capitalised mid-sentence → probably a proper noun
         const isCapitalised = /^[A-Z]/.test(word);
         const before = text.slice(Math.max(0, start - 2), start);
         const atSentenceStart = start === 0 || /[.!?]\s*$/.test(before) || /\n\s*$/.test(before);
@@ -1599,7 +933,7 @@
             'spelling', 'info');
       }
 
-      /* ---------- Overlap filter ---------- */
+      // Overlap filter
       issues.sort(function (a, b) {
         if (a.start !== b.start) return a.start - b.start;
         return (b.end - b.start) - (a.end - a.start);
@@ -1618,9 +952,9 @@
       return final;
     }
 
-    /* ============================================================
-       RENDERING
-       ============================================================ */
+    // ============================================================
+    // RENDERING
+    // ============================================================
     const TYPE_LABEL = { spelling: 'Spelling', grammar: 'Grammar', style: 'Style' };
 
     function updateStats() {
@@ -1713,9 +1047,9 @@
       fixAllBtn.disabled = !currentIssues.some(function (i) { return i.replacement !== null; });
     }
 
-    /* ============================================================
-       ACTIONS
-       ============================================================ */
+    // ============================================================
+    // ACTIONS
+    // ============================================================
     function runCheck() {
       currentIssues = analyze(inputEl.value);
       hasChecked = true;
@@ -1736,7 +1070,7 @@
         ignoredWords.add(w);
         try {
           localStorage.setItem('gsIgnoredWords', JSON.stringify(Array.from(ignoredWords)));
-        } catch (e) { /* storage unavailable */ }
+        } catch (e) {}
       }
       currentIssues = currentIssues.filter(function (x) { return x !== iss; });
       renderResults();
@@ -1833,9 +1167,9 @@
       showToast('✨ Sample loaded — scroll the results to see the issues.');
     }
 
-    /* ============================================================
-       EVENTS
-       ============================================================ */
+    // ============================================================
+    // EVENT LISTENERS
+    // ============================================================
     checkBtn.addEventListener('click', function () {
       if (!inputEl.value.trim()) {
         showToast('⚠️ Add some text first.');
@@ -1895,17 +1229,16 @@
       });
     });
 
-    /* ============================================================
-       INIT
-       ============================================================ */
+    // ============================================================
+    // INIT
+    // ============================================================
     updateStats();
     renderResults();
 
     console.log('%c✅ Grammar & Spelling Checker ready', 'color:#2d6a4f;font-weight:bold;');
-    console.log('   Shortcuts → Ctrl+Enter: check  |  Ctrl+Shift+C: copy  |  Ctrl+Shift+F: fix all');
+    console.log('   Try typing "limit" and clicking Check — it should NOT be flagged.');
 
   })();
   </script>
- 
 </body>
 </html>

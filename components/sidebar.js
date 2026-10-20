@@ -1,11 +1,12 @@
 /**
  * WebNotePad — sidebar.js
- * Centered "spider-web" toolkit.
+ * Centered "spider-web" toolkit with collision avoidance.
  *
  * Each category is an organic cluster of apps around a small hub — not a
  * circle, not a grid, not a ring. Apps sit at irregular angles and varied
- * radii, connected to their hub by faint web lines. Multiple category webs
- * fill the screen at once. All apps are always visible with readable labels.
+ * radii. A collision-avoidance pass pushes any app that would overlap its
+ * neighbours outward along its own angle, so nothing ever overlaps — even
+ * in dense categories like Games.
  *
  * Page blurs behind the toolkit (same treatment as the games widget).
  *
@@ -230,19 +231,19 @@
       /* Grid of spider-web clusters */
       .tools-web-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: 24px 20px;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: 28px 24px;
         width: 100%;
-        max-width: 1700px;
+        max-width: 1800px;
         margin: 0 auto;
       }
 
-      /* One spider-web cluster — no ring, no border, just open space */
+      /* One spider-web cluster — bigger square so dense clusters have room */
       .tools-web-cluster {
         position: relative;
         aspect-ratio: 1 / 1;
         width: 100%;
-        max-width: 380px;
+        max-width: 420px;
         margin: 0 auto;
         opacity: 0;
         transform: scale(0.85);
@@ -254,7 +255,7 @@
         transform: scale(1);
       }
 
-      /* SVG web lines layer — sits behind everything in the cluster */
+      /* SVG web lines layer */
       .tools-web-lines {
         position: absolute;
         inset: 0;
@@ -270,19 +271,16 @@
         stroke-opacity: 0.7;
         stroke-dasharray: 3 4;
       }
-      body.dark .tools-web-lines line {
-        stroke: var(--paper-edge, #2a2a34);
-      }
+      body.dark .tools-web-lines line { stroke: var(--paper-edge, #2a2a34); }
       .tools-radial-stage.open .tools-web-lines line {
         animation: webLineDraw 0.7s ease-out both;
       }
-
       @keyframes webLineDraw {
         0%   { stroke-dashoffset: 30; stroke-opacity: 0; }
         100% { stroke-dashoffset: 0;  stroke-opacity: 0.7; }
       }
 
-      /* Category hub — small node at the cluster's center */
+      /* Category hub */
       .tools-web-hub {
         position: absolute;
         left: 50%;
@@ -329,7 +327,7 @@
       .tools-web-cluster.is-games .tools-web-hub-label { color: #4f46e5; }
       body.dark .tools-web-cluster.is-games .tools-web-hub-label { color: #818cf8; }
 
-      /* App node — sits at an irregular position via --web-x/--web-y */
+      /* App node */
       .tools-web-app {
         position: absolute;
         left: 50%;
@@ -429,14 +427,14 @@
         }
       }
 
-      @media (max-width: 1100px) {
-        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
-        .tools-web-cluster { max-width: 360px; }
+      @media (max-width: 1200px) {
+        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+        .tools-web-cluster { max-width: 400px; }
       }
       @media (max-width: 900px) {
         .tools-radial-stage { padding: 24px 16px 40px; }
-        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px 16px; }
-        .tools-web-cluster { max-width: 340px; }
+        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px 16px; }
+        .tools-web-cluster { max-width: 380px; }
         .tools-web-hub { width: 72px; height: 72px; margin-left: -36px; margin-top: -36px; }
         .tools-web-hub-label { font-size: 0.56rem; }
         .tools-web-hub-count { font-size: 0.46rem; }
@@ -450,8 +448,8 @@
         .tools-floating-trigger svg { width: 22px; height: 22px; }
         .tools-floating-trigger .trigger-emoji { font-size: 22px; }
         .tools-radial-stage { padding: 16px 12px 32px; }
-        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px 12px; }
-        .tools-web-cluster { max-width: 320px; }
+        .tools-web-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px 12px; }
+        .tools-web-cluster { max-width: 360px; }
         .tools-web-hub { width: 66px; height: 66px; margin-left: -33px; margin-top: -33px; }
         .tools-web-hub-label { font-size: 0.52rem; }
         .tools-web-hub-count { font-size: 0.42rem; }
@@ -462,7 +460,7 @@
       }
       @media (max-width: 400px) {
         .tools-web-grid { grid-template-columns: 1fr; }
-        .tools-web-cluster { max-width: 300px; }
+        .tools-web-cluster { max-width: 340px; }
         .tools-web-app { width: 48px; }
         .tools-web-app-icon { width: 36px; height: 36px; }
         .tools-web-app-icon svg { width: 18px; height: 18px; }
@@ -498,16 +496,10 @@
     const grid = document.getElementById('toolsWebGrid');
 
     // ── 4. Build clusters ─────────────────────────────────────
-    // Each cluster is a spider web: hub at the center, apps scattered at
-    // irregular positions. We generate a set of irregular angles + radii
-    // per tool count so it never looks like a ring.
-    const clusters = []; // { el, svg, apps: [{ el, tool }], toolCount }
+    const clusters = [];
 
-    // Deterministic irregular angle/radius generator — looks hand-scattered
-    // but stays stable across renders.
+    // Irregular angle/radius generator — hand-tuned so no pattern emerges.
     function makeWebLayout(count) {
-      // Hand-tuned angle offsets (degrees from top) for up to 11 items.
-      // These are deliberately irregular so nothing reads as a circle.
       const angleSets = {
         2: [18, 205],
         3: [-22, 118, 248],
@@ -520,10 +512,7 @@
         10: [4, 44, 88, 130, 174, 216, 258, 300, 338, 358],
         11: [-10, 28, 68, 106, 144, 182, 220, 258, 296, 332, 356]
       };
-
-      // Radius variation per index — alternate near/far so the web feels organic.
       const radiusFactors = [1.00, 0.82, 1.12, 0.88, 1.05, 0.78, 1.10, 0.90, 1.02, 0.85, 1.08];
-
       const angles = angleSets[count] || angleSets[8];
       return angles.map((a, i) => ({
         angle: a,
@@ -535,14 +524,12 @@
       const clusterEl = document.createElement('div');
       clusterEl.className = 'tools-web-cluster' + (isGames ? ' is-games' : '');
 
-      // SVG line layer
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('class', 'tools-web-lines');
       svg.setAttribute('viewBox', '0 0 100 100');
       svg.setAttribute('preserveAspectRatio', 'none');
       clusterEl.appendChild(svg);
 
-      // Hub
       const hub = document.createElement('div');
       hub.className = 'tools-web-hub';
       hub.innerHTML = `
@@ -551,7 +538,6 @@
       `;
       clusterEl.appendChild(hub);
 
-      // Apps
       const apps = [];
       const layout = makeWebLayout(tools.length);
       tools.forEach((tool, i) => {
@@ -582,41 +568,133 @@
     grid.appendChild(gamesCluster.el);
     clusters.push(gamesCluster);
 
-    // ── 5. Layout: position apps irregularly + draw web lines ─
+    // ── 5. Layout with collision avoidance ───────────────────
+    //
+    // Steps per cluster:
+    //   1. Compute each app's raw (x, y) from its angle + radius factor.
+    //   2. Run pairwise collision check: if two apps' bounding boxes
+    //      overlap, push the one with the larger index further out
+    //      along its own angle until it clears.
+    //   3. Clamp final positions so icon + label stay inside the square.
+    //   4. Draw web lines + set CSS custom properties.
+
+    const APP_W = 62;   // matches .tools-web-app width
+    const APP_H = 72;   // icon (48) + gap (4) + label (~20)
+    const COLLISION_PAD = 6;
+
+    function rectsOverlap(a, b, pad) {
+      return !(
+        a.right + pad < b.left ||
+        a.left - pad > b.right ||
+        a.bottom + pad < b.top ||
+        a.top - pad > b.bottom
+      );
+    }
+
     function layoutCluster(cluster) {
       const { el, svg, apps } = cluster;
       const size = el.clientWidth;
       if (!size) return;
 
-      // Max distance from center that still keeps icon+label inside the square
-      const maxR = size / 2 - 56;
-      // Base radius — grows with the cluster square
-      const baseR = Math.min(size * 0.34, maxR);
+      const half = size / 2;
+      // Max offset from center that keeps a full app inside the square
+      const maxOffsetX = half - APP_W / 2 - 4;
+      const maxOffsetY = half - APP_H / 2 - 4;
 
-      // Clear old lines
+      // Base radius — bigger for dense clusters so they spread out
+      const count = apps.length;
+      let baseR;
+      if (count <= 3) baseR = Math.min(size * 0.26, maxOffsetX);
+      else if (count <= 5) baseR = Math.min(size * 0.30, maxOffsetX);
+      else if (count <= 8) baseR = Math.min(size * 0.34, maxOffsetX);
+      else baseR = Math.min(size * 0.38, maxOffsetX);
+
+      // 1. Raw positions
+      const positions = apps.map((app) => {
+        const angleRad = (app.layout.angle * Math.PI) / 180;
+        const r = baseR * app.layout.factor;
+        return {
+          x: Math.cos(angleRad) * r,
+          y: Math.sin(angleRad) * r,
+          angleRad,
+          r,
+          factor: app.layout.factor
+        };
+      });
+
+      // 2. Collision resolution — multiple passes so pushes cascade.
+      //    For each overlapping pair, push the later one outward.
+      function buildRect(pos) {
+        return {
+          left:   pos.x - APP_W / 2,
+          right:  pos.x + APP_W / 2,
+          top:    pos.y - APP_H / 2,
+          bottom: pos.y + APP_H / 2
+        };
+      }
+
+      const MAX_PASSES = 20;
+      const PUSH_STEP = 6;
+
+      for (let pass = 0; pass < MAX_PASSES; pass++) {
+        let moved = false;
+
+        for (let i = 0; i < positions.length; i++) {
+          for (let j = i + 1; j < positions.length; j++) {
+            const ri = buildRect(positions[i]);
+            const rj = buildRect(positions[j]);
+            if (rectsOverlap(ri, rj, COLLISION_PAD)) {
+              // Push the one with the larger radius (further from hub)
+              // outward first; if they're equal, push j.
+              const pi = positions[i];
+              const pj = positions[j];
+              const pushI = pi.r >= pj.r ? pi : pj;
+              const pushSign = (pi.r >= pj.r) ? i : j;
+              // Increase its radius; recompute x/y along its angle
+              pushI.r += PUSH_STEP;
+              pushI.x = Math.cos(pushI.angleRad) * pushI.r;
+              pushI.y = Math.sin(pushI.angleRad) * pushI.r;
+              moved = true;
+
+              // If we've hit the clamp limit, try pushing the other one
+              const maxR = Math.hypot(maxOffsetX, maxOffsetY);
+              if (pushI.r > maxR) {
+                const other = (pushSign === i) ? pj : pi;
+                other.r += PUSH_STEP;
+                other.x = Math.cos(other.angleRad) * other.r;
+                other.y = Math.sin(other.angleRad) * other.r;
+              }
+            }
+          }
+        }
+
+        if (!moved) break;
+      }
+
+      // 3. Clamp to square (keep icon + label inside)
+      positions.forEach((pos) => {
+        if (pos.x >  maxOffsetX) pos.x =  maxOffsetX;
+        if (pos.x < -maxOffsetX) pos.x = -maxOffsetX;
+        if (pos.y >  maxOffsetY) pos.y =  maxOffsetY;
+        if (pos.y < -maxOffsetY) pos.y = -maxOffsetY;
+      });
+
+      // 4. Clear old lines, apply positions, draw new lines
       while (svg.firstChild) svg.removeChild(svg.firstChild);
-
-      // Convert pixel positions to viewBox coords (0–100) for the SVG layer
       const vbScale = 100 / size;
 
-      apps.forEach((app) => {
-        const angleDeg = app.layout.angle;
-        const angleRad = (angleDeg * Math.PI) / 180;
-        const r = baseR * app.layout.factor;
-        const x = Math.cos(angleRad) * r;
-        const y = Math.sin(angleRad) * r;
+      apps.forEach((app, i) => {
+        const pos = positions[i];
 
-        app.el.style.setProperty('--web-x', `${x.toFixed(2)}px`);
-        app.el.style.setProperty('--web-y', `${y.toFixed(2)}px`);
+        app.el.style.setProperty('--web-x', `${pos.x.toFixed(2)}px`);
+        app.el.style.setProperty('--web-y', `${pos.y.toFixed(2)}px`);
 
-        // Draw a web line from hub center (50,50) to this app's position
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
         line.setAttribute('x1', '50');
         line.setAttribute('y1', '50');
-        line.setAttribute('x2', (50 + x * vbScale).toFixed(2));
-        line.setAttribute('y2', (50 + y * vbScale).toFixed(2));
-        // Animate each line slightly after its app appears
-        line.style.animationDelay = `${0.05 + apps.indexOf(app) * 0.04}s`;
+        line.setAttribute('x2', (50 + pos.x * vbScale).toFixed(2));
+        line.setAttribute('y2', (50 + pos.y * vbScale).toFixed(2));
+        line.style.animationDelay = `${0.05 + i * 0.04}s`;
         svg.appendChild(line);
       });
     }
@@ -684,6 +762,6 @@
       if (e.target === stage) closeStage();
     });
 
-    console.log('[sidebar.js] Spider-web toolkit initialized.');
+    console.log('[sidebar.js] Spider-web toolkit initialized (with collision avoidance).');
   }
 })();

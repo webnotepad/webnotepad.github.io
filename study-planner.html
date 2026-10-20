@@ -425,6 +425,63 @@
       }
     }
   </style>
+  <style>
+    /* Compact hero — preserves all SEO text, reduces vertical space */
+.hero {
+  padding-top: 40px !important;
+  padding-bottom: 32px !important;
+  min-height: auto !important;
+}
+.hero-inner {
+  padding-top: 20px !important;
+  padding-bottom: 24px !important;
+}
+.hero-badge {
+  margin-bottom: 12px !important;
+  padding: 5px 14px !important;
+  font-size: 0.75rem !important;
+}
+.hero-title {
+  font-size: clamp(1.6rem, 4vw, 2.6rem) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 12px !important;
+}
+.hero-sub {
+  font-size: 0.92rem !important;
+  max-width: 620px !important;
+  margin-bottom: 18px !important;
+  line-height: 1.55 !important;
+}
+.hero-cta-group {
+  margin-bottom: 20px !important;
+  gap: 10px !important;
+}
+.hero-cta-group .btn {
+  padding: 10px 22px !important;
+  font-size: 0.9rem !important;
+}
+.hero-stats {
+  gap: 20px !important;
+}
+.hero-stats .stat strong {
+  font-size: 1.25rem !important;
+}
+.hero-stats .stat span {
+  font-size: 0.7rem !important;
+}
+.hero-scroll-hint {
+  display: none !important; /* removes the scroll hint bar, saves space */
+}
+
+/* Mobile: compress even further */
+@media (max-width: 600px) {
+  .hero { padding-top: 28px !important; padding-bottom: 20px !important; }
+  .hero-title { font-size: clamp(1.4rem, 7vw, 2rem) !important; }
+  .hero-sub { font-size: 0.85rem !important; margin-bottom: 14px !important; }
+  .hero-stats { gap: 14px !important; }
+  .hero-stats .stat strong { font-size: 1.05rem !important; }
+}
+    </style>
 </head>
 <body>
 

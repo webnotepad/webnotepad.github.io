@@ -834,6 +834,67 @@
             .br-dot { animation: none; }
         }
     </style>
+    <style>
+        /* ===== Compact hero override — preserves all SEO text ===== */
+.br-hero {
+    min-height: auto !important;
+    padding: 22px 0 16px !important;
+}
+.br-hero-badge {
+    margin-bottom: 10px !important;
+    padding: 4px 12px !important;
+    font-size: 0.68rem !important;
+}
+.br-hero-title {
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
+}
+.br-hero-sub {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 16px !important;
+    max-width: 560px !important;
+}
+.br-hero-cta {
+    margin-bottom: 0 !important;
+    gap: 10px !important;
+}
+.br-hero-cta .btn {
+    padding: 9px 20px !important;
+    font-size: 0.88rem !important;
+}
+.br-hero-chips {
+    margin-top: 16px !important;
+    gap: 6px !important;
+}
+.br-chip {
+    padding: 4px 11px !important;
+    font-size: 0.7rem !important;
+}
+.br-hero-demo {
+    margin-top: 14px !important;
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.65 !important;
+    max-width: 580px !important;
+}
+
+/* Mobile: compress further so the tool comes up sooner */
+@media (max-width: 768px) {
+    .br-hero { padding: 18px 0 14px !important; }
+    .br-hero-title { font-size: clamp(1.45rem, 6.5vw, 2rem) !important; }
+    .br-hero-sub { font-size: 0.85rem !important; margin-bottom: 12px !important; }
+    .br-hero-chips { margin-top: 12px !important; }
+    .br-hero-demo { font-size: 0.8rem !important; padding: 9px 12px !important; margin-top: 12px !important; }
+}
+@media (max-width: 480px) {
+    .br-hero-cta { flex-direction: row !important; }
+    .br-hero-cta .btn { flex: 1 1 auto; padding: 9px 14px !important; font-size: 0.82rem !important; }
+    .br-hero-chips { gap: 5px !important; }
+    .br-chip { font-size: 0.64rem !important; padding: 3px 9px !important; }
+}
+        </style>
 </head>
 <body>
 

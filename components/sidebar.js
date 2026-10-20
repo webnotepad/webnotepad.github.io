@@ -2,9 +2,10 @@
  * WebNotePad — sidebar.js
  * Injects a fixed dynamic sidebar for productive tools.
  *
- * Style: Grid-based app tiles (columns + rows), NOT a radial circle.
- * Each app is a rounded box tile with icon on top and label underneath,
- * matching the palette of the games/share radial menus.
+ * Style: EACH CATEGORY IS ITS OWN RADIAL CIRCLE.
+ * Apps fan out around a central category hub, with icon bubbles + always-visible
+ * labels underneath — matching the games/share radial menu aesthetic.
+ * Multiple category circles are laid out in a responsive grid of circles.
  *
  * Theme: Editorial / Ink-on-paper aesthetic
  */
@@ -14,6 +15,7 @@
   const categories = [
     {
       name: "📝 Writing & Note-Taking",
+      shortName: "Writing",
       tools: [
         {
           name: "Notepad",
@@ -67,6 +69,7 @@
     },
     {
       name: "📄 PDF Tools",
+      shortName: "PDF Tools",
       tools: [
         {
           name: "PDF Merger",
@@ -90,6 +93,7 @@
     },
     {
       name: "📊 Text Analysis",
+      shortName: "Text Analysis",
       tools: [
         {
           name: "Case Converter",
@@ -143,6 +147,7 @@
     },
     {
       name: "🖼️ Image Editing",
+      shortName: "Images",
       tools: [
         {
           name: "Image Converter",
@@ -178,6 +183,7 @@
     },
     {
       name: "🧮 Calculators",
+      shortName: "Calculators",
       tools: [
         {
           name: "Typing Test",
@@ -231,6 +237,7 @@
     },
     {
       name: "🧠 Ideas & Lists",
+      shortName: "Ideas & Lists",
       tools: [
         {
           name: "MindMap",
@@ -254,6 +261,7 @@
     },
     {
       name: "🎲 Creativity",
+      shortName: "Creativity",
       tools: [
         {
           name: "Random Text",
@@ -295,6 +303,7 @@
     },
     {
       name: "🔍 Word Helpers",
+      shortName: "Word Helpers",
       tools: [
         {
           name: "Word Finder",
@@ -318,6 +327,7 @@
     },
     {
       name: "⏳ Productivity",
+      shortName: "Productivity",
       tools: [
         {
           name: "Pomodoro",
@@ -335,6 +345,7 @@
     },
     {
       name: "🔐 Generators",
+      shortName: "Generators",
       tools: [
         {
           name: "Password Gen",
@@ -370,6 +381,7 @@
     },
     {
       name: "🎨 Design & Fun",
+      shortName: "Design & Fun",
       tools: [
         {
           name: "Color Converter",
@@ -407,16 +419,16 @@
 
   // ── Games catalog (mirrors header) ──
   const GAMES = [
-    { id: 'connections-unlimited', name: 'Connections Unlimited', emoji: '🧩', desc: 'Group 16 words into 4 categories', url: '/connections-unlimited' },
-    { id: 'spelling-bee', name: 'Spelling Bee Unlimited', emoji: '🐝', desc: 'Build words from 7 letters', url: '/spelling-bee-unlimited' },
-    { id: 'crossword-puzzle', name: 'Crossword Puzzle', emoji: '📝', desc: 'Solve interactive crossword grids', url: '/crossword-puzzle' },
-    { id: 'wordle', name: 'Wordle', emoji: '🔤', desc: 'Guess the 5-letter word', url: '/wordle' },
-    { id: 'word-search', name: 'Word Search', emoji: '🔍', desc: 'Find hidden words in a grid', url: '/word-search' },
-    { id: 'memory-match', name: 'Memory Match', emoji: '🃏', desc: 'Flip and match the cards', url: '/memory-match' },
-    { id: '2048', name: '2048', emoji: '🔢', desc: 'Slide to combine numbers', url: '/2048' },
-    { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', emoji: '❌', desc: 'Three in a row wins', url: '/tic-tac-toe' },
-    { id: 'sudoku', name: 'Sudoku', emoji: '🧮', desc: 'Fill the grid with digits', url: '/sudoku' },
-    { id: 'minesweeper', name: 'Minesweeper', emoji: '💣', desc: 'Clear the minefield', url: '/minesweeper' }
+    { id: 'connections-unlimited', name: 'Connections', emoji: '🧩', desc: 'Group 16 words', url: '/connections-unlimited' },
+    { id: 'spelling-bee', name: 'Spelling Bee', emoji: '🐝', desc: 'Build from 7 letters', url: '/spelling-bee-unlimited' },
+    { id: 'crossword-puzzle', name: 'Crossword', emoji: '📝', desc: 'Solve the grid', url: '/crossword-puzzle' },
+    { id: 'wordle', name: 'Wordle', emoji: '🔤', desc: 'Guess the word', url: '/wordle' },
+    { id: 'word-search', name: 'Word Search', emoji: '🔍', desc: 'Find hidden words', url: '/word-search' },
+    { id: 'memory-match', name: 'Memory', emoji: '🃏', desc: 'Match the cards', url: '/memory-match' },
+    { id: '2048', name: '2048', emoji: '🔢', desc: 'Combine numbers', url: '/2048' },
+    { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', emoji: '❌', desc: 'Three in a row', url: '/tic-tac-toe' },
+    { id: 'sudoku', name: 'Sudoku', emoji: '🧮', desc: 'Fill the grid', url: '/sudoku' },
+    { id: 'minesweeper', name: 'Minesweeper', emoji: '💣', desc: 'Clear the field', url: '/minesweeper' }
   ];
 
   // ── Move PDF Tools to the second row (mirrors header order) ──
@@ -471,7 +483,9 @@
 
   // 3. Inject CSS Styles
   const cssStyles = `
-    /* Floating Launch Trigger Button */
+    /* ============================================================
+       FLOATING TRIGGER
+       ============================================================ */
     .tools-floating-trigger {
       position: fixed;
       bottom: 120px;
@@ -530,14 +544,16 @@
       transform: rotate(90deg);
     }
 
-    /* Fixed Sidebar — ~55vw on desktop */
+    /* ============================================================
+       FIXED SIDEBAR — wider now to fit multiple circles side-by-side
+       ============================================================ */
     .tools-fixed-sidebar {
       position: fixed;
       top: 0;
       right: 0;
-      width: 55vw;
+      width: 60vw;
       max-width: 100vw;
-      min-width: 660px;
+      min-width: 720px;
       height: 100vh;
       background: var(--paper);
       border-left: 1px solid var(--paper-edge);
@@ -619,7 +635,7 @@
       background: var(--paper-edge);
     }
 
-    /* ---- Compact Top Section & Reduced Spacing ---- */
+    /* ---- Top Featured Section ---- */
     .tools-sb-top-section {
       flex-shrink: 0;
       padding: 10px 16px 12px;
@@ -655,8 +671,6 @@
       flex: 1;
       min-width: 0;
     }
-
-    /* Featured tool tile — matches the grid app-tile style */
     .tools-sb-new-item {
       padding: 8px 6px 7px;
       border-radius: var(--radius);
@@ -720,224 +734,241 @@
     }
 
     /* ============================================================
-       MAIN BODY — GRID OF APP TILES (columns + rows, not circle)
+       MAIN BODY — grid of CATEGORY CIRCLES
        ============================================================ */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
-      padding: 16px 20px 32px;
+      padding: 20px 20px 40px;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px 14px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px 24px;
       align-content: start;
       overscroll-behavior: contain;
     }
 
-    /* Category block */
-    .tools-sb-category-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 0;
-      background: var(--paper-warm);
-      border: 1px solid var(--paper-edge);
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      box-sizing: border-box;
-    }
-
-    /* Category header */
-    .tools-sb-category {
-      font-family: var(--font-display);
-      font-size: 0.62rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-      padding-bottom: 6px;
-      border-bottom: 2px solid var(--paper-edge);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-    .tools-sb-category > span:first-child {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .tools-sb-category-count {
-      font-family: var(--font-mono);
-      font-size: 0.52rem;
-      font-weight: 600;
-      color: var(--ink-muted);
-      padding: 1px 5px;
-      border-radius: 100px;
-      background: var(--paper);
-      border: 1px solid var(--paper-edge);
-      letter-spacing: 0.03em;
-      flex-shrink: 0;
-    }
-
-    /* Tools grid inside each category: 2 columns of app tiles */
-    .tools-sb-category-tools {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 8px;
-    }
-
     /* ============================================================
-       APP TILE — rounded BOX (not circle), icon on top + label below
-       Matching the radial menu tile aesthetic.
+       CATEGORY CIRCLE — radial menu for each category
        ============================================================ */
-    .tools-sb-item {
+    .tools-cat-circle {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      text-align: center;
-      gap: 6px;
-      padding: 10px 6px 9px;
-      border-radius: 10px;
-      border: 1px solid var(--paper-edge);
-      background: var(--paper);
-      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                  background var(--transition),
-                  border-color var(--transition),
-                  box-shadow var(--transition);
-      opacity: 0;
-      transform: translateY(10px) scale(0.96);
-      text-decoration: none;
-      cursor: pointer;
-      min-width: 0;
-      position: relative;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-    .tools-fixed-sidebar.open .tools-sb-item {
-      animation: tileSpringIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-    .tools-sb-item:hover {
-      background: var(--paper);
-      border-color: var(--accent);
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 8px 24px rgba(196, 86, 42, 0.2);
-    }
-    .tools-sb-item:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
+      padding: 8px;
+      min-height: 320px;
+      /* The circle itself */
     }
 
-    /* Square icon bubble — rounded box, not circle */
-    .tools-sb-item-icon {
-      width: 42px;
-      height: 42px;
+    /* The radial stage — fixed square that centers the circle */
+    .tools-cat-radial {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* Center hub — the category name */
+    .tools-cat-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
       background: var(--paper-warm);
-      border-radius: 9px;
+      border: 1px dashed var(--paper-edge);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--paper-edge);
-      transition: background var(--transition), border-color var(--transition),
-                  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      flex-shrink: 0;
-      overflow: hidden;
+      text-align: center;
+      padding: 6px;
+      z-index: 3;
+      box-shadow: 0 6px 20px rgba(26,26,46,0.1);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  border-color 0.25s ease,
+                  background 0.25s ease;
     }
-    .tools-sb-item-icon svg {
-      width: 24px;
-      height: 24px;
-      display: block;
+    body.dark .tools-cat-hub {
+      background: var(--paper);
+      border-color: var(--paper-edge);
     }
-    .tools-sb-item:hover .tools-sb-item-icon {
-      background: var(--accent-pale);
-      border-color: var(--accent);
-      transform: scale(1.1);
-    }
-    body.dark .tools-sb-item:hover .tools-sb-item-icon {
-      background: rgba(196,86,42,0.15);
-    }
-
-    .tools-sb-item-details {
-      width: 100%;
-      min-width: 0;
-    }
-    .tools-sb-item-name {
-      font-size: 0.66rem;
-      font-weight: 600;
+    .tools-cat-hub-label {
+      font-family: var(--font-display);
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       color: var(--ink);
       line-height: 1.2;
       word-break: break-word;
-      margin-bottom: 2px;
     }
-    .tools-sb-item-desc {
-      font-size: 0.52rem;
+    .tools-cat-hub-count {
+      font-family: var(--font-mono);
+      font-size: 0.48rem;
+      font-weight: 600;
       color: var(--ink-muted);
-      line-height: 1.3;
-      word-break: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      margin-top: 2px;
+      letter-spacing: 0.03em;
+    }
+    .tools-cat-circle:hover .tools-cat-hub {
+      border-color: var(--accent);
+      background: var(--accent-pale);
+    }
+    body.dark .tools-cat-circle:hover .tools-cat-hub {
+      background: rgba(196,86,42,0.15);
+      border-color: var(--accent-light);
     }
 
-    /* Games category accent */
-    .tools-sb-category-block-games .tools-sb-category {
+    /* Individual app in the circle */
+    .tools-cat-item {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 54px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transform: translate(calc(-50% + var(--radial-x, 0px)), calc(-50% + var(--radial-y, 0px))) scale(0);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.3s ease;
+      will-change: transform, opacity;
+      z-index: 2;
+    }
+    .tools-fixed-sidebar.open .tools-cat-item {
+      opacity: 1;
+      transform: translate(calc(-50% + var(--radial-x, 0px)), calc(-50% + var(--radial-y, 0px))) scale(1);
+    }
+    .tools-cat-item:hover {
+      z-index: 5;
+    }
+
+    /* Circular icon bubble */
+    .tools-cat-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      box-shadow: 0 3px 10px rgba(26, 26, 46, 0.12);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.25s ease,
+                  border-color 0.25s ease,
+                  background 0.25s ease;
+    }
+    body.dark .tools-cat-item-icon {
+      background: var(--paper-warm);
+      border-color: var(--paper-edge);
+    }
+    .tools-cat-item-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      pointer-events: none;
+    }
+    .tools-cat-item:hover .tools-cat-item-icon {
+      transform: scale(1.18);
+      border-color: var(--accent);
+      background: var(--accent-pale);
+      box-shadow: 0 6px 20px rgba(196, 86, 42, 0.3);
+    }
+    body.dark .tools-cat-item:hover .tools-cat-item-icon {
+      background: var(--paper);
+      border-color: var(--accent-light);
+    }
+
+    /* Always-visible label pill */
+    .tools-cat-item-label {
+      font-family: var(--font-body);
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      white-space: nowrap;
+      max-width: 72px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.15;
+      padding: 2px 6px;
+      border-radius: 100px;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      box-shadow: 0 1px 4px rgba(26, 26, 46, 0.06);
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      pointer-events: none;
+    }
+    body.dark .tools-cat-item-label {
+      background: var(--paper-warm);
+      border-color: var(--paper-edge);
+      color: var(--ink);
+    }
+    .tools-cat-item:hover .tools-cat-item-label {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-pale);
+    }
+    body.dark .tools-cat-item:hover .tools-cat-item-label {
+      color: var(--accent-light);
+      border-color: var(--accent-light);
+      background: var(--paper);
+    }
+
+    /* Games circle accent */
+    .tools-cat-circle.is-games .tools-cat-hub {
+      border-color: rgba(99, 102, 241, 0.35);
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.12), rgba(99, 102, 241, 0.04));
+    }
+    .tools-cat-circle.is-games .tools-cat-hub-label {
       color: #4f46e5;
     }
-    body.dark .tools-sb-category-block-games .tools-sb-category {
+    body.dark .tools-cat-circle.is-games .tools-cat-hub-label {
       color: #818cf8;
     }
-    .tools-sb-item-game .tools-sb-item-icon {
-      background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
+    .tools-cat-circle.is-games .tools-cat-item-icon {
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.06));
       border-color: rgba(99, 102, 241, 0.25);
-      font-size: 1.05rem;
+      font-size: 0.95rem;
     }
-    .tools-sb-item-game:hover .tools-sb-item-icon {
-      background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
+    .tools-cat-circle.is-games .tools-cat-item:hover .tools-cat-item-icon {
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.12));
+      border-color: #6366f1;
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+    }
+
+    /* All-games special item accent */
+    .tools-cat-item.is-all-games .tools-cat-item-icon {
+      background: linear-gradient(145deg, rgba(99, 102, 241, 0.28), rgba(99, 102, 241, 0.12));
       border-color: #6366f1;
     }
-    .tools-sb-item-all-games {
-      border-top: 1px dashed var(--paper-edge);
-      margin-top: 2px;
-      padding-top: 6px;
-      color: #4f46e5 !important;
-      font-weight: 600;
-    }
-    .tools-sb-item-all-games .tools-sb-item-name {
+    .tools-cat-item.is-all-games .tools-cat-item-label {
       color: #4f46e5;
-    }
-    body.dark .tools-sb-item-all-games .tools-sb-item-name {
-      color: #818cf8;
+      border-color: rgba(99, 102, 241, 0.4);
     }
 
     /* Scrollbar styling */
-    .tools-sb-body::-webkit-scrollbar {
-      width: 6px;
-    }
-    .tools-sb-body::-webkit-scrollbar-track {
-      background: transparent;
-    }
+    .tools-sb-body::-webkit-scrollbar { width: 6px; }
+    .tools-sb-body::-webkit-scrollbar-track { background: transparent; }
     .tools-sb-body::-webkit-scrollbar-thumb {
       background: var(--paper-edge);
       border-radius: 4px;
     }
-    .tools-sb-body::-webkit-scrollbar-thumb:hover {
-      background: var(--ink-muted);
-    }
+    .tools-sb-body::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
 
     /* Keyframe Animations */
-    @keyframes tileSpringIn {
-      0% {
-        opacity: 0;
-        transform: translateY(10px) scale(0.96);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
     @keyframes attentionPulse {
       0% {
         transform: scale(1);
@@ -986,12 +1017,8 @@
       box-shadow: 0 0 28px 8px rgba(196, 86, 42, 0.65), 0 6px 20px rgba(0, 0, 0, 0.25);
       animation-play-state: paused;
     }
-    .tools-sb-scroll-arrow:hover svg {
-      transform: translateY(3px);
-    }
-    .tools-sb-scroll-arrow:active {
-      transform: scale(0.94);
-    }
+    .tools-sb-scroll-arrow:hover svg { transform: translateY(3px); }
+    .tools-sb-scroll-arrow:active { transform: scale(0.94); }
     body.dark .tools-sb-scroll-arrow {
       background: var(--accent);
       color: #fff;
@@ -1009,10 +1036,10 @@
       }
     }
 
-    /* Respect users who prefer reduced motion */
+    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .tools-fixed-sidebar,
-      .tools-sb-item,
+      .tools-cat-item,
       .tools-floating-trigger,
       .tools-sb-scroll-arrow {
         animation: none !important;
@@ -1020,34 +1047,25 @@
       }
     }
 
-    /* ---------- Responsive adjustments ---------- */
-    @media (max-width: 1200px) {
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
       .tools-sb-body {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px 18px;
       }
       .tools-sb-side-tools {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
-
     @media (max-width: 900px) {
       .tools-fixed-sidebar {
         width: 100%;
         min-width: 0;
-        right: 0;
-        transform: translateX(100%);
-      }
-      .tools-fixed-sidebar.open {
-        transform: translateX(0);
       }
       .tools-sb-body {
-        padding: 12px 16px 24px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-      }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px 6px;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        padding: 16px 14px 32px;
+        gap: 22px 16px;
       }
       .tools-sb-side-tools {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1058,108 +1076,49 @@
         width: 40px;
         height: 40px;
       }
-      .tools-sb-scroll-arrow svg {
-        width: 20px;
-        height: 20px;
-      }
+      .tools-sb-scroll-arrow svg { width: 20px; height: 20px; }
     }
-
     @media (max-width: 640px) {
-      .tools-sb-top-grid {
-        flex-direction: column;
-        gap: 8px;
-      }
+      .tools-sb-top-grid { flex-direction: column; gap: 8px; }
       .tools-sb-side-tools {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 100%;
       }
-      .tools-sb-header {
-        padding: 8px 14px;
-        min-height: 38px;
-      }
-      .tools-sb-header h2 {
-        font-size: 0.9rem;
-      }
-      .tools-sb-body {
-        padding: 10px 10px 20px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 8px;
-      }
-      .tools-sb-item {
-        padding: 9px 6px 8px;
-        gap: 5px;
-      }
-      .tools-sb-item-icon {
-        width: 38px;
-        height: 38px;
-        border-radius: 8px;
-      }
-      .tools-sb-item-icon svg {
-        width: 21px;
-        height: 21px;
-      }
-      .tools-sb-item-name {
-        font-size: 0.64rem;
-      }
-      .tools-sb-item-desc {
-        font-size: 0.5rem;
-      }
-      .tools-floating-trigger {
-        width: 48px;
-        height: 48px;
-        bottom: 100px;
-        right: 18px;
-        font-size: 22px;
-      }
-      .tools-floating-trigger svg {
-        width: 22px;
-        height: 22px;
-      }
-      .tools-floating-trigger .trigger-emoji {
-        font-size: 22px;
-      }
-      .tools-sb-scroll-arrow {
-        bottom: 16px;
-        right: 14px;
-        width: 36px;
-        height: 36px;
-      }
-      .tools-sb-scroll-arrow svg {
-        width: 18px;
-        height: 18px;
-      }
-    }
-
-    @media (max-width: 400px) {
+      .tools-sb-header { padding: 8px 14px; min-height: 38px; }
+      .tools-sb-header h2 { font-size: 0.9rem; }
       .tools-sb-body {
         grid-template-columns: 1fr;
-        gap: 10px;
+        padding: 12px 10px 24px;
+        gap: 18px;
       }
-      .tools-sb-category-tools {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px 6px;
+      .tools-cat-radial { max-width: 250px; }
+      .tools-cat-hub {
+        width: 72px;
+        height: 72px;
       }
-      .tools-sb-side-tools {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .tools-cat-hub-label { font-size: 0.5rem; }
+      .tools-cat-hub-count { font-size: 0.44rem; }
+      .tools-cat-item { width: 48px; }
+      .tools-cat-item-icon { width: 36px; height: 36px; }
+      .tools-cat-item-icon svg { width: 18px; height: 18px; }
+      .tools-cat-item-label { font-size: 0.46rem; max-width: 64px; padding: 2px 5px; }
+      .tools-floating-trigger {
+        width: 48px; height: 48px; bottom: 100px; right: 18px; font-size: 22px;
       }
-      .tools-sb-item-icon {
-        width: 34px;
-        height: 34px;
+      .tools-floating-trigger svg { width: 22px; height: 22px; }
+      .tools-floating-trigger .trigger-emoji { font-size: 22px; }
+      .tools-sb-scroll-arrow {
+        bottom: 16px; right: 14px; width: 36px; height: 36px;
       }
-      .tools-sb-item-icon svg {
-        width: 19px;
-        height: 19px;
-      }
-      .tools-sb-item-name {
-        font-size: 0.6rem;
-      }
-      .tools-sb-item-desc {
-        font-size: 0.48rem;
-      }
+      .tools-sb-scroll-arrow svg { width: 18px; height: 18px; }
+    }
+    @media (max-width: 400px) {
+      .tools-cat-radial { max-width: 220px; }
+      .tools-cat-hub { width: 64px; height: 64px; }
+      .tools-cat-item { width: 44px; }
+      .tools-cat-item-icon { width: 32px; height: 32px; }
+      .tools-cat-item-icon svg { width: 16px; height: 16px; }
+      .tools-cat-item-label { font-size: 0.42rem; max-width: 56px; padding: 1px 4px; }
     }
   `;
 
@@ -1183,7 +1142,7 @@
         <button class="tools-sb-close" id="toolsSidebarClose" aria-label="Close toolkit">✕</button>
       </div>
 
-      <!-- Top Section: Featured newly added tools (no ad) -->
+      <!-- Top Section: Featured newly added tools -->
       <div class="tools-sb-top-section">
         <span class="tools-sb-ad-label">Featured Tools</span>
         <div class="tools-sb-top-grid">
@@ -1225,100 +1184,178 @@
     return a;
   }
 
-  // Combine left + right featured tools into one balanced grid (no ad between them)
+  // Combine featured tools
   const featuredTools = [...newLeftTools, ...newRightTools];
   featuredTools.forEach(t => featuredContainer.appendChild(buildNewToolCard(t)));
 
-  // Populate categories inside sidebar body
-  let toolIndex = 0;
+  // =========================================================
+  // RADIAL LAYOUT ENGINE — one circle per category
+  // =========================================================
+
+  /**
+   * Compute the radius for a category circle based on tool count.
+   * Circle is square (aspect-ratio 1:1), so we use a fraction of its
+   * rendered width. We compute at runtime from the actual element width.
+   */
+  function getCategoryRadius(circleEl, count) {
+    const size = circleEl.clientWidth; // the .tools-cat-radial square
+    if (!size) return 90;
+
+    // Ensure the ring stays inside the square: icon + label need ~90px of
+    // breathing room from the center (label sits below the icon).
+    const maxRadius = size / 2 - 34;
+
+    let base;
+    if (count <= 3) base = size * 0.28;
+    else if (count <= 5) base = size * 0.32;
+    else if (count <= 8) base = size * 0.36;
+    else base = size * 0.38;
+
+    return Math.max(70, Math.min(base, maxRadius));
+  }
+
+  /**
+   * Position items evenly around a full circle centered on the hub.
+   * Starts at top (-90°) and goes clockwise.
+   */
+  function layoutCategoryItems(radialEl, items) {
+    const count = items.length;
+    if (!count) return;
+
+    const radius = getCategoryRadius(radialEl, count);
+    const startAngle = -90;
+    const step = 360 / count;
+
+    items.forEach((item, i) => {
+      const angleDeg = startAngle + step * i;
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const x = Math.cos(angleRad) * radius;
+      const y = Math.sin(angleRad) * radius;
+      item.style.setProperty("--radial-x", `${x.toFixed(2)}px`);
+      item.style.setProperty("--radial-y", `${y.toFixed(2)}px`);
+    });
+  }
+
+  // Store references for relayout on resize/open
+  const categoryCircles = [];
+
+  // =========================================================
+  // BUILD EACH CATEGORY AS A CIRCLE
+  // =========================================================
 
   categories.forEach((category) => {
-    const catBlock = document.createElement("div");
-    catBlock.className = "tools-sb-category-block";
+    // Outer wrapper
+    const circleWrap = document.createElement("div");
+    circleWrap.className = "tools-cat-circle";
 
-    const catHeader = document.createElement("div");
-    catHeader.className = "tools-sb-category";
-    catHeader.innerHTML = `
-      <span>${category.name}</span>
-      <span class="tools-sb-category-count">${category.tools.length} ${category.tools.length === 1 ? "tool" : "tools"}</span>
+    // The square radial stage
+    const radialEl = document.createElement("div");
+    radialEl.className = "tools-cat-radial";
+
+    // Center hub
+    const hub = document.createElement("div");
+    hub.className = "tools-cat-hub";
+    hub.innerHTML = `
+      <span class="tools-cat-hub-label">${category.shortName || category.name.replace(/^[^\s]+\s/, "")}</span>
+      <span class="tools-cat-hub-count">${category.tools.length} ${category.tools.length === 1 ? "tool" : "tools"}</span>
     `;
-    catBlock.appendChild(catHeader);
+    radialEl.appendChild(hub);
 
-    const toolsRow = document.createElement("div");
-    toolsRow.className = "tools-sb-category-tools";
-
-    category.tools.forEach((tool) => {
+    // Build items
+    const items = [];
+    category.tools.forEach((tool, i) => {
       const item = document.createElement("a");
       item.href = tool.url;
-      item.className = "tools-sb-item";
-      item.style.animationDelay = `${toolIndex * 0.02}s`;
-
+      item.className = "tools-cat-item";
+      item.setAttribute("aria-label", `${tool.name}: ${tool.desc}`);
+      item.style.transitionDelay = `${i * 0.04}s`;
       item.innerHTML = `
-        <div class="tools-sb-item-icon">${tool.svg}</div>
-        <div class="tools-sb-item-details">
-          <div class="tools-sb-item-name">${tool.name}</div>
-          <div class="tools-sb-item-desc">${tool.desc}</div>
-        </div>
+        <span class="tools-cat-item-icon">${tool.svg}</span>
+        <span class="tools-cat-item-label">${tool.name}</span>
       `;
-      toolsRow.appendChild(item);
-      toolIndex++;
+      radialEl.appendChild(item);
+      items.push(item);
     });
 
-    catBlock.appendChild(toolsRow);
-    sidebarBody.appendChild(catBlock);
+    circleWrap.appendChild(radialEl);
+    sidebarBody.appendChild(circleWrap);
+
+    categoryCircles.push({ radialEl, items });
   });
 
-  // ── Games category (mirrors header) ──
-  const gamesBlock = document.createElement("div");
-  gamesBlock.className = "tools-sb-category-block tools-sb-category-block-games";
+  // =========================================================
+  // GAMES CIRCLE
+  // =========================================================
 
-  const gamesHeader = document.createElement("div");
-  gamesHeader.className = "tools-sb-category";
-  gamesHeader.innerHTML = `
-    <span>🎮 Games</span>
-    <span class="tools-sb-category-count">${GAMES.length + 1} tools</span>
+  const gamesCircleWrap = document.createElement("div");
+  gamesCircleWrap.className = "tools-cat-circle is-games";
+
+  const gamesRadialEl = document.createElement("div");
+  gamesRadialEl.className = "tools-cat-radial";
+
+  const gamesHub = document.createElement("div");
+  gamesHub.className = "tools-cat-hub";
+  gamesHub.innerHTML = `
+    <span class="tools-cat-hub-label">Games</span>
+    <span class="tools-cat-hub-count">${GAMES.length + 1} games</span>
   `;
-  gamesBlock.appendChild(gamesHeader);
+  gamesRadialEl.appendChild(gamesHub);
 
-  const gamesRow = document.createElement("div");
-  gamesRow.className = "tools-sb-category-tools";
+  // Game items + All Games
+  const allGamesEntry = {
+    name: "All Games",
+    emoji: "🎯",
+    desc: "See every game",
+    url: "/games",
+    isAllGames: true
+  };
+  const gameEntries = [...GAMES, allGamesEntry];
 
-  GAMES.forEach((game) => {
+  const gameItems = [];
+  gameEntries.forEach((game, i) => {
     const item = document.createElement("a");
     item.href = game.url;
-    item.className = "tools-sb-item tools-sb-item-game";
-    item.style.animationDelay = `${toolIndex * 0.02}s`;
-
+    item.className = "tools-cat-item" + (game.isAllGames ? " is-all-games" : "");
+    item.setAttribute("aria-label", `${game.name}: ${game.desc}`);
+    item.style.transitionDelay = `${i * 0.04}s`;
     item.innerHTML = `
-      <div class="tools-sb-item-icon">${game.emoji}</div>
-      <div class="tools-sb-item-details">
-        <div class="tools-sb-item-name">${game.name}</div>
-        <div class="tools-sb-item-desc">${game.desc}</div>
-      </div>
+      <span class="tools-cat-item-icon">${game.emoji}</span>
+      <span class="tools-cat-item-label">${game.name}</span>
     `;
-    gamesRow.appendChild(item);
-    toolIndex++;
+    gamesRadialEl.appendChild(item);
+    gameItems.push(item);
   });
 
-  // "All Games" link (mirrors header)
-  const allGamesItem = document.createElement("a");
-  allGamesItem.href = "/games";
-  allGamesItem.className = "tools-sb-item tools-sb-item-game tools-sb-item-all-games";
-  allGamesItem.style.animationDelay = `${toolIndex * 0.02}s`;
-  allGamesItem.innerHTML = `
-    <div class="tools-sb-item-icon">🎯</div>
-    <div class="tools-sb-item-details">
-      <div class="tools-sb-item-name">All Games</div>
-      <div class="tools-sb-item-desc">See every game in one hub</div>
-    </div>
-  `;
-  gamesRow.appendChild(allGamesItem);
-  toolIndex++;
+  gamesCircleWrap.appendChild(gamesRadialEl);
+  sidebarBody.appendChild(gamesCircleWrap);
+  categoryCircles.push({ radialEl: gamesRadialEl, items: gameItems });
 
-  gamesBlock.appendChild(gamesRow);
-  sidebarBody.appendChild(gamesBlock);
+  // =========================================================
+  // LAYOUT PASS
+  // =========================================================
 
-  // Active Structural Interface Controls and Handlers
+  function layoutAllCircles() {
+    categoryCircles.forEach(({ radialEl, items }) => {
+      layoutCategoryItems(radialEl, items);
+    });
+  }
+
+  // Initial layout — deferred so the sidebar body has measurable width
+  requestAnimationFrame(() => {
+    layoutAllCircles();
+  });
+
+  // Relayout on resize (debounced)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layoutAllCircles, 150);
+  });
+
+  // =========================================================
+  // OPEN / CLOSE
+  // =========================================================
+
   let isSidebarOpen = false;
 
   function openSidebar() {
@@ -1329,20 +1366,14 @@
     overlay.classList.add("visible");
     sidebar.setAttribute("aria-hidden", "false");
     trigger.setAttribute("aria-expanded", "true");
-    // Swap to close (✕) icon while open
     trigger.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 
-    const items = sidebarBody.querySelectorAll(".tools-sb-item");
-    items.forEach((item, idx) => {
-      item.style.animation = "none";
-      item.offsetHeight;
-      item.style.animation = `tileSpringIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`;
-      item.style.animationDelay = `${idx * 0.02}s`;
-    });
-
-    // Show the scroll arrow only if there is content to scroll to
+    // Re-layout once the sidebar is visible & has real dimensions
     requestAnimationFrame(() => {
-      updateScrollArrowVisibility();
+      requestAnimationFrame(() => {
+        layoutAllCircles();
+        updateScrollArrowVisibility();
+      });
     });
   }
 
@@ -1354,7 +1385,6 @@
     overlay.classList.remove("visible");
     sidebar.setAttribute("aria-hidden", "true");
     trigger.setAttribute("aria-expanded", "false");
-    // Restore toolbox emoji
     trigger.innerHTML = `<span class="trigger-emoji" aria-hidden="true">${triggerEmoji}</span>`;
   }
 
@@ -1372,28 +1402,18 @@
       sidebarBody.scrollTop + sidebarBody.clientHeight <
       sidebarBody.scrollHeight - 10;
 
-    if (hasScrollableContent && notAtBottom) {
-      scrollArrow.style.display = "flex";
-    } else {
-      scrollArrow.style.display = "none";
-    }
+    scrollArrow.style.display =
+      hasScrollableContent && notAtBottom ? "flex" : "none";
   }
 
   function smoothScrollToBottom() {
     if (!sidebarBody) return;
-    sidebarBody.scrollTo({
-      top: sidebarBody.scrollHeight,
-      behavior: "smooth"
-    });
+    sidebarBody.scrollTo({ top: sidebarBody.scrollHeight, behavior: "smooth" });
   }
 
-  // Bind scroll listener to update arrow visibility
   if (sidebarBody) {
-    sidebarBody.addEventListener("scroll", updateScrollArrowVisibility, {
-      passive: true
-    });
+    sidebarBody.addEventListener("scroll", updateScrollArrowVisibility, { passive: true });
   }
-
   if (scrollArrow) {
     scrollArrow.addEventListener("click", smoothScrollToBottom);
     scrollArrow.addEventListener("keydown", (e) => {
@@ -1419,7 +1439,6 @@
     if (e.key === "Escape") closeSidebar();
   });
 
-  // Re-check arrow visibility on window resize
   window.addEventListener("resize", () => {
     if (isSidebarOpen) {
       requestAnimationFrame(updateScrollArrowVisibility);

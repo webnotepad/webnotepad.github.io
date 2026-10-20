@@ -135,874 +135,944 @@
   <!-- ============================================================
        PAGE-SPECIFIC STYLES — WEB NOTEPAD AESTHETIC
        ============================================================ -->
-  <style>
-    /* ===== WEB NOTEPAD CUPCAKE 2048 — EDITORIAL / INK-ON-PAPER THEME ===== */
+ <style>
+  /* ===== CUPCAKE 2048 — EDITORIAL / INK-ON-PAPER THEME (WEB NOTEPAD) ===== */
+  :root {
+    /* Inherit WebNotepad variables; define only game-specific */
+    --board-size: 420px;
+    --cell-size: 90px;
+    --game-gap: 12px;
+    --cell-radius: 6px;
+    --tile-radius: 6px;
+    --cupcake-accent: #c4562a;
+    --cupcake-pink: #e8638c;
+    --cupcake-cream: #faf8f4;
+    --cupcake-border: #e8e2d6;
+    --cupcake-ink: #1a1a2e;
+    --cupcake-muted: #6b6b85;
+  }
+
+  @media (max-width: 520px) {
     :root {
-      /* Inherit WebNotepad variables, define only game-specific */
-      --board-size: 420px;
-      --cell-size: 90px;
-      --game-gap: 12px;
-      --cell-radius: 6px;
-      --tile-radius: 6px;
-      --cupcake-accent: #c4562a;
-      --cupcake-pink: #e8638c;
-      --cupcake-cream: #faf8f4;
-      --cupcake-border: #e8e2d6;
-      --cupcake-ink: #1a1a2e;
-      --cupcake-muted: #6b6b85;
+      --board-size: 300px;
+      --cell-size: 62px;
+      --game-gap: 8px;
     }
+  }
+  @media (max-width: 360px) {
+    :root {
+      --board-size: 260px;
+      --cell-size: 53px;
+      --game-gap: 6px;
+    }
+  }
 
-    @media (max-width: 520px) {
-      :root {
-        --board-size: 300px;
-        --cell-size: 62px;
-        --game-gap: 8px;
-      }
-    }
-    @media (max-width: 360px) {
-      :root {
-        --board-size: 260px;
-        --cell-size: 53px;
-        --game-gap: 6px;
-      }
-    }
+  /* ===== GLOBAL RESET — SCOPED TO PAGE BODY ONLY =====
+     NOTE: The reset below intentionally avoids styling <a> tags globally.
+     Injected components (header, footer, mobile-nav) rely on the shared
+     /styles.css rules. Links inside content areas are styled explicitly
+     below with .content-section a and .cupcake-page main a. */
+  .cupcake-page {
+    font-family: 'Outfit', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cupcake-page *,
+  .cupcake-page *::before,
+  .cupcake-page *::after {
+    box-sizing: border-box;
+  }
+  .cupcake-page img { max-width: 100%; display: block; }
+  .cupcake-page button { cursor: pointer; font-family: inherit; border: none; background: none; }
+  .cupcake-page ul { list-style: none; margin: 0; padding: 0; }
 
-    /* ===== GLOBAL RESET — SCOPED ===== */
-    .cupcake-page {
-      font-family: 'Outfit', -apple-system, sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      transition: background 0.2s, color 0.2s;
-    }
-    .cupcake-page *,
-    .cupcake-page *::before,
-    .cupcake-page *::after {
-      box-sizing: border-box;
-    }
-    .cupcake-page img { max-width: 100%; display: block; }
-    .cupcake-page a { text-decoration: none; color: inherit; }
-    .cupcake-page button { cursor: pointer; font-family: inherit; border: none; background: none; }
-    .cupcake-page ul { list-style: none; margin: 0; padding: 0; }
+  /* Content-area link styling — scoped so it never touches the header/footer */
+  .cupcake-page main a,
+  .cupcake-page .content-section a,
+  .cupcake-page .page-wrapper a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-    /* ===== PAGE WRAPPER ===== */
-    .cupcake-page .page-wrapper {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 16px 16px 48px;
-    }
+  /* ===== HEADER SAFETY OVERRIDES =====
+     Explicitly restore shared header styles in case of any cascade
+     collisions from page-level link rules. */
+  .cupcake-page .site-header a,
+  .cupcake-page .mobile-nav a {
+    text-decoration: none;
+  }
 
-    /* ===== GAME HEADER — EDITORIAL STYLE ===== */
+  .cupcake-page .header-cta,
+  .cupcake-page .header-cta:visited {
+    background: var(--ink);
+    color: var(--paper) !important;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .cupcake-page .header-cta:hover {
+    background: var(--accent);
+    color: #ffffff !important;
+  }
+  body.dark .cupcake-page .header-cta,
+  body.dark .cupcake-page .header-cta:visited {
+    background: var(--accent);
+    color: #ffffff !important;
+  }
+
+  .cupcake-page .mobile-nav .nav-link {
+    color: var(--ink);
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .cupcake-page .mobile-nav .nav-link:hover {
+    color: var(--accent);
+    background: var(--paper-warm);
+  }
+  .cupcake-page .mobile-nav .btn-primary {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    border-color: var(--accent) !important;
+  }
+  .cupcake-page .mobile-nav .btn-primary:hover {
+    background: var(--accent-light, #e8714a) !important;
+    border-color: var(--accent-light, #e8714a) !important;
+  }
+  body.dark .cupcake-page .mobile-nav .nav-link {
+    color: var(--ink);
+  }
+  body.dark .cupcake-page .mobile-nav .nav-link:hover {
+    color: var(--accent);
+    background: var(--paper-warm);
+  }
+
+  /* ===== PAGE WRAPPER ===== */
+  .cupcake-page .page-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px 16px 48px;
+  }
+
+  /* ===== GAME HEADER — EDITORIAL STYLE ===== */
+  .cupcake-page .game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 0 8px;
+    border-bottom: 1px solid var(--paper-edge);
+    margin-bottom: 16px;
+  }
+  .cupcake-page .game-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.02em;
+  }
+  .cupcake-page .game-title .title-cupcake {
+    font-size: 1.2em;
+    line-height: 1;
+  }
+  .cupcake-page .game-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .cupcake-page .subtitle {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin: 2px 0 0 0;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.02em;
+  }
+  .cupcake-page .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cupcake-page .score-group {
+    display: flex;
+    gap: 8px;
+  }
+  .cupcake-page .score-box {
+    background: var(--paper);
+    border: 2px solid var(--paper-edge);
+    border-radius: 6px;
+    padding: 6px 14px;
+    text-align: center;
+    min-width: 70px;
+    box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
+    transition: border-color 0.2s;
+  }
+  .cupcake-page .score-box .score-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    line-height: 1.3;
+    font-family: 'DM Mono', monospace;
+  }
+  .cupcake-page .score-box .score-value {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .cupcake-page .btn-row {
+    display: flex;
+    gap: 8px;
+  }
+  .cupcake-page .btn {
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .btn-new {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .cupcake-page .btn-new:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(196, 86, 42, 0.3);
+  }
+  .cupcake-page .btn-undo {
+    background: transparent;
+    color: var(--ink-muted);
+    border-color: var(--paper-edge);
+  }
+  .cupcake-page .btn-undo:hover {
+    background: var(--paper-warm);
+    border-color: var(--ink-muted);
+    color: var(--ink);
+  }
+
+  /* ===== GAME BOARD — PAPER/INK STYLE ===== */
+  .cupcake-page .board-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0 8px;
+  }
+  .cupcake-page .board {
+    position: relative;
+    width: var(--board-size);
+    height: var(--board-size);
+    background: var(--paper-warm);
+    border-radius: 10px;
+    padding: var(--game-gap);
+    box-shadow: 0 8px 40px rgba(26, 26, 46, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 2px solid var(--paper-edge);
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .cupcake-page .grid-cells {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: var(--game-gap);
+    position: absolute;
+    top: var(--game-gap);
+    left: var(--game-gap);
+    right: var(--game-gap);
+    bottom: var(--game-gap);
+    width: calc(100% - 2 * var(--game-gap));
+    height: calc(100% - 2 * var(--game-gap));
+  }
+  .cupcake-page .grid-cell {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--cell-radius);
+    border: 1.5px solid var(--paper-edge);
+    width: 100%;
+    height: 100%;
+  }
+  .cupcake-page .tile-layer {
+    position: absolute;
+    top: var(--game-gap);
+    left: var(--game-gap);
+    width: calc(100% - 2 * var(--game-gap));
+    height: calc(100% - 2 * var(--game-gap));
+    pointer-events: none;
+  }
+
+  /* ===== TILES — EDITORIAL STYLE ===== */
+  .cupcake-page .tile {
+    position: absolute;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: var(--tile-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: top 0.12s ease, left 0.12s ease;
+    will-change: top, left;
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: 0 2px 6px rgba(26, 26, 46, 0.08);
+    border: 1.5px solid var(--paper-edge);
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .tile .tile-img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+  }
+  .cupcake-page .tile .tile-label {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.20);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    font-family: 'DM Mono', monospace;
+  }
+  /* Tile colours — muted, paper-friendly */
+  .cupcake-page .tile-2    { background: #fdf6f0; }
+  .cupcake-page .tile-4    { background: #fce9e3; }
+  .cupcake-page .tile-8    { background: #fad0e0; }
+  .cupcake-page .tile-16   { background: #f7b8d0; }
+  .cupcake-page .tile-32   { background: #f5a0bf; }
+  .cupcake-page .tile-64   { background: #f5709c; }
+  .cupcake-page .tile-128  { background: #e84080; }
+  .cupcake-page .tile-256  { background: #d82870; }
+  .cupcake-page .tile-512  { background: #c81060; }
+  .cupcake-page .tile-1024 { background: #b00850; }
+  .cupcake-page .tile-2048 {
+    background: linear-gradient(135deg, #f5c842, #e84080, #c81060);
+    box-shadow: 0 0 24px rgba(232, 64, 128, 0.4), 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #f5c842;
+  }
+  .cupcake-page .tile-2048 .tile-label,
+  .cupcake-page .tile-1024 .tile-label,
+  .cupcake-page .tile-512 .tile-label,
+  .cupcake-page .tile-256 .tile-label,
+  .cupcake-page .tile-128 .tile-label {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* ===== TILE ANIMATIONS ===== */
+  .cupcake-page .tile-spawn {
+    animation: tileSpawn 0.18s ease-out;
+  }
+  @keyframes tileSpawn {
+    0% { transform: scale(0.3); opacity: 0; }
+    70% { transform: scale(1.08); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .cupcake-page .tile-merge {
+    animation: tileMerge 0.22s ease-out;
+  }
+  @keyframes tileMerge {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.18); }
+    100% { transform: scale(1); }
+  }
+
+  /* ===== HOW TO PLAY (GAME SECTION) ===== */
+  .cupcake-page .game-how-to-play {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    padding: 8px 0 4px;
+    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .game-how-to-play kbd {
+    display: inline-block;
+    background: var(--paper);
+    border: 1.5px solid var(--paper-edge);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink);
+    margin: 0 1px;
+    box-shadow: 0 1px 0 var(--paper-edge);
+  }
+
+  /* ===== OVERLAYS — EDITORIAL MODAL ===== */
+  .cupcake-page .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 46, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  .cupcake-page .overlay[hidden] {
+    display: none;
+  }
+  .cupcake-page .overlay-box {
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 40px 36px;
+    text-align: center;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 24px 80px rgba(26, 26, 46, 0.25);
+    border: 1px solid var(--paper-edge);
+    animation: overlayPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes overlayPop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .cupcake-page .overlay-icon {
+    font-size: 3.5rem;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .cupcake-page .overlay-box h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .cupcake-page .overlay-box p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    margin: 0 0 24px;
+    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .overlay-box .btn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cupcake-page .overlay-box .btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* ===== PAGE CONTENT SECTIONS ===== */
+  .cupcake-page .content-section {
+    padding: 56px 0 0;
+  }
+  .cupcake-page .content-section:first-of-type {
+    padding-top: 32px;
+  }
+  .cupcake-page .section-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .cupcake-page .text-center {
+    text-align: center;
+  }
+  .cupcake-page .section-tag {
+    display: inline-block;
+    background: var(--accent-pale);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+  .cupcake-page .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .cupcake-page .section-sub {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* ===== STEPS GRID ===== */
+  .cupcake-page .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .cupcake-page .step-card {
+    background: var(--paper);
+    border: 2px solid var(--paper-edge);
+    border-radius: 6px;
+    padding: 24px 20px;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cupcake-page .step-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 24px rgba(196, 86, 42, 0.10);
+  }
+  .cupcake-page .step-num {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace;
+  }
+  .cupcake-page .step-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .cupcake-page .step-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+  .cupcake-page .step-card p {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* ===== STRATEGY CARDS ===== */
+  .cupcake-page .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .cupcake-page .strategy-card {
+    background: var(--paper);
+    border: 2px solid var(--paper-edge);
+    border-radius: 6px;
+    padding: 22px 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cupcake-page .strategy-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 6px 24px rgba(196, 86, 42, 0.10);
+  }
+  .cupcake-page .strategy-card .s-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .cupcake-page .strategy-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+  .cupcake-page .strategy-card p {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* ===== TIER TABLE ===== */
+  .cupcake-page .tier-table-wrap {
+    background: var(--paper);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
+    margin-top: 24px;
+    border: 1px solid var(--paper-edge);
+    overflow-x: auto;
+  }
+  .cupcake-page .tier-table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 500px;
+  }
+  .cupcake-page .tier-table-wrap thead th {
+    background: linear-gradient(90deg, var(--accent), #a855f7);
+    color: #ffffff;
+    padding: 12px 14px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.85rem;
+    text-align: left;
+    font-weight: 700;
+  }
+  .cupcake-page .tier-table-wrap td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--paper-edge);
+    color: var(--ink-muted);
+    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .tier-table-wrap tr:last-child td {
+    border-bottom: none;
+  }
+  .cupcake-page .tier-table-wrap tr:hover td {
+    background: var(--paper-warm);
+  }
+  .cupcake-page .tier-icon {
+    font-size: 1.3rem;
+  }
+  .cupcake-page .tier-badge {
+    display: inline-block;
+    border-radius: 100px;
+    padding: 2px 10px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace;
+  }
+  .cupcake-page .tb-starter   { background: #f0a0b8; }
+  .cupcake-page .tb-common    { background: #e88088; }
+  .cupcake-page .tb-uncommon  { background: #e06070; }
+  .cupcake-page .tb-rare      { background: #d04060; }
+  .cupcake-page .tb-epic      { background: #c03050; }
+  .cupcake-page .tb-legendary { background: linear-gradient(90deg, #f5c842, #e84080); }
+
+  /* ===== FAQ ===== */
+  .cupcake-page .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 24px;
+  }
+  .cupcake-page .faq-item {
+    background: var(--paper);
+    border: 2px solid var(--paper-edge);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .cupcake-page .faq-item.open {
+    border-color: var(--accent);
+  }
+  .cupcake-page .faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    transition: background 0.2s;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .faq-q:hover {
+    background: var(--paper-warm);
+  }
+  .cupcake-page .faq-q .faq-arrow {
+    font-size: 0.7rem;
+    color: var(--accent);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .cupcake-page .faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+  }
+  .cupcake-page .faq-a {
+    display: none;
+    padding: 0 18px 16px;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .faq-item.open .faq-a {
+    display: block;
+  }
+
+  /* ===== CTA BANNER — EDITORIAL STYLE ===== */
+  .cupcake-page .cta-banner {
+    background: var(--ink);
+    padding: 56px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-top: 48px;
+  }
+  .cupcake-page .cta-banner::before {
+    content: '🧁 🎉 🏆 ✨ 🧁 🌈 💎 🧁';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    font-size: 1.4rem;
+    opacity: 0.10;
+    letter-spacing: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: scrollEmoji 12s linear infinite;
+  }
+  @keyframes scrollEmoji {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .cupcake-page .cta-banner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--paper);
+    margin: 0 0 8px;
+    position: relative;
+    z-index: 1;
+    font-weight: 900;
+  }
+  .cupcake-page .cta-banner p {
+    color: rgba(250, 248, 244, 0.65);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0 0 24px;
+    position: relative;
+    z-index: 1;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .btn-cta-cupcake {
+    background: var(--accent);
+    color: #ffffff;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    box-shadow: 0 8px 32px rgba(196, 86, 42, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    border: 2px solid var(--accent);
+  }
+  .cupcake-page .btn-cta-cupcake:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(196, 86, 42, 0.4);
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+  }
+
+  /* ===== ABOUT SECTION ===== */
+  .cupcake-page .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .cupcake-page .about-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .cupcake-page .about-text p {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin: 0 0 12px;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cupcake-page .about-mini-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .cupcake-page .about-mini-badge {
+    background: var(--paper);
+    border: 1.5px solid var(--paper-edge);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    font-family: 'DM Mono', monospace;
+  }
+  .cupcake-page .about-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cupcake-page .about-visual img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter: drop-shadow(0 16px 40px rgba(232, 99, 140, 0.20));
+    animation: cupcakeFloat 3s ease-in-out infinite;
+  }
+  @keyframes cupcakeFloat {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-16px) rotate(3deg); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .cupcake-page .about-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
     .cupcake-page .game-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 16px 0 8px;
-      border-bottom: 1px solid var(--paper-edge);
-      margin-bottom: 16px;
-    }
-    .cupcake-page .game-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 900;
-      color: var(--ink);
-      margin: 0;
-      display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
       gap: 8px;
-      letter-spacing: -0.02em;
-    }
-    .cupcake-page .game-title .title-cupcake {
-      font-size: 1.2em;
-      line-height: 1;
-    }
-    .cupcake-page .game-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .cupcake-page .subtitle {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      margin: 2px 0 0 0;
-      font-weight: 500;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.02em;
     }
     .cupcake-page .header-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      justify-content: space-between;
     }
-    .cupcake-page .score-group {
-      display: flex;
-      gap: 8px;
+    .cupcake-page .game-title {
+      font-size: 1.5rem;
     }
-    .cupcake-page .score-box {
-      background: var(--paper);
-      border: 2px solid var(--paper-edge);
-      border-radius: 6px;
-      padding: 6px 14px;
-      text-align: center;
-      min-width: 70px;
-      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
-      transition: border-color 0.2s;
+    .cupcake-page .steps-grid {
+      grid-template-columns: 1fr;
     }
-    .cupcake-page .score-box .score-label {
-      display: block;
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-muted);
-      line-height: 1.3;
-      font-family: 'DM Mono', monospace;
-    }
-    .cupcake-page .score-box .score-value {
-      display: block;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1.2;
-      font-family: 'Playfair Display', Georgia, serif;
-    }
-    .cupcake-page .btn-row {
-      display: flex;
-      gap: 8px;
-    }
-    .cupcake-page .btn {
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      transition: all 0.2s ease;
-      border: 2px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .btn-new {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
-    }
-    .cupcake-page .btn-new:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(196, 86, 42, 0.3);
-    }
-    .cupcake-page .btn-undo {
-      background: transparent;
-      color: var(--ink-muted);
-      border-color: var(--paper-edge);
-    }
-    .cupcake-page .btn-undo:hover {
-      background: var(--paper-warm);
-      border-color: var(--ink-muted);
-      color: var(--ink);
-    }
-
-    /* ===== GAME BOARD — PAPER/INK STYLE ===== */
-    .cupcake-page .board-wrapper {
-      display: flex;
-      justify-content: center;
-      padding: 12px 0 8px;
-    }
-    .cupcake-page .board {
-      position: relative;
-      width: var(--board-size);
-      height: var(--board-size);
-      background: var(--paper-warm);
-      border-radius: 10px;
-      padding: var(--game-gap);
-      box-shadow: 0 8px 40px rgba(26, 26, 46, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
-      border: 2px solid var(--paper-edge);
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-    .cupcake-page .grid-cells {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: var(--game-gap);
-      position: absolute;
-      top: var(--game-gap);
-      left: var(--game-gap);
-      right: var(--game-gap);
-      bottom: var(--game-gap);
-      width: calc(100% - 2 * var(--game-gap));
-      height: calc(100% - 2 * var(--game-gap));
-    }
-    .cupcake-page .grid-cell {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: var(--cell-radius);
-      border: 1.5px solid var(--paper-edge);
-      width: 100%;
-      height: 100%;
-    }
-    .cupcake-page .tile-layer {
-      position: absolute;
-      top: var(--game-gap);
-      left: var(--game-gap);
-      width: calc(100% - 2 * var(--game-gap));
-      height: calc(100% - 2 * var(--game-gap));
-      pointer-events: none;
-    }
-
-    /* ===== TILES — EDITORIAL STYLE ===== */
-    .cupcake-page .tile {
-      position: absolute;
-      width: var(--cell-size);
-      height: var(--cell-size);
-      border-radius: var(--tile-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      transition: top 0.12s ease, left 0.12s ease;
-      will-change: top, left;
-      overflow: hidden;
-      background: var(--paper);
-      box-shadow: 0 2px 6px rgba(26, 26, 46, 0.08);
-      border: 1.5px solid var(--paper-edge);
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .tile .tile-img {
-      width: 75%;
-      height: 75%;
-      object-fit: contain;
-      display: block;
-      pointer-events: none;
-    }
-    .cupcake-page .tile .tile-label {
-      position: absolute;
-      bottom: 2px;
-      right: 4px;
-      font-size: 0.55rem;
-      font-weight: 800;
-      color: rgba(0, 0, 0, 0.20);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      pointer-events: none;
-      font-family: 'DM Mono', monospace;
-    }
-    /* Tile colours — muted, paper-friendly */
-    .cupcake-page .tile-2    { background: #fdf6f0; }
-    .cupcake-page .tile-4    { background: #fce9e3; }
-    .cupcake-page .tile-8    { background: #fad0e0; }
-    .cupcake-page .tile-16   { background: #f7b8d0; }
-    .cupcake-page .tile-32   { background: #f5a0bf; }
-    .cupcake-page .tile-64   { background: #f5709c; }
-    .cupcake-page .tile-128  { background: #e84080; }
-    .cupcake-page .tile-256  { background: #d82870; }
-    .cupcake-page .tile-512  { background: #c81060; }
-    .cupcake-page .tile-1024 { background: #b00850; }
-    .cupcake-page .tile-2048 {
-      background: linear-gradient(135deg, #f5c842, #e84080, #c81060);
-      box-shadow: 0 0 24px rgba(232, 64, 128, 0.4), 0 2px 8px rgba(0,0,0,0.1);
-      border-color: #f5c842;
-    }
-    .cupcake-page .tile-2048 .tile-label,
-    .cupcake-page .tile-1024 .tile-label,
-    .cupcake-page .tile-512 .tile-label,
-    .cupcake-page .tile-256 .tile-label,
-    .cupcake-page .tile-128 .tile-label {
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    /* ===== TILE ANIMATIONS ===== */
-    .cupcake-page .tile-spawn {
-      animation: tileSpawn 0.18s ease-out;
-    }
-    @keyframes tileSpawn {
-      0% { transform: scale(0.3); opacity: 0; }
-      70% { transform: scale(1.08); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .cupcake-page .tile-merge {
-      animation: tileMerge 0.22s ease-out;
-    }
-    @keyframes tileMerge {
-      0% { transform: scale(1); }
-      40% { transform: scale(1.18); }
-      100% { transform: scale(1); }
-    }
-
-    /* ===== HOW TO PLAY (GAME SECTION) ===== */
-    .cupcake-page .game-how-to-play {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--ink-muted);
-      padding: 8px 0 4px;
-      line-height: 1.6;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .game-how-to-play kbd {
-      display: inline-block;
-      background: var(--paper);
-      border: 1.5px solid var(--paper-edge);
-      border-radius: 4px;
-      padding: 1px 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      font-family: 'DM Mono', monospace;
-      color: var(--ink);
-      margin: 0 1px;
-      box-shadow: 0 1px 0 var(--paper-edge);
-    }
-
-    /* ===== OVERLAYS — EDITORIAL MODAL ===== */
-    .cupcake-page .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(26, 26, 46, 0.55);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 24px;
-    }
-    .cupcake-page .overlay[hidden] {
-      display: none;
+    .cupcake-page .strategy-grid {
+      grid-template-columns: 1fr;
     }
     .cupcake-page .overlay-box {
-      background: var(--paper);
-      border-radius: 14px;
-      padding: 40px 36px;
-      text-align: center;
-      max-width: 380px;
-      width: 100%;
-      box-shadow: 0 24px 80px rgba(26, 26, 46, 0.25);
-      border: 1px solid var(--paper-edge);
-      animation: overlayPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    @keyframes overlayPop {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .cupcake-page .overlay-icon {
-      font-size: 3.5rem;
-      margin-bottom: 8px;
-      line-height: 1;
+      padding: 28px 20px;
     }
     .cupcake-page .overlay-box h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--ink);
-      margin: 0 0 8px;
-    }
-    .cupcake-page .overlay-box p {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      margin: 0 0 24px;
-      line-height: 1.6;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .overlay-box .btn-row {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cupcake-page .overlay-box .btn {
-      padding: 10px 24px;
-      font-size: 0.9rem;
-    }
-
-    /* ===== PAGE CONTENT SECTIONS ===== */
-    .cupcake-page .content-section {
-      padding: 56px 0 0;
-    }
-    .cupcake-page .content-section:first-of-type {
-      padding-top: 32px;
-    }
-    .cupcake-page .section-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    .cupcake-page .text-center {
-      text-align: center;
-    }
-    .cupcake-page .section-tag {
-      display: inline-block;
-      background: var(--accent-pale);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 100px;
-      padding: 4px 14px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      font-family: 'DM Mono', monospace;
-    }
-    .cupcake-page .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 900;
-      color: var(--ink);
-      line-height: 1.2;
-      margin: 0 0 8px;
-      letter-spacing: -0.01em;
-    }
-    .cupcake-page .section-sub {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-      max-width: 560px;
-      margin: 0 auto 24px;
-      line-height: 1.6;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* ===== STEPS GRID ===== */
-    .cupcake-page .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .cupcake-page .step-card {
-      background: var(--paper);
-      border: 2px solid var(--paper-edge);
-      border-radius: 6px;
-      padding: 24px 20px;
-      position: relative;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .cupcake-page .step-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 6px 24px rgba(196, 86, 42, 0.10);
-    }
-    .cupcake-page .step-num {
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 2px 10px;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
-      font-family: 'DM Mono', monospace;
-    }
-    .cupcake-page .step-icon {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .cupcake-page .step-card h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--ink);
-      margin: 0 0 6px;
-    }
-    .cupcake-page .step-card p {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* ===== STRATEGY CARDS ===== */
-    .cupcake-page .strategy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .cupcake-page .strategy-card {
-      background: var(--paper);
-      border: 2px solid var(--paper-edge);
-      border-radius: 6px;
-      padding: 22px 20px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .cupcake-page .strategy-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 6px 24px rgba(196, 86, 42, 0.10);
-    }
-    .cupcake-page .strategy-card .s-icon {
-      font-size: 1.8rem;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .cupcake-page .strategy-card h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--ink);
-      margin: 0 0 6px;
-    }
-    .cupcake-page .strategy-card p {
-      font-size: 0.82rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* ===== TIER TABLE ===== */
-    .cupcake-page .tier-table-wrap {
-      background: var(--paper);
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
-      margin-top: 24px;
-      border: 1px solid var(--paper-edge);
-      overflow-x: auto;
-    }
-    .cupcake-page .tier-table-wrap table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-      min-width: 500px;
-    }
-    .cupcake-page .tier-table-wrap thead th {
-      background: linear-gradient(90deg, var(--accent), #a855f7);
-      color: #ffffff;
-      padding: 12px 14px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.85rem;
-      text-align: left;
-      font-weight: 700;
-    }
-    .cupcake-page .tier-table-wrap td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--paper-edge);
-      color: var(--ink-muted);
-      font-weight: 500;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .tier-table-wrap tr:last-child td {
-      border-bottom: none;
-    }
-    .cupcake-page .tier-table-wrap tr:hover td {
-      background: var(--paper-warm);
-    }
-    .cupcake-page .tier-icon {
-      font-size: 1.3rem;
-    }
-    .cupcake-page .tier-badge {
-      display: inline-block;
-      border-radius: 100px;
-      padding: 2px 10px;
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-family: 'DM Mono', monospace;
-    }
-    .cupcake-page .tb-starter   { background: #f0a0b8; }
-    .cupcake-page .tb-common    { background: #e88088; }
-    .cupcake-page .tb-uncommon  { background: #e06070; }
-    .cupcake-page .tb-rare      { background: #d04060; }
-    .cupcake-page .tb-epic      { background: #c03050; }
-    .cupcake-page .tb-legendary { background: linear-gradient(90deg, #f5c842, #e84080); }
-
-    /* ===== FAQ ===== */
-    .cupcake-page .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 24px;
-    }
-    .cupcake-page .faq-item {
-      background: var(--paper);
-      border: 2px solid var(--paper-edge);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .cupcake-page .faq-item.open {
-      border-color: var(--accent);
+      font-size: 1.4rem;
     }
     .cupcake-page .faq-q {
-      width: 100%;
-      text-align: left;
-      padding: 14px 18px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--ink);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      background: transparent;
-      transition: background 0.2s;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .faq-q:hover {
-      background: var(--paper-warm);
-    }
-    .cupcake-page .faq-q .faq-arrow {
-      font-size: 0.7rem;
-      color: var(--accent);
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
-    .cupcake-page .faq-item.open .faq-arrow {
-      transform: rotate(180deg);
+      font-size: 0.82rem;
+      padding: 12px 14px;
     }
     .cupcake-page .faq-a {
-      display: none;
-      padding: 0 18px 16px;
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      padding: 0 14px 12px;
     }
-    .cupcake-page .faq-item.open .faq-a {
-      display: block;
+  }
+  @media (max-width: 400px) {
+    .cupcake-page .score-box {
+      min-width: 56px;
+      padding: 4px 10px;
     }
+    .cupcake-page .score-box .score-value {
+      font-size: 1rem;
+    }
+    .cupcake-page .btn {
+      padding: 6px 14px;
+      font-size: 0.75rem;
+    }
+    .cupcake-page .game-title {
+      font-size: 1.25rem;
+    }
+  }
 
-    /* ===== CTA BANNER — EDITORIAL STYLE ===== */
-    .cupcake-page .cta-banner {
-      background: var(--ink);
-      padding: 56px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      border-radius: 6px;
-      margin-top: 48px;
-    }
-    .cupcake-page .cta-banner::before {
-      content: '🧁 🎉 🏆 ✨ 🧁 🌈 💎 🧁';
-      position: absolute;
-      top: 10px;
-      left: 0;
-      right: 0;
-      font-size: 1.4rem;
-      opacity: 0.10;
-      letter-spacing: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: scrollEmoji 12s linear infinite;
-    }
-    @keyframes scrollEmoji {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .cupcake-page .cta-banner h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      color: var(--paper);
-      margin: 0 0 8px;
-      position: relative;
-      z-index: 1;
-      font-weight: 900;
-    }
-    .cupcake-page .cta-banner p {
-      color: rgba(250, 248, 244, 0.65);
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin: 0 0 24px;
-      position: relative;
-      z-index: 1;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .btn-cta-cupcake {
-      background: var(--accent);
-      color: #ffffff;
-      padding: 14px 36px;
-      border-radius: 6px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      box-shadow: 0 8px 32px rgba(196, 86, 42, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-      cursor: pointer;
-      border: 2px solid var(--accent);
-    }
-    .cupcake-page .btn-cta-cupcake:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 14px 40px rgba(196, 86, 42, 0.4);
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-    }
+  /* ===== REVEAL ANIMATIONS ===== */
+  .cupcake-page .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .cupcake-page .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    /* ===== ABOUT SECTION ===== */
-    .cupcake-page .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-    .cupcake-page .about-text h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--ink);
-      margin: 0 0 12px;
-    }
-    .cupcake-page .about-text p {
-      font-size: 0.88rem;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      margin: 0 0 12px;
-      font-family: 'Outfit', sans-serif;
-    }
-    .cupcake-page .about-mini-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 16px;
-    }
-    .cupcake-page .about-mini-badge {
-      background: var(--paper);
-      border: 1.5px solid var(--paper-edge);
-      border-radius: 100px;
-      padding: 4px 12px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--ink-muted);
-      font-family: 'DM Mono', monospace;
-    }
-    .cupcake-page .about-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cupcake-page .about-visual img {
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-      filter: drop-shadow(0 16px 40px rgba(232, 99, 140, 0.20));
-      animation: cupcakeFloat 3s ease-in-out infinite;
-    }
-    @keyframes cupcakeFloat {
-      0%, 100% { transform: translateY(0) rotate(-3deg); }
-      50% { transform: translateY(-16px) rotate(3deg); }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 640px) {
-      .cupcake-page .about-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .cupcake-page .game-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      .cupcake-page .header-right {
-        justify-content: space-between;
-      }
-      .cupcake-page .game-title {
-        font-size: 1.5rem;
-      }
-      .cupcake-page .steps-grid {
-        grid-template-columns: 1fr;
-      }
-      .cupcake-page .strategy-grid {
-        grid-template-columns: 1fr;
-      }
-      .cupcake-page .overlay-box {
-        padding: 28px 20px;
-      }
-      .cupcake-page .overlay-box h2 {
-        font-size: 1.4rem;
-      }
-      .cupcake-page .faq-q {
-        font-size: 0.82rem;
-        padding: 12px 14px;
-      }
-      .cupcake-page .faq-a {
-        font-size: 0.8rem;
-        padding: 0 14px 12px;
-      }
-    }
-    @media (max-width: 400px) {
-      .cupcake-page .score-box {
-        min-width: 56px;
-        padding: 4px 10px;
-      }
-      .cupcake-page .score-box .score-value {
-        font-size: 1rem;
-      }
-      .cupcake-page .btn {
-        padding: 6px 14px;
-        font-size: 0.75rem;
-      }
-      .cupcake-page .game-title {
-        font-size: 1.25rem;
-      }
-    }
-
-    /* ===== REVEAL ANIMATIONS ===== */
-    .cupcake-page .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .cupcake-page .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== DARK MODE OVERRIDES ===== */
-    body.dark .cupcake-page .board {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-    }
-    body.dark .cupcake-page .grid-cell {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--paper-edge);
-    }
-    body.dark .cupcake-page .tile-2  { background: #2a1a22; }
-    body.dark .cupcake-page .tile-4  { background: #3a1a28; }
-    body.dark .cupcake-page .tile-8  { background: #4a1a30; }
-    body.dark .cupcake-page .tile-16 { background: #5a1a38; }
-    body.dark .cupcake-page .tile-32 { background: #6a1a40; }
-    body.dark .cupcake-page .tile-64 { background: #7a1a48; }
-    body.dark .cupcake-page .tile-128 { background: #8a1a50; }
-    body.dark .cupcake-page .tile-256 { background: #9a1a58; }
-    body.dark .cupcake-page .tile-512 { background: #aa1a60; }
-    body.dark .cupcake-page .tile-1024 { background: #ba1a68; }
-    body.dark .cupcake-page .tile-2048 {
-      background: linear-gradient(135deg, #f5c842, #e84080, #c81060);
-    }
-    body.dark .cupcake-page .score-box {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-    }
-    body.dark .cupcake-page .overlay-box {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-    }
-    body.dark .cupcake-page .cta-banner {
-      background: #0e0e12;
-    }
-    body.dark .cupcake-page .step-card,
-    body.dark .cupcake-page .strategy-card,
-    body.dark .cupcake-page .faq-item {
-      background: var(--paper-warm);
-      border-color: var(--paper-edge);
-    }
-    body.dark .cupcake-page .faq-q:hover {
-      background: var(--paper-edge);
-    }
-  </style>
+  /* ===== DARK MODE OVERRIDES ===== */
+  body.dark .cupcake-page .board {
+    background: var(--paper-warm);
+    border-color: var(--paper-edge);
+  }
+  body.dark .cupcake-page .grid-cell {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--paper-edge);
+  }
+  body.dark .cupcake-page .tile-2  { background: #2a1a22; }
+  body.dark .cupcake-page .tile-4  { background: #3a1a28; }
+  body.dark .cupcake-page .tile-8  { background: #4a1a30; }
+  body.dark .cupcake-page .tile-16 { background: #5a1a38; }
+  body.dark .cupcake-page .tile-32 { background: #6a1a40; }
+  body.dark .cupcake-page .tile-64 { background: #7a1a48; }
+  body.dark .cupcake-page .tile-128 { background: #8a1a50; }
+  body.dark .cupcake-page .tile-256 { background: #9a1a58; }
+  body.dark .cupcake-page .tile-512 { background: #aa1a60; }
+  body.dark .cupcake-page .tile-1024 { background: #ba1a68; }
+  body.dark .cupcake-page .tile-2048 {
+    background: linear-gradient(135deg, #f5c842, #e84080, #c81060);
+  }
+  body.dark .cupcake-page .score-box {
+    background: var(--paper-warm);
+    border-color: var(--paper-edge);
+  }
+  body.dark .cupcake-page .overlay-box {
+    background: var(--paper-warm);
+    border-color: var(--paper-edge);
+  }
+  body.dark .cupcake-page .cta-banner {
+    background: #0e0e12;
+  }
+  body.dark .cupcake-page .step-card,
+  body.dark .cupcake-page .strategy-card,
+  body.dark .cupcake-page .faq-item {
+    background: var(--paper-warm);
+    border-color: var(--paper-edge);
+  }
+  body.dark .cupcake-page .faq-q:hover {
+    background: var(--paper-edge);
+  }
+</style>
 </head>
 <body class="cupcake-page">
 

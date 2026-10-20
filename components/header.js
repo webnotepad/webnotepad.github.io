@@ -335,9 +335,9 @@
 
       .header-ad-slot {
         position: absolute;
-        top: 100%;              /* directly below the header */
-        right: 16px;            /* tucked to the right edge of the header area */
-        z-index: 50;            /* sit above the hero content */
+        top: calc(100% + 12px);  /* moved down so it doesn't merge with the header */
+        right: 28px;             /* moved left from the right edge */
+        z-index: 50;             /* sit above the hero content */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -353,7 +353,7 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         border-radius: 6px;
       }
-
+      
       .header-ad-box iframe {
         display: block;
         border: 0;

@@ -1084,15 +1084,15 @@
   <script src="/components/social-share.js"></script>
   <div id="tools-sidebar-root"></div>
   <script src="/components/sidebar.js"></script>
-
+  <script src="/wordlist.js"></script>
   <script>
   (function () {
     'use strict';
 
     /* ============================================================
-       DICTIONARY
+       DICTIONARY — built-in fallback (used if wordlist.js is missing)
        ============================================================ */
-    const DICT_WORDS = `
+    const FALLBACK_WORDS = `
       a able about above accept access accident according account across act action active activity
       actually add address admit adult advance advantage adventure advice affect afraid after afternoon
       again against age agency agenda ago agree agreement ahead aid aim air aircraft alive all allow
@@ -1235,6 +1235,7 @@
       slept spent stood stole stolen struck swore sworn threw thrown understood woke woken wore worn won
       wound
 
+      limit limits limited limiting unlimited limitation limitations limits less least
       emails notes friends ideas problems sentences words letters messages computers phones users pages
       files images photos videos hours minutes seconds days weeks months years times children men women
       things places names numbers questions answers examples mistakes errors lessons classes students
@@ -1253,9 +1254,38 @@
       punctuation paragraph paragraphs essay essays article articles document documents title titles
       heading headings emailing writing reading editing checking proofreading
 
-      everyday everyday everyone anything something nothing everything
+      everyday everyone anything something nothing everything
     `;
-    const DICTIONARY = new Set(DICT_WORDS.split(/\s+/).filter(Boolean));
+
+    /* ============================================================
+       BUILD DICTIONARY — merge fallback + wordlist.js
+       ============================================================ */
+    const DICTIONARY = new Set();
+
+    // 1. Add fallback words
+    FALLBACK_WORDS.split(/\s+/).forEach(function (w) {
+      const lower = w.toLowerCase().trim();
+      if (lower) DICTIONARY.add(lower);
+    });
+
+    // 2. Merge in wordlist.js if available
+    let WORDLIST_COUNT = 0;
+    if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
+      for (let i = 0; i < WORDLIST.length; i++) {
+        const raw = WORDLIST[i];
+        if (typeof raw !== 'string') continue;
+        // Only pure alphabetic words — skip numbers, punctuation, abbreviations
+        if (!/^[a-z]+$/i.test(raw)) continue;
+        const lower = raw.toLowerCase();
+        if (lower.length < 2 || lower.length > 30) continue;
+        DICTIONARY.add(lower);
+        WORDLIST_COUNT++;
+      }
+    } else {
+      console.warn('⚠️ wordlist.js not loaded — using fallback dictionary only. Add <script src="/wordlist.js"></script> before this script.');
+    }
+
+    console.log('📚 Dictionary loaded: ' + DICTIONARY.size + ' words (' + WORDLIST_COUNT + ' from wordlist.js)');
 
     /* ============================================================
        COMMON MISSPELLINGS  (lowercase -> correct)
@@ -1418,7 +1448,7 @@
       /* ---------- 2. Multiple spaces ---------- */
       each(/[ \t]{2,}/g, function (m) {
         const prev = text.charAt(m.index - 1);
-        if (m.index === 0 || prev === '\n') return; // allow indentation
+        if (m.index === 0 || prev === '\n') return;
         add(m.index, m.index + m[0].length, ' ', 'Multiple spaces found.', 'style', 'warning');
       });
 
@@ -1440,7 +1470,7 @@
 
       /* ---------- 5. Lowercase pronoun “i” ---------- */
       each(/\bi\b/g, function (m) {
-        if (text.charAt(m.index + 1) === '.') return; // i.e.
+        if (text.charAt(m.index + 1) === '.') return;
         add(m.index, m.index + 1, 'I',
             'The pronoun “I” should be capitalised.', 'grammar', 'error');
       });
@@ -1605,7 +1635,6 @@
       currentIssues.forEach(function (i) { counts[i.type] = (counts[i.type] || 0) + 1; });
       const total = currentIssues.length;
 
-      /* Summary chips */
       if (!hasChecked) {
         summaryEl.innerHTML = '';
       } else if (total === 0) {
@@ -1617,7 +1646,6 @@
           '<span class="gs-summary-chip gs-summary-chip--style">' + counts.style + ' style</span>';
       }
 
-      /* Score */
       scoreEl.className = 'gs-score';
       if (!hasChecked) {
         scoreEl.innerHTML = '<b>—</b><span>score</span>';
@@ -1632,7 +1660,6 @@
         else scoreEl.classList.add('is-bad');
       }
 
-      /* Empty / list */
       if (!hasChecked) {
         emptyEl.style.display = 'flex';
         emptyEl.innerHTML =
@@ -1845,7 +1872,6 @@
       }
     });
 
-    /* Keyboard shortcuts */
     document.addEventListener('keydown', function (e) {
       const mod = e.ctrlKey || e.metaKey;
       if (mod && e.key === 'Enter') {
@@ -1860,7 +1886,6 @@
       }
     });
 
-    /* FAQ accordion */
     document.querySelectorAll('.gs-faq-q').forEach(function (q) {
       q.addEventListener('click', function () {
         const expanded = q.getAttribute('aria-expanded') === 'true';
@@ -1881,5 +1906,6 @@
 
   })();
   </script>
+ 
 </body>
 </html>

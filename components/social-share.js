@@ -586,7 +586,6 @@
       transition: opacity 0.3s ease;
     }
     .games-radial-menu.open {
-      pointer-events: none;
       opacity: 1;
     }
 
@@ -609,7 +608,8 @@
       cursor: pointer;
       pointer-events: auto;
       text-decoration: none;
-      transform: scale(0);
+      /* Closed state: collapsed at the center */
+      transform: translate(0, 0) scale(0);
       opacity: 0;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                   opacity 0.3s ease,
@@ -622,18 +622,20 @@
       border-color: var(--paper-edge, #2a2a34);
     }
 
-    /* When open, items become visible and positioned via inline styles / CSS custom properties */
+    /* Open state: use the custom properties for translation */
     .games-radial-menu.open .games-radial-item {
       opacity: 1;
-      transform: scale(1);
+      transform: translate(var(--radial-x, 0px), var(--radial-y, 0px)) scale(1);
     }
 
     /* Hover state for radial items */
     .games-radial-item:hover {
-      transform: scale(1.18) !important;
       box-shadow: 0 6px 24px rgba(196, 86, 42, 0.35);
       border-color: var(--accent, #c4562a);
       background: var(--accent-pale, #fce9e3);
+    }
+    .games-radial-menu.open .games-radial-item:hover {
+      transform: translate(var(--radial-x, 0px), var(--radial-y, 0px)) scale(1.18);
     }
     body.dark .games-radial-item:hover {
       background: var(--paper, #141418);
@@ -676,48 +678,20 @@
     }
 
     /* Staggered entrance animation for each item */
-    .games-radial-menu.open .games-radial-item:nth-child(1) {
-      transition-delay: 0.02s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(2) {
-      transition-delay: 0.04s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(3) {
-      transition-delay: 0.06s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(4) {
-      transition-delay: 0.08s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(5) {
-      transition-delay: 0.10s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(6) {
-      transition-delay: 0.12s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(7) {
-      transition-delay: 0.14s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(8) {
-      transition-delay: 0.16s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(9) {
-      transition-delay: 0.18s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(10) {
-      transition-delay: 0.20s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(11) {
-      transition-delay: 0.22s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(12) {
-      transition-delay: 0.24s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(13) {
-      transition-delay: 0.26s;
-    }
-    .games-radial-menu.open .games-radial-item:nth-child(14) {
-      transition-delay: 0.28s;
-    }
+    .games-radial-menu.open .games-radial-item:nth-child(1) { transition-delay: 0.02s; }
+    .games-radial-menu.open .games-radial-item:nth-child(2) { transition-delay: 0.04s; }
+    .games-radial-menu.open .games-radial-item:nth-child(3) { transition-delay: 0.06s; }
+    .games-radial-menu.open .games-radial-item:nth-child(4) { transition-delay: 0.08s; }
+    .games-radial-menu.open .games-radial-item:nth-child(5) { transition-delay: 0.10s; }
+    .games-radial-menu.open .games-radial-item:nth-child(6) { transition-delay: 0.12s; }
+    .games-radial-menu.open .games-radial-item:nth-child(7) { transition-delay: 0.14s; }
+    .games-radial-menu.open .games-radial-item:nth-child(8) { transition-delay: 0.16s; }
+    .games-radial-menu.open .games-radial-item:nth-child(9) { transition-delay: 0.18s; }
+    .games-radial-menu.open .games-radial-item:nth-child(10) { transition-delay: 0.20s; }
+    .games-radial-menu.open .games-radial-item:nth-child(11) { transition-delay: 0.22s; }
+    .games-radial-menu.open .games-radial-item:nth-child(12) { transition-delay: 0.24s; }
+    .games-radial-menu.open .games-radial-item:nth-child(13) { transition-delay: 0.26s; }
+    .games-radial-menu.open .games-radial-item:nth-child(14) { transition-delay: 0.28s; }
 
     /* Hide widgets when tools sidebar is open */
     body.tools-sidebar-open .social-floating-trigger,
@@ -1097,8 +1071,7 @@
       ${game.icon}
       <span class="radial-label">${game.label}</span>
     `;
-    item.addEventListener('click', (e) => {
-      // Allow navigation but close menu first
+    item.addEventListener('click', () => {
       closeGamesMenu();
     });
     radialMenu.appendChild(item);
@@ -1111,79 +1084,12 @@
   function positionRadialItems() {
     const total = GAMES.length;
     const radius = getRadialRadius();
-    // Start angle: we want items fanned out primarily to the left and above
-    // since the trigger is at bottom-right.
-    // Use a full circle but bias the arc so items appear to the left / above.
-    // We'll distribute around 360 degrees starting from top-left quadrant.
-    // Angle offset: -180deg (pointing left) to 0 (pointing right)
-    // Actually let's use a full circle starting from straight up (top) and going counter-clockwise.
-    // For 14 items, each gets 360/14 ≈ 25.7 degrees.
-    // We'll start at angle -90 (top) and go counter-clockwise around.
-    // But since the trigger is bottom-right, we want the circle centered there
-    // and items fanning out to the upper-left.
-    // Let's just do a full circle; it looks good and doesn't clip off-screen too badly.
-    // Actually, to avoid items going off the right edge, let's fan them from -180° (left) to 0° (right)
-    // through the top: i.e., from 180° to 360° (in standard math coords, but we'll handle screen coords).
 
-    // Screen coordinates: x = cos(angle)*radius, y = sin(angle)*radius
-    // Angle 0 = right, 90 = down, 180 = left, 270 = up.
-    // We want items going up and to the left: angles from 180° to 360° (i.e., left → up → right).
-    // That's a half-circle of 180°. But we have 14 items; 180/14 ≈ 12.8° each.
-    // Actually let's do a bit more than half circle: from 200° to 340°? No.
-
-    // Simpler: distribute around a full circle but rotate so the gap (where the trigger is) is at bottom-right.
-    // The trigger is at bottom-right of the circle center. So the "empty" sector should face bottom-right.
-    // Bottom-right in screen coords is angle ≈ 45° (cos positive, sin positive → down-right in screen).
-    // So we want a gap centered at 45°.
-    // Total items = 14. We'll spread them across 360 - 60 = 300° of arc.
-    // Start angle = 45° + 30° = 75° (going counter-clockwise / decreasing angle in screen coords? Let's think.)
-
-    // Let's define: angle 0 = right (positive x), angle increases clockwise in screen coords
-    // (since y increases downward). So:
-    //   0° = right
-    //   90° = down
-    //   180° = left
-    //   270° = up
-    // The trigger is at the bottom-right of the circle center → that's around 45°.
-    // We want the gap to be around 45° (bottom-right).
-    // So we spread items from 45° + 30° = 75° going counter-clockwise (decreasing angle) around
-    // through up (270°), left (180°), down-left (135°), etc.
-    // Actually going counter-clockwise means decreasing angle in this coord system.
-    // 75° → 45° → ... wait that's toward the gap.
-    // Let's go clockwise from 75° + spread. Or simpler:
-
-    // We'll use: startAngle = 200° (down-left), endAngle = 520° (200+320) going clockwise? No.
-
-    // Let me just use a straightforward approach:
-    // Distribute items evenly around a full circle, but rotate the whole thing so
-    // that the "first" item is at the top. Since the trigger is at bottom-right,
-    // a full circle of items around it will extend up, left, and down-left.
-    // The bottom-right quadrant will be empty (where the trigger is).
-    // That's actually perfect for a radial menu!
-
-    // So: angles from 0 to 2*PI, but offset so that index 0 starts at top (270° in screen coords? No).
-    // Let's start at angle = -90° (top) and go clockwise.
-    // In screen coords, angle = -90° means cos(-90°)=0, sin(-90°)=-1 → up. Good.
-    // We'll go clockwise: angle increases by 360/14 each step.
-    // That means items go: top → top-right → right → bottom-right (trigger area) → ...
-    // We don't want items in the bottom-right. So instead, let's go counter-clockwise from top:
-    // top → top-left → left → bottom-left → bottom → bottom-right (trigger) → ...
-    // Still hits bottom-right eventually.
-    // Since we have 14 items and 360°, some will necessarily be in the bottom-right quadrant.
-    // But we can skip that quadrant by spreading across 270° instead of 360°.
-    // Spread across 270°: from 180° (left) through 270° (up) to 360° (right), and also 0° (right) to 90° (down)...
-    // Hmm, that's 270° from 180° to 450° (which is 90°). That covers left → up → right → down.
-    // The missing quadrant is 90° to 180° (down to left)? No, missing is 90° to 180° which is bottom-left. That's wrong.
-
-    // Let's just use a full circle and accept that a few items will be in the bottom-right area.
-    // Since the trigger is at bottom-right of the circle center, the items in the bottom-right
-    // will be near the trigger, which is fine.
-
-    // Actually the cleanest: distribute evenly around the full circle, starting from top.
-    // angle_i = -90° + (360° / total) * i   (going clockwise)
-    // In screen coords: x = cos(angle) * radius, y = sin(angle) * radius
-    // angle -90° = top → x=0, y=-radius (up). Good.
-
+    // Distribute items evenly around a full circle.
+    // Start at the top (-90°) and go clockwise.
+    // The trigger sits at the bottom-right of the circle centre, so the
+    // bottom-right quadrant ends up relatively empty (items there sit close
+    // to the trigger), which looks natural for a radial menu.
     const startAngleDeg = -90; // top
     const angleStep = 360 / total;
 
@@ -1192,31 +1098,11 @@
       const angleRad = (angleDeg * Math.PI) / 180;
       const x = Math.cos(angleRad) * radius;
       const y = Math.sin(angleRad) * radius;
-      // Set CSS custom properties for transform
-      item.style.setProperty('--radial-x', `${x}px`);
-      item.style.setProperty('--radial-y', `${y}px`);
-      // Apply transform via inline style (we need translate + scale)
-      // We'll use a CSS variable approach: the base transform is translate(var(--radial-x), var(--radial-y)) scale(var(--radial-scale))
-      // But since we're using inline styles for position, we'll just set the transform directly.
-      // For the animation, we need to handle both open and closed states.
-      // Closed: transform: translate(0,0) scale(0); opacity 0
-      // Open: transform: translate(x,y) scale(1); opacity 1
-      // We'll set a custom property for the final transform and use CSS to animate.
-      // Actually, simpler: use inline style with CSS transitions.
-      // Closed state (default): transform: translate(0,0) scale(0)
-      // Open state: transform: translate(x,y) scale(1)
-      // We'll toggle a class on the menu, and use CSS to set the open transform via a data attribute or CSS variable.
-      // Let's use CSS custom properties on the menu container.
-      // Actually, we can just set the inline style directly when opening and closing.
-      // But transitions need the target value to be set.
-      // Approach: store the target transform in a data attribute, and toggle the .open class.
-      // CSS:
-      //   .games-radial-item { transform: translate(0,0) scale(0); }
-      //   .games-radial-menu.open .games-radial-item { transform: translate(var(--radial-x), var(--radial-y)) scale(1); }
-      // That works! The --radial-x and --radial-y are set as inline styles.
 
-      item.style.setProperty('--radial-x', `${x}px`);
-      item.style.setProperty('--radial-y', `${y}px`);
+      // These custom properties are consumed by the CSS rule:
+      // .games-radial-menu.open .games-radial-item { transform: translate(var(--radial-x), var(--radial-y)) scale(1); }
+      item.style.setProperty('--radial-x', `${x.toFixed(2)}px`);
+      item.style.setProperty('--radial-y', `${y.toFixed(2)}px`);
     });
   }
 
@@ -1445,10 +1331,8 @@
     }
 
     if (radialMenu.classList.contains('open')) {
-      // If click is not on any radial item and not on trigger and not on blur overlay (handled separately)
       const isRadialItem = target.closest('.games-radial-item');
       if (!isRadialItem && target !== gamesTrigger && !gamesTrigger.contains(target)) {
-        // Only close if not clicking blur overlay (that's handled above)
         if (!blurOverlay.contains(target)) {
           closeGamesMenu();
         }
@@ -1467,7 +1351,6 @@
   // Prevent popup from closing when clicking inside
   popup.addEventListener('click', (e) => e.stopPropagation());
   radialMenu.addEventListener('click', (e) => {
-    // If click is on the menu container itself (not an item), stop propagation
     if (e.target === radialMenu) {
       e.stopPropagation();
     }

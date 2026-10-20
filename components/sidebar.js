@@ -1,7 +1,12 @@
 /**
  * WebNotePad — sidebar.js
- * Injects a fixed dynamic sidebar for the productive tools
- * Theme: Editorial / Ink-on-paper aesthetic — app-style cards
+ * Injects a fixed dynamic sidebar for productive tools.
+ *
+ * Style: Grid-based app tiles (columns + rows), NOT a radial circle.
+ * Each app is a rounded box tile with icon on top and label underneath,
+ * matching the palette of the games/share radial menus.
+ *
+ * Theme: Editorial / Ink-on-paper aesthetic
  */
 
 (function () {
@@ -645,13 +650,13 @@
     }
     .tools-sb-side-tools {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 6px;
       flex: 1;
       min-width: 0;
     }
 
-    /* Newly Added Badge & Items — compact app-style */
+    /* Featured tool tile — matches the grid app-tile style */
     .tools-sb-new-item {
       padding: 8px 6px 7px;
       border-radius: var(--radius);
@@ -714,32 +719,34 @@
       overflow: hidden;
     }
 
-    /* Scrollable body — categories in THREE COLUMNS */
+    /* ============================================================
+       MAIN BODY — GRID OF APP TILES (columns + rows, not circle)
+       ============================================================ */
     .tools-sb-body {
       flex: 1;
       overflow-y: auto;
       padding: 16px 20px 32px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px 16px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px 14px;
       align-content: start;
       overscroll-behavior: contain;
     }
 
-    /* Category block — matches the app-style */
+    /* Category block */
     .tools-sb-category-block {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       min-width: 0;
       background: var(--paper-warm);
       border: 1px solid var(--paper-edge);
       border-radius: var(--radius-lg);
-      padding: 10px;
+      padding: 12px;
       box-sizing: border-box;
     }
 
-    /* Category Section Headers */
+    /* Category header */
     .tools-sb-category {
       font-family: var(--font-display);
       font-size: 0.62rem;
@@ -772,28 +779,35 @@
       flex-shrink: 0;
     }
 
-    /* Tools row — compact boxes, 2 per row inside each category column */
+    /* Tools grid inside each category: 2 columns of app tiles */
     .tools-sb-category-tools {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 8px;
     }
 
-    /* Compact app-style Tool Box */
+    /* ============================================================
+       APP TILE — rounded BOX (not circle), icon on top + label below
+       Matching the radial menu tile aesthetic.
+       ============================================================ */
     .tools-sb-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       text-align: center;
-      gap: 4px;
-      padding: 7px 5px 6px;
-      border-radius: 6px;
+      gap: 6px;
+      padding: 10px 6px 9px;
+      border-radius: 10px;
       border: 1px solid var(--paper-edge);
       background: var(--paper);
-      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background var(--transition),
+                  border-color var(--transition),
+                  box-shadow var(--transition);
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(10px) scale(0.96);
       text-decoration: none;
       cursor: pointer;
       min-width: 0;
@@ -802,41 +816,43 @@
       box-sizing: border-box;
     }
     .tools-fixed-sidebar.open .tools-sb-item {
-      animation: slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation: tileSpringIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
     .tools-sb-item:hover {
       background: var(--paper);
       border-color: var(--accent);
-      transform: translateX(2px);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(196, 86, 42, 0.2);
     }
     .tools-sb-item:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
 
-    /* Compact icon container */
+    /* Square icon bubble — rounded box, not circle */
     .tools-sb-item-icon {
-      width: 24px;
-      height: 24px;
+      width: 42px;
+      height: 42px;
       background: var(--paper-warm);
-      border-radius: 5px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--paper-edge);
-      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      transition: background var(--transition), border-color var(--transition),
+                  transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
       overflow: hidden;
     }
     .tools-sb-item-icon svg {
-      width: 15px;
-      height: 15px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
     .tools-sb-item:hover .tools-sb-item-icon {
       background: var(--accent-pale);
       border-color: var(--accent);
-      transform: scale(1.06);
+      transform: scale(1.1);
     }
     body.dark .tools-sb-item:hover .tools-sb-item-icon {
       background: rgba(196,86,42,0.15);
@@ -847,15 +863,15 @@
       min-width: 0;
     }
     .tools-sb-item-name {
-      font-size: 0.62rem;
+      font-size: 0.66rem;
       font-weight: 600;
       color: var(--ink);
-      line-height: 1.15;
+      line-height: 1.2;
       word-break: break-word;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     .tools-sb-item-desc {
-      font-size: 0.5rem;
+      font-size: 0.52rem;
       color: var(--ink-muted);
       line-height: 1.3;
       word-break: break-word;
@@ -875,7 +891,7 @@
     .tools-sb-item-game .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.08));
       border-color: rgba(99, 102, 241, 0.25);
-      font-size: 0.9rem;
+      font-size: 1.05rem;
     }
     .tools-sb-item-game:hover .tools-sb-item-icon {
       background: linear-gradient(145deg, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0.16));
@@ -911,10 +927,14 @@
     }
 
     /* Keyframe Animations */
-    @keyframes slideInItem {
-      to {
+    @keyframes tileSpringIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+      }
+      100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
@@ -1001,9 +1021,12 @@
     }
 
     /* ---------- Responsive adjustments ---------- */
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
       .tools-sb-body {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .tools-sb-side-tools {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -1019,12 +1042,15 @@
       }
       .tools-sb-body {
         padding: 12px 16px 24px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
       }
       .tools-sb-category-tools {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 6px;
+      }
+      .tools-sb-side-tools {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
       .tools-sb-scroll-arrow {
         bottom: 18px;
@@ -1056,30 +1082,31 @@
       }
       .tools-sb-body {
         padding: 10px 10px 20px;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
       }
       .tools-sb-category-tools {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 8px;
       }
       .tools-sb-item {
-        padding: 7px 5px 6px;
-        gap: 4px;
+        padding: 9px 6px 8px;
+        gap: 5px;
       }
       .tools-sb-item-icon {
-        width: 22px;
-        height: 22px;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
       }
       .tools-sb-item-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 21px;
+        height: 21px;
       }
       .tools-sb-item-name {
-        font-size: 0.6rem;
+        font-size: 0.64rem;
       }
       .tools-sb-item-desc {
-        font-size: 0.48rem;
+        font-size: 0.5rem;
       }
       .tools-floating-trigger {
         width: 48px;
@@ -1104,6 +1131,34 @@
       .tools-sb-scroll-arrow svg {
         width: 18px;
         height: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .tools-sb-body {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .tools-sb-category-tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 6px;
+      }
+      .tools-sb-side-tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .tools-sb-item-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .tools-sb-item-icon svg {
+        width: 19px;
+        height: 19px;
+      }
+      .tools-sb-item-name {
+        font-size: 0.6rem;
+      }
+      .tools-sb-item-desc {
+        font-size: 0.48rem;
       }
     }
   `;
@@ -1174,7 +1229,7 @@
   const featuredTools = [...newLeftTools, ...newRightTools];
   featuredTools.forEach(t => featuredContainer.appendChild(buildNewToolCard(t)));
 
-  // Populate categories inside sidebar body (three columns)
+  // Populate categories inside sidebar body
   let toolIndex = 0;
 
   categories.forEach((category) => {
@@ -1196,7 +1251,7 @@
       const item = document.createElement("a");
       item.href = tool.url;
       item.className = "tools-sb-item";
-      item.style.animationDelay = `${toolIndex * 0.025}s`;
+      item.style.animationDelay = `${toolIndex * 0.02}s`;
 
       item.innerHTML = `
         <div class="tools-sb-item-icon">${tool.svg}</div>
@@ -1232,7 +1287,7 @@
     const item = document.createElement("a");
     item.href = game.url;
     item.className = "tools-sb-item tools-sb-item-game";
-    item.style.animationDelay = `${toolIndex * 0.025}s`;
+    item.style.animationDelay = `${toolIndex * 0.02}s`;
 
     item.innerHTML = `
       <div class="tools-sb-item-icon">${game.emoji}</div>
@@ -1249,7 +1304,7 @@
   const allGamesItem = document.createElement("a");
   allGamesItem.href = "/games";
   allGamesItem.className = "tools-sb-item tools-sb-item-game tools-sb-item-all-games";
-  allGamesItem.style.animationDelay = `${toolIndex * 0.025}s`;
+  allGamesItem.style.animationDelay = `${toolIndex * 0.02}s`;
   allGamesItem.innerHTML = `
     <div class="tools-sb-item-icon">🎯</div>
     <div class="tools-sb-item-details">
@@ -1281,8 +1336,8 @@
     items.forEach((item, idx) => {
       item.style.animation = "none";
       item.offsetHeight;
-      item.style.animation = `slideInItem 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
-      item.style.animationDelay = `${idx * 0.025}s`;
+      item.style.animation = `tileSpringIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`;
+      item.style.animationDelay = `${idx * 0.02}s`;
     });
 
     // Show the scroll arrow only if there is content to scroll to

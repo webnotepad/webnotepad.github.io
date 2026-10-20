@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSR10YQZW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VSR10YQZW3');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>2048 Cupcakes Game — Free Sweet Sliding Tile Puzzle</title>
+  <meta name="description" content="Play 2048 Cupcakes free online! Slide and merge delicious cupcake tiles to reach the legendary 2048 Cupcake. No download, no signup — play instantly in your browser." />
+  <meta name="keywords" content="2048 Cupcakes, 2048 cupcake game, cupcake puzzle, sliding tile game, 2048 game, merge puzzle, browser game, free online game" />
+  <meta name="author" content="WebNotepad" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnotepad.github.io/2048-cupcakes" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="2048 Cupcakes — Free Sweet Sliding Tile Puzzle | WebNotepad" />
+  <meta property="og:description" content="Slide and merge cupcake tiles to reach the legendary 2048 Cupcake. A sweet twist on the classic puzzle — play free in your browser now!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnotepad.github.io/2048-cupcakes" />
+  <meta property="og:image" content="https://webnotepad.github.io/images/cupcakes2048.png" />
+  <meta property="og:site_name" content="WebNotepad" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="2048 Cupcakes — Free Sweet Sliding Tile Puzzle" />
+  <meta name="twitter:description" content="Merge cupcake tiles and reach the legendary 2048 Cupcake. Play free — no download, no sign-up!" />
+  <meta name="twitter:image" content="https://webnotepad.github.io/images/cupcakes2048.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared site CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "2048 Cupcakes",
+      "url": "https://webnotepad.github.io/2048-cupcakes",
+      "description": "2048 Cupcakes is a free browser-based sliding tile puzzle where players merge matching cupcake tiles to reach the legendary 2048 Cupcake. Combines classic 2048 strategy with a sweet bakery theme.",
+      "image": "https://webnotepad.github.io/images/cupcakes2048.png",
+      "genre": ["Puzzle", "Casual", "Strategy"],
+      "playMode": "SinglePlayer",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebNotepad",
+        "url": "https://webnotepad.github.io"
+      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "keywords": "2048 Cupcakes, 2048 puzzle, cupcake game, merge tiles, sliding puzzle"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you play 2048 Cupcakes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use your arrow keys (or swipe on mobile) to slide all cupcake tiles in one direction. When two tiles with the same cupcake meet, they merge into the next tier cupcake. The goal is to keep merging until you create the legendary 2048 Cupcake tile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 2048 Cupcakes free to play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! 2048 Cupcakes is 100% free to play directly in your browser. No download, no sign-up, and no in-app purchases required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many cupcake tiers are there?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are 11 cupcake tiers in the game, ranging from the humble Vanilla Cupcake (tile value 2) all the way up to the legendary Rainbow Cupcake (tile value 2048). Each tier has a unique design and colour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best strategy for 2048 Cupcakes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most effective strategy is to keep your highest-value cupcake tile anchored in one corner — usually the bottom-left or bottom-right. Slide primarily in two directions (e.g. left and down) to build a descending chain of values along the edges, which makes merging easier and prevents the board from filling up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play 2048 Cupcakes on my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! 2048 Cupcakes is fully optimised for touchscreens. Swipe in any direction to slide your tiles — left, right, up, or down — just as you would with arrow keys on desktop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does 2048 Cupcakes save my progress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! The game saves your current board state and best score to your browser's local storage automatically, so you can close the tab and continue your game later without losing progress."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://webnotepad.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "2048 Cupcakes", "item": "https://webnotepad.github.io/2048-cupcakes" },
+        { "@type": "ListItem", "position": 3, "name": "Play Game", "item": "https://webnotepad.github.io/2048-cupcakes#game" }
+      ]
+    }
+  ]
+  </script>
+
+  <!-- ============================================================
+       PAGE-SPECIFIC STYLES
+       ============================================================ -->
+  <style>
+    /* ===== CUPCAKE 2048 — GAME-SPECIFIC VARIABLES ===== */
+    :root {
+      --cupcake-pink: #e8638c;
+      --cupcake-purple: #a855f7;
+      --cupcake-cream: #fdf6f0;
+      --cupcake-card: #ffffff;
+      --cupcake-border: #f0e2e8;
+      --cupcake-text: #2d1f2c;
+      --cupcake-muted: #8b6b7a;
+      --cupcake-radius: 20px;
+      --cupcake-shadow: 0 8px 40px rgba(232, 99, 140, 0.15), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+      /* Game board variables */
+      --board-size: 420px;
+      --cell-size: 90px;
+      --gap: 12px;
+      --cell-radius: 10px;
+      --tile-font: 'Outfit', sans-serif;
+      --tile-radius: 10px;
+    }
+
+    @media (max-width: 520px) {
+      :root {
+        --board-size: 300px;
+        --cell-size: 62px;
+        --gap: 8px;
+      }
+    }
+    @media (max-width: 360px) {
+      :root {
+        --board-size: 260px;
+        --cell-size: 53px;
+        --gap: 6px;
+      }
+    }
+
+    /* ===== GLOBAL RESET FOR PAGE ===== */
+    .cupcake-page {
+      font-family: 'Outfit', sans-serif;
+      background: #fdf6f0;
+      color: var(--cupcake-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .cupcake-page *,
+    .cupcake-page *::before,
+    .cupcake-page *::after {
+      box-sizing: border-box;
+    }
+    .cupcake-page img {
+      max-width: 100%;
+      display: block;
+    }
+    .cupcake-page a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .cupcake-page button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+    .cupcake-page ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== PAGE WRAPPER ===== */
+    .cupcake-page .page-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px 16px 48px;
+    }
+
+    /* ===== HEADER ===== */
+    .cupcake-page .game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px 0 8px;
+    }
+    .cupcake-page .game-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: var(--cupcake-text);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.02em;
+    }
+    .cupcake-page .game-title .title-cupcake {
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .cupcake-page .game-title em {
+      font-style: italic;
+      color: var(--cupcake-pink);
+    }
+    .cupcake-page .subtitle {
+      font-size: 0.85rem;
+      color: var(--cupcake-muted);
+      margin: 2px 0 0 0;
+      font-weight: 500;
+    }
+    .cupcake-page .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cupcake-page .score-group {
+      display: flex;
+      gap: 8px;
+    }
+    .cupcake-page .score-box {
+      background: #ffffff;
+      border: 2px solid var(--cupcake-border);
+      border-radius: 12px;
+      padding: 6px 14px;
+      text-align: center;
+      min-width: 70px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: border-color 0.2s;
+    }
+    .cupcake-page .score-box .score-label {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--cupcake-muted);
+      line-height: 1.3;
+    }
+    .cupcake-page .score-box .score-value {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--cupcake-text);
+      line-height: 1.2;
+    }
+    .cupcake-page .btn-row {
+      display: flex;
+      gap: 8px;
+    }
+    .cupcake-page .btn {
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .cupcake-page .btn-new {
+      background: var(--cupcake-pink);
+      color: #ffffff;
+      border-color: var(--cupcake-pink);
+    }
+    .cupcake-page .btn-new:hover {
+      background: #d44a74;
+      border-color: #d44a74;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(232, 99, 140, 0.35);
+    }
+    .cupcake-page .btn-undo {
+      background: transparent;
+      color: var(--cupcake-muted);
+      border-color: var(--cupcake-border);
+    }
+    .cupcake-page .btn-undo:hover {
+      background: #fdf0f4;
+      border-color: var(--cupcake-pink);
+      color: var(--cupcake-pink);
+    }
+
+    /* ===== GAME BOARD ===== */
+    .cupcake-page .board-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 12px 0 8px;
+    }
+    .cupcake-page .board {
+      position: relative;
+      width: var(--board-size);
+      height: var(--board-size);
+      background: #f7e8ef;
+      border-radius: 16px;
+      padding: var(--gap);
+      box-shadow: 0 8px 40px rgba(232, 99, 140, 0.15), 0 2px 8px rgba(0, 0, 0, 0.04);
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .cupcake-page .grid-cells {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: var(--gap);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: var(--gap);
+      left: var(--gap);
+      right: var(--gap);
+      bottom: var(--gap);
+      width: calc(100% - 2 * var(--gap));
+      height: calc(100% - 2 * var(--gap));
+    }
+    .cupcake-page .grid-cell {
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: var(--cell-radius);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      width: 100%;
+      height: 100%;
+    }
+    .cupcake-page .tile-layer {
+      position: absolute;
+      top: var(--gap);
+      left: var(--gap);
+      width: calc(100% - 2 * var(--gap));
+      height: calc(100% - 2 * var(--gap));
+      pointer-events: none;
+    }
+
+    /* ===== TILES ===== */
+    .cupcake-page .tile {
+      position: absolute;
+      width: var(--cell-size);
+      height: var(--cell-size);
+      border-radius: var(--tile-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: top 0.12s ease, left 0.12s ease;
+      will-change: top, left;
+      overflow: hidden;
+      background: #fde8ef;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      font-family: var(--tile-font);
+    }
+    .cupcake-page .tile .tile-img {
+      width: 75%;
+      height: 75%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+    }
+    .cupcake-page .tile .tile-label {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: rgba(0, 0, 0, 0.25);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+    }
+    /* Tile colours matching game */
+    .cupcake-page .tile-2    { background: #fde8ef; }
+    .cupcake-page .tile-4    { background: #fad0e0; }
+    .cupcake-page .tile-8    { background: #f7b8d0; }
+    .cupcake-page .tile-16   { background: #f5a0bf; }
+    .cupcake-page .tile-32   { background: #f888ae; }
+    .cupcake-page .tile-64   { background: #f5709c; }
+    .cupcake-page .tile-128  { background: #f05888; }
+    .cupcake-page .tile-256  { background: #e84080; }
+    .cupcake-page .tile-512  { background: #d82870; }
+    .cupcake-page .tile-1024 { background: #c81060; }
+    .cupcake-page .tile-2048 {
+      background: linear-gradient(135deg, #f5c842, #e84080, #c81060);
+      box-shadow: 0 0 24px rgba(232, 64, 128, 0.5), 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cupcake-page .tile-2048 .tile-label,
+    .cupcake-page .tile-1024 .tile-label,
+    .cupcake-page .tile-512 .tile-label,
+    .cupcake-page .tile-256 .tile-label,
+    .cupcake-page .tile-128 .tile-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ===== TILE ANIMATIONS ===== */
+    .cupcake-page .tile-spawn {
+      animation: tileSpawn 0.18s ease-out;
+    }
+    @keyframes tileSpawn {
+      0% { transform: scale(0.3); opacity: 0; }
+      70% { transform: scale(1.08); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .cupcake-page .tile-merge {
+      animation: tileMerge 0.22s ease-out;
+    }
+    @keyframes tileMerge {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.18); }
+      100% { transform: scale(1); }
+    }
+
+    /* ===== HOW TO PLAY (GAME SECTION) ===== */
+    .cupcake-page .game-how-to-play {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--cupcake-muted);
+      padding: 8px 0 4px;
+      line-height: 1.6;
+    }
+    .cupcake-page .game-how-to-play kbd {
+      display: inline-block;
+      background: #ffffff;
+      border: 1.5px solid var(--cupcake-border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'DM Mono', monospace;
+      color: var(--cupcake-text);
+      margin: 0 1px;
+      box-shadow: 0 1px 0 var(--cupcake-border);
+    }
+
+    /* ===== OVERLAYS ===== */
+    .cupcake-page .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 31, 44, 0.55);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+    .cupcake-page .overlay[hidden] {
+      display: none;
+    }
+    .cupcake-page .overlay-box {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px 36px;
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      animation: overlayPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes overlayPop {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .cupcake-page .overlay-icon {
+      font-size: 3.5rem;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .cupcake-page .overlay-box h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--cupcake-text);
+      margin: 0 0 8px;
+    }
+    .cupcake-page .overlay-box p {
+      font-size: 0.95rem;
+      color: var(--cupcake-muted);
+      margin: 0 0 24px;
+      line-height: 1.6;
+    }
+    .cupcake-page .overlay-box .btn-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cupcake-page .overlay-box .btn {
+      padding: 10px 24px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== PAGE CONTENT SECTIONS ===== */
+    .cupcake-page .content-section {
+      padding: 56px 0 0;
+    }
+    .cupcake-page .content-section:first-of-type {
+      padding-top: 32px;
+    }
+    .cupcake-page .section-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .cupcake-page .text-center {
+      text-align: center;
+    }
+    .cupcake-page .section-tag {
+      display: inline-block;
+      background: #fdf0f4;
+      color: var(--cupcake-pink);
+      border: 1px solid var(--cupcake-pink);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .cupcake-page .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--cupcake-text);
+      line-height: 1.2;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .cupcake-page .section-sub {
+      font-size: 0.95rem;
+      color: var(--cupcake-muted);
+      max-width: 560px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    /* ===== STEPS GRID ===== */
+    .cupcake-page .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .cupcake-page .step-card {
+      background: #ffffff;
+      border: 2px solid var(--cupcake-border);
+      border-radius: var(--cupcake-radius);
+      padding: 24px 20px;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cupcake-page .step-card:hover {
+      border-color: var(--cupcake-pink);
+      box-shadow: 0 6px 24px rgba(232, 99, 140, 0.12);
+    }
+    .cupcake-page .step-num {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--cupcake-pink);
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+    .cupcake-page .step-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .cupcake-page .step-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--cupcake-text);
+      margin: 0 0 6px;
+    }
+    .cupcake-page .step-card p {
+      font-size: 0.85rem;
+      color: var(--cupcake-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===== STRATEGY CARDS ===== */
+    .cupcake-page .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .cupcake-page .strategy-card {
+      background: #ffffff;
+      border: 2px solid var(--cupcake-border);
+      border-radius: var(--cupcake-radius);
+      padding: 22px 20px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cupcake-page .strategy-card:hover {
+      border-color: var(--cupcake-pink);
+      box-shadow: 0 6px 24px rgba(232, 99, 140, 0.14);
+    }
+    .cupcake-page .strategy-card .s-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .cupcake-page .strategy-card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--cupcake-text);
+      margin: 0 0 6px;
+    }
+    .cupcake-page .strategy-card p {
+      font-size: 0.82rem;
+      color: var(--cupcake-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===== TIER TABLE ===== */
+    .cupcake-page .tier-table-wrap {
+      background: #ffffff;
+      border-radius: var(--cupcake-radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(232, 99, 140, 0.08);
+      margin-top: 24px;
+      border: 1px solid var(--cupcake-border);
+      overflow-x: auto;
+    }
+    .cupcake-page .tier-table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 500px;
+    }
+    .cupcake-page .tier-table-wrap thead th {
+      background: linear-gradient(90deg, var(--cupcake-pink), var(--cupcake-purple));
+      color: #ffffff;
+      padding: 12px 14px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.85rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    .cupcake-page .tier-table-wrap td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--cupcake-border);
+      color: var(--cupcake-muted);
+      font-weight: 500;
+    }
+    .cupcake-page .tier-table-wrap tr:last-child td {
+      border-bottom: none;
+    }
+    .cupcake-page .tier-table-wrap tr:hover td {
+      background: #fff5f9;
+    }
+    .cupcake-page .tier-icon {
+      font-size: 1.3rem;
+    }
+    .cupcake-page .tier-badge {
+      display: inline-block;
+      border-radius: 100px;
+      padding: 2px 10px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .cupcake-page .tb-starter   { background: #f0a0b8; }
+    .cupcake-page .tb-common    { background: #e88088; }
+    .cupcake-page .tb-uncommon  { background: #e06070; }
+    .cupcake-page .tb-rare      { background: #d04060; }
+    .cupcake-page .tb-epic      { background: #c03050; }
+    .cupcake-page .tb-legendary { background: linear-gradient(90deg, #f5c842, #e84080); }
+
+    /* ===== FAQ ===== */
+    .cupcake-page .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 24px;
+    }
+    .cupcake-page .faq-item {
+      background: #ffffff;
+      border: 2px solid var(--cupcake-border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .cupcake-page .faq-item.open {
+      border-color: var(--cupcake-pink);
+    }
+    .cupcake-page .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--cupcake-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      transition: background 0.2s;
+    }
+    .cupcake-page .faq-q:hover {
+      background: #fdf6f9;
+    }
+    .cupcake-page .faq-q .faq-arrow {
+      font-size: 0.7rem;
+      color: var(--cupcake-pink);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .cupcake-page .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+    .cupcake-page .faq-a {
+      display: none;
+      padding: 0 18px 16px;
+      font-size: 0.85rem;
+      color: var(--cupcake-muted);
+      line-height: 1.7;
+    }
+    .cupcake-page .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cupcake-page .cta-banner {
+      background: linear-gradient(135deg, var(--cupcake-pink), var(--cupcake-purple), #3b82f6);
+      padding: 56px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--cupcake-radius);
+      margin-top: 48px;
+    }
+    .cupcake-page .cta-banner::before {
+      content: '🧁 🎉 🏆 ✨ 🧁 🌈 💎 🧁';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      font-size: 1.4rem;
+      opacity: 0.12;
+      letter-spacing: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: scrollEmoji 12s linear infinite;
+    }
+    @keyframes scrollEmoji {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .cupcake-page .cta-banner h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: #ffffff;
+      margin: 0 0 8px;
+      position: relative;
+      z-index: 1;
+      font-weight: 900;
+    }
+    .cupcake-page .cta-banner p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .cupcake-page .btn-cta-cupcake {
+      background: #ffffff;
+      color: var(--cupcake-pink);
+      padding: 14px 36px;
+      border-radius: 32px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      border: none;
+    }
+    .cupcake-page .btn-cta-cupcake:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .cupcake-page .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .cupcake-page .about-text h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--cupcake-text);
+      margin: 0 0 12px;
+    }
+    .cupcake-page .about-text p {
+      font-size: 0.88rem;
+      color: var(--cupcake-muted);
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+    .cupcake-page .about-mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .cupcake-page .about-mini-badge {
+      background: #ffffff;
+      border: 1.5px solid var(--cupcake-border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--cupcake-muted);
+    }
+    .cupcake-page .about-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cupcake-page .about-visual img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 16px 40px rgba(232, 99, 140, 0.3));
+      animation: cupcakeFloat 3s ease-in-out infinite;
+    }
+    @keyframes cupcakeFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-16px) rotate(3deg); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .cupcake-page .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .cupcake-page .game-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .cupcake-page .header-right {
+        justify-content: space-between;
+      }
+      .cupcake-page .game-title {
+        font-size: 1.5rem;
+      }
+      .cupcake-page .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .cupcake-page .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+      .cupcake-page .overlay-box {
+        padding: 28px 20px;
+      }
+      .cupcake-page .overlay-box h2 {
+        font-size: 1.4rem;
+      }
+      .cupcake-page .faq-q {
+        font-size: 0.82rem;
+        padding: 12px 14px;
+      }
+      .cupcake-page .faq-a {
+        font-size: 0.8rem;
+        padding: 0 14px 12px;
+      }
+    }
+    @media (max-width: 400px) {
+      .cupcake-page .score-box {
+        min-width: 56px;
+        padding: 4px 10px;
+      }
+      .cupcake-page .score-box .score-value {
+        font-size: 1rem;
+      }
+      .cupcake-page .btn {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+      }
+      .cupcake-page .game-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .cupcake-page .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .cupcake-page .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="cupcake-page">
+
+  <!-- ===== HEADER (injected by header.js) ===== -->
+  <div id="header-root"></div>
+
+  <!-- ================================================================
+       HERO / GAME SECTION
+       ================================================================ -->
+  <section class="hero" id="game" aria-label="Play 2048 Cupcakes">
+    <div class="page-wrapper">
+
+      <!-- ===== GAME HEADER ===== -->
+      <header class="game-header">
+        <div class="header-left">
+          <h1 class="game-title">
+            <span class="title-cupcake" aria-hidden="true">🧁</span>
+            Cupcakes <em>2048</em>
+          </h1>
+          <p class="subtitle">Merge the cupcakes — reach the legendary tier!</p>
+        </div>
+        <div class="header-right">
+          <div class="score-group">
+            <div class="score-box" aria-live="polite">
+              <span class="score-label">Score</span>
+              <span class="score-value" id="score">0</span>
+            </div>
+            <div class="score-box" aria-live="polite">
+              <span class="score-label">Best</span>
+              <span class="score-value" id="best">0</span>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-new" id="new-game-btn" aria-label="Start a new game">New Game</button>
+            <button class="btn btn-undo" id="undo-btn" aria-label="Undo last move">Undo</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== GAME BOARD ===== -->
+      <main class="board-wrapper">
+        <div class="board" id="board" role="application" aria-label="2048 Cupcakes game board">
+          <div class="grid-cells" id="grid-cells" aria-hidden="true"></div>
+          <div class="tile-layer" id="tile-layer"></div>
+        </div>
+      </main>
+
+      <!-- ===== HOW TO PLAY ===== -->
+      <div class="game-how-to-play">
+        <strong>How to play:</strong> Use <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> or swipe to slide tiles.
+        Matching cupcakes merge into the next tier. Reach the <strong>🧁 2048</strong> cupcake to win!
+      </div>
+
+      <!-- ===== WIN / LOSE OVERLAYS ===== -->
+      <div class="overlay" id="overlay-win" hidden>
+        <div class="overlay-box">
+          <div class="overlay-icon">🎉</div>
+          <h2>You did it!</h2>
+          <p>You baked the legendary <strong>2048 Cupcake</strong>!</p>
+          <div class="btn-row">
+            <button class="btn btn-new" id="keep-going-btn">Keep Going</button>
+            <button class="btn btn-undo" id="new-after-win-btn">New Game</button>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" id="overlay-lose" hidden>
+        <div class="overlay-box">
+          <div class="overlay-icon">😢</div>
+          <h2>No more moves!</h2>
+          <p>The frosting has set. Try again?</p>
+          <button class="btn btn-new" id="new-after-lose-btn">New Game</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       HOW TO PLAY SECTION
+       ================================================================ -->
+  <section class="content-section" id="how-to-play">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-tag">📖 Tutorial</div>
+        <h2 class="section-title">How to Play 2048 Cupcakes</h2>
+        <p class="section-sub">Simple to learn, impossible to put down. Four moves, eleven tiers, one legendary goal.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <span class="step-num">1</span>
+          <span class="step-icon">🧁</span>
+          <h3>Start on a 4×4 Board</h3>
+          <p>The game begins with two random cupcake tiles — either a <strong>Tier-2</strong> or <strong>Tier-4</strong> cupcake — placed on a 4×4 grid.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">2</span>
+          <span class="step-icon">⬆️</span>
+          <h3>Slide All Tiles at Once</h3>
+          <p>Press an <strong>arrow key</strong> (or swipe on mobile) and every tile on the board slides as far as it can in that direction.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">3</span>
+          <span class="step-icon">✨</span>
+          <h3>Merge Matching Cupcakes</h3>
+          <p>When two tiles of the <strong>same cupcake tier</strong> collide, they merge into the next tier up. Two Vanilla Cupcakes (2+2) become a Strawberry Cupcake (4)!</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">4</span>
+          <span class="step-icon">🆕</span>
+          <h3>A New Cupcake Appears</h3>
+          <p>After every valid move, a new <strong>Tier-2 or Tier-4</strong> cupcake spawns in a random empty cell. Keep the board from filling up by chaining merges efficiently.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">5</span>
+          <span class="step-icon">↩️</span>
+          <h3>Use Undo Wisely</h3>
+          <p>Made a bad move? Hit <strong>Undo</strong> to revert your last step. You have up to 10 undos per game — use them at critical moments.</p>
+        </div>
+        <div class="step-card reveal">
+          <span class="step-num">6</span>
+          <span class="step-icon">🏆</span>
+          <h3>Reach the 2048 Cupcake!</h3>
+          <p>Chain merges all the way to the legendary <strong>2048 Cupcake</strong> to win. After winning, keep going to achieve even higher scores!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       STRATEGY SECTION
+       ================================================================ -->
+  <section class="content-section" id="strategy">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-tag">🧠 Pro Tips</div>
+        <h2 class="section-title">Winning Strategies for 2048 Cupcakes</h2>
+        <p class="section-sub">Think you can just slide randomly? Not a chance. These proven tactics separate the Cookie Rookies from the Cupcake Champions.</p>
+      </div>
+      <div class="strategy-grid">
+        <div class="strategy-card reveal">
+          <span class="s-icon">📐</span>
+          <h3>Corner Anchoring</h3>
+          <p>Keep your highest-value cupcake locked in one corner — bottom-right works best. Never slide it away. Build a descending chain of values along the bottom and right edges leading into that corner.</p>
+        </div>
+        <div class="strategy-card reveal">
+          <span class="s-icon">↔️</span>
+          <h3>Two-Direction Rule</h3>
+          <p>Commit to sliding mainly in two directions — for example left and down. Avoid sliding up unless absolutely necessary. This preserves the chain structure you've built.</p>
+        </div>
+        <div class="strategy-card reveal">
+          <span class="s-icon">🔗</span>
+          <h3>Build a Merge Chain</h3>
+          <p>Arrange tiles as a descending sequence: 512 → 256 → 128 → 64 along an edge. When you slide the right direction, all pairs merge in a chain reaction.</p>
+        </div>
+        <div class="strategy-card reveal">
+          <span class="s-icon">🚫</span>
+          <h3>Don't Fill the Board</h3>
+          <p>A full board means game over. Prioritise making merges over placing tiles. If the board is nearly full, focus every move on creating empty cells.</p>
+        </div>
+        <div class="strategy-card reveal">
+          <span class="s-icon">👁️</span>
+          <h3>Think Two Moves Ahead</h3>
+          <p>Before each swipe, ask where the new tile will appear and whether your planned move creates a problem. Tiles spawn in random empty cells.</p>
+        </div>
+        <div class="strategy-card reveal">
+          <span class="s-icon">↩️</span>
+          <h3>Save Undos for Crises</h3>
+          <p>Don't waste your undo budget on minor slip-ups. Save it for moments when a random spawn tile blocks your chain or forces your high-value cupcake out of its corner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TIER TABLE SECTION
+       ================================================================ -->
+  <section class="content-section" id="tier-table">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-tag">🧁 Cupcake Tiers</div>
+        <h2 class="section-title">All 11 Cupcake Tiers</h2>
+        <p class="section-sub">Every merge unlocks the next tier. Learn them all so you can spot your next big move at a glance.</p>
+      </div>
+      <div class="tier-table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Cupcake</th>
+              <th>Name</th>
+              <th>Tile Value</th>
+              <th>Tier</th>
+              <th>Merges Required</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tier-icon">🍬</td>
+              <td><strong>Candy Cupcake</strong></td>
+              <td>2</td>
+              <td><span class="tier-badge tb-starter">Starter</span></td>
+              <td>Spawns on board</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍭</td>
+              <td><strong>Lollipop Cupcake</strong></td>
+              <td>4</td>
+              <td><span class="tier-badge tb-starter">Starter</span></td>
+              <td>1 merge (2+2) or spawns</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍩</td>
+              <td><strong>Donut Cupcake</strong></td>
+              <td>8</td>
+              <td><span class="tier-badge tb-common">Common</span></td>
+              <td>2 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍰</td>
+              <td><strong>Vanilla Slice</strong></td>
+              <td>16</td>
+              <td><span class="tier-badge tb-common">Common</span></td>
+              <td>3 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🎂</td>
+              <td><strong>Birthday Cupcake</strong></td>
+              <td>32</td>
+              <td><span class="tier-badge tb-uncommon">Uncommon</span></td>
+              <td>4 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🧁</td>
+              <td><strong>Frosted Cupcake</strong></td>
+              <td>64</td>
+              <td><span class="tier-badge tb-uncommon">Uncommon</span></td>
+              <td>5 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍡</td>
+              <td><strong>Mochi Cupcake</strong></td>
+              <td>128</td>
+              <td><span class="tier-badge tb-rare">Rare</span></td>
+              <td>6 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍮</td>
+              <td><strong>Caramel Flan</strong></td>
+              <td>256</td>
+              <td><span class="tier-badge tb-rare">Rare</span></td>
+              <td>7 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🍪</td>
+              <td><strong>Galaxy Cupcake</strong></td>
+              <td>512</td>
+              <td><span class="tier-badge tb-epic">Epic</span></td>
+              <td>8 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🎁</td>
+              <td><strong>Mystery Cupcake</strong></td>
+              <td>1024</td>
+              <td><span class="tier-badge tb-epic">Epic</span></td>
+              <td>9 merges</td>
+            </tr>
+            <tr>
+              <td class="tier-icon">🏆</td>
+              <td><strong>Rainbow Cupcake</strong></td>
+              <td>2048</td>
+              <td><span class="tier-badge tb-legendary">Legendary</span></td>
+              <td>10 merges — YOU WIN!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       ABOUT SECTION
+       ================================================================ -->
+  <section class="content-section" id="about-cupcakes">
+    <div class="section-inner">
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <h2>What is 2048 Cupcakes?</h2>
+          <p>2048 Cupcakes is a free, browser-based sliding tile puzzle game built on the mechanics of the classic 2048 number puzzle — but with all the numbers swapped out for irresistibly cute cupcake illustrations.</p>
+          <p>Instead of combining numbers, you combine cupcake tiers. Two matching Frosted Cupcakes merge into a Mochi Cupcake. Two Mochi Cupcakes become a Caramel Flan. The chain continues until you either fill the board or bake your way to the legendary Rainbow Cupcake — tile value 2048.</p>
+          <p>The game is easy enough for beginners to enjoy in minutes but deep enough to keep puzzle enthusiasts occupied for hours. With persistent score saving, an undo system, and post-win keep-going mode, every session is a fresh strategic challenge.</p>
+          <div class="about-mini-badges">
+            <span class="about-mini-badge">🎮 Browser Game</span>
+            <span class="about-mini-badge">📱 Mobile Friendly</span>
+            <span class="about-mini-badge">💾 Auto-Saves</span>
+            <span class="about-mini-badge">↩️ Undo System</span>
+            <span class="about-mini-badge">🆓 100% Free</span>
+            <span class="about-mini-badge">🚫 No Download</span>
+          </div>
+        </div>
+        <div class="about-visual">
+          <img
+            src="/images/cupcakes2048.png"
+            alt="Colorful cupcakes from 2048 Cupcakes game"
+            width="280"
+            height="280"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FAQ SECTION
+       ================================================================ -->
+  <section class="content-section" id="faq-cupcakes">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-tag">❓ FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Everything you want to know about 2048 Cupcakes — answered fresh from the oven.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How do I play 2048 Cupcakes? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Use your arrow keys on desktop (↑ ↓ ← →) or swipe on mobile to slide all tiles in one direction simultaneously. When two tiles showing the same cupcake collide, they merge into the next tier up. A new tile spawns after each valid move. Keep merging to reach the 2048 Cupcake!</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is 2048 Cupcakes completely free? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Yes — 100% free. No hidden purchases, subscriptions, or in-app payments of any kind. Just open the page and start sliding. No account or sign-up required.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How many cupcake tiers are there? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">There are 11 cupcake tiers, starting with the Candy Cupcake (value 2) and ending with the legendary Rainbow Cupcake (value 2048). If you keep playing after winning, tiles can go even higher — 4096, 8192, and beyond!</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What is the best strategy for winning? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">The most reliable strategy is the corner method: keep your highest-value cupcake locked in one corner, build a descending chain of values along the two edges adjacent to that corner, and commit to sliding primarily toward the corner. Avoid the slide that moves your champion cupcake away from its corner.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does the game save my progress? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Yes! 2048 Cupcakes saves your current board state and your best score to your browser's local storage automatically. Close the tab, come back later, and your game will be right where you left it.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I keep playing after reaching 2048? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Absolutely. When you bake the legendary 2048 Cupcake, a win screen appears and gives you the option to Keep Going. Choose it and the game continues — you can chase 4096, 8192, or the elusive 16384 tile for an even higher score.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I play 2048 Cupcakes on my phone? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">Yes! The game is fully optimised for touchscreens. Swipe in any direction to slide the board — it works exactly like arrow keys on desktop. The board and UI scale to fit all screen sizes automatically.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How is 2048 Cupcakes different from regular 2048? <span class="faq-arrow">▼</span></button>
+          <div class="faq-a">The core sliding-puzzle mechanics are the same, but instead of abstract numbers you see 11 beautifully illustrated cupcake tiers. Each tier has its own colour, icon, and name, making it easier and more enjoyable to track your progress at a glance — especially for younger players.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CTA BANNER
+       ================================================================ -->
+  <section class="content-section" id="cta-cupcake" style="padding-top: 32px;">
+    <div class="section-inner">
+      <div class="cta-banner">
+        <h2>Ready to Bake the Legendary Cupcake?</h2>
+        <p>One board. Eleven tiers. One legendary goal. Your 2048 Cupcake awaits!</p>
+        <button class="btn-cta-cupcake" onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})">
+          🧁 Play 2048 Cupcakes — Free!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (injected by footer.js) ===== -->
+  <div id="footer-root"></div>
+
+  <!-- ================================================================
+       GAME SCRIPT
+       ================================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ── Cupcake Images ── */
+      const CUPCAKE_IMAGES = {
+        2:    '/2048cupcakes/2.webp',
+        4:    '/2048cupcakes/4.webp',
+        8:    '/2048cupcakes/8.webp',
+        16:   '/2048cupcakes/16.webp',
+        32:   '/2048cupcakes/32.webp',
+        64:   '/2048cupcakes/64.webp',
+        128:  '/2048cupcakes/128.webp',
+        256:  '/2048cupcakes/256.webp',
+        512:  '/2048cupcakes/512.webp',
+        1024: '/2048cupcakes/1024.webp',
+        2048: '/2048cupcakes/2048.webp',
+      };
+
+      /* ── Constants ── */
+      const SIZE = 4;
+      const GAP = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap'));
+      const CELL = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--cell-size'));
+
+      /* ── State ── */
+      let grid = [];
+      let score = 0;
+      let best = parseInt(localStorage.getItem('cupcake2048_best') || '0');
+      let nextId = 1;
+      let history = [];
+      let won = false;
+      let keepGoing = false;
+
+      /* ── DOM refs ── */
+      const $gridCells = document.getElementById('grid-cells');
+      const $tileLayer = document.getElementById('tile-layer');
+      const $score = document.getElementById('score');
+      const $best = document.getElementById('best');
+      const $overlayWin = document.getElementById('overlay-win');
+      const $overlayLose = document.getElementById('overlay-lose');
+
+      document.getElementById('new-game-btn').addEventListener('click', newGame);
+      document.getElementById('undo-btn').addEventListener('click', undo);
+      document.getElementById('keep-going-btn').addEventListener('click', () => {
+        keepGoing = true;
+        $overlayWin.hidden = true;
+      });
+      document.getElementById('new-after-win-btn').addEventListener('click', newGame);
+      document.getElementById('new-after-lose-btn').addEventListener('click', newGame);
+
+      /* ── Init ── */
+      buildGridCells();
+      newGame();
+      updateBestDisplay();
+
+      /* ── Build static background grid ── */
+      function buildGridCells() {
+        $gridCells.innerHTML = '';
+        for (let i = 0; i < SIZE * SIZE; i++) {
+          const cell = document.createElement('div');
+          cell.className = 'grid-cell';
+          $gridCells.appendChild(cell);
+        }
+      }
+
+      /* ── New game ── */
+      function newGame() {
+        grid = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
+        score = 0;
+        won = false;
+        keepGoing = false;
+        history = [];
+        $overlayWin.hidden = true;
+        $overlayLose.hidden = true;
+        $tileLayer.innerHTML = '';
+        updateScoreDisplay();
+        addRandom();
+        addRandom();
+        renderTiles();
+      }
+
+      /* ── Random tile ── */
+      function addRandom() {
+        const empties = [];
+        for (let r = 0; r < SIZE; r++)
+          for (let c = 0; c < SIZE; c++)
+            if (!grid[r][c]) empties.push([r, c]);
+        if (!empties.length) return;
+        const [r, c] = empties[Math.floor(Math.random() * empties.length)];
+        grid[r][c] = { id: nextId++, value: Math.random() < 0.9 ? 2 : 4, isNew: true };
+      }
+
+      /* ── Deep clone grid ── */
+      function cloneGrid() {
+        return grid.map(row => row.map(cell => cell ? { ...cell } : null));
+      }
+
+      /* ── Push to undo history ── */
+      function pushHistory() {
+        history.push({ grid: cloneGrid(), score });
+        if (history.length > 10) history.shift();
+      }
+
+      /* ── Undo ── */
+      function undo() {
+        if (!history.length) return;
+        const prev = history.pop();
+        grid = prev.grid;
+        score = prev.score;
+        $overlayWin.hidden = true;
+        $overlayLose.hidden = true;
+        updateScoreDisplay();
+        renderTiles(false);
+      }
+
+      /* ── Score display ── */
+      function updateScoreDisplay() {
+        $score.textContent = score;
+        updateBestDisplay();
+      }
+      function updateBestDisplay() {
+        if (score > best) {
+          best = score;
+          localStorage.setItem('cupcake2048_best', best);
+        }
+        $best.textContent = best;
+      }
+
+      /* ── Render all tiles ── */
+      function renderTiles(animate = true) {
+        const activeIds = new Set();
+        for (let r = 0; r < SIZE; r++)
+          for (let c = 0; c < SIZE; c++)
+            if (grid[r][c]) activeIds.add(grid[r][c].id);
+
+        [...$tileLayer.children].forEach(el => {
+          if (!activeIds.has(parseInt(el.dataset.id))) el.remove();
+        });
+
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c < SIZE; c++) {
+            const cell = grid[r][c];
+            if (!cell) continue;
+
+            let el = $tileLayer.querySelector(`[data-id="${cell.id}"]`);
+
+            if (!el) {
+              el = createTileEl(cell);
+              $tileLayer.appendChild(el);
+            }
+
+            const gap = GAP();
+            const size = CELL();
+            el.style.top = `${r * (size + gap)}px`;
+            el.style.left = `${c * (size + gap)}px`;
+
+            el.className = `tile tile-${cell.value}`;
+            el.dataset.id = cell.id;
+            el.innerHTML = tileInner(cell.value);
+
+            if (animate && cell.isNew) {
+              el.classList.add('tile-spawn');
+              el.addEventListener('animationend', () => el.classList.remove('tile-spawn'), { once: true });
+            }
+            if (animate && cell.merged) {
+              el.classList.add('tile-merge');
+              el.addEventListener('animationend', () => el.classList.remove('tile-merge'), { once: true });
+            }
+            delete cell.isNew;
+            delete cell.merged;
+          }
+        }
+      }
+
+      /* ── Build tile DOM element ── */
+      function createTileEl(cell) {
+        const el = document.createElement('div');
+        el.className = `tile tile-${cell.value}`;
+        el.dataset.id = cell.id;
+        el.innerHTML = tileInner(cell.value);
+        return el;
+      }
+
+      function tileInner(value) {
+        const imgSrc = CUPCAKE_IMAGES[value];
+        if (imgSrc) {
+          return `<img class="tile-img" src="${imgSrc}" alt="cupcake tier ${value}" draggable="false" loading="lazy">
+                  <span class="tile-label">${value}</span>`;
+        }
+        const emojis = { 2:'🍬',4:'🍭',8:'🍩',16:'🍰',32:'🎂',64:'🧁',
+                         128:'🍡',256:'🍮',512:'🍪',1024:'🎁',2048:'🏆' };
+        return `<span style="font-size:2.2rem;line-height:1">${emojis[value] || '✨'}</span>
+                <span class="tile-label">${value}</span>`;
+      }
+
+      /* ── Slide logic ── */
+      function slide(row) {
+        let tiles = row.filter(Boolean);
+        let gained = 0;
+        for (let i = 0; i < tiles.length - 1; i++) {
+          if (tiles[i].value === tiles[i + 1].value) {
+            tiles[i] = { id: tiles[i].id, value: tiles[i].value * 2, merged: true };
+            gained += tiles[i].value;
+            tiles.splice(i + 1, 1);
+          }
+        }
+        while (tiles.length < SIZE) tiles.push(null);
+        return { tiles, gained };
+      }
+
+      function getRow(r) { return grid[r].slice(); }
+      function getCol(c) { return grid.map(row => row[c]); }
+
+      function move(direction) {
+        pushHistory();
+        let moved = false;
+
+        const processLine = (line) => {
+          let forward = line;
+          if (direction === 'right' || direction === 'down') forward = [...line].reverse();
+          const { tiles, gained } = slide(forward);
+          score += gained;
+          if (direction === 'right' || direction === 'down') tiles.reverse();
+          return { tiles, changed: JSON.stringify(tiles.map(t => t && t.value)) !== JSON.stringify(line.map(t => t && t.value)), gained };
+        };
+
+        if (direction === 'left' || direction === 'right') {
+          for (let r = 0; r < SIZE; r++) {
+            const { tiles, changed } = processLine(getRow(r));
+            if (changed) moved = true;
+            grid[r] = tiles;
+          }
+        } else {
+          for (let c = 0; c < SIZE; c++) {
+            const { tiles, changed } = processLine(getCol(c));
+            if (changed) moved = true;
+            for (let r = 0; r < SIZE; r++) grid[r][c] = tiles[r];
+          }
+        }
+
+        if (!moved) { history.pop(); return; }
+
+        updateScoreDisplay();
+        addRandom();
+        renderTiles();
+        checkEnd();
+      }
+
+      /* ── Win / lose check ── */
+      function checkEnd() {
+        if (!keepGoing && !won) {
+          for (let r = 0; r < SIZE; r++)
+            for (let c = 0; c < SIZE; c++)
+              if (grid[r][c] && grid[r][c].value === 2048) {
+                won = true;
+                $overlayWin.hidden = false;
+                return;
+              }
+        }
+
+        for (let r = 0; r < SIZE; r++)
+          for (let c = 0; c < SIZE; c++)
+            if (!grid[r][c]) return;
+
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c < SIZE; c++) {
+            const v = grid[r][c].value;
+            if (c + 1 < SIZE && grid[r][c + 1] && grid[r][c + 1].value === v) return;
+            if (r + 1 < SIZE && grid[r + 1][c] && grid[r + 1][c].value === v) return;
+          }
+        }
+        $overlayLose.hidden = false;
+      }
+
+      /* ── Keyboard ── */
+      const keyMap = {
+        ArrowLeft: 'left', ArrowRight: 'right',
+        ArrowUp: 'up', ArrowDown: 'down',
+        h: 'left', l: 'right', k: 'up', j: 'down',
+      };
+
+      document.addEventListener('keydown', e => {
+        const dir = keyMap[e.key];
+        if (!dir) return;
+        e.preventDefault();
+        move(dir);
+      });
+
+      /* ── Touch / swipe ── */
+      let touchX = null, touchY = null;
+
+      document.addEventListener('touchstart', e => {
+        touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', e => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        const dy = e.changedTouches[0].clientY - touchY;
+        touchX = touchY = null;
+
+        if (Math.abs(dx) < 20 && Math.abs(dy) < 20) return;
+        if (Math.abs(dx) > Math.abs(dy)) {
+          move(dx > 0 ? 'right' : 'left');
+        } else {
+          move(dy > 0 ? 'down' : 'up');
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+  <!-- ================================================================
+       PAGE INTERACTIONS (FAQ, SCROLL REVEAL)
+       ================================================================ -->
+  <script>
+    (function() {
+      /* FAQ accordion */
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+          if (!isOpen) {
+            item.classList.add('open');
+            q.setAttribute('aria-expanded', 'true');
+          } else {
+            q.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      /* Scroll reveal */
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <!-- ===== SHARED SCRIPTS ===== -->
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <div id="tools-sidebar-root"></div>
+  <script src="/components/sidebar.js"></script>
+
+</body>
+</html>

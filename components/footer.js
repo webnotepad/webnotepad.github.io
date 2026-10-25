@@ -21,7 +21,7 @@
       <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12C24 5.373 18.627 0 12 0zm5.01 15.262c-.222.848-1.14 1.746-2.836 1.746-1.638 0-2.506-.886-2.724-1.03-.272.144-1.189.585-2.455.585-2.516 0-3.794-1.14-4.115-1.793-.24.103-.528.157-.829.157-1.05 0-1.903-.853-1.903-1.903s.853-1.903 1.903-1.903c.37 0 .72.11 1.018.298.744-1.123 2.132-1.898 3.744-1.898.783 0 1.54.186 2.207.524.153-1.336 1.07-2.382 2.22-2.382.06 0 .12.003.178.008-.096-.36-.15-.738-.15-1.126 0-1.84 1.49-3.33 3.33-3.33 1.84 0 3.33 1.49 3.33 3.33 0 .17-.013.337-.037.5.535.17 1.05.48 1.467.89.35.35.6.78.72 1.24.034.13.052.266.052.403 0 .227-.05.45-.143.656.03.128.045.26.045.396 0 1.57-1.53 2.94-3.64 2.94-.11 0-.22-.005-.328-.015zM7.522 11.82c-.42 0-.76.34-.76.76s.34.76.76.76.76-.34.76-.76-.34-.76-.76-.76zm8.956 0c-.42 0-.76.34-.76.76s.34.76.76.76.76-.34.76-.76-.34-.76-.76-.76z"/>
     </svg>`;
 
-  // Style block — scoped to our new social row so it works without touching external CSS
+  // Style block — scoped to our new social row + Product Hunt badge
   const socialStyles = `
     <style>
       .social-icons-row {
@@ -56,6 +56,28 @@
         fill: currentColor;
         display: block;
       }
+      .footer-producthunt {
+        display: block;
+        margin-top: 1.5rem;
+        line-height: 0;
+        width: max-content;
+        transition: opacity .2s ease, transform .2s ease;
+      }
+      .footer-producthunt:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      .footer-producthunt img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 640px) {
+        .footer-producthunt img {
+          width: 220px;
+          height: auto;
+        }
+      }
     </style>`;
 
   const socialIconsHTML = `
@@ -64,6 +86,24 @@
       <a href="https://x.com/webnotepad" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">${xSvg}</a>
       <a href="https://www.reddit.com/user/webnotepad" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Reddit">${redditSvg}</a>
     </div>`;
+
+  // Product Hunt badge — placed under the social icons in the brand column
+  const productHuntBadge = `
+    <a
+      href="https://www.producthunt.com/products/notepad-diary-online/reviews/new?utm_source=badge-product_review&utm_medium=badge"
+      class="footer-producthunt"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Review Notepad & Diary Online on Product Hunt"
+    >
+      <img
+        src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1266659&theme=dark"
+        alt="Notepad & Diary Online - Write, save and organize notes instantly in your browser | Product Hunt"
+        width="250"
+        height="54"
+        loading="lazy"
+      />
+    </a>`;
 
   const footerHTML = `
     ${socialStyles}
@@ -74,6 +114,7 @@
             <div class="footer-logo">✦ Notepad Online</div>
             <p>The cleanest free online notepad. Write, save and organize your notes instantly in your browser — no signup, no complexity. Your thoughts, always safe.</p>
             ${socialIconsHTML}
+            ${productHuntBadge}
           </div>
           <div class="footer-col">
             <h4>Tools</h4>

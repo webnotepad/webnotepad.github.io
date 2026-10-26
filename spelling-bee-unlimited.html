@@ -418,38 +418,36 @@
 
         /* ===== WORD DISPLAY ===== */
         .sb-word-display {
-            min-height: 68px;
-            padding: 10px 18px 6px;
+            min-height: 60px;
+            padding: 10px 18px 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 3px;
         }
         .sb-letter-slot {
-            width: 42px;
-            height: 48px;
-            background: var(--sb-surface);
-            border: 1.5px solid var(--sb-border);
-            border-radius: 6px;
+            width: 38px;
+            height: 44px;
+            background: transparent;
+            border-bottom: 3px solid var(--sb-border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Outfit', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--sb-ink);
             text-transform: uppercase;
             transition: all var(--sb-transition);
         }
         .sb-letter-slot.sb-filled {
-            background: var(--sb-honey-light);
-            border-color: var(--sb-honey);
-            color: var(--sb-honey-ink);
+            border-bottom-color: var(--sb-honey);
+            color: var(--sb-ink);
         }
         .sb-letter-slot.sb-center-highlight {
-            border-color: var(--sb-accent);
-            box-shadow: 0 0 0 2px var(--sb-accent-pale);
+            color: var(--sb-accent);
+            border-bottom-color: var(--sb-accent);
         }
         .sb-word-placeholder {
             font-family: 'DM Mono', 'Courier New', monospace;
@@ -464,7 +462,7 @@
         /* ===== MESSAGE ===== */
         .sb-message {
             text-align: center;
-            padding: 0 18px 8px;
+            padding: 0 18px 6px;
             min-height: 24px;
             font-family: 'DM Mono', 'Courier New', monospace;
             font-size: 0.78rem;
@@ -480,9 +478,9 @@
         .sb-message.sb-msg-pangram { color: var(--sb-pangram); }
         body.dark .sb-message.sb-msg-pangram { color: var(--sb-pangram-light); }
 
-        /* ===== HIVE ===== */
+        /* ===== HIVE (honeycomb) ===== */
         .sb-hive-wrap {
-            padding: 8px 18px 6px;
+            padding: 6px 18px 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -490,22 +488,22 @@
         .sb-hive {
             position: relative;
             width: 100%;
-            max-width: 340px;
-            aspect-ratio: 1 / 1.08;
+            max-width: 320px;
+            aspect-ratio: 1 / 1.14;
             margin: 0 auto;
         }
         .sb-cell {
             position: absolute;
             width: 30%;
-            height: 26%;
-            background: var(--sb-honey);
+            height: 25.4%;
+            background: var(--sb-honey-light);
             border: 2px solid var(--sb-honey);
-            border-radius: 8px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(1.1rem, 4.5vw, 1.55rem);
+            font-size: clamp(1.2rem, 5vw, 1.7rem);
             font-weight: 800;
             color: var(--sb-honey-ink);
             text-transform: uppercase;
@@ -518,19 +516,19 @@
             line-height: 1;
         }
         .sb-cell:hover {
-            background: var(--sb-accent-light);
-            border-color: var(--sb-accent-light);
-            transform: scale(1.05);
+            background: var(--sb-honey);
+            border-color: var(--sb-accent);
+            transform: scale(1.06);
         }
-        .sb-cell:active { transform: scale(0.95); }
+        .sb-cell:active { transform: scale(0.94); }
         .sb-cell.sb-cell--center {
-            background: var(--sb-ink);
-            border-color: var(--sb-ink);
-            color: var(--sb-surface);
+            background: var(--sb-honey);
+            border-color: var(--sb-honey);
+            color: var(--sb-honey-ink);
             z-index: 2;
         }
         .sb-cell.sb-cell--center:hover {
-            background: var(--sb-ink);
+            background: var(--sb-accent-light);
             border-color: var(--sb-accent);
             box-shadow: 0 0 0 3px var(--sb-accent-pale);
         }
@@ -540,19 +538,19 @@
             border-color: var(--sb-border);
         }
         .sb-cell.sb-used.sb-cell--center {
-            background: var(--sb-warm);
+            background: var(--sb-surface);
             color: var(--sb-muted);
             border-color: var(--sb-border);
         }
 
-        /* Hive positioning (7 cells: 2-3-2 layout) */
-        .sb-cell[data-pos="0"] { top: 0%;    left: 0%;    }
-        .sb-cell[data-pos="1"] { top: 0%;    left: 35%;   }
-        .sb-cell[data-pos="2"] { top: 0%;    left: 70%;   }
-        .sb-cell[data-pos="3"] { top: 37%;   left: 0%;    }
-        .sb-cell[data-pos="4"] { top: 37%;   left: 35%;   }
-        .sb-cell[data-pos="5"] { top: 37%;   left: 70%;   }
-        .sb-cell[data-pos="6"] { top: 74%;   left: 17.5%; }
+        /* Hive positioning (classic 7-cell honeycomb: 2-3-2) */
+        .sb-cell[data-pos="0"] { top: 0%;     left: 17.5%; }
+        .sb-cell[data-pos="1"] { top: 0%;     left: 52.5%; }
+        .sb-cell[data-pos="2"] { top: 37%;    left: 0%;    }
+        .sb-cell[data-pos="3"] { top: 37%;    left: 35%;   }
+        .sb-cell[data-pos="4"] { top: 37%;    left: 70%;   }
+        .sb-cell[data-pos="5"] { top: 74%;    left: 17.5%; }
+        .sb-cell[data-pos="6"] { top: 74%;    left: 52.5%; }
 
         /* ===== CONTROLS ===== */
         .sb-controls {
@@ -1018,8 +1016,8 @@
             .sb-stat-pill strong { font-size: 0.74rem; }
             .sb-score-block { padding: 12px 14px 4px; }
             .sb-rank-name { font-size: 1.05rem; }
-            .sb-word-display { padding: 8px 14px 4px; min-height: 60px; }
-            .sb-letter-slot { width: 36px; height: 42px; font-size: 1.2rem; }
+            .sb-word-display { padding: 8px 14px 4px; min-height: 54px; }
+            .sb-letter-slot { width: 32px; height: 38px; font-size: 1.25rem; }
             .sb-hive-wrap { padding: 6px 14px 4px; }
             .sb-hive { max-width: 300px; }
             .sb-controls { padding: 10px 14px 14px; gap: 7px; }
@@ -1031,9 +1029,9 @@
         @media (max-width: 480px) {
             .sb-hero-title { font-size: 1.6rem; }
             .sb-hive { max-width: 260px; }
-            .sb-cell { font-size: clamp(1rem, 5vw, 1.3rem); border-width: 1.5px; }
-            .sb-word-display { min-height: 54px; padding: 6px 10px 2px; }
-            .sb-letter-slot { width: 32px; height: 38px; font-size: 1.05rem; border-radius: 5px; }
+            .sb-cell { font-size: clamp(1.1rem, 5vw, 1.4rem); border-width: 1.5px; }
+            .sb-word-display { min-height: 50px; padding: 6px 10px 2px; }
+            .sb-letter-slot { width: 28px; height: 34px; font-size: 1.15rem; }
             .sb-word-placeholder { font-size: 0.7rem; }
             .sb-controls { padding: 8px 10px 12px; gap: 5px; }
             .sb-btn { padding: 9px 13px; font-size: 0.72rem; gap: 4px; }
@@ -1791,13 +1789,16 @@
         function renderHive() {
             hiveEl.innerHTML = '';
 
-            // Hive positions: 0,1,2 top; 3,4(center),5 middle; 6 bottom
+            // Classic Spelling Bee honeycomb layout:
+            // pos 0,1 = top row (2 outer)
+            // pos 2,3,4 = middle row (outer, CENTER, outer)
+            // pos 5,6 = bottom row (2 outer)
             const positions = [
                 state.outerLetters[0],
                 state.outerLetters[1],
                 state.outerLetters[2],
-                state.outerLetters[3],
                 state.centerLetter,
+                state.outerLetters[3],
                 state.outerLetters[4],
                 state.outerLetters[5]
             ];

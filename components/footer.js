@@ -133,7 +133,7 @@
               <li><a href="/blog">Blog</a></li>              
               <li><a href="/digital-study-planner-guide">Study Planner Guide</a></li>
               <li><a href="/ultimate-guide-digital-note-taking">Note-Taking Guide</a></li>
-              <li><a href="/faq">Faqs</a></li>
+              <li><a href="/quotes">Quotes</a></li>
               <li><a href="/hints-answers">Hints & Answers</a></li>
               <li><a href="/sitemap.xml">Sitemap</a></li>
             </ul>

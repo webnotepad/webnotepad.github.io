@@ -1,0 +1,118 @@
+/* ═══════════════════════════════════════════════════════
+   WebNotePad — Quotes components
+   Loaded AFTER blog.css + hints.css
+═══════════════════════════════════════════════════════ */
+
+.quote-list { display: flex; flex-direction: column; gap: 14px; margin: 1.6em 0; }
+
+.quote-card {
+  position: relative;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-edge);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  padding: 20px 22px 16px;
+  transition: box-shadow var(--t), border-color var(--t);
+}
+.quote-card:hover { box-shadow: var(--sh); }
+
+.quote-mark {
+  font-family: var(--f-display);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .28;
+  display: block;
+  margin-bottom: -6px;
+}
+
+.quote-text {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.quote-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--f-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--ink-muted);
+}
+.quote-author .qa-name { color: var(--accent); font-weight: 700; }
+.quote-author .qa-src { color: var(--ink-muted); }
+
+.quote-copy {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r);
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  color: var(--ink-muted);
+  font-size: .95rem;
+  cursor: pointer;
+  transition: all var(--t);
+  -webkit-tap-highlight-color: transparent;
+}
+.quote-copy:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+.quote-copy.copied { border-color: var(--green); color: var(--green); background: var(--green-pl); }
+
+/* Category intro chips */
+.qcat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 1.6em; }
+.qcat-chips a {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  background: var(--paper-dk);
+  border: 1px solid var(--paper-edge);
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: all var(--t);
+}
+.qcat-chips a:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pl); }
+.qcat-chips a.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Jump-to-letter nav (long lists) */
+.qjump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 1.8em;
+  padding: 12px 14px;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--r-lg);
+}
+.qjump a {
+  font-family: var(--f-mono);
+  font-size: .7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 4px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: all var(--t);
+}
+.qjump a:hover { background: var(--accent-pl); color: var(--accent); }
+
+@media (max-width: 640px) {
+  .quote-card { padding: 18px 16px 14px; }
+  .quote-text { font-size: 1rem; }
+  .quote-copy { top: 8px; right: 8px; width: 32px; height: 32px; }
+  .quote-mark { font-size: 2rem; }
+}

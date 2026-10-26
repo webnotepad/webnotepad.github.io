@@ -104,7 +104,7 @@
     { id: 'connections-unlimited', label: 'Connections', icon: ICONS.gameIcons.puzzle, description: 'Group the words', url: '/connections-unlimited' },
     { id: 'spelling-bee', label: 'Spelling Bee', icon: ICONS.gameIcons.bee, description: 'Build from 7 letters', url: '/spelling-bee-unlimited' },
     { id: 'crossword-puzzle', label: 'Crossword', icon: ICONS.gameIcons.crossword, description: 'Solve the grid', url: '/crossword-puzzle' },
-    { id: 'wordle', label: 'Wordle', icon: ICONS.gameIcons.letterTile, description: 'Guess the word', url: '/wordle' },
+    { id: 'wordle', label: 'Wordle', icon: ICONS.gameIcons.letterTile, description: 'Guess the word', url: '/wordle-unlimited' },
     { id: 'word-search', label: 'Word Search', icon: ICONS.gameIcons.search, description: 'Find hidden words', url: '/word-search' },
     { id: 'memory-match', label: 'Memory', icon: ICONS.gameIcons.cards, description: 'Match the cards', url: '/memory-match' },
     { id: '2048', label: '2048', icon: ICONS.gameIcons.number, description: 'Combine numbers', url: '/2048' },

@@ -1,5 +1,5 @@
 /**
- * WebNotePad — Header Component (Professional Colorful Edition)
+ * WebNotePad — Header Component (Professional + Colored SVG Icons)
  * Injected into #header-root on DOMContentLoaded
  */
 (function () {
@@ -15,14 +15,14 @@
     { code: 'pl', label: '🇵🇱 Polish', flag: '🇵🇱', prefix: '/pl' }
   ];
 
-  // ── Desktop nav SVG icons ──
+  // ── Desktop nav SVG icons (each with its own color) ──
   const NAV_ICONS = {
-    home: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 3l9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20a1 1 0 0 0 1 1H10v-5.5h4V21h3.5a1 1 0 0 0 1-1V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    diary: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="15" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7.5 3v18" stroke="currentColor" stroke-width="1.8"/><path d="M11 8h5M11 12h5M11 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
-    mindmap: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.8"/><circle cx="5" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M10 11L6.2 7.2M14 11l3.8-3.8M10 13l-3.8 3.8M14 13l3.8 3.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
-    list: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="7" y="7" width="3" height="3" rx="0.5" stroke="currentColor" stroke-width="1.4"/><path d="M7.6 8.5l1 1 1.6-1.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5h5M12 13h5M7 13h3M7 17h3M12 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`,
-    allTools: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg>`,
-    games: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="6" y1="11" x2="10" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="9" x2="8" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="12" r="0.9" fill="currentColor"/><circle cx="18" cy="10" r="0.9" fill="currentColor"/></svg>`
+    home: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 3l9 7.5" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20a1 1 0 0 0 1 1H10v-5.5h4V21h3.5a1 1 0 0 0 1-1V9.5" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    diary: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="15" height="18" rx="2" stroke="#8B5CF6" stroke-width="1.8"/><path d="M7.5 3v18" stroke="#8B5CF6" stroke-width="1.8"/><path d="M11 8h5M11 12h5M11 16h3" stroke="#8B5CF6" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    mindmap: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="2.6" stroke="#0EA5E9" stroke-width="1.8"/><circle cx="5" cy="6" r="1.8" stroke="#0EA5E9" stroke-width="1.6"/><circle cx="19" cy="6" r="1.8" stroke="#0EA5E9" stroke-width="1.6"/><circle cx="5" cy="18" r="1.8" stroke="#0EA5E9" stroke-width="1.6"/><circle cx="19" cy="18" r="1.8" stroke="#0EA5E9" stroke-width="1.6"/><path d="M10 11L6.2 7.2M14 11l3.8-3.8M10 13l-3.8 3.8M14 13l3.8 3.8" stroke="#0EA5E9" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    list: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#10B981" stroke-width="1.8"/><rect x="7" y="7" width="3" height="3" rx="0.5" stroke="#10B981" stroke-width="1.4"/><path d="M7.6 8.5l1 1 1.6-1.6" stroke="#10B981" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8.5h5M12 13h5M7 13h3M7 17h3M12 17h5" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+    allTools: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#FFFFFF" stroke-width="1.7"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#FFFFFF" stroke-width="1.7"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#FFFFFF" stroke-width="1.7"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#FFFFFF" stroke-width="1.7"/></svg>`,
+    games: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" stroke="#EC4899" stroke-width="1.8" stroke-linejoin="round"/><line x1="6" y1="11" x2="10" y2="11" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="9" x2="8" y2="13" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="12" r="0.9" fill="#EC4899"/><circle cx="18" cy="10" r="0.9" fill="#EC4899"/></svg>`
   };
 
   function getLocalizedUrl(targetPrefix) {
@@ -140,10 +140,10 @@
         e.stopPropagation();
         const content = btn.nextElementSibling;
         if (!content) return;
-        content.classList.toggle('show');
-        btn.setAttribute('aria-expanded', content.classList.contains('show'));
-        btn.textContent = btn.textContent.replace('▼', content.classList.contains('show') ? '▲' : '▼')
-                                         .replace('▲', content.classList.contains('show') ? '▲' : '▼');
+        const willOpen = !content.classList.contains('show');
+        content.classList.toggle('show', willOpen);
+        btn.setAttribute('aria-expanded', String(willOpen));
+        btn.textContent = willOpen ? '🌐 Language ▲' : '🌐 Language ▼';
       });
     });
 
@@ -191,6 +191,7 @@
       /* =========================================
          HEADER — professional, muted, with
          a soft colorful "aurora" backdrop
+         + colored SVG nav icons
          ========================================= */
 
       .site-header {
@@ -224,41 +225,31 @@
         will-change: transform;
       }
 
-      /* Soft pastel orbs — low opacity so nav stays readable */
       .header-orb--1 {
-        width: 320px;
-        height: 320px;
-        top: -140px;
-        left: -80px;
+        width: 320px; height: 320px;
+        top: -140px; left: -80px;
         background: radial-gradient(circle, rgba(196, 86, 42, 0.35) 0%, rgba(196, 86, 42, 0) 70%);
         animation: orbDrift1 22s ease-in-out infinite alternate;
       }
       .header-orb--2 {
-        width: 280px;
-        height: 280px;
-        top: -120px;
-        left: 30%;
+        width: 280px; height: 280px;
+        top: -120px; left: 30%;
         background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, rgba(139, 92, 246, 0) 70%);
         animation: orbDrift2 26s ease-in-out infinite alternate;
       }
       .header-orb--3 {
-        width: 300px;
-        height: 300px;
-        top: -150px;
-        right: 24%;
+        width: 300px; height: 300px;
+        top: -150px; right: 24%;
         background: radial-gradient(circle, rgba(45, 106, 79, 0.30) 0%, rgba(45, 106, 79, 0) 70%);
         animation: orbDrift3 24s ease-in-out infinite alternate;
       }
       .header-orb--4 {
-        width: 340px;
-        height: 340px;
-        top: -160px;
-        right: -100px;
+        width: 340px; height: 340px;
+        top: -160px; right: -100px;
         background: radial-gradient(circle, rgba(184, 150, 12, 0.32) 0%, rgba(184, 150, 12, 0) 70%);
         animation: orbDrift4 28s ease-in-out infinite alternate;
       }
 
-      /* Very subtle animated drift — slow, calm, professional */
       @keyframes orbDrift1 {
         0%   { transform: translate3d(0, 0, 0) scale(1); }
         100% { transform: translate3d(30px, 18px, 0) scale(1.08); }
@@ -280,7 +271,6 @@
         .header-orb { animation: none; }
       }
 
-      /* Dark mode: dim the orbs so text stays legible */
       body.dark .header-bg { opacity: 0.45; }
       body.dark .header-orb { filter: blur(56px); }
 
@@ -294,7 +284,6 @@
         gap: 24px;
       }
 
-      /* ── Logo (unchanged from original) ── */
       .header-logo {
         display: flex;
         align-items: center;
@@ -326,12 +315,9 @@
       .nav-link:hover { color: var(--ink); background: rgba(26, 26, 46, 0.06); }
       body.dark .nav-link:hover { background: rgba(232, 228, 220, 0.08); }
 
-      .nav-link.active-nav {
-        color: var(--accent);
-        font-weight: 600;
-      }
+      .nav-link.active-nav { color: var(--accent); font-weight: 600; }
 
-      /* icon links */
+      /* ── Colored SVG icons ── */
       .header-nav .nav-link-icon {
         display: inline-flex;
         align-items: center;
@@ -342,11 +328,16 @@
         height: 16px;
         flex-shrink: 0;
         transition: transform 0.2s ease;
-        color: inherit;
+        /* Do NOT set color here — inline stroke colors must win */
       }
-      .header-nav .nav-link-icon:hover svg { transform: scale(1.08); }
+      .header-nav .nav-link-icon:hover svg {
+        transform: scale(1.12);
+      }
 
-      /* ── All Tools pill — muted accent, no rainbow ── */
+      /* The "All Tools" icon is white — keep it white */
+      .header-nav .nav-link-cta svg { color: #ffffff; }
+
+      /* ── All Tools pill ── */
       .header-nav .nav-link-cta {
         display: inline-flex;
         align-items: center;
@@ -374,7 +365,7 @@
         background: var(--accent);
         color: #ffffff !important;
       }
-      .header-nav .nav-link-cta svg { width: 12px; height: 12px; color: #ffffff; }
+      .header-nav .nav-link-cta svg { width: 12px; height: 12px; }
 
       .nav-link-blink { animation: allToolsBlink 2.4s ease-in-out infinite; }
       @keyframes allToolsBlink {
@@ -407,7 +398,6 @@
         border-color: var(--paper-edge);
       }
 
-      /* dark toggle — neutral, not candy-colored */
       .header-dark-btn {
         width: 36px; height: 36px;
         border-radius: var(--radius);
@@ -418,12 +408,8 @@
         border: 1px solid var(--paper-edge);
         transition: all var(--transition);
       }
-      .header-dark-btn:hover {
-        color: var(--ink);
-        background: var(--paper-edge);
-      }
+      .header-dark-btn:hover { color: var(--ink); background: var(--paper-edge); }
 
-      /* main CTA — uses theme accent, professional */
       .header-cta {
         background: var(--ink);
         color: var(--paper);

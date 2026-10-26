@@ -1,5 +1,5 @@
 /**
- * WebNotePad — Header Component (Professional + Colored SVG Icons)
+ * WebNotePad — Header Component (Professional + Colored SVG Icons + Ad)
  * Injected into #header-root on DOMContentLoaded
  */
 (function () {
@@ -109,10 +109,101 @@
     </nav>
   `;
 
+  // ── Inject the 300x250 ad below the header, overlapping the hero, hidden on mobile ──
+  function injectHeaderAd() {
+    const header = document.getElementById('siteHeader');
+    if (!header) return;
+
+    // Prevent duplicate injection if initHeader runs more than once
+    if (document.getElementById('header-ad-slot')) return;
+
+    // Wrapper is absolutely positioned so it overlaps the hero section
+    const adWrap = document.createElement('div');
+    adWrap.id = 'header-ad-slot';
+    adWrap.className = 'header-ad-slot';
+    adWrap.setAttribute('aria-label', 'Advertisement');
+
+    // Inner 300x250 container that the ad script will target
+    const adBox = document.createElement('div');
+    adBox.id = 'header-ad-300x250';
+    adBox.className = 'header-ad-box';
+    adBox.style.width = '300px';
+    adBox.style.height = '250px';
+    adWrap.appendChild(adBox);
+
+    // Append as last child of #header-root so it can absolutely-position over the page content
+    const root = document.getElementById('header-root') || header.parentElement || document.body;
+    root.appendChild(adWrap);
+
+    // Configure the ad options expected by the remote script
+    window.atOptions = {
+      key: 'f5214acd8479e07d7defe4626c574aa5',
+      format: 'iframe',
+      height: 250,
+      width: 300,
+      params: {}
+    };
+
+    // Load the ad script dynamically into the 300x250 box (skip on mobile)
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) {
+      const adScript = document.createElement('script');
+      adScript.src = 'https://bauval.org/22/f5214acd8479e07d7defe4626c574aa5';
+      adScript.async = true;
+      adBox.appendChild(adScript);
+    }
+
+    // Styles: absolutely positioned overlay over the hero, hidden on mobile
+    const adStyle = document.createElement('style');
+    adStyle.textContent = `
+      /* Anchor for the absolutely positioned ad (header-root is at top of page) */
+      #header-root {
+        position: relative;
+      }
+
+      .header-ad-slot {
+        position: absolute;
+        top: calc(100% + 32px);  /* moved further down so it doesn't merge with the header */
+        right: 56px;             /* moved further left from the right edge */
+        z-index: 50;             /* sit above the hero content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: auto;
+      }
+
+      .header-ad-box {
+        width: 300px;
+        height: 250px;
+        max-width: 100%;
+        overflow: hidden;
+        /* Optional: subtle shadow so it reads as an overlay */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        border-radius: 6px;
+      }
+
+      .header-ad-box iframe {
+        display: block;
+        border: 0;
+      }
+
+      /* Hide the ad on mobile — it would cover too much of the viewport */
+      @media (max-width: 768px) {
+        .header-ad-slot {
+          display: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(adStyle);
+  }
+
   function initHeader() {
     const root = document.getElementById('header-root');
     if (!root) return;
     root.innerHTML = headerHTML;
+
+    // Inject the 300x250 ad right below the header (overlapping hero, hidden on mobile)
+    injectHeaderAd();
 
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
@@ -334,7 +425,6 @@
         transform: scale(1.12);
       }
 
-      /* The "All Tools" icon is white — keep it white */
       .header-nav .nav-link-cta svg { color: #ffffff; }
 
       /* ── All Tools pill ── */

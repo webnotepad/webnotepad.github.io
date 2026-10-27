@@ -155,3 +155,23 @@ body.dark .ap-toc a:hover{ color:var(--acc); }
 
 /* 9. Toast — already dark in light mode; deepen for dark mode */
 body.dark .ap-toast{ background:#0e0e12; color:#e8e4dc; border:1px solid var(--edge); }
+
+/* ═══ DARK MODE — works even if header.js hasn't run yet ═══ */
+@media (prefers-color-scheme: dark) {
+  body.ap-body:not(.light) {
+    --ink:#e8e4dc; --soft:#c8c4bc; --muted:#8a8678;
+    --paper:#141418; --warm:#1c1c22; --edge:#2a2a34;
+    --acc:#e8714a; --acc2:#f08a66; --pale:#2a1a14;
+    background:var(--paper); color:var(--ink);
+  }
+  body.ap-body:not(.light) .ap-cat,
+  body.ap-body:not(.light) .ap-modal-box,
+  body.ap-body:not(.light) .ap-nav,
+  body.ap-body:not(.light) .ap-cat-i { background:#1c1c22; color:var(--ink); }
+  body.ap-body:not(.light) .ap-key { background:#0e0e12; color:#e8e4dc; }
+  body.ap-body:not(.light) .ap-key p { color:#e8e4dc; }
+  body.ap-body:not(.light) .ap-table th { background:#0e0e12; }
+  body.ap-body:not(.light) .ap-table tr:nth-child(even) td { background:#1c1c22; }
+  body.ap-body:not(.light) .ap-prompt { border-color:#3a3a44; }
+  body.ap-body:not(.light) .ap-x { background:rgba(28,28,34,.92); color:var(--ink); }
+}

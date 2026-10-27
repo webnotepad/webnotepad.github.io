@@ -207,3 +207,36 @@
   .quote-copy { top: 8px; right: 8px; width: 32px; height: 32px; }
   .quote-mark { font-size: 2rem; }
 }
+
+
+/* ── Individual post pages: featured image, quote notes ── */
+.article-wrap figure { margin: 0 0 40px; }
+.article-wrap figure img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg);
+  background: var(--paper-warm);
+}
+.article-wrap figcaption {
+  margin-top: 10px;
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  letter-spacing: .03em;
+  color: var(--ink-muted);
+  text-align: center;
+}
+.quote-card { padding-right: 58px; }
+.quote-card .quote-note {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--paper-edge);
+  font-family: var(--f-body);
+  font-style: normal;
+  font-size: .88rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .quote-card { padding-right: 52px; }
+  .article-wrap figcaption { font-size: .64rem; }
+}

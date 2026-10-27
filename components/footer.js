@@ -135,7 +135,7 @@
               <li><a href="/ultimate-guide-digital-note-taking">Note-Taking Guide</a></li>
               <li><a href="/quotes">Quotes</a></li>
               <li><a href="/hints-answers">Hints & Answers</a></li>
-              <li><a href="/sitemap.xml">Sitemap</a></li>
+              <li><a href="/ai-image-prompts">A.I Image Prompts</a></li>
             </ul>
           </div>          
           <div class="footer-col">

@@ -156,22 +156,59 @@ body.dark .ap-toc a:hover{ color:var(--acc); }
 /* 9. Toast — already dark in light mode; deepen for dark mode */
 body.dark .ap-toast{ background:#0e0e12; color:#e8e4dc; border:1px solid var(--edge); }
 
-/* ═══ DARK MODE — works even if header.js hasn't run yet ═══ */
-@media (prefers-color-scheme: dark) {
-  body.ap-body:not(.light) {
-    --ink:#e8e4dc; --soft:#c8c4bc; --muted:#8a8678;
-    --paper:#141418; --warm:#1c1c22; --edge:#2a2a34;
-    --acc:#e8714a; --acc2:#f08a66; --pale:#2a1a14;
-    background:var(--paper); color:var(--ink);
-  }
-  body.ap-body:not(.light) .ap-cat,
-  body.ap-body:not(.light) .ap-modal-box,
-  body.ap-body:not(.light) .ap-nav,
-  body.ap-body:not(.light) .ap-cat-i { background:#1c1c22; color:var(--ink); }
-  body.ap-body:not(.light) .ap-key { background:#0e0e12; color:#e8e4dc; }
-  body.ap-body:not(.light) .ap-key p { color:#e8e4dc; }
-  body.ap-body:not(.light) .ap-table th { background:#0e0e12; }
-  body.ap-body:not(.light) .ap-table tr:nth-child(even) td { background:#1c1c22; }
-  body.ap-body:not(.light) .ap-prompt { border-color:#3a3a44; }
-  body.ap-body:not(.light) .ap-x { background:rgba(28,28,34,.92); color:var(--ink); }
+/* ═══════════════════════════════════════════════════════
+   ═══ DARK MODE ═══
+   Triggered by body.dark — which header.js toggles.
+═══════════════════════════════════════════════════════ */
+
+body.dark .ap-body{
+  --ink:#e8e4dc;
+  --soft:#c8c4bc;
+  --muted:#8a8678;
+  --paper:#141418;
+  --warm:#1c1c22;
+  --edge:#2a2a34;
+  --acc:#e8714a;
+  --acc2:#f08a66;
+  --pale:#2a1a14;
+  background:var(--paper);
+  color:var(--ink);
 }
+
+body.dark .ap-cat,
+body.dark .ap-modal-box,
+body.dark .ap-nav,
+body.dark .ap-cat-i{ background:#1c1c22; color:var(--ink); }
+body.dark .ap-cat{ border-color:var(--edge); }
+body.dark .ap-cat:hover{ box-shadow:0 20px 44px rgba(0,0,0,.5); }
+body.dark .ap-cat-i{ box-shadow:0 4px 14px rgba(0,0,0,.55); }
+body.dark .ap-nav{ border-color:var(--edge); }
+body.dark .ap-nav:hover{ border-color:var(--acc); color:var(--acc); }
+body.dark .ap-modal-box{ box-shadow:0 30px 80px rgba(0,0,0,.75); }
+body.dark .ap-hero{
+  background:
+    radial-gradient(900px 400px at 85% -10%, rgba(232,113,74,.18), transparent),
+    radial-gradient(700px 400px at 0 0, rgba(155,89,182,.12), transparent),
+    var(--warm);
+  border-bottom-color:var(--edge);
+}
+body.dark .ap-key{ background:#0e0e12; color:#e8e4dc; }
+body.dark .ap-key p{ color:#e8e4dc; }
+body.dark .ap-key .ap-label{ color:var(--acc2); }
+body.dark .ap-table th{ background:#0e0e12; color:#e8e4dc; }
+body.dark .ap-table tr:nth-child(even) td{ background:#1c1c22; }
+body.dark .ap-table td{ color:var(--soft); }
+body.dark .ap-prompt{ border-color:#3a3a44; color:var(--soft); background:var(--warm); }
+body.dark .ap-hint code{ background:var(--warm); color:var(--ink); }
+body.dark .ap-x{
+  background:rgba(28,28,34,.92);
+  color:var(--ink);
+  box-shadow:0 2px 10px rgba(0,0,0,.55);
+}
+body.dark .ap-pin{ background:var(--warm); }
+body.dark .ap-pin:hover,
+body.dark .ap-pin:focus-visible{ box-shadow:0 14px 34px rgba(0,0,0,.55); }
+body.dark .ap-tags a:hover{ background:var(--pale); }
+body.dark .ap-toc a{ color:var(--soft); }
+body.dark .ap-toc a:hover{ color:var(--acc); }
+body.dark .ap-toast{ background:#0e0e12; color:#e8e4dc; border:1px solid var(--edge); }

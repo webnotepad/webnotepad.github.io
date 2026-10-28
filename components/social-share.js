@@ -35,7 +35,7 @@
       <circle cx="16.5" cy="13" r="0.75" fill="currentColor" stroke="none"/>
     </svg>`,
 
-    robot: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    robot: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="4" y="8" width="16" height="12" rx="3"/>
       <path d="M12 8V5"/>
       <circle cx="12" cy="4" r="1" fill="currentColor" stroke="none"/>
@@ -45,7 +45,7 @@
       <path d="M2 12v3M22 12v3"/>
     </svg>`,
 
-    quote: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    quote: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M7.17 6C4.86 7.06 3.5 9.2 3.5 12.28V18h6.05v-5.86H6.2c0-2.13.83-3.53 2.74-4.3L7.17 6zm9.66 0c-2.31 1.06-3.67 3.2-3.67 6.28V18h6.05v-5.86h-3.35c0-2.13.83-3.53 2.74-4.3L16.83 6z"/>
     </svg>`,
 
@@ -153,6 +153,7 @@
       height: 42px;
       border-radius: 50%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       box-shadow: var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
@@ -164,6 +165,7 @@
                   box-shadow 0.3s ease;
       user-select: none;
       text-decoration: none;
+      overflow: hidden;
     }
 
     /* Base trigger colors (share + games) */
@@ -171,6 +173,7 @@
     .games-floating-trigger {
       background: var(--ink, #1a1a2e);
       color: var(--paper, #faf8f4);
+      gap: 0;
     }
     .social-floating-trigger { bottom: 68px; animation: socialPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
     .games-floating-trigger  { bottom: 182px; animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
@@ -184,7 +187,7 @@
     }
     .social-floating-trigger svg { width: 18px; height: 18px; }
     .games-floating-trigger svg  { width: 20px; height: 20px; }
-    .nav-widget svg              { width: 20px; height: 20px; }
+    .nav-widget svg              { width: 15px; height: 15px; }
 
     .social-floating-trigger:hover svg { transform: scale(1.1); }
     .games-floating-trigger:hover svg  { transform: scale(1.12) rotate(-6deg); }
@@ -231,9 +234,23 @@
     }
 
     /* ============================================================
-       NEW NAVIGATION WIDGETS — same shape/size as share/games,
-       solid ink-style fill (not white), colored per widget.
+       NEW NAVIGATION WIDGETS — same round size as share/games,
+       solid ink-style fill, with tiny text label inside.
        ============================================================ */
+
+    /* Tiny text label inside widget */
+    .nav-widget-text {
+      font-family: var(--font-body, 'Outfit', sans-serif);
+      font-size: 0.4rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-align: center;
+      white-space: nowrap;
+      margin-top: 1px;
+      pointer-events: none;
+      text-transform: uppercase;
+    }
 
     /* A.I Prompts — Blue */
     .ai-prompts-widget {
@@ -244,6 +261,7 @@
       color: #ffffff;
       border-color: #1d4ed8;
       box-shadow: 0 6px 24px rgba(37, 99, 235, 0.3);
+      gap: 0;
     }
     .ai-prompts-widget:hover {
       background: #1d4ed8;
@@ -271,6 +289,7 @@
       color: #ffffff;
       border-color: #b91c1c;
       box-shadow: 0 6px 24px rgba(220, 38, 38, 0.3);
+      gap: 0;
     }
     .quotes-widget:hover {
       background: #b91c1c;
@@ -536,7 +555,8 @@
         width: 38px;
         height: 38px;
       }
-      .nav-widget svg { width: 18px; height: 18px; }
+      .nav-widget svg { width: 14px; height: 14px; }
+      .nav-widget-text { font-size: 0.36rem; margin-top: 1px; }
       .ai-prompts-widget {
         top: auto;
         bottom: 252px;
@@ -571,7 +591,8 @@
         width: 34px;
         height: 34px;
       }
-      .nav-widget svg { width: 16px; height: 16px; }
+      .nav-widget svg { width: 13px; height: 13px; }
+      .nav-widget-text { font-size: 0.32rem; margin-top: 0.5px; }
       .ai-prompts-widget {
         bottom: 226px;
       }
@@ -753,25 +774,26 @@
   // =========================================================
   // ============ NEW NAVIGATION WIDGETS =====================
   // =========================================================
-  // Same round 42px pill-free circle style as share/games triggers.
-  // Solid blue for A.I Prompts, solid red for Quotes — no white fill.
+  // Same round 42px circle style as share/games triggers.
+  // Solid blue for A.I Prompts, solid red for Quotes.
+  // Tiny text label stacked below the icon *inside* the circle.
 
-  // A.I Prompts widget (blue, robot icon)
+  // A.I Prompts widget (blue, robot icon + tiny text)
   const aiPromptsWidget = document.createElement('a');
   aiPromptsWidget.className = 'nav-widget ai-prompts-widget';
   aiPromptsWidget.href = '/ai-image-prompts';
   aiPromptsWidget.setAttribute('aria-label', 'A.I Prompts');
   aiPromptsWidget.setAttribute('title', 'A.I Prompts');
-  aiPromptsWidget.innerHTML = ICONS.robot;
+  aiPromptsWidget.innerHTML = `${ICONS.robot}<span class="nav-widget-text">A.I Prompts</span>`;
   document.body.appendChild(aiPromptsWidget);
 
-  // Quotes widget (red, quote mark icon)
+  // Quotes widget (red, quote mark icon + tiny text)
   const quotesWidget = document.createElement('a');
   quotesWidget.className = 'nav-widget quotes-widget';
   quotesWidget.href = '/quotes';
   quotesWidget.setAttribute('aria-label', 'Quotes');
   quotesWidget.setAttribute('title', 'Quotes');
-  quotesWidget.innerHTML = ICONS.quote;
+  quotesWidget.innerHTML = `${ICONS.quote}<span class="nav-widget-text">Quotes</span>`;
   document.body.appendChild(quotesWidget);
 
   // =========================================================

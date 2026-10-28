@@ -35,6 +35,20 @@
       <circle cx="16.5" cy="13" r="0.75" fill="currentColor" stroke="none"/>
     </svg>`,
 
+    robot: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="8" width="16" height="12" rx="3"/>
+      <path d="M12 8V5"/>
+      <circle cx="12" cy="4" r="1" fill="currentColor" stroke="none"/>
+      <circle cx="9" cy="13" r="1.3" fill="currentColor" stroke="none"/>
+      <circle cx="15" cy="13" r="1.3" fill="currentColor" stroke="none"/>
+      <path d="M9.5 17h5"/>
+      <path d="M2 12v3M22 12v3"/>
+    </svg>`,
+
+    quote: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7.17 6C4.86 7.06 3.5 9.2 3.5 12.28V18h6.05v-5.86H6.2c0-2.13.83-3.53 2.74-4.3L7.17 6zm9.66 0c-2.31 1.06-3.67 3.2-3.67 6.28V18h6.05v-5.86h-3.35c0-2.13.83-3.53 2.74-4.3L16.83 6z"/>
+    </svg>`,
+
     gameIcons: {
       puzzle: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3a2 2 0 0 1 4 0v1h3a2 2 0 0 1 2 2v3h1a2 2 0 0 1 0 4h-1v3a2 2 0 0 1-2 2h-3v1a2 2 0 0 1-4 0v-1H7a2 2 0 0 1-2-2v-3H4a2 2 0 0 1 0-4h1V6a2 2 0 0 1 2-2h3V3z" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
       bee: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 4v8l-7 4-7-4V7l7-4z" fill="#FEF3C7" stroke="#EAB308" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 7l3.5 2v4L12 15l-3.5-2V9L12 7z" fill="#FDE68A" stroke="#EAB308" stroke-width="1.2" stroke-linejoin="round"/></svg>`,
@@ -433,6 +447,95 @@
     .radial-menu.open .radial-item:nth-of-type(13) { transition-delay: 0.39s; }
     .radial-menu.open .radial-item:nth-of-type(14) { transition-delay: 0.42s; }
 
+    /* ============================================================
+       NEW NAVIGATION WIDGETS (A.I Prompts & Quotes)
+       ============================================================ */
+    .nav-widget {
+      position: fixed;
+      right: 24px;
+      z-index: 10005;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid var(--paper-edge, #e8e2d6);
+      box-shadow: var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.2s ease,
+                  color 0.2s ease,
+                  box-shadow 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      font-family: var(--font-body, 'Outfit', sans-serif);
+      font-size: 0.6rem;
+      font-weight: 600;
+      gap: 4px;
+      padding: 0 10px;
+      width: auto;
+      height: 42px;
+    }
+    .nav-widget svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-widget:hover svg {
+      transform: scale(1.15);
+    }
+
+    /* AI Prompts widget - Blue */
+    .ai-prompts-widget {
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--paper, #faf8f4);
+      color: #2563eb;
+      border-color: #bfdbfe;
+    }
+    .ai-prompts-widget:hover {
+      background: #dbeafe;
+      border-color: #2563eb;
+      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.3);
+      transform: translateY(-50%) scale(1.06);
+    }
+    body.dark .ai-prompts-widget {
+      background: var(--paper-warm, #1c1c22);
+      color: #60a5fa;
+      border-color: #1e3a5f;
+    }
+    body.dark .ai-prompts-widget:hover {
+      background: #1e3a5f;
+      border-color: #60a5fa;
+      box-shadow: 0 8px 28px rgba(96, 165, 250, 0.3);
+    }
+
+    /* Quotes widget - Red */
+    .quotes-widget {
+      top: calc(50% + 54px);
+      transform: translateY(-50%);
+      background: var(--paper, #faf8f4);
+      color: #dc2626;
+      border-color: #fecaca;
+    }
+    .quotes-widget:hover {
+      background: #fee2e2;
+      border-color: #dc2626;
+      box-shadow: 0 8px 28px rgba(220, 38, 38, 0.3);
+      transform: translateY(-50%) scale(1.06);
+    }
+    body.dark .quotes-widget {
+      background: var(--paper-warm, #1c1c22);
+      color: #f87171;
+      border-color: #5f1e1e;
+    }
+    body.dark .quotes-widget:hover {
+      background: #5f1e1e;
+      border-color: #f87171;
+      box-shadow: 0 8px 28px rgba(248, 113, 113, 0.3);
+    }
+
     /* Mobile trigger sizes */
     @media (max-width: 480px) {
       .social-floating-trigger { bottom: 52px; right: 16px; width: 38px; height: 38px; }
@@ -445,6 +548,36 @@
       .radial-item-label { font-size: 0.56rem; max-width: 76px; padding: 2px 6px; }
       .radial-menu::before { width: 64px; height: 64px; margin-left: -32px; margin-top: -32px; }
       .radial-menu-hub-label { font-size: 0.55rem; }
+
+      /* Mobile: show AI and Quotes widgets on top of games widget */
+      .nav-widget {
+        right: 16px;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        gap: 0;
+        font-size: 0;
+      }
+      .nav-widget svg {
+        width: 18px;
+        height: 18px;
+      }
+      .ai-prompts-widget {
+        top: auto;
+        bottom: 252px;
+        transform: none;
+      }
+      .ai-prompts-widget:hover {
+        transform: scale(1.06);
+      }
+      .quotes-widget {
+        top: auto;
+        bottom: 204px;
+        transform: none;
+      }
+      .quotes-widget:hover {
+        transform: scale(1.06);
+      }
     }
     @media (max-width: 380px) {
       .social-floating-trigger { bottom: 44px; right: 12px; width: 34px; height: 34px; }
@@ -457,11 +590,31 @@
       .radial-item-label { font-size: 0.52rem; max-width: 64px; padding: 2px 5px; }
       .radial-menu::before { width: 54px; height: 54px; margin-left: -27px; margin-top: -27px; }
       .radial-menu-hub-label { display: none; }
+
+      .nav-widget {
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        gap: 0;
+        font-size: 0;
+      }
+      .nav-widget svg {
+        width: 16px;
+        height: 16px;
+      }
+      .ai-prompts-widget {
+        bottom: 226px;
+      }
+      .quotes-widget {
+        bottom: 182px;
+      }
     }
 
     /* Hide widgets when tools sidebar is open */
     body.tools-sidebar-open .social-floating-trigger,
     body.tools-sidebar-open .games-floating-trigger,
+    body.tools-sidebar-open .nav-widget,
     body.tools-sidebar-open .radial-menu,
     body.tools-sidebar-open .radial-blur-overlay,
     body.tools-sidebar-open .social-toast {
@@ -627,6 +780,26 @@
   });
   followWidget.appendChild(followButtons);
   document.body.appendChild(followWidget);
+
+  // =========================================================
+  // ============ NEW NAVIGATION WIDGETS =====================
+  // =========================================================
+
+  // A.I Prompts widget (blue, robot icon + text)
+  const aiPromptsWidget = document.createElement('a');
+  aiPromptsWidget.className = 'nav-widget ai-prompts-widget';
+  aiPromptsWidget.href = '/ai-image-prompts';
+  aiPromptsWidget.setAttribute('aria-label', 'A.I Prompts');
+  aiPromptsWidget.innerHTML = `${ICONS.robot}<span>A.I Prompts</span>`;
+  document.body.appendChild(aiPromptsWidget);
+
+  // Quotes widget (red, quote mark icon + text)
+  const quotesWidget = document.createElement('a');
+  quotesWidget.className = 'nav-widget quotes-widget';
+  quotesWidget.href = '/quotes';
+  quotesWidget.setAttribute('aria-label', 'Quotes');
+  quotesWidget.innerHTML = `${ICONS.quote}<span>Quotes</span>`;
+  document.body.appendChild(quotesWidget);
 
   // =========================================================
   // ================= SHARED BLUR OVERLAY ===================
@@ -1012,5 +1185,5 @@
     bodyObserver.observe(document.body, { childList: true, subtree: true });
   }
 
-  console.log('Social Share + Games (Centered Radial) + Follow Widgets initialized.');
+  console.log('Social Share + Games (Centered Radial) + Follow Widgets + Navigation Widgets initialized.');
 })();

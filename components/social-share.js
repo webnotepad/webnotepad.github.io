@@ -784,7 +784,7 @@
   aiPromptsWidget.href = '/ai-image-prompts';
   aiPromptsWidget.setAttribute('aria-label', 'A.I Prompts');
   aiPromptsWidget.setAttribute('title', 'A.I Prompts');
-  aiPromptsWidget.innerHTML = `${ICONS.robot}<span class="nav-widget-text">A.I Prompts</span>`;
+  aiPromptsWidget.innerHTML = `${ICONS.robot}<span class="nav-widget-text">Prompts</span>`;
   document.body.appendChild(aiPromptsWidget);
 
   // Quotes widget (red, quote mark icon + tiny text)

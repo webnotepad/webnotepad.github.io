@@ -35,7 +35,7 @@
       <circle cx="16.5" cy="13" r="0.75" fill="currentColor" stroke="none"/>
     </svg>`,
 
-    robot: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    robot: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
       <rect x="4" y="8" width="16" height="12" rx="3"/>
       <path d="M12 8V5"/>
       <circle cx="12" cy="4" r="1" fill="currentColor" stroke="none"/>
@@ -45,7 +45,7 @@
       <path d="M2 12v3M22 12v3"/>
     </svg>`,
 
-    quote: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    quote: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
       <path d="M7.17 6C4.86 7.06 3.5 9.2 3.5 12.28V18h6.05v-5.86H6.2c0-2.13.83-3.53 2.74-4.3L7.17 6zm9.66 0c-2.31 1.06-3.67 3.2-3.67 6.28V18h6.05v-5.86h-3.35c0-2.13.83-3.53 2.74-4.3L16.83 6z"/>
     </svg>`,
 
@@ -144,14 +144,13 @@
        SHARED TRIGGER STYLES
        ============================================================ */
     .social-floating-trigger,
-    .games-floating-trigger {
+    .games-floating-trigger,
+    .nav-widget {
       position: fixed;
       right: 24px;
       z-index: 10005;
       width: 42px;
       height: 42px;
-      background: var(--ink, #1a1a2e);
-      color: var(--paper, #faf8f4);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -164,20 +163,32 @@
                   color 0.2s ease,
                   box-shadow 0.3s ease;
       user-select: none;
+      text-decoration: none;
+    }
+
+    /* Base trigger colors (share + games) */
+    .social-floating-trigger,
+    .games-floating-trigger {
+      background: var(--ink, #1a1a2e);
+      color: var(--paper, #faf8f4);
     }
     .social-floating-trigger { bottom: 68px; animation: socialPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
     .games-floating-trigger  { bottom: 182px; animation: gamesPulse 3s infinite cubic-bezier(0.4, 0, 0.2, 1); }
 
     .social-floating-trigger svg,
-    .games-floating-trigger svg {
+    .games-floating-trigger svg,
+    .nav-widget svg {
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: block;
       filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
     .social-floating-trigger svg { width: 18px; height: 18px; }
     .games-floating-trigger svg  { width: 20px; height: 20px; }
+    .nav-widget svg              { width: 20px; height: 20px; }
+
     .social-floating-trigger:hover svg { transform: scale(1.1); }
     .games-floating-trigger:hover svg  { transform: scale(1.12) rotate(-6deg); }
+    .nav-widget:hover svg              { transform: scale(1.12); }
 
     body.dark .social-floating-trigger,
     body.dark .games-floating-trigger {
@@ -217,6 +228,65 @@
       0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0.25), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
       50%  { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
       100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(196,86,42,0), var(--shadow, 0 6px 24px rgba(26,26,46,0.12)); }
+    }
+
+    /* ============================================================
+       NEW NAVIGATION WIDGETS — same shape/size as share/games,
+       solid ink-style fill (not white), colored per widget.
+       ============================================================ */
+
+    /* A.I Prompts — Blue */
+    .ai-prompts-widget {
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #1d4ed8;
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.3);
+    }
+    .ai-prompts-widget:hover {
+      background: #1d4ed8;
+      color: #ffffff;
+      transform: translateY(-50%) scale(1.08) rotate(8deg);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+    }
+    body.dark .ai-prompts-widget {
+      background: #3b82f6;
+      color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 6px 24px rgba(59, 130, 246, 0.35);
+    }
+    body.dark .ai-prompts-widget:hover {
+      background: #2563eb;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Quotes — Red */
+    .quotes-widget {
+      top: calc(50% + 54px);
+      bottom: auto;
+      transform: translateY(-50%);
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #b91c1c;
+      box-shadow: 0 6px 24px rgba(220, 38, 38, 0.3);
+    }
+    .quotes-widget:hover {
+      background: #b91c1c;
+      color: #ffffff;
+      transform: translateY(-50%) scale(1.08) rotate(8deg);
+      box-shadow: 0 8px 24px rgba(220, 38, 38, 0.45);
+    }
+    body.dark .quotes-widget {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #dc2626;
+      box-shadow: 0 6px 24px rgba(239, 68, 68, 0.35);
+    }
+    body.dark .quotes-widget:hover {
+      background: #dc2626;
+      box-shadow: 0 8px 24px rgba(239, 68, 68, 0.5);
     }
 
     /* ============================================================
@@ -447,95 +517,6 @@
     .radial-menu.open .radial-item:nth-of-type(13) { transition-delay: 0.39s; }
     .radial-menu.open .radial-item:nth-of-type(14) { transition-delay: 0.42s; }
 
-    /* ============================================================
-       NEW NAVIGATION WIDGETS (A.I Prompts & Quotes)
-       ============================================================ */
-    .nav-widget {
-      position: fixed;
-      right: 24px;
-      z-index: 10005;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 1px solid var(--paper-edge, #e8e2d6);
-      box-shadow: var(--shadow, 0 6px 24px rgba(26,26,46,0.12));
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                  background 0.2s ease,
-                  color 0.2s ease,
-                  box-shadow 0.3s ease;
-      user-select: none;
-      text-decoration: none;
-      font-family: var(--font-body, 'Outfit', sans-serif);
-      font-size: 0.6rem;
-      font-weight: 600;
-      gap: 4px;
-      padding: 0 10px;
-      width: auto;
-      height: 42px;
-    }
-    .nav-widget svg {
-      display: block;
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .nav-widget:hover svg {
-      transform: scale(1.15);
-    }
-
-    /* AI Prompts widget - Blue */
-    .ai-prompts-widget {
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--paper, #faf8f4);
-      color: #2563eb;
-      border-color: #bfdbfe;
-    }
-    .ai-prompts-widget:hover {
-      background: #dbeafe;
-      border-color: #2563eb;
-      box-shadow: 0 8px 28px rgba(37, 99, 235, 0.3);
-      transform: translateY(-50%) scale(1.06);
-    }
-    body.dark .ai-prompts-widget {
-      background: var(--paper-warm, #1c1c22);
-      color: #60a5fa;
-      border-color: #1e3a5f;
-    }
-    body.dark .ai-prompts-widget:hover {
-      background: #1e3a5f;
-      border-color: #60a5fa;
-      box-shadow: 0 8px 28px rgba(96, 165, 250, 0.3);
-    }
-
-    /* Quotes widget - Red */
-    .quotes-widget {
-      top: calc(50% + 54px);
-      transform: translateY(-50%);
-      background: var(--paper, #faf8f4);
-      color: #dc2626;
-      border-color: #fecaca;
-    }
-    .quotes-widget:hover {
-      background: #fee2e2;
-      border-color: #dc2626;
-      box-shadow: 0 8px 28px rgba(220, 38, 38, 0.3);
-      transform: translateY(-50%) scale(1.06);
-    }
-    body.dark .quotes-widget {
-      background: var(--paper-warm, #1c1c22);
-      color: #f87171;
-      border-color: #5f1e1e;
-    }
-    body.dark .quotes-widget:hover {
-      background: #5f1e1e;
-      border-color: #f87171;
-      box-shadow: 0 8px 28px rgba(248, 113, 113, 0.3);
-    }
-
     /* Mobile trigger sizes */
     @media (max-width: 480px) {
       .social-floating-trigger { bottom: 52px; right: 16px; width: 38px; height: 38px; }
@@ -549,26 +530,20 @@
       .radial-menu::before { width: 64px; height: 64px; margin-left: -32px; margin-top: -32px; }
       .radial-menu-hub-label { font-size: 0.55rem; }
 
-      /* Mobile: show AI and Quotes widgets on top of games widget */
+      /* Mobile: place AI + Quotes above games widget */
       .nav-widget {
         right: 16px;
         width: 38px;
         height: 38px;
-        padding: 0;
-        gap: 0;
-        font-size: 0;
       }
-      .nav-widget svg {
-        width: 18px;
-        height: 18px;
-      }
+      .nav-widget svg { width: 18px; height: 18px; }
       .ai-prompts-widget {
         top: auto;
         bottom: 252px;
         transform: none;
       }
       .ai-prompts-widget:hover {
-        transform: scale(1.06);
+        transform: scale(1.08) rotate(8deg);
       }
       .quotes-widget {
         top: auto;
@@ -576,7 +551,7 @@
         transform: none;
       }
       .quotes-widget:hover {
-        transform: scale(1.06);
+        transform: scale(1.08) rotate(8deg);
       }
     }
     @media (max-width: 380px) {
@@ -595,14 +570,8 @@
         right: 12px;
         width: 34px;
         height: 34px;
-        padding: 0;
-        gap: 0;
-        font-size: 0;
       }
-      .nav-widget svg {
-        width: 16px;
-        height: 16px;
-      }
+      .nav-widget svg { width: 16px; height: 16px; }
       .ai-prompts-widget {
         bottom: 226px;
       }
@@ -784,21 +753,25 @@
   // =========================================================
   // ============ NEW NAVIGATION WIDGETS =====================
   // =========================================================
+  // Same round 42px pill-free circle style as share/games triggers.
+  // Solid blue for A.I Prompts, solid red for Quotes — no white fill.
 
-  // A.I Prompts widget (blue, robot icon + text)
+  // A.I Prompts widget (blue, robot icon)
   const aiPromptsWidget = document.createElement('a');
   aiPromptsWidget.className = 'nav-widget ai-prompts-widget';
   aiPromptsWidget.href = '/ai-image-prompts';
   aiPromptsWidget.setAttribute('aria-label', 'A.I Prompts');
-  aiPromptsWidget.innerHTML = `${ICONS.robot}<span>A.I Prompts</span>`;
+  aiPromptsWidget.setAttribute('title', 'A.I Prompts');
+  aiPromptsWidget.innerHTML = ICONS.robot;
   document.body.appendChild(aiPromptsWidget);
 
-  // Quotes widget (red, quote mark icon + text)
+  // Quotes widget (red, quote mark icon)
   const quotesWidget = document.createElement('a');
   quotesWidget.className = 'nav-widget quotes-widget';
   quotesWidget.href = '/quotes';
   quotesWidget.setAttribute('aria-label', 'Quotes');
-  quotesWidget.innerHTML = `${ICONS.quote}<span>Quotes</span>`;
+  quotesWidget.setAttribute('title', 'Quotes');
+  quotesWidget.innerHTML = ICONS.quote;
   document.body.appendChild(quotesWidget);
 
   // =========================================================

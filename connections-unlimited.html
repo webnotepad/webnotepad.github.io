@@ -1119,6 +1119,135 @@
             }
         }
     </style>
+    <style>
+    /* ===== STRATEGY SECTION ===== */
+    .cu-strategy {
+        background: var(--cu-surface);
+        transition: background var(--cu-transition);
+    }
+    .cu-strategy-inner {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+        align-items: flex-start;
+    }
+    .cu-strategy-text .section-title {
+        margin-bottom: 20px;
+    }
+    .cu-strategy-text p {
+        font-size: 0.95rem;
+        color: var(--cu-muted);
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+    .cu-strategy-text p strong {
+        color: var(--cu-ink);
+        font-weight: 700;
+    }
+    .cu-strategy-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: sticky;
+        top: 90px;
+    }
+    .cu-strategy-figure {
+        margin: 0;
+        background: var(--cu-warm);
+        border: 1px solid var(--cu-border);
+        border-radius: var(--cu-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--cu-shadow);
+        transition: box-shadow var(--cu-transition);
+    }
+    .cu-strategy-figure:hover {
+        box-shadow: 0 12px 40px rgba(26, 26, 46, 0.18);
+    }
+    .cu-strategy-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .cu-strategy-figure:hover .cu-strategy-img {
+        transform: scale(1.02);
+    }
+    .cu-strategy-caption {
+        padding: 14px 16px;
+        font-family: 'DM Mono', 'Courier New', monospace;
+        font-size: 0.72rem;
+        color: var(--cu-muted);
+        letter-spacing: 0.02em;
+        text-align: center;
+        border-top: 1px solid var(--cu-border);
+        background: var(--cu-surface);
+    }
+    .cu-strategy-tip {
+        background: var(--cu-accent-pale);
+        border: 1px solid var(--cu-accent);
+        border-radius: var(--cu-radius);
+        padding: 18px 20px;
+        position: relative;
+    }
+    .cu-strategy-tip::before {
+        content: '💡';
+        position: absolute;
+        top: -12px;
+        left: 18px;
+        font-size: 1.2rem;
+        background: var(--cu-accent-pale);
+        padding: 0 6px;
+        border-radius: 4px;
+    }
+    .cu-strategy-tip-label {
+        font-family: 'DM Mono', 'Courier New', monospace;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cu-accent);
+        margin-bottom: 6px;
+    }
+    .cu-strategy-tip p {
+        font-size: 0.84rem;
+        color: var(--cu-ink);
+        line-height: 1.6;
+        margin: 0;
+    }
+    body.dark .cu-strategy-tip {
+        background: rgba(96, 165, 250, 0.12);
+        border-color: var(--cu-accent);
+    }
+    body.dark .cu-strategy-tip::before {
+        background: rgba(96, 165, 250, 0.12);
+    }
+    @media (max-width: 1024px) {
+        .cu-strategy-inner {
+            grid-template-columns: 1fr;
+            gap: 36px;
+        }
+        .cu-strategy-visual {
+            position: static;
+            order: -1;
+        }
+        .cu-strategy-figure {
+            max-width: 600px;
+        }
+    }
+    @media (max-width: 768px) {
+        .cu-strategy-visual {
+            order: 0;
+        }
+        .cu-strategy-figure {
+            max-width: 100%;
+        }
+        .cu-strategy-text p {
+            font-size: 0.9rem;
+        }
+    }
+</style>
 </head>
 <body>
 
@@ -1248,6 +1377,45 @@
                 </div>
             </div>
         </section>
+
+        <!-- ===== STRATEGY SECTION ===== -->
+<section class="section cu-strategy" id="strategy" aria-label="How to solve Connections Unlimited puzzles">
+    <div class="container">
+        <div class="cu-strategy-inner">
+            <div class="cu-strategy-text">
+                <div class="section-label">Master the grid</div>
+                <h2 class="section-title">The <em>Connections Unlimited</em> strategy guide.</h2>
+                <p><strong>Connections Unlimited</strong> is deceptively simple — sixteen words, four groups, four lives. But the difference between a streak and a stumble is often a single decision. The best players don't just look for obvious pairs; they scan for <strong>traps</strong>. Words that seem to belong together might actually be decoys for a more devious category. A classic example: seeing <em>BAT</em>, <em>BALL</em>, <em>GLOVE</em>, and <em>FIELD</em> and immediately assuming "baseball." Sometimes that's right, but often one of those words belongs to a wordplay category like "things that follow 'snow'" — and you've just burned a life.</p>
+                <p>The most reliable strategy is to <strong>delay your first submission</strong>. Spend a full minute scanning all sixteen words and mentally tagging every possible connection. Look for <strong>suffix patterns</strong> (words that can be followed by "cake"), <strong>hidden words</strong> (planets or body parts tucked inside longer words), and <strong>homophones</strong> (words that sound like letters). The purple category is almost always wordplay — if you can spot it early, you save the rest of the grid.</p>
+                <p>Use hints strategically. A hint reveals a whole category, which is powerful, but you only get three. The best time to use one is when you're stuck between two possible groupings and a hint would immediately resolve the ambiguity. Don't burn hints on the yellow category — that's the one you should be able to solve on your own.</p>
+                <div class="cu-desc-benefits">
+                    <span class="cu-benefit-tag">🔍 Scan for decoys</span>
+                    <span class="cu-benefit-tag">⏳ Delay first guess</span>
+                    <span class="cu-benefit-tag">🧩 Spot hidden words</span>
+                    <span class="cu-benefit-tag">💡 Save hints for ambiguity</span>
+                    <span class="cu-benefit-tag">🟪 Purple is wordplay</span>
+                </div>
+            </div>
+            <div class="cu-strategy-visual">
+                <figure class="cu-strategy-figure">
+                    <img
+                        src="/images/connections-unlimited.webp"
+                        alt="A person solving a Connections Unlimited word puzzle with pencil and paper"
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        class="cu-strategy-img"
+                    />
+                    <figcaption class="cu-strategy-caption">Every grid hides a trap — scan before you submit.</figcaption>
+                </figure>
+                <div class="cu-strategy-tip">
+                    <div class="cu-strategy-tip-label">Pro tip</div>
+                    <p>Look for words that can't be grouped with any other three. Those are often the purple category — the "one of these things is not like the others" group.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- ===== FEATURES ===== -->
         <section class="section cu-features" id="features" aria-label="Connections Unlimited features">

@@ -125,6 +125,7 @@
               <li><a href="/all-tools">All Tools</a></li>
               <li><a href="/games">Games</a></li>
               <li><a href="/solvers">Puzzle Solvers</a></li>
+              <li><a href="/www.memonotepad.online">Memo Notepad</a></li>
             </ul>
           </div>
           <div class="footer-col">

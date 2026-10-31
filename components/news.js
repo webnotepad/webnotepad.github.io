@@ -18,7 +18,7 @@
       image: '/images/tech-news-agentic-ai.webp',
       imageAlt: 'Autonomous Agentic AI execution and terminal workflow diagram',
       isNews: true,
-      url: '/tech-news-agentic-ai-2026',
+      url: '/agentic-ai-2026',
       excerpt: 'Autonomous CLI agents, sandbox code execution loops, and verifiable enterprise pipelines are shifting productivity from prompt-response interactions to complete delegation.'
     },
     {

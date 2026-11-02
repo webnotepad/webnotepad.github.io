@@ -32,7 +32,7 @@
   image: '/images/tech-news-local-ai.webp',
   imageAlt: 'On-Device AI and WebGPU edge computing diagram',
   isNews: true,
-  url: '/tech-news-local-ai-edge-computing-2026',
+  url: '/local-ai-edge-computing',
   excerpt: 'Quantized Small Language Models (SLMs) and WebGPU browser acceleration are shifting enterprise software away from cloud API latency toward instant, private client-side execution.'
 },
     {

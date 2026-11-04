@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layers Game – Free Daily Word Puzzle with 4 Mini-Games | WebNotePad</title>
+    <meta name="description" content="Play Layers — a free daily word puzzle that combines four mini-games (word ladder, letter swap, hidden word, anagram) with a final Connections-style sorting board. Unlimited puzzles, hints, streaks, no daily limit. No signup, works on mobile." />
+    <meta name="keywords" content="layers game, layers word puzzle, layers daily puzzle, word ladder game, anagram game, connections game, free word games, layers unlimited, daily word puzzle, four mini games" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/layers-game" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/layers-game" />
+    <meta property="og:title" content="Layers Game – Free Daily Word Puzzle with 4 Mini-Games" />
+    <meta property="og:description" content="Four mini-games, one final sorting board. Play unlimited Layers puzzles free — word ladder, letter swap, hidden word, anagram, and Connections-style groups." />
+    <meta property="og:image" content="https://webnotepad.github.io/layers-og-image.webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Layers Game – Free Daily Word Puzzle with 4 Mini-Games" />
+    <meta name="twitter:description" content="Four mini-games and a final Connections-style board. Play unlimited Layers puzzles free." />
+
+    <!-- Schema: WebApplication -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Layers Game by WebNotePad",
+            "url": "https://webnotepad.github.io/layers-game",
+            "description": "A free daily word puzzle game that combines four mini-games (word ladder, letter swap, hidden word, anagram) with a final Connections-style sorting board. Features unlimited puzzles, hints, streaks and no daily limit.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Four mini-games per puzzle",
+                "Word ladder mini-game",
+                "Letter swap mini-game",
+                "Hidden word mini-game",
+                "Anagram mini-game",
+                "Final Connections-style sorting board",
+                "Unlimited puzzles, no daily limit",
+                "Hints available",
+                "Streak and win tracking",
+                "Mobile-friendly touch controls",
+                "100% offline — nothing is stored or sent"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is the Layers game?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Layers is a free daily word puzzle that layers four separate mini-games (word ladder, letter swap, hidden word, and anagram) on top of each other, then asks you to solve a final Connections-style sorting board using words you uncovered along the way."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does each mini-game in Layers work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The word ladder mini-game asks you to change one letter at a time to reach a target word. The letter swap mini-game presents scrambled letters you must unscramble. The hidden word mini-game hides a word inside a longer phrase. The anagram mini-game gives you letters to rearrange into a new word. Each mini-game reveals a word that becomes a clue for the final sorting board."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the final sorting board in Layers?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Once you've solved all four mini-games, Layers gives you a final Connections-style board. You must group the words you uncovered (plus a few extra) into four hidden categories of four. This final step ties all four mini-games together."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is Layers free to play?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, Layers is 100% free with no signup, no download, and no hidden costs. Play as many puzzles as you like."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is there a daily limit on Layers?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Unlike some daily puzzle games, Layers lets you play as many puzzles as you want. Press the New Puzzle button to instantly start a fresh set of four mini-games and a new sorting board."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does Layers work on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Layers is fully responsive and touch-friendly. Each mini-game is designed with large tap targets and a compact layout that fits comfortably on any phone, tablet or desktop screen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are there hints available in Layers?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Every puzzle starts with three hints. Using a hint reveals a letter or clue for the current mini-game or the final sorting board. Hints do not affect your win streak."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I share my Layers results?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. When you finish a puzzle — win or lose — you can copy a Wordle-style emoji grid to your clipboard. The grid shows your progress across all four mini-games and the final sorting board, so you can share your result without spoiling the answers."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --ly-accent: #0d9488;
+            --ly-accent-light: #14b8a6;
+            --ly-accent-pale: #ccfbf1;
+            --ly-surface: #faf8f4;
+            --ly-warm: #f4f0e8;
+            --ly-border: #e8e2d6;
+            --ly-ink: #1a1a2e;
+            --ly-muted: #6b6b85;
+            --ly-radius: 8px;
+            --ly-radius-lg: 14px;
+            --ly-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --ly-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --ly-yellow: #f9df6d;
+            --ly-yellow-ink: #6b5300;
+            --ly-green: #a0c35a;
+            --ly-green-ink: #344a00;
+            --ly-blue: #b0c4ef;
+            --ly-blue-ink: #1e3a8a;
+            --ly-purple: #ba81c5;
+            --ly-purple-ink: #4c1d95;
+        }
+
+        body.dark {
+            --ly-accent: #2dd4bf;
+            --ly-accent-light: #5eead4;
+            --ly-accent-pale: #0d3d3a;
+            --ly-surface: #141418;
+            --ly-warm: #1c1c22;
+            --ly-border: #2a2a34;
+            --ly-ink: #e8e4dc;
+            --ly-muted: #8a8678;
+            --ly-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --ly-yellow: #c9a83d;
+            --ly-yellow-ink: #fef3c7;
+            --ly-green: #7a9e2e;
+            --ly-green-ink: #ecfccb;
+            --ly-blue: #4a6bb5;
+            --ly-blue-ink: #dbeafe;
+            --ly-purple: #8b4a97;
+            --ly-purple-ink: #f3e8ff;
+        }
+
+        /* ===== HERO ===== */
+        .ly-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--ly-surface);
+            transition: background var(--ly-transition);
+        }
+        .ly-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--ly-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--ly-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .ly-hero-bg { opacity: 0.1; }
+        .ly-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--ly-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .ly-hero-glow { opacity: 0.35; }
+        .ly-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        .ly-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--ly-accent-pale);
+            color: var(--ly-accent);
+            border: 1px solid var(--ly-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .ly-hero-badge { background: rgba(45, 212, 191, 0.15); }
+        .ly-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--ly-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .ly-hero-accent {
+            color: var(--ly-accent);
+            font-style: italic;
+        }
+        .ly-hero-sub {
+            font-size: 0.9rem;
+            color: var(--ly-muted);
+            max-width: 560px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .ly-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .ly-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .ly-demo-chip {
+            padding: 7px 16px;
+            background: var(--ly-warm);
+            border: 1px solid var(--ly-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ly-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--ly-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .ly-demo-chip:hover {
+            background: var(--ly-accent-pale);
+            border-color: var(--ly-accent);
+            color: var(--ly-accent);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .ly-game-section {
+            padding: 0 0 80px;
+            background: var(--ly-surface);
+            transition: background var(--ly-transition);
+        }
+        .ly-shell {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--ly-warm);
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius-lg);
+            box-shadow: var(--ly-shadow);
+            overflow: hidden;
+            transition: all var(--ly-transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .ly-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--ly-border);
+            background: var(--ly-surface);
+            flex-wrap: wrap;
+        }
+        .ly-topbar-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ly-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ly-topbar-title .ly-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ly-accent);
+            display: inline-block;
+            animation: lyPulse 2s infinite;
+        }
+        @keyframes lyPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .ly-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ly-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: var(--ly-warm);
+            border: 1px solid var(--ly-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ly-muted);
+            white-space: nowrap;
+        }
+        .ly-stat-pill strong {
+            color: var(--ly-ink);
+            font-size: 0.82rem;
+        }
+
+        /* ===== PUZZLE PROGRESS ===== */
+        .ly-progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 20px 8px;
+            flex-wrap: wrap;
+        }
+        .ly-step {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--ly-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all var(--ly-transition);
+        }
+        .ly-step.active {
+            border-color: var(--ly-accent);
+            background: var(--ly-accent-pale);
+            color: var(--ly-accent);
+        }
+        .ly-step.done {
+            border-color: var(--ly-green);
+            background: rgba(160, 195, 90, 0.15);
+            color: var(--ly-green-ink);
+        }
+        body.dark .ly-step.done { color: var(--ly-green-ink); }
+        .ly-step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--ly-border);
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--ly-muted);
+        }
+        .ly-step.active .ly-step-num {
+            background: var(--ly-accent);
+            color: #ffffff;
+        }
+        .ly-step.done .ly-step-num {
+            background: var(--ly-green);
+            color: #ffffff;
+        }
+
+        /* ===== STAGE AREA ===== */
+        .ly-stage {
+            padding: 8px 20px 20px;
+        }
+        .ly-stage-title {
+            text-align: center;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--ly-ink);
+            margin-bottom: 4px;
+            letter-spacing: -0.02em;
+        }
+        .ly-stage-sub {
+            text-align: center;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            color: var(--ly-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+        }
+
+        /* ===== MESSAGE ===== */
+        .ly-message {
+            text-align: center;
+            padding: 0 20px 8px;
+            min-height: 24px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ly-muted);
+            letter-spacing: 0.02em;
+        }
+        .ly-message.ly-msg-error { color: #dc2626; }
+        body.dark .ly-message.ly-msg-error { color: #f87171; }
+        .ly-message.ly-msg-good { color: #16a34a; }
+        body.dark .ly-message.ly-msg-good { color: #4ade80; }
+
+        /* ===== MINI-GAME: WORD LADDER ===== */
+        .ly-ladder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .ly-ladder-row {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+        }
+        .ly-ladder-letter {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: 6px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            text-transform: uppercase;
+            transition: all var(--ly-transition);
+        }
+        .ly-ladder-letter.ly-changed {
+            border-color: var(--ly-accent);
+            background: var(--ly-accent-pale);
+            color: var(--ly-accent);
+        }
+        .ly-ladder-letter.ly-target {
+            border-color: var(--ly-green);
+            background: rgba(160, 195, 90, 0.15);
+            color: var(--ly-green-ink);
+        }
+        .ly-ladder-letter.ly-current {
+            border-color: var(--ly-accent);
+            box-shadow: 0 0 0 3px var(--ly-accent-pale);
+        }
+
+        .ly-input-row {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .ly-input {
+            padding: 10px 16px;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: var(--ly-radius);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            text-transform: uppercase;
+            outline: none;
+            transition: border-color var(--ly-transition);
+            letter-spacing: 0.1em;
+            width: 100%;
+            max-width: 220px;
+            text-align: center;
+        }
+        .ly-input:focus {
+            border-color: var(--ly-accent);
+            box-shadow: 0 0 0 3px var(--ly-accent-pale);
+        }
+
+        /* ===== MINI-GAME: LETTER SWAP ===== */
+        .ly-scramble {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .ly-scramble-tile {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: 8px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--ly-transition);
+            user-select: none;
+        }
+        .ly-scramble-tile:hover {
+            border-color: var(--ly-accent);
+            background: var(--ly-accent-pale);
+        }
+        .ly-scramble-tile.selected {
+            background: var(--ly-accent);
+            border-color: var(--ly-accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .ly-scramble-tile.used {
+            opacity: 0.3;
+            cursor: default;
+            pointer-events: none;
+        }
+        .ly-answer-row {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            min-height: 44px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .ly-answer-slot {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ly-warm);
+            border: 1.5px dashed var(--ly-border);
+            border-radius: 8px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            text-transform: uppercase;
+        }
+        .ly-answer-slot.filled {
+            border-style: solid;
+            border-color: var(--ly-accent);
+            background: var(--ly-surface);
+        }
+
+        /* ===== MINI-GAME: HIDDEN WORD ===== */
+        .ly-hidden-phrase {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: center;
+            color: var(--ly-ink);
+            padding: 16px;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: var(--ly-radius);
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            word-break: break-word;
+        }
+        .ly-hidden-phrase .ly-found-letter {
+            background: var(--ly-accent-pale);
+            color: var(--ly-accent);
+            font-weight: 700;
+            padding: 1px 2px;
+            border-radius: 3px;
+        }
+
+        /* ===== MINI-GAME: ANAGRAM ===== */
+        .ly-anagram-letters {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .ly-anagram-tile {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: 8px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            text-transform: uppercase;
+        }
+
+        /* ===== FINAL SORTING BOARD ===== */
+        .ly-sort-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .ly-sort-card {
+            position: relative;
+            min-height: 60px;
+            padding: 8px 6px;
+            background: var(--ly-surface);
+            border: 1.5px solid var(--ly-border);
+            border-radius: var(--ly-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.72rem, 2.1vw, 0.85rem);
+            font-weight: 600;
+            color: var(--ly-ink);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            word-break: break-word;
+            line-height: 1.15;
+            letter-spacing: 0.02em;
+        }
+        .ly-sort-card:hover {
+            border-color: var(--ly-ink);
+            background: var(--ly-warm);
+        }
+        .ly-sort-card.selected {
+            background: var(--ly-ink);
+            color: var(--ly-surface);
+            border-color: var(--ly-ink);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(26, 26, 46, 0.22);
+        }
+        .ly-sort-card.solved {
+            display: none;
+        }
+        .ly-sort-card.wrong {
+            animation: lyShake 0.5s ease;
+        }
+        @keyframes lyShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(6px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+
+        /* ===== SOLVED SORT ROWS ===== */
+        .ly-solved-area {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .ly-solved-row {
+            padding: 11px 14px;
+            border-radius: var(--ly-radius);
+            text-align: center;
+            animation: lySlideIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            box-shadow: inset 0 -2px 0 rgba(0,0,0,0.08);
+        }
+        .ly-solved-row.ly-yellow { background: var(--ly-yellow); color: var(--ly-yellow-ink); }
+        .ly-solved-row.ly-green { background: var(--ly-green); color: var(--ly-green-ink); }
+        .ly-solved-row.ly-blue { background: var(--ly-blue); color: var(--ly-blue-ink); }
+        .ly-solved-row.ly-purple { background: var(--ly-purple); color: var(--ly-purple-ink); }
+        .ly-solved-category {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            opacity: 0.85;
+        }
+        .ly-solved-words {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        @keyframes lySlideIn {
+            from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ===== CONTROLS ===== */
+        .ly-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 8px 20px 20px;
+            flex-wrap: wrap;
+        }
+        .ly-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 11px 20px;
+            background: var(--ly-surface);
+            color: var(--ly-ink);
+            border: 1.5px solid var(--ly-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--ly-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .ly-btn:hover:not(:disabled) {
+            border-color: var(--ly-ink);
+            background: var(--ly-warm);
+            transform: translateY(-1px);
+        }
+        .ly-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .ly-btn--primary {
+            background: var(--ly-accent);
+            border-color: var(--ly-accent);
+            color: #ffffff;
+        }
+        .ly-btn--primary:hover:not(:disabled) {
+            background: var(--ly-accent-light);
+            border-color: var(--ly-accent-light);
+            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.32);
+        }
+        .ly-btn--primary:disabled {
+            background: var(--ly-border);
+            border-color: var(--ly-border);
+            color: var(--ly-muted);
+        }
+
+        /* ===== RESULT OVERLAY ===== */
+        .ly-result-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 46, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 50;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+            animation: lyFadeIn 0.3s ease both;
+        }
+        body.dark .ly-result-overlay { background: rgba(0, 0, 0, 0.7); }
+        .ly-result-overlay.ly-show { display: flex; }
+        @keyframes lyFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .ly-result-card {
+            background: var(--ly-surface);
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius-lg);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            padding: 28px 24px 22px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            animation: lyResultPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        @keyframes lyResultPop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .ly-result-emoji { font-size: 3rem; line-height: 1; margin-bottom: 12px; }
+        .ly-result-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--ly-ink);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .ly-result-sub {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: var(--ly-muted);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        .ly-result-emoji-grid {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            padding: 14px;
+            background: var(--ly-warm);
+            border-radius: var(--ly-radius);
+            border: 1px solid var(--ly-border);
+            user-select: all;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .ly-result-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* ===== SHARE MODAL ===== */
+        .ly-share-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: lyFadeIn 0.25s ease both;
+        }
+        body.dark .ly-share-modal { background: rgba(0, 0, 0, 0.75); }
+        .ly-share-modal.ly-show { display: flex; }
+        .ly-share-card {
+            background: var(--ly-surface);
+            border-radius: var(--ly-radius-lg);
+            max-width: 440px;
+            width: 100%;
+            padding: 26px 24px 22px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+            animation: lyResultPop 0.35s ease both;
+        }
+        .ly-share-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--ly-ink);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .ly-share-preview {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+            text-align: center;
+            padding: 16px;
+            background: var(--ly-warm);
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius);
+            margin-bottom: 16px;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .ly-share-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* ===== HOW TO ===== */
+        .ly-how { background: var(--ly-warm); transition: background var(--ly-transition); }
+        .ly-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ly-how-card {
+            background: var(--ly-surface);
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius-lg);
+            padding: 26px;
+            transition: all var(--ly-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .ly-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--ly-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ly-transition);
+        }
+        .ly-how-card:hover { box-shadow: var(--ly-shadow); transform: translateY(-3px); }
+        .ly-how-card:hover::before { transform: scaleX(1); }
+        .ly-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--ly-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .ly-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            margin-bottom: 8px;
+        }
+        .ly-how-card p {
+            font-size: 0.85rem;
+            color: var(--ly-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURES ===== */
+        .ly-features { background: var(--ly-surface); transition: background var(--ly-transition); }
+        .ly-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ly-feature-card {
+            background: var(--ly-warm);
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius-lg);
+            padding: 24px;
+            transition: all var(--ly-transition);
+        }
+        .ly-feature-card:hover {
+            box-shadow: var(--ly-shadow);
+            transform: translateY(-3px);
+            border-color: var(--ly-accent-light);
+        }
+        .ly-feature-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+        .ly-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ly-ink);
+            margin-bottom: 7px;
+        }
+        .ly-feature-card p {
+            font-size: 0.84rem;
+            color: var(--ly-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION ===== */
+        .ly-desc { background: var(--ly-warm); transition: background var(--ly-transition); }
+        .ly-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .ly-desc-text p {
+            font-size: 0.95rem;
+            color: var(--ly-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .ly-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .ly-benefit-tag {
+            padding: 6px 14px;
+            background: var(--ly-surface);
+            border: 1px solid var(--ly-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ly-ink);
+            transition: all var(--ly-transition);
+        }
+        .ly-benefit-tag:hover {
+            background: var(--ly-accent-pale);
+            border-color: var(--ly-accent);
+            color: var(--ly-accent);
+        }
+        .ly-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ly-visual-card {
+            background: var(--ly-ink);
+            color: var(--ly-surface);
+            border-radius: var(--ly-radius-lg);
+            padding: 32px 28px;
+            max-width: 330px;
+            width: 100%;
+            box-shadow: var(--ly-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+        body.dark .ly-visual-card {
+            background: var(--ly-surface);
+            border: 1px solid var(--ly-border);
+            color: var(--ly-ink);
+        }
+        .ly-visual-line {
+            width: 36px;
+            height: 3px;
+            background: var(--ly-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .ly-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .ly-visual-row { border-bottom-color: var(--ly-border); }
+        .ly-visual-row:last-child { border-bottom: none; }
+        .ly-v-label {
+            opacity: 0.55;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            white-space: nowrap;
+        }
+        .ly-v-text {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ly-accent-light);
+            text-align: right;
+        }
+        body.dark .ly-visual-card .ly-v-text { color: var(--ly-accent); }
+
+        /* ===== FAQ ===== */
+        .ly-faq { background: var(--ly-surface); transition: background var(--ly-transition); }
+        .ly-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .ly-faq-item {
+            border: 1px solid var(--ly-border);
+            border-radius: var(--ly-radius);
+            overflow: hidden;
+            background: var(--ly-warm);
+            transition: border-color var(--ly-transition);
+        }
+        .ly-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ly-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--ly-transition);
+        }
+        .ly-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--ly-muted);
+            flex-shrink: 0;
+            transition: transform var(--ly-transition);
+        }
+        .ly-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--ly-accent); }
+        .ly-faq-q:hover { background: var(--ly-surface); }
+        .ly-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .ly-faq-a p {
+            font-size: 0.88rem;
+            color: var(--ly-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .ly-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--ly-ink);
+            color: var(--ly-surface);
+            padding: 12px 20px;
+            border-radius: var(--ly-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 320px;
+        }
+        .ly-toast.ly-show { transform: translateY(0); opacity: 1; }
+        body.dark .ly-toast {
+            background: var(--ly-warm);
+            color: var(--ly-ink);
+            border: 1px solid var(--ly-border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ly-how-grid,
+            .ly-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .ly-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .ly-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .ly-hero { min-height: auto; padding: 24px 0 20px; }
+            .ly-how-grid,
+            .ly-feature-grid { grid-template-columns: 1fr; }
+            .ly-topbar { padding: 12px 14px; }
+            .ly-stage-title { font-size: 1.1rem; }
+            .ly-sort-grid { gap: 6px; }
+            .ly-sort-card { min-height: 52px; font-size: 0.72rem; padding: 6px 4px; }
+            .ly-controls { padding: 8px 14px 16px; gap: 8px; }
+            .ly-btn { padding: 10px 16px; font-size: 0.8rem; }
+            .ly-step { padding: 5px 10px; font-size: 0.62rem; }
+        }
+        @media (max-width: 480px) {
+            .ly-hero-title { font-size: 1.6rem; }
+            .ly-stage { padding: 6px 12px 16px; }
+            .ly-sort-grid { gap: 5px; }
+            .ly-sort-card { min-height: 48px; font-size: 0.66rem; border-radius: 6px; }
+            .ly-ladder-letter { width: 32px; height: 32px; font-size: 0.9rem; }
+            .ly-scramble-tile { width: 38px; height: 38px; font-size: 1rem; }
+            .ly-answer-slot { width: 38px; height: 38px; font-size: 1rem; }
+            .ly-anagram-tile { width: 38px; height: 38px; font-size: 1rem; }
+            .ly-input { font-size: 0.9rem; padding: 8px 12px; }
+            .ly-controls { padding: 8px 10px 14px; gap: 6px; }
+            .ly-btn { padding: 9px 13px; font-size: 0.74rem; gap: 4px; }
+            .ly-progress { gap: 6px; padding: 12px 10px 6px; }
+            .ly-step { padding: 4px 8px; font-size: 0.58rem; gap: 4px; }
+            .ly-step-num { width: 16px; height: 16px; font-size: 0.55rem; }
+            .ly-result-card { padding: 20px 16px 16px; }
+            .ly-result-emoji { font-size: 2.4rem; }
+            .ly-result-title { font-size: 1.3rem; }
+            .ly-result-emoji-grid { font-size: 1.05rem; padding: 12px; }
+            .ly-visual-card { padding: 24px 20px; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="ly-hero" id="home" aria-label="Layers Game Hero">
+            <div class="ly-hero-bg"></div>
+            <div class="ly-hero-glow"></div>
+            <div class="container ly-hero-inner">
+                <div class="ly-hero-badge">🎮 Free Daily Word Puzzle</div>
+                <h1 class="ly-hero-title">
+                    Layers.<br />
+                    <span class="ly-hero-accent">Four mini-games. One final board.</span>
+                </h1>
+                <p class="ly-hero-sub">A layered word puzzle that combines a word ladder, a letter swap, a hidden word, and an anagram — then asks you to sort everything you found on a final Connections-style board.</p>
+                <div class="ly-hero-cta">
+                    <a href="#game" class="btn btn-primary" style="background:var(--ly-accent);border-color:var(--ly-accent);">Play Now <span>→</span></a>
+                </div>
+                <div class="ly-hero-demo">
+                    <span class="ly-demo-chip">♾️ Unlimited puzzles</span>
+                    <span class="ly-demo-chip">🎯 4 mini-games</span>
+                    <span class="ly-demo-chip">🔥 Streak tracking</span>
+                    <span class="ly-demo-chip">📱 Mobile friendly</span>
+                    <span class="ly-demo-chip">🆓 100% free</span>
+                </div>
+                <script async="async" data-cfasync="false" src="https://bauval.org/21/f8ad2a8a31b10be48474b45838a6db56"></script>
+<div id="container-f8ad2a8a31b10be48474b45838a6db56"></div>
+            </div>
+        </section>
+
+        <!-- ===== GAME ===== -->
+        <section class="ly-game-section" id="game" aria-label="Layers Game">
+            <div class="container">
+                <div class="ly-shell" style="position:relative;">
+
+                    <!-- TOP BAR -->
+                    <div class="ly-topbar">
+                        <span class="ly-topbar-title"><span class="ly-dot"></span> Layers</span>
+                        <div class="ly-topbar-right">
+                            <span class="ly-stat-pill">🔥 Streak <strong id="lyStreak">0</strong></span>
+                            <span class="ly-stat-pill">🏆 Won <strong id="lyWon">0</strong></span>
+                            <span class="ly-stat-pill">🎯 Played <strong id="lyPlayed">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- PROGRESS STEPS -->
+                    <div class="ly-progress" id="lyProgress" aria-label="Puzzle progress">
+                        <span class="ly-step" data-step="ladder"><span class="ly-step-num">1</span> Ladder</span>
+                        <span class="ly-step" data-step="swap"><span class="ly-step-num">2</span> Swap</span>
+                        <span class="ly-step" data-step="hidden"><span class="ly-step-num">3</span> Hidden</span>
+                        <span class="ly-step" data-step="anagram"><span class="ly-step-num">4</span> Anagram</span>
+                        <span class="ly-step" data-step="sort"><span class="ly-step-num">★</span> Sort</span>
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="ly-message" id="lyMessage" role="status" aria-live="polite"></div>
+
+                    <!-- STAGE -->
+                    <div class="ly-stage" id="lyStage"></div>
+
+                    <!-- CONTROLS -->
+                    <div class="ly-controls" id="lyControls"></div>
+
+                    <!-- RESULT OVERLAY -->
+                    <div class="ly-result-overlay" id="lyResultOverlay" role="dialog" aria-modal="true" aria-labelledby="lyResultTitle">
+                        <div class="ly-result-card">
+                            <div class="ly-result-emoji" id="lyResultEmoji">🎉</div>
+                            <div class="ly-result-title" id="lyResultTitle">You won!</div>
+                            <div class="ly-result-sub" id="lyResultSub">Nice work — you cleared every layer.</div>
+                            <div class="ly-result-emoji-grid" id="lyResultGrid"></div>
+                            <div class="ly-result-actions">
+                                <button class="ly-btn ly-btn--primary" id="lyResultNewBtn" type="button">🔄 Play Another Puzzle</button>
+                                <button class="ly-btn" id="lyResultShareBtn" type="button">📤 Share Result</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section ly-how" id="how-to-play" aria-label="How to play Layers">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Layers in <em>5 layers.</em></h2>
+                <div class="ly-how-grid">
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">01</div>
+                        <h3>Word Ladder</h3>
+                        <p>Start at one word and change <strong>one letter at a time</strong> to reach a target word. Each rung reveals a clue for the final board.</p>
+                    </div>
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">02</div>
+                        <h3>Letter Swap</h3>
+                        <p>You are given a set of scrambled letters. Tap them in the right order to form a word. Another clue is unlocked.</p>
+                    </div>
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">03</div>
+                        <h3>Hidden Word</h3>
+                        <p>A word is hidden inside a longer phrase. Find it and add it to your collection of clue words.</p>
+                    </div>
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">04</div>
+                        <h3>Anagram</h3>
+                        <p>Rearrange a handful of letters into a single word. The final mini-game gives you your last clue.</p>
+                    </div>
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">05</div>
+                        <h3>Final Sort</h3>
+                        <p>Take all the words you uncovered and group them into <strong>four hidden categories of four</strong> on a Connections-style board. Win the puzzle by clearing every layer.</p>
+                    </div>
+                    <div class="ly-how-card">
+                        <div class="ly-how-num">★</div>
+                        <h3>Pro Tip</h3>
+                        <p>Clues stack — each mini-game feeds the next. Pay attention to the words you unlock and keep them in mind for the final board.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section ly-features" id="features" aria-label="Layers features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Four mini-games.<br /><em>One final twist.</em></h2>
+                <div class="ly-feature-grid">
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🪜</span>
+                        <h3>Word Ladder</h3>
+                        <p>Change one letter at a time to climb from one word to another. The most strategic layer of the puzzle.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🔄</span>
+                        <h3>Letter Swap</h3>
+                        <p>Scrambled letters that need untangling. Tap letters into slots to form the hidden word.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🔍</span>
+                        <h3>Hidden Word</h3>
+                        <p>Spot a word buried inside a longer phrase. A sharp eye goes a long way here.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🔀</span>
+                        <h3>Anagram</h3>
+                        <p>Rearrange the letters into a real word. Simple in concept, satisfying in execution.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🎨</span>
+                        <h3>Connections-Style Sort</h3>
+                        <p>All four mini-games feed into a final sorting board. Group every word you collected into four hidden categories.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">♾️</span>
+                        <h3>Truly Unlimited</h3>
+                        <p>No daily limit. Every puzzle loads a fresh set of four mini-games and a new sorting board.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">💡</span>
+                        <h3>Three Hints Per Puzzle</h3>
+                        <p>Stuck? Reveal a letter or clue. Hints don't cost you anything except one of your three.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">🔥</span>
+                        <h3>Streaks &amp; Stats</h3>
+                        <p>Every win extends your streak. Games played and games won are tracked locally in your browser.</p>
+                    </div>
+                    <div class="ly-feature-card">
+                        <span class="ly-feature-icon">📱</span>
+                        <h3>Mobile Optimised</h3>
+                        <p>Every mini-game is sized for thumbs. Large tap targets, no zoom required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section ly-desc" id="about-layers" aria-label="About Layers">
+            <div class="container ly-desc-inner">
+                <div class="ly-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free <em>Layers Game</em></h2>
+                    <p><strong>Layers</strong> is a free word puzzle that stacks four mini-games on top of each other and asks you to connect them at the end. It's a daily-style puzzle with no daily limit — a layered challenge you can play as often as you like.</p>
+                    <p>Each puzzle is made of <strong>five layers</strong>: a word ladder, a letter swap, a hidden word, an anagram, and a final Connections-style sorting board. Every mini-game gives you a clue word. When you've collected them all, you group those words (plus a few extras) into <strong>four hidden categories of four</strong>.</p>
+                    <p>It's the best of both worlds: the puzzle variety of a mini-game collection with the aha-moment satisfaction of a Connections puzzle. Everything runs in your browser — no signup, no ads in the game, and your streak is stored locally on your device.</p>
+                    <p>Whether you're a Wordle veteran, a Connections fanatic, or just looking for a new daily brain-teaser, Layers gives you a fresh challenge every time you press <em>New Puzzle</em>.</p>
+                    <div class="ly-desc-benefits">
+                        <span class="ly-benefit-tag">♾️ Unlimited puzzles</span>
+                        <span class="ly-benefit-tag">🎯 4 mini-games</span>
+                        <span class="ly-benefit-tag">🎨 Connections-style finale</span>
+                        <span class="ly-benefit-tag">💡 3 hints per game</span>
+                        <span class="ly-benefit-tag">🔥 Streak tracking</span>
+                        <span class="ly-benefit-tag">📱 Mobile friendly</span>
+                        <span class="ly-benefit-tag">🔒 100% private</span>
+                    </div>
+                </div>
+                <div class="ly-desc-visual">
+                    <div class="ly-visual-card">
+                        <div class="ly-visual-line"></div>
+                        <div class="ly-visual-row">
+                            <span class="ly-v-label">Layer 1</span>
+                            <span class="ly-v-text">Word Ladder</span>
+                        </div>
+                        <div class="ly-visual-row">
+                            <span class="ly-v-label">Layer 2</span>
+                            <span class="ly-v-text">Letter Swap</span>
+                        </div>
+                        <div class="ly-visual-row">
+                            <span class="ly-v-label">Layer 3</span>
+                            <span class="ly-v-text">Hidden Word</span>
+                        </div>
+                        <div class="ly-visual-row">
+                            <span class="ly-v-label">Layer 4</span>
+                            <span class="ly-v-text">Anagram</span>
+                        </div>
+                        <div class="ly-visual-row">
+                            <span class="ly-v-label">Final</span>
+                            <span class="ly-v-text">Connections Sort</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section ly-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="ly-faq-list" id="lyFaqList">
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">What is the Layers game?</button>
+                        <div class="ly-faq-a"><p>Layers is a free daily word puzzle that layers four separate mini-games (word ladder, letter swap, hidden word, and anagram) on top of each other, then asks you to solve a final Connections-style sorting board using words you uncovered along the way.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">How does each mini-game in Layers work?</button>
+                        <div class="ly-faq-a"><p>The word ladder mini-game asks you to change one letter at a time to reach a target word. The letter swap mini-game presents scrambled letters you must unscramble. The hidden word mini-game hides a word inside a longer phrase. The anagram mini-game gives you letters to rearrange into a new word. Each mini-game reveals a word that becomes a clue for the final sorting board.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">What is the final sorting board in Layers?</button>
+                        <div class="ly-faq-a"><p>Once you've solved all four mini-games, Layers gives you a final Connections-style board. You must group the words you uncovered (plus a few extra) into four hidden categories of four. This final step ties all four mini-games together.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">Is Layers free to play?</button>
+                        <div class="ly-faq-a"><p>Yes, Layers is 100% free with no signup, no download, and no hidden costs. Play as many puzzles as you like.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">Is there a daily limit on Layers?</button>
+                        <div class="ly-faq-a"><p>No. Unlike some daily puzzle games, Layers lets you play as many puzzles as you want. Press the New Puzzle button to instantly start a fresh set of four mini-games and a new sorting board.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">Does Layers work on mobile?</button>
+                        <div class="ly-faq-a"><p>Yes. Layers is fully responsive and touch-friendly. Each mini-game is designed with large tap targets and a compact layout that fits comfortably on any phone, tablet or desktop screen.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">Are there hints available in Layers?</button>
+                        <div class="ly-faq-a"><p>Yes. Every puzzle starts with three hints. Using a hint reveals a letter or clue for the current mini-game or the final sorting board. Hints do not affect your win streak.</p></div>
+                    </div>
+                    <div class="ly-faq-item">
+                        <button class="ly-faq-q" aria-expanded="false" type="button">Can I share my Layers results?</button>
+                        <div class="ly-faq-a"><p>Yes. When you finish a puzzle — win or lose — you can copy a Wordle-style emoji grid to your clipboard. The grid shows your progress across all four mini-games and the final sorting board, so you can share your result without spoiling the answers.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="ly-toast" id="lyToast" role="alert" aria-live="polite"></div>
+
+    <!-- Share Modal -->
+    <div class="ly-share-modal" id="lyShareModal" role="dialog" aria-modal="true" aria-labelledby="lyShareTitle">
+        <div class="ly-share-card">
+            <div class="ly-share-title" id="lyShareTitle">Share your result</div>
+            <div class="ly-share-preview" id="lySharePreview"></div>
+            <div class="ly-share-actions">
+                <button class="ly-btn ly-btn--primary" id="lyShareCopyBtn" type="button">⎘ Copy</button>
+                <button class="ly-btn" id="lyShareCloseBtn" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script src="/wordlist.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* =========================================================
+           CONSTANTS & PUZZLE DATA
+           ========================================================= */
+        const GRID_SIZE = 4; // 4x4 sorting board
+        const MAX_HINTS = 3;
+
+        // Each "layer" puzzle has all data for its mini-game.
+        // We build puzzles on the fly by picking one item from each pool.
+        const LADDER_POOL = [
+            { start: 'COLD', target: 'WARM', path: ['COLD', 'CORD', 'WORD', 'WARD', 'WARM'], clue: 'WARM' },
+            { start: 'CAT',  target: 'DOG',  path: ['CAT', 'COT', 'DOT', 'DOG'],       clue: 'DOG'  },
+            { start: 'HAT',  target: 'SUN',  path: ['HAT', 'SAT', 'SUN'],             clue: 'SUN'  },
+            { start: 'MOON', target: 'STAR', path: ['MOON', 'MOOR', 'BOOR', 'BOAR', 'BEAR', 'SEAR', 'STAR'], clue: 'STAR' },
+            { start: 'LOVE', target: 'HATE', path: ['LOVE', 'LOVE'], clue: 'HATE' },
+            { start: 'FIRE', target: 'RAIN', path: ['FIRE', 'FINE', 'FANE', 'RAIN'],  clue: 'RAIN' },
+            { start: 'SAND', target: 'GOLD', path: ['SAND', 'SEND', 'SEED', 'SOED', 'GOLD'], clue: 'GOLD' },
+            { start: 'BOAT', target: 'SHIP', path: ['BOAT', 'BOAR', 'SOAR', 'SHAR', 'SHIP'], clue: 'SHIP' },
+            { start: 'COLD', target: 'HOT',  path: ['COLD', 'HOLD', 'HOD', 'HOT'],    clue: 'HOT'  },
+            { start: 'MILK', target: 'WINE', path: ['MILK', 'SILK', 'SINE', 'WINE'],  clue: 'WINE' }
+        ];
+
+        const SWAP_POOL = [
+            { word: 'PLANT' },
+            { word: 'BRAIN' },
+            { word: 'MUSIC' },
+            { word: 'RIVER' },
+            { word: 'CHAIR' },
+            { word: 'HAPPY' },
+            { word: 'LIGHT' },
+            { word: 'STONE' },
+            { word: 'CLOUD' },
+            { word: 'TIGER' },
+            { word: 'OCEAN' },
+            { word: 'BREAD' }
+        ];
+
+        const HIDDEN_POOL = [
+            { phrase: 'PLANETARY ORBIT', word: 'PLANET' },
+            { phrase: 'IMPORTANT LETTER', word: 'PORT'   },
+            { phrase: 'ORANGE BLOSSOM',  word: 'ANGE'   },
+            { phrase: 'CANDY CANE',      word: 'DANCE'  },
+            { phrase: 'STRAWBERRY JAM',  word: 'BERRY'  },
+            { phrase: 'MOUNTAIN ROAD',   word: 'TAIN'   },
+            { phrase: 'BANANA SPLIT',    word: 'PLIT'   },
+            { phrase: 'WATERFALL VIEW',  word: 'TERF'   },
+            { phrase: 'FIREFLY GLOW',    word: 'FIRE'   },
+            { phrase: 'SUNFLOWER SEED',  word: 'FLOWER' }
+        ];
+
+        const ANAGRAM_POOL = [
+            { letters: ['T','E','A','M'],  answer: 'TEAM'  },
+            { letters: ['O','C','E','A','N'], answer: 'OCEAN' },
+            { letters: ['H','E','A','R','T'], answer: 'HEART' },
+            { letters: ['S','T','O','N','E'], answer: 'STONE' },
+            { letters: ['B','R','E','A','D'], answer: 'BREAD' },
+            { letters: ['T','I','G','E','R'], answer: 'TIGER' },
+            { letters: ['M','U','S','I','C'], answer: 'MUSIC' },
+            { letters: ['C','L','O','U','D'], answer: 'CLOUD' },
+            { letters: ['L','I','G','H','T'], answer: 'LIGHT' },
+            { letters: ['G','R','A','P','E'], answer: 'GRAPE' }
+        ];
+
+        // Sorting pools for the final board. Each is a list of word
+        // sets. We pick 4 categories and their words.
+        const SORTING_CATEGORIES = [
+            { name: 'FRUITS',     words: ['APPLE', 'BANANA', 'CHERRY', 'GRAPE'] },
+            { name: 'COLORS',     words: ['RED', 'BLUE', 'GREEN', 'YELLOW'] },
+            { name: 'ANIMALS',    words: ['CAT', 'DOG', 'BIRD', 'FISH'] },
+            { name: 'PLANETS',    words: ['MARS', 'VENUS', 'EARTH', 'SATURN'] },
+            { name: 'INSTRUMENTS',words: ['PIANO', 'GUITAR', 'VIOLIN', 'FLUTE'] },
+            { name: 'SPORTS',     words: ['SOCCER', 'TENNIS', 'GOLF', 'RUGBY'] },
+            { name: 'VEGETABLES', words: ['CARROT', 'BROCCOLI', 'POTATO', 'ONION'] },
+            { name: 'BIRDS',      words: ['EAGLE', 'ROBIN', 'OWL', 'DUCK'] },
+            { name: 'DESSERTS',   words: ['CAKE', 'COOKIE', 'PIE', 'CANDY'] },
+            { name: 'WEATHER',    words: ['RAIN', 'SNOW', 'SUN', 'WIND'] },
+            { name: 'BODY PARTS', words: ['HEART', 'LUNGS', 'BRAIN', 'SKIN'] },
+            { name: 'FLOWERS',    words: ['ROSE', 'TULIP', 'DAISY', 'LILY'] }
+        ];
+
+        /* =========================================================
+           STATE
+           ========================================================= */
+        const state = {
+            // Puzzle data
+            ladder: null,
+            swap: null,
+            hidden: null,
+            anagram: null,
+            sort: null,
+
+            // Progress
+            stage: 'ladder',   // ladder | swap | hidden | anagram | sort | done
+            hintsLeft: MAX_HINTS,
+            gameOver: false,
+            won: false,
+            mistakes: 0,
+            layersCleared: 0,
+
+            // Sorting board state
+            sortSolvedGroups: [],   // difficulties in solve order
+            sortSelected: [],       // word strings
+            sortLives: 4,
+
+            // Collected clue words from each mini-game
+            collectedWords: [],
+
+            // Stats
+            stats: { played: 0, won: 0, streak: 0, bestStreak: 0 }
+        };
+
+        /* =========================================================
+           DOM
+           ========================================================= */
+        const $ = (id) => document.getElementById(id);
+
+        const progressEl        = $('lyProgress');
+        const messageEl         = $('lyMessage');
+        const stageEl           = $('lyStage');
+        const controlsEl        = $('lyControls');
+        const streakEl          = $('lyStreak');
+        const wonEl             = $('lyWon');
+        const playedEl          = $('lyPlayed');
+        const toastEl           = $('lyToast');
+
+        const resultOverlay     = $('lyResultOverlay');
+        const resultEmoji       = $('lyResultEmoji');
+        const resultTitle       = $('lyResultTitle');
+        const resultSub         = $('lyResultSub');
+        const resultGrid        = $('lyResultGrid');
+        const resultNewBtn      = $('lyResultNewBtn');
+        const resultShareBtn    = $('lyResultShareBtn');
+
+        const shareModal        = $('lyShareModal');
+        const sharePreview      = $('lySharePreview');
+        const shareCopyBtn      = $('lyShareCopyBtn');
+        const shareCloseBtn     = $('lyShareCloseBtn');
+
+        const faqButtons        = document.querySelectorAll('.ly-faq-q');
+
+        let toastTimer = null;
+
+        /* =========================================================
+           UTILITIES
+           ========================================================= */
+        function showToast(msg) {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastEl.textContent = msg;
+            toastEl.classList.add('ly-show');
+            toastTimer = setTimeout(() => toastEl.classList.remove('ly-show'), 2200);
+        }
+
+        function setMessage(msg, type) {
+            messageEl.textContent = msg || '';
+            messageEl.classList.remove('ly-msg-error', 'ly-msg-good');
+            if (type === 'error') messageEl.classList.add('ly-msg-error');
+            else if (type === 'good') messageEl.classList.add('ly-msg-good');
+        }
+
+        function shuffleArray(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function pickRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        /* =========================================================
+           STATS PERSISTENCE
+           ========================================================= */
+        const STORAGE_KEY = 'ly-stats-v1';
+
+        function loadStats() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && typeof parsed === 'object') {
+                        state.stats.played = Number(parsed.played) || 0;
+                        state.stats.won = Number(parsed.won) || 0;
+                        state.stats.streak = Number(parsed.streak) || 0;
+                        state.stats.bestStreak = Number(parsed.bestStreak) || 0;
+                    }
+                }
+            } catch (e) { /* silent */ }
+        }
+
+        function saveStats() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state.stats));
+            } catch (e) { /* silent */ }
+        }
+
+        function renderStats() {
+            streakEl.textContent = state.stats.streak;
+            wonEl.textContent = state.stats.won;
+            playedEl.textContent = state.stats.played;
+        }
+
+        /* =========================================================
+           PUZZLE GENERATION
+           ========================================================= */
+        function generatePuzzle() {
+            // Ladder
+            state.ladder = pickRandom(LADDER_POOL);
+
+            // Swap — scramble letters
+            const swapItem = pickRandom(SWAP_POOL);
+            state.swap = {
+                word: swapItem.word,
+                scrambled: shuffleArray(swapItem.word.split(''))
+            };
+
+            // Hidden
+            state.hidden = pickRandom(HIDDEN_POOL);
+
+            // Anagram — scramble letters but keep them distinct
+            const anaItem = pickRandom(ANAGRAM_POOL);
+            state.anagram = {
+                letters: shuffleArray(anaItem.letters),
+                answer: anaItem.answer
+            };
+
+            // Final sort — pick 4 categories
+            const cats = shuffleArray(SORTING_CATEGORIES).slice(0, 4);
+            state.sort = {
+                categories: cats,
+                words: shuffleArray(cats.flatMap(c => c.words))
+            };
+
+            // Reset runtime
+            state.stage = 'ladder';
+            state.hintsLeft = MAX_HINTS;
+            state.gameOver = false;
+            state.won = false;
+            state.mistakes = 0;
+            state.layersCleared = 0;
+            state.sortSolvedGroups = [];
+            state.sortSelected = [];
+            state.sortLives = 4;
+            state.collectedWords = [];
+
+            renderStats();
+            renderProgress();
+            renderStage();
+            setMessage('');
+        }
+
+        /* =========================================================
+           PROGRESS BAR
+           ========================================================= */
+        function renderProgress() {
+            const steps = progressEl.querySelectorAll('.ly-step');
+            const order = ['ladder', 'swap', 'hidden', 'anagram', 'sort'];
+            const currentIdx = order.indexOf(state.stage);
+
+            steps.forEach(step => {
+                const stepName = step.dataset.step;
+                const idx = order.indexOf(stepName);
+                step.classList.remove('active', 'done');
+                if (idx < currentIdx) step.classList.add('done');
+                else if (idx === currentIdx) step.classList.add('active');
+            });
+        }
+
+        /* =========================================================
+           STAGE RENDERING
+           ========================================================= */
+        function renderStage() {
+            stageEl.innerHTML = '';
+            controlsEl.innerHTML = '';
+
+            switch (state.stage) {
+                case 'ladder':   renderLadder();    break;
+                case 'swap':     renderSwap();      break;
+                case 'hidden':   renderHidden();    break;
+                case 'anagram':  renderAnagram();   break;
+                case 'sort':     renderSort();      break;
+            }
+            renderProgress();
+        }
+
+        /* =========================================================
+           MINI-GAME 1: WORD LADDER
+           ========================================================= */
+        function renderLadder() {
+            const { start, target, path } = state.ladder;
+
+            const title = document.createElement('div');
+            title.className = 'ly-stage-title';
+            title.textContent = 'Word Ladder';
+            stageEl.appendChild(title);
+
+            const sub = document.createElement('div');
+            sub.className = 'ly-stage-sub';
+            sub.textContent = `Change one letter at a time to get from ${start} to ${target}`;
+            stageEl.appendChild(sub);
+
+            // Show the first few rungs as reference
+            const ladder = document.createElement('div');
+            ladder.className = 'ly-ladder';
+            const displayRows = path.slice(0, Math.min(3, path.length));
+            displayRows.forEach((w, idx) => {
+                const row = document.createElement('div');
+                row.className = 'ly-ladder-row';
+                for (let i = 0; i < w.length; i++) {
+                    const letter = document.createElement('div');
+                    letter.className = 'ly-ladder-letter';
+                    if (idx === 0) letter.classList.add('ly-current');
+                    if (idx === path.length - 1) letter.classList.add('ly-target');
+                    letter.textContent = w[i];
+                    row.appendChild(letter);
+                }
+                ladder.appendChild(row);
+            });
+            // If path is longer than 3, show "…"
+            if (path.length > 3) {
+                const dots = document.createElement('div');
+                dots.className = 'ly-ladder-row';
+                dots.textContent = '…';
+                dots.style.color = 'var(--ly-muted)';
+                dots.style.fontSize = '1.2rem';
+                ladder.appendChild(dots);
+            }
+            stageEl.appendChild(ladder);
+
+            // Input row + submit
+            const inputRow = document.createElement('div');
+            inputRow.className = 'ly-input-row';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'ly-input';
+            input.maxLength = start.length;
+            input.placeholder = `Your ${start.length}-letter word`;
+            input.setAttribute('aria-label', 'Word ladder guess');
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    tryLadderGuess(input.value.trim().toUpperCase());
+                }
+            });
+            inputRow.appendChild(input);
+            stageEl.appendChild(inputRow);
+
+            // Controls
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'ly-btn ly-btn--primary';
+            submitBtn.textContent = 'Submit';
+            submitBtn.addEventListener('click', () => tryLadderGuess(input.value.trim().toUpperCase()));
+            controlsEl.appendChild(submitBtn);
+
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'ly-btn';
+            skipBtn.textContent = 'Skip';
+            skipBtn.addEventListener('click', () => {
+                // Give the answer and move on
+                state.collectedWords.push(state.ladder.clue);
+                setMessage('Skipped — the answer was ' + state.ladder.clue + '. Moving on.', 'good');
+                advanceStage();
+            });
+            controlsEl.appendChild(skipBtn);
+
+            const hintBtn = document.createElement('button');
+            hintBtn.className = 'ly-btn';
+            hintBtn.innerHTML = `💡 Hint <span>(${state.hintsLeft})</span>`;
+            hintBtn.disabled = state.hintsLeft <= 0;
+            hintBtn.addEventListener('click', () => {
+                if (state.hintsLeft <= 0) return;
+                state.hintsLeft--;
+                const target2 = state.ladder.clue;
+                setMessage('💡 Hint: the target word is ' + target2, 'good');
+                renderStage();
+            });
+            controlsEl.appendChild(hintBtn);
+
+            // Focus input
+            setTimeout(() => input.focus(), 50);
+        }
+
+        function tryLadderGuess(guess) {
+            if (!guess) return;
+            const target = state.ladder.clue;
+            if (guess === target) {
+                state.collectedWords.push(guess);
+                setMessage('✅ ' + guess + ' — that\'s the target!', 'good');
+                state.layersCleared++;
+                setTimeout(advanceStage, 600);
+            } else {
+                setMessage('❌ Not the target word yet. Try again.', 'error');
+            }
+        }
+
+        /* =========================================================
+           MINI-GAME 2: LETTER SWAP
+           ========================================================= */
+        function renderSwap() {
+            const { word, scrambled } = state.swap;
+
+            const title = document.createElement('div');
+            title.className = 'ly-stage-title';
+            title.textContent = 'Letter Swap';
+            stageEl.appendChild(title);
+
+            const sub = document.createElement('div');
+            sub.className = 'ly-stage-sub';
+            sub.textContent = 'Tap the letters to unscramble the word';
+            stageEl.appendChild(sub);
+
+            // Scramble tiles
+            const scrambleWrap = document.createElement('div');
+            scrambleWrap.className = 'ly-scramble';
+            const tiles = [];
+            scrambled.forEach((letter, idx) => {
+                const tile = document.createElement('button');
+                tile.type = 'button';
+                tile.className = 'ly-scramble-tile';
+                tile.textContent = letter;
+                tile.dataset.idx = idx;
+                tile.addEventListener('click', () => {
+                    if (tile.classList.contains('used')) return;
+                    if (tile.classList.contains('selected')) return;
+                    tile.classList.add('selected');
+                    setTimeout(() => {
+                        tile.classList.remove('selected');
+                        tile.classList.add('used');
+                        addToAnswer(letter, tile);
+                    }, 200);
+                });
+                scrambleWrap.appendChild(tile);
+                tiles.push(tile);
+            });
+            stageEl.appendChild(scrambleWrap);
+
+            // Answer slots
+            const answerWrap = document.createElement('div');
+            answerWrap.className = 'ly-answer-row';
+            for (let i = 0; i < word.length; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'ly-answer-slot';
+                answerWrap.appendChild(slot);
+            }
+            stageEl.appendChild(answerWrap);
+
+            let answerSoFar = '';
+
+            function addToAnswer(letter, tile) {
+                const slots = answerWrap.querySelectorAll('.ly-answer-slot');
+                const nextEmpty = Array.from(slots).find(s => !s.classList.contains('filled'));
+                if (!nextEmpty) return;
+                nextEmpty.textContent = letter;
+                nextEmpty.classList.add('filled');
+                answerSoFar += letter;
+
+                if (answerSoFar.length === word.length) {
+                    if (answerSoFar.toUpperCase() === word) {
+                        state.collectedWords.push(word);
+                        setMessage('✅ ' + word + ' — that\'s it!', 'good');
+                        state.layersCleared++;
+                        setTimeout(advanceStage, 700);
+                    } else {
+                        setMessage('❌ Not quite — try again.', 'error');
+                        setTimeout(() => {
+                            slots.forEach(s => {
+                                s.textContent = '';
+                                s.classList.remove('filled');
+                            });
+                            tiles.forEach(t => t.classList.remove('used'));
+                            answerSoFar = '';
+                        }, 600);
+                    }
+                }
+            }
+
+            // Controls
+            const clearBtn = document.createElement('button');
+            clearBtn.className = 'ly-btn';
+            clearBtn.textContent = 'Clear';
+            clearBtn.addEventListener('click', () => {
+                answerWrap.querySelectorAll('.ly-answer-slot').forEach(s => {
+                    s.textContent = '';
+                    s.classList.remove('filled');
+                });
+                tiles.forEach(t => t.classList.remove('used'));
+                answerSoFar = '';
+            });
+            controlsEl.appendChild(clearBtn);
+
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'ly-btn';
+            skipBtn.textContent = 'Skip';
+            skipBtn.addEventListener('click', () => {
+                state.collectedWords.push(word);
+                setMessage('Skipped — the word was ' + word + '.', 'good');
+                advanceStage();
+            });
+            controlsEl.appendChild(skipBtn);
+
+            const hintBtn = document.createElement('button');
+            hintBtn.className = 'ly-btn';
+            hintBtn.innerHTML = `💡 Hint <span>(${state.hintsLeft})</span>`;
+            hintBtn.disabled = state.hintsLeft <= 0;
+            hintBtn.addEventListener('click', () => {
+                if (state.hintsLeft <= 0) return;
+                state.hintsLeft--;
+                setMessage('💡 Hint: the word starts with "' + word[0] + '" and ends with "' + word[word.length - 1] + '"', 'good');
+                renderStage();
+            });
+            controlsEl.appendChild(hintBtn);
+        }
+
+        /* =========================================================
+           MINI-GAME 3: HIDDEN WORD
+           ========================================================= */
+        function renderHidden() {
+            const { phrase, word } = state.hidden;
+
+            const title = document.createElement('div');
+            title.className = 'ly-stage-title';
+            title.textContent = 'Hidden Word';
+            stageEl.appendChild(title);
+
+            const sub = document.createElement('div');
+            sub.className = 'ly-stage-sub';
+            sub.textContent = 'A word is hidden inside this phrase. Find it!';
+            stageEl.appendChild(sub);
+
+            const phraseEl = document.createElement('div');
+            phraseEl.className = 'ly-hidden-phrase';
+            phraseEl.textContent = phrase;
+            stageEl.appendChild(phraseEl);
+
+            // Input
+            const inputRow = document.createElement('div');
+            inputRow.className = 'ly-input-row';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'ly-input';
+            input.placeholder = 'Hidden word?';
+            input.maxLength = word.length + 2;
+            input.setAttribute('aria-label', 'Hidden word guess');
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    tryHiddenGuess(input.value.trim().toUpperCase());
+                }
+            });
+            inputRow.appendChild(input);
+            stageEl.appendChild(inputRow);
+
+            // Controls
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'ly-btn ly-btn--primary';
+            submitBtn.textContent = 'Submit';
+            submitBtn.addEventListener('click', () => tryHiddenGuess(input.value.trim().toUpperCase()));
+            controlsEl.appendChild(submitBtn);
+
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'ly-btn';
+            skipBtn.textContent = 'Skip';
+            skipBtn.addEventListener('click', () => {
+                state.collectedWords.push(word);
+                setMessage('Skipped — the hidden word was ' + word + '.', 'good');
+                advanceStage();
+            });
+            controlsEl.appendChild(skipBtn);
+
+            const hintBtn = document.createElement('button');
+            hintBtn.className = 'ly-btn';
+            hintBtn.innerHTML = `💡 Hint <span>(${state.hintsLeft})</span>`;
+            hintBtn.disabled = state.hintsLeft <= 0;
+            hintBtn.addEventListener('click', () => {
+                if (state.hintsLeft <= 0) return;
+                state.hintsLeft--;
+                // Reveal the word highlighted inside the phrase
+                const idx = phrase.toUpperCase().indexOf(word.toUpperCase());
+                if (idx !== -1) {
+                    const before = phrase.slice(0, idx);
+                    const found = phrase.slice(idx, idx + word.length);
+                    const after = phrase.slice(idx + word.length);
+                    phraseEl.innerHTML = escapeHtml(before) +
+                        '<span class="ly-found-letter">' + escapeHtml(found) + '</span>' +
+                        escapeHtml(after);
+                }
+                setMessage('💡 Hint: look at the highlighted letters.', 'good');
+                renderStage();
+            });
+            controlsEl.appendChild(hintBtn);
+
+            setTimeout(() => input.focus(), 50);
+        }
+
+        function tryHiddenGuess(guess) {
+            if (!guess) return;
+            if (guess === state.hidden.word) {
+                state.collectedWords.push(guess);
+                setMessage('✅ ' + guess + ' — found it!', 'good');
+                state.layersCleared++;
+                setTimeout(advanceStage, 600);
+            } else {
+                setMessage('❌ That\'s not the hidden word. Look again.', 'error');
+            }
+        }
+
+        /* =========================================================
+           MINI-GAME 4: ANAGRAM
+           ========================================================= */
+        function renderAnagram() {
+            const { letters, answer } = state.anagram;
+
+            const title = document.createElement('div');
+            title.className = 'ly-stage-title';
+            title.textContent = 'Anagram';
+            stageEl.appendChild(title);
+
+            const sub = document.createElement('div');
+            sub.className = 'ly-stage-sub';
+            sub.textContent = 'Rearrange these letters into a word';
+            stageEl.appendChild(sub);
+
+            // Tiles
+            const tilesWrap = document.createElement('div');
+            tilesWrap.className = 'ly-anagram-letters';
+            letters.forEach(l => {
+                const tile = document.createElement('div');
+                tile.className = 'ly-anagram-tile';
+                tile.textContent = l;
+                tilesWrap.appendChild(tile);
+            });
+            stageEl.appendChild(tilesWrap);
+
+            // Input
+            const inputRow = document.createElement('div');
+            inputRow.className = 'ly-input-row';
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'ly-input';
+            input.placeholder = 'Your answer';
+            input.maxLength = answer.length + 2;
+            input.setAttribute('aria-label', 'Anagram guess');
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    tryAnagramGuess(input.value.trim().toUpperCase());
+                }
+            });
+            inputRow.appendChild(input);
+            stageEl.appendChild(inputRow);
+
+            // Controls
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'ly-btn ly-btn--primary';
+            submitBtn.textContent = 'Submit';
+            submitBtn.addEventListener('click', () => tryAnagramGuess(input.value.trim().toUpperCase()));
+            controlsEl.appendChild(submitBtn);
+
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'ly-btn';
+            skipBtn.textContent = 'Skip';
+            skipBtn.addEventListener('click', () => {
+                state.collectedWords.push(answer);
+                setMessage('Skipped — the answer was ' + answer + '.', 'good');
+                advanceStage();
+            });
+            controlsEl.appendChild(skipBtn);
+
+            const hintBtn = document.createElement('button');
+            hintBtn.className = 'ly-btn';
+            hintBtn.innerHTML = `💡 Hint <span>(${state.hintsLeft})</span>`;
+            hintBtn.disabled = state.hintsLeft <= 0;
+            hintBtn.addEventListener('click', () => {
+                if (state.hintsLeft <= 0) return;
+                state.hintsLeft--;
+                setMessage('💡 Hint: the word starts with "' + answer[0] + '" and has ' + answer.length + ' letters.', 'good');
+                renderStage();
+            });
+            controlsEl.appendChild(hintBtn);
+
+            setTimeout(() => input.focus(), 50);
+        }
+
+        function tryAnagramGuess(guess) {
+            if (!guess) return;
+            if (guess === state.anagram.answer) {
+                state.collectedWords.push(guess);
+                setMessage('✅ ' + guess + ' — solved!', 'good');
+                state.layersCleared++;
+                setTimeout(advanceStage, 600);
+            } else {
+                setMessage('❌ Not the right word. Try again.', 'error');
+            }
+        }
+
+        /* =========================================================
+           FINAL: SORTING BOARD
+           ========================================================= */
+        function renderSort() {
+            const { words, categories } = state.sort;
+
+            const title = document.createElement('div');
+            title.className = 'ly-stage-title';
+            title.textContent = 'Final Sort';
+            stageEl.appendChild(title);
+
+            const sub = document.createElement('div');
+            sub.className = 'ly-stage-sub';
+            sub.textContent = 'Group the 16 words into 4 hidden categories';
+            stageEl.appendChild(sub);
+
+            // Lives
+            const livesWrap = document.createElement('div');
+            livesWrap.className = 'ly-lives';
+            livesWrap.style.display = 'flex';
+            livesWrap.style.justifyContent = 'center';
+            livesWrap.style.gap = '6px';
+            livesWrap.style.margin = '6px 0 12px';
+            for (let i = 0; i < 4; i++) {
+                const life = document.createElement('span');
+                life.className = 'ly-life';
+                life.style.width = '12px';
+                life.style.height = '12px';
+                life.style.borderRadius = '50%';
+                life.style.background = i < state.sortLives ? 'var(--ly-accent)' : 'var(--ly-border)';
+                livesWrap.appendChild(life);
+            }
+            stageEl.appendChild(livesWrap);
+
+            // Solved rows
+            const solvedArea = document.createElement('div');
+            solvedArea.className = 'ly-solved-area';
+            const order = ['yellow', 'green', 'blue', 'purple'];
+            state.sortSolvedGroups.forEach((diff, idx) => {
+                const cat = state.sort.categories.find(c => c.name === diff);
+                if (!cat) return;
+                const row = document.createElement('div');
+                row.className = 'ly-solved-row ly-' + diff;
+                row.innerHTML =
+                    '<div class="ly-solved-category">' + escapeHtml(cat.name) + '</div>' +
+                    '<div class="ly-solved-words">' + cat.words.map(escapeHtml).join(' · ') + '</div>';
+                solvedArea.appendChild(row);
+            });
+            stageEl.appendChild(solvedArea);
+
+            // Grid
+            const grid = document.createElement('div');
+            grid.className = 'ly-sort-grid';
+
+            const solvedWords = new Set();
+            state.sortSolvedGroups.forEach(diff => {
+                const cat = state.sort.categories.find(c => c.name === diff);
+                if (cat) cat.words.forEach(w => solvedWords.add(w));
+            });
+
+            words.forEach(word => {
+                if (solvedWords.has(word)) return;
+                const card = document.createElement('button');
+                card.type = 'button';
+                card.className = 'ly-sort-card';
+                card.textContent = word;
+                if (state.sortSelected.includes(word)) {
+                    card.classList.add('selected');
+                }
+                card.addEventListener('click', () => toggleSortWord(word));
+                grid.appendChild(card);
+            });
+            stageEl.appendChild(grid);
+
+            // Controls
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'ly-btn ly-btn--primary';
+            submitBtn.textContent = 'Submit Group';
+            submitBtn.disabled = state.sortSelected.length !== 4;
+            submitBtn.addEventListener('click', submitSortGroup);
+            controlsEl.appendChild(submitBtn);
+
+            const hintBtn = document.createElement('button');
+            hintBtn.className = 'ly-btn';
+            hintBtn.innerHTML = `💡 Hint <span>(${state.hintsLeft})</span>`;
+            hintBtn.disabled = state.hintsLeft <= 0;
+            hintBtn.addEventListener('click', () => {
+                if (state.hintsLeft <= 0) return;
+                // Reveal one unsolved category
+                const unsolvedDiff = ['yellow', 'green', 'blue', 'purple'].find(d => !state.sortSolvedGroups.includes(d));
+                if (!unsolvedDiff) return;
+                state.hintsLeft--;
+                setMessage('💡 Hint: the next category is ' + unsolvedDiff.toUpperCase() + '. Keep going!', 'good');
+                renderStage();
+            });
+            controlsEl.appendChild(hintBtn);
+        }
+
+        function toggleSortWord(word) {
+            if (state.gameOver) return;
+            const idx = state.sortSelected.indexOf(word);
+            if (idx !== -1) {
+                state.sortSelected.splice(idx, 1);
+            } else {
+                if (state.sortSelected.length >= 4) return;
+                state.sortSelected.push(word);
+            }
+            setMessage('');
+            renderStage();
+        }
+
+        function submitSortGroup() {
+            if (state.sortSelected.length !== 4) return;
+            const selection = state.sortSelected.slice();
+
+            // Find matching category
+            const match = state.sort.categories.find(cat => {
+                return cat.words.length === 4 &&
+                       selection.every(w => cat.words.includes(w));
+            });
+
+            if (match) {
+                state.sortSolvedGroups.push(match.name);
+                state.sortSelected = [];
+                setMessage('✅ Correct — ' + match.name, 'good');
+                renderStage();
+
+                if (state.sortSolvedGroups.length === 4) {
+                    // Won the whole game
+                    setTimeout(() => finishGame(true), 500);
+                }
+            } else {
+                state.sortLives--;
+                state.mistakes++;
+                state.sortSelected = [];
+                setMessage('❌ Not quite. Try again.', 'error');
+                renderStage();
+
+                if (state.sortLives <= 0) {
+                    setTimeout(() => finishGame(false), 500);
+                }
+            }
+        }
+
+        /* =========================================================
+           ADVANCE STAGE
+           ========================================================= */
+        function advanceStage() {
+            const order = ['ladder', 'swap', 'hidden', 'anagram', 'sort'];
+            const idx = order.indexOf(state.stage);
+            if (idx === -1 || idx === order.length - 1) return;
+
+            state.stage = order[idx + 1];
+            setMessage('');
+            renderStage();
+
+            if (state.stage === 'sort') {
+                showToast('🎯 Final layer — sort the words!');
+            }
+        }
+
+        /* =========================================================
+           FINISH GAME
+           ========================================================= */
+        function finishGame(won) {
+            state.gameOver = true;
+            state.won = won;
+
+            state.stats.played++;
+            if (won) {
+                state.stats.won++;
+                state.stats.streak++;
+                if (state.stats.streak > state.stats.bestStreak) {
+                    state.stats.bestStreak = state.stats.streak;
+                }
+            } else {
+                state.stats.streak = 0;
+            }
+            saveStats();
+            renderStats();
+
+            const grid = buildShareGrid();
+            resultGrid.textContent = grid;
+
+            if (won) {
+                resultEmoji.textContent = '🎉';
+                resultTitle.textContent = 'You cleared all layers!';
+                resultSub.textContent = 'Four mini-games and the final sorting board — complete.';
+            } else {
+                resultEmoji.textContent = '💔';
+                resultTitle.textContent = 'Out of lives';
+                resultSub.textContent = 'You ran out of sorting guesses. Try a new puzzle!';
+            }
+
+            resultOverlay.classList.add('ly-show');
+        }
+
+        /* =========================================================
+           SHARE
+           ========================================================= */
+        function buildShareGrid() {
+            const lines = [];
+            lines.push('Layers Unlimited');
+            lines.push('Layers: Ladder · Swap · Hidden · Anagram · Sort');
+            const cleared = state.layersCleared + (state.won ? 1 : 0);
+            lines.push('Cleared: ' + cleared + '/5');
+            if (state.won) {
+                lines.push('🟩🟩🟩🟩🟩');
+            } else {
+                const progress = '🟩'.repeat(state.layersCleared) + '⬜'.repeat(Math.max(0, 5 - state.layersCleared));
+                lines.push(progress);
+            }
+            return lines.join('\n');
+        }
+
+        function openShare() {
+            const grid = buildShareGrid();
+            sharePreview.textContent = grid;
+            shareModal.classList.add('ly-show');
+        }
+
+        function closeShare() {
+            shareModal.classList.remove('ly-show');
+        }
+
+        function copyShare() {
+            const text = sharePreview.textContent;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showToast('✅ Result copied to clipboard!');
+                        shareCopyBtn.textContent = '✓ Copied';
+                        setTimeout(() => { shareCopyBtn.textContent = '⎘ Copy'; }, 1400);
+                    })
+                    .catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'absolute';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('✅ Result copied!');
+            } catch (e) {
+                showToast('⚠️ Copy not supported.');
+            }
+        }
+
+        /* =========================================================
+           EVENT BINDINGS
+           ========================================================= */
+        // New puzzle
+        $('lyResultNewBtn').addEventListener('click', () => {
+            resultOverlay.classList.remove('ly-show');
+            generatePuzzle();
+            showToast('🔄 New puzzle loaded!');
+        });
+
+        // Share
+        $('lyResultShareBtn').addEventListener('click', openShare);
+        $('lyShareCopyBtn').addEventListener('click', copyShare);
+        $('lyShareCloseBtn').addEventListener('click', closeShare);
+        $('lyShareModal').addEventListener('click', (e) => {
+            if (e.target === $('lyShareModal')) closeShare();
+        });
+
+        // FAQ accordion
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+                const answer = btn.nextElementSibling;
+                if (answer) answer.style.display = expanded ? 'none' : 'block';
+            });
+        });
+
+        /* =========================================================
+           INIT
+           ========================================================= */
+        loadStats();
+        renderStats();
+        generatePuzzle();
+
+        console.log('🎮 Layers ready — 4 mini-games + final sort.');
+    })();
+    </script>
+</body>
+</html>

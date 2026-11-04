@@ -1401,961 +1401,994 @@
     <script src="/wordlist.js"></script>
 
     <script>
-    (function () {
-        'use strict';
+(function () {
+    'use strict';
 
-        /* =========================================================
-           THEMES — Each theme has a spangram and a list of theme
-           words. The actual puzzle words are drawn from wordlist.js,
-           but themes give structure and category labels.
-           ========================================================= */
-        const THEMES = [
-            { name: 'FRUITS',     spangram: 'FRUIT',    seeds: ['APPLE', 'BANANA', 'CHERRY', 'GRAPE', 'LEMON', 'MANGO', 'PEACH', 'PLUM'] },
-            { name: 'COLORS',     spangram: 'COLOR',    seeds: ['RED', 'BLUE', 'GREEN', 'YELLOW', 'ORANGE', 'PURPLE', 'PINK', 'BROWN'] },
-            { name: 'ANIMALS',    spangram: 'ANIMAL',   seeds: ['CAT', 'DOG', 'BIRD', 'FISH', 'HORSE', 'LION', 'TIGER', 'BEAR'] },
-            { name: 'PLANETS',    spangram: 'PLANET',   seeds: ['MARS', 'VENUS', 'EARTH', 'SATURN', 'JUPITER', 'MERCURY', 'NEPTUNE', 'URANUS'] },
-            { name: 'COUNTRIES',  spangram: 'COUNTRY',  seeds: ['FRANCE', 'JAPAN', 'BRAZIL', 'CANADA', 'EGYPT', 'INDIA', 'ITALY', 'SPAIN'] },
-            { name: 'INSTRUMENTS',spangram: 'MUSIC',    seeds: ['PIANO', 'GUITAR', 'VIOLIN', 'FLUTE', 'DRUMS', 'TRUMPET', 'CELLO', 'HARP'] },
-            { name: 'SPORTS',     spangram: 'SPORT',    seeds: ['SOCCER', 'TENNIS', 'GOLF', 'RUGBY', 'BOXING', 'SWIMMING', 'SKIING', 'HOCKEY'] },
-            { name: 'VEGETABLES', spangram: 'VEGGIE',   seeds: ['CARROT', 'BROCCOLI', 'SPINACH', 'POTATO', 'ONION', 'GARLIC', 'PEPPER', 'CORN'] },
-            { name: 'BIRDS',      spangram: 'BIRD',     seeds: ['EAGLE', 'ROBIN', 'OWL', 'SPARROW', 'FALCON', 'HAWK', 'DUCK', 'SWAN'] },
-            { name: 'OCEANS',     spangram: 'OCEAN',    seeds: ['ATLANTIC', 'PACIFIC', 'INDIAN', 'ARCTIC', 'CORAL', 'DEEP', 'BLUE', 'TIDE'] },
-            { name: 'DESSERTS',   spangram: 'SWEET',    seeds: ['CAKE', 'COOKIE', 'PIE', 'BROWNIE', 'PUDDING', 'CANDY', 'DONUT', 'TART'] },
-            { name: 'WEATHER',    spangram: 'WEATHER',  seeds: ['RAIN', 'SNOW', 'SUN', 'WIND', 'CLOUD', 'STORM', 'FOG', 'THUNDER'] },
-            { name: 'BODY PARTS', spangram: 'BODY',     seeds: ['HEART', 'LUNGS', 'LIVER', 'KIDNEY', 'BRAIN', 'BONES', 'SKIN', 'MUSCLE'] },
-            { name: 'CITRUS',     spangram: 'CITRUS',   seeds: ['LEMON', 'LIME', 'ORANGE', 'GRAPEFRUIT', 'TANGERINE', 'POMELO', 'KUMQUAT', 'YUZU'] },
-            { name: 'DOG BREEDS', spangram: 'CANINE',   seeds: ['POODLE', 'BEAGLE', 'BOXER', 'HUSKY', 'DALMATIAN', 'TERRIER', 'RETRIEVER', 'BULLDOG'] },
-            { name: 'FLOWERS',    spangram: 'FLOWER',   seeds: ['ROSE', 'TULIP', 'DAISY', 'LILY', 'ORCHID', 'SUNFLOWER', 'VIOLET', 'POPPY'] },
-            { name: 'TREES',      spangram: 'FOREST',   seeds: ['OAK', 'MAPLE', 'PINE', 'BIRCH', 'WILLOW', 'CEDAR', 'REDWOOD', 'SEQUOIA'] },
-            { name: 'SEA LIFE',   spangram: 'MARINE',   seeds: ['DOLPHIN', 'WHALE', 'SHARK', 'OCTOPUS', 'SEAHORSE', 'TURTLE', 'STARFISH', 'CRAB'] },
-            { name: 'SPICES',     spangram: 'SPICE',    seeds: ['PEPPER', 'CINNAMON', 'PAPRIKA', 'NUTMEG', 'CUMIN', 'GINGER', 'TURMERIC', 'SAFFRON'] },
-            { name: 'SCHOOL',     spangram: 'SCHOOL',   seeds: ['MATH', 'HISTORY', 'SCIENCE', 'GEOGRAPHY', 'ENGLISH', 'ART', 'MUSIC', 'PHYSICS'] },
-            { name: 'CLOTHING',   spangram: 'FASHION',  seeds: ['SHIRT', 'PANTS', 'SOCKS', 'DRESS', 'JACKET', 'SCARF', 'GLOVES', 'HAT'] },
-            { name: 'FURNITURE',  spangram: 'HOME',     seeds: ['CHAIR', 'TABLE', 'SOFA', 'BED', 'DESK', 'SHELF', 'LAMP', 'RUG'] },
-            { name: 'TOOLS',      spangram: 'TOOL',     seeds: ['HAMMER', 'WRENCH', 'DRILL', 'SAW', 'PLIERS', 'SCREW', 'CHISEL', 'SHOVEL'] },
-            { name: 'MUSIC',      spangram: 'SOUND',    seeds: ['PIANO', 'GUITAR', 'DRUMS', 'FLUTE', 'CELLO', 'HARP', 'BASS', 'VIOLIN'] },
-            { name: 'TRAVEL',     spangram: 'TRIP',     seeds: ['PLANE', 'TRAIN', 'BOAT', 'CAR', 'BUS', 'BIKE', 'SHIP', 'TAXI'] },
-            { name: 'EMOTIONS',   spangram: 'FEELING',  seeds: ['HAPPY', 'SAD', 'ANGRY', 'CALM', 'EXCITED', 'BORED', 'TIRED', 'PROUD'] },
-            { name: 'TIME',       spangram: 'CLOCK',    seeds: ['HOUR', 'MINUTE', 'SECOND', 'DAY', 'WEEK', 'MONTH', 'YEAR', 'DECADE'] },
-            { name: 'NUMBERS',    spangram: 'COUNT',    seeds: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'] },
-            { name: 'SPACE',      spangram: 'COSMOS',   seeds: ['STAR', 'MOON', 'COMET', 'GALAXY', 'NEBULA', 'ORBIT', 'ROCKET', 'ASTRONAUT'] },
-            { name: 'KITCHEN',    spangram: 'COOK',     seeds: ['FORK', 'SPOON', 'KNIFE', 'PLATE', 'BOWL', 'PAN', 'POT', 'CUP'] }
-        ];
+    /* =========================================================
+       THEMES — Each theme has a spangram and a list of theme
+       words. The actual puzzle words are drawn from wordlist.js,
+       but themes give structure and category labels.
+       ========================================================= */
+    const THEMES = [
+        { name: 'FRUITS',     spangram: 'FRUIT',    seeds: ['APPLE', 'BANANA', 'CHERRY', 'GRAPE', 'LEMON', 'MANGO', 'PEACH', 'PLUM'] },
+        { name: 'COLORS',     spangram: 'COLOR',    seeds: ['RED', 'BLUE', 'GREEN', 'YELLOW', 'ORANGE', 'PURPLE', 'PINK', 'BROWN'] },
+        { name: 'ANIMALS',    spangram: 'ANIMAL',   seeds: ['CAT', 'DOG', 'BIRD', 'FISH', 'HORSE', 'LION', 'TIGER', 'BEAR'] },
+        { name: 'PLANETS',    spangram: 'PLANET',   seeds: ['MARS', 'VENUS', 'EARTH', 'SATURN', 'JUPITER', 'MERCURY', 'NEPTUNE', 'URANUS'] },
+        { name: 'COUNTRIES',  spangram: 'COUNTRY',  seeds: ['FRANCE', 'JAPAN', 'BRAZIL', 'CANADA', 'EGYPT', 'INDIA', 'ITALY', 'SPAIN'] },
+        { name: 'INSTRUMENTS',spangram: 'MUSIC',    seeds: ['PIANO', 'GUITAR', 'VIOLIN', 'FLUTE', 'DRUMS', 'TRUMPET', 'CELLO', 'HARP'] },
+        { name: 'SPORTS',     spangram: 'SPORT',    seeds: ['SOCCER', 'TENNIS', 'GOLF', 'RUGBY', 'BOXING', 'SWIMMING', 'SKIING', 'HOCKEY'] },
+        { name: 'VEGETABLES', spangram: 'VEGGIE',   seeds: ['CARROT', 'BROCCOLI', 'SPINACH', 'POTATO', 'ONION', 'GARLIC', 'PEPPER', 'CORN'] },
+        { name: 'BIRDS',      spangram: 'BIRD',     seeds: ['EAGLE', 'ROBIN', 'OWL', 'SPARROW', 'FALCON', 'HAWK', 'DUCK', 'SWAN'] },
+        { name: 'OCEANS',     spangram: 'OCEAN',    seeds: ['ATLANTIC', 'PACIFIC', 'INDIAN', 'ARCTIC', 'CORAL', 'DEEP', 'BLUE', 'TIDE'] },
+        { name: 'DESSERTS',   spangram: 'SWEET',    seeds: ['CAKE', 'COOKIE', 'PIE', 'BROWNIE', 'PUDDING', 'CANDY', 'DONUT', 'TART'] },
+        { name: 'WEATHER',    spangram: 'WEATHER',  seeds: ['RAIN', 'SNOW', 'SUN', 'WIND', 'CLOUD', 'STORM', 'FOG', 'THUNDER'] },
+        { name: 'BODY PARTS', spangram: 'BODY',     seeds: ['HEART', 'LUNGS', 'LIVER', 'KIDNEY', 'BRAIN', 'BONES', 'SKIN', 'MUSCLE'] },
+        { name: 'CITRUS',     spangram: 'CITRUS',   seeds: ['LEMON', 'LIME', 'ORANGE', 'GRAPEFRUIT', 'TANGERINE', 'POMELO', 'KUMQUAT', 'YUZU'] },
+        { name: 'DOG BREEDS', spangram: 'CANINE',   seeds: ['POODLE', 'BEAGLE', 'BOXER', 'HUSKY', 'DALMATIAN', 'TERRIER', 'RETRIEVER', 'BULLDOG'] },
+        { name: 'FLOWERS',    spangram: 'FLOWER',   seeds: ['ROSE', 'TULIP', 'DAISY', 'LILY', 'ORCHID', 'SUNFLOWER', 'VIOLET', 'POPPY'] },
+        { name: 'TREES',      spangram: 'FOREST',   seeds: ['OAK', 'MAPLE', 'PINE', 'BIRCH', 'WILLOW', 'CEDAR', 'REDWOOD', 'SEQUOIA'] },
+        { name: 'SEA LIFE',   spangram: 'MARINE',   seeds: ['DOLPHIN', 'WHALE', 'SHARK', 'OCTOPUS', 'SEAHORSE', 'TURTLE', 'STARFISH', 'CRAB'] },
+        { name: 'SPICES',     spangram: 'SPICE',    seeds: ['PEPPER', 'CINNAMON', 'PAPRIKA', 'NUTMEG', 'CUMIN', 'GINGER', 'TURMERIC', 'SAFFRON'] },
+        { name: 'SCHOOL',     spangram: 'SCHOOL',   seeds: ['MATH', 'HISTORY', 'SCIENCE', 'GEOGRAPHY', 'ENGLISH', 'ART', 'MUSIC', 'PHYSICS'] },
+        { name: 'CLOTHING',   spangram: 'FASHION',  seeds: ['SHIRT', 'PANTS', 'SOCKS', 'DRESS', 'JACKET', 'SCARF', 'GLOVES', 'HAT'] },
+        { name: 'FURNITURE',  spangram: 'HOME',     seeds: ['CHAIR', 'TABLE', 'SOFA', 'BED', 'DESK', 'SHELF', 'LAMP', 'RUG'] },
+        { name: 'TOOLS',      spangram: 'TOOL',     seeds: ['HAMMER', 'WRENCH', 'DRILL', 'SAW', 'PLIERS', 'SCREW', 'CHISEL', 'SHOVEL'] },
+        { name: 'MUSIC',      spangram: 'SOUND',    seeds: ['PIANO', 'GUITAR', 'DRUMS', 'FLUTE', 'CELLO', 'HARP', 'BASS', 'VIOLIN'] },
+        { name: 'TRAVEL',     spangram: 'TRIP',     seeds: ['PLANE', 'TRAIN', 'BOAT', 'CAR', 'BUS', 'BIKE', 'SHIP', 'TAXI'] },
+        { name: 'EMOTIONS',   spangram: 'FEELING',  seeds: ['HAPPY', 'SAD', 'ANGRY', 'CALM', 'EXCITED', 'BORED', 'TIRED', 'PROUD'] },
+        { name: 'TIME',       spangram: 'CLOCK',    seeds: ['HOUR', 'MINUTE', 'SECOND', 'DAY', 'WEEK', 'MONTH', 'YEAR', 'DECADE'] },
+        { name: 'NUMBERS',    spangram: 'COUNT',    seeds: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'] },
+        { name: 'SPACE',      spangram: 'COSMOS',   seeds: ['STAR', 'MOON', 'COMET', 'GALAXY', 'NEBULA', 'ORBIT', 'ROCKET', 'ASTRONAUT'] },
+        { name: 'KITCHEN',    spangram: 'COOK',     seeds: ['FORK', 'SPOON', 'KNIFE', 'PLATE', 'BOWL', 'PAN', 'POT', 'CUP'] }
+    ];
 
-        const MAX_HINTS = 3;
-        const GRID_SIZE = 6; // 6x6 grid
+    const MAX_HINTS = 3;
+    const GRID_SIZE = 6;
 
-        /* =========================================================
-           WORD LIST — populated from wordlist.js
-           ========================================================= */
-        let ALL_WORDS = [];        // all valid words (uppercase, 3-15 letters)
-        let WORDS_BY_LENGTH = {};  // { length: [words] }
-        let wordlistReady = false;
-        let wordlistError = null;
+    /* =========================================================
+       WORD LIST — populated from wordlist.js
+       ========================================================= */
+    let ALL_WORDS = [];
+    let WORDS_BY_LENGTH = {};
+    let wordlistReady = false;
 
-        function normalizeWordlist() {
-            if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
-                wordlistError = 'Word list not loaded. Please refresh the page.';
-                return;
-            }
-
-            const seen = new Set();
-            const all = [];
-            const byLen = {};
-
-            for (let i = 0; i < WORDLIST.length; i++) {
-                const raw = WORDLIST[i];
-                if (typeof raw !== 'string') continue;
-                const w = raw.toUpperCase();
-                if (!/^[A-Z]{3,15}$/.test(w)) continue;
-                if (seen.has(w)) continue;
-                seen.add(w);
-                all.push(w);
-
-                const len = w.length;
-                if (!byLen[len]) byLen[len] = [];
-                byLen[len].push(w);
-            }
-
-            ALL_WORDS = all;
-            WORDS_BY_LENGTH = byLen;
-            wordlistReady = true;
-
-            console.log(`📚 Strands word list: ${ALL_WORDS.length} unique words loaded.`);
-            console.log(`   By length: ` + Object.keys(byLen).map(l => `${l}:${byLen[l].length}`).join(', '));
+    function normalizeWordlist() {
+        if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+            return;
         }
-
-        /* =========================================================
-           STATE
-           ========================================================= */
-        const state = {
-            puzzle: null,
-            grid: [],
-            selected: [],
-            foundWords: [],
-            foundWordPaths: [],   // array of { word, cells: [{row,col}...], isSpangram }
-            spangramFound: false,
-            hintsLeft: MAX_HINTS,
-            gameOver: false,
-            won: false,
-            stats: { played: 0, won: 0, streak: 0, bestStreak: 0 }
-        };
-
-        /* =========================================================
-           DOM
-           ========================================================= */
-        const $ = (id) => document.getElementById(id);
-
-        const gridEl          = $('suGrid');
-        const foundAreaEl     = $('suFoundArea');
-        const livesEl         = $('suLives');
-        const messageEl       = $('suMessage');
-        const submitBtn       = $('suSubmitBtn');
-        const hintBtn         = $('suHintBtn');
-        const hintCountEl     = $('suHintCount');
-        const newGameBtn      = $('suNewGameBtn');
-        const streakEl        = $('suStreak');
-        const wonEl           = $('suWon');
-        const playedEl        = $('suPlayed');
-        const toastEl         = $('suToast');
-
-        const resultOverlay   = $('suResultOverlay');
-        const resultEmoji     = $('suResultEmoji');
-        const resultTitle     = $('suResultTitle');
-        const resultSub       = $('suResultSub');
-        const resultGrid      = $('suResultGrid');
-        const resultNewBtn    = $('suResultNewBtn');
-        const resultShareBtn  = $('suResultShareBtn');
-
-        const shareModal      = $('suShareModal');
-        const sharePreview    = $('suSharePreview');
-        const shareCopyBtn    = $('suShareCopyBtn');
-        const shareCloseBtn   = $('suShareCloseBtn');
-
-        const faqButtons      = document.querySelectorAll('.su-faq-q');
-
-        let toastTimer = null;
-
-        /* =========================================================
-           STATS PERSISTENCE
-           ========================================================= */
-        const STORAGE_KEY = 'su-stats-v1';
-
-        function loadStats() {
-            try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (parsed && typeof parsed === 'object') {
-                        state.stats.played = Number(parsed.played) || 0;
-                        state.stats.won = Number(parsed.won) || 0;
-                        state.stats.streak = Number(parsed.streak) || 0;
-                        state.stats.bestStreak = Number(parsed.bestStreak) || 0;
-                    }
-                }
-            } catch (e) { /* silent */ }
+        const seen = new Set();
+        const all = [];
+        const byLen = {};
+        for (let i = 0; i < WORDLIST.length; i++) {
+            const raw = WORDLIST[i];
+            if (typeof raw !== 'string') continue;
+            const w = raw.toUpperCase();
+            if (!/^[A-Z]{3,15}$/.test(w)) continue;
+            if (seen.has(w)) continue;
+            seen.add(w);
+            all.push(w);
+            const len = w.length;
+            if (!byLen[len]) byLen[len] = [];
+            byLen[len].push(w);
         }
+        ALL_WORDS = all;
+        WORDS_BY_LENGTH = byLen;
+        wordlistReady = true;
+        console.log(`📚 Strands word list: ${ALL_WORDS.length} unique words loaded.`);
+    }
 
-        function saveStats() {
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(state.stats));
-            } catch (e) { /* silent */ }
-        }
+    /* =========================================================
+       STATE
+       ========================================================= */
+    const state = {
+        puzzle: null,
+        grid: [],
+        selected: [],
+        foundWords: [],
+        foundWordPaths: [],
+        spangramFound: false,
+        hintsLeft: MAX_HINTS,
+        gameOver: false,
+        won: false,
+        stats: { played: 0, won: 0, streak: 0, bestStreak: 0 }
+    };
 
-        function renderStats() {
-            streakEl.textContent = state.stats.streak;
-            wonEl.textContent = state.stats.won;
-            playedEl.textContent = state.stats.played;
-        }
+    /* =========================================================
+       DOM
+       ========================================================= */
+    const $ = (id) => document.getElementById(id);
 
-        /* =========================================================
-           UTILITIES
-           ========================================================= */
-        function showToast(msg) {
-            if (toastTimer) clearTimeout(toastTimer);
-            toastEl.textContent = msg;
-            toastEl.classList.add('su-show');
-            toastTimer = setTimeout(() => toastEl.classList.remove('su-show'), 2200);
-        }
+    const gridEl          = $('suGrid');
+    const foundAreaEl     = $('suFoundArea');
+    const livesEl         = $('suLives');
+    const messageEl       = $('suMessage');
+    const submitBtn       = $('suSubmitBtn');
+    const hintBtn         = $('suHintBtn');
+    const hintCountEl     = $('suHintCount');
+    const newGameBtn      = $('suNewGameBtn');
+    const streakEl        = $('suStreak');
+    const wonEl           = $('suWon');
+    const playedEl        = $('suPlayed');
+    const toastEl         = $('suToast');
 
-        function setMessage(msg, type) {
-            messageEl.textContent = msg || '';
-            messageEl.classList.remove('su-msg-error', 'su-msg-good');
-            if (type === 'error') messageEl.classList.add('su-msg-error');
-            else if (type === 'good') messageEl.classList.add('su-msg-good');
-        }
+    const resultOverlay   = $('suResultOverlay');
+    const resultEmoji     = $('suResultEmoji');
+    const resultTitle     = $('suResultTitle');
+    const resultSub       = $('suResultSub');
+    const resultGrid      = $('suResultGrid');
+    const resultNewBtn    = $('suResultNewBtn');
+    const resultShareBtn  = $('suResultShareBtn');
 
-        function shuffleArray(arr) {
-            const a = arr.slice();
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
+    const shareModal      = $('suShareModal');
+    const sharePreview    = $('suSharePreview');
+    const shareCopyBtn    = $('suShareCopyBtn');
+    const shareCloseBtn   = $('suShareCloseBtn');
 
-        function pickRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
+    const faqButtons      = document.querySelectorAll('.su-faq-q');
 
-        /* =========================================================
-           PUZZLE GENERATION — uses wordlist.js as the word pool
-           ========================================================= */
+    let toastTimer = null;
 
-        function pickTheme() {
-            return pickRandom(THEMES);
-        }
+    /* =========================================================
+       STATS PERSISTENCE
+       ========================================================= */
+    const STORAGE_KEY = 'su-stats-v1';
 
-        function pickSpangram(theme) {
-            const candidates = [theme.spangram];
-
-            if (WORDS_BY_LENGTH[6]) {
-                const sample = shuffleArray(WORDS_BY_LENGTH[6]).slice(0, 20);
-                candidates.push(...sample);
-            }
-            if (WORDS_BY_LENGTH[5]) {
-                const sample = shuffleArray(WORDS_BY_LENGTH[5]).slice(0, 10);
-                candidates.push(...sample);
-            }
-
-            const valid = candidates.filter(w =>
-                ALL_WORDS.includes(w) && w.length >= 5 && w.length <= GRID_SIZE
-            );
-
-            if (valid.length > 0) {
-                if (Math.random() < 0.7 && ALL_WORDS.includes(theme.spangram)) {
-                    return theme.spangram;
-                }
-                return pickRandom(valid);
-            }
-
-            const fallbackPool = [...(WORDS_BY_LENGTH[5] || []), ...(WORDS_BY_LENGTH[6] || [])];
-            return fallbackPool.length ? pickRandom(fallbackPool) : 'STRAND';
-        }
-
-        function pickThemeWords(theme, spangram) {
-            const picked = new Set();
-            const words = [];
-
-            const seeds = shuffleArray(theme.seeds || []);
-            for (const seed of seeds) {
-                const upper = seed.toUpperCase();
-                if (ALL_WORDS.includes(upper) &&
-                    upper.length >= 3 && upper.length <= GRID_SIZE &&
-                    upper !== spangram &&
-                    !picked.has(upper)) {
-                    picked.add(upper);
-                    words.push(upper);
-                    if (words.length >= 4) break;
+    function loadStats() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (parsed && typeof parsed === 'object') {
+                    state.stats.played = Number(parsed.played) || 0;
+                    state.stats.won = Number(parsed.won) || 0;
+                    state.stats.streak = Number(parsed.streak) || 0;
+                    state.stats.bestStreak = Number(parsed.bestStreak) || 0;
                 }
             }
+        } catch (e) { /* silent */ }
+    }
 
-            const candidateLengths = [4, 5, 6, 3];
-            for (const len of candidateLengths) {
-                if (words.length >= 6) break;
-                const pool = WORDS_BY_LENGTH[len] || [];
-                if (pool.length === 0) continue;
-                const shuffled = shuffleArray(pool);
-                for (const w of shuffled) {
-                    if (words.length >= 6) break;
-                    if (picked.has(w)) continue;
-                    if (w === spangram) continue;
-                    picked.add(w);
-                    words.push(w);
-                }
-            }
+    function saveStats() {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.stats));
+        } catch (e) { /* silent */ }
+    }
 
-            return words;
+    function renderStats() {
+        streakEl.textContent = state.stats.streak;
+        wonEl.textContent = state.stats.won;
+        playedEl.textContent = state.stats.played;
+    }
+
+    /* =========================================================
+       UTILITIES
+       ========================================================= */
+    function showToast(msg) {
+        if (toastTimer) clearTimeout(toastTimer);
+        toastEl.textContent = msg;
+        toastEl.classList.add('su-show');
+        toastTimer = setTimeout(() => toastEl.classList.remove('su-show'), 2200);
+    }
+
+    function setMessage(msg, type) {
+        messageEl.textContent = msg || '';
+        messageEl.classList.remove('su-msg-error', 'su-msg-good');
+        if (type === 'error') messageEl.classList.add('su-msg-error');
+        else if (type === 'good') messageEl.classList.add('su-msg-good');
+    }
+
+    function shuffleArray(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
         }
+        return a;
+    }
 
-        function placeWord(grid, word, allowOverlap) {
-            const len = word.length;
-            if (len > GRID_SIZE) return false;
+    function pickRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
 
-            const directions = [
-                { dr: 0, dc: 1 },
-                { dr: 1, dc: 0 },
-                { dr: 1, dc: 1 },
-                { dr: 1, dc: -1 },
-                { dr: -1, dc: 1 },
-                { dr: -1, dc: -1 }
-            ];
+    /* =========================================================
+       SNAKE-PATH WORD PLACEMENT
+       Each next letter steps to any adjacent (8-dir) unused cell.
+       Straight-line paths are rejected so words wind around.
+       ========================================================= */
+    function isStraightLine(path) {
+        if (path.length < 3) return false;
+        const dr0 = path[1].row - path[0].row;
+        const dc0 = path[1].col - path[0].col;
+        for (let i = 2; i < path.length; i++) {
+            const dr = path[i].row - path[i - 1].row;
+            const dc = path[i].col - path[i - 1].col;
+            if (dr !== dr0 || dc !== dc0) return false;
+        }
+        return true;
+    }
 
-            const allPositions = [];
+    function placeWordSnake(grid, word, occupied, avoidCells) {
+        const len = word.length;
+        if (len < 3 || len > GRID_SIZE * GRID_SIZE) return null;
+
+        const maxAttempts = 800;
+
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+            // Gather possible starting cells
+            const startCells = [];
             for (let r = 0; r < GRID_SIZE; r++) {
                 for (let c = 0; c < GRID_SIZE; c++) {
-                    for (const dir of directions) {
-                        const endR = r + dir.dr * (len - 1);
-                        const endC = c + dir.dc * (len - 1);
-                        if (endR < 0 || endR >= GRID_SIZE || endC < 0 || endC >= GRID_SIZE) continue;
-                        allPositions.push({ r, c, dr: dir.dr, dc: dir.dc });
-                    }
+                    if (avoidCells && avoidCells[r][c]) continue;
+                    if (grid[r][c] && grid[r][c] !== word[0]) continue;
+                    startCells.push({ r, c });
                 }
             }
+            if (!startCells.length) return null;
 
-            shuffleArray(allPositions);
+            const start = startCells[Math.floor(Math.random() * startCells.length)];
+            const path = [{ row: start.r, col: start.c }];
+            const used = new Set([`${start.r},${start.c}`]);
+            let dead = false;
 
-            for (const pos of allPositions) {
-                let fits = true;
-                for (let i = 0; i < len; i++) {
-                    const rr = pos.r + pos.dr * i;
-                    const cc = pos.c + pos.dc * i;
-                    const existing = grid[rr][cc];
-                    if (existing && existing !== word[i]) {
-                        fits = false;
-                        break;
+            for (let i = 1; i < len; i++) {
+                const prev = path[path.length - 1];
+                const want = word[i];
+                const neighbors = [];
+
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        if (dr === 0 && dc === 0) continue;
+                        const nr = prev.row + dr;
+                        const nc = prev.col + dc;
+                        if (nr < 0 || nr >= GRID_SIZE || nc < 0 || nc >= GRID_SIZE) continue;
+                        const key = `${nr},${nc}`;
+                        if (used.has(key)) continue;
+                        if (avoidCells && avoidCells[nr][nc]) continue;
+                        if (grid[nr][nc] && grid[nr][nc] !== want) continue;
+                        const score = (grid[nr][nc] === want ? 2 : 0) + (occupied[nr][nc] ? 1 : 0) + Math.random();
+                        neighbors.push({ row: nr, col: nc, score });
                     }
                 }
-                if (fits) {
-                    for (let i = 0; i < len; i++) {
-                        const rr = pos.r + pos.dr * i;
-                        const cc = pos.c + pos.dc * i;
-                        grid[rr][cc] = word[i];
-                    }
-                    return true;
-                }
+
+                if (!neighbors.length) { dead = true; break; }
+
+                neighbors.sort((a, b) => b.score - a.score);
+                const pick = neighbors[Math.floor(Math.random() * Math.min(3, neighbors.length))];
+                path.push({ row: pick.row, col: pick.col });
+                used.add(`${pick.row},${pick.col}`);
             }
 
-            if (allowOverlap) {
-                for (const pos of allPositions) {
-                    let ok = true;
-                    for (let i = 0; i < len; i++) {
-                        const rr = pos.r + pos.dr * i;
-                        const cc = pos.c + pos.dc * i;
-                        if (grid[rr][cc] && grid[rr][cc] !== word[i]) { ok = false; break; }
-                    }
-                    if (ok) {
-                        for (let i = 0; i < len; i++) {
-                            const rr = pos.r + pos.dr * i;
-                            const cc = pos.c + pos.dc * i;
-                            grid[rr][cc] = word[i];
-                        }
-                        return true;
-                    }
-                }
-            }
+            if (dead) continue;
+            if (path.length !== len) continue;
+            if (isStraightLine(path)) continue;
 
-            return false;
+            return path;
         }
 
-        function generatePuzzle() {
-            if (!wordlistReady) {
-                setTimeout(generatePuzzle, 200);
-                return;
+        return null;
+    }
+
+    /* =========================================================
+       PUZZLE GENERATION
+       ========================================================= */
+    function pickTheme() {
+        return pickRandom(THEMES);
+    }
+
+    function pickSpangram(theme) {
+        const candidates = [theme.spangram];
+        if (WORDS_BY_LENGTH[6]) {
+            const sample = shuffleArray(WORDS_BY_LENGTH[6]).slice(0, 20);
+            candidates.push(...sample);
+        }
+        if (WORDS_BY_LENGTH[5]) {
+            const sample = shuffleArray(WORDS_BY_LENGTH[5]).slice(0, 10);
+            candidates.push(...sample);
+        }
+        const valid = candidates.filter(w =>
+            ALL_WORDS.includes(w) && w.length >= 5 && w.length <= GRID_SIZE
+        );
+        if (valid.length > 0) {
+            if (Math.random() < 0.7 && ALL_WORDS.includes(theme.spangram)) {
+                return theme.spangram;
             }
+            return pickRandom(valid);
+        }
+        const fallbackPool = [...(WORDS_BY_LENGTH[5] || []), ...(WORDS_BY_LENGTH[6] || [])];
+        return fallbackPool.length ? pickRandom(fallbackPool) : 'STRAND';
+    }
 
-            const theme = pickTheme();
-            const spangram = pickSpangram(theme);
-            const themeWords = pickThemeWords(theme, spangram);
-
-            if (themeWords.length < 3) {
-                setTimeout(generatePuzzle, 50);
-                return;
+    function pickThemeWords(theme, spangram) {
+        const picked = new Set();
+        const words = [];
+        const seeds = shuffleArray(theme.seeds || []);
+        for (const seed of seeds) {
+            const upper = seed.toUpperCase();
+            if (ALL_WORDS.includes(upper) &&
+                upper.length >= 3 && upper.length <= GRID_SIZE &&
+                upper !== spangram && !picked.has(upper)) {
+                picked.add(upper);
+                words.push(upper);
+                if (words.length >= 4) break;
             }
+        }
+        const candidateLengths = [4, 5, 6, 3];
+        for (const len of candidateLengths) {
+            if (words.length >= 6) break;
+            const pool = WORDS_BY_LENGTH[len] || [];
+            if (!pool.length) continue;
+            const shuffled = shuffleArray(pool);
+            for (const w of shuffled) {
+                if (words.length >= 6) break;
+                if (picked.has(w) || w === spangram) continue;
+                picked.add(w);
+                words.push(w);
+            }
+        }
+        return words;
+    }
 
-            const grid = [];
+    // Special snake for the spangram: prefer endpoint far apart
+    function tryPlaceSpangram(word) {
+        const len = word.length;
+        if (len < 4 || len > GRID_SIZE) return null;
+
+        let best = null;
+        let bestSpan = -1;
+
+        for (let attempt = 0; attempt < 500; attempt++) {
+            const edges = [];
+            for (let r = 0; r < GRID_SIZE; r++) {
+                edges.push({ r, c: 0 });
+                edges.push({ r, c: GRID_SIZE - 1 });
+            }
+            for (let c = 0; c < GRID_SIZE; c++) {
+                edges.push({ r: 0, c });
+                edges.push({ r: GRID_SIZE - 1, c });
+            }
+            const start = edges[Math.floor(Math.random() * edges.length)];
+            const path = [{ row: start.r, col: start.c }];
+            const used = new Set([`${start.r},${start.c}`]);
+            let dead = false;
+
+            for (let i = 1; i < len; i++) {
+                const prev = path[path.length - 1];
+                const neighbors = [];
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        if (dr === 0 && dc === 0) continue;
+                        const nr = prev.row + dr;
+                        const nc = prev.col + dc;
+                        if (nr < 0 || nr >= GRID_SIZE || nc < 0 || nc >= GRID_SIZE) continue;
+                        const key = `${nr},${nc}`;
+                        if (used.has(key)) continue;
+                        neighbors.push({ row: nr, col: nc });
+                    }
+                }
+                if (!neighbors.length) { dead = true; break; }
+                const pick = neighbors[Math.floor(Math.random() * neighbors.length)];
+                path.push({ row: pick.row, col: pick.col });
+                used.add(`${pick.row},${pick.col}`);
+            }
+            if (dead) continue;
+            if (path.length !== len) continue;
+
+            const first = path[0];
+            const last = path[path.length - 1];
+            const span = Math.abs(first.row - last.row) + Math.abs(first.col - last.col);
+
+            if (span > bestSpan) {
+                bestSpan = span;
+                best = path;
+            }
+            if (span >= Math.floor(GRID_SIZE * 0.7)) break;
+        }
+
+        return best;
+    }
+
+    function generatePuzzle() {
+        if (!wordlistReady) {
+            setTimeout(generatePuzzle, 200);
+            return;
+        }
+
+        const theme = pickTheme();
+        const spangram = pickSpangram(theme);
+        const themeWords = pickThemeWords(theme, spangram);
+
+        if (themeWords.length < 3) {
+            setTimeout(generatePuzzle, 50);
+            return;
+        }
+
+        // Empty grid + occupancy
+        const grid = [];
+        const occupied = [];
+        for (let r = 0; r < GRID_SIZE; r++) {
+            const row = [];
+            const occRow = [];
+            for (let c = 0; c < GRID_SIZE; c++) { row.push(''); occRow.push(false); }
+            grid.push(row);
+            occupied.push(occRow);
+        }
+
+        // 1) Place spangram first as a spanning snake
+        const spangramPath = tryPlaceSpangram(spangram);
+        const spangramCells = [];
+        if (spangramPath) {
+            for (let i = 0; i < spangramPath.length; i++) {
+                const { row, col } = spangramPath[i];
+                grid[row][col] = spangram[i];
+                occupied[row][col] = true;
+                spangramCells.push({ row, col });
+            }
+        }
+
+        // 2) Place each theme word as a snake path
+        const placedWords = [];
+        for (const word of themeWords) {
+            // Reserve spangram cells so theme words don't overwrite them
+            const avoid = [];
             for (let r = 0; r < GRID_SIZE; r++) {
                 const row = [];
-                for (let c = 0; c < GRID_SIZE; c++) row.push('');
-                grid.push(row);
+                for (let c = 0; c < GRID_SIZE; c++) row.push(false);
+                avoid.push(row);
             }
+            for (const cell of spangramCells) avoid[cell.row][cell.col] = true;
 
-            const spangramLen = spangram.length;
-            let spangramPlaced = false;
+            let path = placeWordSnake(grid, word, occupied, avoid);
+            if (!path) path = placeWordSnake(grid, word, occupied, null);
+            if (!path) continue;
 
-            if (spangramLen <= GRID_SIZE) {
-                const midRow = Math.floor((GRID_SIZE - 1) / 2);
-                const startCol = Math.floor((GRID_SIZE - spangramLen) / 2);
-                let fits = true;
-                for (let i = 0; i < spangramLen; i++) {
-                    if (grid[midRow][startCol + i] && grid[midRow][startCol + i] !== spangram[i]) {
-                        fits = false; break;
-                    }
-                }
-                if (fits) {
-                    for (let i = 0; i < spangramLen; i++) grid[midRow][startCol + i] = spangram[i];
-                    spangramPlaced = true;
-                }
-
-                if (!spangramPlaced) {
-                    const midCol = Math.floor((GRID_SIZE - 1) / 2);
-                    const startRow = Math.floor((GRID_SIZE - spangramLen) / 2);
-                    fits = true;
-                    for (let i = 0; i < spangramLen; i++) {
-                        if (grid[startRow + i][midCol] && grid[startRow + i][midCol] !== spangram[i]) {
-                            fits = false; break;
-                        }
-                    }
-                    if (fits) {
-                        for (let i = 0; i < spangramLen; i++) grid[startRow + i][midCol] = spangram[i];
-                        spangramPlaced = true;
-                    }
-                }
+            for (let i = 0; i < path.length; i++) {
+                const { row, col } = path[i];
+                grid[row][col] = word[i];
+                occupied[row][col] = true;
             }
-
-            const placedWords = [];
-            for (const word of themeWords) {
-                if (placeWord(grid, word, true)) {
-                    placedWords.push(word);
-                }
-            }
-
-            if (placedWords.length < 3) {
-                setTimeout(generatePuzzle, 50);
-                return;
-            }
-
-            const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            for (let r = 0; r < GRID_SIZE; r++) {
-                for (let c = 0; c < GRID_SIZE; c++) {
-                    if (grid[r][c] === '') {
-                        grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
-                    }
-                }
-            }
-
-            state.puzzle = {
-                theme: theme.name,
-                spangram: spangram,
-                words: placedWords
-            };
-            state.grid = grid;
-            state.selected = [];
-            state.foundWords = [];
-            state.foundWordPaths = [];
-            state.spangramFound = false;
-            state.hintsLeft = MAX_HINTS;
-            state.gameOver = false;
-            state.won = false;
-
-            renderAll();
-            setMessage('');
-            hintCountEl.textContent = '(' + MAX_HINTS + ')';
-
-            console.log(`🧩 New puzzle: theme="${theme.name}", spangram="${spangram}", words=${placedWords.join(', ')}`);
+            placedWords.push(word);
         }
 
-        /* =========================================================
-           RENDER GRID — circles + SVG connection lines
-           ========================================================= */
-
-        function cellCenter(cellEl) {
-            const gridRect = gridEl.getBoundingClientRect();
-            const r = cellEl.getBoundingClientRect();
-            return {
-                x: r.left - gridRect.left + r.width / 2,
-                y: r.top - gridRect.top + r.height / 2
-            };
+        if (placedWords.length < 3) {
+            setTimeout(generatePuzzle, 50);
+            return;
         }
 
-        function renderGrid() {
-            gridEl.innerHTML = '';
-            gridEl.style.setProperty('--grid-size', GRID_SIZE);
-
-            const svgNS = 'http://www.w3.org/2000/svg';
-            const svg = document.createElementNS(svgNS, 'svg');
-            svg.setAttribute('class', 'su-lines');
-            svg.setAttribute('preserveAspectRatio', 'none');
-            gridEl.appendChild(svg);
-
-            for (let r = 0; r < GRID_SIZE; r++) {
-                for (let c = 0; c < GRID_SIZE; c++) {
-                    const cell = document.createElement('button');
-                    cell.type = 'button';
-                    cell.className = 'su-cell';
-                    cell.textContent = state.grid[r][c];
-                    cell.dataset.row = r;
-                    cell.dataset.col = c;
-                    cell.setAttribute('role', 'gridcell');
-
-                    const isSelected = state.selected.some(pos => pos.row === r && pos.col === c);
-                    if (isSelected) {
-                        cell.classList.add('su-selected');
-                        cell.setAttribute('aria-pressed', 'true');
-                    } else {
-                        cell.setAttribute('aria-pressed', 'false');
-                    }
-
-                    const path = state.foundWordPaths.find(p => {
-                        return p.cells.some(pos => pos.row === r && pos.col === c);
-                    });
-                    if (path) {
-                        if (path.isSpangram) {
-                            cell.classList.add('su-spangram');
-                        } else {
-                            cell.classList.add('su-found');
-                        }
-                    }
-
-                    cell.addEventListener('click', () => toggleCell(r, c));
-                    gridEl.appendChild(cell);
+        // Fill remaining cells with random letters
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for (let r = 0; r < GRID_SIZE; r++) {
+            for (let c = 0; c < GRID_SIZE; c++) {
+                if (grid[r][c] === '') {
+                    grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
                 }
             }
+        }
 
-            requestAnimationFrame(() => {
-                svg.innerHTML = '';
+        state.puzzle = {
+            theme: theme.name,
+            spangram: spangram,
+            words: placedWords
+        };
+        state.grid = grid;
+        state.selected = [];
+        state.foundWords = [];
+        state.foundWordPaths = [];
+        state.spangramFound = false;
+        state.hintsLeft = MAX_HINTS;
+        state.gameOver = false;
+        state.won = false;
 
-                const cells = gridEl.querySelectorAll('.su-cell');
-                if (!cells.length) return;
+        renderAll();
+        setMessage('');
+        hintCountEl.textContent = '(' + MAX_HINTS + ')';
 
-                // Permanent lines for each found word
-                state.foundWordPaths.forEach(path => {
-                    for (let i = 0; i < path.cells.length - 1; i++) {
-                        const a = path.cells[i];
-                        const b = path.cells[i + 1];
-                        const aEl = cells[a.row * GRID_SIZE + a.col];
-                        const bEl = cells[b.row * GRID_SIZE + b.col];
-                        if (!aEl || !bEl) continue;
-                        const pa = cellCenter(aEl);
-                        const pb = cellCenter(bEl);
+        console.log(`🧩 New puzzle: theme="${theme.name}", spangram="${spangram}", words=${placedWords.join(', ')}`);
+    }
 
-                        const line = document.createElementNS(svgNS, 'line');
-                        line.setAttribute('x1', pa.x);
-                        line.setAttribute('y1', pa.y);
-                        line.setAttribute('x2', pb.x);
-                        line.setAttribute('y2', pb.y);
-                        line.setAttribute('class', path.isSpangram ? 'su-line-found su-line-spangram' : 'su-line-found');
-                        svg.appendChild(line);
-                    }
+    /* =========================================================
+       RENDER GRID — circles + SVG connection lines
+       ========================================================= */
+    function cellCenter(cellEl) {
+        const gridRect = gridEl.getBoundingClientRect();
+        const r = cellEl.getBoundingClientRect();
+        return {
+            x: r.left - gridRect.left + r.width / 2,
+            y: r.top - gridRect.top + r.height / 2
+        };
+    }
+
+    function renderGrid() {
+        gridEl.innerHTML = '';
+        gridEl.style.setProperty('--grid-size', GRID_SIZE);
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('class', 'su-lines');
+        svg.setAttribute('preserveAspectRatio', 'none');
+        gridEl.appendChild(svg);
+
+        for (let r = 0; r < GRID_SIZE; r++) {
+            for (let c = 0; c < GRID_SIZE; c++) {
+                const cell = document.createElement('button');
+                cell.type = 'button';
+                cell.className = 'su-cell';
+                cell.textContent = state.grid[r][c];
+                cell.dataset.row = r;
+                cell.dataset.col = c;
+                cell.setAttribute('role', 'gridcell');
+
+                const isSelected = state.selected.some(pos => pos.row === r && pos.col === c);
+                if (isSelected) {
+                    cell.classList.add('su-selected');
+                    cell.setAttribute('aria-pressed', 'true');
+                } else {
+                    cell.setAttribute('aria-pressed', 'false');
+                }
+
+                const path = state.foundWordPaths.find(p => {
+                    return p.cells.some(pos => pos.row === r && pos.col === c);
                 });
+                if (path) {
+                    if (path.isSpangram) cell.classList.add('su-spangram');
+                    else cell.classList.add('su-found');
+                }
 
-                // Active lines between currently selected cells
-                for (let i = 0; i < state.selected.length - 1; i++) {
-                    const a = state.selected[i];
-                    const b = state.selected[i + 1];
+                cell.addEventListener('click', () => toggleCell(r, c));
+                gridEl.appendChild(cell);
+            }
+        }
+
+        requestAnimationFrame(() => {
+            svg.innerHTML = '';
+            const cells = gridEl.querySelectorAll('.su-cell');
+            if (!cells.length) return;
+
+            // Permanent lines for each found word
+            state.foundWordPaths.forEach(path => {
+                for (let i = 0; i < path.cells.length - 1; i++) {
+                    const a = path.cells[i];
+                    const b = path.cells[i + 1];
                     const aEl = cells[a.row * GRID_SIZE + a.col];
                     const bEl = cells[b.row * GRID_SIZE + b.col];
                     if (!aEl || !bEl) continue;
                     const pa = cellCenter(aEl);
                     const pb = cellCenter(bEl);
-
                     const line = document.createElementNS(svgNS, 'line');
                     line.setAttribute('x1', pa.x);
                     line.setAttribute('y1', pa.y);
                     line.setAttribute('x2', pb.x);
                     line.setAttribute('y2', pb.y);
-                    line.setAttribute('class', 'su-line-selected');
+                    line.setAttribute('class', path.isSpangram ? 'su-line-found su-line-spangram' : 'su-line-found');
                     svg.appendChild(line);
                 }
-
-                const w = gridEl.clientWidth;
-                const h = gridEl.clientHeight;
-                svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-                svg.setAttribute('width', w);
-                svg.setAttribute('height', h);
-            });
-        }
-
-        function renderFoundArea() {
-            foundAreaEl.innerHTML = '';
-            if (state.foundWords.length === 0) return;
-
-            state.foundWords.forEach(word => {
-                const span = document.createElement('span');
-                span.className = 'su-found-word';
-                if (word.toUpperCase() === state.puzzle.spangram.toUpperCase()) {
-                    span.classList.add('su-spangram');
-                }
-                span.textContent = word;
-                foundAreaEl.appendChild(span);
-            });
-        }
-
-        function renderLives() {
-            const lives = livesEl.querySelectorAll('.su-life');
-            lives.forEach((el, i) => {
-                el.classList.toggle('su-lost', i >= state.hintsLeft);
-            });
-        }
-
-        function renderAll() {
-            renderGrid();
-            renderFoundArea();
-            renderLives();
-            updateSubmitButton();
-        }
-
-        function updateSubmitButton() {
-            submitBtn.disabled = state.selected.length < 2 || state.gameOver;
-        }
-
-        /* =========================================================
-           INTERACTIONS
-           ========================================================= */
-        function toggleCell(row, col) {
-            if (state.gameOver) return;
-
-            const idx = state.selected.findIndex(pos => pos.row === row && pos.col === col);
-            if (idx !== -1) {
-                state.selected.splice(idx, 1);
-            } else {
-                if (state.selected.length > 0) {
-                    const last = state.selected[state.selected.length - 1];
-                    const dr = Math.abs(row - last.row);
-                    const dc = Math.abs(col - last.col);
-                    if (dr > 1 || dc > 1) {
-                        setMessage('Letters must be adjacent!', 'error');
-                        return;
-                    }
-                }
-                state.selected.push({ row, col });
-            }
-            setMessage('');
-            renderGrid();
-            updateSubmitButton();
-        }
-
-        function clearSelection() {
-            state.selected = [];
-            renderGrid();
-            updateSubmitButton();
-            setMessage('');
-        }
-
-        /* =========================================================
-           SUBMIT WORD
-           ========================================================= */
-        function submitWord() {
-            if (state.gameOver) return;
-            if (state.selected.length < 2) return;
-
-            let word = '';
-            state.selected.forEach(pos => {
-                word += state.grid[pos.row][pos.col];
-            });
-            word = word.toUpperCase();
-
-            const spangramUpper = state.puzzle.spangram.toUpperCase();
-            const isSpangram = word === spangramUpper;
-            const isThemeWord = state.puzzle.words.some(w => w.toUpperCase() === word);
-            const isDictionaryWord = ALL_WORDS.includes(word);
-            const alreadyFound = state.foundWords.some(w => w.toUpperCase() === word);
-
-            if (alreadyFound) {
-                setMessage('Already found that word!', 'error');
-                clearSelection();
-                return;
-            }
-
-            if (isSpangram || isThemeWord) {
-                state.foundWords.push(word);
-                state.foundWordPaths.push({
-                    word: word,
-                    cells: state.selected.map(p => ({ row: p.row, col: p.col })),
-                    isSpangram: isSpangram
-                });
-                if (isSpangram) state.spangramFound = true;
-
-                state.selected = [];
-                setMessage('✅ Found: ' + word + (isSpangram ? ' (SPANGRAM!)' : ''), 'good');
-                renderAll();
-
-                const totalRequired = state.puzzle.words.length + 1;
-                if (state.foundWords.length >= totalRequired) {
-                    finishGame(true);
-                }
-                return;
-            }
-
-            if (isDictionaryWord && word.length >= 3) {
-                state.foundWords.push(word);
-                state.foundWordPaths.push({
-                    word: word,
-                    cells: state.selected.map(p => ({ row: p.row, col: p.col })),
-                    isSpangram: false
-                });
-                state.selected = [];
-                setMessage('✅ Bonus word: ' + word, 'good');
-                renderAll();
-
-                const totalRequired = state.puzzle.words.length + 1;
-                const foundThemeCount = state.foundWords.filter(w =>
-                    state.puzzle.words.some(t => t.toUpperCase() === w.toUpperCase()) ||
-                    w.toUpperCase() === spangramUpper
-                ).length;
-                if (foundThemeCount >= totalRequired) {
-                    finishGame(true);
-                }
-                return;
-            }
-
-            setMessage('❌ Not a valid word — try again', 'error');
-            flashWrong(state.selected);
-            state.selected = [];
-            setTimeout(() => {
-                renderGrid();
-                updateSubmitButton();
-            }, 480);
-        }
-
-        function flashWrong(positions) {
-            const cells = gridEl.querySelectorAll('.su-cell');
-            cells.forEach(cell => {
-                const r = parseInt(cell.dataset.row, 10);
-                const c = parseInt(cell.dataset.col, 10);
-                if (positions.some(pos => pos.row === r && pos.col === c)) {
-                    cell.classList.add('su-wrong');
-                    setTimeout(() => cell.classList.remove('su-wrong'), 500);
-                }
-            });
-            updateSubmitButton();
-        }
-
-        /* =========================================================
-           HINT
-           ========================================================= */
-        function useHint() {
-            if (state.gameOver) return;
-            if (state.hintsLeft <= 0) {
-                setMessage('No hints remaining.', 'error');
-                return;
-            }
-
-            const spangramUpper = state.puzzle.spangram.toUpperCase();
-            const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
-            const unsolved = allRequired.filter(w => {
-                return !state.foundWords.some(f => f.toUpperCase() === w);
             });
 
-            if (unsolved.length === 0) return;
-
-            const hintWord = unsolved[0];
-            const targetLetter = hintWord[Math.floor(Math.random() * hintWord.length)];
-
-            const cells = gridEl.querySelectorAll('.su-cell');
-            let highlighted = 0;
-            cells.forEach(cell => {
-                if (cell.textContent === targetLetter) {
-                    cell.classList.add('su-hint');
-                    setTimeout(() => cell.classList.remove('su-hint'), 800);
-                    highlighted++;
-                }
-            });
-
-            if (highlighted === 0) {
-                const randomCell = cells[Math.floor(Math.random() * cells.length)];
-                if (randomCell) {
-                    randomCell.classList.add('su-hint');
-                    setTimeout(() => randomCell.classList.remove('su-hint'), 800);
-                }
+            // Active lines between currently selected cells
+            for (let i = 0; i < state.selected.length - 1; i++) {
+                const a = state.selected[i];
+                const b = state.selected[i + 1];
+                const aEl = cells[a.row * GRID_SIZE + a.col];
+                const bEl = cells[b.row * GRID_SIZE + b.col];
+                if (!aEl || !bEl) continue;
+                const pa = cellCenter(aEl);
+                const pb = cellCenter(bEl);
+                const line = document.createElementNS(svgNS, 'line');
+                line.setAttribute('x1', pa.x);
+                line.setAttribute('y1', pa.y);
+                line.setAttribute('x2', pb.x);
+                line.setAttribute('y2', pb.y);
+                line.setAttribute('class', 'su-line-selected');
+                svg.appendChild(line);
             }
 
-            state.hintsLeft--;
-            hintCountEl.textContent = '(' + state.hintsLeft + ')';
-            setMessage('💡 Hint: look for a word containing "' + targetLetter + '"', 'good');
-            renderLives();
-        }
-
-        /* =========================================================
-           FINISH GAME
-           ========================================================= */
-        function finishGame(won) {
-            state.gameOver = true;
-            state.won = won;
-
-            state.stats.played++;
-            if (won) {
-                state.stats.won++;
-                state.stats.streak++;
-                if (state.stats.streak > state.stats.bestStreak) {
-                    state.stats.bestStreak = state.stats.streak;
-                }
-            } else {
-                state.stats.streak = 0;
-            }
-            saveStats();
-            renderStats();
-
-            const grid = buildShareGrid();
-            resultGrid.textContent = grid;
-
-            if (won) {
-                resultEmoji.textContent = '🎉';
-                resultTitle.textContent = 'You won!';
-                resultSub.textContent = 'You found all the theme words and the spangram!';
-            } else {
-                resultEmoji.textContent = '💔';
-                resultTitle.textContent = 'Game over';
-                resultSub.textContent = 'You ran out of time. Try a new puzzle!';
-            }
-
-            resultOverlay.classList.add('su-show');
-            updateSubmitButton();
-        }
-
-        /* =========================================================
-           SHARE GRID
-           ========================================================= */
-        function buildShareGrid() {
-            const lines = [];
-            lines.push('Strands Unlimited');
-            lines.push('Theme: ' + state.puzzle.theme);
-
-            const spangramUpper = state.puzzle.spangram.toUpperCase();
-            state.foundWords.forEach(word => {
-                const isSpangram = word.toUpperCase() === spangramUpper;
-                const emoji = isSpangram ? '🟪' : '🟩';
-                lines.push(emoji + ' ' + word.toUpperCase());
-            });
-
-            const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
-            const remaining = allRequired.filter(w => {
-                return !state.foundWords.some(f => f.toUpperCase() === w);
-            });
-            remaining.forEach(word => {
-                lines.push('⬜ ' + word + ' (not found)');
-            });
-
-            return lines.join('\n');
-        }
-
-        function openShare() {
-            const grid = buildShareGrid();
-            sharePreview.textContent = grid;
-            shareModal.classList.add('su-show');
-        }
-
-        function closeShare() {
-            shareModal.classList.remove('su-show');
-        }
-
-        function copyShare() {
-            const text = sharePreview.textContent;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text)
-                    .then(() => {
-                        showToast('✅ Result copied to clipboard!');
-                        shareCopyBtn.textContent = '✓ Copied';
-                        setTimeout(() => { shareCopyBtn.textContent = '⎘ Copy'; }, 1400);
-                    })
-                    .catch(() => fallbackCopy(text));
-            } else {
-                fallbackCopy(text);
-            }
-        }
-
-        function fallbackCopy(text) {
-            try {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                ta.setAttribute('readonly', '');
-                ta.style.position = 'absolute';
-                ta.style.left = '-9999px';
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-                showToast('✅ Result copied!');
-            } catch (e) {
-                showToast('⚠️ Copy not supported.');
-            }
-        }
-
-        /* =========================================================
-           KEYBOARD SHORTCUTS
-           ========================================================= */
-        document.addEventListener('keydown', (e) => {
-            const tag = (e.target.tagName || '').toLowerCase();
-            if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
-            if (state.gameOver) return;
-
-            if (e.key === 'Enter') {
-                if (!submitBtn.disabled) {
-                    e.preventDefault();
-                    submitWord();
-                }
-                return;
-            }
-
-            if (e.key === 'Backspace') {
-                e.preventDefault();
-                clearSelection();
-            }
+            const w = gridEl.clientWidth;
+            const h = gridEl.clientHeight;
+            svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+            svg.setAttribute('width', w);
+            svg.setAttribute('height', h);
         });
+    }
 
-        /* =========================================================
-           EVENT BINDINGS
-           ========================================================= */
-        submitBtn.addEventListener('click', submitWord);
-        hintBtn.addEventListener('click', useHint);
-        newGameBtn.addEventListener('click', () => {
-            generatePuzzle();
-            resultOverlay.classList.remove('su-show');
-            setMessage('');
-            showToast('🔄 New puzzle loaded!');
+    function renderFoundArea() {
+        foundAreaEl.innerHTML = '';
+        if (state.foundWords.length === 0) return;
+        state.foundWords.forEach(word => {
+            const span = document.createElement('span');
+            span.className = 'su-found-word';
+            if (word.toUpperCase() === state.puzzle.spangram.toUpperCase()) {
+                span.classList.add('su-spangram');
+            }
+            span.textContent = word;
+            foundAreaEl.appendChild(span);
         });
+    }
 
-        resultNewBtn.addEventListener('click', () => {
-            resultOverlay.classList.remove('su-show');
-            generatePuzzle();
-            showToast('🔄 New puzzle loaded!');
+    function renderLives() {
+        const lives = livesEl.querySelectorAll('.su-life');
+        lives.forEach((el, i) => {
+            el.classList.toggle('su-lost', i >= state.hintsLeft);
         });
+    }
 
-        resultShareBtn.addEventListener('click', openShare);
-        shareCopyBtn.addEventListener('click', copyShare);
-        shareCloseBtn.addEventListener('click', closeShare);
-        shareModal.addEventListener('click', (e) => {
-            if (e.target === shareModal) closeShare();
-        });
+    function renderAll() {
+        renderGrid();
+        renderFoundArea();
+        renderLives();
+        updateSubmitButton();
+    }
 
-        faqButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-                const answer = btn.nextElementSibling;
-                if (answer) answer.style.display = expanded ? 'none' : 'block';
-            });
-        });
+    function updateSubmitButton() {
+        submitBtn.disabled = state.selected.length < 2 || state.gameOver;
+    }
 
-        // Redraw connection lines when the grid resizes
-        let resizeTimer = null;
-        window.addEventListener('resize', () => {
-            if (resizeTimer) clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                if (!state.gameOver) renderGrid();
-            }, 150);
-        });
+    /* =========================================================
+       INTERACTIONS
+       ========================================================= */
+    function toggleCell(row, col) {
+        if (state.gameOver) return;
 
-        /* =========================================================
-           INIT
-           ========================================================= */
-        loadStats();
-        renderStats();
-        normalizeWordlist();
-
-        if (wordlistReady) {
-            generatePuzzle();
+        const idx = state.selected.findIndex(pos => pos.row === row && pos.col === col);
+        if (idx !== -1) {
+            state.selected.splice(idx, 1);
         } else {
-            let attempts = 0;
-            const poll = setInterval(() => {
-                attempts++;
-                if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
-                    clearInterval(poll);
-                    normalizeWordlist();
-                    generatePuzzle();
-                } else if (attempts > 40) {
-                    clearInterval(poll);
-                    console.warn('⚠️ wordlist.js not detected after 8s — using theme seeds only.');
-                    ALL_WORDS = [];
-                    THEMES.forEach(t => {
-                        t.seeds.forEach(w => ALL_WORDS.push(w.toUpperCase()));
-                        ALL_WORDS.push(t.spangram.toUpperCase());
-                    });
-                    ALL_WORDS = [...new Set(ALL_WORDS)];
-                    WORDS_BY_LENGTH = {};
-                    ALL_WORDS.forEach(w => {
-                        const len = w.length;
-                        if (!WORDS_BY_LENGTH[len]) WORDS_BY_LENGTH[len] = [];
-                        WORDS_BY_LENGTH[len].push(w);
-                    });
-                    wordlistReady = true;
-                    generatePuzzle();
+            if (state.selected.length > 0) {
+                const last = state.selected[state.selected.length - 1];
+                const dr = Math.abs(row - last.row);
+                const dc = Math.abs(col - last.col);
+                if (dr > 1 || dc > 1) {
+                    setMessage('Letters must be adjacent!', 'error');
+                    return;
                 }
-            }, 200);
+            }
+            state.selected.push({ row, col });
+        }
+        setMessage('');
+        renderGrid();
+        updateSubmitButton();
+    }
+
+    function clearSelection() {
+        state.selected = [];
+        renderGrid();
+        updateSubmitButton();
+        setMessage('');
+    }
+
+    /* =========================================================
+       SUBMIT WORD
+       ========================================================= */
+    function submitWord() {
+        if (state.gameOver) return;
+        if (state.selected.length < 2) return;
+
+        let word = '';
+        state.selected.forEach(pos => {
+            word += state.grid[pos.row][pos.col];
+        });
+        word = word.toUpperCase();
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        const isSpangram = word === spangramUpper;
+        const isThemeWord = state.puzzle.words.some(w => w.toUpperCase() === word);
+        const isDictionaryWord = ALL_WORDS.includes(word);
+        const alreadyFound = state.foundWords.some(w => w.toUpperCase() === word);
+
+        if (alreadyFound) {
+            setMessage('Already found that word!', 'error');
+            clearSelection();
+            return;
         }
 
-        console.log('🎮 Strands Unlimited ready — unlimited puzzles from wordlist.js.');
-    })();
-    </script>
+        if (isSpangram || isThemeWord) {
+            state.foundWords.push(word);
+            state.foundWordPaths.push({
+                word: word,
+                cells: state.selected.map(p => ({ row: p.row, col: p.col })),
+                isSpangram: isSpangram
+            });
+            if (isSpangram) state.spangramFound = true;
+
+            state.selected = [];
+            setMessage('✅ Found: ' + word + (isSpangram ? ' (SPANGRAM!)' : ''), 'good');
+            renderAll();
+
+            const totalRequired = state.puzzle.words.length + 1;
+            if (state.foundWords.length >= totalRequired) {
+                finishGame(true);
+            }
+            return;
+        }
+
+        if (isDictionaryWord && word.length >= 3) {
+            state.foundWords.push(word);
+            state.foundWordPaths.push({
+                word: word,
+                cells: state.selected.map(p => ({ row: p.row, col: p.col })),
+                isSpangram: false
+            });
+            state.selected = [];
+            setMessage('✅ Bonus word: ' + word, 'good');
+            renderAll();
+
+            const totalRequired = state.puzzle.words.length + 1;
+            const foundThemeCount = state.foundWords.filter(w =>
+                state.puzzle.words.some(t => t.toUpperCase() === w.toUpperCase()) ||
+                w.toUpperCase() === spangramUpper
+            ).length;
+            if (foundThemeCount >= totalRequired) {
+                finishGame(true);
+            }
+            return;
+        }
+
+        setMessage('❌ Not a valid word — try again', 'error');
+        flashWrong(state.selected);
+        state.selected = [];
+        setTimeout(() => {
+            renderGrid();
+            updateSubmitButton();
+        }, 480);
+    }
+
+    function flashWrong(positions) {
+        const cells = gridEl.querySelectorAll('.su-cell');
+        cells.forEach(cell => {
+            const r = parseInt(cell.dataset.row, 10);
+            const c = parseInt(cell.dataset.col, 10);
+            if (positions.some(pos => pos.row === r && pos.col === c)) {
+                cell.classList.add('su-wrong');
+                setTimeout(() => cell.classList.remove('su-wrong'), 500);
+            }
+        });
+        updateSubmitButton();
+    }
+
+    /* =========================================================
+       HINT
+       ========================================================= */
+    function useHint() {
+        if (state.gameOver) return;
+        if (state.hintsLeft <= 0) {
+            setMessage('No hints remaining.', 'error');
+            return;
+        }
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
+        const unsolved = allRequired.filter(w => {
+            return !state.foundWords.some(f => f.toUpperCase() === w);
+        });
+        if (unsolved.length === 0) return;
+
+        const hintWord = unsolved[0];
+        const targetLetter = hintWord[Math.floor(Math.random() * hintWord.length)];
+        const cells = gridEl.querySelectorAll('.su-cell');
+        let highlighted = 0;
+        cells.forEach(cell => {
+            if (cell.textContent === targetLetter) {
+                cell.classList.add('su-hint');
+                setTimeout(() => cell.classList.remove('su-hint'), 800);
+                highlighted++;
+            }
+        });
+        if (highlighted === 0) {
+            const randomCell = cells[Math.floor(Math.random() * cells.length)];
+            if (randomCell) {
+                randomCell.classList.add('su-hint');
+                setTimeout(() => randomCell.classList.remove('su-hint'), 800);
+            }
+        }
+
+        state.hintsLeft--;
+        hintCountEl.textContent = '(' + state.hintsLeft + ')';
+        setMessage('💡 Hint: look for a word containing "' + targetLetter + '"', 'good');
+        renderLives();
+    }
+
+    /* =========================================================
+       FINISH GAME
+       ========================================================= */
+    function finishGame(won) {
+        state.gameOver = true;
+        state.won = won;
+
+        state.stats.played++;
+        if (won) {
+            state.stats.won++;
+            state.stats.streak++;
+            if (state.stats.streak > state.stats.bestStreak) {
+                state.stats.bestStreak = state.stats.streak;
+            }
+        } else {
+            state.stats.streak = 0;
+        }
+        saveStats();
+        renderStats();
+
+        const grid = buildShareGrid();
+        resultGrid.textContent = grid;
+
+        if (won) {
+            resultEmoji.textContent = '🎉';
+            resultTitle.textContent = 'You won!';
+            resultSub.textContent = 'You found all the theme words and the spangram!';
+        } else {
+            resultEmoji.textContent = '💔';
+            resultTitle.textContent = 'Game over';
+            resultSub.textContent = 'You ran out of time. Try a new puzzle!';
+        }
+
+        resultOverlay.classList.add('su-show');
+        updateSubmitButton();
+    }
+
+    /* =========================================================
+       SHARE GRID
+       ========================================================= */
+    function buildShareGrid() {
+        const lines = [];
+        lines.push('Strands Unlimited');
+        lines.push('Theme: ' + state.puzzle.theme);
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        state.foundWords.forEach(word => {
+            const isSpangram = word.toUpperCase() === spangramUpper;
+            const emoji = isSpangram ? '🟪' : '🟩';
+            lines.push(emoji + ' ' + word.toUpperCase());
+        });
+
+        const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
+        const remaining = allRequired.filter(w => {
+            return !state.foundWords.some(f => f.toUpperCase() === w);
+        });
+        remaining.forEach(word => {
+            lines.push('⬜ ' + word + ' (not found)');
+        });
+
+        return lines.join('\n');
+    }
+
+    function openShare() {
+        const grid = buildShareGrid();
+        sharePreview.textContent = grid;
+        shareModal.classList.add('su-show');
+    }
+
+    function closeShare() {
+        shareModal.classList.remove('su-show');
+    }
+
+    function copyShare() {
+        const text = sharePreview.textContent;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    showToast('✅ Result copied to clipboard!');
+                    shareCopyBtn.textContent = '✓ Copied';
+                    setTimeout(() => { shareCopyBtn.textContent = '⎘ Copy'; }, 1400);
+                })
+                .catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'absolute';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast('✅ Result copied!');
+        } catch (e) {
+            showToast('⚠️ Copy not supported.');
+        }
+    }
+
+    /* =========================================================
+       KEYBOARD SHORTCUTS
+       ========================================================= */
+    document.addEventListener('keydown', (e) => {
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+        if (state.gameOver) return;
+        if (e.key === 'Enter') {
+            if (!submitBtn.disabled) { e.preventDefault(); submitWord(); }
+            return;
+        }
+        if (e.key === 'Backspace') {
+            e.preventDefault();
+            clearSelection();
+        }
+    });
+
+    /* =========================================================
+       EVENT BINDINGS
+       ========================================================= */
+    submitBtn.addEventListener('click', submitWord);
+    hintBtn.addEventListener('click', useHint);
+    newGameBtn.addEventListener('click', () => {
+        generatePuzzle();
+        resultOverlay.classList.remove('su-show');
+        setMessage('');
+        showToast('🔄 New puzzle loaded!');
+    });
+
+    resultNewBtn.addEventListener('click', () => {
+        resultOverlay.classList.remove('su-show');
+        generatePuzzle();
+        showToast('🔄 New puzzle loaded!');
+    });
+
+    resultShareBtn.addEventListener('click', openShare);
+    shareCopyBtn.addEventListener('click', copyShare);
+    shareCloseBtn.addEventListener('click', closeShare);
+    shareModal.addEventListener('click', (e) => {
+        if (e.target === shareModal) closeShare();
+    });
+
+    faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            const answer = btn.nextElementSibling;
+            if (answer) answer.style.display = expanded ? 'none' : 'block';
+        });
+    });
+
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (!state.gameOver) renderGrid();
+        }, 150);
+    });
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    loadStats();
+    renderStats();
+    normalizeWordlist();
+
+    if (wordlistReady) {
+        generatePuzzle();
+    } else {
+        let attempts = 0;
+        const poll = setInterval(() => {
+            attempts++;
+            if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
+                clearInterval(poll);
+                normalizeWordlist();
+                generatePuzzle();
+            } else if (attempts > 40) {
+                clearInterval(poll);
+                console.warn('⚠️ wordlist.js not detected after 8s — using theme seeds only.');
+                ALL_WORDS = [];
+                THEMES.forEach(t => {
+                    t.seeds.forEach(w => ALL_WORDS.push(w.toUpperCase()));
+                    ALL_WORDS.push(t.spangram.toUpperCase());
+                });
+                ALL_WORDS = [...new Set(ALL_WORDS)];
+                WORDS_BY_LENGTH = {};
+                ALL_WORDS.forEach(w => {
+                    const len = w.length;
+                    if (!WORDS_BY_LENGTH[len]) WORDS_BY_LENGTH[len] = [];
+                    WORDS_BY_LENGTH[len].push(w);
+                });
+                wordlistReady = true;
+                generatePuzzle();
+            }
+        }, 200);
+    }
+
+    console.log('🎮 Strands Unlimited ready — snake-path puzzles from wordlist.js.');
+})();
+</script>
 </body>
 </html>

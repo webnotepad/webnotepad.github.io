@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strands Unlimited – Free Unlimited Word Search Game | WebNotePad</title>
+    <meta name="description" content="Play Strands Unlimited — a free endless word search game inspired by NYT Strands. Uncover hidden theme words and the spangram by connecting adjacent letters. Unlimited puzzles, hints, streaks and no daily limit. No signup, works on mobile." />
+    <meta name="keywords" content="strands unlimited, strands game, nyt strands, strands word search, unlimited strands, strands puzzle, word search game, free strands game, strands hints, play strands online, spangram" />
+    <meta name="author" content="WebNotePad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://webnotepad.github.io/strands-unlimited" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webnotepad.github.io/strands-unlimited" />
+    <meta property="og:title" content="Strands Unlimited – Free Unlimited Word Search Game" />
+    <meta property="og:description" content="Play unlimited Strands puzzles. Connect adjacent letters to find theme words and the spangram. Free, mobile-friendly, with hints and streaks." />
+    <meta property="og:image" content="https://webnotepad.github.io/strands-og-image.webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Strands Unlimited – Free Unlimited Word Search Game" />
+    <meta name="twitter:description" content="Play unlimited Strands puzzles. Find theme words and the spangram. No daily limit. Free and mobile-friendly." />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Strands Unlimited by WebNotePad",
+            "url": "https://webnotepad.github.io/strands-unlimited",
+            "description": "A free unlimited word search game inspired by NYT Strands. Players connect adjacent letters to find hidden theme words and a spangram that spans the grid. Features unlimited puzzles, hints, streaks and no daily limit.",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Any",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+                "Unlimited Strands puzzles",
+                "New random puzzle every game",
+                "Connect adjacent letters to find words",
+                "Hidden theme words and a spangram",
+                "Hints available to reveal letters",
+                "Streak and win tracking",
+                "Keyboard shortcuts",
+                "Instant share results",
+                "Mobile-friendly touch controls",
+                "100% offline — nothing is stored or sent"
+            ],
+            "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is Strands Unlimited?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Strands Unlimited is a free online word search game inspired by the popular NYT Strands puzzle. Each puzzle gives you a grid of letters where you must find hidden theme words and a special 'spangram' that spans the entire grid. Unlike the original daily game, Strands Unlimited lets you play as many fresh puzzles as you like with no daily limit and no signup."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do you play Strands?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You are given a grid of letters. Connect adjacent letters (horizontally, vertically, or diagonally) to form words. Find all the hidden theme words and the spangram, which is a special word that spans from one side of the grid to the other. Each correct word you find reveals more about the theme."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is a spangram?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A spangram is a special word in Strands that spans the entire grid, from one side to the other. It often represents the theme of the puzzle and is usually longer than the other theme words. Finding the spangram is a key goal in each puzzle."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is there a daily limit on Strands Unlimited?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Unlike the official NYT Strands game, which releases one puzzle per day, Strands Unlimited lets you play as many puzzles as you want. Press the New Puzzle button to instantly start a fresh grid. Your win streak and stats are tracked locally in your browser."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Are there hints available?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Every puzzle starts with three hints. Using a hint reveals a random letter in one of the unsolved words, helping you narrow down your guesses. Hints do not affect your win streak but they do show up in your results."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I share my Strands Unlimited results?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. When you finish a puzzle — win or lose — you can copy a Wordle-style emoji grid to your clipboard. The grid shows your progress and any hints used, so you can share your result on social media or with friends without spoiling the actual words."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does Strands Unlimited work on mobile?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The game is fully responsive and touch-friendly. Letters are laid out in a grid that fits comfortably on any phone, tablet or desktop screen. You can connect letters with your finger, and there are no zoom or scroll issues."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is Strands Unlimited free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, it is 100% free with no signup, no ads in the game, no download and no hidden costs. Play as many puzzles as you like, as often as you like."
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+        :root {
+            --su-accent: #6d28d9;
+            --su-accent-light: #8b5cf6;
+            --su-accent-pale: #ede9fe;
+            --su-surface: #faf8f4;
+            --su-warm: #f4f0e8;
+            --su-border: #e8e2d6;
+            --su-ink: #1a1a2e;
+            --su-muted: #6b6b85;
+            --su-radius: 8px;
+            --su-radius-lg: 14px;
+            --su-shadow: 0 6px 24px rgba(26, 26, 46, 0.12);
+            --su-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --su-yellow: #f9df6d;
+            --su-yellow-ink: #6b5300;
+            --su-green: #a0c35a;
+            --su-green-ink: #344a00;
+            --su-blue: #b0c4ef;
+            --su-blue-ink: #1e3a8a;
+            --su-purple: #ba81c5;
+            --su-purple-ink: #4c1d95;
+            --su-solved-yellow: #f9df6d;
+            --su-solved-green: #a0c35a;
+            --su-solved-blue: #b0c4ef;
+            --su-solved-purple: #ba81c5;
+        }
+
+        body.dark {
+            --su-accent: #a78bfa;
+            --su-accent-light: #c4b5fd;
+            --su-accent-pale: #2e1a5e;
+            --su-surface: #141418;
+            --su-warm: #1c1c22;
+            --su-border: #2a2a34;
+            --su-ink: #e8e4dc;
+            --su-muted: #8a8678;
+            --su-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+            --su-yellow: #c9a83d;
+            --su-yellow-ink: #fef3c7;
+            --su-green: #7a9e2e;
+            --su-green-ink: #ecfccb;
+            --su-blue: #4a6bb5;
+            --su-blue-ink: #dbeafe;
+            --su-purple: #8b4a97;
+            --su-purple-ink: #f3e8ff;
+        }
+
+        /* ===== HERO ===== */
+        .su-hero {
+            position: relative;
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            padding: 16px 0 20px;
+            overflow: hidden;
+            background: var(--su-surface);
+            transition: background var(--su-transition);
+        }
+        .su-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--su-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--su-border) 1px, transparent 1px);
+            background-size: 52px 52px;
+            opacity: 0.28;
+            pointer-events: none;
+        }
+        body.dark .su-hero-bg { opacity: 0.1; }
+        .su-hero-glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(ellipse, var(--su-accent-pale) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        body.dark .su-hero-glow { opacity: 0.35; }
+        .su-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+        .su-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--su-accent-pale);
+            color: var(--su-accent);
+            border: 1px solid var(--su-accent);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.5s ease both;
+        }
+        body.dark .su-hero-badge { background: rgba(167, 139, 250, 0.15); }
+        .su-hero-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            line-height: 1.2;
+            color: var(--su-ink);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            animation: fadeInDown 0.6s 0.1s ease both;
+        }
+        .su-hero-accent {
+            color: var(--su-accent);
+            font-style: italic;
+        }
+        .su-hero-sub {
+            font-size: 0.9rem;
+            color: var(--su-muted);
+            max-width: 560px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            animation: fadeInDown 0.6s 0.2s ease both;
+        }
+        .su-hero-cta {
+            animation: fadeInDown 0.6s 0.3s ease both;
+            margin-bottom: 16px;
+        }
+        .su-hero-demo {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            animation: fadeInDown 0.6s 0.4s ease both;
+        }
+        .su-demo-chip {
+            padding: 7px 16px;
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--su-ink);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            transition: all var(--su-transition);
+            cursor: default;
+            white-space: nowrap;
+        }
+        .su-demo-chip:hover {
+            background: var(--su-accent-pale);
+            border-color: var(--su-accent);
+            color: var(--su-accent);
+        }
+
+        /* ===== GAME SECTION ===== */
+        .su-game-section {
+            padding: 0 0 80px;
+            background: var(--su-surface);
+            transition: background var(--su-transition);
+        }
+        .su-shell {
+            max-width: 760px;
+            margin: 0 auto;
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius-lg);
+            box-shadow: var(--su-shadow);
+            overflow: hidden;
+            transition: all var(--su-transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .su-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--su-border);
+            background: var(--su-surface);
+            flex-wrap: wrap;
+        }
+        .su-topbar-title {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--su-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .su-topbar-title .su-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--su-accent);
+            display: inline-block;
+            animation: suPulse 2s infinite;
+        }
+        @keyframes suPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.6); }
+        }
+        .su-topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .su-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: 100px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--su-muted);
+            white-space: nowrap;
+        }
+        .su-stat-pill strong {
+            color: var(--su-ink);
+            font-size: 0.82rem;
+        }
+
+        /* ===== PUZZLE HEADER ===== */
+        .su-puzzle-head {
+            text-align: center;
+            padding: 18px 20px 6px;
+        }
+        .su-puzzle-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--su-ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .su-puzzle-sub {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            color: var(--su-muted);
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== LIVES / HINTS ===== */
+        .su-lives {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 0 4px;
+        }
+        .su-life {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--su-accent);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 2px var(--su-warm);
+        }
+        .su-life.su-lost {
+            background: var(--su-border);
+            transform: scale(0.75);
+            box-shadow: none;
+        }
+
+        /* ===== GRID ===== */
+        .su-grid {
+            display: grid;
+            grid-template-columns: repeat(var(--grid-size, 6), 1fr);
+            gap: 6px;
+            padding: 16px 20px 14px;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .su-cell {
+            position: relative;
+            aspect-ratio: 1;
+            background: var(--su-surface);
+            border: 1.5px solid var(--su-border);
+            border-radius: var(--su-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
+            font-weight: 700;
+            color: var(--su-ink);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.25s ease, box-shadow 0.15s ease;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            text-transform: uppercase;
+        }
+        .su-cell:active { transform: scale(0.94); }
+        .su-cell:hover {
+            border-color: var(--su-ink);
+            background: var(--su-warm);
+        }
+        .su-cell.su-selected {
+            background: var(--su-ink);
+            color: var(--su-surface);
+            border-color: var(--su-ink);
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px rgba(26, 26, 46, 0.22);
+            z-index: 2;
+        }
+        .su-cell.su-found {
+            background: var(--su-green);
+            color: var(--su-green-ink);
+            border-color: var(--su-green);
+            cursor: default;
+            opacity: 0.85;
+        }
+        .su-cell.su-spangram {
+            background: var(--su-purple);
+            color: var(--su-purple-ink);
+            border-color: var(--su-purple);
+            cursor: default;
+            opacity: 0.9;
+        }
+        .su-cell.su-hint {
+            animation: suHintPulse 0.8s ease;
+        }
+        @keyframes suHintPulse {
+            0% { background: var(--su-surface); }
+            50% { background: var(--su-yellow); border-color: var(--su-yellow); }
+            100% { background: var(--su-surface); }
+        }
+        .su-cell.su-wrong {
+            animation: suShake 0.5s ease;
+        }
+        @keyframes suShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-4px); }
+            40% { transform: translateX(4px); }
+            60% { transform: translateX(-3px); }
+            80% { transform: translateX(3px); }
+        }
+
+        /* ===== FOUND WORDS ===== */
+        .su-found-area {
+            padding: 0 20px 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            min-height: 40px;
+        }
+        .su-found-word {
+            padding: 4px 12px;
+            background: var(--su-green);
+            color: var(--su-green-ink);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            animation: suSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            text-transform: uppercase;
+        }
+        .su-found-word.su-spangram {
+            background: var(--su-purple);
+            color: var(--su-purple-ink);
+            box-shadow: 0 0 0 2px var(--su-warm), 0 0 0 4px var(--su-purple);
+        }
+        @keyframes suSlideIn {
+            from { opacity: 0; transform: translateY(-8px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ===== CONTROLS ===== */
+        .su-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 20px 20px;
+            flex-wrap: wrap;
+        }
+        .su-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 11px 20px;
+            background: var(--su-surface);
+            color: var(--su-ink);
+            border: 1.5px solid var(--su-border);
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--su-transition);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .su-btn:hover:not(:disabled) {
+            border-color: var(--su-ink);
+            background: var(--su-warm);
+            transform: translateY(-1px);
+        }
+        .su-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .su-btn--primary {
+            background: var(--su-accent);
+            border-color: var(--su-accent);
+            color: #ffffff;
+        }
+        .su-btn--primary:hover:not(:disabled) {
+            background: var(--su-accent-light);
+            border-color: var(--su-accent-light);
+            box-shadow: 0 4px 16px rgba(109, 40, 217, 0.32);
+        }
+        .su-btn--primary:disabled {
+            background: var(--su-border);
+            border-color: var(--su-border);
+            color: var(--su-muted);
+        }
+
+        /* ===== MESSAGE TOAST ===== */
+        .su-message {
+            text-align: center;
+            padding: 0 20px 12px;
+            min-height: 26px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--su-muted);
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s ease;
+        }
+        .su-message.su-msg-error { color: #dc2626; }
+        body.dark .su-message.su-msg-error { color: #f87171; }
+        .su-message.su-msg-good { color: #16a34a; }
+        body.dark .su-message.su-msg-good { color: #4ade80; }
+
+        /* ===== RESULT OVERLAY ===== */
+        .su-result-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 26, 46, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 50;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+            animation: suFadeIn 0.3s ease both;
+        }
+        body.dark .su-result-overlay {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .su-result-overlay.su-show { display: flex; }
+        @keyframes suFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .su-result-card {
+            background: var(--su-surface);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius-lg);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            padding: 28px 24px 22px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            animation: suResultPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        @keyframes suResultPop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .su-result-emoji {
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .su-result-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--su-ink);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .su-result-sub {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: var(--su-muted);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        .su-result-emoji-grid {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            padding: 14px;
+            background: var(--su-warm);
+            border-radius: var(--su-radius);
+            border: 1px solid var(--su-border);
+            user-select: all;
+        }
+        .su-result-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* ===== AD CONTAINER ===== */
+        .su-ad-container {
+            margin: 12px auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 300px;
+            min-height: 250px;
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius);
+            overflow: hidden;
+        }
+        .su-ad-container iframe {
+            display: block;
+            border: none;
+            width: 300px;
+            height: 250px;
+            max-width: 100%;
+        }
+
+        /* ===== SIDE PANEL (HOW TO / HELP) ===== */
+        .su-sidebar-info {
+            position: relative;
+        }
+
+        /* ===== SHARE MODAL ===== */
+        .su-share-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: suFadeIn 0.25s ease both;
+        }
+        body.dark .su-share-modal { background: rgba(0, 0, 0, 0.75); }
+        .su-share-modal.su-show { display: flex; }
+        .su-share-card {
+            background: var(--su-surface);
+            border-radius: var(--su-radius-lg);
+            max-width: 440px;
+            width: 100%;
+            padding: 26px 24px 22px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+            animation: suResultPop 0.35s ease both;
+        }
+        .su-share-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--su-ink);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .su-share-preview {
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            letter-spacing: 0.08em;
+            text-align: center;
+            padding: 16px;
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius);
+            margin-bottom: 16px;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .su-share-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* ===== HOW TO ===== */
+        .su-how { background: var(--su-warm); transition: background var(--su-transition); }
+        .su-how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .su-how-card {
+            background: var(--su-surface);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius-lg);
+            padding: 26px;
+            transition: all var(--su-transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .su-how-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--su-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--su-transition);
+        }
+        .su-how-card:hover { box-shadow: var(--su-shadow); transform: translateY(-3px); }
+        .su-how-card:hover::before { transform: scaleX(1); }
+        .su-how-num {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--su-border);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .su-how-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--su-ink);
+            margin-bottom: 8px;
+        }
+        .su-how-card p {
+            font-size: 0.85rem;
+            color: var(--su-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURES ===== */
+        .su-features { background: var(--su-surface); transition: background var(--su-transition); }
+        .su-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .su-feature-card {
+            background: var(--su-warm);
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius-lg);
+            padding: 24px;
+            transition: all var(--su-transition);
+        }
+        .su-feature-card:hover {
+            box-shadow: var(--su-shadow);
+            transform: translateY(-3px);
+            border-color: var(--su-accent-light);
+        }
+        .su-feature-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+        .su-feature-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--su-ink);
+            margin-bottom: 7px;
+        }
+        .su-feature-card p {
+            font-size: 0.84rem;
+            color: var(--su-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== DESCRIPTION ===== */
+        .su-desc { background: var(--su-warm); transition: background var(--su-transition); }
+        .su-desc-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .su-desc-text p {
+            font-size: 0.95rem;
+            color: var(--su-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .su-desc-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .su-benefit-tag {
+            padding: 6px 14px;
+            background: var(--su-surface);
+            border: 1px solid var(--su-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--su-ink);
+            transition: all var(--su-transition);
+        }
+        .su-benefit-tag:hover {
+            background: var(--su-accent-pale);
+            border-color: var(--su-accent);
+            color: var(--su-accent);
+        }
+        .su-desc-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .su-visual-card {
+            background: var(--su-ink);
+            color: var(--su-surface);
+            border-radius: var(--su-radius-lg);
+            padding: 32px 28px;
+            max-width: 330px;
+            width: 100%;
+            box-shadow: var(--su-shadow);
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+        body.dark .su-visual-card {
+            background: var(--su-surface);
+            border: 1px solid var(--su-border);
+            color: var(--su-ink);
+        }
+        .su-visual-line {
+            width: 36px;
+            height: 3px;
+            background: var(--su-accent);
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .su-visual-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .su-visual-row { border-bottom-color: var(--su-border); }
+        .su-visual-row:last-child { border-bottom: none; }
+        .su-v-label {
+            opacity: 0.55;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            white-space: nowrap;
+        }
+        .su-v-text {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--su-accent-light);
+            text-align: right;
+        }
+        body.dark .su-visual-card .su-v-text { color: var(--su-accent); }
+        .su-color-band {
+            display: inline-block;
+            width: 20px;
+            height: 10px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* ===== FAQ ===== */
+        .su-faq { background: var(--su-surface); transition: background var(--su-transition); }
+        .su-faq-list {
+            max-width: 740px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .su-faq-item {
+            border: 1px solid var(--su-border);
+            border-radius: var(--su-radius);
+            overflow: hidden;
+            background: var(--su-warm);
+            transition: border-color var(--su-transition);
+        }
+        .su-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--su-ink);
+            background: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: background var(--su-transition);
+        }
+        .su-faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--su-muted);
+            flex-shrink: 0;
+            transition: transform var(--su-transition);
+        }
+        .su-faq-q[aria-expanded="true"]::after { transform: rotate(45deg); color: var(--su-accent); }
+        .su-faq-q:hover { background: var(--su-surface); }
+        .su-faq-a {
+            display: none;
+            padding: 0 20px 16px;
+        }
+        .su-faq-a p {
+            font-size: 0.88rem;
+            color: var(--su-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== TOAST ===== */
+        .su-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--su-ink);
+            color: var(--su-surface);
+            padding: 12px 20px;
+            border-radius: var(--su-radius);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 320px;
+        }
+        .su-toast.su-show { transform: translateY(0); opacity: 1; }
+        body.dark .su-toast {
+            background: var(--su-warm);
+            color: var(--su-ink);
+            border: 1px solid var(--su-border);
+        }
+
+        /* ===== KEYBOARD HINT ===== */
+        .su-kbd-hint {
+            text-align: center;
+            padding: 0 20px 16px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            color: var(--su-muted);
+            letter-spacing: 0.02em;
+            opacity: 0.75;
+        }
+        .su-kbd-hint kbd {
+            display: inline-block;
+            padding: 1px 6px;
+            background: var(--su-surface);
+            border: 1px solid var(--su-border);
+            border-radius: 4px;
+            font-family: 'DM Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--su-ink);
+            margin: 0 1px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .su-how-grid,
+            .su-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .su-desc-inner { grid-template-columns: 1fr; gap: 36px; }
+            .su-desc-visual { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .su-hero { min-height: auto; padding: 24px 0 20px; }
+            .su-how-grid,
+            .su-feature-grid { grid-template-columns: 1fr; }
+            .su-topbar { padding: 12px 14px; }
+            .su-puzzle-title { font-size: 1.25rem; }
+            .su-grid {
+                gap: 4px;
+                padding: 12px 14px 10px;
+                max-width: 400px;
+            }
+            .su-cell {
+                font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+                border-radius: 6px;
+            }
+            .su-controls { padding: 12px 14px 16px; gap: 8px; }
+            .su-btn { padding: 10px 16px; font-size: 0.8rem; }
+            .su-found-area { padding: 0 14px 8px; }
+            .su-kbd-hint { display: none; }
+        }
+        @media (max-width: 480px) {
+            .su-hero-title { font-size: 1.6rem; }
+            .su-grid {
+                gap: 3px;
+                padding: 8px 8px 6px;
+                max-width: 340px;
+            }
+            .su-cell {
+                font-size: clamp(0.7rem, 2.8vw, 1rem);
+                border-radius: 5px;
+            }
+            .su-puzzle-head { padding: 12px 14px 4px; }
+            .su-puzzle-title { font-size: 1.1rem; }
+            .su-puzzle-sub { font-size: 0.66rem; }
+            .su-controls {
+                padding: 10px 10px 14px;
+                gap: 6px;
+            }
+            .su-btn {
+                padding: 9px 13px;
+                font-size: 0.74rem;
+                gap: 4px;
+            }
+            .su-found-word { padding: 3px 10px; font-size: 0.7rem; }
+            .su-stat-pill { font-size: 0.66rem; padding: 4px 10px; }
+            .su-stat-pill strong { font-size: 0.74rem; }
+            .su-visual-card { padding: 24px 20px; max-width: 100%; }
+            .su-result-card { padding: 20px 16px 16px; }
+            .su-result-emoji { font-size: 2.4rem; }
+            .su-result-title { font-size: 1.3rem; }
+            .su-result-emoji-grid { font-size: 1.1rem; padding: 12px; }
+            .su-ad-container {
+                min-height: 0;
+                height: auto;
+                margin: 10px auto 8px;
+                max-width: 100%;
+            }
+            .su-ad-container iframe {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                aspect-ratio: 300 / 250;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header injected by header.js -->
+    <div id="header-root"></div>
+
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="su-hero" id="home" aria-label="Strands Unlimited Game Hero">
+            <div class="su-hero-bg"></div>
+            <div class="su-hero-glow"></div>
+            <div class="container su-hero-inner">
+                <div class="su-hero-badge">🎮 Free Unlimited Word Search</div>
+                <h1 class="su-hero-title">
+                    Strands Unlimited.<br />
+                    <span class="su-hero-accent">Play as many puzzles as you like.</span>
+                </h1>
+                <p class="su-hero-sub">Connect adjacent letters to find hidden theme words and the spangram. A free, endless word search inspired by NYT Strands — with unlimited puzzles, hints, streaks and no daily limit.</p>
+                <div class="su-hero-cta">
+                    <a href="#game" class="btn btn-primary" style="background:var(--su-accent);border-color:var(--su-accent);">Play Now <span>→</span></a>
+                </div>
+                <div class="su-hero-demo">
+                    <span class="su-demo-chip">♾️ Unlimited puzzles</span>
+                    <span class="su-demo-chip">💡 3 hints per game</span>
+                    <span class="su-demo-chip">🔥 Streak tracking</span>
+                    <span class="su-demo-chip">📱 Mobile friendly</span>
+                    <span class="su-demo-chip">🆓 100% free</span>
+                </div>                
+            </div>
+        </section>
+
+        <!-- ===== GAME ===== -->
+        <section class="su-game-section" id="game" aria-label="Strands Unlimited Game">
+            <div class="container">
+                <div class="su-shell" style="position:relative;">
+
+                    <!-- TOP BAR -->
+                    <div class="su-topbar">
+                        <span class="su-topbar-title"><span class="su-dot"></span> Strands Unlimited</span>
+                        <div class="su-topbar-right">
+                            <span class="su-stat-pill">🔥 Streak <strong id="suStreak">0</strong></span>
+                            <span class="su-stat-pill">🏆 Won <strong id="suWon">0</strong></span>
+                            <span class="su-stat-pill">🎯 Played <strong id="suPlayed">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- PUZZLE HEAD -->
+                    <div class="su-puzzle-head">
+                        <div class="su-puzzle-title">Connect the letters!</div>
+                        <div class="su-puzzle-sub">Find the theme words and the spangram</div>
+                    </div>
+
+                    <!-- LIVES -->
+                    <div class="su-lives" id="suLives" aria-label="Hints remaining">
+                        <span class="su-life" data-life="1"></span>
+                        <span class="su-life" data-life="2"></span>
+                        <span class="su-life" data-life="3"></span>
+                    </div>
+
+                    <!-- MESSAGE -->
+                    <div class="su-message" id="suMessage" role="status" aria-live="polite"></div>
+
+                    <!-- GRID -->
+                    <div class="su-grid" id="suGrid" role="grid" aria-label="Letter grid"></div>
+
+                    <!-- FOUND WORDS -->
+                    <div class="su-found-area" id="suFoundArea"></div>
+
+                    <!-- CONTROLS -->
+                    <div class="su-controls">
+                        <button class="su-btn su-btn--primary" id="suSubmitBtn" type="button" disabled>Submit</button>
+                        <button class="su-btn" id="suHintBtn" type="button" title="Reveal a letter">💡 Hint <span id="suHintCount">(3)</span></button>
+                        <button class="su-btn" id="suNewGameBtn" type="button" title="New puzzle">🔄 New Puzzle</button>
+                    </div>
+
+                    <!-- KEYBOARD HINT -->
+                    <div class="su-kbd-hint">
+                        <kbd>Click</kbd> or <kbd>Tap</kbd> to connect letters · <kbd>Enter</kbd> submit · <kbd>Backspace</kbd> clear
+                    </div>
+
+                    <!-- RESULT OVERLAY -->
+                    <div class="su-result-overlay" id="suResultOverlay" role="dialog" aria-modal="true" aria-labelledby="suResultTitle">
+                        <div class="su-result-card">
+                            <div class="su-result-emoji" id="suResultEmoji">🎉</div>
+                            <div class="su-result-title" id="suResultTitle">You won!</div>
+                            <div class="su-result-sub" id="suResultSub">Nice work — you found all the words!</div>
+                            <div class="su-result-emoji-grid" id="suResultGrid"></div>                            
+
+                            <div class="su-result-actions">
+                                <button class="su-btn su-btn--primary" id="suResultNewBtn" type="button">🔄 Play Another Puzzle</button>
+                                <button class="su-btn" id="suResultShareBtn" type="button">📤 Share Result</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW TO ===== -->
+        <section class="section su-how" id="how-to-play" aria-label="How to play Strands Unlimited">
+            <div class="container">
+                <div class="section-label">How it works</div>
+                <h2 class="section-title">Play Strands Unlimited in <em>3 steps.</em></h2>
+                <div class="su-how-grid">
+                    <div class="su-how-card">
+                        <div class="su-how-num">01</div>
+                        <h3>Read the Grid</h3>
+                        <p>Every puzzle gives you a grid of letters. Hidden inside are several theme words and one special <strong>spangram</strong> that spans the entire grid. Scan the letters and look for familiar word patterns.</p>
+                    </div>
+                    <div class="su-how-card">
+                        <div class="su-how-num">02</div>
+                        <h3>Connect & Submit</h3>
+                        <p><strong>Connect adjacent letters</strong> (horizontally, vertically, or diagonally) to form a word. When you think you have a valid word, hit <strong>Submit</strong>. Correct words are revealed on the grid.</p>
+                    </div>
+                    <div class="su-how-card">
+                        <div class="su-how-num">03</div>
+                        <h3>Find All Words</h3>
+                        <p>Find all the theme words and the spangram to win. Stuck? Use up to <strong>three hints</strong> to reveal a letter, then share your emoji result grid with friends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="section su-features" id="features" aria-label="Strands Unlimited features">
+            <div class="container">
+                <div class="section-label">What's inside</div>
+                <h2 class="section-title">Everything you love about <em>Strands.</em></h2>
+                <div class="su-feature-grid">
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">♾️</span>
+                        <h3>Truly Unlimited</h3>
+                        <p>No daily limit, no waiting for tomorrow. Every puzzle is generated fresh from a large library of words and themes, so you can play as many games as you like.</p>
+                    </div>
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">🔤</span>
+                        <h3>Theme Words + Spangram</h3>
+                        <p>Each puzzle features a set of theme words and one special spangram. The spangram spans the entire grid and represents the puzzle's overarching theme.</p>
+                    </div>
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">💡</span>
+                        <h3>Three Hints Per Puzzle</h3>
+                        <p>Stuck on a tough grid? Reveal a letter in one of the unsolved words with a hint. Hints are free — they don't cost a life — but only three are available per puzzle.</p>
+                    </div>
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">🔥</span>
+                        <h3>Streaks &amp; Stats</h3>
+                        <p>Every win extends your streak, and your totals for games played and games won are tracked locally in your browser. Play daily to keep your streak alive.</p>
+                    </div>
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">📤</span>
+                        <h3>Wordle-Style Sharing</h3>
+                        <p>When you finish, copy a spoiler-free emoji grid to your clipboard and share it on social media or with friends. Colour squares show your path; words stay hidden.</p>
+                    </div>
+                    <div class="su-feature-card">
+                        <span class="su-feature-icon">📱</span>
+                        <h3>Mobile Optimised</h3>
+                        <p>Designed for thumbs first. Large tap targets, a compact grid that fits any screen width, and no pinch-zoom required. Play on the bus, in bed, anywhere.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DESCRIPTION ===== -->
+        <section class="section su-desc" id="about-strands" aria-label="About Strands Unlimited">
+            <div class="container su-desc-inner">
+                <div class="su-desc-text">
+                    <div class="section-label">What is it?</div>
+                    <h2 class="section-title">The Free <em>Strands Unlimited Game</em></h2>
+                    <p><strong>Strands Unlimited</strong> is a free online word search game inspired by the NYT Strands puzzle. You are given a grid of letters and must find hidden theme words by connecting adjacent letters. But there's a twist: one special word, the <strong>spangram</strong>, spans the entire grid and reveals the theme.</p>
+                    <p>What sets Strands Unlimited apart is that there is <strong>no daily limit</strong>. The original game releases one puzzle per day; here, every press of the <em>New Puzzle</em> button instantly loads a fresh grid. You can binge ten puzzles in a row, take your time on a single hard one, or use the game as a warm-up before the daily.</p>
+                    <p>The game keeps track of your <strong>win streak</strong>, games played and games won, all stored locally in your browser. Every puzzle gives you <strong>three hints</strong>, so there is a real risk/reward decision every time you need a little help.</p>
+                    <p>When you finish, you can share a <strong>Wordle-style emoji grid</strong> showing your progress and any hints used, without spoiling the actual words. It is the same satisfying share you know from the daily game, but available any time you want.</p>
+                    <div class="su-desc-benefits">
+                        <span class="su-benefit-tag">♾️ Unlimited puzzles</span>
+                        <span class="su-benefit-tag">🔤 Spangram</span>
+                        <span class="su-benefit-tag">💡 3 hints per game</span>
+                        <span class="su-benefit-tag">🔥 Streak tracking</span>
+                        <span class="su-benefit-tag">📤 Emoji sharing</span>
+                        <span class="su-benefit-tag">📱 Mobile friendly</span>
+                        <span class="su-benefit-tag">🔒 100% private</span>
+                    </div>
+                </div>
+                <div class="su-desc-visual">
+                    <div class="su-visual-card">
+                        <div class="su-visual-line"></div>
+                        <div class="su-visual-row">
+                            <span class="su-v-label"><span class="su-color-band" style="background:#a0c35a"></span>Theme Words</span>
+                            <span class="su-v-text">Find them</span>
+                        </div>
+                        <div class="su-visual-row">
+                            <span class="su-v-label"><span class="su-color-band" style="background:#ba81c5"></span>Spangram</span>
+                            <span class="su-v-text">Spans the grid</span>
+                        </div>
+                        <div class="su-visual-row">
+                            <span class="su-v-label">Hints</span>
+                            <span class="su-v-text">3 per game</span>
+                        </div>
+                        <div class="su-visual-row">
+                            <span class="su-v-label">Streak</span>
+                            <span class="su-v-text">Tracked locally</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section su-faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-label">Questions</div>
+                <h2 class="section-title">Frequently Asked <em>Questions.</em></h2>
+                <div class="su-faq-list" id="suFaqList">
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">What is Strands Unlimited?</button>
+                        <div class="su-faq-a"><p>Strands Unlimited is a free online word search game inspired by the popular NYT Strands puzzle. Each puzzle gives you a grid of letters where you must find hidden theme words and a special 'spangram' that spans the entire grid. Unlike the original daily game, Strands Unlimited lets you play as many fresh puzzles as you like with no daily limit and no signup.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">How do you play Strands?</button>
+                        <div class="su-faq-a"><p>You are given a grid of letters. Connect adjacent letters (horizontally, vertically, or diagonally) to form words. Find all the hidden theme words and the spangram, which is a special word that spans from one side of the grid to the other. Each correct word you find reveals more about the theme.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">What is a spangram?</button>
+                        <div class="su-faq-a"><p>A spangram is a special word in Strands that spans the entire grid, from one side to the other. It often represents the theme of the puzzle and is usually longer than the other theme words. Finding the spangram is a key goal in each puzzle.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">Is there a daily limit on Strands Unlimited?</button>
+                        <div class="su-faq-a"><p>No. Unlike the official NYT Strands game, which releases one puzzle per day, Strands Unlimited lets you play as many puzzles as you want. Press the New Puzzle button to instantly start a fresh grid. Your win streak and stats are tracked locally in your browser.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">Are there hints available?</button>
+                        <div class="su-faq-a"><p>Yes. Every puzzle starts with three hints. Using a hint reveals a random letter in one of the unsolved words, helping you narrow down your guesses. Hints do not affect your win streak but they do show up in your results.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">Can I share my Strands Unlimited results?</button>
+                        <div class="su-faq-a"><p>Yes. When you finish a puzzle — win or lose — you can copy a Wordle-style emoji grid to your clipboard. The grid shows your progress and any hints used, so you can share your result on social media or with friends without spoiling the actual words.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">Does Strands Unlimited work on mobile?</button>
+                        <div class="su-faq-a"><p>Yes. The game is fully responsive and touch-friendly. Letters are laid out in a grid that fits comfortably on any phone, tablet or desktop screen. You can connect letters with your finger, and there are no zoom or scroll issues.</p></div>
+                    </div>
+                    <div class="su-faq-item">
+                        <button class="su-faq-q" aria-expanded="false" type="button">Is Strands Unlimited free?</button>
+                        <div class="su-faq-a"><p>Yes, it is 100% free with no signup, no ads in the game, no download and no hidden costs. Play as many puzzles as you like, as often as you like.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer injected by footer.js -->
+    <div id="footer-root"></div>
+
+    <!-- Toast -->
+    <div class="su-toast" id="suToast" role="alert" aria-live="polite"></div>
+
+    <!-- Share Modal -->
+    <div class="su-share-modal" id="suShareModal" role="dialog" aria-modal="true" aria-labelledby="suShareTitle">
+        <div class="su-share-card">
+            <div class="su-share-title" id="suShareTitle">Share your result</div>
+            <div class="su-share-preview" id="suSharePreview"></div>
+            <div class="su-share-actions">
+                <button class="su-btn su-btn--primary" id="suShareCopyBtn" type="button">⎘ Copy</button>
+                <button class="su-btn" id="suShareCloseBtn" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="/components/social-share.js"></script>
+    <div id="tools-sidebar-root"></div>
+    <script src="/components/sidebar.js"></script>
+    <script src="/wordlist.js"></script>
+    <script>
+(function () {
+    'use strict';
+
+    /* =========================================================
+       THEMES — Each theme has a spangram and a list of theme
+       words. The actual puzzle words are drawn from wordlist.js,
+       but themes give structure and category labels.
+       ========================================================= */
+    const THEMES = [
+        { name: 'FRUITS',     spangram: 'FRUIT',    seeds: ['APPLE', 'BANANA', 'CHERRY', 'GRAPE', 'LEMON', 'MANGO', 'PEACH', 'PLUM'] },
+        { name: 'COLORS',     spangram: 'COLOR',    seeds: ['RED', 'BLUE', 'GREEN', 'YELLOW', 'ORANGE', 'PURPLE', 'PINK', 'BROWN'] },
+        { name: 'ANIMALS',    spangram: 'ANIMAL',   seeds: ['CAT', 'DOG', 'BIRD', 'FISH', 'HORSE', 'LION', 'TIGER', 'BEAR'] },
+        { name: 'PLANETS',    spangram: 'PLANET',   seeds: ['MARS', 'VENUS', 'EARTH', 'SATURN', 'JUPITER', 'MERCURY', 'NEPTUNE', 'URANUS'] },
+        { name: 'COUNTRIES',  spangram: 'COUNTRY',  seeds: ['FRANCE', 'JAPAN', 'BRAZIL', 'CANADA', 'EGYPT', 'INDIA', 'ITALY', 'SPAIN'] },
+        { name: 'INSTRUMENTS',spangram: 'MUSIC',    seeds: ['PIANO', 'GUITAR', 'VIOLIN', 'FLUTE', 'DRUMS', 'TRUMPET', 'CELLO', 'HARP'] },
+        { name: 'SPORTS',     spangram: 'SPORT',    seeds: ['SOCCER', 'TENNIS', 'GOLF', 'RUGBY', 'BOXING', 'SWIMMING', 'SKIING', 'HOCKEY'] },
+        { name: 'VEGETABLES', spangram: 'VEGGIE',   seeds: ['CARROT', 'BROCCOLI', 'SPINACH', 'POTATO', 'ONION', 'GARLIC', 'PEPPER', 'CORN'] },
+        { name: 'BIRDS',      spangram: 'BIRD',     seeds: ['EAGLE', 'ROBIN', 'OWL', 'SPARROW', 'FALCON', 'HAWK', 'DUCK', 'SWAN'] },
+        { name: 'OCEANS',     spangram: 'OCEAN',    seeds: ['ATLANTIC', 'PACIFIC', 'INDIAN', 'ARCTIC', 'CORAL', 'DEEP', 'BLUE', 'TIDE'] },
+        { name: 'DESSERTS',   spangram: 'SWEET',    seeds: ['CAKE', 'COOKIE', 'PIE', 'BROWNIE', 'PUDDING', 'CANDY', 'DONUT', 'TART'] },
+        { name: 'WEATHER',    spangram: 'WEATHER',  seeds: ['RAIN', 'SNOW', 'SUN', 'WIND', 'CLOUD', 'STORM', 'FOG', 'THUNDER'] },
+        { name: 'BODY PARTS', spangram: 'BODY',     seeds: ['HEART', 'LUNGS', 'LIVER', 'KIDNEY', 'BRAIN', 'BONES', 'SKIN', 'MUSCLE'] },
+        { name: 'CITRUS',     spangram: 'CITRUS',   seeds: ['LEMON', 'LIME', 'ORANGE', 'GRAPEFRUIT', 'TANGERINE', 'POMELO', 'KUMQUAT', 'YUZU'] },
+        { name: 'DOG BREEDS', spangram: 'CANINE',   seeds: ['POODLE', 'BEAGLE', 'BOXER', 'HUSKY', 'DALMATIAN', 'TERRIER', 'RETRIEVER', 'BULLDOG'] },
+        { name: 'FLOWERS',    spangram: 'FLOWER',   seeds: ['ROSE', 'TULIP', 'DAISY', 'LILY', 'ORCHID', 'SUNFLOWER', 'VIOLET', 'POPPY'] },
+        { name: 'TREES',      spangram: 'FOREST',   seeds: ['OAK', 'MAPLE', 'PINE', 'BIRCH', 'WILLOW', 'CEDAR', 'REDWOOD', 'SEQUOIA'] },
+        { name: 'SEA LIFE',   spangram: 'MARINE',   seeds: ['DOLPHIN', 'WHALE', 'SHARK', 'OCTOPUS', 'SEAHORSE', 'TURTLE', 'STARFISH', 'CRAB'] },
+        { name: 'SPICES',     spangram: 'SPICE',    seeds: ['PEPPER', 'CINNAMON', 'PAPRIKA', 'NUTMEG', 'CUMIN', 'GINGER', 'TURMERIC', 'SAFFRON'] },
+        { name: 'SCHOOL',     spangram: 'SCHOOL',   seeds: ['MATH', 'HISTORY', 'SCIENCE', 'GEOGRAPHY', 'ENGLISH', 'ART', 'MUSIC', 'PHYSICS'] },
+        { name: 'CLOTHING',   spangram: 'FASHION',  seeds: ['SHIRT', 'PANTS', 'SOCKS', 'DRESS', 'JACKET', 'SCARF', 'GLOVES', 'HAT'] },
+        { name: 'FURNITURE',  spangram: 'HOME',     seeds: ['CHAIR', 'TABLE', 'SOFA', 'BED', 'DESK', 'SHELF', 'LAMP', 'RUG'] },
+        { name: 'TOOLS',      spangram: 'TOOL',     seeds: ['HAMMER', 'WRENCH', 'DRILL', 'SAW', 'PLIERS', 'SCREW', 'CHISEL', 'SHOVEL'] },
+        { name: 'MUSIC',      spangram: 'SOUND',    seeds: ['PIANO', 'GUITAR', 'DRUMS', 'FLUTE', 'CELLO', 'HARP', 'BASS', 'VIOLIN'] },
+        { name: 'TRAVEL',     spangram: 'TRIP',     seeds: ['PLANE', 'TRAIN', 'BOAT', 'CAR', 'BUS', 'BIKE', 'SHIP', 'TAXI'] },
+        { name: 'EMOTIONS',   spangram: 'FEELING',  seeds: ['HAPPY', 'SAD', 'ANGRY', 'CALM', 'EXCITED', 'BORED', 'TIRED', 'PROUD'] },
+        { name: 'TIME',       spangram: 'CLOCK',    seeds: ['HOUR', 'MINUTE', 'SECOND', 'DAY', 'WEEK', 'MONTH', 'YEAR', 'DECADE'] },
+        { name: 'NUMBERS',    spangram: 'COUNT',    seeds: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'] },
+        { name: 'SPACE',      spangram: 'COSMOS',   seeds: ['STAR', 'MOON', 'COMET', 'GALAXY', 'NEBULA', 'ORBIT', 'ROCKET', 'ASTRONAUT'] },
+        { name: 'KITCHEN',    spangram: 'COOK',     seeds: ['FORK', 'SPOON', 'KNIFE', 'PLATE', 'BOWL', 'PAN', 'POT', 'CUP'] }
+    ];
+
+    const MAX_HINTS = 3;
+    const GRID_SIZE = 6; // 6x6 grid
+
+    /* =========================================================
+       WORD LIST — populated from wordlist.js
+       ========================================================= */
+    let ALL_WORDS = [];        // all valid words (uppercase, 3-15 letters)
+    let WORDS_BY_LENGTH = {};  // { length: [words] }
+    let wordlistReady = false;
+    let wordlistError = null;
+
+    function normalizeWordlist() {
+        if (typeof WORDLIST === 'undefined' || !Array.isArray(WORDLIST)) {
+            wordlistError = 'Word list not loaded. Please refresh the page.';
+            return;
+        }
+
+        const seen = new Set();
+        const all = [];
+        const byLen = {};
+
+        for (let i = 0; i < WORDLIST.length; i++) {
+            const raw = WORDLIST[i];
+            if (typeof raw !== 'string') continue;
+            const w = raw.toUpperCase();
+            // Only alphabetic, reasonable length
+            if (!/^[A-Z]{3,15}$/.test(w)) continue;
+            if (seen.has(w)) continue;
+            seen.add(w);
+            all.push(w);
+
+            const len = w.length;
+            if (!byLen[len]) byLen[len] = [];
+            byLen[len].push(w);
+        }
+
+        ALL_WORDS = all;
+        WORDS_BY_LENGTH = byLen;
+        wordlistReady = true;
+
+        console.log(`📚 Strands word list: ${ALL_WORDS.length} unique words loaded.`);
+        console.log(`   By length: ` + Object.keys(byLen).map(l => `${l}:${byLen[l].length}`).join(', '));
+    }
+
+    /* =========================================================
+       STATE
+       ========================================================= */
+    const state = {
+        puzzle: null,
+        grid: [],
+        gridCells: [],
+        selected: [],
+        foundWords: [],
+        spangramFound: false,
+        hintsLeft: MAX_HINTS,
+        gameOver: false,
+        won: false,
+        stats: { played: 0, won: 0, streak: 0, bestStreak: 0 }
+    };
+
+    /* =========================================================
+       DOM
+       ========================================================= */
+    const $ = (id) => document.getElementById(id);
+
+    const gridEl          = $('suGrid');
+    const foundAreaEl     = $('suFoundArea');
+    const livesEl         = $('suLives');
+    const messageEl       = $('suMessage');
+    const submitBtn       = $('suSubmitBtn');
+    const hintBtn         = $('suHintBtn');
+    const hintCountEl     = $('suHintCount');
+    const newGameBtn      = $('suNewGameBtn');
+    const streakEl        = $('suStreak');
+    const wonEl           = $('suWon');
+    const playedEl        = $('suPlayed');
+    const toastEl         = $('suToast');
+
+    const resultOverlay   = $('suResultOverlay');
+    const resultEmoji     = $('suResultEmoji');
+    const resultTitle     = $('suResultTitle');
+    const resultSub       = $('suResultSub');
+    const resultGrid      = $('suResultGrid');
+    const resultNewBtn    = $('suResultNewBtn');
+    const resultShareBtn  = $('suResultShareBtn');
+
+    const shareModal      = $('suShareModal');
+    const sharePreview    = $('suSharePreview');
+    const shareCopyBtn    = $('suShareCopyBtn');
+    const shareCloseBtn   = $('suShareCloseBtn');
+
+    const faqButtons      = document.querySelectorAll('.su-faq-q');
+
+    let toastTimer = null;
+
+    /* =========================================================
+       STATS PERSISTENCE
+       ========================================================= */
+    const STORAGE_KEY = 'su-stats-v1';
+
+    function loadStats() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (parsed && typeof parsed === 'object') {
+                    state.stats.played = Number(parsed.played) || 0;
+                    state.stats.won = Number(parsed.won) || 0;
+                    state.stats.streak = Number(parsed.streak) || 0;
+                    state.stats.bestStreak = Number(parsed.bestStreak) || 0;
+                }
+            }
+        } catch (e) { /* silent */ }
+    }
+
+    function saveStats() {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.stats));
+        } catch (e) { /* silent */ }
+    }
+
+    function renderStats() {
+        streakEl.textContent = state.stats.streak;
+        wonEl.textContent = state.stats.won;
+        playedEl.textContent = state.stats.played;
+    }
+
+    /* =========================================================
+       UTILITIES
+       ========================================================= */
+    function showToast(msg) {
+        if (toastTimer) clearTimeout(toastTimer);
+        toastEl.textContent = msg;
+        toastEl.classList.add('su-show');
+        toastTimer = setTimeout(() => toastEl.classList.remove('su-show'), 2200);
+    }
+
+    function setMessage(msg, type) {
+        messageEl.textContent = msg || '';
+        messageEl.classList.remove('su-msg-error', 'su-msg-good');
+        if (type === 'error') messageEl.classList.add('su-msg-error');
+        else if (type === 'good') messageEl.classList.add('su-msg-good');
+    }
+
+    function shuffleArray(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function pickRandom(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    /* =========================================================
+       PUZZLE GENERATION — uses wordlist.js as the word pool
+       ========================================================= */
+
+    // Pick a random theme
+    function pickTheme() {
+        return pickRandom(THEMES);
+    }
+
+    // Find a word from the loaded word list that can serve as spangram
+    // (must be a real word, length 5-6 so it can span a 6x6 grid row/column)
+    function pickSpangram(theme) {
+        const candidates = [theme.spangram];
+
+        // Also look for other good spangram-length words in the word list
+        if (WORDS_BY_LENGTH[6]) {
+            const sample = shuffleArray(WORDS_BY_LENGTH[6]).slice(0, 20);
+            candidates.push(...sample);
+        }
+        if (WORDS_BY_LENGTH[5]) {
+            const sample = shuffleArray(WORDS_BY_LENGTH[5]).slice(0, 10);
+            candidates.push(...sample);
+        }
+
+        // Prefer the theme's own spangram if it exists in the word list
+        const valid = candidates.filter(w =>
+            ALL_WORDS.includes(w) && w.length >= 5 && w.length <= GRID_SIZE
+        );
+
+        if (valid.length > 0) {
+            // 70% chance to use the theme's own spangram
+            if (Math.random() < 0.7 && ALL_WORDS.includes(theme.spangram)) {
+                return theme.spangram;
+            }
+            return pickRandom(valid);
+        }
+
+        // Fallback: any 5-6 letter word from the list
+        const fallbackPool = [...(WORDS_BY_LENGTH[5] || []), ...(WORDS_BY_LENGTH[6] || [])];
+        return fallbackPool.length ? pickRandom(fallbackPool) : 'STRAND';
+    }
+
+    // Pick theme words from the word list
+    function pickThemeWords(theme, spangram) {
+        const picked = new Set();
+        const words = [];
+
+        // First, try to use words from the theme's seed list that exist in wordlist
+        const seeds = shuffleArray(theme.seeds || []);
+        for (const seed of seeds) {
+            const upper = seed.toUpperCase();
+            if (ALL_WORDS.includes(upper) &&
+                upper.length >= 3 && upper.length <= GRID_SIZE &&
+                upper !== spangram &&
+                !picked.has(upper)) {
+                picked.add(upper);
+                words.push(upper);
+                if (words.length >= 4) break;
+            }
+        }
+
+        // If we don't have enough, pull random words from the word list
+        // matching realistic puzzle lengths (4-6 letters)
+        const candidateLengths = [4, 5, 6, 3];
+        for (const len of candidateLengths) {
+            if (words.length >= 6) break;
+            const pool = WORDS_BY_LENGTH[len] || [];
+            if (pool.length === 0) continue;
+            const shuffled = shuffleArray(pool);
+            for (const w of shuffled) {
+                if (words.length >= 6) break;
+                if (picked.has(w)) continue;
+                if (w === spangram) continue;
+                picked.add(w);
+                words.push(w);
+            }
+        }
+
+        return words;
+    }
+
+    // Place a word on the grid at a random free position/direction
+    function placeWord(grid, word, allowOverlap) {
+        const len = word.length;
+        if (len > GRID_SIZE) return false;
+
+        const directions = [
+            { dr: 0, dc: 1 },   // horizontal
+            { dr: 1, dc: 0 },   // vertical
+            { dr: 1, dc: 1 },   // diagonal down-right
+            { dr: 1, dc: -1 },  // diagonal down-left
+            { dr: -1, dc: 1 },  // diagonal up-right
+            { dr: -1, dc: -1 }  // diagonal up-left
+        ];
+
+        const allPositions = [];
+        for (let r = 0; r < GRID_SIZE; r++) {
+            for (let c = 0; c < GRID_SIZE; c++) {
+                for (const dir of directions) {
+                    const endR = r + dir.dr * (len - 1);
+                    const endC = c + dir.dc * (len - 1);
+                    if (endR < 0 || endR >= GRID_SIZE || endC < 0 || endC >= GRID_SIZE) continue;
+                    allPositions.push({ r, c, dr: dir.dr, dc: dir.dc });
+                }
+            }
+        }
+
+        shuffleArray(allPositions);
+
+        for (const pos of allPositions) {
+            let fits = true;
+            for (let i = 0; i < len; i++) {
+                const rr = pos.r + pos.dr * i;
+                const cc = pos.c + pos.dc * i;
+                const existing = grid[rr][cc];
+                if (existing && existing !== word[i]) {
+                    fits = false;
+                    break;
+                }
+            }
+            if (fits) {
+                for (let i = 0; i < len; i++) {
+                    const rr = pos.r + pos.dr * i;
+                    const cc = pos.c + pos.dc * i;
+                    grid[rr][cc] = word[i];
+                }
+                return true;
+            }
+        }
+
+        // If strict placement failed, try allowing overlaps
+        if (allowOverlap) {
+            for (const pos of allPositions) {
+                let ok = true;
+                for (let i = 0; i < len; i++) {
+                    const rr = pos.r + pos.dr * i;
+                    const cc = pos.c + pos.dc * i;
+                    if (grid[rr][cc] && grid[rr][cc] !== word[i]) { ok = false; break; }
+                }
+                if (ok) {
+                    for (let i = 0; i < len; i++) {
+                        const rr = pos.r + pos.dr * i;
+                        const cc = pos.c + pos.dc * i;
+                        grid[rr][cc] = word[i];
+                    }
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    function generatePuzzle() {
+        if (!wordlistReady) {
+            // Wait a bit for wordlist to load, then retry
+            setTimeout(generatePuzzle, 200);
+            return;
+        }
+
+        // Pick a theme
+        const theme = pickTheme();
+        const spangram = pickSpangram(theme);
+        const themeWords = pickThemeWords(theme, spangram);
+
+        // We need at least 3 theme words for a satisfying puzzle
+        if (themeWords.length < 3) {
+            // Retry with another theme
+            setTimeout(generatePuzzle, 50);
+            return;
+        }
+
+        // Create empty grid
+        const grid = [];
+        for (let r = 0; r < GRID_SIZE; r++) {
+            const row = [];
+            for (let c = 0; c < GRID_SIZE; c++) row.push('');
+            grid.push(row);
+        }
+
+        // Place spangram first (horizontally or vertically across the middle)
+        const spangramLen = spangram.length;
+        let spangramPlaced = false;
+
+        if (spangramLen <= GRID_SIZE) {
+            // Try horizontal across a middle row
+            const midRow = Math.floor((GRID_SIZE - 1) / 2);
+            const startCol = Math.floor((GRID_SIZE - spangramLen) / 2);
+            let fits = true;
+            for (let i = 0; i < spangramLen; i++) {
+                if (grid[midRow][startCol + i] && grid[midRow][startCol + i] !== spangram[i]) {
+                    fits = false; break;
+                }
+            }
+            if (fits) {
+                for (let i = 0; i < spangramLen; i++) grid[midRow][startCol + i] = spangram[i];
+                spangramPlaced = true;
+            }
+
+            if (!spangramPlaced) {
+                // Try vertical across a middle column
+                const midCol = Math.floor((GRID_SIZE - 1) / 2);
+                const startRow = Math.floor((GRID_SIZE - spangramLen) / 2);
+                fits = true;
+                for (let i = 0; i < spangramLen; i++) {
+                    if (grid[startRow + i][midCol] && grid[startRow + i][midCol] !== spangram[i]) {
+                        fits = false; break;
+                    }
+                }
+                if (fits) {
+                    for (let i = 0; i < spangramLen; i++) grid[startRow + i][midCol] = spangram[i];
+                    spangramPlaced = true;
+                }
+            }
+        }
+
+        // Place theme words
+        const placedWords = [];
+        for (const word of themeWords) {
+            if (placeWord(grid, word, true)) {
+                placedWords.push(word);
+            }
+        }
+
+        // Need at least 3 placed words
+        if (placedWords.length < 3) {
+            setTimeout(generatePuzzle, 50);
+            return;
+        }
+
+        // Fill empty cells with random letters
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for (let r = 0; r < GRID_SIZE; r++) {
+            for (let c = 0; c < GRID_SIZE; c++) {
+                if (grid[r][c] === '') {
+                    grid[r][c] = alphabet[Math.floor(Math.random() * alphabet.length)];
+                }
+            }
+        }
+
+        // Update state
+        state.puzzle = {
+            theme: theme.name,
+            spangram: spangram,
+            words: placedWords
+        };
+        state.grid = grid;
+        state.selected = [];
+        state.foundWords = [];
+        state.spangramFound = false;
+        state.hintsLeft = MAX_HINTS;
+        state.gameOver = false;
+        state.won = false;
+
+        renderAll();
+        setMessage('');
+        hintCountEl.textContent = '(' + MAX_HINTS + ')';
+
+        console.log(`🧩 New puzzle: theme="${theme.name}", spangram="${spangram}", words=${placedWords.join(', ')}`);
+    }
+
+    /* =========================================================
+       RENDER
+       ========================================================= */
+    function renderGrid() {
+        gridEl.innerHTML = '';
+        gridEl.style.setProperty('--grid-size', GRID_SIZE);
+
+        for (let r = 0; r < GRID_SIZE; r++) {
+            for (let c = 0; c < GRID_SIZE; c++) {
+                const cell = document.createElement('button');
+                cell.type = 'button';
+                cell.className = 'su-cell';
+                cell.textContent = state.grid[r][c];
+                cell.dataset.row = r;
+                cell.dataset.col = c;
+                cell.setAttribute('role', 'gridcell');
+
+                const isSelected = state.selected.some(pos => pos.row === r && pos.col === c);
+                if (isSelected) {
+                    cell.classList.add('su-selected');
+                    cell.setAttribute('aria-pressed', 'true');
+                } else {
+                    cell.setAttribute('aria-pressed', 'false');
+                }
+
+                cell.addEventListener('click', () => toggleCell(r, c));
+                gridEl.appendChild(cell);
+            }
+        }
+    }
+
+    function renderFoundArea() {
+        foundAreaEl.innerHTML = '';
+        if (state.foundWords.length === 0) return;
+
+        state.foundWords.forEach(word => {
+            const span = document.createElement('span');
+            span.className = 'su-found-word';
+            if (word.toUpperCase() === state.puzzle.spangram.toUpperCase()) {
+                span.classList.add('su-spangram');
+            }
+            span.textContent = word;
+            foundAreaEl.appendChild(span);
+        });
+    }
+
+    function renderLives() {
+        const lives = livesEl.querySelectorAll('.su-life');
+        lives.forEach((el, i) => {
+            el.classList.toggle('su-lost', i >= state.hintsLeft);
+        });
+    }
+
+    function renderAll() {
+        renderGrid();
+        renderFoundArea();
+        renderLives();
+        updateSubmitButton();
+    }
+
+    function updateSubmitButton() {
+        submitBtn.disabled = state.selected.length < 2 || state.gameOver;
+    }
+
+    /* =========================================================
+       INTERACTIONS
+       ========================================================= */
+    function toggleCell(row, col) {
+        if (state.gameOver) return;
+
+        const idx = state.selected.findIndex(pos => pos.row === row && pos.col === col);
+        if (idx !== -1) {
+            state.selected.splice(idx, 1);
+        } else {
+            if (state.selected.length > 0) {
+                const last = state.selected[state.selected.length - 1];
+                const dr = Math.abs(row - last.row);
+                const dc = Math.abs(col - last.col);
+                if (dr > 1 || dc > 1) {
+                    setMessage('Letters must be adjacent!', 'error');
+                    return;
+                }
+            }
+            state.selected.push({ row, col });
+        }
+        setMessage('');
+        renderGrid();
+        updateSubmitButton();
+    }
+
+    function clearSelection() {
+        state.selected = [];
+        renderGrid();
+        updateSubmitButton();
+        setMessage('');
+    }
+
+    /* =========================================================
+       SUBMIT WORD — validated against the word list
+       ========================================================= */
+    function submitWord() {
+        if (state.gameOver) return;
+        if (state.selected.length < 2) return;
+
+        let word = '';
+        state.selected.forEach(pos => {
+            word += state.grid[pos.row][pos.col];
+        });
+        word = word.toUpperCase();
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        const isSpangram = word === spangramUpper;
+        const isThemeWord = state.puzzle.words.some(w => w.toUpperCase() === word);
+
+        // A valid word is either a theme word, the spangram, OR a real dictionary word
+        // (theme words are guaranteed to be in ALL_WORDS since they came from the list)
+        const isDictionaryWord = ALL_WORDS.includes(word);
+
+        const alreadyFound = state.foundWords.some(w => w.toUpperCase() === word);
+
+        if (alreadyFound) {
+            setMessage('Already found that word!', 'error');
+            clearSelection();
+            return;
+        }
+
+        // Accept theme words and spangram (primary goals)
+        if (isSpangram || isThemeWord) {
+            state.foundWords.push(word);
+            if (isSpangram) state.spangramFound = true;
+
+            state.selected = [];
+            setMessage('✅ Found: ' + word + (isSpangram ? ' (SPANGRAM!)' : ''), 'good');
+            renderAll();
+
+            // Win when all theme words + spangram found
+            const totalRequired = state.puzzle.words.length + 1;
+            if (state.foundWords.length >= totalRequired) {
+                finishGame(true);
+            }
+            return;
+        }
+
+        // Accept extra dictionary words as a bonus (but not required to win)
+        if (isDictionaryWord && word.length >= 3) {
+            state.foundWords.push(word);
+            state.selected = [];
+            setMessage('✅ Bonus word: ' + word, 'good');
+            renderAll();
+
+            // Check win condition (extra words may complete the puzzle early if all themes found)
+            const totalRequired = state.puzzle.words.length + 1;
+            const foundThemeCount = state.foundWords.filter(w =>
+                state.puzzle.words.some(t => t.toUpperCase() === w.toUpperCase()) ||
+                w.toUpperCase() === spangramUpper
+            ).length;
+            if (foundThemeCount >= totalRequired) {
+                finishGame(true);
+            }
+            return;
+        }
+
+        // Invalid word
+        setMessage('❌ Not a valid word — try again', 'error');
+        flashWrong(state.selected);
+        state.selected = [];
+        setTimeout(() => {
+            renderGrid();
+            updateSubmitButton();
+        }, 480);
+    }
+
+    function flashWrong(positions) {
+        const cells = gridEl.querySelectorAll('.su-cell');
+        cells.forEach(cell => {
+            const r = parseInt(cell.dataset.row, 10);
+            const c = parseInt(cell.dataset.col, 10);
+            if (positions.some(pos => pos.row === r && pos.col === c)) {
+                cell.classList.add('su-wrong');
+                setTimeout(() => cell.classList.remove('su-wrong'), 500);
+            }
+        });
+        updateSubmitButton();
+    }
+
+    /* =========================================================
+       HINT
+       ========================================================= */
+    function useHint() {
+        if (state.gameOver) return;
+        if (state.hintsLeft <= 0) {
+            setMessage('No hints remaining.', 'error');
+            return;
+        }
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
+        const unsolved = allRequired.filter(w => {
+            return !state.foundWords.some(f => f.toUpperCase() === w);
+        });
+
+        if (unsolved.length === 0) return;
+
+        const hintWord = unsolved[0];
+        const targetLetter = hintWord[Math.floor(Math.random() * hintWord.length)];
+
+        // Highlight all cells that contain this letter
+        const cells = gridEl.querySelectorAll('.su-cell');
+        let highlighted = 0;
+        cells.forEach(cell => {
+            if (cell.textContent === targetLetter) {
+                cell.classList.add('su-hint');
+                setTimeout(() => cell.classList.remove('su-hint'), 800);
+                highlighted++;
+            }
+        });
+
+        if (highlighted === 0) {
+            // Fallback: highlight a random cell
+            const randomCell = cells[Math.floor(Math.random() * cells.length)];
+            if (randomCell) {
+                randomCell.classList.add('su-hint');
+                setTimeout(() => randomCell.classList.remove('su-hint'), 800);
+            }
+        }
+
+        state.hintsLeft--;
+        hintCountEl.textContent = '(' + state.hintsLeft + ')';
+        setMessage('💡 Hint: look for a word containing "' + targetLetter + '"', 'good');
+        renderLives();
+    }
+
+    /* =========================================================
+       FINISH GAME
+       ========================================================= */
+    function finishGame(won) {
+        state.gameOver = true;
+        state.won = won;
+
+        state.stats.played++;
+        if (won) {
+            state.stats.won++;
+            state.stats.streak++;
+            if (state.stats.streak > state.stats.bestStreak) {
+                state.stats.bestStreak = state.stats.streak;
+            }
+        } else {
+            state.stats.streak = 0;
+        }
+        saveStats();
+        renderStats();
+
+        const grid = buildShareGrid();
+        resultGrid.textContent = grid;
+
+        if (won) {
+            resultEmoji.textContent = '🎉';
+            resultTitle.textContent = 'You won!';
+            resultSub.textContent = 'You found all the theme words and the spangram!';
+        } else {
+            resultEmoji.textContent = '💔';
+            resultTitle.textContent = 'Game over';
+            resultSub.textContent = 'You ran out of time. Try a new puzzle!';
+        }
+
+        resultOverlay.classList.add('su-show');
+        updateSubmitButton();
+    }
+
+    /* =========================================================
+       SHARE GRID
+       ========================================================= */
+    function buildShareGrid() {
+        const lines = [];
+        lines.push('Strands Unlimited');
+        lines.push('Theme: ' + state.puzzle.theme);
+
+        const spangramUpper = state.puzzle.spangram.toUpperCase();
+        state.foundWords.forEach(word => {
+            const isSpangram = word.toUpperCase() === spangramUpper;
+            const emoji = isSpangram ? '🟪' : '🟩';
+            lines.push(emoji + ' ' + word.toUpperCase());
+        });
+
+        // Show remaining required words
+        const allRequired = [...state.puzzle.words.map(w => w.toUpperCase()), spangramUpper];
+        const remaining = allRequired.filter(w => {
+            return !state.foundWords.some(f => f.toUpperCase() === w);
+        });
+        remaining.forEach(word => {
+            lines.push('⬜ ' + word + ' (not found)');
+        });
+
+        return lines.join('\n');
+    }
+
+    function openShare() {
+        const grid = buildShareGrid();
+        sharePreview.textContent = grid;
+        shareModal.classList.add('su-show');
+    }
+
+    function closeShare() {
+        shareModal.classList.remove('su-show');
+    }
+
+    function copyShare() {
+        const text = sharePreview.textContent;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    showToast('✅ Result copied to clipboard!');
+                    shareCopyBtn.textContent = '✓ Copied';
+                    setTimeout(() => { shareCopyBtn.textContent = '⎘ Copy'; }, 1400);
+                })
+                .catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
+    }
+
+    function fallbackCopy(text) {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'absolute';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showToast('✅ Result copied!');
+        } catch (e) {
+            showToast('⚠️ Copy not supported.');
+        }
+    }
+
+    /* =========================================================
+       KEYBOARD SHORTCUTS
+       ========================================================= */
+    document.addEventListener('keydown', (e) => {
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+        if (state.gameOver) return;
+
+        if (e.key === 'Enter') {
+            if (!submitBtn.disabled) {
+                e.preventDefault();
+                submitWord();
+            }
+            return;
+        }
+
+        if (e.key === 'Backspace') {
+            e.preventDefault();
+            clearSelection();
+        }
+    });
+
+    /* =========================================================
+       EVENT BINDINGS
+       ========================================================= */
+    submitBtn.addEventListener('click', submitWord);
+    hintBtn.addEventListener('click', useHint);
+    newGameBtn.addEventListener('click', () => {
+        generatePuzzle();
+        resultOverlay.classList.remove('su-show');
+        setMessage('');
+        showToast('🔄 New puzzle loaded!');
+    });
+
+    resultNewBtn.addEventListener('click', () => {
+        resultOverlay.classList.remove('su-show');
+        generatePuzzle();
+        showToast('🔄 New puzzle loaded!');
+    });
+
+    resultShareBtn.addEventListener('click', openShare);
+    shareCopyBtn.addEventListener('click', copyShare);
+    shareCloseBtn.addEventListener('click', closeShare);
+    shareModal.addEventListener('click', (e) => {
+        if (e.target === shareModal) closeShare();
+    });
+
+    faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            const answer = btn.nextElementSibling;
+            if (answer) answer.style.display = expanded ? 'none' : 'block';
+        });
+    });
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    loadStats();
+    renderStats();
+    normalizeWordlist();
+
+    if (wordlistReady) {
+        generatePuzzle();
+    } else {
+        // Wordlist script may load after this one — poll briefly
+        let attempts = 0;
+        const poll = setInterval(() => {
+            attempts++;
+            if (typeof WORDLIST !== 'undefined' && Array.isArray(WORDLIST)) {
+                clearInterval(poll);
+                normalizeWordlist();
+                generatePuzzle();
+            } else if (attempts > 40) {
+                clearInterval(poll);
+                console.warn('⚠️ wordlist.js not detected after 8s — using theme seeds only.');
+                // Fallback: use theme seeds as the word pool
+                ALL_WORDS = [];
+                THEMES.forEach(t => {
+                    t.seeds.forEach(w => ALL_WORDS.push(w.toUpperCase()));
+                    ALL_WORDS.push(t.spangram.toUpperCase());
+                });
+                ALL_WORDS = [...new Set(ALL_WORDS)];
+                WORDS_BY_LENGTH = {};
+                ALL_WORDS.forEach(w => {
+                    const len = w.length;
+                    if (!WORDS_BY_LENGTH[len]) WORDS_BY_LENGTH[len] = [];
+                    WORDS_BY_LENGTH[len].push(w);
+                });
+                wordlistReady = true;
+                generatePuzzle();
+            }
+        }, 200);
+    }
+
+    console.log('🎮 Strands Unlimited ready — unlimited puzzles from wordlist.js.');
+})();
+</script>
+</body>
+</html>

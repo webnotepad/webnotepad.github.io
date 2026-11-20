@@ -266,14 +266,9 @@
 </head>
 <body>
 
-  <nav class="blog-nav" aria-label="Main">
-    <a href="/" class="blog-nav-brand"><span class="nav-dot"></span>WebNotePad</a>
-    <div class="blog-nav-links">
-      <a href="/blog">Blog</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/#notepad" class="nav-cta">Open Notepad</a>
-    </div>
-  </nav>
+  <!-- Header injected by header.js -->
+  <div id="header-root"></div>
+  
   <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill" id="progressFill"></div></div>
 
   <main class="article-wrap">
@@ -488,11 +483,15 @@
     </article>
   </main>
 
-  <footer class="blog-footer">
-    <div class="blog-footer-brand">WebNotePad</div>
-    <p><a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/#faq">FAQ</a></p>
-    <p style="margin-top:10px">Not affiliated with Rockstar Games or Take-Two Interactive. Grand Theft Auto is a trademark of its respective owner.</p>
-  </footer>
+  <!-- Footer injected by footer.js -->
+  <div id="footer-root"></div>  
+
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="/components/social-share.js"></script>
+  <script src="app.js"></script> 
+  <div id="tools-sidebar-root"></div>
+<script src="/components/sidebar.js"></script>
 
   <script>
   (function(){

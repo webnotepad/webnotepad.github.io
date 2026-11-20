@@ -1,4 +1,4 @@
-<selection-tag><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -228,11 +228,63 @@
       color: var(--ink);
     }
 
+    /* Gaming / Cheats Section Styling */
+    .gaming-section {
+      background: linear-gradient(135deg, var(--paper-warm), #fff8ee);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin: 24px 0 40px;
+      position: relative;
+    }
+    .gaming-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--paper-edge);
+      padding-bottom: 12px;
+    }
+    .gaming-heading {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .gaming-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 4px 10px;
+      border-radius: 40px;
+      border: 1px solid var(--accent-pale);
+    }
+    .blog-card.game-card .card-divider {
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
+    }
+    .blog-card.game-card:hover {
+      border-color: #fcd34d;
+    }
+    .game-meta-tag {
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
     @media (max-width: 680px) {
       .blog-grid { grid-template-columns: 1fr; }
       .blog-card-content { padding: 22px; }
       .blog-card h2 { font-size: 1.4rem; }
       .tech-news-section { padding: 20px; }
+      .gaming-section { padding: 20px; }
     }
   </style>
 </head>
@@ -268,6 +320,32 @@
             </div>
             <!-- News items rendered here by news.js -->
             <div id="newsGrid" class="blog-grid" style="margin: 0;"></div>
+          </div>
+
+          <!-- Gaming Cheats Section -->
+          <div class="gaming-section">
+            <div class="gaming-header">
+              <span class="gaming-heading">🎮 Game Cheats &amp; Guides</span>
+              <span class="gaming-badge">New</span>
+            </div>
+            <div class="blog-grid" style="margin: 0;">
+              <!-- GTA 6 Cheats Article Card -->
+              <article class="blog-card game-card" data-article-slug="gta-6-cheats">
+                <div class="blog-card-content">
+                  <div class="blog-meta">
+                    <span class="date">📅 Nov 20, 2026</span>
+                    <span>🎮 7 min read</span>
+                    <span class="game-meta-tag">GTA 6</span>
+                  </div>
+                  <div class="card-divider"></div>
+                  <h2>GTA 6 Cheats for PS5 &amp; Xbox Series X|S: All Codes &amp; How to Unlock Them</h2>
+                  <div class="blog-excerpt">
+                    <p>Every known GTA 6 cheat in one place: D-pad codes, unlock requirements, how to enter them, and a built-in notepad to save your favorites. 18 of 61 codes found so far.</p>
+                  </div>
+                  <a href="gta-6-cheats" class="read-more" data-article-link="gta-6-cheats">Read full story →</a>
+                </div>
+              </article>
+            </div>
           </div>
 
           <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px;">📚 Productivity Articles &amp; Guides</h2>
@@ -409,4 +487,4 @@
     })();
   </script>
 </body>
-</html></selection-tag>```
+</html>

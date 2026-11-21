@@ -136,6 +136,31 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://webnotepad.github.io/fancy-text-generator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/syllable-counter</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/rhyming-dictionary</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/grammer-and-spelling</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/username-generator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 
   <!-- ==================== Idea Organization & Visualization ==================== -->
   <url>
@@ -205,8 +230,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://webnotepad.github.io/quote-generator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- ==================== Word & Puzzle Helpers ==================== -->
+  <!-- ==================== Word & Puzzle Helpers / Solvers ==================== -->
   <url>
     <loc>https://webnotepad.github.io/word-finder</loc>
     <changefreq>monthly</changefreq>
@@ -223,8 +253,53 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://webnotepad.github.io/contexto-hints</loc>
+    <loc>https://webnotepad.github.io/anagram-solver</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/wordle-solver</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/cryptogram-solver</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/solvers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/hints-answers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/wordle-hint-answer-today</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/spelling-bee-answers-pangram-today</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/nyt-strands-hints-spangram-today</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/connections-hints-answers-today</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/contexto-hint-answer-today</loc>
+    <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
@@ -336,11 +411,16 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- ==================== Games ==================== -->
+  <!-- ==================== Free Online Games ==================== -->
   <url>
     <loc>https://webnotepad.github.io/2048</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/2048-cupcakes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webnotepad.github.io/connections-unlimited</loc>
@@ -386,6 +466,36 @@
     <loc>https://webnotepad.github.io/wordle-unlimited</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/dordle-unlimited</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/quordle-unlimited</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/nerdle-unlimited</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/letter-boxed-unlimited</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/strands-unlimited</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/layers-game</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 
   <!-- ==================== Blog Posts & Guides ==================== -->
@@ -468,6 +578,165 @@
     <loc>https://webnotepad.github.io/writers-draft-faster</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/agentic-ai-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/local-ai-edge-computing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/gta-6-cheats</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ==================== Quotes Collections ==================== -->
+  <url>
+    <loc>https://webnotepad.github.io/quotes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/motivational-quotes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/motivational-quotes-deep-focus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/motivational-quotes-finishing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/motivational-quotes-monday-mornings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/motivational-quotes-starting-again</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/leadership-quotes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/leadership-quotes-build-trust</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/leadership-quotes-give-away-credit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/leadership-quotes-hard-conversations</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/leadership-quotes-listen-before-you-lead</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/positive-life-quotes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/positive-life-quotes-gratitude-practice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/positive-life-quotes-kindness</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/positive-life-quotes-ordinary-good</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/positive-life-quotes-presence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/success-quotes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/success-quotes-discipline-over-motivation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/success-quotes-learning-from-failure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/success-quotes-patience-and-compounding</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/success-quotes-unglamorous-work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+
+  <!-- ==================== AI Prompt Pages ==================== -->
+  <url>
+    <loc>https://webnotepad.github.io/ai-image-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-anime-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-fantasy-art-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-interior-design-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-landscape-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-portrait-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://webnotepad.github.io/ai-product-photography-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
   </url>
 
   <!-- ==================== Localized Pages ==================== -->

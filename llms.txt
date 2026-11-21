@@ -9,7 +9,7 @@ Source: https://github.com/webnotepad/webnotepad.github.io
 
 - [Notepad Online](https://webnotepad.github.io/) – Rich-text editor with instant auto-save, multiple notes, dark mode, find & replace, export to TXT/HTML, live stats, fullscreen, offline support.
 - [Diary](https://webnotepad.github.io/diary) – Private daily journal with dated entries and rich text.
-- [Focus Writer](https://webnotepad.github.io/focus-writer) – Minimalist zen writing mode with real-time word count.
+- [Focus Writer](https://webnotepad.github.io/focus-writer) – Distraction-free typewriter writing mode with word goals and paper styles.
 - [Memo Notepad](https://webnotepad.github.io/memo-notepad) – Quick sticky notes, to-dos and short memos.
 - [WordPad Online](https://webnotepad.github.io/wordpad) – Classic-style rich text editor.
 - [Markdown Editor](https://webnotepad.github.io/markdown-editor) – Live Markdown preview and editing.
@@ -27,6 +27,11 @@ Source: https://github.com/webnotepad/webnotepad.github.io
 - [Special Character Converter](https://webnotepad.github.io/special-character-converter) – Convert special / accented characters.
 - [Text Diff](https://webnotepad.github.io/text-diff) – Compare two texts and highlight differences.
 - [Typing Test](https://webnotepad.github.io/typing-test) – Measure typing speed (WPM) and accuracy.
+- [Fancy Text Generator](https://webnotepad.github.io/fancy-text-generator) – Convert text into 30+ Unicode font styles (bold, italic, cursive, bubble, gothic, etc.).
+- [Syllable Counter](https://webnotepad.github.io/syllable-counter) – Count syllables per word, line and total — ideal for poetry and lyrics.
+- [Rhyming Dictionary](https://webnotepad.github.io/rhyming-dictionary) – Exact, near and slant rhymes organized by syllable count.
+- [Grammar & Spelling Checker](https://webnotepad.github.io/grammer-and-spelling) – Check spelling, grammar, punctuation and writing score (private, client-side).
+- [Username Generator](https://webnotepad.github.io/username-generator) – Generate gaming, social and aesthetic usernames with styles and leetspeak.
 
 ## Idea Organization & Visualization
 
@@ -46,13 +51,23 @@ Source: https://github.com/webnotepad/webnotepad.github.io
 - [Business Card Generator](https://webnotepad.github.io/business-card-generator) – Design simple digital business cards.
 - [Invoice Generator](https://webnotepad.github.io/invoice-generator) – Create professional invoices in the browser.
 - [Resume Builder](https://webnotepad.github.io/resume-builder) – Build and export a clean resume.
+- [Quote Generator](https://webnotepad.github.io/quote-generator) – Motivational quotes by category + custom quote creator.
 
-## Word & Puzzle Helpers
+## Word & Puzzle Helpers / Solvers
 
 - [Word Finder](https://webnotepad.github.io/word-finder) – Anagrams, word search helpers and vocabulary tools.
 - [Crossword Solver](https://webnotepad.github.io/crossword-solver) – Clue helper and word finder for crosswords.
 - [Word Search Solver](https://webnotepad.github.io/word-search-solver) – Find hidden words in letter grids.
-- [Contexto Hints](https://webnotepad.github.io/contexto-hints) – Helper for Contexto-style word games.
+- [Anagram Solver](https://webnotepad.github.io/anagram-solver) – Unscramble letters into valid words.
+- [Wordle Solver](https://webnotepad.github.io/wordle-solver) – Helper for Wordle-style puzzles.
+- [Cryptogram Solver](https://webnotepad.github.io/cryptogram-solver) – Solve letter-substitution puzzles.
+- [Solvers Hub](https://webnotepad.github.io/solvers) – Collection of puzzle solvers.
+- [Hints & Answers](https://webnotepad.github.io/hints-answers) – Daily puzzle hints hub.
+- [Wordle Hint & Answer Today](https://webnotepad.github.io/wordle-hint-answer-today)
+- [Spelling Bee Answers & Pangram Today](https://webnotepad.github.io/spelling-bee-answers-pangram-today)
+- [NYT Strands Hints & Spangram Today](https://webnotepad.github.io/nyt-strands-hints-spangram-today)
+- [Connections Hints & Answers Today](https://webnotepad.github.io/connections-hints-answers-today)
+- [Contexto Hint & Answer Today](https://webnotepad.github.io/contexto-hint-answer-today)
 
 ## Productivity & Habit Tools
 
@@ -91,6 +106,7 @@ Source: https://github.com/webnotepad/webnotepad.github.io
 All games are free, no signup, mobile-friendly, work offline once loaded, progress saved locally.
 
 - [2048](https://webnotepad.github.io/2048)
+- [2048 Cupcakes](https://webnotepad.github.io/2048-cupcakes)
 - [Connections Unlimited](https://webnotepad.github.io/connections-unlimited)
 - [Crossword Puzzle](https://webnotepad.github.io/crossword-puzzle)
 - [Memory Match](https://webnotepad.github.io/memory-match)
@@ -100,8 +116,32 @@ All games are free, no signup, mobile-friendly, work offline once loaded, progre
 - [Tic-Tac-Toe](https://webnotepad.github.io/tic-tac-toe)
 - [Word Search](https://webnotepad.github.io/word-search)
 - [Wordle Unlimited](https://webnotepad.github.io/wordle-unlimited)
+- [Dordle Unlimited](https://webnotepad.github.io/dordle-unlimited)
+- [Quordle Unlimited](https://webnotepad.github.io/quordle-unlimited)
+- [Nerdle Unlimited](https://webnotepad.github.io/nerdle-unlimited)
+- [Letter Boxed Unlimited](https://webnotepad.github.io/letter-boxed-unlimited)
+- [Strands Unlimited](https://webnotepad.github.io/strands-unlimited)
+- [Layers Game](https://webnotepad.github.io/layers-game)
 
 Games hub: https://webnotepad.github.io/games
+
+## Quotes Collections
+
+- [Quotes Hub](https://webnotepad.github.io/quotes)
+- [Motivational Quotes](https://webnotepad.github.io/motivational-quotes)
+- [Leadership Quotes](https://webnotepad.github.io/leadership-quotes)
+- [Positive Life Quotes](https://webnotepad.github.io/positive-life-quotes)
+- [Success Quotes](https://webnotepad.github.io/success-quotes)
+
+## AI Image Prompts
+
+- [AI Image Prompts](https://webnotepad.github.io/ai-image-prompts)
+- [AI Anime Prompts](https://webnotepad.github.io/ai-anime-prompts)
+- [AI Fantasy Art Prompts](https://webnotepad.github.io/ai-fantasy-art-prompts)
+- [AI Interior Design Prompts](https://webnotepad.github.io/ai-interior-design-prompts)
+- [AI Landscape Prompts](https://webnotepad.github.io/ai-landscape-prompts)
+- [AI Portrait Prompts](https://webnotepad.github.io/ai-portrait-prompts)
+- [AI Product Photography Prompts](https://webnotepad.github.io/ai-product-photography-prompts)
 
 ## Hub Pages
 

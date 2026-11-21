@@ -50,6 +50,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <style>
+  /* Image / preview section */
+.gd-figure{margin:0;background:var(--paper);border:1px solid var(--paper-edge);border-radius:14px;padding:12px;box-shadow:var(--shadow-sm)}
+.gd-figure img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--paper-edge)}
+.gd-figure figcaption{font-size:.82rem;color:var(--ink-muted);margin-top:10px;line-height:1.6}
+.gd-figure figcaption b{color:var(--ink)}
+.gd-shot-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+.gd-shot-points .gd-f h3{font-size:.98rem}
+@media(max-width:600px){.gd-figure{padding:8px}}
 :root{--el:#c9962b;--gd-good:#16a34a;--gd-bad:#dc2626}
 body.dark{--gd-good:#4ade80;--gd-bad:#f87171}
 .gd-hero{position:relative;padding:36px 0 30px;overflow:hidden;background:var(--paper)}
@@ -178,6 +186,37 @@ body.dark{--gd-good:#4ade80;--gd-bad:#f87171}
 </div>
 </div>
 <p class="gd-note">Multipliers are approximate talent level 10 values and every one is editable. Always verify against in-game numbers after patches. Not affiliated with HoYoverse.</p>
+</div>
+</section>
+
+  <!-- 2b. IMAGE / VISUAL PREVIEW -->
+<section class="gd-sec gd-alt" id="preview" aria-label="Genshin Impact damage calculator preview">
+<div class="container">
+<div class="section-label">Visual Preview</div>
+<h2 class="section-title">What the Calculator <em>Shows You.</em></h2>
+
+<figure class="gd-figure">
+<img
+  src="/genshin-damage-calculator.webp"
+  alt="Genshin Impact damage calculator interface showing character and weapon selection, artifact stat totals, team buffs, elemental reaction choice, enemy DEF and RES settings, and a rotation table with non-crit, crit and average damage per hit"
+  title="Genshin Impact Damage Calculator – crit, reactions and rotation totals"
+  width="1200" height="630"
+  loading="lazy" decoding="async"
+  sizes="(max-width: 900px) 100vw, 860px" />
+<figcaption>
+  <b>One screen, every multiplier.</b> The left column holds your character, weapon, artifact totals, team buffs and the
+  enemy plus reaction setup. The right column updates live with per-hit <b>non-crit</b>, <b>crit</b> and
+  <b>average</b> damage, the full <b>rotation total</b>, your crit-ratio health check, and a
+  <b>stat gain comparison</b> that ranks ATK%, Crit Rate, Crit DMG, DMG bonus, EM, DEF reduction and RES shred by the
+  average damage each one would add to your current build.
+</figcaption>
+</figure>
+
+<div class="gd-shot-points">
+  <div class="gd-f"><h3>⚔️ Character &amp; Weapon</h3><p>19 characters with level 90 base stats and a matching weapon list filtered by weapon type.</p></div>
+  <div class="gd-f"><h3>🔥 Reactions &amp; Enemy</h3><p>Vaporize, Melt, Aggravate, Spread, Swirl, Bloom and more, with enemy level, RES and DEF reduction applied.</p></div>
+  <div class="gd-f"><h3>📈 Rotation Totals</h3><p>Editable multipliers and hit counts roll up into one average rotation number you can pin and compare.</p></div>
+</div>
 </div>
 </section>
 

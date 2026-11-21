@@ -134,6 +134,14 @@
           { name: "Bionic Reader", url: "/bionic-reader", desc: "Faster reading", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 8h10M7 12h8M7 16h10" stroke="#7C3AED" stroke-width="1.8"/></svg>` },
           { name: "Teleprompter", url: "/teleprompter", desc: "Auto-scroll", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/><path d="M12 8v8M9 13l3 3 3-3" stroke="#0D9488" stroke-width="1.6"/></svg>` }
         ]
+      },
+      {
+        shortName: "Genshin",
+        tools: [
+          { name: "Ascension Planner", url: "/genshin-impact-ascension-planner", desc: "Character materials", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FDF2F8" stroke="#C026D3" stroke-width="1.6"/><path d="M12 6l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z" fill="#F0ABFC" stroke="#C026D3" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.5" fill="#C026D3"/></svg>` },
+          { name: "Damage Calculator", url: "/genshin-impact-damage-calculator", desc: "DPS stats", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.6"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.4"/></svg>` },
+          { name: "Primogem Calculator", url: "/genshin-impact-primogem-calculator", desc: "Wish savings", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEFCE8" stroke="#CA8A04" stroke-width="1.6"/><path d="M12 5l3 6-3 8-3-8 3-6z" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="12" r="1" fill="#CA8A04"/></svg>` }
+        ]
       }
     ];
 

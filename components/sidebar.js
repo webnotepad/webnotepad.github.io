@@ -136,6 +136,14 @@
         ]
       },
       {
+        shortName: "NFL & Quizzes",
+        tools: [
+          { name: "NFL Quiz", url: "/nfl-quiz", desc: "Test football IQ", svg: `<svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="10" ry="6.5" fill="#FEF3C7" stroke="#B45309" stroke-width="1.5"/><path d="M9 12h6M12 9v6" stroke="#B45309" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="12" r="0.8" fill="#B45309"/><circle cx="17" cy="12" r="0.8" fill="#B45309"/></svg>` },
+          { name: "17-0 Roster", url: "/17-0", desc: "Draft perfect team", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEFCE8" stroke="#CA8A04" stroke-width="1.6"/><text x="12" y="13.5" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#CA8A04" font-family="Arial, sans-serif">17-0</text><path d="M12 3v2M12 19v2M3 12h2M19 12h2" stroke="#CA8A04" stroke-width="1.4" stroke-linecap="round"/></svg>` },
+          { name: "Quiz Maker", url: "/quiz-maker", desc: "Build quizzes", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M7 9h10M7 12h7M7 15h4" stroke="#7C3AED" stroke-width="1.7" stroke-linecap="round"/><circle cx="17" cy="16" r="1.6" fill="#7C3AED"/></svg>` }
+        ]
+      },
+      {
         shortName: "Genshin",
         tools: [
           { name: "Ascension Planner", url: "/genshin-impact-ascension-planner", desc: "Character materials", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FDF2F8" stroke="#C026D3" stroke-width="1.6"/><path d="M12 6l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z" fill="#F0ABFC" stroke="#C026D3" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="12" r="1.5" fill="#C026D3"/></svg>` },

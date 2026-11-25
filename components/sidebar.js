@@ -97,7 +97,9 @@
           { name: "Decision Maker", url: "/choice-maker", desc: "Wheel or flip", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/><path d="M12 12V3M12 12l7.5 4.5M12 12l-7.5 4.5" stroke="#D97706" stroke-width="1.6"/></svg>` },
           { name: "Name Generator", url: "/random-name-generator", desc: "Random names", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/><path d="M4 20a8 8 0 0 1 16 0" stroke="#7C3AED" stroke-width="1.5"/></svg>` },
           { name: "Username Gen", url: "/username-generator", desc: "Gaming names", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FCE9E3" stroke="#C4562A" stroke-width="1.6"/><circle cx="9" cy="11" r="2.2" fill="#E8714A"/></svg>` },
-          { name: "Quote Gen", url: "/quote-generator", desc: "Quotes", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M6 6c-2 0-3.5 1.6-3.5 3.6 0 2 1.5 3.6 3.5 3.6" fill="#FDF6DC" stroke="#B8960C" stroke-width="1.5"/></svg>` }
+          { name: "Quote Gen", url: "/quote-generator", desc: "Quotes", svg: `<svg viewBox="0 0 24 24" fill="none"><path d="M6 6c-2 0-3.5 1.6-3.5 3.6 0 2 1.5 3.6 3.5 3.6" fill="#FDF6DC" stroke="#B8960C" stroke-width="1.5"/></svg>` },
+          { name: "Greeting Card", url: "/season-greeting-card", desc: "Festive cards", svg: `<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.6"/><path d="M3 8l9 6 9-6" stroke="#DC2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+          { name: "New Year Wish", url: "/new-year-wish", desc: "New Year wishes", svg: `<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#F59E0B"/></svg>` }
         ]
       },
       {
